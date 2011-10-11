@@ -1,0 +1,17 @@
+# Optimization substututions 
+
+
+*attribute:start    
+*attribute:name = Opt-AirTightness
+*attribute:tag  = <Opt-AirTightness>
+
+*option:Air-Tightness-0:value =   base.aim  
+*option:Air-Tightness-0:cost  =   0
+
+*option:Air-Tightness-1:value =   R2000.aim
+*option:Air-Tightness-1:cost  =   500
+
+*option:Air-Tightness-2:value =   PassiveHouse.aim
+*option:Air-Tightness-2:cost  =   1200
+
+*attribute:end
