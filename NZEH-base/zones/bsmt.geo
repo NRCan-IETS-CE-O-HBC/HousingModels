@@ -116,8 +116,8 @@ bsmt describes the NZEH basement
 *surf,Wall-14,VERT,-,-,-,bsm_wll,OPAQUE,EXTERIOR,0,0  #  14 ||< external
 *surf,Wall-15,VERT,-,-,-,bsm_wll,OPAQUE,EXTERIOR,0,0  #  15 ||< external
 *surf,Wall-16,VERT,-,-,-,bsm_wll,OPAQUE,EXTERIOR,0,0  #  16 ||< external
-*surf,Wall-17,VERT,-,-,-,gr_wll_g_inv,OPAQUE,ANOTHER,02,08  #  17 ||< Wall-8:garage
-*surf,Wall-18,VERT,-,-,-,gr_wll_g_inv,OPAQUE,ANOTHER,02,07  #  18 ||< Wall-7:garage
+*surf,Wall-17,VERT,-,-,-,<Opt-MainWall-Dry>,OPAQUE,ANOTHER,02,08  #  17 ||< Wall-8:garage
+*surf,Wall-18,VERT,-,-,-,<Opt-MainWall-Dry>,OPAQUE,ANOTHER,02,07  #  18 ||< Wall-7:garage
 *surf,Top,CEIL,-,-,-,floor_inv,OPAQUE,ANOTHER,03,09  #  19 ||< Top:first_fl
 *surf,Base,FLOR,-,-,-,bsm_flr,OPAQUE,BASESIMP,01,20  #  20 ||< BASESIMP config type   1
 *surf,gr_th,CEIL,Top_th,-,-,floor_inv,OPAQUE,ANOTHER,03,11  #  21 ||< great_th:first_fl

@@ -110,14 +110,14 @@ first_fl describes the first floor
 #  child of (surface name), useage (pair of tags) 
 #  construction name, optical name
 #  boundary condition tag followed by two data items
-*surf,Wall-1,VERT,-,-,-,ex_brk,OPAQUE,EXTERIOR,0,0  #   1 ||< external
-*surf,Wall-2,VERT,win1,-,-,ex_brk,OPAQUE,EXTERIOR,0,0  #   2 ||< external
-*surf,Wall-3,VERT,-,-,-,ex_brk,OPAQUE,EXTERIOR,0,0  #   3 ||< external
-*surf,Wall-4,VERT,-,-,-,ex_brk,OPAQUE,EXTERIOR,0,0  #   4 ||< external
-*surf,Wall-5,VERT,-,-,-,ex_brk,OPAQUE,EXTERIOR,0,0  #   5 ||< external
-*surf,Wall-6,VERT,-,-,-,ex_brk,OPAQUE,EXTERIOR,0,0  #   6 ||< external
-*surf,Wall-7,VERT,-,-,-,gr_wll_g_inv,OPAQUE,ANOTHER,02,03  #   7 ||< Wall-3:garage
-*surf,Wall-8,VERT,-,-,-,gr_wll_g_inv,OPAQUE,ANOTHER,02,02  #   8 ||< Wall-2:garage
+*surf,Wall-1,VERT,-,-,-,<Opt-MainWall-Bri>,OPAQUE,EXTERIOR,0,0  #   1 ||< external
+*surf,Wall-2,VERT,win1,-,-,<Opt-MainWall-Bri>,OPAQUE,EXTERIOR,0,0  #   2 ||< external
+*surf,Wall-3,VERT,-,-,-,<Opt-MainWall-Bri>,OPAQUE,EXTERIOR,0,0  #   3 ||< external
+*surf,Wall-4,VERT,-,-,-,<Opt-MainWall-Bri>,OPAQUE,EXTERIOR,0,0  #   4 ||< external
+*surf,Wall-5,VERT,-,-,-,<Opt-MainWall-Bri>,OPAQUE,EXTERIOR,0,0  #   5 ||< external
+*surf,Wall-6,VERT,-,-,-,<Opt-MainWall-Bri>,OPAQUE,EXTERIOR,0,0  #   6 ||< external
+*surf,Wall-7,VERT,-,-,-,<Opt-MainWall-Dry>,OPAQUE,ANOTHER,02,03  #   7 ||< Wall-3:garage
+*surf,Wall-8,VERT,-,-,-,<Opt-MainWall-Dry>,OPAQUE,ANOTHER,02,02  #   8 ||< Wall-2:garage
 *surf,Top,FLOR,-,-,-,floor,OPAQUE,ANOTHER,01,19  #   9 ||< Top:bsmt
 *surf,Top_th,FLOR,great_th,-,-,floor,OPAQUE,ANOTHER,01,09  #  10 ||< Top_th:bsmt
 *surf,great_th,FLOR,Top_th,-,-,floor,OPAQUE,ANOTHER,01,21  #  11 ||< gr_th:bsmt

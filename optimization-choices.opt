@@ -1,4 +1,6 @@
 # Optimization substututions 
 
-Opt-AirTightness:Air-Tightness-0
-
+Opt-AirTightness : TypicalGTA
+Opt-MainWall     : BaseR21
+Opt-ExtraDrywall : OneSheet
+Opt-Ceilings     : CeilingR110

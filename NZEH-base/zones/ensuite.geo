@@ -31,10 +31,10 @@ ensuite describes a the bathroom
 #  construction name, optical name
 #  boundary condition tag followed by two data items
 *surf,Wall-1,VERT,-,-,-,int_wl,OPAQUE,ANOTHER,04,03  #   1 ||< Wall-3:master
-*surf,Wall-2,VERT,-,-,-,ex_brk,OPAQUE,EXTERIOR,0,0  #   2 ||< external
+*surf,Wall-2,VERT,-,-,-,<Opt-MainWall-Bri>,OPAQUE,EXTERIOR,0,0  #   2 ||< external
 *surf,Wall-3,VERT,-,-,-,int_wl,OPAQUE,ANOTHER,06,01  #   3 ||< Wall-1:bedroom
 *surf,Wall-4,VERT,-,-,-,int_wl,OPAQUE,ANOTHER,07,04  #   4 ||< Wall-4:top_fl
-*surf,Top-5,CEIL,-,-,-,ceil,OPAQUE,ANOTHER,08,10  #   5 ||< Top-5:roof
+*surf,Top-5,CEIL,-,-,-,<Opt-Ceiling>,OPAQUE,ANOTHER,08,10  #   5 ||< Top-5:roof
 *surf,Base-6,FLOR,-,-,-,floor,OPAQUE,ANOTHER,03,17  #   6 ||< ensuit:first_fl
 *surf,win,VERT,Wall-2,-,-,DblArLowe,DBLLowE,EXTERIOR,0,0  #   7 ||< external
 # 

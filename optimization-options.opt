@@ -3,15 +3,141 @@
 
 *attribute:start    
 *attribute:name = Opt-AirTightness
-*attribute:tag  = <Opt-AirTightness>
+*attribute:tag:1 = <Opt-AirTightness>
 
-*option:Air-Tightness-0:value =   base.aim  
-*option:Air-Tightness-0:cost  =   0
+*option:TypicalGTA:value:1    =   base.aim  
+*option:TypicalGTA:cost       =   0
 
-*option:Air-Tightness-1:value =   R2000.aim
-*option:Air-Tightness-1:cost  =   500
+*option:R2000:value:1         =   R2000.aim
+*option:R2000:cost            =   500
+                              
+*option:PassiveHouse:value:1  =   PassiveHouse.aim
+*option:PassiveHouse:cost     =   1200
 
-*option:Air-Tightness-2:value =   PassiveHouse.aim
-*option:Air-Tightness-2:cost  =   1200
+*attribute:end
+
+
+
+#-----------------------------------------------------------------------
+#   Ceilings
+#-----------------------------------------------------------------------
+*attribute:start 
+   
+*attribute:name = Opt-Ceilings
+
+*attribute:tag:1  = <Opt-Ceiling>
+*attribute:tag:2  = <Opt-CeilingR>
+
+*option:CeilingR50:value:1 =   CeilR50
+*option:CeilingR50:value:2 =   CeilR50R
+*option:CeilingR50:cost    =   0
+
+*option:CeilingR60:value:1 =   CeilR60
+*option:CeilingR60:value:2 =   CeilR60R
+*option:CeilingR60:cost    =   360.20
+
+*option:CeilingR70:value:1 =   Ceil
+*option:CeilingR70:value:2 =   Ceil
+*option:CeilingR70:cost    =   912.20
+
+*option:CeilingR80:value:1 =   CeilR80
+*option:CeilingR80:value:2 =   CeilR80R
+*option:CeilingR80:cost    =   1395.20
+
+*option:CeilingR90:value:1 =   CeilR90
+*option:CeilingR90:value:2 =   CeilR90R
+*option:CeilingR90:cost    =   1947.2
+
+*option:CeilingR100:value:1 =  CeilR100
+*option:CeilingR100:value:2 =  CeilR100R
+*option:CeilingR100:cost    =  2499.2
+
+*option:CeilingR110:value:1 =  CeilR110
+*option:CeilingR110:value:2 =  CeilR110R
+*option:CeilingR110:cost    =  3051.2
+
+*attribute:end
+
+#-----------------------------------------------------------------------
+#   Main walls
+#-----------------------------------------------------------------------
+*attribute:start 
+   
+*attribute:name = Opt-MainWall
+
+*attribute:tag:1  = <Opt-MainWall-Bri>
+*attribute:tag:2  = <Opt-MainWall-Vin>
+*attribute:tag:3  = <Opt-MainWall-Dry>
+*attribute:tag:4  = <Opt-MainWall-DryR>
+
+*option:BaseR21:value:1 =   BaseR21Bri
+*option:BaseR21:value:2 =   BaseR21Vin
+*option:BaseR21:value:3 =   BaseR21Dry 
+*option:BaseR21:value:4 =   BaseR21DryR
+*option:BaseR21:cost    =   0
+
+*option:ICFR22:value:1 =   IcfR22Bri
+*option:ICFR22:value:2 =   IcfR22Vin
+*option:ICFR22:value:3 =   IcfR22Dry 
+*option:ICFR22:value:4 =   IcfR22DryR
+*option:ICFR22:cost    =   25150
+
+*option:SIPS-R29-Wall:value:1 =   SipR29Bri
+*option:SIPS-R29-Wall:value:2 =   SipR29Vin
+*option:SIPS-R29-Wall:value:3 =   SipR29Dry 
+*option:SIPS-R29-Wall:value:4 =   SipR29DryR
+*option:SIPS-R29-Wall:cost    =   4000
+
+*option:SIPS-R38-Wall:value:1 =   SipR38Bri
+*option:SIPS-R38-Wall:value:2 =   SipR38Vin
+*option:SIPS-R38-Wall:value:3 =   SipR38Dry 
+*option:SIPS-R38-Wall:value:4 =   SipR38DryR
+*option:SIPS-R38-Wall:cost    =   6000
+
+*option:SIPS-R44-Wall:value:1 =   SipR44Bri
+*option:SIPS-R44-Wall:value:2 =   SipR44Vin
+*option:SIPS-R44-Wall:value:3 =   SipR44Dry 
+*option:SIPS-R44-Wall:value:4 =   SipR44DryR
+*option:SIPS-R44-Wall:cost    =   9384
+
+*option:Stud-R38-Wall:value:1 =   StudR38Bri
+*option:Stud-R38-Wall:value:2 =   StudR38Vin
+*option:Stud-R38-Wall:value:3 =   StudR38Dry 
+*option:Stud-R38-Wall:value:4 =   StudR38DryR
+*option:Stud-R38-Wall:cost    =   4859
+
+*option:Stud-R50-Wall:value:1 =   StudR50Bri
+*option:Stud-R50-Wall:value:2 =   StudR50Vin
+*option:Stud-R50-Wall:value:3 =   StudR50Dry 
+*option:Stud-R50-Wall:value:4 =   StudR50DryR
+*option:Stud-R50-Wall:cost    =   10600
+
+*option:DblStud-R44-Wall:value:1 =   DblSR44Bri
+*option:DblStud-R44-Wall:value:2 =   DblSR44Vin
+*option:DblStud-R44-Wall:value:3 =   DblSR44Dry 
+*option:DblStud-R44-Wall:value:4 =   DblSR44DryR
+*option:DblStud-R44-Wall:cost    =   10600
+
+*option:Truss-R40-Wall:value:1 =   TruR40Bri
+*option:Truss-R40-Wall:value:2 =   TruR40Vin
+*option:Truss-R40-Wall:value:3 =   TruR40Dry 
+*option:Truss-R40-Wall:value:4 =   TruR40DryR
+*option:Truss-R40-Wall:cost    =   8161
+
+
+*attribute:end
+
+
+# Thickness of applied drywall.
+*attribute:start 
+  
+*attribute:name   = Opt-ExtraDrywall
+*attribute:tag:1  = <Opt-ExtraDrywall>
+
+*option:OneSheet:value:1 =   0.0125
+*option:OneSheet:cost    =   0 
+
+*option:TwoSheets:value:1 =   0.0250
+*option:TwoSheets:cost    =   200 
 
 *attribute:end

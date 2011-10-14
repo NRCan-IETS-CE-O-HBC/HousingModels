@@ -17,12 +17,14 @@ my $gChoiceFile  = "";
 my $gOptionFile  = "" ; 
 
 my $gBPSpath            = "/home/aferguso/esp-r/bin/bps"; 
+my $gPRJpath            = "/home/aferguso/esp-r/bin/prj"; 
 
 my $gBaseModelFolder    = "NZEH-base";
 my $gWorkingModelFolder = "NZEH-work"; 
 my $gWorkingCfgPath     = "$gWorkingModelFolder/cfg";
 my $gModelCfgFile       = "NZEH.cfg";
 my $gISHcmd             = "./run.sh $gModelCfgFile";
+my $gPRJcmd             = "$gPRJpath -mode text -file $gModelCfgFile -act update_con_files";
 my $gBPScmd             = "$gBPSpath -file $gModelCfgFile -mode text -p optrun silent";
 
 my $gSkipISH            = 0; 
@@ -51,7 +53,7 @@ sub fatalerror($){
   my ($err_msg) = @_;
 
   if ( $gTest_params{"verbosity"} eq "very_verbose" ){
-    print echo_config();
+    #print echo_config();
   }
   print "\nsubstitute.pl -> Fatal error: \n";
   print " >>> $err_msg \n\n";
@@ -252,10 +254,10 @@ my $linecount = 0;
 #*attribute:end
 
 my $currentAttributeName ="";
-my $currentAttributeTag  ="";
 my $AttributeOpen = 0;
 
 my %currentOptions; 
+my %currentTags; 
 
 while ( my $line = <OPTIONS> ){
   
@@ -289,38 +291,69 @@ while ( my $line = <OPTIONS> ){
       
       if ( $token =~ /^\*attribute:tag/ ){
     
-        $currentAttributeTag = $value ;
-        
+        my($rubbish,$junk,$TagIndex) = split /:/, $token;
+    
+        $currentTags{$TagIndex} = $value;
+    
       }
       
-      if ( $token =~ /^\*option:/){
+      if ( $token =~ /^\*option:.+:value:[0-9]+$/){
       
-        my( $rubbish, $OptionName, $DataName ) = split /:/, $token;
+        my( $rubbish, $OptionName, $junk, $ValueIndex ) = split /:/, $token;
         
-        $currentOptions{$OptionName}{$DataName} = $value; 
+        $currentOptions{$OptionName}{"values"}{$ValueIndex} = $value; 
+      
+      }
+      
+      if ( $token =~ /^\*option:.+:cost$/){
+      
+        my( $rubbish, $OptionName, $junk ) = split /:/, $token;
+        
+        $currentOptions{$OptionName}{"cost"} = $value; 
       
       }
     
     }
+    
+    
     
     # Close attribute and append contents to global options array
     if ( $token =~ /^\*attribute:end/ ){
     
     
       $AttributeOpen = 0; 
+    
+      # Store tags 
+      for my $TagIndex (keys (%currentTags ) ){
       
-      $gOptions{$currentAttributeName}{"tag"} = $currentAttributeTag; 
+        $gOptions{$currentAttributeName}{"tags"}{$TagIndex} = $currentTags{$TagIndex}; 
       
-      for my $option ( keys (%currentOptions) ){
+      }
+
+      # Store options 
+      for my $optionIndex ( keys (%currentOptions) ){
+
+        my $valHash = $currentOptions{$optionIndex}{"values"};
       
-        $gOptions{$currentAttributeName}{"options"}{$option}{"value"}
-                                    = $currentOptions{$option}{"value"}; 
-        $gOptions{$currentAttributeName}{"options"}{$option}{"cost"}
-                                    = $currentOptions{$option}{"cost"}; 
+        for my $ValueIndex ( keys ( %$valHash ) ) {
+        
+          $gOptions{$currentAttributeName}{"options"}{$optionIndex}{"values"}{$ValueIndex}
+                                    = $currentOptions{$optionIndex}{"values"}{$ValueIndex};
+        
+        }
+      
                                     
-        $gOptions{$currentAttributeName}{"options"}{$option}{"cost"}=~s/\$//g;
+        $gOptions{$currentAttributeName}{"options"}{$optionIndex}{"cost"}
+                                    = $currentOptions{$optionIndex}{"cost"}; 
+        
+        # Strip ($) from cost, if present.          
+        $gOptions{$currentAttributeName}{"options"}{$optionIndex}{"cost"}=~s/\$//g;
 
       }
+     
+      for ( keys %currentOptions ){ delete $currentOptions{$_} ;}
+      for ( keys %currentTags )   { delete $currentTags{$_} ;}   
+      
     }
     
     
@@ -361,23 +394,66 @@ while ( my $line = <CHOICES> ){
 close( CHOICES );
 stream_out ("...done.\n") ; 
 
-# Report 
 
+
+
+
+
+# Report 
+my $allok = 1;
 while ( my ( $attribute, $choice) = each %gChoices ){
   
-  my $tag   = $gOptions{$attribute}{"tag"};
-  my $value = $gOptions{$attribute}{"options"}{$choice}{"value"};
-  my $cost  = $gOptions{$attribute}{"options"}{$choice}{"cost"};
   
-  stream_out ( "\nMAPPING for $attribute = $choice: $tag -> $value (@ \$$cost inc. cost)\n");
   
+  # is attribute defined in options 
+  if ( ! defined( $gOptions{$attribute} ) ){
+    stream_out ( "\nERROR: Attributre $attribute appears in choice file ($gChoiceFile), \n");
+    stream_out (   "       but can't be found in options file ($gOptionFile)\n");
+    $allok = 0;
+  }
+  if (   defined( $gOptions{$attribute} ) &&
+       ! defined( $gOptions{$attribute}{"options"}{$choice} )    ){
+    stream_out ( "\nERROR: Choice $choice (for attribute $attribute, defined \n");
+    stream_out (   "       in choice file $gChoiceFile), is not defined \n");
+    stream_out (   "       in options file ($gOptionFile)\n");
+    $allok = 0;
+  }    
+  
+  
+  if ($allok){
+    my $cost  = $gOptions{$attribute}{"options"}{$choice}{"cost"};
+    
+    stream_out ( "\n\nMAPPING for $attribute = $choice (@ \$$cost inc. cost): \n"); 
+    
+    my $TagHash = $gOptions{$attribute}{"tags"}; 
+    my $ValHash = $gOptions{$attribute}{"options"}{$choice}{"values"};
+    
+    
+    for my $tagIndex ( sort keys (%$TagHash) ){
+      my $tag   = ${$TagHash}{$tagIndex};
+      my $value = ${$ValHash}{$tagIndex};
+      
+      #stream_out ("          looking for : \$gOptions{ $attribute }{\"options\"}{ $choice }{\"values\"}\n");
+      stream_out ("          $tag -> $value \n");
+      
+      
+    
+    }
+  }
 }
+
+if ( ! $allok ) { 
+    fatalerror(" Choices in $gChoiceFile do not match options in $gOptionFile!");
+}
+
+
 
 # Now create a copy of our base ESP-r file for manipulation. 
 stream_out("\n\n Creating a working folder for optimization work...");
 system ("rm -fr $gWorkingModelFolder ");
 system ("cp -fr $gBaseModelFolder $gWorkingModelFolder ");
 stream_out("done.\n\n");
+
 
 
 my $gMasterPath = getcwd();
@@ -402,7 +478,7 @@ my $gMasterPath = getcwd();
 
 # Run the simulation 
 chdir $gWorkingCfgPath; 
-print getcwd(); 
+stream_out ("\n\n Moved to path:". getcwd()."\n"); 
 
 if ( ! $gSkipISH ){
   stream_out("\n\n Invoking ish via run.sh...");
@@ -410,6 +486,9 @@ if ( ! $gSkipISH ){
   stream_out("done...\n")
 }
 
+stream_out ("\n\n Invoking prj to update con files (\"$gPRJcmd\")...");
+execute($gPRJcmd);
+stream_out ("done. \n");  
 stream_out ("\n\n Invoking ESP-r (\"$gBPScmd\")..." ); 
 execute($gBPScmd); 
 stream_out ("done. \n");         
@@ -434,7 +513,7 @@ foreach my  $attribute ( sort keys %gChoices ){
   
 }
 stream_out ( " --------------------------------------------------------\n");
-stream_out ( "    $gTotalCost ( Total incremental cost ) \n");
+stream_out ( " =   $gTotalCost ( Total incremental cost ) \n");
 
 # Parse the output file 
 
@@ -478,7 +557,7 @@ stream_out ( "    $gTotalEnergy ( Total energy, GJ ) \n");
 # Save output files
 if ( ! -d "$gMasterPath/sim-output" ) {
 
-  execute("mkdir ".getcwd()."$gMasterPath/sim-output") or die ("Could not create $gMasterPath/sim-output!"); 
+  execute("mkdir $gMasterPath/sim-output") or die ("Could not create $gMasterPath/sim-output!"); 
   
 }
 
@@ -512,11 +591,19 @@ sub process_file($){
     
     while ( my ( $attribute, $choice) = each %gChoices ){
     
-      my $tag   = $gOptions{$attribute}{"tag"};
-      my $value = $gOptions{$attribute}{"options"}{$choice}{"value"};
-      my $cost  = $gOptions{$attribute}{"options"}{$choice}{"cost"};
     
-      $line =~ s/$tag/$value/g; 
+      my $tagHash = $gOptions{$attribute}{"tags"};
+      my $valHash = $gOptions{$attribute}{"options"}{$choice}{"values"};
+    
+      for my $tagIndex ( keys ( %{$tagHash} ) ){
+        
+        my $tag   = ${$tagHash}{$tagIndex};
+        my $value = ${$valHash}{$tagIndex};
+      
+     
+        $line =~ s/$tag/$value/g; 
+        
+      }
       
     }
     

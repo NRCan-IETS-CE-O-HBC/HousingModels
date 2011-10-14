@@ -49,10 +49,10 @@ roof describes the roof
 *surf,Wall-6,VERT,-,-,-,roof,OPAQUE,EXTERIOR,0,0  #   5 ||< external
 *surf,Surf-7,SLOP,-,-,-,roof,OPAQUE,EXTERIOR,0,0  #   6 ||< external
 *surf,Surf-8,SLOP,-,-,-,roof,OPAQUE,EXTERIOR,0,0  #   7 ||< external
-*surf,Top-11,FLOR,-,-,-,ceil_inv,OPAQUE,ANOTHER,07,11  #   8 ||< Top-11:top_fl
-*surf,Top-7,FLOR,-,-,-,ceil_inv,OPAQUE,ANOTHER,04,07  #   9 ||< Top-7:master
-*surf,Top-5,FLOR,-,-,-,ceil_inv,OPAQUE,ANOTHER,05,05  #  10 ||< Top-5:ensuite
-*surf,Top-6,FLOR,-,-,-,ceil_inv,OPAQUE,ANOTHER,06,05  #  11 ||< Top-5:bedroom
+*surf,Top-11,FLOR,-,-,-,<Opt-CeilingR>,OPAQUE,ANOTHER,07,11  #   8 ||< Top-11:top_fl
+*surf,Top-7,FLOR,-,-,-,<Opt-CeilingR>,OPAQUE,ANOTHER,04,07  #   9 ||< Top-7:master
+*surf,Top-5,FLOR,-,-,-,<Opt-CeilingR>,OPAQUE,ANOTHER,05,05  #  10 ||< Top-5:ensuite
+*surf,Top-6,FLOR,-,-,-,<Opt-CeilingR>,OPAQUE,ANOTHER,06,05  #  11 ||< Top-5:bedroom
 # 
 *insol,3,0,0,0  # default insolation distribution
 # 

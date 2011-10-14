@@ -39,13 +39,13 @@ master describes the master bedroom
 #  child of (surface name), useage (pair of tags) 
 #  construction name, optical name
 #  boundary condition tag followed by two data items
-*surf,Wall-1,VERT,-,-,-,ex_brk,OPAQUE,EXTERIOR,0,0  #   1 ||< external
-*surf,Wall-2,VERT,-,-,-,ex_brk,OPAQUE,EXTERIOR,0,0  #   2 ||< external
+*surf,Wall-1,VERT,-,-,-,<Opt-MainWall-Bri>,OPAQUE,EXTERIOR,0,0  #   1 ||< external
+*surf,Wall-2,VERT,-,-,-,<Opt-MainWall-Bri>,OPAQUE,EXTERIOR,0,0  #   2 ||< external
 *surf,Wall-3,VERT,-,-,-,int_wl,OPAQUE,ANOTHER,05,01  #   3 ||< Wall-1:ensuite
 *surf,Wall-4,VERT,-,-,-,int_wl,OPAQUE,ANOTHER,07,13  #   4 ||< Wall-13:top_fl
 *surf,Wall-5,VERT,-,-,-,int_wl,OPAQUE,ANOTHER,07,03  #   5 ||< Wall-3:top_fl
 *surf,Wall-6,VERT,-,-,-,int_wl,OPAQUE,ANOTHER,07,02  #   6 ||< Wall-2:top_fl
-*surf,Top-7,CEIL,-,-,-,ceil,OPAQUE,ANOTHER,08,09  #   7 ||< Top-7:roof
+*surf,Top-7,CEIL,-,-,-,<Opt-Ceiling>,OPAQUE,ANOTHER,08,09  #   7 ||< Top-7:roof
 *surf,Base-8,FLOR,-,-,-,floor,OPAQUE,ANOTHER,03,18  #   8 ||< Base-8:first_fl
 *surf,Base-9,FLOR,-,-,-,gr_ceil_inv,OPAQUE,ANOTHER,02,09  #   9 ||< Top-9:garage
 *surf,win,VERT,Wall-2,-,-,DblArLowe,DBLLowE,EXTERIOR,0,0  #  10 ||< external

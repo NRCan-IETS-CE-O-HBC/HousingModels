@@ -63,17 +63,17 @@ top_fl describes the top floor
 #  child of (surface name), useage (pair of tags) 
 #  construction name, optical name
 #  boundary condition tag followed by two data items
-*surf,Wall-1,VERT,-,-,-,ex_brk,OPAQUE,EXTERIOR,0,0  #   1 ||< external
+*surf,Wall-1,VERT,-,-,-,<Opt-MainWall-Bri>,OPAQUE,EXTERIOR,0,0  #   1 ||< external
 *surf,Wall-2,VERT,-,-,-,int_wl,OPAQUE,ANOTHER,04,06  #   2 ||< Wall-6:master
 *surf,Wall-3,VERT,-,-,-,int_wl,OPAQUE,ANOTHER,04,05  #   3 ||< Wall-5:master
 *surf,Wall-4,VERT,-,-,-,int_wl,OPAQUE,ANOTHER,05,04  #   4 ||< Wall-4:ensuite
 *surf,Wall-5,VERT,-,-,-,int_wl,OPAQUE,ANOTHER,06,07  #   5 ||< Wall-7:bedroom
 *surf,Wall-6,VERT,-,-,-,int_wl,OPAQUE,ANOTHER,06,04  #   6 ||< Wall-4:bedroom
-*surf,Wall-7,VERT,-,-,-,ex_brk,OPAQUE,EXTERIOR,0,0  #   7 ||< external
-*surf,Wall-8,VERT,-,-,-,ex_brk,OPAQUE,EXTERIOR,0,0  #   8 ||< external
-*surf,Wall-9,VERT,-,-,-,ex_brk,OPAQUE,EXTERIOR,0,0  #   9 ||< external
-*surf,Wall-10,VERT,-,-,-,ex_brk,OPAQUE,EXTERIOR,0,0  #  10 ||< external
-*surf,Top-11,CEIL,-,-,-,ceil,OPAQUE,ANOTHER,08,08  #  11 ||< Top-11:roof
+*surf,Wall-7,VERT,-,-,-,<Opt-MainWall-Bri>,OPAQUE,EXTERIOR,0,0  #   7 ||< external
+*surf,Wall-8,VERT,-,-,-,<Opt-MainWall-Bri>,OPAQUE,EXTERIOR,0,0  #   8 ||< external
+*surf,Wall-9,VERT,-,-,-,<Opt-MainWall-Bri>,OPAQUE,EXTERIOR,0,0  #   9 ||< external
+*surf,Wall-10,VERT,-,-,-,<Opt-MainWall-Bri>,OPAQUE,EXTERIOR,0,0  #  10 ||< external
+*surf,Top-11,CEIL,-,-,-,<Opt-Ceiling>,OPAQUE,ANOTHER,08,08  #  11 ||< Top-11:roof
 *surf,Base-12,FLOR,-,-,-,floor,OPAQUE,ANOTHER,03,19  #  12 ||< Base-12:first_fl
 *surf,Wall-13,VERT,-,-,-,int_wl,OPAQUE,ANOTHER,04,04  #  13 ||< Wall-4:master
 *surf,Base-14,FLOR,-,-,-,gr_ceil_inv,OPAQUE,ANOTHER,02,05  #  14 ||< Top-5:garage

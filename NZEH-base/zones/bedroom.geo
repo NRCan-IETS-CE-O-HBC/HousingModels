@@ -34,10 +34,10 @@ bedroom describes the bedroom
 #  construction name, optical name
 #  boundary condition tag followed by two data items
 *surf,Wall-1,VERT,-,-,-,int_wl,OPAQUE,ANOTHER,05,03  #   1 ||< Wall-3:ensuite
-*surf,Wall-2,VERT,-,-,-,ex_brk,OPAQUE,EXTERIOR,0,0  #   2 ||< external
-*surf,Wall-3,VERT,-,-,-,ex_brk,OPAQUE,EXTERIOR,0,0  #   3 ||< external
+*surf,Wall-2,VERT,-,-,-,<Opt-MainWall-Bri>,OPAQUE,EXTERIOR,0,0  #   2 ||< external
+*surf,Wall-3,VERT,-,-,-,<Opt-MainWall-Bri>,OPAQUE,EXTERIOR,0,0  #   3 ||< external
 *surf,Wall-4,VERT,-,-,-,int_wl,OPAQUE,ANOTHER,07,06  #   4 ||< Wall-6:top_fl
-*surf,Top-5,CEIL,-,-,-,ceil,OPAQUE,ANOTHER,08,11  #   5 ||< Top-6:roof
+*surf,Top-5,CEIL,-,-,-,<Opt-Ceiling>,OPAQUE,ANOTHER,08,11  #   5 ||< Top-6:roof
 *surf,Base-6,FLOR,-,-,-,floor,OPAQUE,ANOTHER,03,16  #   6 ||< bedrom:first_fl
 *surf,Wall-7,VERT,-,-,-,int_wl,OPAQUE,ANOTHER,07,05  #   7 ||< Wall-5:top_fl
 *surf,win,VERT,Wall-2,-,-,DblArLowe,DBLLowE,EXTERIOR,0,0  #   8 ||< external
