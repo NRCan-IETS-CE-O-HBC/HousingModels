@@ -49,20 +49,20 @@ bsmt describes the NZEH basement
 *vertex,4.80000,-7.00000,2.73800  #  44
 *vertex,0.60000,-10.63620,2.65600  #  45
 *vertex,0.60000,-10.63620,2.05600  #  46
-*vertex,2.03000,-10.63620,2.05600  #  47
-*vertex,2.03000,-10.63620,2.65600  #  48
+*vertex,2.12200,-10.63620,2.05600  #  47
+*vertex,2.12200,-10.63620,2.65600  #  48
 *vertex,2.80000,-10.63620,2.65600  #  49
 *vertex,2.80000,-10.63620,2.05600  #  50
-*vertex,4.23000,-10.63620,2.05600  #  51
-*vertex,4.23000,-10.63620,2.65600  #  52
+*vertex,4.32300,-10.63620,2.05600  #  51
+*vertex,4.32300,-10.63620,2.65600  #  52
 *vertex,10.40330,-10.63620,2.65600  #  53
 *vertex,10.40330,-10.63620,2.05600  #  54
-*vertex,11.83330,-10.63620,2.05600  #  55
-*vertex,11.83330,-10.63620,2.65600  #  56
+*vertex,11.92588,-10.63620,2.05600  #  55
+*vertex,11.92588,-10.63620,2.65600  #  56
 *vertex,10.10330,1.21920,2.65600  #  57
 *vertex,10.10330,1.21920,2.05600  #  58
-*vertex,11.53330,1.21920,2.05600  #  59
-*vertex,11.53330,1.21920,2.65600  #  60
+*vertex,11.62588,1.21920,2.05600  #  59
+*vertex,11.62588,1.21920,2.65600  #  60
 # 
 # tag, number of vertices followed by list of associated vert
 *edges,4,1,2,10,9  #  1
@@ -125,10 +125,10 @@ bsmt describes the NZEH basement
 *surf,Top-23,CEIL,Top_th,-,-,floor_inv,OPAQUE,ANOTHER,03,13  #  23 ||< Top-23:first_fl
 *surf,din_th1,CEIL,Top_th,-,-,floor_inv,OPAQUE,ANOTHER,03,14  #  24 ||< din_th1:first_fl
 *surf,din_th2,CEIL,Top_th,-,-,floor_inv,OPAQUE,ANOTHER,03,15  #  25 ||< din_th2:first_fl
-*surf,win1,VERT,Wall-12,-,-,DblArLowe,DBLLowE,EXTERIOR,0,0  #  26 ||< external
-*surf,win2,VERT,Wall-12,-,-,DblArLowe,DBLLowE,EXTERIOR,0,0  #  27 ||< external
-*surf,win3,VERT,Wall-12,-,-,DblArLowe,DBLLowE,EXTERIOR,0,0  #  28 ||< external
-*surf,win4,VERT,Wall-14,-,-,DblArLowe,DBLLowE,EXTERIOR,0,0  #  29 ||< external
+*surf,win1,VERT,Wall-12,-,-,<OptBW-Construction>,<OptBW-Optics>,EXTERIOR,0,0  #  26 ||< external
+*surf,win2,VERT,Wall-12,-,-,<OptBsmtExWin1Con>,<OptBsmtExWin1Opt>,EXTERIOR,0,0  #  27 ||< external
+*surf,win3,VERT,Wall-12,-,-,<OptBW-Construction>,<OptBW-Optics>,EXTERIOR,0,0  #  28 ||< external
+*surf,win4,VERT,Wall-14,-,-,<OptBW-Construction>,<OptBW-Optics>,EXTERIOR,0,0  #  29 ||< external
 # 
 *insol,3,0,0,0  # default insolation distribution
 # 

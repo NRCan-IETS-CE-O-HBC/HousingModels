@@ -17,14 +17,16 @@ master describes the master bedroom
 *vertex,4.89610,-4.50000,8.25100  #  12
 *vertex,-0.00000,-6.52300,5.78100  #  13
 *vertex,4.89610,-6.52300,5.78100  #  14
-*vertex,2.66330,-10.63620,7.91100  #  15
-*vertex,2.66330,-10.63620,6.48100  #  16
-*vertex,1.23330,-10.63620,6.48100  #  17
-*vertex,1.23330,-10.63620,7.91100  #  18
+*vertex,2.57040,-10.63620,7.91100  #  15
+*vertex,2.57040,-10.63620,6.48100  #  16
+*vertex,1.00000,-10.63620,6.48100  #  17
+*vertex,1.00000,-10.63620,7.91100  #  18
+*vertex,4.14098,-10.63620,7.91100  #  15
+*vertex,4.14098,-10.63620,6.48100  #  16
 # 
 # tag, number of vertices followed by list of associated vert
 *edges,5,1,13,2,8,7  #  1
-*edges,10,2,3,9,8,2,17,18,15,16,17  #  2
+*edges,12,2,3,9,8,2,17,18,15,19,20,16,17  #  2
 *edges,4,3,4,10,9  #  3
 *edges,4,4,5,11,10  #  4
 *edges,5,5,14,6,12,11  #  5
@@ -33,6 +35,7 @@ master describes the master bedroom
 *edges,6,13,14,5,4,3,2  #  8
 *edges,4,1,6,14,13  #  9
 *edges,4,17,16,15,18  # 10
+*edges,4,16,20,19,15  # 11
 # 
 # surf attributes:
 #  surf name, surf position VERT/CEIL/FLOR/SLOP/UNKN
@@ -48,7 +51,8 @@ master describes the master bedroom
 *surf,Top-7,CEIL,-,-,-,<Opt-Ceiling>,OPAQUE,ANOTHER,08,09  #   7 ||< Top-7:roof
 *surf,Base-8,FLOR,-,-,-,floor,OPAQUE,ANOTHER,03,18  #   8 ||< Base-8:first_fl
 *surf,Base-9,FLOR,-,-,-,gr_ceil_inv,OPAQUE,ANOTHER,02,09  #   9 ||< Top-9:garage
-*surf,win,VERT,Wall-2,-,-,DblArLowe,DBLLowE,EXTERIOR,0,0  #  10 ||< external
+*surf,win1,VERT,Wall-2,-,-,<OptBW-Construction>,<OptBW-Optics>,EXTERIOR,0,0  #  10 ||< external
+*surf,win2,VERT,Wall-2,-,-,<OptMasterExWin1Con>,<OptMasterExWin1Opt>,EXTERIOR,0,0  #  10 ||< external
 # 
 *insol,3,0,0,0  # default insolation distribution
 # 

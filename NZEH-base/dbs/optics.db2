@@ -5,7 +5,7 @@
 # 12 char id |  description       | thick | blind
 SC_8985_04nb  :Clear glass 89/85,     4mm, no blind
 # def lyr, tmc lyr, vis trn, sol refl, sol absor, U val
-  1   1  0.890  0.070  0.110  5.400
+  1        1        0.890    0.070     0.110      5.400
 # direct trn @ 5 angles, total heat gain @ 5 angles
   0.819 0.802 0.761 0.621 0.376 0.860 0.850 0.800 0.650 0.420
 # refr index, absorption @ 5 angles for each tmc layer
@@ -358,3 +358,72 @@ Tpl-2coats    :Triple-pane argon + low-e
   1.520 0.155 0.157 0.151 0.135 0.087
   1.000 0.001 0.001 0.001 0.001 0.001
   1.520 0.091 0.091 0.083 0.061 0.030
+# 12 char id |  description       | thick | blind
+  DblLeHcAir  : Double low-e (high gain), air 
+# def lyr, tmc lyr, vis trn, sol refl, sol absor, U val
+# 1   2  3.###  4.###  5.###  6.###
+  1   3  0.750  0.075  0.110  1.82
+# direct trn @ 5 angles, total heat gain @ 5 angles
+# 1.### 2.### 3.### 4.### 5.### 6.### 7.### 8.### 9.### 0.###
+  0.425 0.410 0.371 0.263 0.128 0.200 0.200 0.200 0.200 0.200
+# refr index, absorption @ 5 angles for each tmc layer
+# 0.### 1.### 2.### 3.### 4.### 5.### 
+  1.520 0.070 0.077 0.084 0.092 0.094
+  1.000 0.001 0.001 0.001 0.001 0.001
+  1.520 0.095 0.096 0.091 0.076 0.044
+# 12 char id |  description       | thick | blind
+  DblLeHcArg  : Double low-e (high gain), argon
+# def lyr, tmc lyr, vis trn, sol refl, sol absor, U val
+# 1   2  3.###  4.###  5.###  6.###
+  1   3  0.750  0.075  0.110  1.65
+# direct trn @ 5 angles, total heat gain @ 5 angles
+# 1.### 2.### 3.### 4.### 5.### 6.### 7.### 8.### 9.### 0.###
+  0.433 0.418 0.379 0.268 0.131 0.200 0.200 0.200 0.200 0.200
+# refr index, absorption @ 5 angles for each tmc layer
+# 0.### 1.### 2.### 3.### 4.### 5.### 
+  1.520 0.072 0.079 0.085 0.094 0.096
+  1.000 0.001 0.001 0.001 0.001 0.001
+  1.520 0.097 0.098 0.093 0.078 0.045
+# 12 char id |  description       | thick | blind
+  TplLeHcKry  : Triple low-e (high gain), krypton
+# def lyr, tmc lyr, vis trn, sol refl, sol absor, U val
+# 1   2  3.###  4.###  5.###  6.###
+  1   5  0.640  0.075  0.110  1.08
+# direct trn @ 5 angles, total heat gain @ 5 angles
+# 1.### 2.### 3.### 4.### 5.### 6.### 7.### 8.### 9.### 0.###
+  0.337 0.320 0.279 0.175 0.071 0.200 0.200 0.200 0.200 0.200
+# refr index, absorption @ 5 angles for each tmc layer
+# 0.### 1.### 2.### 3.### 4.### 5.### 
+  1.520 0.074 0.082 0.089 0.100 0.100
+  1.000 0.001 0.001 0.001 0.001 0.001
+  1.520 0.105 0.106 0.102 0.092 0.06
+  1.000 0.001 0.001 0.001 0.001 0.001
+  1.520 0.059 0.059 0.054 0.041 0.021
+# 12 char id |  description       | thick | blind
+  TplLeScKry  : Triple low-e (high gain), krypton
+# def lyr, tmc lyr, vis trn, sol refl, sol absor, U val
+# 1   2  3.###  4.###  5.###  6.###
+  1   5  0.590  0.075  0.110  1.14
+# direct trn @ 5 angles, total heat gain @ 5 angles
+# 1.### 2.### 3.### 4.### 5.### 6.### 7.### 8.### 9.### 0.###
+  0.152 0.143 0.123 0.075 0.030 0.200 0.200 0.200 0.200 0.200
+# refr index, absorption @ 5 angles for each tmc layer
+# 0.### 1.### 2.### 3.### 4.### 5.### 
+  1.520 0.192 0.199 0.202 0.203 0.160
+  1.000 0.001 0.001 0.001 0.001 0.001
+  1.520 0.006 0.007 0.007 0.007 0.006  
+  1.000 0.001 0.001 0.001 0.001 0.001
+  1.520 0.005 0.005 0.005 0.004 0.003
+# 12 char id |  description       | thick | blind
+  DblLeScArg  : Double low-e (low gain), argon
+# def lyr, tmc lyr, vis trn, sol refl, sol absor, U val
+# 1   2  3.###  4.###  5.###  6.###
+  1   3  0.650  0.075  0.110  1.65
+# direct trn @ 5 angles, total heat gain @ 5 angles
+# 1.### 2.### 3.### 4.### 5.### 6.### 7.### 8.### 9.### 0.###
+  0.173 0.164 0.146 0.100 0.047 0.200 0.200 0.200 0.200 0.200
+# refr index, absorption @ 5 angles for each tmc layer
+# 0.### 1.### 2.### 3.### 4.### 5.### 
+  1.520 0.194 0.200 0.202 0.201 0.159
+  1.000 0.001 0.001 0.001 0.001 0.001
+  1.520 0.006 0.006 0.006 0.006 0.004

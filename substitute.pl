@@ -25,12 +25,14 @@ my $gWorkingCfgPath     = "$gWorkingModelFolder/cfg";
 my $gModelCfgFile       = "NZEH.cfg";
 my $gISHcmd             = "./run.sh $gModelCfgFile";
 my $gPRJcmd             = "$gPRJpath -mode text -file $gModelCfgFile -act update_con_files";
-my $gBPScmd             = "$gBPSpath -file $gModelCfgFile -mode text -p optrun silent";
+my $gBPScmd             = "$gBPSpath -file $gModelCfgFile -mode text -p jan silent";
 
 my $gSkipISH            = 0; 
 
 my %gChoices; 
 my %gOptions;
+
+my @gChoiceOrder;
 
 $gTest_params{"verbosity"} = "quiet"; 
 $gTest_params{"logfile"}   = "log.txt"; 
@@ -261,7 +263,7 @@ my %currentTags;
 
 while ( my $line = <OPTIONS> ){
   
-  $line =~ s/#.+$//g; 
+  $line =~ s/\#.*$//g; 
   $line =~ s/\s*//g;
   $linecount++;
 
@@ -377,7 +379,7 @@ $linecount = 0;
 
 while ( my $line = <CHOICES> ){
   
-  $line =~ s/#.+$//g; 
+  $line =~ s/\#.*$//g; 
   $line =~ s/\s*//g;
   $linecount++;
   stream_out ("  Line: $linecount >$line<\n");
@@ -385,7 +387,10 @@ while ( my $line = <CHOICES> ){
   if ( $line ) {
   my ($attribute, $value) = split /:/, $line;
   
-  $gChoices{"$attribute"}=$value 
+  $gChoices{"$attribute"}=$value ;
+  
+  # Save order of choices to make sure we apply them correctly. 
+  push @gChoiceOrder, $attribute;
   
   }
 
@@ -480,15 +485,19 @@ my $gMasterPath = getcwd();
 chdir $gWorkingCfgPath; 
 stream_out ("\n\n Moved to path:". getcwd()."\n"); 
 
+stream_out ("\n\n Invoking prj to update con files (\"$gPRJcmd\")...");
+execute($gPRJcmd);
+stream_out ("done. \n");  
+
+
+
 if ( ! $gSkipISH ){
   stream_out("\n\n Invoking ish via run.sh...");
   execute($gISHcmd); 
   stream_out("done...\n")
 }
 
-stream_out ("\n\n Invoking prj to update con files (\"$gPRJcmd\")...");
-execute($gPRJcmd);
-stream_out ("done. \n");  
+
 stream_out ("\n\n Invoking ESP-r (\"$gBPScmd\")..." ); 
 execute($gBPScmd); 
 stream_out ("done. \n");         
@@ -589,9 +598,10 @@ sub process_file($){
   while ( my $line = <READIN> ){
   
     
-    while ( my ( $attribute, $choice) = each %gChoices ){
+    foreach my $attribute ( @gChoiceOrder ){
     
-    
+      my $choice =  $gChoices{$attribute};
+      
       my $tagHash = $gOptions{$attribute}{"tags"};
       my $valHash = $gOptions{$attribute}{"options"}{$choice}{"values"};
     

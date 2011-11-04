@@ -1,6 +1,36 @@
 # Optimization substututions 
 
-Opt-AirTightness : TypicalGTA
-Opt-MainWall     : BaseR21
-Opt-ExtraDrywall : OneSheet
-Opt-Ceilings     : CeilingR110
+# Turn orignial design windows opaque ( NoWindows!)
+# or transparent (MinWindows). NoWindows doesn't presently work!
+
+Opt-BaseWindows      : MinWindows
+
+
+# Add extra windows ("Yes" or "No") 
+
+Opt-ExtWinTopFl-1    : No             # Top floor, front of house 
+Opt-ExtWinTopFl-2    : No             #
+Opt-ExtWinTopFl-3    : No             #
+Opt-ExtWinTopFl-1    : No             # Top floor, front of house 
+Opt-ExtWinTopFl-2    : No             #
+Opt-ExtWinTopFl-3    : No             #
+Opt-ExtWinFirstFl-1  : No             # First floor, all sides
+Opt-ExtWinFirstFl-2  : No             #
+Opt-ExtWinFirstFl-3  : No             #
+Opt-ExtWinFirstFl-4  : No             #
+Opt-ExtWinFirstFl-5  : No             #
+Opt-ExtWinFirstFl-6  : No             #
+Opt-ExtWinBedroom-1  : No             # Bedroom (back)
+Opt-ExtWinBsmt-1     : No             # Basement (back)
+Opt-ExtWinMaster-1   : No             # Master (back)
+
+
+Opt-AirTightness     : TypicalGTA
+Opt-MainWall         : BaseR21
+Opt-ExtraDrywall     : TwoSheets
+Opt-Ceilings         : CeilingR50
+
+
+# Optical and themral characteristics of casement windows (currently 
+# all windows in model. "OriginalGlassParam"
+Opt-CasementWindows  : OriginalGlassParam

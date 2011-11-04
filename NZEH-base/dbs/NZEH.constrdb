@@ -1,6 +1,6 @@
 # composite construction db defined in ../dbs/NZEH.constrdb
 # based on materials db ../dbs/material.db3.a
-   82  # no of composites 
+   86  # no of composites 
 # layers  description   optics name   symmetry tag
     2    bsm_flr       OPAQ  OPAQUE        NONSYMMETRIC  
 # mat ref thickness (m) mat descr & air gap R
@@ -621,15 +621,50 @@
 # mat ref thickness (m) mat descr & air gap R 
   301    0.0125  gypsum board
   233    0.7713  celulose fiber flakes    
-#=================================================================
-# Windows
-# 82: double low-e low-gain
-# layers  description   optics name   symmetry tag
-    3    DblArLowe      TRAN  DBLLowE       SYMMETRIC     
+#=======================================================================    
+# Windows!
+#----------------------
+# Double Hard-coat low e (high gain), air fill (LEEP window A)
+# 82: layers  description   optics name   symmetry tag
+    3    DblLeHcAir  TRAN  DblLeHcAir    SYMMETRIC
 # mat ref thickness (m) mat descr & air gap R
-  242    0.0060  plate glass : Plate glass with placeholder single layer optics
-    0    0.0125  air  0.170 0.170 0.170
-  242    0.0060  plate glass : Plate glass with placeholder single layer optics
-
-#   
+  242    0.0060  plate glass : Plate glass 
+    0    0.0125  air  0.308 0.308 0.308
+  242    0.0060  plate glass : Plate glass 
+#----------------------
+# Double Hard-coat low e (high gain), argon fill (LEEP window B)
+# 83: layers  description   optics name   symmetry tag
+    3    DblLeHcArg  TRAN  DblLeHcArg     SYMMETRIC
+# mat ref thickness (m) mat descr & air gap R
+  242    0.0060  plate glass : Plate glass 
+    0    0.0125  air  0.365 0.365 0.365
+  242    0.0060  plate glass : Plate glass 
+#----------------------
+# Triple Hard-coat low e (high gain), krypton fill (LEEP window C)
+# 84: layers  description   optics name   symmetry tag
+    5    TplLeHcKry  TRAN  TplLeHcKry     SYMMETRIC
+# mat ref thickness (m) mat descr & air gap R
+  242    0.0060  plate glass : Plate glass 
+    0    0.0125  air  0.323 0.323 0.323
+  242    0.0060  plate glass : Plate glass 
+    0    0.0125  air  0.323 0.323 0.323
+  242    0.0060  plate glass : Plate glass   
+#----------------------
+# Triple Soft-coat low e (low gain), krypton fill (LEEP window D)
+# 85: layers  description   optics name   symmetry tag
+    5    TplLeScKry  TRAN  TplLeScKry     SYMMETRIC
+# mat ref thickness (m) mat descr & air gap R
+  242    0.0060  plate glass : Plate glass 
+    0    0.0125  air  0.298 0.298 0.298
+  242    0.0060  plate glass : Plate glass 
+    0    0.0125  air  0.298 0.298 0.298
+  242    0.0060  plate glass : Plate glass   
+#----------------------
+# Double Soft-coat low e (low gain), argon fill (LEEP window E)
+# 86: layers  description   optics name   symmetry tag
+    3    DblLeScArg  TRAN  DblSeHcArg     SYMMETRIC
+# mat ref thickness (m) mat descr & air gap R
+  242    0.0060  plate glass : Plate glass 
+    0    0.0125  air  0.365 0.365 0.365
+  242    0.0060  plate glass : Plate glass   
   

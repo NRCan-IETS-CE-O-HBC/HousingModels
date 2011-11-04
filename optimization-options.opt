@@ -1,6 +1,257 @@
 # Optimization substututions 
 
+#-----------------------------------------------------------------------
+# This option can be used to turn the model's minumum
+# number of windows opaque. It's not intended for optimization,
+# but might be useful in testing & debugging the model.
+#-----------------------------------------------------------------------
+*attribute:start 
+*attribute:name  = Opt-BaseWindows
+*attribute:tag:1 = <OptBW-Construction>
+*attribute:tag:2 = <OptBW-Optics>
 
+*option:NoWindows!:value:1 = <Opt-MainWall-Bri>
+*option:NoWindows!:value:2 = OPAQUE
+*option:NoWindows!:cost    = 0
+
+*option:MinWindows:value:1 = <Opt-CasWinConstruction>
+*option:MinWindows:value:2 = <Opt-CasWinOptics>
+*option:MinWindows:cost    = 0
+
+*attribute:end
+
+#-----------------------------------------------------------------------
+# The next three options add extra windows to the front of the house 
+# on the second story. (Zone top_fl
+#-----------------------------------------------------------------------
+*attribute:start 
+*attribute:name  = Opt-ExtWinTopFl-1 
+*attribute:tag:1 = <OptTopFlExWin1Con>
+*attribute:tag:2 = <OptTopFlExWin1Opt>
+
+*option:No:value:1 = <Opt-MainWall-Bri>
+*option:No:value:2 = OPAQUE
+*option:No:cost    = 0
+
+*option:Yes:value:1 = <Opt-CasWinConstruction>
+*option:Yes:value:2 = <Opt-CasWinOptics>
+*option:Yes:cost    = 0
+
+*attribute:end 
+
+###
+*attribute:start 
+1
+*attribute:name  = Opt-ExtWinTopFl-2 
+*attribute:tag:1 = <OptTopFlExWin2Con>
+*attribute:tag:2 = <OptTopFlExWin2Opt>
+
+*option:No:value:1 = <Opt-MainWall-Bri>
+*option:No:value:2 = OPAQUE
+*option:No:cost    = 0
+
+*option:Yes:value:1 = <Opt-CasWinConstruction>
+*option:Yes:value:2 = <Opt-CasWinOptics>
+*option:Yes:cost    = 0
+
+*attribute:end 
+
+######
+*attribute:start 
+*attribute:name  = Opt-ExtWinTopFl-3 
+*attribute:tag:1 = <OptTopFlExWin3Con>
+*attribute:tag:2 = <OptTopFlExWin3Opt>
+
+*option:No:value:1 = <Opt-MainWall-Bri>
+*option:No:value:2 = OPAQUE
+*option:No:cost    = 0
+
+*option:Yes:value:1 = <Opt-CasWinConstruction>
+*option:Yes:value:2 = <Opt-CasWinOptics>
+*option:Yes:cost    = 0
+
+*attribute:end 
+#-----------------------------------------------------------------------
+# Add up to 6 extra windows to main floor (zone first_fl) 
+#-----------------------------------------------------------------------
+*attribute:start 
+*attribute:name  = Opt-ExtWinFirstFl-1 
+*attribute:tag:1 = <OptFirstFlExWin1Con>
+*attribute:tag:2 = <OptFirstFlExWin1Opt>
+
+*option:No:value:1 = <Opt-MainWall-Bri>
+*option:No:value:2 = OPAQUE
+*option:No:cost    = 0
+
+*option:Yes:value:1 = <Opt-CasWinConstruction>
+*option:Yes:value:2 = <Opt-CasWinOptics>
+*option:Yes:cost    = 0
+
+*attribute:end 
+
+########
+*attribute:start 
+*attribute:name  = Opt-ExtWinFirstFl-2 
+*attribute:tag:1 = <OptFirstFlExWin2Con>
+*attribute:tag:2 = <OptFirstFlExWin2Opt>
+
+*option:No:value:1 = <Opt-MainWall-Bri>
+*option:No:value:2 = OPAQUE
+*option:No:cost    = 0
+
+*option:Yes:value:1 = <Opt-CasWinConstruction>
+*option:Yes:value:2 = <Opt-CasWinOptics>
+*option:Yes:cost    = 0
+
+*attribute:end 
+
+########
+*attribute:start 
+*attribute:name  = Opt-ExtWinFirstFl-3
+*attribute:tag:1 = <OptFirstFlExWin3Con>
+*attribute:tag:2 = <OptFirstFlExWin3Opt>
+
+*option:No:value:1 = <Opt-MainWall-Bri>
+*option:No:value:2 = OPAQUE
+*option:No:cost    = 0
+
+*option:Yes:value:1 = <Opt-CasWinConstruction>
+*option:Yes:value:2 = <Opt-CasWinOptics>
+*option:Yes:cost    = 0
+
+*attribute:end 
+
+########
+*attribute:start 
+*attribute:name  = Opt-ExtWinFirstFl-4
+*attribute:tag:1 = <OptFirstFlExWin4Con>
+*attribute:tag:2 = <OptFirstFlExWin4Opt>
+
+*option:No:value:1 = <Opt-MainWall-Bri>
+*option:No:value:2 = OPAQUE
+*option:No:cost    = 0
+
+*option:Yes:value:1 = <Opt-CasWinConstruction>
+*option:Yes:value:2 = <Opt-CasWinOptics>
+*option:Yes:cost    = 0
+
+*attribute:end 
+
+########
+*attribute:start 
+*attribute:name  = Opt-ExtWinFirstFl-5
+*attribute:tag:1 = <OptFirstFlExWin5Con>
+*attribute:tag:2 = <OptFirstFlExWin5Opt>
+
+*option:No:value:1 = <Opt-MainWall-Bri>
+*option:No:value:2 = OPAQUE
+*option:No:cost    = 0
+
+*option:Yes:value:1 = <Opt-CasWinConstruction>
+*option:Yes:value:2 = <Opt-CasWinOptics>
+*option:Yes:cost    = 0
+
+*attribute:end 
+
+########
+*attribute:start 
+*attribute:name  = Opt-ExtWinFirstFl-6
+*attribute:tag:1 = <OptFirstFlExWin6Con>
+*attribute:tag:2 = <OptFirstFlExWin6Opt>
+
+*option:No:value:1 = <Opt-MainWall-Bri>
+*option:No:value:2 = OPAQUE
+*option:No:cost    = 0
+
+*option:Yes:value:1 = <Opt-CasWinConstruction>
+*option:Yes:value:2 = <Opt-CasWinOptics>
+*option:Yes:cost    = 0
+
+*attribute:end 
+
+#-----------------------------------------------------------------------
+# Add an extra window to the bedroom zone (bedroom) 
+#-----------------------------------------------------------------------
+*attribute:start 
+*attribute:name  = Opt-ExtWinBedroom-1 
+*attribute:tag:1 = <OptBedroomExWin1Con>
+*attribute:tag:2 = <OptBedroomExWin1Opt>
+
+*option:No:value:1 = <Opt-MainWall-Bri>
+*option:No:value:2 = OPAQUE
+*option:No:cost    = 0
+
+*option:Yes:value:1 = <Opt-CasWinConstruction>
+*option:Yes:value:2 = <Opt-CasWinOptics>
+*option:Yes:cost    = 0
+
+*attribute:end 
+
+#-----------------------------------------------------------------------
+# Add an extra window to the master zone (master) 
+#-----------------------------------------------------------------------
+*attribute:start 
+*attribute:name  = Opt-ExtWinMaster-1 
+*attribute:tag:1 = <OptMasterExWin1Con>
+*attribute:tag:2 = <OptMasterExWin1Opt>
+
+*option:No:value:1 = <Opt-MainWall-Bri>
+*option:No:value:2 = OPAQUE
+*option:No:cost    = 0
+
+*option:Yes:value:1 = <Opt-CasWinConstruction>
+*option:Yes:value:2 = <Opt-CasWinOptics>
+*option:Yes:cost    = 0
+
+*attribute:end 
+
+
+
+#-----------------------------------------------------------------------
+# Add an extra window to the basement 
+#-----------------------------------------------------------------------
+
+
+########
+*attribute:start 
+*attribute:name  = Opt-ExtWinBsmt-1
+*attribute:tag:1 = <OptBsmtExWin1Con>
+*attribute:tag:2 = <OptBsmtExWin1Opt>
+
+*option:No:value:1 = bsm_wll                 # Need to switch with <bsm wall tag> 
+*option:No:value:2 = OPAQUE
+*option:No:cost    = 0
+
+*option:Yes:value:1 = <Opt-CasWinConstruction>
+*option:Yes:value:2 = <Opt-CasWinOptics>
+*option:Yes:cost    = 0
+
+*attribute:end 
+
+
+#-----------------------------------------------------------------------
+# This option sets the optical and themral characteristics of 
+# the casement windows used in the model (currently all windows are 
+# considered casements)
+#-----------------------------------------------------------------------
+
+*attribute:start 
+*attribute:name  = Opt-CasementWindows
+*attribute:tag:1 = <Opt-CasWinConstruction>
+*attribute:tag:2 = <Opt-CasWinOptics>
+
+*option:OriginalGlassParam:value:1 = DblArLowe
+*option:OriginalGlassParam:value:2 = DBLLowE
+*option:OriginalGlassParam         = 0
+
+*attribute:end
+
+
+
+#-----------------------------------------------------------------------
+# This option sets the airtightness by spec'ing the 
+# apporpriate aim2 input file. 
+#-----------------------------------------------------------------------
 *attribute:start    
 *attribute:name = Opt-AirTightness
 *attribute:tag:1 = <Opt-AirTightness>
@@ -26,34 +277,34 @@
 *attribute:name = Opt-Ceilings
 
 *attribute:tag:1  = <Opt-Ceiling>
-*attribute:tag:2  = <Opt-CeilingR>
+#*attribute:tag:2  = <Opt-CeilingR>
 
 *option:CeilingR50:value:1 =   CeilR50
-*option:CeilingR50:value:2 =   CeilR50R
+#*option:CeilingR50:value:2 =   CeilR50R
 *option:CeilingR50:cost    =   0
 
 *option:CeilingR60:value:1 =   CeilR60
-*option:CeilingR60:value:2 =   CeilR60R
+#*option:CeilingR60:value:2 =   CeilR60R
 *option:CeilingR60:cost    =   360.20
 
-*option:CeilingR70:value:1 =   Ceil
-*option:CeilingR70:value:2 =   Ceil
+*option:CeilingR70:value:1 =   CeilR70
+#*option:CeilingR70:value:2 =   CeilR70R
 *option:CeilingR70:cost    =   912.20
 
 *option:CeilingR80:value:1 =   CeilR80
-*option:CeilingR80:value:2 =   CeilR80R
+#*option:CeilingR80:value:2 =   CeilR80R
 *option:CeilingR80:cost    =   1395.20
 
 *option:CeilingR90:value:1 =   CeilR90
-*option:CeilingR90:value:2 =   CeilR90R
+#*option:CeilingR90:value:2 =   CeilR90R
 *option:CeilingR90:cost    =   1947.2
 
 *option:CeilingR100:value:1 =  CeilR100
-*option:CeilingR100:value:2 =  CeilR100R
+#*option:CeilingR100:value:2 =  CeilR100R
 *option:CeilingR100:cost    =  2499.2
 
 *option:CeilingR110:value:1 =  CeilR110
-*option:CeilingR110:value:2 =  CeilR110R
+#*option:CeilingR110:value:2 =  CeilR110R
 *option:CeilingR110:cost    =  3051.2
 
 *attribute:end
@@ -68,67 +319,68 @@
 *attribute:tag:1  = <Opt-MainWall-Bri>
 *attribute:tag:2  = <Opt-MainWall-Vin>
 *attribute:tag:3  = <Opt-MainWall-Dry>
-*attribute:tag:4  = <Opt-MainWall-DryR>
+
 
 *option:BaseR21:value:1 =   BaseR21Bri
 *option:BaseR21:value:2 =   BaseR21Vin
 *option:BaseR21:value:3 =   BaseR21Dry 
-*option:BaseR21:value:4 =   BaseR21DryR
+#*option:BaseR21:value:4 =   BaseR21DryR
 *option:BaseR21:cost    =   0
 
 *option:ICFR22:value:1 =   IcfR22Bri
 *option:ICFR22:value:2 =   IcfR22Vin
 *option:ICFR22:value:3 =   IcfR22Dry 
-*option:ICFR22:value:4 =   IcfR22DryR
+#*option:ICFR22:value:4 =   IcfR22DryR
 *option:ICFR22:cost    =   25150
 
 *option:SIPS-R29-Wall:value:1 =   SipR29Bri
 *option:SIPS-R29-Wall:value:2 =   SipR29Vin
 *option:SIPS-R29-Wall:value:3 =   SipR29Dry 
-*option:SIPS-R29-Wall:value:4 =   SipR29DryR
+#*option:SIPS-R29-Wall:value:4 =   SipR29DryR
 *option:SIPS-R29-Wall:cost    =   4000
 
 *option:SIPS-R38-Wall:value:1 =   SipR38Bri
 *option:SIPS-R38-Wall:value:2 =   SipR38Vin
 *option:SIPS-R38-Wall:value:3 =   SipR38Dry 
-*option:SIPS-R38-Wall:value:4 =   SipR38DryR
+#*option:SIPS-R38-Wall:value:4 =   SipR38DryR
 *option:SIPS-R38-Wall:cost    =   6000
 
 *option:SIPS-R44-Wall:value:1 =   SipR44Bri
 *option:SIPS-R44-Wall:value:2 =   SipR44Vin
 *option:SIPS-R44-Wall:value:3 =   SipR44Dry 
-*option:SIPS-R44-Wall:value:4 =   SipR44DryR
+#*option:SIPS-R44-Wall:value:4 =   SipR44DryR
 *option:SIPS-R44-Wall:cost    =   9384
 
 *option:Stud-R38-Wall:value:1 =   StudR38Bri
 *option:Stud-R38-Wall:value:2 =   StudR38Vin
 *option:Stud-R38-Wall:value:3 =   StudR38Dry 
-*option:Stud-R38-Wall:value:4 =   StudR38DryR
+#*option:Stud-R38-Wall:value:4 =   StudR38DryR
 *option:Stud-R38-Wall:cost    =   4859
 
 *option:Stud-R50-Wall:value:1 =   StudR50Bri
 *option:Stud-R50-Wall:value:2 =   StudR50Vin
 *option:Stud-R50-Wall:value:3 =   StudR50Dry 
-*option:Stud-R50-Wall:value:4 =   StudR50DryR
+#*option:Stud-R50-Wall:value:4 =   StudR50DryR
 *option:Stud-R50-Wall:cost    =   10600
 
 *option:DblStud-R44-Wall:value:1 =   DblSR44Bri
 *option:DblStud-R44-Wall:value:2 =   DblSR44Vin
 *option:DblStud-R44-Wall:value:3 =   DblSR44Dry 
-*option:DblStud-R44-Wall:value:4 =   DblSR44DryR
+#*option:DblStud-R44-Wall:value:4 =   DblSR44DryR
 *option:DblStud-R44-Wall:cost    =   10600
 
 *option:Truss-R40-Wall:value:1 =   TruR40Bri
 *option:Truss-R40-Wall:value:2 =   TruR40Vin
 *option:Truss-R40-Wall:value:3 =   TruR40Dry 
-*option:Truss-R40-Wall:value:4 =   TruR40DryR
+#*option:Truss-R40-Wall:value:4 =   TruR40DryR
 *option:Truss-R40-Wall:cost    =   8161
 
 
 *attribute:end
 
-
+#-----------------------------------------------------------------------
 # Thickness of applied drywall.
+#-----------------------------------------------------------------------
 *attribute:start 
   
 *attribute:name   = Opt-ExtraDrywall

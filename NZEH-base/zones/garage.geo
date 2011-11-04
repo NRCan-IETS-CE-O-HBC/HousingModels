@@ -34,13 +34,13 @@ garage describes the garage
 #  construction name, optical name
 #  boundary condition tag followed by two data items
 *surf,Wall-1,VERT,-,-,-,ex_brk,OPAQUE,EXTERIOR,0,0  #   1 ||< external
-*surf,Wall-2,VERT,-,-,-,<Opt-MainWall-DryR>,OPAQUE,ANOTHER,03,08  #   2 ||< Wall-8:first_fl
-*surf,Wall-3,VERT,-,-,-,<Opt-MainWall-DryR>,OPAQUE,ANOTHER,03,07  #   3 ||< Wall-7:first_fl
+*surf,Wall-2,VERT,-,-,-,<Opt-MainWall-Dry>R,OPAQUE,ANOTHER,03,08  #   2 ||< Wall-8:first_fl
+*surf,Wall-3,VERT,-,-,-,<Opt-MainWall-Dry>R,OPAQUE,ANOTHER,03,07  #   3 ||< Wall-7:first_fl
 *surf,Wall-4,VERT,-,-,-,ex_brk,OPAQUE,EXTERIOR,0,0  #   4 ||< external
 *surf,Top-5,CEIL,-,-,-,gr_ceil,OPAQUE,ANOTHER,07,14  #   5 ||< Base-14:top_fl
 *surf,Base-6,FLOR,-,-,-,grg_slab,OPAQUE,BASESIMP,29,100  #   6 ||< BASESIMP config type  29
-*surf,Wall-7,VERT,-,-,-,<Opt-MainWall-DryR>,OPAQUE,ANOTHER,01,18  #   7 ||< Wall-18:bsmt
-*surf,Wall-8,VERT,-,-,-,<Opt-MainWall-DryR>,OPAQUE,ANOTHER,01,17  #   8 ||< Wall-17:bsmt
+*surf,Wall-7,VERT,-,-,-,<Opt-MainWall-Dry>R,OPAQUE,ANOTHER,01,18  #   7 ||< Wall-18:bsmt
+*surf,Wall-8,VERT,-,-,-,<Opt-MainWall-Dry>R,OPAQUE,ANOTHER,01,17  #   8 ||< Wall-17:bsmt
 *surf,Top-9,CEIL,-,-,-,gr_ceil,OPAQUE,ANOTHER,04,09  #   9 ||< Base-9:master
 # 
 *insol,3,0,0,0  # default insolation distribution

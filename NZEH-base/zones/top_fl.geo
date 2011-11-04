@@ -26,18 +26,34 @@ top_fl describes the top floor
 *vertex,5.30000,-7.00000,5.78100  #  21
 *vertex,5.30000,-7.00000,8.25100  #  22
 *vertex,4.89600,-0.00000,5.78100  #  23
-*vertex,11.20000,1.21920,6.48100  #  24
-*vertex,9.77000,1.21920,6.48100  #  25
-*vertex,11.20000,1.21920,7.91100  #  26
-*vertex,9.77000,1.21920,7.91100  #  27
-*vertex,5.37700,-0.00000,6.48100  #  28
-*vertex,2.00000,-0.00000,6.48100  #  29
-*vertex,5.37700,-0.00000,7.91100  #  30
-*vertex,2.00000,-0.00000,7.91100  #  31
+*vertex,11.34000,1.21920,6.48100  #  24
+*vertex,9.77000, 1.21920,6.48100  #  25
+*vertex,11.34000,1.21920,7.91100  #  26
+*vertex,9.77000, 1.21920,7.91100  #  27
+*vertex,6.43280,-0.00000,6.71720  #  28
+*vertex,7.44880,-0.00000,6.71720  #  29
+*vertex,6.43280,-0.00000,7.91100  #  30
+*vertex,7.44880,-0.00000,7.91100  #  31
 *vertex,12.43300,-5.00000,6.89600  #  32
 *vertex,12.43300,-5.00000,7.91100  #  33
-*vertex,12.43300,-4.17700,6.89600  #  34
-*vertex,12.43300,-4.17700,7.91100  #  35
+*vertex,12.43300,-4.04900,6.89600  #  34
+*vertex,12.43300,-4.04900,7.91100  #  35_
+*vertex,0.50000,-0.00000,6.41240  #  36
+*vertex,1.38900,-0.00000,6.41240  #  37
+*vertex,0.50000,-0.00000,7.91100  #  38
+*vertex,1.38900,-0.00000,7.91100  #  39_
+*vertex,1.58900,-0.00000,6.41240  #  36
+*vertex,2.47800,-0.00000,6.41240  #  37
+*vertex,1.58900,-0.00000,7.91100  #  38
+*vertex,2.47800,-0.00000,7.91100  #  39_
+*vertex,2.67800,-0.00000,6.41240  #  36
+*vertex,3.56700,-0.00000,6.41240  #  37
+*vertex,2.67800,-0.00000,7.91100  #  38
+*vertex,3.56700,-0.00000,7.91100  #  39_
+*vertex,3.76700,-0.00000,6.41240  #  36
+*vertex,4.65600,-0.00000,6.41240  #  37
+*vertex,3.76700,-0.00000,7.91100  #  38
+*vertex,4.65600,-0.00000,7.91100  #  39
 # 
 # tag, number of vertices followed by list of associated vert
 *edges,4,1,2,12,11  #  1
@@ -49,7 +65,7 @@ top_fl describes the top floor
 *edges,10,7,8,18,17,7,32,33,35,34,32  #  7
 *edges,10,8,9,19,18,8,24,26,27,25,24  #  8
 *edges,4,9,10,20,19  #  9
-*edges,11,10,23,1,11,20,10,28,30,31,29,28  # 10
+*edges,35,10,29,31,30,28,29,10,23, 1,36,37,39,42,40,41,43,46,44,45,47,50,48,49,51,50,47,46,43,42,39,38,36, 1,11,20   #10
 *edges,11,11,12,13,14,22,15,16,17,18,19,20  # 11
 *edges,10,23,10,9,8,7,6,5,21,4,3  # 12
 *edges,4,4,21,22,14  # 13
@@ -57,6 +73,10 @@ top_fl describes the top floor
 *edges,4,24,25,27,26  # 15
 *edges,4,28,29,31,30  # 16
 *edges,4,32,34,35,33  # 17
+*edges,4,36,38,39,37  # 18
+*edges,4,40,42,43,41  # 19
+*edges,4,44,46,47,45  # 20
+*edges,4,48,50,51,49  # 21
 # 
 # surf attributes:
 #  surf name, surf position VERT/CEIL/FLOR/SLOP/UNKN
@@ -77,9 +97,13 @@ top_fl describes the top floor
 *surf,Base-12,FLOR,-,-,-,floor,OPAQUE,ANOTHER,03,19  #  12 ||< Base-12:first_fl
 *surf,Wall-13,VERT,-,-,-,int_wl,OPAQUE,ANOTHER,04,04  #  13 ||< Wall-4:master
 *surf,Base-14,FLOR,-,-,-,gr_ceil_inv,OPAQUE,ANOTHER,02,05  #  14 ||< Top-5:garage
-*surf,win1,VERT,Wall-8,-,-,DblArLowe,DBLLowE,EXTERIOR,0,0  #  15 ||< external
-*surf,win2,VERT,Wall-10,-,-,DblArLowe,DBLLowE,EXTERIOR,0,0  #  16 ||< external
-*surf,win3,VERT,Wall-7,-,-,DblArLowe,DBLLowE,EXTERIOR,0,0  #  17 ||< external
+*surf,win1,VERT,Wall-8,-,-,<OptBW-Construction>,<OptBW-Optics>,EXTERIOR,0,0  #  15 ||< external
+*surf,win2,VERT,Wall-10,-,-,<OptBW-Construction>,<OptBW-Optics>,EXTERIOR,0,0  #  16 ||< external
+*surf,win3,VERT,Wall-7,-,-,<OptBW-Construction>,<OptBW-Optics> ,EXTERIOR,0,0  #  17 ||< external
+*surf,win4,VERT,Wall-7,-,-,<OptBW-Construction>,<OptBW-Optics>,EXTERIOR,0,0  #  18 ||< external
+*surf,win5,VERT,Wall-7,-,-,<OptTopFlExWin1Con>,<OptTopFlExWin1Opt>,EXTERIOR,0,0  #  19 ||< external
+*surf,win6,VERT,Wall-7,-,-,<OptTopFlExWin2Con>,<OptTopFlExWin2Opt>,EXTERIOR,0,0  #  20 ||< external
+*surf,win7,VERT,Wall-7,-,-,<OptTopFlExWin3Con>,<OptTopFlExWin3Opt>,EXTERIOR,0,0  #  21 ||< external
 # 
 *insol,3,0,0,0  # default insolation distribution
 # 
@@ -87,8 +111,8 @@ top_fl describes the top floor
 *shad_calc,all_applicable   8 # list of surfs
   1  7  8  9 10 15 16 17
 # 
-*insol_calc,all_applicable   3 # insolation sources
- 15 16 17
+*insol_calc,all_applicable   7 # insolation sources
+ 15 16 17 18 19 20 21
 # 
 *base_list,0,72.38,0  # zone base
 # 
