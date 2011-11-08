@@ -50,7 +50,7 @@ master describes the master bedroom
 *surf,Wall-6,VERT,-,-,-,int_wl,OPAQUE,ANOTHER,07,02  #   6 ||< Wall-2:top_fl
 *surf,Top-7,CEIL,-,-,-,<Opt-Ceiling>,OPAQUE,ANOTHER,08,09  #   7 ||< Top-7:roof
 *surf,Base-8,FLOR,-,-,-,floor,OPAQUE,ANOTHER,03,18  #   8 ||< Base-8:first_fl
-*surf,Base-9,FLOR,-,-,-,gr_ceil_inv,OPAQUE,ANOTHER,02,09  #   9 ||< Top-9:garage
+*surf,Base-9,FLOR,-,-,-,<Opt-ExposedFloor>,OPAQUE,ANOTHER,02,09  #   9 ||< Top-9:garage
 *surf,win1,VERT,Wall-2,-,-,<OptBW-Construction>,<OptBW-Optics>,EXTERIOR,0,0  #  10 ||< external
 *surf,win2,VERT,Wall-2,-,-,<OptMasterExWin1Con>,<OptMasterExWin1Opt>,EXTERIOR,0,0  #  10 ||< external
 # 

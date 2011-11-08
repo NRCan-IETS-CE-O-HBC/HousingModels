@@ -100,26 +100,26 @@ bsmt describes the NZEH basement
 #  child of (surface name), useage (pair of tags) 
 #  construction name, optical name
 #  boundary condition tag followed by two data items
-*surf,Wall-1,VERT,-,-,-,bsm_wll,OPAQUE,BASESIMP,01,03  #   1 ||< BASESIMP config type   1
-*surf,Wall-2,VERT,Wall-12,-,-,bsm_wll,OPAQUE,BASESIMP,01,13  #   2 ||< BASESIMP config type   1
-*surf,Wall-3,VERT,-,-,-,bsm_wll,OPAQUE,BASESIMP,01,12  #   3 ||< BASESIMP config type   1
-*surf,Wall-4,VERT,-,-,-,bsm_wll,OPAQUE,BASESIMP,01,03  #   4 ||< BASESIMP config type   1
-*surf,Wall-5,VERT,-,-,-,bsm_wll,OPAQUE,BASESIMP,01,02  #   5 ||< BASESIMP config type   1
-*surf,Wall-6,VERT,-,-,-,bsm_wll,OPAQUE,BASESIMP,01,03  #   6 ||< BASESIMP config type   1
-*surf,Wall-7,VERT,-,-,-,bsm_wll,OPAQUE,BASESIMP,01,08  #   7 ||< BASESIMP config type   1
-*surf,Wall-8,VERT,-,-,-,bsm_wll,OPAQUE,BASESIMP,01,06  #   8 ||< BASESIMP config type   1
+*surf,Wall-1,VERT,-,-,-,<OPT-BsmWall>,OPAQUE,BASESIMP,01,03  #   1 ||< BASESIMP config type   1
+*surf,Wall-2,VERT,Wall-12,-,-,<OPT-BsmWall>,OPAQUE,BASESIMP,01,13  #   2 ||< BASESIMP config type   1
+*surf,Wall-3,VERT,-,-,-,<OPT-BsmWall>,OPAQUE,BASESIMP,01,12  #   3 ||< BASESIMP config type   1
+*surf,Wall-4,VERT,-,-,-,<OPT-BsmWall>,OPAQUE,BASESIMP,01,03  #   4 ||< BASESIMP config type   1
+*surf,Wall-5,VERT,-,-,-,<OPT-BsmWall>,OPAQUE,BASESIMP,01,02  #   5 ||< BASESIMP config type   1
+*surf,Wall-6,VERT,-,-,-,<OPT-BsmWall>,OPAQUE,BASESIMP,01,03  #   6 ||< BASESIMP config type   1
+*surf,Wall-7,VERT,-,-,-,<OPT-BsmWall>,OPAQUE,BASESIMP,01,08  #   7 ||< BASESIMP config type   1
+*surf,Wall-8,VERT,-,-,-,<OPT-BsmWall>,OPAQUE,BASESIMP,01,06  #   8 ||< BASESIMP config type   1
 *surf,Top_th,CEIL,gr_th,-,-,floor_inv,OPAQUE,ANOTHER,03,10  #   9 ||< Top_th:first_fl
-*surf,Base_th,FLOR,-,-,-,bsm_flr,OPAQUE,BASESIMP,01,30  #  10 ||< BASESIMP config type   1
-*surf,Wall-11,VERT,-,-,-,bsm_wll,OPAQUE,EXTERIOR,0,0  #  11 ||< external
-*surf,Wall-12,VERT,Wall-2,-,-,bsm_wll,OPAQUE,EXTERIOR,0,0  #  12 ||< external
-*surf,Wall-13,VERT,-,-,-,bsm_wll,OPAQUE,EXTERIOR,0,0  #  13 ||< external
-*surf,Wall-14,VERT,-,-,-,bsm_wll,OPAQUE,EXTERIOR,0,0  #  14 ||< external
-*surf,Wall-15,VERT,-,-,-,bsm_wll,OPAQUE,EXTERIOR,0,0  #  15 ||< external
-*surf,Wall-16,VERT,-,-,-,bsm_wll,OPAQUE,EXTERIOR,0,0  #  16 ||< external
+*surf,Base_th,FLOR,-,-,-,<OPT-BsmFloor>,OPAQUE,BASESIMP,01,30  #  10 ||< BASESIMP config type   1
+*surf,Wall-11,VERT,-,-,-,<OPT-BsmWall>,OPAQUE,EXTERIOR,0,0  #  11 ||< external
+*surf,Wall-12,VERT,Wall-2,-,-,<OPT-BsmWall>,OPAQUE,EXTERIOR,0,0  #  12 ||< external
+*surf,Wall-13,VERT,-,-,-,<OPT-BsmWall>,OPAQUE,EXTERIOR,0,0  #  13 ||< external
+*surf,Wall-14,VERT,-,-,-,<OPT-BsmWall>,OPAQUE,EXTERIOR,0,0  #  14 ||< external
+*surf,Wall-15,VERT,-,-,-,<OPT-BsmWall>,OPAQUE,EXTERIOR,0,0  #  15 ||< external
+*surf,Wall-16,VERT,-,-,-,<OPT-BsmWall>,OPAQUE,EXTERIOR,0,0  #  16 ||< external
 *surf,Wall-17,VERT,-,-,-,<Opt-MainWall-Dry>,OPAQUE,ANOTHER,02,08  #  17 ||< Wall-8:garage
 *surf,Wall-18,VERT,-,-,-,<Opt-MainWall-Dry>,OPAQUE,ANOTHER,02,07  #  18 ||< Wall-7:garage
 *surf,Top,CEIL,-,-,-,floor_inv,OPAQUE,ANOTHER,03,09  #  19 ||< Top:first_fl
-*surf,Base,FLOR,-,-,-,bsm_flr,OPAQUE,BASESIMP,01,20  #  20 ||< BASESIMP config type   1
+*surf,Base,FLOR,-,-,-,<OPT-BsmFloor>,OPAQUE,BASESIMP,01,20  #  20 ||< BASESIMP config type   1
 *surf,gr_th,CEIL,Top_th,-,-,floor_inv,OPAQUE,ANOTHER,03,11  #  21 ||< great_th:first_fl
 *surf,gr_th2,CEIL,Top_th,-,-,floor_inv,OPAQUE,ANOTHER,03,12  #  22 ||< great_th_2:first_fl
 *surf,Top-23,CEIL,Top_th,-,-,floor_inv,OPAQUE,ANOTHER,03,13  #  23 ||< Top-23:first_fl

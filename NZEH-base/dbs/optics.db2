@@ -359,7 +359,7 @@ Tpl-2coats    :Triple-pane argon + low-e
   1.000 0.001 0.001 0.001 0.001 0.001
   1.520 0.091 0.091 0.083 0.061 0.030
 # 12 char id |  description       | thick | blind
-  DblLeHcAir  : Double low-e (high gain), air 
+DblLeHcAir    : Double low-e (high gain), air 
 # def lyr, tmc lyr, vis trn, sol refl, sol absor, U val
 # 1   2  3.###  4.###  5.###  6.###
   1   3  0.750  0.075  0.110  1.82
@@ -372,7 +372,7 @@ Tpl-2coats    :Triple-pane argon + low-e
   1.000 0.001 0.001 0.001 0.001 0.001
   1.520 0.095 0.096 0.091 0.076 0.044
 # 12 char id |  description       | thick | blind
-  DblLeHcArg  : Double low-e (high gain), argon
+DblLeHcArg    : Double low-e (high gain), argon
 # def lyr, tmc lyr, vis trn, sol refl, sol absor, U val
 # 1   2  3.###  4.###  5.###  6.###
   1   3  0.750  0.075  0.110  1.65
@@ -385,7 +385,7 @@ Tpl-2coats    :Triple-pane argon + low-e
   1.000 0.001 0.001 0.001 0.001 0.001
   1.520 0.097 0.098 0.093 0.078 0.045
 # 12 char id |  description       | thick | blind
-  TplLeHcKry  : Triple low-e (high gain), krypton
+TplLeHcKry    : Triple low-e (high gain), krypton
 # def lyr, tmc lyr, vis trn, sol refl, sol absor, U val
 # 1   2  3.###  4.###  5.###  6.###
   1   5  0.640  0.075  0.110  1.08
@@ -400,7 +400,7 @@ Tpl-2coats    :Triple-pane argon + low-e
   1.000 0.001 0.001 0.001 0.001 0.001
   1.520 0.059 0.059 0.054 0.041 0.021
 # 12 char id |  description       | thick | blind
-  TplLeScKry  : Triple low-e (high gain), krypton
+TplLeScKry    : Triple low-e (high gain), krypton
 # def lyr, tmc lyr, vis trn, sol refl, sol absor, U val
 # 1   2  3.###  4.###  5.###  6.###
   1   5  0.590  0.075  0.110  1.14
@@ -415,7 +415,7 @@ Tpl-2coats    :Triple-pane argon + low-e
   1.000 0.001 0.001 0.001 0.001 0.001
   1.520 0.005 0.005 0.005 0.004 0.003
 # 12 char id |  description       | thick | blind
-  DblLeScArg  : Double low-e (low gain), argon
+DblLeScArg    : Double low-e (low gain), argon
 # def lyr, tmc lyr, vis trn, sol refl, sol absor, U val
 # 1   2  3.###  4.###  5.###  6.###
   1   3  0.650  0.075  0.110  1.65

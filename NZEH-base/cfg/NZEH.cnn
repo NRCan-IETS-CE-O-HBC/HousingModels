@@ -1,16 +1,16 @@
 *connections for NZEH
 *Date Mon Oct  3 21:25:36 2011
     134   # number of connections 
-   1   1   6   1   4  #    1 Wall-1 in bsmt is BASESIMP fndtn
-   1   2   6   1   4  #    2 Wall-2 in bsmt is BASESIMP fndtn
-   1   3   6   1  12  #    3 Wall-3 in bsmt is BASESIMP fndtn
-   1   4   6   1   4  #    4 Wall-4 in bsmt is BASESIMP fndtn
-   1   5   6   1   2  #    5 Wall-5 in bsmt is BASESIMP fndtn
-   1   6   6   1   4  #    6 Wall-6 in bsmt is BASESIMP fndtn
-   1   7   6   1  10  #    7 Wall-7 in bsmt is BASESIMP fndtn
-   1   8   6   1  10  #    8 Wall-8 in bsmt is BASESIMP fndtn
+   1   1   6   <OPT-BsmCnnIndex>   4  #    1 Wall-1 in bsmt is BASESIMP fndtn
+   1   2   6   <OPT-BsmCnnIndex>   4  #    2 Wall-2 in bsmt is BASESIMP fndtn
+   1   3   6   <OPT-BsmCnnIndex>  12  #    3 Wall-3 in bsmt is BASESIMP fndtn
+   1   4   6   <OPT-BsmCnnIndex>   4  #    4 Wall-4 in bsmt is BASESIMP fndtn
+   1   5   6   <OPT-BsmCnnIndex>   2  #    5 Wall-5 in bsmt is BASESIMP fndtn
+   1   6   6   <OPT-BsmCnnIndex>   4  #    6 Wall-6 in bsmt is BASESIMP fndtn
+   1   7   6   <OPT-BsmCnnIndex>  10  #    7 Wall-7 in bsmt is BASESIMP fndtn
+   1   8   6   <OPT-BsmCnnIndex>  10  #    8 Wall-8 in bsmt is BASESIMP fndtn
    1   9   3   3  10  #    9 Top_th in bsmt >|< Top_th in first_fl
-   1  10   6   1  30  #   10 Base_th in bsmt is BASESIMP fndtn
+   1  10   6   <OPT-BsmCnnIndex>  30  #   10 Base_th in bsmt is BASESIMP fndtn
    1  11   0   0   0  #   11 Wall-11 in bsmt is External
    1  12   0   0   0  #   12 Wall-12 in bsmt is External
    1  13   0   0   0  #   13 Wall-13 in bsmt is External
@@ -20,7 +20,7 @@
    1  17   3   2   8  #   17 Wall-17 in bsmt >|< Wall-8 in garage
    1  18   3   2   7  #   18 Wall-18 in bsmt >|< Wall-7 in garage
    1  19   3   3   9  #   19 Top in bsmt >|< Top in first_fl
-   1  20   6   1  20  #   20 Base in bsmt is BASESIMP fndtn
+   1  20   6   <OPT-BsmCnnIndex>  20  #   20 Base in bsmt is BASESIMP fndtn
    1  21   3   3  11  #   21 gr_th in bsmt >|< great_th in first_fl
    1  22   3   3  12  #   22 gr_th2 in bsmt >|< great_th_2 in first_fl
    1  23   3   3  13  #   23 Top-23 in bsmt >|< Top-23 in first_fl

@@ -8,7 +8,8 @@ use strict;
 use Cwd;
 use Cwd 'chdir';
 use File::Find;
-#use Math::Trig;
+use Math::Trig;
+
 
 
 
@@ -46,6 +47,14 @@ sub stream_out($){
     print $txt;
   }
 }
+
+sub round($){
+  my ($var) = @_; 
+  my $tmpRounded = int( abs($var) + 0.5);
+  my $finalRounded = $var >= 0 ? 0 + $tmpRounded : 0 - $tmpRounded;
+  return $finalRounded;
+}
+
 
 #-------------------------------------------------------------------
 # Display a fatal error and quit.
@@ -93,7 +102,8 @@ my @search_these_exts=( "cfg",
                         "con",
                         "vnt",
                         "geo",
-                        "constrdb"
+                        "constrdb",
+                        "cnn"
                       );
                        
 #-------------------------------------------------------------------
@@ -233,27 +243,10 @@ stream_out (" >               OptionFile: $gOptionFile \n");
 
 # Parse option file 
 open ( OPTIONS, "$gOptionFile") or fatalerror("Could not read $gOptionFile!");
-stream_out("\n\nReading $gOptionFile... \n");
+stream_out("\n\nReading $gOptionFile...");
 my $linecount = 0;
 
 
-## Optimization substututions 
-#
-#
-#*attribute:start    
-#*attribute:name = Opt:AirTightness
-#*attribute:tag  = <Opt:AirTightness>
-#
-#*option:Air-Tightness-0:value =   base.aim  
-#*option:Air-Tightness-0:cost  =   0
-#
-#*option:Air-Tightness-1:value =   R2000.aim
-#*option:Air-Tightness-1:cost  =   500
-#
-#*option:Air-Tightness-2:value =   PassiveHouse.aim
-#*option:Air-Tightness-2:cost  =   1200
-#
-#*attribute:end
 
 my $currentAttributeName ="";
 my $AttributeOpen = 0;
@@ -269,7 +262,7 @@ while ( my $line = <OPTIONS> ){
 
     
   
-  stream_out ("  Line: $linecount >$line<\n");
+  #stream_out ("  Line: $linecount >$line<\n");
   
   if ( $line ) {
   
@@ -314,6 +307,14 @@ while ( my $line = <OPTIONS> ){
         $currentOptions{$OptionName}{"cost"} = $value; 
       
       }
+      
+      if ( $token =~ /^\*option:.+:meta$/){
+      
+        my( $rubbish, $OptionName, $junk ) = split /:/, $token;
+        
+        $currentOptions{$OptionName}{"meta"} = $value; 
+      
+      }
     
     }
     
@@ -342,11 +343,16 @@ while ( my $line = <OPTIONS> ){
           $gOptions{$currentAttributeName}{"options"}{$optionIndex}{"values"}{$ValueIndex}
                                     = $currentOptions{$optionIndex}{"values"}{$ValueIndex};
         
+        
         }
       
                                     
         $gOptions{$currentAttributeName}{"options"}{$optionIndex}{"cost"}
-                                    = $currentOptions{$optionIndex}{"cost"}; 
+                                  = $currentOptions{$optionIndex}{"cost"}; 
+        
+        $gOptions{$currentAttributeName}{"options"}{$optionIndex}{"meta"}
+                                  = $currentOptions{$optionIndex}{"meta"};
+        
         
         # Strip ($) from cost, if present.          
         $gOptions{$currentAttributeName}{"options"}{$optionIndex}{"cost"}=~s/\$//g;
@@ -366,14 +372,14 @@ while ( my $line = <OPTIONS> ){
 }
 close (OPTIONS);
 
-
+stream_out ("...done.\n") ; 
 
 # Parse configuration (choice file ) 
 
 
 open ( CHOICES, "$gChoiceFile" ) or fatalerror("Could not read $gChoiceFile!");
 
-stream_out("\n\nReading $gChoiceFile... \n");
+stream_out("\n\nReading $gChoiceFile...");
 
 $linecount = 0;
 
@@ -382,7 +388,7 @@ while ( my $line = <CHOICES> ){
   $line =~ s/\#.*$//g; 
   $line =~ s/\s*//g;
   $linecount++;
-  stream_out ("  Line: $linecount >$line<\n");
+  #stream_out ("  Line: $linecount >$line<\n");
   
   if ( $line ) {
   my ($attribute, $value) = split /:/, $line;
@@ -424,11 +430,43 @@ while ( my ( $attribute, $choice) = each %gChoices ){
     $allok = 0;
   }    
   
+   
+  
+  my ($BaseOption,$ScaleFactor,$BaseChoice,$BaseCost);
   
   if ($allok){
     my $cost  = $gOptions{$attribute}{"options"}{$choice}{"cost"};
     
-    stream_out ( "\n\nMAPPING for $attribute = $choice (@ \$$cost inc. cost): \n"); 
+    my $ScaleCost = 0; 
+    if ( $cost =~/\<MULTIPLY-COST:.+/){
+    
+      my $multiplier = $cost;
+      
+      $multiplier =~ s/\<//g;
+      $multiplier =~ s/\>//g;
+      $multiplier =~ s/MULTIPLY-COST://g;
+    
+      ($BaseOption,$ScaleFactor) = split /\*/, $multiplier;
+      
+      $BaseChoice = $gChoices{$BaseOption};
+      $BaseCost   = $gOptions{$BaseOption}{"options"}{$BaseChoice}{"cost"};
+      
+      my $CompCost = $BaseCost * $ScaleFactor; 
+    
+      $ScaleCost = 1; 
+      
+      $gOptions{$attribute}{"options"}{$choice}{"cost"} = $CompCost; 
+    
+    }
+    
+    
+    stream_out ( "\n\nMAPPING for $attribute = $choice (@ \$".
+                 round($gOptions{$attribute}{"options"}{$choice}{"cost"}).
+                 " inc. cost): \n"); 
+    if ( $ScaleCost ){
+      stream_out (     "  (cost computed as $ScaleFactor *  ".round($BaseCost)." [cost of $BaseChoice])\n");
+ 
+    }
     
     my $TagHash = $gOptions{$attribute}{"tags"}; 
     my $ValHash = $gOptions{$attribute}{"options"}{$choice}{"values"};
@@ -438,19 +476,54 @@ while ( my ( $attribute, $choice) = each %gChoices ){
       my $tag   = ${$TagHash}{$tagIndex};
       my $value = ${$ValHash}{$tagIndex};
       
-      #stream_out ("          looking for : \$gOptions{ $attribute }{\"options\"}{ $choice }{\"values\"}\n");
+      
+      
+#      stream_out ("          looking for : \$gOptions{ $attribute }{\"options\"}{ $choice }{\"values\"}\n");
+      
       stream_out ("          $tag -> $value \n");
       
+      if ( $value =~/\<METASELECT:.+/ ) {
       
-    
+        # If value contains a METASELECT statement, turn statement 
+        # into a ruleset we can use. 
+        $value =~ s/\<//g;
+        $value =~ s/\>//g;
+        $value =~ s/^METASELECT://g;
+        
+        my ($MetaOption,$MetaRuleString) = split /\?/ , $value;  
+        my @MetaRules = split /,/, $MetaRuleString; 
+        my %MetaRuleResult;
+        foreach my $rule (@MetaRules){
+          my ($match,$result)=split /:/, $rule; 
+          $MetaRuleResult{$match} = $result;
+        }
+        
+        # Find the matching option for specified statement
+        
+        my($MetaChoice) = $gChoices{$MetaOption};
+        my($MetaValue)  = $gOptions{$MetaOption}{"options"}{$MetaChoice}{"meta"}; 
+        my($ReMapValue) = $MetaRuleResult{$MetaValue};
+        #stream_out ("          $tag -> $value \n");
+        
+        stream_out ("             ->  REMAPPING Metaselect: $MetaOption | $MetaRuleString \n");
+        stream_out ("                           Querying  : $MetaChoice in option $MetaOption  \n");
+        stream_out ("                           Found:    : $MetaValue \n");
+        stream_out ("                           Rewriting : ".${$ValHash}{$tagIndex}."->".$ReMapValue."\n");
+        
+        $gOptions{$attribute}{"options"}{$choice}{"values"}{$tagIndex} = $ReMapValue; 
+        stream_out ("          $tag -> ".$gOptions{$attribute}{"options"}{$choice}{"values"}{$tagIndex}." \n");        
+      }
+      
+      
+
     }
   }
 }
 
+
 if ( ! $allok ) { 
     fatalerror(" Choices in $gChoiceFile do not match options in $gOptionFile!");
 }
-
 
 
 # Now create a copy of our base ESP-r file for manipulation. 
@@ -518,11 +591,11 @@ foreach my  $attribute ( sort keys %gChoices ){
   
   $gTotalCost += $cost;
 
-  stream_out( " +  $cost ( $attribute : $choice ) \n");
+  stream_out( " +  ".round($cost)." ( $attribute : $choice ) \n");
   
 }
 stream_out ( " --------------------------------------------------------\n");
-stream_out ( " =   $gTotalCost ( Total incremental cost ) \n");
+stream_out ( " =   ".round($gTotalCost)." ( Total incremental cost ) \n");
 
 # Parse the output file 
 
