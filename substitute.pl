@@ -9,7 +9,7 @@ use Cwd;
 use Cwd 'chdir';
 use File::Find;
 use Math::Trig;
-
+use library; 
 
 
 
@@ -26,7 +26,7 @@ my $gWorkingCfgPath     = "$gWorkingModelFolder/cfg";
 my $gModelCfgFile       = "NZEH.cfg";
 my $gISHcmd             = "./run.sh $gModelCfgFile";
 my $gPRJcmd             = "$gPRJpath -mode text -file $gModelCfgFile -act update_con_files";
-my $gBPScmd             = "$gBPSpath -file $gModelCfgFile -mode text -p jan silent";
+my $gBPScmd             = "$gBPSpath -file $gModelCfgFile -mode text -p fullyear silent";
 
 my $gSkipISH            = 0; 
 
@@ -38,60 +38,6 @@ my @gChoiceOrder;
 $gTest_params{"verbosity"} = "quiet"; 
 $gTest_params{"logfile"}   = "log.txt"; 
 
-#-------------------------------------------------------------------
-# Optionally write text to buffer
-#-------------------------------------------------------------------
-sub stream_out($){
-  my($txt) = @_;
-  if ($gTest_params{"verbosity"} ne "quiet"){
-    print $txt;
-  }
-}
-
-sub round($){
-  my ($var) = @_; 
-  my $tmpRounded = int( abs($var) + 0.5);
-  my $finalRounded = $var >= 0 ? 0 + $tmpRounded : 0 - $tmpRounded;
-  return $finalRounded;
-}
-
-
-#-------------------------------------------------------------------
-# Display a fatal error and quit.
-#-------------------------------------------------------------------
-
-sub fatalerror($){
-  my ($err_msg) = @_;
-
-  if ( $gTest_params{"verbosity"} eq "very_verbose" ){
-    #print echo_config();
-  }
-  print "\nsubstitute.pl -> Fatal error: \n";
-  print " >>> $err_msg \n\n";
-  die;
-}
-
-
-#--------------------------------------------------------------------
-# Perform system commands with optional redirection
-#--------------------------------------------------------------------
-sub execute($){
-  my($command) =@_;
-  my $result;
-  if ($gTest_params{"verbosity"} eq "very_verbose"){    
-    print "\n > executing $command \n";
-    print   " > from path ".getcwd()." \n";
-    system ($command); 
-    return; 
-  }
-  
-  if ($gTest_params{"logfile"}){
-    $result = system("$command >$gTest_params{\"logfile\"} 2>&1 ");
-  }else{
-    $result = system($command);
-  }
-  return $result;
-}
 
 
 # List of extentions that we should operate on
@@ -123,7 +69,7 @@ my $Help_msg = "
  
   ./substitute.pl -c optimization-choices.opt \
                   -o optimization-options.opt  
-                  -v(v) (--skipISH);
+                  -v(v);
                        
 ";
 # dump help text, if no arguement given
@@ -215,13 +161,7 @@ foreach $arg (@processed_args){
 
       last SWITCH;
     }    
-    if ( $arg =~ /^--skipISH/ ){
-      # stream out progess messages
-      $gSkipISH = 1;
-      
-      last SWITCH;
-    }
-    
+   
     
     
     if ( $arg =~ /^--very_verbose/ ){
@@ -554,29 +494,6 @@ my $gMasterPath = getcwd();
         },  $gWorkingModelFolder );
 
 
-# Run the simulation 
-chdir $gWorkingCfgPath; 
-stream_out ("\n\n Moved to path:". getcwd()."\n"); 
-
-stream_out ("\n\n Invoking prj to update con files (\"$gPRJcmd\")...");
-execute($gPRJcmd);
-stream_out ("done. \n");  
-
-
-
-if ( ! $gSkipISH ){
-  stream_out("\n\n Invoking ish via run.sh...");
-  execute($gISHcmd); 
-  stream_out("done...\n")
-}
-
-
-stream_out ("\n\n Invoking ESP-r (\"$gBPScmd\")..." ); 
-execute($gBPScmd); 
-stream_out ("done. \n");         
-        
-# Compile results from simulation 
-
 # Estimate total cost of upgrades
 
 my $gTotalCost = 0;         
@@ -597,59 +514,8 @@ foreach my  $attribute ( sort keys %gChoices ){
 stream_out ( " --------------------------------------------------------\n");
 stream_out ( " =   ".round($gTotalCost)." ( Total incremental cost ) \n");
 
-# Parse the output file 
-
-open (SIMRESULTS, "out.summary") or fatalerror("Could not open ".getcwd()."/out.summary!");
 
 
-my %gSimResults; 
-
-while ( my $line = <SIMRESULTS> ){
-
-  my ( $token, $value, $units ) = split / /, $line; 
-  
-  if ( $units =~ /GJ/ ) {
-  
-    $gSimResults{$token} = $value; 
-  
-  }
-  
-}
-
-
-close(SIMRESULTS);
-
-stream_out("\n\n Energy Consumption: \n\n") ; 
-
-my $gTotalEnergy = 0;
-
-foreach my $token ( sort keys %gSimResults ){
-
-  my $value = $gSimResults{$token};
-  $gTotalEnergy += $value; 
-  
-  stream_out ( "  + $value ( $token, GJ ) \n");
-
-}
-
-stream_out ( " --------------------------------------------------------\n");
-stream_out ( "    $gTotalEnergy ( Total energy, GJ ) \n");
-
-
-# Save output files
-if ( ! -d "$gMasterPath/sim-output" ) {
-
-  execute("mkdir $gMasterPath/sim-output") or die ("Could not create $gMasterPath/sim-output!"); 
-  
-}
-
-execute("cp $gMasterPath/$gWorkingCfgPath/out* $gMasterPath/sim-output/");
-        
-        
-# Cleanup
-stream_out("\n\n Deleting working folder...");
-#system ("rm -fr $gWorkingModelFolder ");
-stream_out("done.");
 
 ########################################################################
 # Search through an input file and swap values for tags defined in options 
