@@ -20,7 +20,7 @@ my $gModelCfgFile       = "NZEH.cfg";
 
 my $gISHcmd             = "./run.sh $gModelCfgFile";
 my $gPRJcmd             = "$gPRJpath -mode text -file $gModelCfgFile -act update_con_files";
-my $gBPScmd             = "$gBPSpath -file $gModelCfgFile -mode text -p jan silent";
+my $gBPScmd             = "$gBPSpath -file $gModelCfgFile -mode text -p fullyear silent";
 
 my $gSkipISH            = 0; 
 

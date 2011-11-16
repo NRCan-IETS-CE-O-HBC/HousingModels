@@ -32,6 +32,8 @@ my @holidays = (  3,    # New years (falls on sat, observed on Monday)
 #=======================================================================
 # Fuel cost parameters: ELECTRICITY
 
+my $ElecRateEsc = 1.49; 
+
 # Which months are summer, and which are winter?
 my @ElecRatePeriods = ( "winter",   # Jan 
                         "winter",   # Feb 
@@ -109,9 +111,9 @@ my %ElecPeakSchedule= (
 # How much do we change for on-peak, mid-peak and off peak?      
 my %ElecPeakCharges; 
 
-$ElecPeakCharges{"summer"}{"off-peak"} = 0.062;  # $/kWh
-$ElecPeakCharges{"summer"}{"mid-peak"} = 0.092;
-$ElecPeakCharges{"summer"}{"on-peak"}  = 0.108;
+$ElecPeakCharges{"summer"}{"off-peak"} = 0.062 * $ElecRateEsc;  # $/kWh
+$ElecPeakCharges{"summer"}{"mid-peak"} = 0.092 * $ElecRateEsc;
+$ElecPeakCharges{"summer"}{"on-peak"}  = 0.108 * $ElecRateEsc;
 
 $ElecPeakCharges{"winter"}{"off-peak"} = $ElecPeakCharges{"summer"}{"off-peak"} ;
 $ElecPeakCharges{"winter"}{"mid-peak"} = $ElecPeakCharges{"summer"}{"mid-peak"} ;
@@ -129,8 +131,10 @@ my $ElecTotalOtherCharges = (     0.0108   # Transmission
 #=======================================================================                           
 # Fuel cost parameters: Natural Gas
 
+my $NGasIncreaseFrac    = 1.53;      # Scale for future forecast
+
 my $NGasFixedCharge     = 19.       ; # $ / month; 
-my $NGasSupplyCharge    = 0.136891  ; # $ / m3
+my $NGasSupplyCharge    = 0.136891 * $NGasIncreaseFrac ; # $ / m3
 my $NGasTrasportCharge  = 0.057181  ; # $ / m3
 my %NGasDeliveryTier    = (    30 => 0.082878, 
                                85 => 0.078155,
@@ -346,7 +350,7 @@ for ( $row = 0; $row < $NumberOfRows; $row++){
        
   #stream_out ("  $CurrMonth $CurrDay $CurrHour | $CurrElecRatePeriod - $CurrPeakPeriod ($WeekendOrHoliday)  $ElecConsumption [kWh] * ( $ElecVarRate + $ElecTotalOtherCharges [\$/kWh] ) = $ElecConsumptionCost  \n");        
 
-  stream_out ("  $CurrMonth $CurrDay $CurrHour | $MonthGasConsumption -> $CurrGasTarrif | $GasConsumptionCost += $CurrentGasConsumption * $CurrGasTarrif \n"); 
+  #stream_out ("  $CurrMonth $CurrDay $CurrHour | $MonthGasConsumption -> $CurrGasTarrif | $GasConsumptionCost += $CurrentGasConsumption * $CurrGasTarrif \n"); 
   
   
 }
