@@ -1,4 +1,5 @@
 #!/bin/sh
+echo "" 
 echo "-- Input file ---------------------------------------------"
 echo "$1"
 echo "-- Processing shading & Isolation -------------------------"
