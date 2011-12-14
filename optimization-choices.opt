@@ -1,4 +1,9 @@
 # Optimization substututions 
+# Set the orientation for the model (N,S,E,W, or AVG to run all four directions
+# and compute an average result)
+GOconfig_rotate      : S
+
+
 
 # Turn orignial design windows opaque ( NoWindows!)
 # or transparent (MinWindows). NoWindows doesn't presently work!
@@ -71,7 +76,7 @@ Opt-BasementWallInsulation  : OBC-min-R12
 #    TripleLowESoftCoatKryFill
 #    DoubleLowESoftCoatArgFill
 
-Opt-CasementWindows  : DoubleLowEHardCoatAirFill
+Opt-CasementWindows  : DoubleLowESoftCoatArgFill
 
 
 # Exposed floor over garage (affects floor
