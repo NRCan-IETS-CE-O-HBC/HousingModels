@@ -1,0 +1,89 @@
+# Optimization substututions 
+
+# Set the orientation for the model (N,S,E,W, or AVG to run all four directions
+# and compute an average result)
+GOconfig_rotate      : %GOtag:GOconfig_rotate%
+
+
+# Turn orignial design windows opaque ( NoWindows!)
+# or transparent (MinWindows). NoWindows doesn't presently work!
+
+Opt-BaseWindows      : MinWindows
+
+# Template file for %stepNumber%
+# Add extra windows ("Yes" or "No") 
+
+Opt-ExtWinTopFl-1    : %GOtag:Opt-ExtWinTopFl-1%   # Yes/No : Top floor, front of house 
+Opt-ExtWinTopFl-2    : %GOtag:Opt-ExtWinTopFl-2%   # Yes/No : 
+Opt-ExtWinTopFl-3    : %GOtag:Opt-ExtWinTopFl-3%   # Yes/No : 
+Opt-ExtWinFirstFl-1  : %GOtag:Opt-ExtWinFirstFl-1% # Yes/No : First floor, all sides
+Opt-ExtWinFirstFl-2  : %GOtag:Opt-ExtWinFirstFl-2% # Yes/No : 
+Opt-ExtWinFirstFl-3  : %GOtag:Opt-ExtWinFirstFl-3% # Yes/No : 
+Opt-ExtWinFirstFl-4  : %GOtag:Opt-ExtWinFirstFl-4% # Yes/No : 
+Opt-ExtWinFirstFl-5  : %GOtag:Opt-ExtWinFirstFl-5% # Yes/No : 
+Opt-ExtWinFirstFl-6  : %GOtag:Opt-ExtWinFirstFl-6% # Yes/No : 
+Opt-ExtWinBedroom-1  : %GOtag:Opt-ExtWinBedroom-1% # Yes/No : Bedroom (back)
+Opt-ExtWinBsmt-1     : %GOtag:Opt-ExtWinBsmt-1%    # Yes/No : Basement (back)
+Opt-ExtWinMaster-1   : %GOtag:Opt-ExtWinMaster-1%  # Yes/No : Master (back)
+
+
+Opt-AirTightness     : %GOtag:Opt-AirTightness%
+
+Opt-MainWall         : %GOtag:Opt-MainWall%
+
+
+# Add extra drywall to wall constructions 
+# Options: 
+#   OneSheet
+#   TwoSheets
+Opt-ExtraDrywall     : OneSheet
+
+
+Opt-Ceilings         : %GOtag:Opt-Ceilings%
+
+
+# Basement slab insulation 
+# Choices: 
+#   NoInsulation
+#   R10UnderSlab
+#   R10UnderSlab+edge
+#   R12UnderSlab+edge
+#   R24UnderSlab+edge
+Opt-BasementSlabInsulation  : NoInsulation
+
+# Foundation walls. 
+# Choices 
+#  OBC-min-R12
+#  Rigid+Batt-R30
+#  Rigid+Blown-R43
+#  ICF-base-R22
+#  ICF-base-R26
+#  ICF-base-R32
+#  ICF-base-R41
+#  ICF-base-R51     
+#  ICF-base-R51r    
+
+Opt-BasementWallInsulation  : OBC-min-R12
+
+
+# Optical and themral characteristics of casement windows (currently 
+# all windows in model. 
+# Choices: 
+#   "OriginalGlassParam" - Neil's original dbl-low-e spec
+#    DoubleLowEHardCoatAirFill
+#    DoubleLowEHardCoatArgFill
+#    TripleLowEHardCoatKryFill
+#    TripleLowESoftCoatKryFill
+#    DoubleLowESoftCoatArgFill
+
+Opt-CasementWindows  : %GOtag:Opt-CasementWindows%
+
+
+# Exposed floor over garage (affects floor
+# sections in Master and Top floor)
+# Choices:
+#  BaseExpFloor-R31
+#  ExpFloorFlash&Batt-R36
+#  ExpFloorFoamed-R52
+
+Opt-ExposedFloor     : BaseExpFloor-R31
