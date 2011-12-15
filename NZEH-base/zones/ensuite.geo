@@ -35,7 +35,7 @@ ensuite describes a the bathroom
 *surf,Wall-3,VERT,-,-,-,int_wl,OPAQUE,ANOTHER,06,01  #   3 ||< Wall-1:bedroom
 *surf,Wall-4,VERT,-,-,-,int_wl,OPAQUE,ANOTHER,07,04  #   4 ||< Wall-4:top_fl
 *surf,Top-5,CEIL,-,-,-,<Opt-Ceiling>,OPAQUE,ANOTHER,08,10  #   5 ||< Top-5:roof
-*surf,Base-6,FLOR,-,-,-,floor,OPAQUE,ANOTHER,03,17  #   6 ||< ensuit:first_fl
+*surf,Base-6,FLOR,-,-,-,<Opt-IntFloor>,OPAQUE,ANOTHER,03,17  #   6 ||< ensuit:first_fl
 *surf,win,VERT,Wall-2,-,-,<OptBW-Construction>,<OptBW-Optics>,EXTERIOR,0,0  #   7 ||< external
 # 
 *insol,3,0,0,0  # default insolation distribution

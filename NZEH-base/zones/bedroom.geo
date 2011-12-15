@@ -41,7 +41,7 @@ bedroom describes the bedroom
 *surf,Wall-3,VERT,-,-,-,<Opt-MainWall-Bri>,OPAQUE,EXTERIOR,0,0  #   3 ||< external
 *surf,Wall-4,VERT,-,-,-,int_wl,OPAQUE,ANOTHER,07,06  #   4 ||< Wall-6:top_fl
 *surf,Top-5,CEIL,-,-,-,<Opt-Ceiling>,OPAQUE,ANOTHER,08,11  #   5 ||< Top-6:roof
-*surf,Base-6,FLOR,-,-,-,floor,OPAQUE,ANOTHER,03,16  #   6 ||< bedrom:first_fl
+*surf,Base-6,FLOR,-,-,-,<Opt-IntFloor>,OPAQUE,ANOTHER,03,16  #   6 ||< bedrom:first_fl
 *surf,Wall-7,VERT,-,-,-,int_wl,OPAQUE,ANOTHER,07,05  #   7 ||< Wall-5:top_fl
 *surf,win1,VERT,Wall-2,-,-,<OptBedroomExWin1Con>,<OptBedroomExWin1Opt>,EXTERIOR,0,0  #   8 ||< external
 *surf,win2,VERT,Wall-2,-,-,<OptBW-Construction>,<OptBW-Optics>,EXTERIOR,0,0  #   9 ||< external

@@ -94,7 +94,7 @@ top_fl describes the top floor
 *surf,Wall-9,VERT,-,-,-,<Opt-MainWall-Bri>,OPAQUE,EXTERIOR,0,0  #   9 ||< external
 *surf,Wall-10,VERT,-,-,-,<Opt-MainWall-Bri>,OPAQUE,EXTERIOR,0,0  #  10 ||< external
 *surf,Top-11,CEIL,-,-,-,<Opt-Ceiling>,OPAQUE,ANOTHER,08,08  #  11 ||< Top-11:roof
-*surf,Base-12,FLOR,-,-,-,floor,OPAQUE,ANOTHER,03,19  #  12 ||< Base-12:first_fl
+*surf,Base-12,FLOR,-,-,-,<Opt-IntFloor>,OPAQUE,ANOTHER,03,19  #  12 ||< Base-12:first_fl
 *surf,Wall-13,VERT,-,-,-,int_wl,OPAQUE,ANOTHER,04,04  #  13 ||< Wall-4:master
 *surf,Base-14,FLOR,-,-,-,<Opt-ExposedFloor>,OPAQUE,ANOTHER,02,05  #  14 ||< Top-5:garage
 *surf,win1,VERT,Wall-8,-,-,<OptBW-Construction>,<OptBW-Optics>,EXTERIOR,0,0  #  15 ||< external

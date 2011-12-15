@@ -108,7 +108,7 @@ bsmt describes the NZEH basement
 *surf,Wall-6,VERT,-,-,-,<OPT-BsmWall>,OPAQUE,BASESIMP,01,03  #   6 ||< BASESIMP config type   1
 *surf,Wall-7,VERT,-,-,-,<OPT-BsmWall>,OPAQUE,BASESIMP,01,08  #   7 ||< BASESIMP config type   1
 *surf,Wall-8,VERT,-,-,-,<OPT-BsmWall>,OPAQUE,BASESIMP,01,06  #   8 ||< BASESIMP config type   1
-*surf,Top_th,CEIL,gr_th,-,-,floor_inv,OPAQUE,ANOTHER,03,10  #   9 ||< Top_th:first_fl
+*surf,Top_th,CEIL,gr_th,-,-,<Opt-IntFloorInv>,OPAQUE,ANOTHER,03,10  #   9 ||< Top_th:first_fl
 *surf,Base_th,FLOR,-,-,-,<OPT-BsmFloor>,OPAQUE,BASESIMP,01,30  #  10 ||< BASESIMP config type   1
 *surf,Wall-11,VERT,-,-,-,<OPT-BsmWall>,OPAQUE,EXTERIOR,0,0  #  11 ||< external
 *surf,Wall-12,VERT,Wall-2,-,-,<OPT-BsmWall>,OPAQUE,EXTERIOR,0,0  #  12 ||< external
@@ -118,13 +118,13 @@ bsmt describes the NZEH basement
 *surf,Wall-16,VERT,-,-,-,<OPT-BsmWall>,OPAQUE,EXTERIOR,0,0  #  16 ||< external
 *surf,Wall-17,VERT,-,-,-,<Opt-MainWall-Dry>,OPAQUE,ANOTHER,02,08  #  17 ||< Wall-8:garage
 *surf,Wall-18,VERT,-,-,-,<Opt-MainWall-Dry>,OPAQUE,ANOTHER,02,07  #  18 ||< Wall-7:garage
-*surf,Top,CEIL,-,-,-,floor_inv,OPAQUE,ANOTHER,03,09  #  19 ||< Top:first_fl
+*surf,Top,CEIL,-,-,-,<Opt-IntFloorInv>,OPAQUE,ANOTHER,03,09  #  19 ||< Top:first_fl
 *surf,Base,FLOR,-,-,-,<OPT-BsmFloor>,OPAQUE,BASESIMP,01,20  #  20 ||< BASESIMP config type   1
-*surf,gr_th,CEIL,Top_th,-,-,floor_inv,OPAQUE,ANOTHER,03,11  #  21 ||< great_th:first_fl
-*surf,gr_th2,CEIL,Top_th,-,-,floor_inv,OPAQUE,ANOTHER,03,12  #  22 ||< great_th_2:first_fl
-*surf,Top-23,CEIL,Top_th,-,-,floor_inv,OPAQUE,ANOTHER,03,13  #  23 ||< Top-23:first_fl
-*surf,din_th1,CEIL,Top_th,-,-,floor_inv,OPAQUE,ANOTHER,03,14  #  24 ||< din_th1:first_fl
-*surf,din_th2,CEIL,Top_th,-,-,floor_inv,OPAQUE,ANOTHER,03,15  #  25 ||< din_th2:first_fl
+*surf,gr_th,CEIL,Top_th,-,-,<Opt-IntFloorInv>,OPAQUE,ANOTHER,03,11  #  21 ||< great_th:first_fl
+*surf,gr_th2,CEIL,Top_th,-,-,<Opt-IntFloorInv>,OPAQUE,ANOTHER,03,12  #  22 ||< great_th_2:first_fl
+*surf,Top-23,CEIL,Top_th,-,-,<Opt-IntFloorInv>,OPAQUE,ANOTHER,03,13  #  23 ||< Top-23:first_fl
+*surf,din_th1,CEIL,Top_th,-,-,<Opt-IntFloorInv>,OPAQUE,ANOTHER,03,14  #  24 ||< din_th1:first_fl
+*surf,din_th2,CEIL,Top_th,-,-,<Opt-IntFloorInv>,OPAQUE,ANOTHER,03,15  #  25 ||< din_th2:first_fl
 *surf,win1,VERT,Wall-12,-,-,<OptBW-Construction>,<OptBW-Optics>,EXTERIOR,0,0  #  26 ||< external
 *surf,win2,VERT,Wall-12,-,-,<OptBsmtExWin1Con>,<OptBsmtExWin1Opt>,EXTERIOR,0,0  #  27 ||< external
 *surf,win3,VERT,Wall-12,-,-,<OptBW-Construction>,<OptBW-Optics>,EXTERIOR,0,0  #  28 ||< external

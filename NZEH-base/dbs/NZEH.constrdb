@@ -1,6 +1,6 @@
 # composite construction db defined in ../dbs/NZEH.constrdb
 # based on materials db ../dbs/material.db3.a
-  106  # no of composites 
+  110  # no of composites 
 # layers  description   optics name   symmetry tag
     2    bsm_flr       OPAQ  OPAQUE        NONSYMMETRIC  
 # mat ref thickness (m) mat descr & air gap R
@@ -810,3 +810,42 @@
    79    0.0125  OSB   
   234    0.2038  Foamed polyisocuraniate
   301    0.0125  Drywall     
+# -------------------------------------------------------------------
+# ---
+# 107. Floor assemblies for internal mass
+# layers  description   optics name   symmetry tag
+    4    floor2in      OPAQ  OPAQUE        floorInv2in     
+# mat ref thickness (m) mat descr & air gap R
+  301    0.0125  gypsum board : Gypsum board
+    0    0.2410  air  0.170 0.170 0.170
+   72    0.0280  plywood 700d : Plywood (700 density)
+   21    0.0508  Concrete topping 
+# --- 
+# 108. Floor assemblies for internal mass
+# layers  description   optics name   symmetry tag
+    4    floorInv2in   OPAQ  OPAQUE        floor2in     
+# mat ref thickness (m) mat descr & air gap R
+   21    0.0508  Concrete topping
+   72    0.0280  plywood 700d : Plywood (700 density)
+    0    0.2410  air  0.170 0.170 0.170
+  301    0.0125  gypsum board : Gypsum board
+# --- 
+# 109. Floor assemblies for internal mass
+# layers  description   optics name   symmetry tag
+    4    floor1in      OPAQ  OPAQUE        floorInv2in     
+# mat ref thickness (m) mat descr & air gap R
+  301    0.0125  gypsum board : Gypsum board
+    0    0.2410  air  0.170 0.170 0.170
+   72    0.0280  plywood 700d : Plywood (700 density)
+   21    0.0254  Concrete topping 
+# --- 
+# 110. Floor assemblies for internal mass
+# layers  description   optics name   symmetry tag
+    4    floorInv1in   OPAQ  OPAQUE        floor2in     
+# mat ref thickness (m) mat descr & air gap R
+   21    0.0254  Concrete topping
+   72    0.0280  plywood 700d : Plywood (700 density)
+    0    0.2410  air  0.170 0.170 0.170
+  301    0.0125  gypsum board : Gypsum board
+
+   
