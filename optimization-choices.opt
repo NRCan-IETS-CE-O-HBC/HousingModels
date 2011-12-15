@@ -38,9 +38,15 @@ Opt-MainWall         : BaseR21
 #   TwoSheets
 Opt-ExtraDrywall     : OneSheet
 
+# Add concrete to floors (internal partitions only)
+# Options:  
+#   Wood 
+#   1-in-concrete
+#   2-in-concrete
+Opt-FloorSurface     : 2-in-concrete
+
 
 Opt-Ceilings         : CeilingR50
-
 
 # Basement slab insulation 
 # Choices: 
@@ -87,3 +93,5 @@ Opt-CasementWindows  : DoubleLowESoftCoatArgFill
 #  ExpFloorFoamed-R52
 
 Opt-ExposedFloor     : BaseExpFloor-R31
+
+

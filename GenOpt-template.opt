@@ -36,8 +36,11 @@ Opt-MainWall         : %GOtag:Opt-MainWall%
 # Options: 
 #   OneSheet
 #   TwoSheets
-Opt-ExtraDrywall     : OneSheet
+Opt-ExtraDrywall     : %GOtag:Ext-DryWall%
 
+#
+
+Opt-FloorSurface     : %GOtag:Opt-FloorSurface%
 
 Opt-Ceilings         : %GOtag:Opt-Ceilings%
 
@@ -49,7 +52,7 @@ Opt-Ceilings         : %GOtag:Opt-Ceilings%
 #   R10UnderSlab+edge
 #   R12UnderSlab+edge
 #   R24UnderSlab+edge
-Opt-BasementSlabInsulation  : NoInsulation
+Opt-BasementSlabInsulation  : %GOtag:Opt-BasementSlabInsulation%
 
 # Foundation walls. 
 # Choices 
@@ -63,7 +66,7 @@ Opt-BasementSlabInsulation  : NoInsulation
 #  ICF-base-R51     
 #  ICF-base-R51r    
 
-Opt-BasementWallInsulation  : OBC-min-R12
+Opt-BasementWallInsulation  : %GOtag:Opt-BasementWallInsulation%
 
 
 # Optical and themral characteristics of casement windows (currently 
@@ -86,4 +89,4 @@ Opt-CasementWindows  : %GOtag:Opt-CasementWindows%
 #  ExpFloorFlash&Batt-R36
 #  ExpFloorFoamed-R52
 
-Opt-ExposedFloor     : BaseExpFloor-R31
+Opt-ExposedFloor     : %GOtag:Opt-ExposedFloor%

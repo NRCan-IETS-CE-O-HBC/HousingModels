@@ -277,7 +277,8 @@
 
 #-----------------------------------------------------------------------
 # This option sets the airtightness by spec'ing the 
-# apporpriate aim2 input file. 
+# apporpriate aim2 input file. (cost estimates from 
+# Stirling-homes parameters)
 #-----------------------------------------------------------------------
 *attribute:start    
 *attribute:name = Opt-AirTightness
@@ -287,10 +288,10 @@
 *option:TypicalGTA:cost       =   0
 
 *option:R2000:value:1         =   R2000.aim
-*option:R2000:cost            =   500
+*option:R2000:cost            =   2185
                               
 *option:PassiveHouse:value:1  =   PassiveHouse.aim
-*option:PassiveHouse:cost     =   1200
+*option:PassiveHouse:cost     =   3130
 
 *attribute:end
 
@@ -516,6 +517,31 @@
 *option:OneSheet:cost    =   0 
 
 *option:TwoSheets:value:1 =   0.0250
-*option:TwoSheets:cost    =   200 
+*option:TwoSheets:cost    =   1000
 
 *attribute:end
+
+
+#-----------------------------------------------------------------------
+# Concrete on floors  ( Costs need to be checked!)
+#-----------------------------------------------------------------------
+*attribute:start 
+  
+*attribute:name   = Opt-FloorSurface
+*attribute:tag:1  = <Opt-IntFloor>
+*attribute:tag:2  = <Opt-IntFloorInv>
+
+*option:wood:value:1 = floor 
+*option:wood:value:2 = floor_inv 
+*option:wood:cost    = 0
+
+*option:1-in-concrete:value:1 = floor1in 
+*option:1-in-concrete:value:2 = floorInv1in
+*option:1-in-concrete:cost    = 1800
+
+*option:2-in-concrete:value:1 = floor2in 
+*option:2-in-concrete:value:2 = floorInv2in
+*option:2-in-concrete:cost    = 3600
+
+*attribute:end 
+
