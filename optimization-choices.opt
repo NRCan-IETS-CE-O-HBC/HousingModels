@@ -22,14 +22,31 @@ Opt-ExtWinFirstFl-3  : No             #
 Opt-ExtWinFirstFl-4  : No             #
 Opt-ExtWinFirstFl-5  : No             #
 Opt-ExtWinFirstFl-6  : No             #
-Opt-ExtWinBedroom-1  : No             # Bedroom (back)
-Opt-ExtWinBsmt-1     : No             # Basement (back)
-Opt-ExtWinMaster-1   : No             # Master (back)
+Opt-ExtWinBedroom-1  : Yes            # Bedroom (back)
+Opt-ExtWinBsmt-1     : Yes            # Basement (back)
+Opt-ExtWinMaster-1   : Yes            # Master (back)
 
 
-Opt-AirTightness     : TypicalGTA
+# Air-Tightness: 
+#     TypicalGTA
+#     R2000
+#     Cdn1ACH
+#     PassiveHouse (unconfirmed cost data)
+                 
+Opt-AirTightness     : Cdn1ACH
 
-Opt-MainWall         : BaseR21
+# Main wall insulation 
+#  BaseR21
+#  ICFR22
+#  SIPS-R29-Wall
+#  SIPS-R38-Wall
+#  SIPS-R44-Wall
+#  Stud-R38-Wall
+#  Stud-R50-Wall
+#  DblStud-R44-Wall
+#  Truss-R40-Wall
+
+Opt-MainWall         : Stud-R50-Wall
 
 
 # Add extra drywall to wall constructions 
@@ -46,7 +63,7 @@ Opt-ExtraDrywall     : OneSheet
 Opt-FloorSurface     : 2-in-concrete
 
 
-Opt-Ceilings         : CeilingR50
+Opt-Ceilings         : CeilingR100
 
 # Basement slab insulation 
 # Choices: 
@@ -55,7 +72,7 @@ Opt-Ceilings         : CeilingR50
 #   R10UnderSlab+edge
 #   R12UnderSlab+edge
 #   R24UnderSlab+edge
-Opt-BasementSlabInsulation  : NoInsulation
+Opt-BasementSlabInsulation  : R24UnderSlab+edge
 
 # Foundation walls. 
 # Choices 
@@ -69,7 +86,7 @@ Opt-BasementSlabInsulation  : NoInsulation
 #  ICF-base-R51     
 #  ICF-base-R51r    
 
-Opt-BasementWallInsulation  : OBC-min-R12
+Opt-BasementWallInsulation  : Rigid+Batt-R30
 
 
 # Optical and themral characteristics of casement windows (currently 
@@ -82,7 +99,7 @@ Opt-BasementWallInsulation  : OBC-min-R12
 #    TripleLowESoftCoatKryFill
 #    DoubleLowESoftCoatArgFill
 
-Opt-CasementWindows  : DoubleLowESoftCoatArgFill
+Opt-CasementWindows  : TripleLowEHardCoatKryFill
 
 
 # Exposed floor over garage (affects floor
@@ -92,6 +109,8 @@ Opt-CasementWindows  : DoubleLowESoftCoatArgFill
 #  ExpFloorFlash&Batt-R36
 #  ExpFloorFoamed-R52
 
-Opt-ExposedFloor     : BaseExpFloor-R31
+Opt-ExposedFloor     : ExpFloorFoamed-R52
 
+Opt-StandoffPV       : autosize
 
+Opt-SolarDHW         : 1-flat-plate
