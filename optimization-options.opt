@@ -295,14 +295,14 @@
                               
 # Data is unreliable.                               
 *option:PassiveHouse:value:1  =   PassiveHouse.aim
-*option:PassiveHouse:cost     =   3787
+*option:PassiveHouse:cost     =   3787.0
 
 *attribute:end
 
 
 
 #-----------------------------------------------------------------------
-#   Ceilings
+#   Ceilings-Option2
 #-----------------------------------------------------------------------
 *attribute:start 
    
