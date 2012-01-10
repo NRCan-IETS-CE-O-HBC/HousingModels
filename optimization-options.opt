@@ -365,48 +365,59 @@
 ##*option:ICFR22:value:4 =   IcfR22DryR
 #*option:ICFR22:cost    =   25150
 
-*option:SIPS-R29-Wall:value:1 =   SipR29Bri
-*option:SIPS-R29-Wall:value:2 =   SipR29Vin
-*option:SIPS-R29-Wall:value:3 =   SipR29Dry 
-#*option:SIPS-R29-Wall:value:4 =   SipR29DryR
-*option:SIPS-R29-Wall:cost    =   599
+*option:SIPS-R22-Wall:value:1 =   SipR22Bri
+*option:SIPS-R22-Wall:value:2 =   SipR22Vin
+*option:SIPS-R22-Wall:value:3 =   SipR22Dry 
+#*option:SIPS-R22-Wall:value:4 =   SipR22DryR
+*option:SIPS-R22-Wall:cost    =   -816
 
-*option:SIPS-R38-Wall:value:1 =   SipR38Bri
-*option:SIPS-R38-Wall:value:2 =   SipR38Vin
-*option:SIPS-R38-Wall:value:3 =   SipR38Dry 
-#*option:SIPS-R38-Wall:value:4 =   SipR38DryR
-*option:SIPS-R38-Wall:cost    =   2042
+*option:SIPS-R28-Wall:value:1 =   SipR28Bri
+*option:SIPS-R28-Wall:value:2 =   SipR28Vin
+*option:SIPS-R28-Wall:value:3 =   SipR28Dry 
+#*option:SIPS-R28-Wall:value:4 =   SipR28DryR
+*option:SIPS-R38-Wall:cost    =   599
 
-#*option:SIPS-R44-Wall:value:1 =   SipR44Bri
-#*option:SIPS-R44-Wall:value:2 =   SipR44Vin
-#*option:SIPS-R44-Wall:value:3 =   SipR44Dry 
-##*option:SIPS-R44-Wall:value:4 =   SipR44DryR
-#*option:SIPS-R44-Wall:cost    =   9384
+#*option:SIPS-R36-Wall:value:1 =   SipR36Bri
+#*option:SIPS-R36-Wall:value:2 =   SipR36Vin
+#*option:SIPS-R36-Wall:value:3 =   SipR36Dry 
+##*option:SIPS-R36-Wall:value:4 =   SipR36DryR
+#*option:SIPS-R36-Wall:cost    =   2042
 
-*option:Stud-R38-Wall:value:1 =   StudR38Bri
-*option:Stud-R38-Wall:value:2 =   StudR38Vin
-*option:Stud-R38-Wall:value:3 =   StudR38Dry 
-#*option:Stud-R38-Wall:value:4 =   StudR38DryR
-*option:Stud-R38-Wall:cost    =   4859
+*option:Stud-R35-Wall:value:1 =   StudR35Bri
+*option:Stud-R35-Wall:value:2 =   StudR35Vin
+*option:Stud-R35-Wall:value:3 =   StudR35Dry 
+#*option:Stud-R35-Wall:value:4 =   StudR35DryR
+*option:Stud-R35-Wall:cost    =   3911
 
-*option:Stud-R50-Wall:value:1 =   StudR50Bri
-*option:Stud-R50-Wall:value:2 =   StudR50Vin
-*option:Stud-R50-Wall:value:3 =   StudR50Dry 
-#*option:Stud-R50-Wall:value:4 =   StudR50DryR
-*option:Stud-R50-Wall:cost    =   10600
+*option:Stud-R40-Wall:value:1 =   StudR40Bri
+*option:Stud-R40-Wall:value:2 =   StudR40Vin
+*option:Stud-R40-Wall:value:3 =   StudR40Dry 
+#*option:Stud-R40-Wall:value:4 =   StudR40DryR
+*option:Stud-R40-Wall:cost    =   8318
 
-*option:DblStud-R44-Wall:value:1 =   DblSR44Bri
-*option:DblStud-R44-Wall:value:2 =   DblSR44Vin
-*option:DblStud-R44-Wall:value:3 =   DblSR44Dry 
-#*option:DblStud-R44-Wall:value:4 =   DblSR44DryR
-*option:DblStud-R44-Wall:cost    =   10600
+*option:DblStud-R37-Wall:value:1 =   DblSR37Bri
+*option:DblStud-R37-Wall:value:2 =   DblSR37Vin
+*option:DblStud-R37-Wall:value:3 =   DblSR37Dry 
+#*option:DblStud-R37-Wall:value:4 =   DblSR37DryR
+*option:DblStud-R37-Wall:cost    =   12218
+
+*option:DblStud-R52-Wall:value:1 =   DblSR52Bri
+*option:DblStud-R52-Wall:value:2 =   DblSR52Vin
+*option:DblStud-R52-Wall:value:3 =   DblSR52Dry 
+#*option:DblStud-R52-Wall:value:4 =   DblSR52DryR
+*option:DblStud-R52-Wall:cost    =   15365
 
 *option:Truss-R40-Wall:value:1 =   TruR40Bri
 *option:Truss-R40-Wall:value:2 =   TruR40Vin
 *option:Truss-R40-Wall:value:3 =   TruR40Dry 
 #*option:Truss-R40-Wall:value:4 =   TruR40DryR
-*option:Truss-R40-Wall:cost    =   8161
+*option:Truss-R40-Wall:cost    =   4580
 
+*option:Truss-R52-Wall:value:1 =   TruR52Bri
+*option:Truss-R52-Wall:value:2 =   TruR52Vin
+*option:Truss-R52-Wall:value:3 =   TruR52Dry 
+#*option:Truss-R52-Wall:value:4 =   TruR52DryR
+*option:Truss-R52-Wall:cost    =   11255
 
 *attribute:end
 
@@ -421,14 +432,21 @@
 *option:OBC-min-R12:meta    = Int
 *option:OBC-min-R12:cost    = 0
 
+*option:Rigid+Batt-R20:value:1 = BsmWllR20
+*option:Rigid+Batt-R20:meta    = Comb
+*option:Rigid+Batt-R20:cost    = 1909
+
 *option:Rigid+Batt-R30:value:1 = BsmWllR30
 *option:Rigid+Batt-R30:meta    = Comb
-*option:Rigid+Batt-R30:cost    = 7625
+*option:Rigid+Batt-R30:cost    = 4642
+
+*option:Rigid+Batt-R37:value:1 = BsmWllR37
+*option:Rigid+Batt-R37:meta    = Comb
+*option:Rigid+Batt-R37:cost    = 5689
 
 *option:Rigid+Blown-R43:value:1 = BsmWllR43
 *option:Rigid+Blown-R43:meta    = Int
 *option:Rigid+Blown-R43:cost    = 7790
-
 
 *option:ICF-base-R22:value:1 = BsmIcfR22
 *option:ICF-base-R22:meta    = Comb
@@ -448,11 +466,11 @@
 
 *option:ICF-base-R51:value:1 = BsmIcfR51
 *option:ICF-base-R51:meta    = Comb
-*option:ICF-base-R51:cost    = 120000            # Check with Mark!
+*option:ICF-base-R51:cost    = 12000            # Check with Mark!
 
 *option:ICF-base-R51r:value:1 = BsmIcfR51r
 *option:ICF-base-R51r:meta    = Comb
-*option:ICF-base-R51r:cost    = 120000            # Check with Mark!
+*option:ICF-base-R51r:cost    = 12000            # Check with Mark!
 
 *attribute:end
 
@@ -482,8 +500,20 @@
 
 *option:R24UnderSlab+edge:value:1 = BsmFlrR24
 *option:R24UnderSlab+edge:value:2 = <METASELECT:Opt-BasementWallInsulation?Int:22,Comb:69>
-*option:R24UnderSlab+edge:cost    = 4865             
+*option:R24UnderSlab+edge:cost    = 4865      
 
+# Perimeter, sub-slab 0.6m skirt insulation
+
+*option:R12UnderSlab+edge:value:1 = BsmFlrR12
+*option:R12UnderSlab+edge:value:2 = <METASELECT:Opt-BasementWallInsulation?Int:23,Comb:69>
+*option:R12UnderSlab+edge:cost    = 735        
+
+# Perimeter, sub-slab 1.0m skirt insulation
+
+*option:R12UnderSlab+edge:value:1 = BsmFlrR12
+*option:R12UnderSlab+edge:value:2 = <METASELECT:Opt-BasementWallInsulation?Int:24,Comb:69>
+*option:R12UnderSlab+edge:cost    = 1210 
+       
 *attribute:end
 
 #-----------------------------------------------------------------------
@@ -1036,12 +1066,12 @@
 
 *option:1-flat-plate:production-elec = 0 #GJ
 *option:1-flat-plate:production-SH   = 0 #GJ
-*option:1-flat-plate:production-DHW  = 9.138 #GJ
+*option:1-flat-plate:production-DHW  = 6.110 #GJ
 *option:1-flat-plate:cost = 5225
 
 *option:2-flat-plate:production-elec = 0 #GJ
 *option:2-flat-plate:production-SH   = 0 #GJ
-*option:2-flat-plate:production-DHW  = 12.367 #GJ
+*option:2-flat-plate:production-DHW  = 9.940 #GJ
 *option:2-flat-plate:cost = 6510
 
 *ext-attribute:end

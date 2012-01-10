@@ -1,6 +1,6 @@
 # composite construction db defined in ../dbs/NZEH.constrdb
 # based on materials db ../dbs/material.db3.a
-  110  # no of composites 
+  120  # no of composites 
 # layers  description   optics name   symmetry tag
     2    bsm_flr       OPAQ  OPAQUE        NONSYMMETRIC  
 # mat ref thickness (m) mat descr & air gap R
@@ -281,342 +281,410 @@
 # -----------------
 # MAIN WALLS: 6.5in SIPS
 # 40: layers  description   optics name   symmetry tag
-    6    SipR29Bri     OPAQ  OPAQUE        NONSYMMETRIC 
+    6    SipR22Bri     OPAQ  OPAQUE        NONSYMMETRIC 
 # mat ref thickness (m) mat descr & air gap R
     1    0.0809  Paviour brick 
     0    0.0250  air  0.170 0.170 0.170
    79    0.0120  OSB
-  220    0.1554  XPS CO2 foamed
+  220    0.0994  XPS CO2 foamed
    79    0.0120  OSB
   301    <Opt-ExtraDrywall>  gypsum board 
 # 41: layers  description   optics name   symmetry tag
-    6    SipR29Vyn     OPAQ  OPAQUE        NONSYMMETRIC 
+    6    SipR22Vyn     OPAQ  OPAQUE        NONSYMMETRIC 
 # mat ref thickness (m) mat descr & air gap R
   144    0.0064  plastic tile : Plastic tile  
     0    0.0250  air  0.170 0.170 0.170
    79    0.0120  OSB
-  220    0.1554  XPS CO2 foamed
+  220    0.0994  XPS CO2 foamed
    79    0.0120  OSB
   301    <Opt-ExtraDrywall>  gypsum board 
 # 42: layers  description   optics name   symmetry tag
-    6    SipR29Dry     OPAQ  OPAQUE        SipR29DryR
+    6    SipR22Dry     OPAQ  OPAQUE        SipR22DryR
 # mat ref thickness (m) mat descr & air gap R
   301    0.0125  gypsum board  
     0    0.0250  air  0.170 0.170 0.170
    79    0.0120  OSB
-  220    0.1554  XPS CO2 foamed
+  220    0.0994  XPS CO2 foamed
    79    0.0120  OSB
   301    <Opt-ExtraDrywall>  gypsum board 
 # 43: layers  description   optics name   symmetry tag
-    6    SipR29DryR    OPAQ  OPAQUE        SipR29Dry
+    6    SipR22DryR    OPAQ  OPAQUE        SipR22Dry
 # mat ref thickness (m) mat descr & air gap R
   301    <Opt-ExtraDrywall>  gypsum board  
    79    0.0120  OSB
-  220    0.1554  XPS CO2 foamed
+  220    0.0994  XPS CO2 foamed
    79    0.0120  OSB
     0    0.0250  air  0.170 0.170 0.170
   301    0.0125  gypsum board 
 # -----------------
 # MAIN WALLS: 8.25in SIPS
 # 44: layers  description   optics name   symmetry tag
-    6    SipR38Bri     OPAQ  OPAQUE        NONSYMMETRIC 
+    6    SipR28Bri     OPAQ  OPAQUE        NONSYMMETRIC 
 # mat ref thickness (m) mat descr & air gap R
     1    0.0809  Paviour brick 
     0    0.0250  air  0.170 0.170 0.170
    79    0.0120  OSB
-  220    0.2468  XPS CO2 foamed
+  220    0.1740  XPS CO2 foamed
    79    0.0120  OSB
   301    <Opt-ExtraDrywall>  gypsum board 
 # 45: layers  description   optics name   symmetry tag
-    6    SipR38Vyn     OPAQ  OPAQUE        NONSYMMETRIC 
+    6    SipR28Vyn     OPAQ  OPAQUE        NONSYMMETRIC 
 # mat ref thickness (m) mat descr & air gap R
   144    0.0064  plastic tile : Plastic tile  
     0    0.0250  air  0.170 0.170 0.170
    79    0.0120  OSB
-  220    0.2468  XPS CO2 foamed
+  220    0.1740  XPS CO2 foamed
    79    0.0120  OSB
   301    <Opt-ExtraDrywall>  gypsum board 
 # 46: layers  description   optics name   symmetry tag
-    6    SipR38Dry     OPAQ  OPAQUE        SipR38DryR
+    6    SipR28Dry     OPAQ  OPAQUE        SipR28DryR
 # mat ref thickness (m) mat descr & air gap R
   301    0.0125  gypsum board  
     0    0.0250  air  0.170 0.170 0.170
    79    0.0120  OSB
-  220    0.2468  XPS CO2 foamed
+  220    0.1740  XPS CO2 foamed
    79    0.0120  OSB
   301    <Opt-ExtraDrywall>  gypsum board 
 # 47: layers  description   optics name   symmetry tag
-    6    SipR38DryR    OPAQ  OPAQUE        SipR38Dry
+    6    SipR28DryR    OPAQ  OPAQUE        SipR28Dry
 # mat ref thickness (m) mat descr & air gap R
   301    <Opt-ExtraDrywall>  gypsum board  
    79    0.0120  OSB
-  220    0.2468  XPS CO2 foamed
+  220    0.1740  XPS CO2 foamed
    79    0.0120  OSB
     0    0.0250  air  0.170 0.170 0.170
   301    0.0125  gypsum board   
 # -----------------
 # MAIN WALLS: 10.25in SIPS
 # 48: layers  description   optics name   symmetry tag
-    6    SipR44Bri     OPAQ  OPAQUE        NONSYMMETRIC 
+    6    SipR36Bri     OPAQ  OPAQUE        NONSYMMETRIC 
 # mat ref thickness (m) mat descr & air gap R
     1    0.0809  Paviour brick 
     0    0.0250  air  0.170 0.170 0.170
    79    0.0120  OSB
-  220    0.2891  XPS CO2 foamed
+  220    0.2232  XPS CO2 foamed
    79    0.0120  OSB
   301    <Opt-ExtraDrywall>  gypsum board 
 # 49: layers  description   optics name   symmetry tag
-    6    SipR44Vyn     OPAQ  OPAQUE        NONSYMMETRIC 
+    6    SipR36Vyn     OPAQ  OPAQUE        NONSYMMETRIC 
 # mat ref thickness (m) mat descr & air gap R
   144    0.0064  plastic tile : Plastic tile  
     0    0.0250  air  0.170 0.170 0.170
    79    0.0120  OSB
-  220    0.2891  XPS CO2 foamed
+  220    0.2232  XPS CO2 foamed
    79    0.0120  OSB
   301    <Opt-ExtraDrywall>  gypsum board 
 # 50: layers  description   optics name   symmetry tag
-    6    SipR44Dry     OPAQ  OPAQUE        SipR44DryR
+    6    SipR36Dry     OPAQ  OPAQUE        SipR36DryR
 # mat ref thickness (m) mat descr & air gap R
   301    0.0125  gypsum board  
     0    0.0250  air  0.170 0.170 0.170
    79    0.0120  OSB
-  220    0.2891  XPS CO2 foamed
+  220    0.2232  XPS CO2 foamed
    79    0.0120  OSB
   301    <Opt-ExtraDrywall>  gypsum board 
 # 51: layers  description   optics name   symmetry tag
-    6    SipR44DryR    OPAQ  OPAQUE        SipR44Dry
+    6    SipR36DryR    OPAQ  OPAQUE        SipR36Dry
 # mat ref thickness (m) mat descr & air gap R
   301    <Opt-ExtraDrywall>  gypsum board  
    79    0.0120  OSB
-  220    0.2891  XPS CO2 foamed
+  220    0.2232  XPS CO2 foamed
    79    0.0120  OSB
     0    0.0250  air  0.170 0.170 0.170
   301    0.0125  gypsum board     
 #--------------------
-# MAIN WALLS: R38 stick-framed:
+# MAIN WALLS: R35 stick-framed:
 # 52: layers  description   optics name   symmetry tag
-    6    StudR38Bri    OPAQ  OPAQUE        NONSYMMETRIC 
+    6    StudR35Bri    OPAQ  OPAQUE        NONSYMMETRIC 
 # mat ref thickness (m) mat descr & air gap R
     1    0.0809  Paviour brick 
     0    0.0250  air  0.170 0.170 0.170
   234    0.0508  polyisocuraniate
    79    0.0120  OSB 
-  283    0.1460  fiberglass batt 
+  283    0.1226  fiberglass batt 
   301    <Opt-ExtraDrywall>  gypsum board 
 # 53: layers  description   optics name   symmetry tag
-    6    StudR38Vyn    OPAQ  OPAQUE        NONSYMMETRIC 
+    6    StudR35Vyn    OPAQ  OPAQUE        NONSYMMETRIC 
 # mat ref thickness (m) mat descr & air gap R
   144    0.0064  plastic tile : Plastic tile  
     0    0.0250  air  0.170 0.170 0.170
   234    0.0508  polyisocuraniate
    79    0.0120  OSB 
-  283    0.1460  fiberglass batt 
+  283    0.1226  fiberglass batt 
   301    <Opt-ExtraDrywall>  gypsum board 
 # 54: layers  description   optics name   symmetry tag
-    6    StudR38Dry    OPAQ  OPAQUE        StudR38DryR
+    6    StudR35Dry    OPAQ  OPAQUE        StudR35DryR
 # mat ref thickness (m) mat descr & air gap R
   301    0.0125  gypsum board  
     0    0.0250  air  0.170 0.170 0.170
   234    0.0508  polyisocuraniate
    79    0.0120  OSB 
-  283    0.1460  fiberglass batt 
+  283    0.1226  fiberglass batt 
   301    <Opt-ExtraDrywall>  gypsum board 
 # 55: layers  description   optics name   symmetry tag
-    6    StudR38DryR   OPAQ  OPAQUE        StudR38Dry
+    6    StudR35DryR   OPAQ  OPAQUE        StudR35Dry
 # mat ref thickness (m) mat descr & air gap R
   301    <Opt-ExtraDrywall>  gypsum board  
-  283    0.1460  fiberglass batt
+  283    0.1226 fiberglass batt
    79    0.0120  OSB   
   234    0.0508  polyisocuraniate
     0    0.0250  air  0.170 0.170 0.170
   301    0.0125  gypsum board  
 #--------------------
-# MAIN WALLS: R50 stick-framed:
+# MAIN WALLS: R40 stick-framed:
 # 56: layers  description   optics name   symmetry tag
-    6    StudR50Bri    OPAQ  OPAQUE        NONSYMMETRIC 
+    6    StudR40Bri    OPAQ  OPAQUE        NONSYMMETRIC 
 # mat ref thickness (m) mat descr & air gap R
     1    0.0809  Paviour brick 
     0    0.0250  air  0.170 0.170 0.170
-  234    0.1016  polyisocuraniate
+  234    0.0738  polyisocuraniate
    79    0.0120  OSB 
-  283    0.1460  fiberglass batt 
+  283    0.1226  fiberglass batt 
   301    <Opt-ExtraDrywall>  gypsum board 
 # 57: layers  description   optics name   symmetry tag
-    6    StudR50Vyn    OPAQ  OPAQUE        NONSYMMETRIC 
+    6    StudR40Vyn    OPAQ  OPAQUE        NONSYMMETRIC 
 # mat ref thickness (m) mat descr & air gap R
   144    0.0064  plastic tile : Plastic tile  
     0    0.0250  air  0.170 0.170 0.170
-  234    0.1016  polyisocuraniate
+  234    0.0738  polyisocuraniate
    79    0.0120  OSB 
-  283    0.1460  fiberglass batt 
+  283    0.1226  fiberglass batt 
   301    <Opt-ExtraDrywall>  gypsum board 
 # 58: layers  description   optics name   symmetry tag
-    6    StudR50Dry    OPAQ  OPAQUE        StudR50DryR
+    6    StudR40Dry    OPAQ  OPAQUE        StudR40DryR
 # mat ref thickness (m) mat descr & air gap R
   301    0.0125  gypsum board  
     0    0.0250  air  0.170 0.170 0.170
-  234    0.1016  polyisocuraniate
+  234    0.0738 polyisocuraniate
    79    0.0120  OSB 
-  283    0.1460  fiberglass batt 
+  283    0.1226  fiberglass batt 
   301    <Opt-ExtraDrywall>  gypsum board 
 # 59: layers  description   optics name   symmetry tag
-    6    StudR50DryR   OPAQ  OPAQUE        StudR50Dry
+    6    StudR40DryR   OPAQ  OPAQUE        StudR40Dry
 # mat ref thickness (m) mat descr & air gap R
   301    <Opt-ExtraDrywall>  gypsum board  
-  283    0.1460  fiberglass batt
+  283    0.1226  fiberglass batt
    79    0.0120  OSB   
-  234    0.1016  polyisocuraniate
+  234    0.0738  polyisocuraniate
     0    0.0250  air  0.170 0.170 0.170
   301    0.0125  gypsum board 
 #--------------------
-# MAIN WALLS: R50 stick-framed:
+# MAIN WALLS: R37 Double Stud Wall (12"):
 # 60: layers  description   optics name   symmetry tag
-    5    DblSR44Bri    OPAQ  OPAQUE        NONSYMMETRIC 
+    5    DblSR37Bri    OPAQ  OPAQUE        NONSYMMETRIC 
 # mat ref thickness (m) mat descr & air gap R
     1    0.0809  Paviour brick 
     0    0.0250  air  0.170 0.170 0.170
    79    0.0120  OSB 
-  233    0.2871  celulose fiber flakes 
+  233    0.2368  celulose fiber flakes 
   301    <Opt-ExtraDrywall>  gypsum board 
 # 61: layers  description   optics name   symmetry tag
-    5    DblSR44Vyn    OPAQ  OPAQUE        NONSYMMETRIC 
+    5    DblSR37Vyn    OPAQ  OPAQUE        NONSYMMETRIC 
 # mat ref thickness (m) mat descr & air gap R
   144    0.0064  plastic tile : Plastic tile  
     0    0.0250  air  0.170 0.170 0.170
    79    0.0120  OSB 
-  233    0.2871  celulose fiber flakes 
+  233    0.2368  celulose fiber flakes 
   301    <Opt-ExtraDrywall>  gypsum board 
 # 62: layers  description   optics name   symmetry tag
-    5    DblSR44Dry    OPAQ  OPAQUE        DblSR44DryR
+    5    DblSR37Dry    OPAQ  OPAQUE        DblSR37DryR
 # mat ref thickness (m) mat descr & air gap R
   301    0.0125  gypsum board  
     0    0.0250  air  0.170 0.170 0.170
    79    0.0120  OSB 
-  233    0.2871  celulose fiber flakes  
+  233    0.2368  celulose fiber flakes  
   301    <Opt-ExtraDrywall>  gypsum board 
 # 63: layers  description   optics name   symmetry tag
-    5    DblSR44DryR   OPAQ  OPAQUE        DblSR44Dry
+    5    DblSR37DryR   OPAQ  OPAQUE        DblSR37Dry
 # mat ref thickness (m) mat descr & air gap R
   301    <Opt-ExtraDrywall>  gypsum board  
-  233    0.2871  celulose fiber flakes 
+  233    0.2368  celulose fiber flakes 
    79    0.0120  OSB   
     0    0.0250  air  0.170 0.170 0.170
   301    0.0125  gypsum board   
+  #--------------------
+# MAIN WALLS: R52 Double Stud Wall (16"):
+# 64: layers  description   optics name   symmetry tag
+    5    DblSR52Bri    OPAQ  OPAQUE        NONSYMMETRIC 
+# mat ref thickness (m) mat descr & air gap R
+    1    0.0809  Paviour brick 
+    0    0.0250  air  0.170 0.170 0.170
+   79    0.0120  OSB 
+  233    0.3403  celulose fiber flakes 
+  301    <Opt-ExtraDrywall>  gypsum board 
+# 65: layers  description   optics name   symmetry tag
+    5    DblSR52Vyn    OPAQ  OPAQUE        NONSYMMETRIC 
+# mat ref thickness (m) mat descr & air gap R
+  144    0.0064  plastic tile : Plastic tile  
+    0    0.0250  air  0.170 0.170 0.170
+   79    0.0120  OSB 
+  233    0.3403  celulose fiber flakes 
+  301    <Opt-ExtraDrywall>  gypsum board 
+# 66: layers  description   optics name   symmetry tag
+    5    DblSR52Dry    OPAQ  OPAQUE        DblSR52DryR
+# mat ref thickness (m) mat descr & air gap R
+  301    0.0125  gypsum board  
+    0    0.0250  air  0.170 0.170 0.170
+   79    0.0120  OSB 
+  233    0.3403  celulose fiber flakes  
+  301    <Opt-ExtraDrywall>  gypsum board 
+# 67: layers  description   optics name   symmetry tag
+    5    DblSR52DryR   OPAQ  OPAQUE        DblSR52Dry
+# mat ref thickness (m) mat descr & air gap R
+  301    <Opt-ExtraDrywall>  gypsum board  
+  233    0.3403  celulose fiber flakes 
+   79    0.0120  OSB   
+    0    0.0250  air  0.170 0.170 0.170
+  301    0.0125  gypsum board  
 #--------------------
 # MAIN WALLS: R40 truss
-# 64: layers  description   optics name   symmetry tag
+# 68: layers  description   optics name   symmetry tag
     5    TruR40Bri    OPAQ  OPAQUE        NONSYMMETRIC 
 # mat ref thickness (m) mat descr & air gap R
     1    0.0809  Paviour brick 
     0    0.0250  air  0.170 0.170 0.170
    79    0.0120  OSB 
-  233    0.2646  celulose fiber flakes 
+  233    0.2586  celulose fiber flakes 
   301    <Opt-ExtraDrywall>  gypsum board 
-# 65: layers  description   optics name   symmetry tag
+# 69: layers  description   optics name   symmetry tag
     5    TruR40Vyn    OPAQ  OPAQUE        NONSYMMETRIC 
 # mat ref thickness (m) mat descr & air gap R
   144    0.0064  plastic tile : Plastic tile  
     0    0.0250  air  0.170 0.170 0.170
    79    0.0120  OSB 
-  233    0.2646  celulose fiber flakes 
+  233    0.2586  celulose fiber flakes 
   301    <Opt-ExtraDrywall>  gypsum board 
-# 66: layers  description   optics name   symmetry tag
+# 70: layers  description   optics name   symmetry tag
     5    TruR40Dry    OPAQ  OPAQUE        TruR40DryR
 # mat ref thickness (m) mat descr & air gap R
   301    0.0125  gypsum board
     0    0.0250  air  0.170 0.170 0.170
    79    0.0120  OSB 
-  233    0.2646  celulose fiber flakes  
+  233    0.2586  celulose fiber flakes  
   301    <Opt-ExtraDrywall>  gypsum board 
-# 67: layers  description   optics name   symmetry tag
+# 71: layers  description   optics name   symmetry tag
     5    TruR40DryR   OPAQ  OPAQUE        TruR40Dry
 # mat ref thickness (m) mat descr & air gap R
   301    <Opt-ExtraDrywall>  gypsum board  
-  233    0.2646  celulose fiber flakes 
+  233    0.2586  celulose fiber flakes 
    79    0.0120  OSB   
     0    0.0250  air  0.170 0.170 0.170
-  301    0.0125  gypsum board     
+  301    0.0125  gypsum board    
+#--------------------
+# MAIN WALLS: R52 truss
+# 72: layers  description   optics name   symmetry tag
+    5    TruR52Bri    OPAQ  OPAQUE        NONSYMMETRIC 
+# mat ref thickness (m) mat descr & air gap R
+    1    0.0809  Paviour brick 
+    0    0.0250  air  0.170 0.170 0.170
+   79    0.0120  OSB 
+  233    0.3459  celulose fiber flakes 
+  301    <Opt-ExtraDrywall>  gypsum board 
+# 73: layers  description   optics name   symmetry tag
+    5    TruR52Vyn    OPAQ  OPAQUE        NONSYMMETRIC 
+# mat ref thickness (m) mat descr & air gap R
+  144    0.0064  plastic tile : Plastic tile  
+    0    0.0250  air  0.170 0.170 0.170
+   79    0.0120  OSB 
+  233    0.3459  celulose fiber flakes 
+  301    <Opt-ExtraDrywall>  gypsum board 
+# 74: layers  description   optics name   symmetry tag
+    5    TruR52Dry    OPAQ  OPAQUE        TruR52DryR
+# mat ref thickness (m) mat descr & air gap R
+  301    0.0125  gypsum board
+    0    0.0250  air  0.170 0.170 0.170
+   79    0.0120  OSB 
+  233    0.3459  celulose fiber flakes  
+  301    <Opt-ExtraDrywall>  gypsum board 
+# 75: layers  description   optics name   symmetry tag
+    5    TruR52DryR   OPAQ  OPAQUE        TruR52Dry
+# mat ref thickness (m) mat descr & air gap R
+  301    <Opt-ExtraDrywall>  gypsum board  
+  233    0.3459  celulose fiber flakes 
+   79    0.0120  OSB   
+    0    0.0250  air  0.170 0.170 0.170
+  301    0.0125  gypsum board    
 #=======================================================================    
 #----------------------
 # Ceilings: R50
-# 68: layers  description   optics name   symmetry tag  
+# 76: layers  description   optics name   symmetry tag  
     2    CeilR50       OPAQ  OPAQUE        CeilR50R
 # mat ref thickness (m) mat descr & air gap R 
   233    0.3488  celulose fiber flakes 
   301    0.0125  gypsum board
-# 69: layers  description   optics name   symmetry tag  
+# 77: layers  description   optics name   symmetry tag  
     2    CeilR50R      OPAQ  OPAQUE        CeilR50
 # mat ref thickness (m) mat descr & air gap R 
   301    0.0125  gypsum board
   233    0.3488  celulose fiber flakes 
 #----------------------
 # Ceilings: R60
-# 70: layers  description   optics name   symmetry tag  
+# 78: layers  description   optics name   symmetry tag  
     2    CeilR60       OPAQ  OPAQUE        CeilR60R
 # mat ref thickness (m) mat descr & air gap R 
   233    0.4193  celulose fiber flakes 
   301    0.0125  gypsum board
-# 71: layers  description   optics name   symmetry tag  
+# 79: layers  description   optics name   symmetry tag  
     2    CeilR60R      OPAQ  OPAQUE        CeilR60
 # mat ref thickness (m) mat descr & air gap R 
   301    0.0125  gypsum board
   233    0.4193  celulose fiber flakes 
 #----------------------
 # Ceilings: R70
-# 72: layers  description   optics name   symmetry tag  
+# 80: layers  description   optics name   symmetry tag  
     2    CeilR70       OPAQ  OPAQUE        CeilR70R
 # mat ref thickness (m) mat descr & air gap R 
   233    0.4897  celulose fiber flakes 
   301    0.0125  gypsum board
-# 73: layers  description   optics name   symmetry tag  
+# 81: layers  description   optics name   symmetry tag  
     2    CeilR70R      OPAQ  OPAQUE        CeilR70
 # mat ref thickness (m) mat descr & air gap R 
   301    0.0125  gypsum board
   233    0.4897  celulose fiber flakes
 #----------------------
 # Ceilings: R80
-# 74: layers  description   optics name   symmetry tag  
+# 82: layers  description   optics name   symmetry tag  
     2    CeilR80       OPAQ  OPAQUE        CeilR80R
 # mat ref thickness (m) mat descr & air gap R 
   233    0.5601  celulose fiber flakes 
   301    0.0125  gypsum board
-# 75: layers  description   optics name   symmetry tag  
+# 83: layers  description   optics name   symmetry tag  
     2    CeilR80R      OPAQ  OPAQUE        CeilR80
 # mat ref thickness (m) mat descr & air gap R 
   301    0.0125  gypsum board
   233    0.5601  celulose fiber flakes  
 #----------------------
 # Ceilings: R90
-# 76: layers  description   optics name   symmetry tag  
+# 84: layers  description   optics name   symmetry tag  
     2    CeilR90       OPAQ  OPAQUE        CeilR90R
 # mat ref thickness (m) mat descr & air gap R 
   233    0.6305  celulose fiber flakes 
   301    0.0125  gypsum board
-# 77: layers  description   optics name   symmetry tag  
+# 85: layers  description   optics name   symmetry tag  
     2    CeilR90R      OPAQ  OPAQUE        CeilR90
 # mat ref thickness (m) mat descr & air gap R 
   301    0.0125  gypsum board
   233    0.6305  celulose fiber flakes    
 #----------------------
 # Ceilings: R100
-# 78: layers  description   optics name   symmetry tag  
+# 86: layers  description   optics name   symmetry tag  
     2    CeilR100      OPAQ  OPAQUE        CeilR100R
 # mat ref thickness (m) mat descr & air gap R 
   233    0.7009  celulose fiber flakes 
   301    0.0125  gypsum board
-# 79: layers  description   optics name   symmetry tag  
+# 87: layers  description   optics name   symmetry tag  
     2    CeilR100R     OPAQ  OPAQUE        CeilR100
 # mat ref thickness (m) mat descr & air gap R 
   301    0.0125  gypsum board
   233    0.7009  celulose fiber flakes     
 #----------------------
 # Ceilings: R110
-# 80: layers  description   optics name   symmetry tag  
+# 88: layers  description   optics name   symmetry tag  
     2    CeilR110      OPAQ  OPAQUE        CeilR110R
 # mat ref thickness (m) mat descr & air gap R 
   233    0.7713  celulose fiber flakes 
   301    0.0125  gypsum board
-# 81: layers  description   optics name   symmetry tag  
+# 89: layers  description   optics name   symmetry tag  
     2    CeilR110R     OPAQ  OPAQUE        CeilR110
 # mat ref thickness (m) mat descr & air gap R 
   301    0.0125  gypsum board
@@ -625,7 +693,7 @@
 # Windows!
 #----------------------
 # Double Hard-coat low e (high gain), air fill (LEEP window A)
-# 82: layers  description   optics name   symmetry tag
+# 90: layers  description   optics name   symmetry tag
     3    DblLeHcAir    TRAN  DblLeHcAir    SYMMETRIC
 # mat ref thickness (m) mat descr & air gap R
   242    0.0060  plate glass : Plate glass 
@@ -633,7 +701,7 @@
   242    0.0060  plate glass : Plate glass 
 #----------------------
 # Double Hard-coat low e (high gain), argon fill (LEEP window B)
-# 83: layers  description   optics name   symmetry tag
+# 91: layers  description   optics name   symmetry tag
     3    DblLeHcArg    TRAN  DblLeHcArg    SYMMETRIC
 # mat ref thickness (m) mat descr & air gap R
   242    0.0060  plate glass : Plate glass 
@@ -641,7 +709,7 @@
   242    0.0060  plate glass : Plate glass 
 #----------------------
 # Triple Hard-coat low e (high gain), krypton fill (LEEP window C)
-# 84: layers  description   optics name   symmetry tag
+# 92: layers  description   optics name   symmetry tag
     5    TplLeHcKry    TRAN  TplLeHcKry    SYMMETRIC
 # mat ref thickness (m) mat descr & air gap R
   242    0.0060  plate glass : Plate glass 
@@ -651,7 +719,7 @@
   242    0.0060  plate glass : Plate glass   
 #----------------------
 # Triple Soft-coat low e (low gain), krypton fill (LEEP window D)
-# 85: layers  description   optics name   symmetry tag
+# 93: layers  description   optics name   symmetry tag
     5    TplLeScKry    TRAN  TplLeScKry    SYMMETRIC
 # mat ref thickness (m) mat descr & air gap R
   242    0.0060  plate glass : Plate glass 
@@ -661,7 +729,7 @@
   242    0.0060  plate glass : Plate glass   
 #----------------------
 # Double Soft-coat low e (low gain), argon fill (LEEP window E)
-# 86: layers  description   optics name   symmetry tag
+# 94: layers  description   optics name   symmetry tag
     3    DblLeScArg    TRAN  DblLeScArg    SYMMETRIC
 # mat ref thickness (m) mat descr & air gap R
   242    0.0060  plate glass : Plate glass 
@@ -672,14 +740,14 @@
 # UNDERSLAB INSULATION 
 #----------------------
 # Underslab: no insulation 
-# 87: layers  description   optics name   symmetry tag
+# 95: layers  description   optics name   symmetry tag
 # layers  description   optics name   symmetry tag
     2    BsmFlrR0      OPAQ  OPAQUE        NONSYMMETRIC  
 # mat ref thickness (m) mat descr & air gap R
   262    0.1500  gravel based : Gravel based
    21    0.0890  light mix concrete : Light mix concrete
 # Underslab: R10 
-# 88: layers  description   optics name   symmetry tag
+# 96: layers  description   optics name   symmetry tag
 # layers  description   optics name   symmetry tag
     3    BsmFlrR10     OPAQ  OPAQUE        NONSYMMETRIC  
 # mat ref thickness (m) mat descr & air gap R
@@ -687,7 +755,7 @@
   220    0.7040  XPS underslab : XPS underslab
    21    0.0890  light mix concrete : Light mix concrete
 # Underslab: R12 
-# 89: layers  description   optics name   symmetry tag
+# 97: layers  description   optics name   symmetry tag
 # layers  description   optics name   symmetry tag
     3    BsmFlrR12     OPAQ  OPAQUE        NONSYMMETRIC  
 # mat ref thickness (m) mat descr & air gap R
@@ -695,7 +763,7 @@
   220    0.0845  XPS underslab : XPS underslab
    21    0.0890  light mix concrete : Light mix concrete
 # Underslab: R24
-# 90: layers  description   optics name   symmetry tag
+# 98: layers  description   optics name   symmetry tag
 # layers  description   optics name   symmetry tag
     3    BsmFlrR24     OPAQ  OPAQUE        NONSYMMETRIC  
 # mat ref thickness (m) mat descr & air gap R
@@ -705,60 +773,72 @@
 #---------------------------
 #---------------------------
 # Foundation wall insulation 
-# 91. 2x4 w R-12 bat (minimum allowed under OBC 2012)
+# 99. 2x4 w R-12 bat (minimum allowed under OBC 2012)
     2    BsmWllR12     OPAQ  OPAQUE        NONSYMMETRIC  
 # mat ref thickness (m) mat descr & air gap R
    21    0.1840  light mix concrete : Light mix concrete
   283    0.0578  fiberglass batt : fiberglass batt insulation
-# 92. rigid ext, 2x4 with batt interior 
+# 100. rigid ext
+    3    BsmWllR20     OPAQ  OPAQUE        NONSYMMETRIC  
+# mat ref thickness (m) mat descr & air gap R
+  220    0.1016  XPS exterior
+   21    0.1840  light mix concrete : Light mix concrete
+  283    0.0148  fiberglass batt : fiberglass batt insulation
+# 101. rigid ext, 2x4 with batt interior 
     3    BsmWllR30     OPAQ  OPAQUE        NONSYMMETRIC  
 # mat ref thickness (m) mat descr & air gap R
   220    0.1016  XPS exterior
    21    0.1840  light mix concrete : Light mix concrete
-  283    0.0796  fiberglass batt : fiberglass batt insulation
-# 93. rigid interior 2x4 framed, blown insulation 
+  283    0.0807  fiberglass batt : fiberglass batt insulation
+# 102. hybrid, 2"XPS ext, 5" void, 2x4 wall with loose fill  
+    3    BsmWllR37     OPAQ  OPAQUE        NONSYMMETRIC  
+# mat ref thickness (m) mat descr & air gap R
+   21    0.1840  light mix concrete : Light mix concrete
+  220    0.1016  XPS exterior
+  233    0.1361  Cellulose Fiber 
+# 103. rigid interior, 5" void, 2x4 wall filled with loose fill 
     3    BsmWllR43     OPAQ  OPAQUE        NONSYMMETRIC  
 # mat ref thickness (m) mat descr & air gap R
    21    0.1840  light mix concrete : Light mix concrete
   220    0.1016  XPS exterior
-  233    0.1736  Cellulose Fiber 
-# 94. rigid interior 2x4 framed, blown insulation 
+  233    0.1748  Cellulose Fiber 
+# 104. rigid interior 2x4 framed, blown insulation 
     3    BsmIcfR22     OPAQ  OPAQUE        NONSYMMETRIC  
 # mat ref thickness (m) mat descr & air gap R
-  220    0.0678  XPS exterior
+  220    0.0480  XPS exterior
    21    0.1840  light mix concrete : Light mix concrete
-  220    0.0678  XPS interior
-# 95. rigid interior 2x4 framed, blown insulation 
+  220    0.0480  XPS interior
+# 105. rigid interior 2x4 framed, blown insulation 
     3    BsmIcfR26     OPAQ  OPAQUE        NONSYMMETRIC  
 # mat ref thickness (m) mat descr & air gap R
   220    0.0818  XPS exterior
    21    0.1840  light mix concrete : Light mix concrete
   220    0.0818  XPS interior
-# 96. rigid interior 2x4 framed, blown insulation 
+# 106. rigid interior 2x4 framed, blown insulation 
     3    BsmIcfR26     OPAQ  OPAQUE        NONSYMMETRIC  
 # mat ref thickness (m) mat descr & air gap R
   220    0.0818  XPS exterior
    21    0.1840  light mix concrete : Light mix concrete
   220    0.0818  XPS interior
-# 97. rigid interior 2x4 framed, blown insulation 
+# 107. rigid interior 2x4 framed, blown insulation 
     3    BsmIcfR32     OPAQ  OPAQUE        NONSYMMETRIC  
 # mat ref thickness (m) mat descr & air gap R
   220    0.1030  XPS exterior
    21    0.1840  light mix concrete : Light mix concrete
   220    0.1030  XPS interior  
-# 98. rigid interior 2x4 framed, blown insulation 
+# 108. rigid interior 2x4 framed, blown insulation 
     3    BsmIcfR41     OPAQ  OPAQUE        NONSYMMETRIC  
 # mat ref thickness (m) mat descr & air gap R
   220    0.1346  XPS exterior
    21    0.1840  light mix concrete : Light mix concrete
   220    0.1346  XPS interior  
-# 99. rigid interior 2x4 framed, blown insulation 
+# 109. rigid interior 2x4 framed, blown insulation 
     3    BsmIcfR51     OPAQ  OPAQUE        NONSYMMETRIC  
 # mat ref thickness (m) mat descr & air gap R
   220    0.2827  XPS exterior
    21    0.1840  light mix concrete : Light mix concrete
   220    0.0570  XPS interior  
-#100. rigid interior 2x4 framed, blown insulation 
+#110. rigid interior 2x4 framed, blown insulation 
     3    BsmIcfR51r    OPAQ  OPAQUE        NONSYMMETRIC  
 # mat ref thickness (m) mat descr & air gap R
   220    0.0570  XPS exterior
@@ -767,21 +847,21 @@
 #---------------------------
 #---------------------------
 # Explosed Floor 
-#101. Base (R32) (minimum allowed under OBC 2012)
+#111. Base (R32) (minimum allowed under OBC 2012)
     3    ExpFlR31      OPAQ  OPAQUE        NONSYMMETRIC  
 # mat ref thickness (m) mat descr & air gap R
   301    0.0125  Drywall 
   283    0.1859  fiberglass batt : fiberglass batt insulation  
    79    0.0125  OSB 
 # ---
-#102. Base (R32) (minimum allowed under OBC 2012)
+#112. Base (R32) (minimum allowed under OBC 2012)
     3    ExpFlR31r     OPAQ  OPAQUE        NONSYMMETRIC  
 # mat ref thickness (m) mat descr & air gap R
    79    0.0125  OSB   
   283    0.1859  fiberglass batt : fiberglass batt insulation  
   301    0.0125  Drywall 
 # ---
-#103. Flash & Batt scenario (R35.8)
+#113. Flash & Batt scenario (R35.8)
     4    ExpFlR36      OPAQ  OPAQUE        NONSYMMETRIC  
 # mat ref thickness (m) mat descr & air gap R
   301    0.0125  Drywall 
@@ -789,7 +869,7 @@
   283    0.1694  fiberglass batt : fiberglass batt insulation  
    79    0.0125  OSB 
 # ---
-#104. Flash & Batt scenario (R35.8)
+#114. Flash & Batt scenario (R35.8)
     4    ExpFlR36r     OPAQ  OPAQUE        NONSYMMETRIC  
 # mat ref thickness (m) mat descr & air gap R
    79    0.0125  OSB   
@@ -797,14 +877,14 @@
   220    0.0508  Foamed xps polystyrene  
   301    0.0125  Drywall  
 # ---  
-#105. Foamed Joist bays (R52.2)
+#115. Foamed Joist bays (R52.2)
     3    ExpFlR52      OPAQ  OPAQUE        NONSYMMETRIC  
 # mat ref thickness (m) mat descr & air gap R
   301    0.0125  Drywall 
   234    0.2038  Foamed polyisocuraniate
    79    0.0125  OSB 
 # ---
-#106. Foamed Joist bays (R52.2)
+#116. Foamed Joist bays (R52.2)
     3    ExpFlR52r     OPAQ  OPAQUE        NONSYMMETRIC  
 # mat ref thickness (m) mat descr & air gap R
    79    0.0125  OSB   
@@ -812,7 +892,7 @@
   301    0.0125  Drywall     
 # -------------------------------------------------------------------
 # ---
-# 107. Floor assemblies for internal mass
+# 117. Floor assemblies for internal mass
 # layers  description   optics name   symmetry tag
     4    floor2in      OPAQ  OPAQUE        floorInv2in     
 # mat ref thickness (m) mat descr & air gap R
@@ -821,7 +901,7 @@
    72    0.0280  plywood 700d : Plywood (700 density)
    21    0.0508  Concrete topping 
 # --- 
-# 108. Floor assemblies for internal mass
+# 118. Floor assemblies for internal mass
 # layers  description   optics name   symmetry tag
     4    floorInv2in   OPAQ  OPAQUE        floor2in     
 # mat ref thickness (m) mat descr & air gap R
@@ -830,7 +910,7 @@
     0    0.2410  air  0.170 0.170 0.170
   301    0.0125  gypsum board : Gypsum board
 # --- 
-# 109. Floor assemblies for internal mass
+# 119. Floor assemblies for internal mass
 # layers  description   optics name   symmetry tag
     4    floor1in      OPAQ  OPAQUE        floorInv2in     
 # mat ref thickness (m) mat descr & air gap R
@@ -839,7 +919,7 @@
    72    0.0280  plywood 700d : Plywood (700 density)
    21    0.0254  Concrete topping 
 # --- 
-# 110. Floor assemblies for internal mass
+# 120. Floor assemblies for internal mass
 # layers  description   optics name   symmetry tag
     4    floorInv1in   OPAQ  OPAQUE        floor2in     
 # mat ref thickness (m) mat descr & air gap R
