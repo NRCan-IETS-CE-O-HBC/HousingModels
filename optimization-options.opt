@@ -580,9 +580,82 @@
 *attribute:end 
 
 #-----------------------------------------------------------------------
-# Solar DHW
+# HVAC
+#-----------------------------------------------------------------------
+*attribute:start
+*attribute:name    = Opt-HVACSystem
+*attribute:tag:1   = <Opt-HVACSystem>
+
+*option:basefurnace:value:1 = basefurnace_ACv2.hvac
+*option:basefurnace:cost    = 0
+
+*option:CCASHP:value:1      = CCASHPv2.hvac
+*option:CCASHP:cost         = 9595          # Does this reflect AC system savings?
+
+*attribute:end
+
+
+#-----------------------------------------------------------------------
+# Electric Loads
+#-----------------------------------------------------------------------
+*attribute:start 
+*attribute:name    = Opt-ElecLoadScale
+*attribute:tag:1   = <Opt-ElecLoadScale>
+
+*option:NoReduction:value:1  = 1.0
+*option:NoReduction:cost     = 0
+
+*option:BasicReduction:value:1 = 0.843
+*option:BasicReduction:cost    = 0
+
+*option:EfficientLiving:value:1 = 0.711
+*option:EfficientLiving:cost    = 0
+
+*attribute:end 
+
+#-----------------------------------------------------------------------
+# Hot water loads
 #-----------------------------------------------------------------------
 
+*attribute:start 
+*attribute:name    = Opt-DHWLoadScale 
+*attribute:tag:1   = <Opt-DHWEquivOccupants>
+
+*option:NoReduction:value:1  = 3.857
+*option:NoReduction:cost     = 0
+
+*option:BasicReduction:value:1 = 3.0
+*option:BasicReduction:cost    = 0
+
+*option:EfficientLiving:value:1 = 1.429
+*option:EfficientLiving:cost    = 0
+
+
+*attribute:end 
+
+#-----------------------------------------------------------------------
+# DHW System
+#-----------------------------------------------------------------------
+*attribute:start
+*attribute:name     = Opt-DHWSystem
+*attribute:tag:1    = <Opt-DHWInputFile>
+
+*option:BaseDHW:value:1     = BaseDHW.dhw
+*option:BaseDHW:cost        = 0
+
+*option:ElecInstantaneous:value:1 = ElecInstant.dhw
+*option:ElecInstantaneous:cost    = -245.0
+
+*option:ElectricStorage:value:1 = ElecStorage.dhw
+*option:ElectricStorage:cost    = -605.0
+
+*option:GasInstantaneous:value:1 = GasInstant.dhw
+*option:GasInstantaneous:cost    = 995
+
+*option:ElectricHP:value:1 = ElecHP.dhw
+*option:ElectricHP:cost    = 1495
+
+*attribute:end
 
 #-----------------------------------------------------------------------
 # External PV 
@@ -1054,6 +1127,10 @@
         
 *ext-attribute:end
  
+
+#-----------------------------------------------------------------------
+# Solar DHW
+#-----------------------------------------------------------------------
 
 
 *ext-attribute:start 
