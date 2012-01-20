@@ -18,8 +18,35 @@
 *option:MinWindows:value:2 = <Opt-CasWinOptics>
 *option:MinWindows:cost    = 0
                          
+#-----------------------------------------------------------------------
+# HRV control flag: flag defining assumptions associated with HRV control
+# (this relates to the NZEH performance definition, and isn't intended 
+# to be optimized. 
+#-----------------------------------------------------------------------
+*attribute:end
+
+*attribute:start 
+*attribute:name  = OPT-HRV_ctl
+*attribute:tag:1 = <OPT-HRV_ctl>
+
+
+#*option:NoWindows!:value:1 = <Opt-MainWall-Bri>
+#*option:NoWindows!:value:2 = OPAQUE
+#*option:NoWindows!:cost    = 0
+
+*option:Continuious:value:1 = 7
+*option:Continuious:cost    = 0
+  
+*option:ERSp3ACH:value:1 = 8
+*option:ERSp3ACH:cost    = 0
+  
+*option:EightHRpDay:value:1 = 9
+*option:EightHRpDay:cost    = 0  
+
 
 *attribute:end
+
+
 
 #-----------------------------------------------------------------------
 # The next three options add extra windows to the front of the house 
@@ -375,7 +402,7 @@
 *option:SIPS-R28-Wall:value:2 =   SipR28Vin
 *option:SIPS-R28-Wall:value:3 =   SipR28Dry 
 #*option:SIPS-R28-Wall:value:4 =   SipR28DryR
-*option:SIPS-R38-Wall:cost    =   599
+*option:SIPS-R28-Wall:cost    =   599
 
 #*option:SIPS-R36-Wall:value:1 =   SipR36Bri
 #*option:SIPS-R36-Wall:value:2 =   SipR36Vin
@@ -504,15 +531,15 @@
 
 # Perimeter, sub-slab 0.6m skirt insulation
 
-*option:R12UnderSlab+edge:value:1 = BsmFlrR12
-*option:R12UnderSlab+edge:value:2 = <METASELECT:Opt-BasementWallInsulation?Int:23,Comb:69>
-*option:R12UnderSlab+edge:cost    = 735        
+*option:R12EdgeP6:value:1 = BsmFlrR0
+*option:R12EdgeP6:value:2 = <METASELECT:Opt-BasementWallInsulation?Int:23,Comb:69>
+*option:R12EdgeP6:cost    = 735        
 
 # Perimeter, sub-slab 1.0m skirt insulation
 
-*option:R12UnderSlab+edge:value:1 = BsmFlrR12
-*option:R12UnderSlab+edge:value:2 = <METASELECT:Opt-BasementWallInsulation?Int:24,Comb:69>
-*option:R12UnderSlab+edge:cost    = 1210 
+*option:R12EdgeP10:value:1 = BsmFlrR0
+*option:R12EdgeP10:value:2 = <METASELECT:Opt-BasementWallInsulation?Int:24,Comb:69>
+*option:R12EdgeP10:cost    = 1210 
        
 *attribute:end
 
@@ -588,6 +615,9 @@
 
 *option:basefurnace:value:1 = basefurnace_ACv2.hvac
 *option:basefurnace:cost    = 0
+
+*option:elec-baseboard:value:1 = Baseboardv2.hvac
+*option:elec-baseboard:cost       = -3870
 
 *option:CCASHP:value:1      = CCASHPv2.hvac
 *option:CCASHP:cost         = 9595          # Does this reflect AC system savings?
@@ -1132,7 +1162,6 @@
 # Solar DHW
 #-----------------------------------------------------------------------
 
-
 *ext-attribute:start 
 *attribute:name      = Opt-SolarDHW
 
@@ -1141,14 +1170,31 @@
 *option:none:production-DHW  = 0 #GJ
 *option:none:cost = 0
 
+*option:DWHR:production-elec = 0 #GJ
+*option:DWHR:production-SH   = 0 #GJ
+*option:DWHR:production-DHW  = 3.5388 #GJ
+*option:DWHR:cost = 890
+
 *option:1-flat-plate:production-elec = 0 #GJ
 *option:1-flat-plate:production-SH   = 0 #GJ
-*option:1-flat-plate:production-DHW  = 6.110 #GJ
+*option:1-flat-plate:production-DHW  = 5.288 #GJ
 *option:1-flat-plate:cost = 5225
 
 *option:2-flat-plate:production-elec = 0 #GJ
 *option:2-flat-plate:production-SH   = 0 #GJ
-*option:2-flat-plate:production-DHW  = 9.940 #GJ
+*option:2-flat-plate:production-DHW  = 7.142 #GJ
 *option:2-flat-plate:cost = 6510
+
+
+*option:1-flat-plate+DWHR:production-elec = 0 #GJ
+*option:1-flat-plate+DWHR:production-SH   = 0 #GJ
+*option:1-flat-plate+DWHR:production-DHW  = 5.933 #GJ
+*option:1-flat-plate+DWHR:cost = 6115
+
+*option:2-flat-plate+DWHR:production-elec = 0 #GJ
+*option:2-flat-plate+DWHR:production-SH   = 0 #GJ
+*option:2-flat-plate+DWHR:production-DHW  = 7.787 #GJ
+*option:2-flat-plate+DWHR:cost = 7400
+
 
 *ext-attribute:end

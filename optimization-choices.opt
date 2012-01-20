@@ -4,6 +4,14 @@
 GOconfig_rotate      : S
 
 
+# Assumptions about HRV operation . Not intended to be optimized!
+# Recognized values: 
+#  - Continuious: HRV runs continious
+#  - ERSp3ACH: Existing ERS assumptions of 0.3 ACH from 
+#              natural and mechanical vent. 
+#  - EightHRpDay: HRV operates 33% of each hour, for 8hr/day total.
+
+OPT-HRV_ctl          : ERSp3ACH
 
 # Turn orignial design windows opaque ( NoWindows!)
 # or transparent (MinWindows). NoWindows doesn't presently work!
@@ -16,12 +24,12 @@ Opt-BaseWindows      : MinWindows
 Opt-ExtWinTopFl-1    : No             # Top floor, front of house 
 Opt-ExtWinTopFl-2    : No             #
 Opt-ExtWinTopFl-3    : No             #
-Opt-ExtWinFirstFl-1  : No             # First floor, all sides
-Opt-ExtWinFirstFl-2  : No             # 
-Opt-ExtWinFirstFl-3  : No             #
-Opt-ExtWinFirstFl-4  : No             #
-Opt-ExtWinFirstFl-5  : No             #
-Opt-ExtWinFirstFl-6  : No             #
+Opt-ExtWinFirstFl-1  : Yes            # First floor - back side
+Opt-ExtWinFirstFl-2  : No             #             - left side 
+Opt-ExtWinFirstFl-3  : Yes            #             - back side
+Opt-ExtWinFirstFl-4  : Yes            #             - back side
+Opt-ExtWinFirstFl-5  : Yes            #             - back side 
+Opt-ExtWinFirstFl-6  : Yes            #             - back side 
 Opt-ExtWinBedroom-1  : Yes            # Bedroom (back)
 Opt-ExtWinBsmt-1     : Yes            # Basement (back)
 Opt-ExtWinMaster-1   : Yes            # Master (back)
@@ -33,7 +41,7 @@ Opt-ExtWinMaster-1   : Yes            # Master (back)
 #     Cdn1ACH
 #     PassiveHouse (unconfirmed cost data)
                  
-Opt-AirTightness     : Cdn1ACH
+Opt-AirTightness     : TypicalGTA
 
 # Main wall insulation 
 #  BaseR21
@@ -46,14 +54,14 @@ Opt-AirTightness     : Cdn1ACH
 #  DblStud-R44-Wall
 #  Truss-R40-Wall
 
-Opt-MainWall         : Stud-R50-Wall
+Opt-MainWall         : BaseR21
 
 
 # Add extra drywall to wall constructions 
 # Options: 
 #   OneSheet
 #   TwoSheets
-Opt-ExtraDrywall     : OneSheet
+Opt-ExtraDrywall     : TwoSheets
 
 # Add concrete to floors (internal partitions only)
 # Options:  
@@ -63,7 +71,7 @@ Opt-ExtraDrywall     : OneSheet
 Opt-FloorSurface     : 2-in-concrete
 
 
-Opt-Ceilings         : CeilingR100
+Opt-Ceilings         : CeilingR50
 
 # Basement slab insulation 
 # Choices: 
@@ -86,7 +94,7 @@ Opt-BasementSlabInsulation  : R24UnderSlab+edge
 #  ICF-base-R51     
 #  ICF-base-R51r    
 
-Opt-BasementWallInsulation  : Rigid+Batt-R30
+Opt-BasementWallInsulation  : OBC-min-R12
 
 
 # Optical and themral characteristics of casement windows (currently 
@@ -99,7 +107,7 @@ Opt-BasementWallInsulation  : Rigid+Batt-R30
 #    TripleLowESoftCoatKryFill
 #    DoubleLowESoftCoatArgFill
 
-Opt-CasementWindows  : TripleLowEHardCoatKryFill
+Opt-CasementWindows  : DoubleLowEHardCoatArgFill
 
 
 # Exposed floor over garage (affects floor
@@ -109,8 +117,33 @@ Opt-CasementWindows  : TripleLowEHardCoatKryFill
 #  ExpFloorFlash&Batt-R36
 #  ExpFloorFoamed-R52
 
-Opt-ExposedFloor     : ExpFloorFoamed-R52
+Opt-ExposedFloor     : BaseExpFloor-R31
 
 Opt-StandoffPV       : autosize
 
-Opt-SolarDHW         : 1-flat-plate
+Opt-SolarDHW         : 2-flat-plate+DWHR
+
+# NoReduction
+# BasicReduction
+# EfficientLiving
+
+Opt-ElecLoadScale    : EfficientLiving
+
+# Load scales 
+
+Opt-DHWLoadScale     : EfficientLiving
+
+
+# Hot water system. Choices:
+#  BaseDHW
+#  ElectricStorage
+#  GasInstant
+#  ElectricHP
+
+Opt-DHWSystem        : BaseDHW
+
+# HVAC system 
+#  basefurnace
+#  CCASHP
+
+Opt-HVACSystem       : elec-baseboard
