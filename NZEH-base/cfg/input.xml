@@ -64,6 +64,9 @@
   <step_variable>total_fuel_use/*</step_variable>
   
   
+  <step_variable>plant*</step_variable>
+  
+  
   <!-- -->
   <summary_variable>total_fuel_use*</summary_variable>
   
