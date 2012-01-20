@@ -1,8 +1,14 @@
 # Optimization substututions 
 
+GOconfig_step :  %stepNumber%
+
 # Set the orientation for the model (N,S,E,W, or AVG to run all four directions
 # and compute an average result)
 GOconfig_rotate      : %GOtag:GOconfig_rotate%
+
+
+
+OPT-HRV_ctl          : %GOtag:HRVcontrol%
 
 
 # Turn orignial design windows opaque ( NoWindows!)
@@ -16,12 +22,12 @@ Opt-BaseWindows      : MinWindows
 Opt-ExtWinTopFl-1    : %GOtag:Opt-ExtWinTopFl-1%   # Yes/No : Top floor, front of house 
 Opt-ExtWinTopFl-2    : %GOtag:Opt-ExtWinTopFl-2%   # Yes/No : 
 Opt-ExtWinTopFl-3    : %GOtag:Opt-ExtWinTopFl-3%   # Yes/No : 
-Opt-ExtWinFirstFl-1  : %GOtag:Opt-ExtWinFirstFl-1% # Yes/No : First floor, all sides
-Opt-ExtWinFirstFl-2  : %GOtag:Opt-ExtWinFirstFl-2% # Yes/No : 
-Opt-ExtWinFirstFl-3  : %GOtag:Opt-ExtWinFirstFl-3% # Yes/No : 
-Opt-ExtWinFirstFl-4  : %GOtag:Opt-ExtWinFirstFl-4% # Yes/No : 
-Opt-ExtWinFirstFl-5  : %GOtag:Opt-ExtWinFirstFl-5% # Yes/No : 
-Opt-ExtWinFirstFl-6  : %GOtag:Opt-ExtWinFirstFl-6% # Yes/No : 
+Opt-ExtWinFirstFl-1  : %GOtag:Opt-ExtWinFirstFl-1% # Yes/No : First floor, - back side
+Opt-ExtWinFirstFl-2  : %GOtag:Opt-ExtWinFirstFl-2% # Yes/No :              - left side 
+Opt-ExtWinFirstFl-3  : %GOtag:Opt-ExtWinFirstFl-3% # Yes/No :              - back side
+Opt-ExtWinFirstFl-4  : %GOtag:Opt-ExtWinFirstFl-4% # Yes/No :              - back side
+Opt-ExtWinFirstFl-5  : %GOtag:Opt-ExtWinFirstFl-5% # Yes/No :              - back side 
+Opt-ExtWinFirstFl-6  : %GOtag:Opt-ExtWinFirstFl-6% # Yes/No :              - back side 
 Opt-ExtWinBedroom-1  : %GOtag:Opt-ExtWinBedroom-1% # Yes/No : Bedroom (back)
 Opt-ExtWinBsmt-1     : %GOtag:Opt-ExtWinBsmt-1%    # Yes/No : Basement (back)
 Opt-ExtWinMaster-1   : %GOtag:Opt-ExtWinMaster-1%  # Yes/No : Master (back)
@@ -90,3 +96,29 @@ Opt-CasementWindows  : %GOtag:Opt-CasementWindows%
 #  ExpFloorFoamed-R52
 
 Opt-ExposedFloor     : %GOtag:Opt-ExposedFloor%
+
+
+Opt-StandoffPV       : %GOtag:Opt-StandoffPV%
+
+
+
+Opt-SolarDHW         : %GOtag:Opt-SolarDHW%
+
+Opt-DHWSystem        : %GOtag:Opt-DHWSystem%
+
+Opt-HVACSystem       : %GOtag:Opt-HVACSystem%
+
+# Load scales: 
+Opt-ElecLoadScale    : %GOtag:ElecLoadScale%
+Opt-DHWLoadScale     : %GOtag:DHWLoadScale%
+
+
+# Assumptions about HRV operation . Not intended to be optimized!
+# Recognized values: 
+#  - Continuious: HRV runs continious
+#  - ERSp3ACH: Existing ERS assumptions of 0.3 ACH from 
+#              natural and mechanical vent. 
+#  - EightHRpDay: HRV operates 33% of each hour, for 8hr/day total.
+
+OPT-HRV_ctl          : %GOtag:HRVcontrol%
+
