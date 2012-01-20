@@ -29,7 +29,7 @@
   Test of applying .fcl file as a power-only component
 # no. of additional data items:
     1    1
-    0.8500
+    <Opt-ElecLoadScale>
   ../elec_loads/can_gen_med_y2.fcl
 # No.   i.d.  Comp. name   Phase type  links to nodes 
     2   11    CETC_HVAC    1-phase         2    0    0
