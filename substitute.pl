@@ -17,7 +17,8 @@ sub execute($);
 sub stream_out($);
 sub fatalerror($); 
 sub round($); 
-
+sub round1d($); 
+sub min($$);
 
 
 
@@ -36,14 +37,17 @@ my $gISHcmd             = "./run.sh $gModelCfgFile";
 my $gPRJZoneConCmd      = "$gPRJpath -mode text -file $gModelCfgFile -act update_con_files";
 my $gPRJZoneRotCmd      = "$gPRJpath -mode text -file $gModelCfgFile -act rotate ";
 my $gBPScmd             = "$gBPSpath -file $gModelCfgFile -mode text -p fullyear silent";
-#$gBPScmd             = "$gBPSpath -file $gModelCfgFile -mode text -p jan silent";
+#$gBPScmd                = "$gBPSpath -file $gModelCfgFile -mode text -p jan silent";
 
-
-my $gIncBaseCosts       = 13850; 
+my $gTotalCost          = 0; 
+my $gIncBaseCosts       = 11727; 
 
 my $gSkipSims           = 0; 
 
 my $gRotate             = "S";
+
+my $gGOStep             = 0; 
+my $gArchGOChoiceFile   = 0; 
 
 my %gChoices; 
 my %gOptions;
@@ -67,7 +71,9 @@ my @search_these_exts=( "cfg",
                         "vnt",
                         "geo",
                         "constrdb",
-                        "cnn"
+                        "cnn",
+                        "enf",
+                        "dhw"
                       );
                        
                        
@@ -422,8 +428,6 @@ while ( my $line = <OPTIONS> ){
       
     }
     
-
-  
   }
   
 }
@@ -464,7 +468,8 @@ while ( my $line = <CHOICES> ){
     if ( $attribute =~ /^GOconfig_/ ){
       $attribute =~ s/^GOconfig_//g; 
       if ( $attribute =~ /rotate/ ) { $gRotate = $value; } 
-    
+      if ( $attribute =~ /step/ ) { $gGOStep = $value; 
+                                      $gArchGOChoiceFile = 1;  } 
     }else{
       $gChoices{"$attribute"}=$value ;
     
@@ -478,6 +483,12 @@ while ( my $line = <CHOICES> ){
 
 close( CHOICES );
 stream_out ("...done.\n") ; 
+
+if ( $gArchGOChoiceFile and -d "../ArchGOChoiceFiles" ) { 
+  stream_out( " Archiving $gChoiceFile -> ../ArchGOChoiceFiles/$gChoiceFile-$gGOStep" ); 
+  execute ( " cp $gChoiceFile ../ArchGOChoiceFiles/$gChoiceFile-$gGOStep ") ; 
+  
+} 
 
 
 my %gChoiceAttIsExt;
@@ -736,6 +747,12 @@ print SUMMARY "Energy-Total-GJ =  $gAvgEnergy_Total \n";
 print SUMMARY "Util-Bill-Total =  $gAvgCost_Total   \n";
 print SUMMARY "Util-Bill-Elec  =  $gAvgCost_Electr  \n";
 print SUMMARY "Util-Bill-Gas   =  $gAvgCost_NatGas  \n";
+print SUMMARY "Upgrade-cost    =  ".eval($gTotalCost-$gIncBaseCosts)."\n"; 
+
+my $PVcapacity = $gChoices{"Opt-StandoffPV"}; 
+$PVcapacity =~ s/[a-zA-Z:\s]//g;
+
+print SUMMARY "PV-size-kW      =  ".$PVcapacity."\n"; 
 close (SUMMARY); 
 
 close(LOG); 
@@ -849,19 +866,19 @@ sub runsims($){
           
           
   # Save output files
-# if ( ! -d "$gMasterPath/sim-output" ) {
+ if ( ! -d "$gMasterPath/sim-output" ) {
+
+   execute("mkdir $gMasterPath/sim-output") or stream_out ("Could not create $gMasterPath/sim-output!\n"); 
+   
+ }
 #
-#   execute("mkdir $gMasterPath/sim-output") or die ("Could not create $gMasterPath/sim-output!"); 
-#   
-# }
-#
-# execute("cp $gMasterPath/$gWorkingCfgPath/out* $gMasterPath/sim-output/");
+ if ( -d "$gMasterPath/sim-output") { execute("cp $gMasterPath/$gWorkingCfgPath/out* $gMasterPath/sim-output/");}
 #         
 #         
 # # Cleanup
 # stream_out("\n\n Deleting working folder...");
 #  #system ("rm -fr $gWorkingModelFolder ");
-#  stream_out("done.");
+#  stream_out("done.");ls 
 
   chdir $gMasterPath;
 
@@ -1227,6 +1244,17 @@ sub postprocess($){
   my $sizeSDHW = $gChoices{"Opt-SolarDHW"}; 
   $gSimResults{"SDHW production"} = -1.0 * $gExtOptions{"Opt-SolarDHW"}{"options"}{$sizeSDHW }{"DHW"}; 
   
+    
+  # Adjust solar DHW energy credit to reflect actual consumption. Assume 
+  # SDHW credit cannot be more than 60% of total water load. 
+  
+  $gSimResults{"SDHW production"} = min( $gSimResults{"SDHW production"}*-1.,
+                                         0.6 * $gSimResults{"total_fuel_use/test/all_fuels/water_heating/energy_content::AnnualTotal"} 
+                                       ) * (-1.) ; 
+  
+  
+  
+  
 
   # Add data from externally computed PVs. 
   
@@ -1247,7 +1275,7 @@ sub postprocess($){
       $prePVEnergy += $value; 
             
     }
-    
+
     if ( $prePVEnergy > 0 ){
     
       # This should always be the case
@@ -1256,6 +1284,7 @@ sub postprocess($){
     
       my $PVdataHash= $gExtOptions{"Opt-StandoffPV"}{"options"}; 
       
+      # Loop through sizes until sufficient production is found 
       foreach my $size ( sort keys (%$PVdataHash) ){
         if ( $size !~ /autosize/ ){
           
@@ -1275,8 +1304,22 @@ sub postprocess($){
         }
       }
       
-      $gSimResults{"PV production"}=-1.0*$gExtOptions{"Opt-StandoffPV"}{"options"}{$PVsize}{"elec"};
+      # IF no size found, extrapolate from largest size (10 kW)
+      if ( ! $SizeFound ) {
+      
+        $gSimResults{"PV production"} = -1.0 * $prePVEnergy ;
+        
+        $PVsize = " scaled: ".eval(round1d($prePVEnergy*0.248756219))." kW" ;
+      
+        $gExtOptions{"Opt-StandoffPV"}{"options"}{$PVsize}{"cost"} 
+           = 57780 + 1383.333333 * ( $prePVEnergy - 39.42 ) ; 
 
+      
+      }else{
+        
+        $gSimResults{"PV production"}=-1.0*$gExtOptions{"Opt-StandoffPV"}{"options"}{$PVsize}{"elec"};
+      
+      }
     
     }else{
       # House is already energy positive, no PV needed. 
@@ -1289,10 +1332,7 @@ sub postprocess($){
   
   $gChoices{"Opt-StandoffPV"}=$PVsize;
   
-  
-  
-  
-  
+
   stream_out("\n\n Energy Consumption: \n\n") ; 
 
   my $gTotalEnergy = 0;
@@ -1329,7 +1369,7 @@ sub postprocess($){
   
   # Estimate total cost of upgrades
 
-  my $gTotalCost = 0;         
+  $gTotalCost = 0;         
 
   stream_out ("\n\n Estimated costs: \n\n");
 
@@ -1351,7 +1391,7 @@ sub postprocess($){
   stream_out ( " --------------------------------------------------------\n");
   stream_out ( " =   ".round($gTotalCost-$gIncBaseCosts)." ( Total incremental cost ) \n");
 
-
+  
   
   
 }
@@ -1378,6 +1418,12 @@ sub round($){
   return $finalRounded;
 }
 
+sub round1d($){
+  my ($var) = @_; 
+  my $tmpRounded = int( abs($var*10) + 0.5);
+  my $finalRounded = $var >= 0 ? 0 + $tmpRounded : 0 - $tmpRounded;
+  return $finalRounded/10;
+}
 
 #-------------------------------------------------------------------
 # Display a fatal error and quit.
@@ -1420,4 +1466,10 @@ sub execute($){
 }
 
 
-
+sub min($$){
+  my ($a,$b) = @_; 
+  if ($a > $b ) {return $b;}
+  else {return $a;}
+  
+  return 1;
+}
