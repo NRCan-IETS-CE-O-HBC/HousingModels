@@ -99,9 +99,10 @@
     0    0.0015  air  0.170 0.170 0.170
   301    0.0125  gypsum board : Gypsum board
 # layers  description   optics name   symmetry tag
-    1    roof          OPAQ  OPAQUE        SYMMETRIC     
+    2    roof          OPAQ  OPAQUE        SYMMETRIC     
 # mat ref thickness (m) mat descr & air gap R
-  155    0.0125  Ceiling tile : Ceiling tiles
+  168    0.0225  Shingles               # Bumped up
+  72     0.0280  plywood 700d : Plywood (700 density)
 # layers  description   optics name   symmetry tag
     3    DblArLowe     TRAN  DBLLowE       SYMMETRIC     
 # mat ref thickness (m) mat descr & air gap R
@@ -502,7 +503,7 @@
    79    0.0120  OSB   
     0    0.0250  air  0.170 0.170 0.170
   301    0.0125  gypsum board   
-  #--------------------
+#--------------------
 # MAIN WALLS: R52 Double Stud Wall (16"):
 # 64: layers  description   optics name   symmetry tag
     5    DblSR52Bri    OPAQ  OPAQUE        NONSYMMETRIC 
@@ -779,14 +780,16 @@
    21    0.1840  light mix concrete : Light mix concrete
   283    0.0578  fiberglass batt : fiberglass batt insulation
 # 100. rigid ext
-    3    BsmWllR20     OPAQ  OPAQUE        NONSYMMETRIC  
+    4    BsmWllR20     OPAQ  OPAQUE        NONSYMMETRIC  
 # mat ref thickness (m) mat descr & air gap R
+   21    0.0080  light mix concrete : Light mix concrete
   220    0.1016  XPS exterior
    21    0.1840  light mix concrete : Light mix concrete
   283    0.0148  fiberglass batt : fiberglass batt insulation
 # 101. rigid ext, 2x4 with batt interior 
-    3    BsmWllR30     OPAQ  OPAQUE        NONSYMMETRIC  
+    4    BsmWllR30     OPAQ  OPAQUE        NONSYMMETRIC  
 # mat ref thickness (m) mat descr & air gap R
+   21    0.0080  light mix concrete : Light mix concrete
   220    0.1016  XPS exterior
    21    0.1840  light mix concrete : Light mix concrete
   283    0.0807  fiberglass batt : fiberglass batt insulation
@@ -803,44 +806,51 @@
   220    0.1016  XPS exterior
   233    0.1748  Cellulose Fiber 
 # 104. rigid interior 2x4 framed, blown insulation 
-    3    BsmIcfR22     OPAQ  OPAQUE        NONSYMMETRIC  
+    4    BsmIcfR22     OPAQ  OPAQUE        NONSYMMETRIC  
 # mat ref thickness (m) mat descr & air gap R
+   21    0.0080  light mix concrete : Light mix concrete
   220    0.0480  XPS exterior
    21    0.1840  light mix concrete : Light mix concrete
   220    0.0480  XPS interior
 # 105. rigid interior 2x4 framed, blown insulation 
-    3    BsmIcfR26     OPAQ  OPAQUE        NONSYMMETRIC  
+    4    BsmIcfR26     OPAQ  OPAQUE        NONSYMMETRIC  
 # mat ref thickness (m) mat descr & air gap R
+   21    0.0080  light mix concrete : Light mix concrete
   220    0.0818  XPS exterior
    21    0.1840  light mix concrete : Light mix concrete
   220    0.0818  XPS interior
 # 106. rigid interior 2x4 framed, blown insulation 
-    3    BsmIcfR26     OPAQ  OPAQUE        NONSYMMETRIC  
+    4    BsmIcfR26b    OPAQ  OPAQUE        NONSYMMETRIC  
 # mat ref thickness (m) mat descr & air gap R
+   21    0.0080  light mix concrete : Light mix concrete
   220    0.0818  XPS exterior
    21    0.1840  light mix concrete : Light mix concrete
   220    0.0818  XPS interior
 # 107. rigid interior 2x4 framed, blown insulation 
-    3    BsmIcfR32     OPAQ  OPAQUE        NONSYMMETRIC  
+    4    BsmIcfR32     OPAQ  OPAQUE        NONSYMMETRIC  
 # mat ref thickness (m) mat descr & air gap R
+   21    0.0080  light mix concrete : Light mix concrete
   220    0.1030  XPS exterior
    21    0.1840  light mix concrete : Light mix concrete
   220    0.1030  XPS interior  
 # 108. rigid interior 2x4 framed, blown insulation 
-    3    BsmIcfR41     OPAQ  OPAQUE        NONSYMMETRIC  
+    4    BsmIcfR41     OPAQ  OPAQUE        NONSYMMETRIC  
 # mat ref thickness (m) mat descr & air gap R
+   21    0.0080  light mix concrete : Light mix concrete
   220    0.1346  XPS exterior
    21    0.1840  light mix concrete : Light mix concrete
   220    0.1346  XPS interior  
 # 109. rigid interior 2x4 framed, blown insulation 
-    3    BsmIcfR51     OPAQ  OPAQUE        NONSYMMETRIC  
+    4    BsmIcfR51     OPAQ  OPAQUE        NONSYMMETRIC  
 # mat ref thickness (m) mat descr & air gap R
+   21    0.0080  light mix concrete : Light mix concrete
   220    0.2827  XPS exterior
    21    0.1840  light mix concrete : Light mix concrete
   220    0.0570  XPS interior  
 #110. rigid interior 2x4 framed, blown insulation 
-    3    BsmIcfR51r    OPAQ  OPAQUE        NONSYMMETRIC  
+    4    BsmIcfR51r    OPAQ  OPAQUE        NONSYMMETRIC  
 # mat ref thickness (m) mat descr & air gap R
+   21    0.0080  light mix concrete : Light mix concrete
   220    0.0570  XPS exterior
    21    0.1840  light mix concrete : Light mix concrete
   220    0.2827  XPS interior   
