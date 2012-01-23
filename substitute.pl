@@ -53,6 +53,15 @@ my %gChoices;
 my %gOptions;
 my %gExtOptions; 
 
+my $gEnergyPV; 
+my $gEnergySDHW;
+my $gEnergyHeating;
+my $gEnergyCooling;
+my $gEnergyVentilation; 
+my $gEnergyWaterHeating; 
+my $gEnergyEquipment; 
+
+
 my @gChoiceOrder;
 
 my $master_path = getcwd(); 
@@ -485,8 +494,8 @@ close( CHOICES );
 stream_out ("...done.\n") ; 
 
 if ( $gArchGOChoiceFile and -d "../ArchGOChoiceFiles" ) { 
-  stream_out( " Archiving $gChoiceFile -> ../ArchGOChoiceFiles/$gChoiceFile-$gGOStep" ); 
-  execute ( " cp $gChoiceFile ../ArchGOChoiceFiles/$gChoiceFile-$gGOStep ") ; 
+  #stream_out( " Archiving $gChoiceFile -> ../ArchGOChoiceFiles/$gChoiceFile-$gGOStep" ); 
+  #!execute ( " cp $gChoiceFile ../ArchGOChoiceFiles/$gChoiceFile-$gGOStep ") ; 
   
 } 
 
@@ -747,6 +756,15 @@ print SUMMARY "Energy-Total-GJ =  $gAvgEnergy_Total \n";
 print SUMMARY "Util-Bill-Total =  $gAvgCost_Total   \n";
 print SUMMARY "Util-Bill-Elec  =  $gAvgCost_Electr  \n";
 print SUMMARY "Util-Bill-Gas   =  $gAvgCost_NatGas  \n";
+
+print SUMMARY "Energy-PV       =  $gEnergyPV \n";
+print SUMMARY "Energy-SDHW     =  $gEnergySDHW \n";
+print SUMMARY "Energy-Heating  =  $gEnergyHeating \n";
+print SUMMARY "Energy-Cooling  =  $gEnergyCooling \n";
+print SUMMARY "Energy-Vent     =  $gEnergyVentilation \n";
+print SUMMARY "Energy-DWH      =  $gEnergyWaterHeating \n";
+print SUMMARY "Energy-Plug     =  $gEnergyEquipment \n";  
+
 print SUMMARY "Upgrade-cost    =  ".eval($gTotalCost-$gIncBaseCosts)."\n"; 
 
 my $PVcapacity = $gChoices{"Opt-StandoffPV"}; 
@@ -1350,6 +1368,34 @@ sub postprocess($){
   stream_out ( "    $gTotalEnergy ( Total energy, GJ ) \n");
 
 
+  # Save Energy consumption for later
+  $gEnergyPV = defined( $gSimResults{"PV production"} ) ? 
+                         $gSimResults{"PV production"} : 0 ;  
+
+  $gEnergySDHW = defined( $gSimResults{"SDHW production"} ) ? 
+                         $gSimResults{"SDHW production"} : 0 ;  
+
+
+  $gEnergyHeating = defined( $gSimResults{"total_fuel_use/test/all_fuels/space_heating/energy_content::AnnualTotal"} ) ? 
+                         $gSimResults{"total_fuel_use/test/all_fuels/space_heating/energy_content::AnnualTotal"} : 0 ;  
+
+
+  $gEnergyCooling = defined( $gSimResults{"total_fuel_use/test/all_fuels/space_cooling/energy_content::AnnualTotal"} ) ? 
+                         $gSimResults{"total_fuel_use/test/all_fuels/space_cooling/energy_content::AnnualTotal"} : 0 ;  
+
+
+  $gEnergyVentilation = defined( $gSimResults{"total_fuel_use/test/all_fuels/ventilation/energy_content::AnnualTotal"} ) ? 
+                         $gSimResults{"total_fuel_use/test/all_fuels/ventilation/energy_content::AnnualTotal"} : 0 ;  
+
+
+  $gEnergyWaterHeating = defined( $gSimResults{"total_fuel_use/test/all_fuels/water_heating/energy_content::AnnualTotal"} ) ? 
+                         $gSimResults{"total_fuel_use/test/all_fuels/water_heating/energy_content::AnnualTotal"} : 0 ;  
+
+  $gEnergyEquipment = defined( $gSimResults{"total_fuel_use/test/all_fuels/equipment/energy_content::AnnualTotal"} ) ? 
+                         $gSimResults{"total_fuel_use/test/all_fuels/equipment/energy_content::AnnualTotal"} : 0 ;  
+
+      
+
   
   
   
@@ -1366,6 +1412,7 @@ sub postprocess($){
   $gAvgCost_Electr    = $TotalElecBill * $ScaleData;  
   $gAvgEnergy_Total   = $gTotalEnergy  * $ScaleData; 
   
+
   
   # Estimate total cost of upgrades
 
