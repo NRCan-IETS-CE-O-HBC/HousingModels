@@ -19,19 +19,13 @@ Opt-BaseWindows      : MinWindows
 # Template file for %stepNumber%
 # Add extra windows ("Yes" or "No") 
 
-Opt-ExtWinTopFl-1    : %GOtag:Opt-ExtWinTopFl-1%   # Yes/No : Top floor, front of house 
-Opt-ExtWinTopFl-2    : %GOtag:Opt-ExtWinTopFl-2%   # Yes/No : 
-Opt-ExtWinTopFl-3    : %GOtag:Opt-ExtWinTopFl-3%   # Yes/No : 
-Opt-ExtWinFirstFl-1  : %GOtag:Opt-ExtWinFirstFl-1% # Yes/No : First floor, - back side
-Opt-ExtWinFirstFl-2  : %GOtag:Opt-ExtWinFirstFl-2% # Yes/No :              - left side 
-Opt-ExtWinFirstFl-3  : %GOtag:Opt-ExtWinFirstFl-3% # Yes/No :              - back side
-Opt-ExtWinFirstFl-4  : %GOtag:Opt-ExtWinFirstFl-4% # Yes/No :              - back side
-Opt-ExtWinFirstFl-5  : %GOtag:Opt-ExtWinFirstFl-5% # Yes/No :              - back side 
-Opt-ExtWinFirstFl-6  : %GOtag:Opt-ExtWinFirstFl-6% # Yes/No :              - back side 
-Opt-ExtWinBedroom-1  : %GOtag:Opt-ExtWinBedroom-1% # Yes/No : Bedroom (back)
-Opt-ExtWinBsmt-1     : %GOtag:Opt-ExtWinBsmt-1%    # Yes/No : Basement (back)
-Opt-ExtWinMaster-1   : %GOtag:Opt-ExtWinMaster-1%  # Yes/No : Master (back)
+Opt-FrontWindows     : %GOtag:Opt-FrontWindows%
 
+Opt-BackWindows     : %GOtag:Opt-BackWindows%
+
+Opt-ExtLeftSideWindow     : %GOtag:Opt-ExtLeftSideWindow%
+
+Opt-ExtBasementWindow     : %GOtag:Opt-ExtBasementWindow%
 
 Opt-AirTightness     : %GOtag:Opt-AirTightness%
 
