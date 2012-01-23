@@ -54,74 +54,209 @@
 # option Opt-CasementWindows option by the amount of increased glass area. 
 #-----------------------------------------------------------------------
 *attribute:start 
-*attribute:name  = Opt-ExtWinTopFl-1 
+*attribute:name  = Opt-FrontWindows
 *attribute:tag:1 = <OptTopFlExWin1Con>
 *attribute:tag:2 = <OptTopFlExWin1Opt>
+*attribute:tag:3 = <OptTopFlExWin2Con>
+*attribute:tag:4 = <OptTopFlExWin2Opt>
+*attribute:tag:5 = <OptTopFlExWin3Con>
+*attribute:tag:6 = <OptTopFlExWin3Opt>
 
-*option:No:value:1 = <Opt-MainWall-Bri>
-*option:No:value:2 = OPAQUE
-*option:No:cost    = 0
 
-*option:Yes:value:1 = <Opt-CasWinConstruction>
-*option:Yes:value:2 = <Opt-CasWinOptics>
-*option:Yes:cost    = <MULTIPLY-COST:Opt-CasementWindows*0.051917>
+*option:NoExtraWin:value:1 = <Opt-MainWall-Bri>
+*option:NoExtraWin:value:2 = OPAQUE
+*option:NoExtraWin:value:3 = <Opt-MainWall-Bri>
+*option:NoExtraWin:value:4 = OPAQUE
+*option:NoExtraWin:value:5 = <Opt-MainWall-Bri>
+*option:NoExtraWin:value:6 = OPAQUE
+*option:NoExtraWin:cost    = 0
+
+*option:OneExtraWin:value:1 = <Opt-CasWinConstruction>
+*option:OneExtraWin:value:2 = <Opt-CasWinOptics>
+*option:OneExtraWin:value:3 = <Opt-MainWall-Bri>
+*option:OneExtraWin:value:4 = OPAQUE
+*option:OneExtraWin:value:5 = <Opt-MainWall-Bri>
+*option:OneExtraWin:value:6 = OPAQUE
+*option:OneExtraWin:cost    = <MULTIPLY-COST:Opt-CasementWindows*0.051917>
+
+
+*option:TwoExtraWin:value:1 = <Opt-CasWinConstruction>
+*option:TwoExtraWin:value:2 = <Opt-CasWinOptics>
+*option:TwoExtraWin:value:3 = <Opt-CasWinConstruction>
+*option:TwoExtraWin:value:4 = <Opt-CasWinOptics>
+*option:TwoExtraWin:value:5 = <Opt-MainWall-Bri>
+*option:TwoExtraWin:value:6 = OPAQUE
+*option:TwoExtraWin:cost    = <MULTIPLY-COST:Opt-CasementWindows*0.103834>
+
+
+*option:ThreeExtraWin:value:1 = <Opt-CasWinConstruction>
+*option:ThreeExtraWin:value:2 = <Opt-CasWinOptics>
+*option:ThreeExtraWin:value:3 = <Opt-CasWinConstruction>
+*option:ThreeExtraWin:value:4 = <Opt-CasWinOptics>
+*option:ThreeExtraWin:value:5 = <Opt-CasWinConstruction>
+*option:ThreeExtraWin:value:6 = <Opt-CasWinOptics>
+*option:ThreeExtraWin:cost    = <MULTIPLY-COST:Opt-CasementWindows*0.155751>
 
 *attribute:end 
 
-###
-*attribute:start 
-*attribute:name  = Opt-ExtWinTopFl-2 
-*attribute:tag:1 = <OptTopFlExWin2Con>
-*attribute:tag:2 = <OptTopFlExWin2Opt>
-
-*option:No:value:1 = <Opt-MainWall-Bri>
-*option:No:value:2 = OPAQUE
-*option:No:cost    = 0
-
-*option:Yes:value:1 = <Opt-CasWinConstruction>
-*option:Yes:value:2 = <Opt-CasWinOptics>
-*option:Yes:cost    = <MULTIPLY-COST:Opt-CasementWindows*0.051917>
-
-*attribute:end 
-
-######
-*attribute:start 
-*attribute:name  = Opt-ExtWinTopFl-3 
-*attribute:tag:1 = <OptTopFlExWin3Con>
-*attribute:tag:2 = <OptTopFlExWin3Opt>
-
-*option:No:value:1 = <Opt-MainWall-Bri>
-*option:No:value:2 = OPAQUE
-*option:No:cost    = 0
-
-*option:Yes:value:1 = <Opt-CasWinConstruction>
-*option:Yes:value:2 = <Opt-CasWinOptics>
-*option:Yes:cost    = <MULTIPLY-COST:Opt-CasementWindows*0.051917>
-
-*attribute:end 
 #-----------------------------------------------------------------------
-# Add up to 6 extra windows to main floor (zone first_fl) 
+# Add up to 6 extra windows to the back of the house 
 #-----------------------------------------------------------------------
 *attribute:start 
-*attribute:name  = Opt-ExtWinFirstFl-1 
-*attribute:tag:1 = <OptFirstFlExWin1Con>
-*attribute:tag:2 = <OptFirstFlExWin1Opt>
 
-*option:No:value:1 = <Opt-MainWall-Bri>
-*option:No:value:2 = OPAQUE
-*option:No:cost    = 0
 
-*option:Yes:value:1 = <Opt-CasWinConstruction>
-*option:Yes:value:2 = <Opt-CasWinOptics>
-*option:Yes:cost    = <MULTIPLY-COST:Opt-CasementWindows*0.04138>
+*attribute:name   = Opt-BackWindows
 
+*attribute:tag:1  = <OptFirstFlExWin1Con>
+*attribute:tag:2  = <OptFirstFlExWin1Opt>
+*attribute:tag:3  = <OptFirstFlExWin3Con>
+*attribute:tag:4  = <OptFirstFlExWin3Opt>
+*attribute:tag:5  = <OptFirstFlExWin4Con>
+*attribute:tag:6  = <OptFirstFlExWin4Opt>
+*attribute:tag:7  = <OptFirstFlExWin5Con>
+*attribute:tag:8  = <OptFirstFlExWin5Opt>
+*attribute:tag:9  = <OptFirstFlExWin6Con>
+*attribute:tag:10 = <OptFirstFlExWin6Opt>
+*attribute:tag:11 = <OptBedroomExWin1Con>
+*attribute:tag:12 = <OptBedroomExWin1Opt>
+*attribute:tag:13 = <OptMasterExWin1Con>
+*attribute:tag:14 = <OptMasterExWin1Opt>
+
+*option:NoExtraWin:value:1  = <Opt-MainWall-Bri>
+*option:NoExtraWin:value:2  = OPAQUE
+*option:NoExtraWin:value:3  = <Opt-MainWall-Bri>
+*option:NoExtraWin:value:4  = OPAQUE
+*option:NoExtraWin:value:5  = <Opt-MainWall-Bri>
+*option:NoExtraWin:value:6  = OPAQUE
+*option:NoExtraWin:value:7  = <Opt-MainWall-Bri>
+*option:NoExtraWin:value:8  = OPAQUE
+*option:NoExtraWin:value:9  = <Opt-MainWall-Bri>
+*option:NoExtraWin:value:10 = OPAQUE
+*option:NoExtraWin:value:11 = <Opt-MainWall-Bri>
+*option:NoExtraWin:value:12 = OPAQUE
+*option:NoExtraWin:value:13 = <Opt-MainWall-Bri>
+*option:NoExtraWin:value:14 = OPAQUE
+*option:NoExtraWin:cost     = 0
+
+*option:OneExtraWin:value:1  = <Opt-CasWinConstruction>
+*option:OneExtraWin:value:2  = <Opt-CasWinOptics>
+*option:OneExtraWin:value:3  = <Opt-MainWall-Bri>
+*option:OneExtraWin:value:4  = OPAQUE
+*option:OneExtraWin:value:5  = <Opt-MainWall-Bri>
+*option:OneExtraWin:value:6  = OPAQUE
+*option:OneExtraWin:value:7  = <Opt-MainWall-Bri>
+*option:OneExtraWin:value:8  = OPAQUE
+*option:OneExtraWin:value:9  = <Opt-MainWall-Bri>
+*option:OneExtraWin:value:10 = OPAQUE
+*option:OneExtraWin:value:11 = <Opt-MainWall-Bri>
+*option:OneExtraWin:value:12 = OPAQUE
+*option:OneExtraWin:value:13 = <Opt-MainWall-Bri>
+*option:OneExtraWin:value:14 = OPAQUE
+*option:OneExtraWin:cost     = <MULTIPLY-COST:Opt-CasementWindows*0.04138>
+
+*option:TwoExtraWin:value:1  = <Opt-CasWinConstruction>
+*option:TwoExtraWin:value:2  = <Opt-CasWinOptics>
+*option:TwoExtraWin:value:3  = <Opt-CasWinConstruction>
+*option:TwoExtraWin:value:4  = <Opt-CasWinOptics>
+*option:TwoExtraWin:value:5  = <Opt-MainWall-Bri>
+*option:TwoExtraWin:value:6  = OPAQUE
+*option:TwoExtraWin:value:7  = <Opt-MainWall-Bri>
+*option:TwoExtraWin:value:8  = OPAQUE
+*option:TwoExtraWin:value:9  = <Opt-MainWall-Bri>
+*option:TwoExtraWin:value:10 = OPAQUE
+*option:TwoExtraWin:value:11 = <Opt-MainWall-Bri>
+*option:TwoExtraWin:value:12 = OPAQUE
+*option:TwoExtraWin:value:13 = <Opt-MainWall-Bri>
+*option:TwoExtraWin:value:14 = OPAQUE
+*option:TwoExtraWin:cost     = <MULTIPLY-COST:Opt-CasementWindows*0.12921>
+
+*option:ThreeExtraWin:value:1  = <Opt-CasWinConstruction>
+*option:ThreeExtraWin:value:2  = <Opt-CasWinOptics>
+*option:ThreeExtraWin:value:3  = <Opt-CasWinConstruction>
+*option:ThreeExtraWin:value:4  = <Opt-CasWinOptics>
+*option:ThreeExtraWin:value:5  = <Opt-CasWinConstruction>
+*option:ThreeExtraWin:value:6  = <Opt-CasWinOptics>
+*option:ThreeExtraWin:value:7  = <Opt-MainWall-Bri>
+*option:ThreeExtraWin:value:8  = OPAQUE
+*option:ThreeExtraWin:value:9  = <Opt-MainWall-Bri>
+*option:ThreeExtraWin:value:10 = OPAQUE
+*option:ThreeExtraWin:value:11 = <Opt-MainWall-Bri>
+*option:ThreeExtraWin:value:12 = OPAQUE
+*option:ThreeExtraWin:value:13 = <Opt-MainWall-Bri>
+*option:ThreeExtraWin:value:14 = OPAQUE
+*option:ThreeExtraWin:cost     = <MULTIPLY-COST:Opt-CasementWindows*0.17059>
+
+*option:FourExtraWin:value:1  = <Opt-CasWinConstruction>
+*option:FourExtraWin:value:2  = <Opt-CasWinOptics>
+*option:FourExtraWin:value:3  = <Opt-CasWinConstruction>
+*option:FourExtraWin:value:4  = <Opt-CasWinOptics>
+*option:FourExtraWin:value:5  = <Opt-CasWinConstruction>
+*option:FourExtraWin:value:6  = <Opt-CasWinOptics>
+*option:FourExtraWin:value:7  = <Opt-CasWinConstruction>
+*option:FourExtraWin:value:8  = <Opt-CasWinOptics>
+*option:FourExtraWin:value:9  = <Opt-MainWall-Bri>
+*option:FourExtraWin:value:10 = OPAQUE
+*option:FourExtraWin:value:11 = <Opt-MainWall-Bri>
+*option:FourExtraWin:value:12 = OPAQUE
+*option:FourExtraWin:value:13 = <Opt-MainWall-Bri>
+*option:FourExtraWin:value:14 = OPAQUE
+*option:FourExtraWin:cost     = <MULTIPLY-COST:Opt-CasementWindows*0.21197>
+
+*option:FiveExtraWin:value:1  = <Opt-CasWinConstruction>
+*option:FiveExtraWin:value:2  = <Opt-CasWinOptics>
+*option:FiveExtraWin:value:3  = <Opt-CasWinConstruction>
+*option:FiveExtraWin:value:4  = <Opt-CasWinOptics>
+*option:FiveExtraWin:value:5  = <Opt-CasWinConstruction>
+*option:FiveExtraWin:value:6  = <Opt-CasWinOptics>
+*option:FiveExtraWin:value:7  = <Opt-CasWinConstruction>
+*option:FiveExtraWin:value:8  = <Opt-CasWinOptics>
+*option:FiveExtraWin:value:9  = <Opt-CasWinConstruction>
+*option:FiveExtraWin:value:10 = <Opt-CasWinOptics>
+*option:FiveExtraWin:value:11 = <Opt-MainWall-Bri>
+*option:FiveExtraWin:value:12 = OPAQUE
+*option:FiveExtraWin:value:13 = <Opt-MainWall-Bri>
+*option:FiveExtraWin:value:14 = OPAQUE
+*option:FiveExtraWin:cost     = <MULTIPLY-COST:Opt-CasementWindows*0.25335>
+
+*option:SixExtraWin:value:1  = <Opt-CasWinConstruction>
+*option:SixExtraWin:value:2  = <Opt-CasWinOptics>
+*option:SixExtraWin:value:3  = <Opt-CasWinConstruction>
+*option:SixExtraWin:value:4  = <Opt-CasWinOptics>
+*option:SixExtraWin:value:5  = <Opt-CasWinConstruction>
+*option:SixExtraWin:value:6  = <Opt-CasWinOptics>
+*option:SixExtraWin:value:7  = <Opt-CasWinConstruction>
+*option:SixExtraWin:value:8  = <Opt-CasWinOptics>
+*option:SixExtraWin:value:9  = <Opt-CasWinConstruction>
+*option:SixExtraWin:value:10 = <Opt-CasWinOptics>
+*option:SixExtraWin:value:11 = <Opt-CasWinConstruction>
+*option:SixExtraWin:value:12 = <Opt-CasWinOptics>
+*option:SixExtraWin:value:13 = <Opt-MainWall-Bri>
+*option:SixExtraWin:value:14 = OPAQUE
+*option:SixExtraWin:cost     = <MULTIPLY-COST:Opt-CasementWindows*0.34118>
+
+*option:SevenExtraWin:value:1  = <Opt-CasWinConstruction>
+*option:SevenExtraWin:value:2  = <Opt-CasWinOptics>
+*option:SevenExtraWin:value:3  = <Opt-CasWinConstruction>
+*option:SevenExtraWin:value:4  = <Opt-CasWinOptics>
+*option:SevenExtraWin:value:5  = <Opt-CasWinConstruction>
+*option:SevenExtraWin:value:6  = <Opt-CasWinOptics>
+*option:SevenExtraWin:value:7  = <Opt-CasWinConstruction>
+*option:SevenExtraWin:value:8  = <Opt-CasWinOptics>
+*option:SevenExtraWin:value:9  = <Opt-CasWinConstruction>
+*option:SevenExtraWin:value:10 = <Opt-CasWinOptics>
+*option:SevenExtraWin:value:11 = <Opt-CasWinConstruction>
+*option:SevenExtraWin:value:12 = <Opt-CasWinOptics>
+*option:SevenExtraWin:value:13 = <Opt-CasWinConstruction>
+*option:SevenExtraWin:value:14 = <Opt-CasWinOptics>
+*option:SevenExtraWin:cost     = <MULTIPLY-COST:Opt-CasementWindows*0.42901>
 
 
 *attribute:end 
 
-########
+
+######## (Left-side window)
 *attribute:start 
-*attribute:name  = Opt-ExtWinFirstFl-2 
+*attribute:name  = Opt-ExtLeftSideWindow 
 *attribute:tag:1 = <OptFirstFlExWin2Con>
 *attribute:tag:2 = <OptFirstFlExWin2Opt>
 
@@ -135,106 +270,6 @@
 
 *attribute:end 
 
-########
-*attribute:start 
-*attribute:name  = Opt-ExtWinFirstFl-3
-*attribute:tag:1 = <OptFirstFlExWin3Con>
-*attribute:tag:2 = <OptFirstFlExWin3Opt>
-
-*option:No:value:1 = <Opt-MainWall-Bri>
-*option:No:value:2 = OPAQUE
-*option:No:cost    = 0
-
-*option:Yes:value:1 = <Opt-CasWinConstruction>
-*option:Yes:value:2 = <Opt-CasWinOptics>
-*option:Yes:cost    = <MULTIPLY-COST:Opt-CasementWindows*0.08783>
-
-*attribute:end 
-
-########
-*attribute:start 
-*attribute:name  = Opt-ExtWinFirstFl-4
-*attribute:tag:1 = <OptFirstFlExWin4Con>
-*attribute:tag:2 = <OptFirstFlExWin4Opt>
-
-*option:No:value:1 = <Opt-MainWall-Bri>
-*option:No:value:2 = OPAQUE
-*option:No:cost    = 0
-
-*option:Yes:value:1 = <Opt-CasWinConstruction>
-*option:Yes:value:2 = <Opt-CasWinOptics>
-*option:Yes:cost    = <MULTIPLY-COST:Opt-CasementWindows*0.04138>
-
-*attribute:end 
-
-########
-*attribute:start 
-*attribute:name  = Opt-ExtWinFirstFl-5
-*attribute:tag:1 = <OptFirstFlExWin5Con>
-*attribute:tag:2 = <OptFirstFlExWin5Opt>
-
-*option:No:value:1 = <Opt-MainWall-Bri>
-*option:No:value:2 = OPAQUE
-*option:No:cost    = 0
-
-*option:Yes:value:1 = <Opt-CasWinConstruction>
-*option:Yes:value:2 = <Opt-CasWinOptics>
-*option:Yes:cost    = <MULTIPLY-COST:Opt-CasementWindows*0.04138>
-
-*attribute:end 
-
-########
-*attribute:start 
-*attribute:name  = Opt-ExtWinFirstFl-6
-*attribute:tag:1 = <OptFirstFlExWin6Con>
-*attribute:tag:2 = <OptFirstFlExWin6Opt>
-
-*option:No:value:1 = <Opt-MainWall-Bri>
-*option:No:value:2 = OPAQUE
-*option:No:cost    = 0
-
-*option:Yes:value:1 = <Opt-CasWinConstruction>
-*option:Yes:value:2 = <Opt-CasWinOptics>
-*option:Yes:cost    = <MULTIPLY-COST:Opt-CasementWindows*0.04138>
-
-*attribute:end 
-
-#-----------------------------------------------------------------------
-# Add an extra window to the bedroom zone (bedroom) 
-#-----------------------------------------------------------------------
-*attribute:start 
-*attribute:name  = Opt-ExtWinBedroom-1 
-*attribute:tag:1 = <OptBedroomExWin1Con>
-*attribute:tag:2 = <OptBedroomExWin1Opt>
-
-*option:No:value:1 = <Opt-MainWall-Bri>
-*option:No:value:2 = OPAQUE
-*option:No:cost    = 0
-
-*option:Yes:value:1 = <Opt-CasWinConstruction>
-*option:Yes:value:2 = <Opt-CasWinOptics>
-*option:Yes:cost    = <MULTIPLY-COST:Opt-CasementWindows*0.08783>
-
-*attribute:end 
-
-#-----------------------------------------------------------------------
-# Add an extra window to the master zone (master) 
-#-----------------------------------------------------------------------
-*attribute:start 
-*attribute:name  = Opt-ExtWinMaster-1 
-*attribute:tag:1 = <OptMasterExWin1Con>
-*attribute:tag:2 = <OptMasterExWin1Opt>
-
-*option:No:value:1  = <Opt-MainWall-Bri>
-*option:No:value:2  = OPAQUE
-*option:No:cost     = 0
-
-*option:Yes:value:1 = <Opt-CasWinConstruction>
-*option:Yes:value:2 = <Opt-CasWinOptics>
-*option:Yes:cost    = <MULTIPLY-COST:Opt-CasementWindows*0.08783>
-
-*attribute:end 
-
 
 
 #-----------------------------------------------------------------------
@@ -244,7 +279,7 @@
 
 ########
 *attribute:start 
-*attribute:name  = Opt-ExtWinBsmt-1
+*attribute:name  = Opt-ExtBasementWindow
 *attribute:tag:1 = <OptBsmtExWin1Con>
 *attribute:tag:2 = <OptBsmtExWin1Opt>
 

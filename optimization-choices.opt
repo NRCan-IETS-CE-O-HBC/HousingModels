@@ -18,21 +18,14 @@ OPT-HRV_ctl          : ERSp3ACH
 
 Opt-BaseWindows      : MinWindows
 
+# Add one, two or three windows to front of the house 
+Opt-FrontWindows     : NoExtraWin 
+Opt-BackWindows      : FiveExtraWin
 
-# Add extra windows ("Yes" or "No") 
+Opt-ExtLeftSideWindow : Yes            # First floor - back side
 
-Opt-ExtWinTopFl-1    : No             # Top floor, front of house 
-Opt-ExtWinTopFl-2    : No             #
-Opt-ExtWinTopFl-3    : No             #
-Opt-ExtWinFirstFl-1  : Yes            # First floor - back side
-Opt-ExtWinFirstFl-2  : No             #             - left side 
-Opt-ExtWinFirstFl-3  : Yes            #             - back side
-Opt-ExtWinFirstFl-4  : Yes            #             - back side
-Opt-ExtWinFirstFl-5  : Yes            #             - back side 
-Opt-ExtWinFirstFl-6  : Yes            #             - back side 
-Opt-ExtWinBedroom-1  : Yes            # Bedroom (back)
-Opt-ExtWinBsmt-1     : Yes            # Basement (back)
-Opt-ExtWinMaster-1   : Yes            # Master (back)
+
+Opt-ExtBasementWindow : Yes            # Basement (back)
 
 
 # Air-Tightness: 
