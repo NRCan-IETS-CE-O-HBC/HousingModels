@@ -461,25 +461,25 @@
 *option:DblStud-R37-Wall:value:2 =   DblSR37Vin
 *option:DblStud-R37-Wall:value:3 =   DblSR37Dry 
 #*option:DblStud-R37-Wall:value:4 =   DblSR37DryR
-*option:DblStud-R37-Wall:cost    =   12218
+*option:DblStud-R37-Wall:cost    =   3165
 
 *option:DblStud-R52-Wall:value:1 =   DblSR52Bri
 *option:DblStud-R52-Wall:value:2 =   DblSR52Vin
 *option:DblStud-R52-Wall:value:3 =   DblSR52Dry 
 #*option:DblStud-R52-Wall:value:4 =   DblSR52DryR
-*option:DblStud-R52-Wall:cost    =   15365
+*option:DblStud-R52-Wall:cost    =   5985
 
 *option:Truss-R40-Wall:value:1 =   TruR40Bri
 *option:Truss-R40-Wall:value:2 =   TruR40Vin
 *option:Truss-R40-Wall:value:3 =   TruR40Dry 
 #*option:Truss-R40-Wall:value:4 =   TruR40DryR
-*option:Truss-R40-Wall:cost    =   4580
+*option:Truss-R40-Wall:cost    =   5785
 
 *option:Truss-R52-Wall:value:1 =   TruR52Bri
 *option:Truss-R52-Wall:value:2 =   TruR52Vin
 *option:Truss-R52-Wall:value:3 =   TruR52Dry 
 #*option:Truss-R52-Wall:value:4 =   TruR52DryR
-*option:Truss-R52-Wall:cost    =   11255
+*option:Truss-R52-Wall:cost    =   12755
 
 *attribute:end
 
