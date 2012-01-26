@@ -26,8 +26,8 @@ my %gTest_params;          # test parameters
 my $gChoiceFile  = ""; 
 my $gOptionFile  = "" ; 
 
-my $gBPSpath            = "/home/aferguso/esp-r/bin/bps"; 
-my $gPRJpath            = "/home/aferguso/esp-r/bin/prj"; 
+my $gBPSpath            = "~/esp-r/bin/bps"; 
+my $gPRJpath            = "~/esp-r/bin/prj"; 
 
 my $gBaseModelFolder    = "NZEH-base";
 my $gWorkingModelFolder = "NZEH-work"; 
@@ -261,7 +261,7 @@ my %currentTags;
 
 while ( my $line = <OPTIONS> ){
   
-  $line =~ s/\#.*$//g; 
+  $line =~ s/\!.*$//g; 
   $line =~ s/\s*//g;
   $linecount++;
 
@@ -464,7 +464,7 @@ $linecount = 0;
 
 while ( my $line = <CHOICES> ){
   
-  $line =~ s/\#.*$//g; 
+  $line =~ s/\!.*$//g; 
   $line =~ s/\s*//g;
   $linecount++;
   #stream_out ("  Line: $linecount >$line<\n");

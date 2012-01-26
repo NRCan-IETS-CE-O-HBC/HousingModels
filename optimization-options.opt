@@ -1,28 +1,28 @@
-# Optimization substututions 
+! Optimization substututions 
 
-#-----------------------------------------------------------------------
-# This option can be used to turn the model's minumum
-# number of windows opaque. It's not intended for optimization,
-# but might be useful in testing & debugging the model.
-#-----------------------------------------------------------------------
+!-----------------------------------------------------------------------
+! This option can be used to turn the model's minumum
+! number of windows opaque. It's not intended for optimization,
+! but might be useful in testing & debugging the model.
+!-----------------------------------------------------------------------
 *attribute:start 
 *attribute:name  = Opt-BaseWindows
 *attribute:tag:1 = <OptBW-Construction>
 *attribute:tag:2 = <OptBW-Optics>
 
-#*option:NoWindows!:value:1 = <Opt-MainWall-Bri>
-#*option:NoWindows!:value:2 = OPAQUE
-#*option:NoWindows!:cost    = 0
+!*option:NoWindows!:value:1 = <Opt-MainWall-Bri>
+!*option:NoWindows!:value:2 = OPAQUE
+!*option:NoWindows!:cost    = 0
 
 *option:MinWindows:value:1 = <Opt-CasWinConstruction>
 *option:MinWindows:value:2 = <Opt-CasWinOptics>
 *option:MinWindows:cost    = 0
                          
-#-----------------------------------------------------------------------
-# HRV control flag: flag defining assumptions associated with HRV control
-# (this relates to the NZEH performance definition, and isn't intended 
-# to be optimized. 
-#-----------------------------------------------------------------------
+!-----------------------------------------------------------------------
+! HRV control flag: flag defining assumptions associated with HRV control
+! (this relates to the NZEH performance definition, and isn't intended 
+! to be optimized. 
+!-----------------------------------------------------------------------
 *attribute:end
 
 *attribute:start 
@@ -30,9 +30,9 @@
 *attribute:tag:1 = <OPT-HRV_ctl>
 
 
-#*option:NoWindows!:value:1 = <Opt-MainWall-Bri>
-#*option:NoWindows!:value:2 = OPAQUE
-#*option:NoWindows!:cost    = 0
+!*option:NoWindows!:value:1 = <Opt-MainWall-Bri>
+!*option:NoWindows!:value:2 = OPAQUE
+!*option:NoWindows!:cost    = 0
 
 *option:Continuious:value:1 = 7
 *option:Continuious:cost    = 0
@@ -48,11 +48,11 @@
 
 
 
-#-----------------------------------------------------------------------
-# The next three options add extra windows to the front of the house 
-# on the second story. (Zone top_fl) Costs are computed by scaling 
-# option Opt-CasementWindows option by the amount of increased glass area. 
-#-----------------------------------------------------------------------
+!-----------------------------------------------------------------------
+! The next three options add extra windows to the front of the house 
+! on the second story. (Zone top_fl) Costs are computed by scaling 
+! option Opt-CasementWindows option by the amount of increased glass area. 
+!-----------------------------------------------------------------------
 *attribute:start 
 *attribute:name  = Opt-FrontWindows
 *attribute:tag:1 = <OptTopFlExWin1Con>
@@ -99,9 +99,9 @@
 
 *attribute:end 
 
-#-----------------------------------------------------------------------
-# Add up to 6 extra windows to the back of the house 
-#-----------------------------------------------------------------------
+!-----------------------------------------------------------------------
+! Add up to 6 extra windows to the back of the house 
+!-----------------------------------------------------------------------
 *attribute:start 
 
 
@@ -123,6 +123,8 @@
 *attribute:tag:14 = <OptMasterExWin1Opt>
 
 *option:NoExtraWin:value:1  = <Opt-MainWall-Bri>
+
+
 *option:NoExtraWin:value:2  = OPAQUE
 *option:NoExtraWin:value:3  = <Opt-MainWall-Bri>
 *option:NoExtraWin:value:4  = OPAQUE
@@ -254,7 +256,7 @@
 *attribute:end 
 
 
-######## (Left-side window)
+!!!!!!!! (Left-side window)
 *attribute:start 
 *attribute:name  = Opt-ExtLeftSideWindow 
 *attribute:tag:1 = <OptFirstFlExWin2Con>
@@ -272,12 +274,12 @@
 
 
 
-#-----------------------------------------------------------------------
-# Add an extra window to the basement 
-#-----------------------------------------------------------------------
+!-----------------------------------------------------------------------
+! Add an extra window to the basement 
+!-----------------------------------------------------------------------
 
 
-########
+!!!!!!!!
 *attribute:start 
 *attribute:name  = Opt-ExtBasementWindow
 *attribute:tag:1 = <OptBsmtExWin1Con>
@@ -294,24 +296,24 @@
 *attribute:end 
 
 
-#-----------------------------------------------------------------------
-# This option sets the optical and themral characteristics of 
-# the casement windows used in the model (currently all windows are 
-# considered casements)
-#-----------------------------------------------------------------------
+!-----------------------------------------------------------------------
+! This option sets the optical and themral characteristics of 
+! the casement windows used in the model (currently all windows are 
+! considered casements)
+!-----------------------------------------------------------------------
 
 *attribute:start 
 *attribute:name  = Opt-CasementWindows
 *attribute:tag:1 = <Opt-CasWinConstruction>
 *attribute:tag:2 = <Opt-CasWinOptics>
 
-#*option:OriginalGlassParam:value:1 = DblArLowe
-#*option:OriginalGlassParam:value:2 = DBLLowE
-#*option:OriginalGlassParam:cost    = 0
+!*option:OriginalGlassParam:value:1 = DblArLowe
+!*option:OriginalGlassParam:value:2 = DBLLowE
+!*option:OriginalGlassParam:cost    = 0
 
 
-# Base option for windows has cost b/c we multply this amount 
-# by optional window areas.
+! Base option for windows has cost b/c we multply this amount 
+! by optional window areas.
 *option:DoubleLowEHardCoatAirFill:value:1 = DblLeHcAir
 *option:DoubleLowEHardCoatAirFill:value:2 = DblLeHcAir
 *option:DoubleLowEHardCoatAirFill:cost    = 10584
@@ -337,11 +339,11 @@
 
 
 
-#-----------------------------------------------------------------------
-# This option sets the airtightness by spec'ing the 
-# apporpriate aim2 input file. (cost estimates from 
-# Stirling-homes parameters)
-#-----------------------------------------------------------------------
+!-----------------------------------------------------------------------
+! This option sets the airtightness by spec'ing the 
+! apporpriate aim2 input file. (cost estimates from 
+! Stirling-homes parameters)
+!-----------------------------------------------------------------------
 *attribute:start    
 *attribute:name = Opt-AirTightness
 *attribute:tag:1 = <Opt-AirTightness>
@@ -355,7 +357,7 @@
 *option:Cdn1ACH:value:1       =   Cdn1ACH.aim
 *option:Cdn1ACH:cost          =   3049
                               
-# Data is unreliable.                               
+! Data is unreliable.                               
 *option:PassiveHouse:value:1  =   PassiveHouse.aim
 *option:PassiveHouse:cost     =   3787.0
 
@@ -363,49 +365,49 @@
 
 
 
-#-----------------------------------------------------------------------
-#   Ceilings-Option2
-#-----------------------------------------------------------------------
+!-----------------------------------------------------------------------
+!   Ceilings-Option2
+!-----------------------------------------------------------------------
 *attribute:start 
    
 *attribute:name = Opt-Ceilings
 
 *attribute:tag:1  = <Opt-Ceiling>
-#*attribute:tag:2  = <Opt-CeilingR>
+!*attribute:tag:2  = <Opt-CeilingR>
 
 *option:CeilingR50:value:1 =   CeilR50
-#*option:CeilingR50:value:2 =   CeilR50R
+!*option:CeilingR50:value:2 =   CeilR50R
 *option:CeilingR50:cost    =   0
 
 *option:CeilingR60:value:1 =   CeilR60
-#*option:CeilingR60:value:2 =   CeilR60R
+!*option:CeilingR60:value:2 =   CeilR60R
 *option:CeilingR60:cost    =   360.20
 
 *option:CeilingR70:value:1 =   CeilR70
-#*option:CeilingR70:value:2 =   CeilR70R
+!*option:CeilingR70:value:2 =   CeilR70R
 *option:CeilingR70:cost    =   912.20
 
 *option:CeilingR80:value:1 =   CeilR80
-#*option:CeilingR80:value:2 =   CeilR80R
+!*option:CeilingR80:value:2 =   CeilR80R
 *option:CeilingR80:cost    =   1395.20
 
 *option:CeilingR90:value:1 =   CeilR90
-#*option:CeilingR90:value:2 =   CeilR90R
+!*option:CeilingR90:value:2 =   CeilR90R
 *option:CeilingR90:cost    =   1878.20
 
 *option:CeilingR100:value:1 =  CeilR100
-#*option:CeilingR100:value:2 =  CeilR100R
+!*option:CeilingR100:value:2 =  CeilR100R
 *option:CeilingR100:cost    =  2361.2
 
-#*option:CeilingR110:value:1 =  CeilR110
-##*option:CeilingR110:value:2 =  CeilR110R
-#*option:CeilingR110:cost    =  3051.2
+!*option:CeilingR110:value:1 =  CeilR110
+!!*option:CeilingR110:value:2 =  CeilR110R
+!*option:CeilingR110:cost    =  3051.2
 
 *attribute:end
 
-#-----------------------------------------------------------------------
-#   Main walls
-#-----------------------------------------------------------------------
+!-----------------------------------------------------------------------
+!   Main walls
+!-----------------------------------------------------------------------
 *attribute:start 
    
 *attribute:name = Opt-MainWall
@@ -418,74 +420,74 @@
 *option:BaseR21:value:1 =   BaseR21Bri
 *option:BaseR21:value:2 =   BaseR21Vin
 *option:BaseR21:value:3 =   BaseR21Dry 
-#*option:BaseR21:value:4 =   BaseR21DryR
+!*option:BaseR21:value:4 =   BaseR21DryR
 *option:BaseR21:cost    =   0
 
-#*option:ICFR22:value:1 =   IcfR22Bri
-#*option:ICFR22:value:2 =   IcfR22Vin
-#*option:ICFR22:value:3 =   IcfR22Dry 
-##*option:ICFR22:value:4 =   IcfR22DryR
-#*option:ICFR22:cost    =   25150
+!*option:ICFR22:value:1 =   IcfR22Bri
+!*option:ICFR22:value:2 =   IcfR22Vin
+!*option:ICFR22:value:3 =   IcfR22Dry 
+!!*option:ICFR22:value:4 =   IcfR22DryR
+!*option:ICFR22:cost    =   25150
 
 *option:SIPS-R22-Wall:value:1 =   SipR22Bri
 *option:SIPS-R22-Wall:value:2 =   SipR22Vin
 *option:SIPS-R22-Wall:value:3 =   SipR22Dry 
-#*option:SIPS-R22-Wall:value:4 =   SipR22DryR
+!*option:SIPS-R22-Wall:value:4 =   SipR22DryR
 *option:SIPS-R22-Wall:cost    =   -816
 
 *option:SIPS-R28-Wall:value:1 =   SipR28Bri
 *option:SIPS-R28-Wall:value:2 =   SipR28Vin
 *option:SIPS-R28-Wall:value:3 =   SipR28Dry 
-#*option:SIPS-R28-Wall:value:4 =   SipR28DryR
+!*option:SIPS-R28-Wall:value:4 =   SipR28DryR
 *option:SIPS-R28-Wall:cost    =   599
 
-#*option:SIPS-R36-Wall:value:1 =   SipR36Bri
-#*option:SIPS-R36-Wall:value:2 =   SipR36Vin
-#*option:SIPS-R36-Wall:value:3 =   SipR36Dry 
-##*option:SIPS-R36-Wall:value:4 =   SipR36DryR
-#*option:SIPS-R36-Wall:cost    =   2042
+!*option:SIPS-R36-Wall:value:1 =   SipR36Bri
+!*option:SIPS-R36-Wall:value:2 =   SipR36Vin
+!*option:SIPS-R36-Wall:value:3 =   SipR36Dry 
+!!*option:SIPS-R36-Wall:value:4 =   SipR36DryR
+!*option:SIPS-R36-Wall:cost    =   2042
 
 *option:Stud-R35-Wall:value:1 =   StudR35Bri
 *option:Stud-R35-Wall:value:2 =   StudR35Vin
 *option:Stud-R35-Wall:value:3 =   StudR35Dry 
-#*option:Stud-R35-Wall:value:4 =   StudR35DryR
+!*option:Stud-R35-Wall:value:4 =   StudR35DryR
 *option:Stud-R35-Wall:cost    =   3911
 
 *option:Stud-R40-Wall:value:1 =   StudR40Bri
 *option:Stud-R40-Wall:value:2 =   StudR40Vin
 *option:Stud-R40-Wall:value:3 =   StudR40Dry 
-#*option:Stud-R40-Wall:value:4 =   StudR40DryR
+!*option:Stud-R40-Wall:value:4 =   StudR40DryR
 *option:Stud-R40-Wall:cost    =   8318
 
 *option:DblStud-R37-Wall:value:1 =   DblSR37Bri
 *option:DblStud-R37-Wall:value:2 =   DblSR37Vin
 *option:DblStud-R37-Wall:value:3 =   DblSR37Dry 
-#*option:DblStud-R37-Wall:value:4 =   DblSR37DryR
+!*option:DblStud-R37-Wall:value:4 =   DblSR37DryR
 *option:DblStud-R37-Wall:cost    =   3165
 
 *option:DblStud-R52-Wall:value:1 =   DblSR52Bri
 *option:DblStud-R52-Wall:value:2 =   DblSR52Vin
 *option:DblStud-R52-Wall:value:3 =   DblSR52Dry 
-#*option:DblStud-R52-Wall:value:4 =   DblSR52DryR
+!*option:DblStud-R52-Wall:value:4 =   DblSR52DryR
 *option:DblStud-R52-Wall:cost    =   5985
 
 *option:Truss-R40-Wall:value:1 =   TruR40Bri
 *option:Truss-R40-Wall:value:2 =   TruR40Vin
 *option:Truss-R40-Wall:value:3 =   TruR40Dry 
-#*option:Truss-R40-Wall:value:4 =   TruR40DryR
+!*option:Truss-R40-Wall:value:4 =   TruR40DryR
 *option:Truss-R40-Wall:cost    =   5785
 
 *option:Truss-R52-Wall:value:1 =   TruR52Bri
 *option:Truss-R52-Wall:value:2 =   TruR52Vin
 *option:Truss-R52-Wall:value:3 =   TruR52Dry 
-#*option:Truss-R52-Wall:value:4 =   TruR52DryR
+!*option:Truss-R52-Wall:value:4 =   TruR52DryR
 *option:Truss-R52-Wall:cost    =   12755
 
 *attribute:end
 
-#-----------------------------------------------------------------------
-# Foundation Wall start
-#-----------------------------------------------------------------------
+!-----------------------------------------------------------------------
+! Foundation Wall start
+!-----------------------------------------------------------------------
 *attribute:start
 *attribute:name    = Opt-BasementWallInsulation
 *attribute:tag:1   = <OPT-BsmWall>
@@ -528,17 +530,17 @@
 
 *option:ICF-base-R51:value:1 = BsmIcfR51
 *option:ICF-base-R51:meta    = Comb
-*option:ICF-base-R51:cost    = 12000            # Check with Mark!
+*option:ICF-base-R51:cost    = 12000            ! Check with Mark!
 
 *option:ICF-base-R51r:value:1 = BsmIcfR51r
 *option:ICF-base-R51r:meta    = Comb
-*option:ICF-base-R51r:cost    = 12000            # Check with Mark!
+*option:ICF-base-R51r:cost    = 12000            ! Check with Mark!
 
 *attribute:end
 
-#-----------------------------------------------------------------------
-# SubSlab insulation
-#-----------------------------------------------------------------------
+!-----------------------------------------------------------------------
+! SubSlab insulation
+!-----------------------------------------------------------------------
 *attribute:start
 *attribute:name    = Opt-BasementSlabInsulation
 *attribute:tag:1   = <OPT-BsmFloor>
@@ -554,7 +556,7 @@
 
 *option:R10UnderSlab+edge:value:1 = BsmFlrR10
 *option:R10UnderSlab+edge:value:2 = <METASELECT:Opt-BasementWallInsulation?Int:22,Comb:69>
-*option:R10UnderSlab+edge:cost    = 2645        # Should be slightly higher!?!
+*option:R10UnderSlab+edge:cost    = 2645        ! Should be slightly higher!?!
 
 *option:R12UnderSlab+edge:value:1 = BsmFlrR12
 *option:R12UnderSlab+edge:value:2 = <METASELECT:Opt-BasementWallInsulation?Int:22,Comb:69>
@@ -564,13 +566,13 @@
 *option:R24UnderSlab+edge:value:2 = <METASELECT:Opt-BasementWallInsulation?Int:22,Comb:69>
 *option:R24UnderSlab+edge:cost    = 4865      
 
-# Perimeter, sub-slab 0.6m skirt insulation
+! Perimeter, sub-slab 0.6m skirt insulation
 
 *option:R12EdgeP6:value:1 = BsmFlrR0
 *option:R12EdgeP6:value:2 = <METASELECT:Opt-BasementWallInsulation?Int:23,Comb:69>
 *option:R12EdgeP6:cost    = 735        
 
-# Perimeter, sub-slab 1.0m skirt insulation
+! Perimeter, sub-slab 1.0m skirt insulation
 
 *option:R12EdgeP10:value:1 = BsmFlrR0
 *option:R12EdgeP10:value:2 = <METASELECT:Opt-BasementWallInsulation?Int:24,Comb:69>
@@ -578,9 +580,9 @@
        
 *attribute:end
 
-#-----------------------------------------------------------------------
-# Exposed Floor insulation 
-#-----------------------------------------------------------------------
+!-----------------------------------------------------------------------
+! Exposed Floor insulation 
+!-----------------------------------------------------------------------
 *attribute:start
 
 *attribute:name   =Opt-ExposedFloor 
@@ -601,9 +603,9 @@
 *option:ExpFloorFoamed-R52:cost    = 1720.82
 
 *attribute:end
-#-----------------------------------------------------------------------
-# Thickness of applied drywall.
-#-----------------------------------------------------------------------
+!-----------------------------------------------------------------------
+! Thickness of applied drywall.
+!-----------------------------------------------------------------------
 *attribute:start 
   
 *attribute:name   = Opt-ExtraDrywall
@@ -618,9 +620,9 @@
 *attribute:end
 
 
-#-----------------------------------------------------------------------
-# Concrete on floors  ( Costs need to be checked!)
-#-----------------------------------------------------------------------
+!-----------------------------------------------------------------------
+! Concrete on floors  ( Costs need to be checked!)
+!-----------------------------------------------------------------------
 *attribute:start 
   
 *attribute:name   = Opt-FloorSurface
@@ -641,28 +643,39 @@
 
 *attribute:end 
 
-#-----------------------------------------------------------------------
-# HVAC
-#-----------------------------------------------------------------------
+!-----------------------------------------------------------------------
+! HVAC
+!-----------------------------------------------------------------------
 *attribute:start
 *attribute:name    = Opt-HVACSystem
 *attribute:tag:1   = <Opt-HVACSystem>
+*attribute:tag:2   = <Opt-HideGSHPfile>
 
 *option:basefurnace:value:1 = basefurnace_ACv2.hvac
+*option:basefurnace:value:2 = #-no-GSHP-file
 *option:basefurnace:cost    = 0
 
 *option:elec-baseboard:value:1 = Baseboardv2.hvac
+*option:elec-baseboard:value:2 = #-no-GSHP-file
 *option:elec-baseboard:cost       = -3870
 
 *option:CCASHP:value:1      = CCASHPv2.hvac
-*option:CCASHP:cost         = 9595          # Does this reflect AC system savings?
+*option:CCASHP:value:2      = #-no-GSHP-file
+*option:CCASHP:cost         = 9595          ! Does this reflect AC system savings?
+
+
+*option:GSHP:value:1      = GSHPv2.hvac
+*option:GSHP:value:2      = *gshp ../hvac/heatx_v1.gshp
+*option:GSHP:cost         = 18560          ! Does this reflect AC syste$
+
+
 
 *attribute:end
 
 
-#-----------------------------------------------------------------------
-# Electric Loads
-#-----------------------------------------------------------------------
+!-----------------------------------------------------------------------
+! Electric Loads
+!-----------------------------------------------------------------------
 *attribute:start 
 *attribute:name    = Opt-ElecLoadScale
 *attribute:tag:1   = <Opt-ElecLoadScale>
@@ -678,9 +691,9 @@
 
 *attribute:end 
 
-#-----------------------------------------------------------------------
-# Hot water loads
-#-----------------------------------------------------------------------
+!-----------------------------------------------------------------------
+! Hot water loads
+!-----------------------------------------------------------------------
 
 *attribute:start 
 *attribute:name    = Opt-DHWLoadScale 
@@ -698,9 +711,9 @@
 
 *attribute:end 
 
-#-----------------------------------------------------------------------
-# DHW System
-#-----------------------------------------------------------------------
+!-----------------------------------------------------------------------
+! DHW System
+!-----------------------------------------------------------------------
 *attribute:start
 *attribute:name     = Opt-DHWSystem
 *attribute:tag:1    = <Opt-DHWInputFile>
@@ -722,513 +735,513 @@
 
 *attribute:end
 
-#-----------------------------------------------------------------------
-# External PV 
-#-----------------------------------------------------------------------
+!-----------------------------------------------------------------------
+! External PV 
+!-----------------------------------------------------------------------
 
 
 *ext-attribute:start 
 *attribute:name      = Opt-StandoffPV
 
-*option:00.0kW:production-elec = 0 #GJ
-*option:00.0kW:production-SH = 0 #GJ
-*option:00.0kW:production-DHW =0 #GJ
+*option:00.0kW:production-elec = 0 !GJ
+*option:00.0kW:production-SH = 0 !GJ
+*option:00.0kW:production-DHW =0 !GJ
 *option:00.0kW:cost = 0
 
-*option:01.0kW:production-elec = 3.942 #GJ
-*option:01.0kW:production-SH = 0 #GJ
-*option:01.0kW:production-DHW =0 #GJ
+*option:01.0kW:production-elec = 3.942 !GJ
+*option:01.0kW:production-SH = 0 !GJ
+*option:01.0kW:production-DHW =0 !GJ
 *option:01.0kW:cost = 7740
 
-*option:01.1kW:production-elec = 4.336 #GJ
-*option:01.1kW:production-SH = 0 #GJ
-*option:01.1kW:production-DHW =0 #GJ
+*option:01.1kW:production-elec = 4.336 !GJ
+*option:01.1kW:production-SH = 0 !GJ
+*option:01.1kW:production-DHW =0 !GJ
 *option:01.1kW:cost = 8296
 
-*option:01.2kW:production-elec = 4.730 #GJ
-*option:01.2kW:production-SH = 0 #GJ
-*option:01.2kW:production-DHW =0 #GJ
+*option:01.2kW:production-elec = 4.730 !GJ
+*option:01.2kW:production-SH = 0 !GJ
+*option:01.2kW:production-DHW =0 !GJ
 *option:01.2kW:cost = 8852
         
-*option:01.3kW:production-elec = 5.125 #GJ
-*option:01.3kW:production-SH = 0 #GJ
-*option:01.3kW:production-DHW =0 #GJ
+*option:01.3kW:production-elec = 5.125 !GJ
+*option:01.3kW:production-SH = 0 !GJ
+*option:01.3kW:production-DHW =0 !GJ
 *option:01.3kW:cost = 9408
 
-*option:01.4kW:production-elec = 5.519 #GJ
-*option:01.4kW:production-SH = 0 #GJ
-*option:01.4kW:production-DHW =0 #GJ
+*option:01.4kW:production-elec = 5.519 !GJ
+*option:01.4kW:production-SH = 0 !GJ
+*option:01.4kW:production-DHW =0 !GJ
 *option:01.4kW:cost = 9964
         
-*option:01.5kW:production-elec = 5.913 #GJ
-*option:01.5kW:production-SH = 0 #GJ
-*option:01.5kW:production-DHW =0 #GJ
+*option:01.5kW:production-elec = 5.913 !GJ
+*option:01.5kW:production-SH = 0 !GJ
+*option:01.5kW:production-DHW =0 !GJ
 *option:01.5kW:cost = 10520
 
-*option:01.6kW:production-elec = 6.307 #GJ
-*option:01.6kW:production-SH = 0 #GJ
-*option:01.6kW:production-DHW =0 #GJ
+*option:01.6kW:production-elec = 6.307 !GJ
+*option:01.6kW:production-SH = 0 !GJ
+*option:01.6kW:production-DHW =0 !GJ
 *option:01.6kW:cost = 11076
         
-*option:01.7kW:production-elec = 6.701 #GJ
-*option:01.7kW:production-SH = 0 #GJ
-*option:01.7kW:production-DHW =0 #GJ
+*option:01.7kW:production-elec = 6.701 !GJ
+*option:01.7kW:production-SH = 0 !GJ
+*option:01.7kW:production-DHW =0 !GJ
 *option:01.7kW:cost = 11632
         
-*option:01.8kW:production-elec = 7.096 #GJ
-*option:01.8kW:production-SH = 0 #GJ
-*option:01.8kW:production-DHW =0 #GJ
+*option:01.8kW:production-elec = 7.096 !GJ
+*option:01.8kW:production-SH = 0 !GJ
+*option:01.8kW:production-DHW =0 !GJ
 *option:01.8kW:cost = 12188
         
-*option:01.9kW:production-elec = 7.490 #GJ
-*option:01.9kW:production-SH = 0 #GJ
-*option:01.9kW:production-DHW =0 #GJ
+*option:01.9kW:production-elec = 7.490 !GJ
+*option:01.9kW:production-SH = 0 !GJ
+*option:01.9kW:production-DHW =0 !GJ
 *option:01.9kW:cost = 12744
         
-*option:02.0kW:production-elec = 7.884 #GJ
-*option:02.0kW:production-SH = 0 #GJ
-*option:02.0kW:production-DHW =0 #GJ
+*option:02.0kW:production-elec = 7.884 !GJ
+*option:02.0kW:production-SH = 0 !GJ
+*option:02.0kW:production-DHW =0 !GJ
 *option:02.0kW:cost = 13300
         
-*option:02.1kW:production-elec = 8.278 #GJ
-*option:02.1kW:production-SH = 0 #GJ
-*option:02.1kW:production-DHW =0 #GJ
+*option:02.1kW:production-elec = 8.278 !GJ
+*option:02.1kW:production-SH = 0 !GJ
+*option:02.1kW:production-DHW =0 !GJ
 *option:02.1kW:cost = 13856
         
-*option:02.2kW:production-elec = 8.672 #GJ
-*option:02.2kW:production-SH = 0 #GJ
-*option:02.2kW:production-DHW =0 #GJ
+*option:02.2kW:production-elec = 8.672 !GJ
+*option:02.2kW:production-SH = 0 !GJ
+*option:02.2kW:production-DHW =0 !GJ
 *option:02.2kW:cost = 14412
 
-*option:02.3kW:production-elec = 9.067 #GJ
-*option:02.3kW:production-SH = 0 #GJ
-*option:02.3kW:production-DHW =0 #GJ
+*option:02.3kW:production-elec = 9.067 !GJ
+*option:02.3kW:production-SH = 0 !GJ
+*option:02.3kW:production-DHW =0 !GJ
 *option:02.3kW:cost = 14968
         
-*option:02.4kW:production-elec = 9.461 #GJ
-*option:02.4kW:production-SH = 0 #GJ
-*option:02.4kW:production-DHW =0 #GJ
+*option:02.4kW:production-elec = 9.461 !GJ
+*option:02.4kW:production-SH = 0 !GJ
+*option:02.4kW:production-DHW =0 !GJ
 *option:02.4kW:cost = 15524
         
-*option:02.5kW:production-elec = 9.855 #GJ
-*option:02.5kW:production-SH = 0 #GJ
-*option:02.5kW:production-DHW =0 #GJ
+*option:02.5kW:production-elec = 9.855 !GJ
+*option:02.5kW:production-SH = 0 !GJ
+*option:02.5kW:production-DHW =0 !GJ
 *option:02.5kW:cost = 16080
         
-*option:02.6kW:production-elec = 10.249 #GJ
-*option:02.6kW:production-SH = 0 #GJ
-*option:02.6kW:production-DHW =0 #GJ
+*option:02.6kW:production-elec = 10.249 !GJ
+*option:02.6kW:production-SH = 0 !GJ
+*option:02.6kW:production-DHW =0 !GJ
 *option:02.6kW:cost = 16636
         
-*option:02.7kW:production-elec = 10.643 #GJ
-*option:02.7kW:production-SH = 0 #GJ
-*option:02.7kW:production-DHW =0 #GJ
+*option:02.7kW:production-elec = 10.643 !GJ
+*option:02.7kW:production-SH = 0 !GJ
+*option:02.7kW:production-DHW =0 !GJ
 *option:02.7kW:cost = 17192
         
-*option:02.8kW:production-elec = 11.038 #GJ
-*option:02.8kW:production-SH = 0 #GJ
-*option:02.8kW:production-DHW =0 #GJ
+*option:02.8kW:production-elec = 11.038 !GJ
+*option:02.8kW:production-SH = 0 !GJ
+*option:02.8kW:production-DHW =0 !GJ
 *option:02.8kW:cost = 17748
         
-*option:02.9kW:production-elec = 11.432 #GJ
-*option:02.9kW:production-SH = 0 #GJ
-*option:02.9kW:production-DHW =0 #GJ
+*option:02.9kW:production-elec = 11.432 !GJ
+*option:02.9kW:production-SH = 0 !GJ
+*option:02.9kW:production-DHW =0 !GJ
 *option:02.9kW:cost = 18304
 
-*option:03.0kW:production-elec = 11.826 #GJ
-*option:03.0kW:production-SH = 0 #GJ
-*option:03.0kW:production-DHW =0 #GJ
+*option:03.0kW:production-elec = 11.826 !GJ
+*option:03.0kW:production-SH = 0 !GJ
+*option:03.0kW:production-DHW =0 !GJ
 *option:03.0kW:cost = 18860
         
-*option:03.1kW:production-elec = 12.220 #GJ
-*option:03.1kW:production-SH = 0 #GJ
-*option:03.1kW:production-DHW =0 #GJ
+*option:03.1kW:production-elec = 12.220 !GJ
+*option:03.1kW:production-SH = 0 !GJ
+*option:03.1kW:production-DHW =0 !GJ
 *option:03.1kW:cost = 19416
         
-*option:03.2kW:production-elec = 12.614 #GJ
-*option:03.2kW:production-SH = 0 #GJ
-*option:03.2kW:production-DHW =0 #GJ
+*option:03.2kW:production-elec = 12.614 !GJ
+*option:03.2kW:production-SH = 0 !GJ
+*option:03.2kW:production-DHW =0 !GJ
 *option:03.2kW:cost = 19972
         
-*option:03.3kW:production-elec = 13.009 #GJ
-*option:03.3kW:production-SH = 0 #GJ
-*option:03.3kW:production-DHW =0 #GJ
+*option:03.3kW:production-elec = 13.009 !GJ
+*option:03.3kW:production-SH = 0 !GJ
+*option:03.3kW:production-DHW =0 !GJ
 *option:03.3kW:cost = 20528
         
-*option:03.4kW:production-elec = 13.403 #GJ
-*option:03.4kW:production-SH = 0 #GJ
-*option:03.4kW:production-DHW =0 #GJ
+*option:03.4kW:production-elec = 13.403 !GJ
+*option:03.4kW:production-SH = 0 !GJ
+*option:03.4kW:production-DHW =0 !GJ
 *option:03.4kW:cost = 21084
         
-*option:03.5kW:production-elec = 13.797 #GJ
-*option:03.5kW:production-SH = 0 #GJ
-*option:03.5kW:production-DHW =0 #GJ
+*option:03.5kW:production-elec = 13.797 !GJ
+*option:03.5kW:production-SH = 0 !GJ
+*option:03.5kW:production-DHW =0 !GJ
 *option:03.5kW:cost = 21640
         
-*option:03.6kW:production-elec = 14.191 #GJ
-*option:03.6kW:production-SH = 0 #GJ
-*option:03.6kW:production-DHW =0 #GJ
+*option:03.6kW:production-elec = 14.191 !GJ
+*option:03.6kW:production-SH = 0 !GJ
+*option:03.6kW:production-DHW =0 !GJ
 *option:03.6kW:cost = 22196
         
-*option:03.7kW:production-elec = 14.585 #GJ
-*option:03.7kW:production-SH = 0 #GJ
-*option:03.7kW:production-DHW =0 #GJ
+*option:03.7kW:production-elec = 14.585 !GJ
+*option:03.7kW:production-SH = 0 !GJ
+*option:03.7kW:production-DHW =0 !GJ
 *option:03.7kW:cost = 22752
         
-*option:03.8kW:production-elec = 14.980 #GJ
-*option:03.8kW:production-SH = 0 #GJ
-*option:03.8kW:production-DHW =0 #GJ
+*option:03.8kW:production-elec = 14.980 !GJ
+*option:03.8kW:production-SH = 0 !GJ
+*option:03.8kW:production-DHW =0 !GJ
 *option:03.8kW:cost = 23308
         
-*option:03.9kW:production-elec = 15.374 #GJ
-*option:03.9kW:production-SH = 0 #GJ
-*option:03.9kW:production-DHW =0 #GJ
+*option:03.9kW:production-elec = 15.374 !GJ
+*option:03.9kW:production-SH = 0 !GJ
+*option:03.9kW:production-DHW =0 !GJ
 *option:03.9kW:cost = 23864
         
-*option:04.0kW:production-elec = 15.768 #GJ
-*option:04.0kW:production-SH = 0 #GJ
-*option:04.0kW:production-DHW =0 #GJ
+*option:04.0kW:production-elec = 15.768 !GJ
+*option:04.0kW:production-SH = 0 !GJ
+*option:04.0kW:production-DHW =0 !GJ
 *option:04.0kW:cost = 24420
         
-*option:04.1kW:production-elec = 16.162 #GJ
-*option:04.1kW:production-SH = 0 #GJ
-*option:04.1kW:production-DHW =0 #GJ
+*option:04.1kW:production-elec = 16.162 !GJ
+*option:04.1kW:production-SH = 0 !GJ
+*option:04.1kW:production-DHW =0 !GJ
 *option:04.1kW:cost = 24976
         
-*option:04.2kW:production-elec = 16.556 #GJ
-*option:04.2kW:production-SH = 0 #GJ
-*option:04.2kW:production-DHW =0 #GJ
+*option:04.2kW:production-elec = 16.556 !GJ
+*option:04.2kW:production-SH = 0 !GJ
+*option:04.2kW:production-DHW =0 !GJ
 *option:04.2kW:cost = 25532
         
-*option:04.3kW:production-elec = 16.951 #GJ
-*option:04.3kW:production-SH = 0 #GJ
-*option:04.3kW:production-DHW =0 #GJ
+*option:04.3kW:production-elec = 16.951 !GJ
+*option:04.3kW:production-SH = 0 !GJ
+*option:04.3kW:production-DHW =0 !GJ
 *option:04.3kW:cost = 26088
         
-*option:04.4kW:production-elec = 17.345 #GJ
-*option:04.4kW:production-SH = 0 #GJ
-*option:04.4kW:production-DHW =0 #GJ
+*option:04.4kW:production-elec = 17.345 !GJ
+*option:04.4kW:production-SH = 0 !GJ
+*option:04.4kW:production-DHW =0 !GJ
 *option:04.4kW:cost = 26644
         
-*option:04.5kW:production-elec = 17.739 #GJ
-*option:04.5kW:production-SH = 0 #GJ
-*option:04.5kW:production-DHW =0 #GJ
+*option:04.5kW:production-elec = 17.739 !GJ
+*option:04.5kW:production-SH = 0 !GJ
+*option:04.5kW:production-DHW =0 !GJ
 *option:04.5kW:cost = 27200
         
-*option:04.6kW:production-elec = 18.133 #GJ
-*option:04.6kW:production-SH = 0 #GJ
-*option:04.6kW:production-DHW =0 #GJ
+*option:04.6kW:production-elec = 18.133 !GJ
+*option:04.6kW:production-SH = 0 !GJ
+*option:04.6kW:production-DHW =0 !GJ
 *option:04.6kW:cost = 27756
         
-*option:04.7kW:production-elec = 18.527 #GJ
-*option:04.7kW:production-SH = 0 #GJ
-*option:04.7kW:production-DHW =0 #GJ
+*option:04.7kW:production-elec = 18.527 !GJ
+*option:04.7kW:production-SH = 0 !GJ
+*option:04.7kW:production-DHW =0 !GJ
 *option:04.7kW:cost = 28312
         
-*option:04.8kW:production-elec = 18.922 #GJ
-*option:04.8kW:production-SH = 0 #GJ
-*option:04.8kW:production-DHW =0 #GJ
+*option:04.8kW:production-elec = 18.922 !GJ
+*option:04.8kW:production-SH = 0 !GJ
+*option:04.8kW:production-DHW =0 !GJ
 *option:04.8kW:cost = 28868
         
-*option:04.9kW:production-elec = 19.316 #GJ
-*option:04.9kW:production-SH = 0 #GJ
-*option:04.9kW:production-DHW =0 #GJ
+*option:04.9kW:production-elec = 19.316 !GJ
+*option:04.9kW:production-SH = 0 !GJ
+*option:04.9kW:production-DHW =0 !GJ
 *option:04.9kW:cost = 29424
         
-*option:05.0kW:production-elec = 19.710 #GJ
-*option:05.0kW:production-SH = 0 #GJ
-*option:05.0kW:production-DHW =0 #GJ
+*option:05.0kW:production-elec = 19.710 !GJ
+*option:05.0kW:production-SH = 0 !GJ
+*option:05.0kW:production-DHW =0 !GJ
 *option:05.0kW:cost = 29980
 
-*option:05.1kW:production-elec = 20.104 #GJ
-*option:05.1kW:production-SH = 0 #GJ
-*option:05.1kW:production-DHW =0 #GJ
+*option:05.1kW:production-elec = 20.104 !GJ
+*option:05.1kW:production-SH = 0 !GJ
+*option:05.1kW:production-DHW =0 !GJ
 *option:05.1kW:cost = 30536
         
-*option:05.2kW:production-elec = 20.498 #GJ
-*option:05.2kW:production-SH = 0 #GJ
-*option:05.2kW:production-DHW =0 #GJ
+*option:05.2kW:production-elec = 20.498 !GJ
+*option:05.2kW:production-SH = 0 !GJ
+*option:05.2kW:production-DHW =0 !GJ
 *option:05.2kW:cost = 31092
         
-*option:05.3kW:production-elec = 20.893 #GJ
-*option:05.3kW:production-SH = 0 #GJ
-*option:05.3kW:production-DHW =0 #GJ
+*option:05.3kW:production-elec = 20.893 !GJ
+*option:05.3kW:production-SH = 0 !GJ
+*option:05.3kW:production-DHW =0 !GJ
 *option:05.3kW:cost = 31648
         
-*option:05.4kW:production-elec = 21.287 #GJ
-*option:05.4kW:production-SH = 0 #GJ
-*option:05.4kW:production-DHW =0 #GJ
+*option:05.4kW:production-elec = 21.287 !GJ
+*option:05.4kW:production-SH = 0 !GJ
+*option:05.4kW:production-DHW =0 !GJ
 *option:05.4kW:cost = 32204
         
-*option:05.5kW:production-elec = 21.681 #GJ
-*option:05.5kW:production-SH = 0 #GJ
-*option:05.5kW:production-DHW =0 #GJ
+*option:05.5kW:production-elec = 21.681 !GJ
+*option:05.5kW:production-SH = 0 !GJ
+*option:05.5kW:production-DHW =0 !GJ
 *option:05.5kW:cost = 32760
         
-*option:05.6kW:production-elec = 22.075 #GJ
-*option:05.6kW:production-SH = 0 #GJ
-*option:05.6kW:production-DHW =0 #GJ
+*option:05.6kW:production-elec = 22.075 !GJ
+*option:05.6kW:production-SH = 0 !GJ
+*option:05.6kW:production-DHW =0 !GJ
 *option:05.6kW:cost = 33316
         
-*option:05.7kW:production-elec = 22.469 #GJ
-*option:05.7kW:production-SH = 0 #GJ
-*option:05.7kW:production-DHW =0 #GJ
+*option:05.7kW:production-elec = 22.469 !GJ
+*option:05.7kW:production-SH = 0 !GJ
+*option:05.7kW:production-DHW =0 !GJ
 *option:05.7kW:cost = 33872
         
-*option:05.8kW:production-elec = 22.864 #GJ
-*option:05.8kW:production-SH = 0 #GJ
-*option:05.8kW:production-DHW =0 #GJ
+*option:05.8kW:production-elec = 22.864 !GJ
+*option:05.8kW:production-SH = 0 !GJ
+*option:05.8kW:production-DHW =0 !GJ
 *option:05.8kW:cost = 34428
         
-*option:05.9kW:production-elec = 23.258 #GJ
-*option:05.9kW:production-SH = 0 #GJ
-*option:05.9kW:production-DHW =0 #GJ
+*option:05.9kW:production-elec = 23.258 !GJ
+*option:05.9kW:production-SH = 0 !GJ
+*option:05.9kW:production-DHW =0 !GJ
 *option:05.9kW:cost = 34984
         
-*option:06.0kW:production-elec = 23.652 #GJ
-*option:06.0kW:production-SH = 0 #GJ
-*option:06.0kW:production-DHW =0 #GJ
+*option:06.0kW:production-elec = 23.652 !GJ
+*option:06.0kW:production-SH = 0 !GJ
+*option:06.0kW:production-DHW =0 !GJ
 *option:06.0kW:cost = 35540
         
-*option:06.1kW:production-elec = 24.046 #GJ
-*option:06.1kW:production-SH = 0 #GJ
-*option:06.1kW:production-DHW =0 #GJ
+*option:06.1kW:production-elec = 24.046 !GJ
+*option:06.1kW:production-SH = 0 !GJ
+*option:06.1kW:production-DHW =0 !GJ
 *option:06.1kW:cost = 36096
         
-*option:06.2kW:production-elec = 24.440 #GJ
-*option:06.2kW:production-SH = 0 #GJ
-*option:06.2kW:production-DHW =0 #GJ
+*option:06.2kW:production-elec = 24.440 !GJ
+*option:06.2kW:production-SH = 0 !GJ
+*option:06.2kW:production-DHW =0 !GJ
 *option:06.2kW:cost = 36652
         
-*option:06.3kW:production-elec = 24.835 #GJ
-*option:06.3kW:production-SH = 0 #GJ
-*option:06.3kW:production-DHW =0 #GJ
+*option:06.3kW:production-elec = 24.835 !GJ
+*option:06.3kW:production-SH = 0 !GJ
+*option:06.3kW:production-DHW =0 !GJ
 *option:06.3kW:cost = 37208
         
-*option:06.4kW:production-elec = 25.229 #GJ
-*option:06.4kW:production-SH = 0 #GJ
-*option:06.4kW:production-DHW =0 #GJ
+*option:06.4kW:production-elec = 25.229 !GJ
+*option:06.4kW:production-SH = 0 !GJ
+*option:06.4kW:production-DHW =0 !GJ
 *option:06.4kW:cost = 37764
         
-*option:06.5kW:production-elec = 25.623 #GJ
-*option:06.5kW:production-SH = 0 #GJ
-*option:06.5kW:production-DHW =0 #GJ
+*option:06.5kW:production-elec = 25.623 !GJ
+*option:06.5kW:production-SH = 0 !GJ
+*option:06.5kW:production-DHW =0 !GJ
 *option:06.5kW:cost = 38320
         
-*option:06.6kW:production-elec = 26.017 #GJ
-*option:06.6kW:production-SH = 0 #GJ
-*option:06.6kW:production-DHW =0 #GJ
+*option:06.6kW:production-elec = 26.017 !GJ
+*option:06.6kW:production-SH = 0 !GJ
+*option:06.6kW:production-DHW =0 !GJ
 *option:06.6kW:cost = 38876
         
-*option:06.7kW:production-elec = 26.411 #GJ
-*option:06.7kW:production-SH = 0 #GJ
-*option:06.7kW:production-DHW =0 #GJ
+*option:06.7kW:production-elec = 26.411 !GJ
+*option:06.7kW:production-SH = 0 !GJ
+*option:06.7kW:production-DHW =0 !GJ
 *option:06.7kW:cost = 39432
         
-*option:06.8kW:production-elec = 26.806 #GJ
-*option:06.8kW:production-SH = 0 #GJ
-*option:06.8kW:production-DHW =0 #GJ
+*option:06.8kW:production-elec = 26.806 !GJ
+*option:06.8kW:production-SH = 0 !GJ
+*option:06.8kW:production-DHW =0 !GJ
 *option:06.8kW:cost = 39988
         
-*option:06.9kW:production-elec = 27.200 #GJ
-*option:06.9kW:production-SH = 0 #GJ
-*option:06.9kW:production-DHW =0 #GJ
+*option:06.9kW:production-elec = 27.200 !GJ
+*option:06.9kW:production-SH = 0 !GJ
+*option:06.9kW:production-DHW =0 !GJ
 *option:06.9kW:cost = 40544
         
-*option:07.0kW:production-elec = 27.594 #GJ
-*option:07.0kW:production-SH = 0 #GJ
-*option:07.0kW:production-DHW =0 #GJ
+*option:07.0kW:production-elec = 27.594 !GJ
+*option:07.0kW:production-SH = 0 !GJ
+*option:07.0kW:production-DHW =0 !GJ
 *option:07.0kW:cost = 41100
         
-*option:07.1kW:production-elec = 27.988 #GJ
-*option:07.1kW:production-SH = 0 #GJ
-*option:07.1kW:production-DHW =0 #GJ
+*option:07.1kW:production-elec = 27.988 !GJ
+*option:07.1kW:production-SH = 0 !GJ
+*option:07.1kW:production-DHW =0 !GJ
 *option:07.1kW:cost = 41656
 
-*option:07.2kW:production-elec = 28.382 #GJ
-*option:07.2kW:production-SH = 0 #GJ
-*option:07.2kW:production-DHW =0 #GJ
+*option:07.2kW:production-elec = 28.382 !GJ
+*option:07.2kW:production-SH = 0 !GJ
+*option:07.2kW:production-DHW =0 !GJ
 *option:07.2kW:cost = 42211.9999999999
         
-*option:07.3kW:production-elec = 28.777 #GJ
-*option:07.3kW:production-SH = 0 #GJ
-*option:07.3kW:production-DHW =0 #GJ
+*option:07.3kW:production-elec = 28.777 !GJ
+*option:07.3kW:production-SH = 0 !GJ
+*option:07.3kW:production-DHW =0 !GJ
 *option:07.3kW:cost = 42767.9999999999
         
-*option:07.4kW:production-elec = 29.171 #GJ
-*option:07.4kW:production-SH = 0 #GJ
-*option:07.4kW:production-DHW =0 #GJ
+*option:07.4kW:production-elec = 29.171 !GJ
+*option:07.4kW:production-SH = 0 !GJ
+*option:07.4kW:production-DHW =0 !GJ
 *option:07.4kW:cost = 43323.9999999999
         
-*option:07.5kW:production-elec = 29.565 #GJ
-*option:07.5kW:production-SH = 0 #GJ
-*option:07.5kW:production-DHW =0 #GJ
+*option:07.5kW:production-elec = 29.565 !GJ
+*option:07.5kW:production-SH = 0 !GJ
+*option:07.5kW:production-DHW =0 !GJ
 *option:07.5kW:cost = 43879.9999999999
         
-*option:07.6kW:production-elec = 29.959 #GJ
-*option:07.6kW:production-SH = 0 #GJ
-*option:07.6kW:production-DHW =0 #GJ
+*option:07.6kW:production-elec = 29.959 !GJ
+*option:07.6kW:production-SH = 0 !GJ
+*option:07.6kW:production-DHW =0 !GJ
 *option:07.6kW:cost = 44435.9999999999
         
-*option:07.7kW:production-elec = 30.353 #GJ
-*option:07.7kW:production-SH = 0 #GJ
-*option:07.7kW:production-DHW =0 #GJ
+*option:07.7kW:production-elec = 30.353 !GJ
+*option:07.7kW:production-SH = 0 !GJ
+*option:07.7kW:production-DHW =0 !GJ
 *option:07.7kW:cost = 44991.9999999999
         
-*option:07.8kW:production-elec = 30.748 #GJ
-*option:07.8kW:production-SH = 0 #GJ
-*option:07.8kW:production-DHW =0 #GJ
+*option:07.8kW:production-elec = 30.748 !GJ
+*option:07.8kW:production-SH = 0 !GJ
+*option:07.8kW:production-DHW =0 !GJ
 *option:07.8kW:cost = 45547.9999999999
         
-*option:07.9kW:production-elec = 31.142 #GJ
-*option:07.9kW:production-SH = 0 #GJ
-*option:07.9kW:production-DHW =0 #GJ
+*option:07.9kW:production-elec = 31.142 !GJ
+*option:07.9kW:production-SH = 0 !GJ
+*option:07.9kW:production-DHW =0 !GJ
 *option:07.9kW:cost = 46103.9999999999
         
-*option:08.0kW:production-elec = 31.536 #GJ
-*option:08.0kW:production-SH = 0 #GJ
-*option:08.0kW:production-DHW =0 #GJ
+*option:08.0kW:production-elec = 31.536 !GJ
+*option:08.0kW:production-SH = 0 !GJ
+*option:08.0kW:production-DHW =0 !GJ
 *option:08.0kW:cost = 46659.9999999999
         
-*option:08.1kW:production-elec = 31.930 #GJ
-*option:08.1kW:production-SH = 0 #GJ
-*option:08.1kW:production-DHW =0 #GJ
+*option:08.1kW:production-elec = 31.930 !GJ
+*option:08.1kW:production-SH = 0 !GJ
+*option:08.1kW:production-DHW =0 !GJ
 *option:08.1kW:cost = 47215.9999999999
         
-*option:08.2kW:production-elec = 32.324 #GJ
-*option:08.2kW:production-SH = 0 #GJ
-*option:08.2kW:production-DHW =0 #GJ
+*option:08.2kW:production-elec = 32.324 !GJ
+*option:08.2kW:production-SH = 0 !GJ
+*option:08.2kW:production-DHW =0 !GJ
 *option:08.2kW:cost = 47771.9999999999
         
-*option:08.3kW:production-elec = 32.719 #GJ
-*option:08.3kW:production-SH = 0 #GJ
-*option:08.3kW:production-DHW =0 #GJ
+*option:08.3kW:production-elec = 32.719 !GJ
+*option:08.3kW:production-SH = 0 !GJ
+*option:08.3kW:production-DHW =0 !GJ
 *option:08.3kW:cost = 48327.9999999999
         
-*option:08.4kW:production-elec = 33.113 #GJ
-*option:08.4kW:production-SH = 0 #GJ
-*option:08.4kW:production-DHW =0 #GJ
+*option:08.4kW:production-elec = 33.113 !GJ
+*option:08.4kW:production-SH = 0 !GJ
+*option:08.4kW:production-DHW =0 !GJ
 *option:08.4kW:cost = 48883.9999999999
         
-*option:08.5kW:production-elec = 33.507 #GJ
-*option:08.5kW:production-SH = 0 #GJ
-*option:08.5kW:production-DHW =0 #GJ
+*option:08.5kW:production-elec = 33.507 !GJ
+*option:08.5kW:production-SH = 0 !GJ
+*option:08.5kW:production-DHW =0 !GJ
 *option:08.5kW:cost = 49439.9999999999
         
-*option:08.6kW:production-elec = 33.901 #GJ
-*option:08.6kW:production-SH = 0 #GJ
-*option:08.6kW:production-DHW =0 #GJ
+*option:08.6kW:production-elec = 33.901 !GJ
+*option:08.6kW:production-SH = 0 !GJ
+*option:08.6kW:production-DHW =0 !GJ
 *option:08.6kW:cost = 49995.9999999999
         
-*option:08.7kW:production-elec = 34.295 #GJ
-*option:08.7kW:production-SH = 0 #GJ
-*option:08.7kW:production-DHW =0 #GJ
+*option:08.7kW:production-elec = 34.295 !GJ
+*option:08.7kW:production-SH = 0 !GJ
+*option:08.7kW:production-DHW =0 !GJ
 *option:08.7kW:cost = 50551.9999999999
         
-*option:08.8kW:production-elec = 34.690 #GJ
-*option:08.8kW:production-SH = 0 #GJ
-*option:08.8kW:production-DHW =0 #GJ
+*option:08.8kW:production-elec = 34.690 !GJ
+*option:08.8kW:production-SH = 0 !GJ
+*option:08.8kW:production-DHW =0 !GJ
 *option:08.8kW:cost = 51107.9999999999
         
-*option:08.9kW:production-elec = 35.084 #GJ
-*option:08.9kW:production-SH = 0 #GJ
-*option:08.9kW:production-DHW =0 #GJ
+*option:08.9kW:production-elec = 35.084 !GJ
+*option:08.9kW:production-SH = 0 !GJ
+*option:08.9kW:production-DHW =0 !GJ
 *option:08.9kW:cost = 51663.9999999999
         
-*option:09.0kW:production-elec = 35.478 #GJ
-*option:09.0kW:production-SH = 0 #GJ
-*option:09.0kW:production-DHW =0 #GJ
+*option:09.0kW:production-elec = 35.478 !GJ
+*option:09.0kW:production-SH = 0 !GJ
+*option:09.0kW:production-DHW =0 !GJ
 *option:09.0kW:cost = 52219.9999999999
         
-*option:09.1kW:production-elec = 35.872 #GJ
-*option:09.1kW:production-SH = 0 #GJ
-*option:09.1kW:production-DHW =0 #GJ
+*option:09.1kW:production-elec = 35.872 !GJ
+*option:09.1kW:production-SH = 0 !GJ
+*option:09.1kW:production-DHW =0 !GJ
 *option:09.1kW:cost = 52775.9999999999
         
-*option:09.2kW:production-elec = 36.266 #GJ
-*option:09.2kW:production-SH = 0 #GJ
-*option:09.2kW:production-DHW =0 #GJ
+*option:09.2kW:production-elec = 36.266 !GJ
+*option:09.2kW:production-SH = 0 !GJ
+*option:09.2kW:production-DHW =0 !GJ
 *option:09.2kW:cost = 53331.9999999999
 
-*option:09.3kW:production-elec = 36.661 #GJ
-*option:09.3kW:production-SH = 0 #GJ
-*option:09.3kW:production-DHW =0 #GJ
+*option:09.3kW:production-elec = 36.661 !GJ
+*option:09.3kW:production-SH = 0 !GJ
+*option:09.3kW:production-DHW =0 !GJ
 *option:09.3kW:cost = 53887.9999999999
         
-*option:09.4kW:production-elec = 37.055 #GJ
-*option:09.4kW:production-SH = 0 #GJ
-*option:09.4kW:production-DHW =0 #GJ
+*option:09.4kW:production-elec = 37.055 !GJ
+*option:09.4kW:production-SH = 0 !GJ
+*option:09.4kW:production-DHW =0 !GJ
 *option:09.4kW:cost = 54443.9999999999
         
-*option:09.5kW:production-elec = 37.449 #GJ
-*option:09.5kW:production-SH = 0 #GJ
-*option:09.5kW:production-DHW =0 #GJ
+*option:09.5kW:production-elec = 37.449 !GJ
+*option:09.5kW:production-SH = 0 !GJ
+*option:09.5kW:production-DHW =0 !GJ
 *option:09.5kW:cost = 54999.9999999999
         
-*option:09.6kW:production-elec = 37.843 #GJ
-*option:09.6kW:production-SH = 0 #GJ
-*option:09.6kW:production-DHW =0 #GJ
+*option:09.6kW:production-elec = 37.843 !GJ
+*option:09.6kW:production-SH = 0 !GJ
+*option:09.6kW:production-DHW =0 !GJ
 *option:09.6kW:cost = 55555.9999999999
         
-*option:09.7kW:production-elec = 38.237 #GJ
-*option:09.7kW:production-SH = 0 #GJ
-*option:09.7kW:production-DHW =0 #GJ
+*option:09.7kW:production-elec = 38.237 !GJ
+*option:09.7kW:production-SH = 0 !GJ
+*option:09.7kW:production-DHW =0 !GJ
 *option:09.7kW:cost = 56111.9999999999
         
-*option:09.8kW:production-elec = 38.632 #GJ
-*option:09.8kW:production-SH = 0 #GJ
-*option:09.8kW:production-DHW =0 #GJ
+*option:09.8kW:production-elec = 38.632 !GJ
+*option:09.8kW:production-SH = 0 !GJ
+*option:09.8kW:production-DHW =0 !GJ
 *option:09.8kW:cost = 56667.9999999999
         
-*option:09.9kW:production-elec = 39.026 #GJ
-*option:09.9kW:production-SH = 0 #GJ
-*option:09.9kW:production-DHW =0 #GJ
+*option:09.9kW:production-elec = 39.026 !GJ
+*option:09.9kW:production-SH = 0 !GJ
+*option:09.9kW:production-DHW =0 !GJ
 *option:09.9kW:cost = 57223.9999999999
         
-*option:10.0kW:production-elec = 39.420 #GJ
-*option:10.0kW:production-SH = 0 #GJ
-*option:10.0kW:production-DHW =0 #GJ
+*option:10.0kW:production-elec = 39.420 !GJ
+*option:10.0kW:production-SH = 0 !GJ
+*option:10.0kW:production-DHW =0 !GJ
 *option:10.0kW:cost = 57779.9999999999
         
 *ext-attribute:end
  
 
-#-----------------------------------------------------------------------
-# Solar DHW
-#-----------------------------------------------------------------------
+!-----------------------------------------------------------------------
+! Solar DHW
+!-----------------------------------------------------------------------
 
 *ext-attribute:start 
 *attribute:name      = Opt-SolarDHW
 
-*option:none:production-elec = 0 #GJ
-*option:none:production-SH   = 0 #GJ
-*option:none:production-DHW  = 0 #GJ
+*option:none:production-elec = 0 !GJ
+*option:none:production-SH   = 0 !GJ
+*option:none:production-DHW  = 0 !GJ
 *option:none:cost = 0
 
-*option:DWHR:production-elec = 0 #GJ
-*option:DWHR:production-SH   = 0 #GJ
-*option:DWHR:production-DHW  = 3.5388 #GJ
+*option:DWHR:production-elec = 0 !GJ
+*option:DWHR:production-SH   = 0 !GJ
+*option:DWHR:production-DHW  = 3.5388 !GJ
 *option:DWHR:cost = 890
 
-*option:1-flat-plate:production-elec = 0 #GJ
-*option:1-flat-plate:production-SH   = 0 #GJ
-*option:1-flat-plate:production-DHW  = 5.288 #GJ
+*option:1-flat-plate:production-elec = 0 !GJ
+*option:1-flat-plate:production-SH   = 0 !GJ
+*option:1-flat-plate:production-DHW  = 5.288 !GJ
 *option:1-flat-plate:cost = 5225
 
-*option:2-flat-plate:production-elec = 0 #GJ
-*option:2-flat-plate:production-SH   = 0 #GJ
-*option:2-flat-plate:production-DHW  = 7.142 #GJ
+*option:2-flat-plate:production-elec = 0 !GJ
+*option:2-flat-plate:production-SH   = 0 !GJ
+*option:2-flat-plate:production-DHW  = 7.142 !GJ
 *option:2-flat-plate:cost = 6510
 
 
-*option:1-flat-plate+DWHR:production-elec = 0 #GJ
-*option:1-flat-plate+DWHR:production-SH   = 0 #GJ
-*option:1-flat-plate+DWHR:production-DHW  = 5.933 #GJ
+*option:1-flat-plate+DWHR:production-elec = 0 !GJ
+*option:1-flat-plate+DWHR:production-SH   = 0 !GJ
+*option:1-flat-plate+DWHR:production-DHW  = 5.933 !GJ
 *option:1-flat-plate+DWHR:cost = 6115
 
-*option:2-flat-plate+DWHR:production-elec = 0 #GJ
-*option:2-flat-plate+DWHR:production-SH   = 0 #GJ
-*option:2-flat-plate+DWHR:production-DHW  = 7.787 #GJ
+*option:2-flat-plate+DWHR:production-elec = 0 !GJ
+*option:2-flat-plate+DWHR:production-SH   = 0 !GJ
+*option:2-flat-plate+DWHR:production-DHW  = 7.787 !GJ
 *option:2-flat-plate+DWHR:cost = 7400
 
 
