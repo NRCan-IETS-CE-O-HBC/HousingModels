@@ -665,7 +665,7 @@
 
 
 *option:GSHP:value:1      = GSHPv2.hvac
-*option:GSHP:value:2      = *gshp ../hvac/heatx_v1.gshp
+*option:GSHP:value:2      = *gshp~../hvac/heatx_v1.gshp
 *option:GSHP:cost         = 18560          ! Does this reflect AC syste$
 
 

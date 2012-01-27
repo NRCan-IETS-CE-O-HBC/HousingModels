@@ -273,6 +273,9 @@ while ( my $line = <OPTIONS> ){
     
     my ( $token, $value ) = split /=/, $line ;
 
+    # Allow value to contain spaces: if 
+    $value =~ s/~/ /g;
+
     # Open up a new attribute    
     if ( $token =~ /^\*attribute:start/ ){
     

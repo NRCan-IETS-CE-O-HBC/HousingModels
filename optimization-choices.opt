@@ -139,4 +139,4 @@ Opt-DHWSystem        : BaseDHW
 !  basefurnace
 !  CCASHP
 
-Opt-HVACSystem       : CCASHP
+Opt-HVACSystem       : GSHP
