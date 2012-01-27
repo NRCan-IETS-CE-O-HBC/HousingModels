@@ -727,7 +727,7 @@
 *option:ElectricStorage:value:1 = ElecStorage.dhw
 *option:ElectricStorage:cost    = -605.0
 
-*option:GasInstantaneous:value:1 = GasInstant.dhw
+*option:GasInstantaneous:value:1 = GasInstantaneous.dhw
 *option:GasInstantaneous:cost    = 995
 
 *option:ElectricHP:value:1 = ElecHP.dhw
