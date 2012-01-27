@@ -765,7 +765,7 @@ print SUMMARY "Energy-SDHW     =  $gEnergySDHW \n";
 print SUMMARY "Energy-Heating  =  $gEnergyHeating \n";
 print SUMMARY "Energy-Cooling  =  $gEnergyCooling \n";
 print SUMMARY "Energy-Vent     =  $gEnergyVentilation \n";
-print SUMMARY "Energy-DWH      =  $gEnergyWaterHeating \n";
+print SUMMARY "Energy-DHW      =  $gEnergyWaterHeating \n";
 print SUMMARY "Energy-Plug     =  $gEnergyEquipment \n";  
 
 print SUMMARY "Upgrade-cost    =  ".eval($gTotalCost-$gIncBaseCosts)."\n"; 
@@ -1331,9 +1331,16 @@ sub postprocess($){
         $gSimResults{"PV production"} = -1.0 * $prePVEnergy ;
         
         $PVsize = " scaled: ".eval(round1d($prePVEnergy*0.248756219))." kW" ;
+
+	# IF PV size is over 14kW, double cost (This effectively steers away from elaborate 
+        # rack-mounting systems that exceed available roof area ) 
+
+        my $PVmultiplier = 1. ; 
+
+        if ( $prePVEnergy*0.248756219 > 14. ) { $PVmultiplier = 2. ; }
       
         $gExtOptions{"Opt-StandoffPV"}{"options"}{$PVsize}{"cost"} 
-           = 57780 + 1383.333333 * ( $prePVEnergy - 39.42 ) ; 
+           = ( 57780 + 1383.333333 * ( $prePVEnergy - 39.42 ) ) * $PVmultiplier ; 
 
       
       }else{
