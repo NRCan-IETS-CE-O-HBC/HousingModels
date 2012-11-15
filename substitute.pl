@@ -290,6 +290,7 @@ while ( my $line = <OPTIONS> ){
     
     }
 
+
     
     # Parse attribute contents Name/Tag/Option(s)
     if ( $AttributeOpen || $ExternalAttributeOpen ) {
@@ -1448,12 +1449,37 @@ sub postprocess($){
   stream_out ( " --------------------------------------------------------\n");
   stream_out ( " =   ".round($gTotalCost-$gIncBaseCosts)." ( Total incremental cost ) \n");
 
+  chdir($gMasterPath);
+  my $fileexists; 
+if ( ! -r "RobinsGraph.csv") { 
+  $fileexists = 0;
+  open (RSGRAPH, '>RobinsGraph.csv') or die ("Could not create graph file for writing");
+  
+}else {
+  $fileexists = 1;
+  open (RSGRAPH, '>>RobinsGraph.csv') or die ("Could not open graph file for writing");
+}  
+my $RS1stline = "";
+my $RS2ndline = "";
+foreach my  $attribute ( sort keys %gChoices ){
+
+	my $choice = $gChoices{$attribute};
+    $RS1stline .= ",$attribute" ;
+    $RS2ndline .= ",$choice";
+
+}
+
+$RS1stline .= ",ENERGY_GJ,COST_\$";
+$RS2ndline .= ",".$gTotalEnergy.",".round($gTotalCost-$gIncBaseCosts)."";
+
+if (  ! $fileexists ) { print RSGRAPH "$RS1stline" };
+print RSGRAPH "\n $RS2ndline ";
+
+close (RSGRAPH); 
   
   
   
 }
-
-
 
 #-------------------------------------------------------------------
 # Optionally write text to buffer
