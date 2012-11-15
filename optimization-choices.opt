@@ -3,6 +3,7 @@
 ! and compute an average result)
 GOconfig_rotate      : S
 
+OPT-WEATHER-FILE : Whitehorse
 
 ! Assumptions about HRV operation . Not intended to be optimized!
 ! Recognized values: 

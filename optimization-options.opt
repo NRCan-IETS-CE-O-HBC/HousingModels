@@ -46,13 +46,34 @@
 
 *attribute:end
 
+!-----------------------------------------------------------------------
+! Climate file manipulation
+!-----------------------------------------------------------------------
 
+*attribute:start 
+*attribute:name  = OPT-WEATHER-FILE
+*attribute:tag:1 = <OPT-WEATHER-FILE>
+*attribute:tag:2 = <OPT-Latitude>
+*attribute:tag:3 = <OPT-Longitude>
+
+*option:Whitehorse:value:1 = can_whitehorse.cwec
+*option:Whitehorse:value:2 = 60.7161
+*option:Whitehorse:value:3 = -0.05
+*option:Whitehorse:cost    = 0
+  
+*option:Toronto:value:1 = can_toronto.cwec
+*option:Whitehorse:value:2 = 43.6481
+*option:Whitehorse:value:3 = -4.40
+*option:Toronto:cost    = 0
+  
+*attribute:end
 
 !-----------------------------------------------------------------------
 ! The next three options add extra windows to the front of the house 
 ! on the second story. (Zone top_fl) Costs are computed by scaling 
 ! option Opt-CasementWindows option by the amount of increased glass area. 
 !-----------------------------------------------------------------------
+
 *attribute:start 
 *attribute:name  = Opt-FrontWindows
 *attribute:tag:1 = <OptTopFlExWin1Con>
