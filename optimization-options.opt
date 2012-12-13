@@ -62,8 +62,8 @@
 *option:Whitehorse:cost    = 0
   
 *option:Toronto:value:1 = can_toronto.cwec
-*option:Whitehorse:value:2 = 43.6481
-*option:Whitehorse:value:3 = -4.40
+*option:Toronto:value:2 = 43.6481
+*option:Toronto:value:3 = -4.40
 *option:Toronto:cost    = 0
   
 *attribute:end

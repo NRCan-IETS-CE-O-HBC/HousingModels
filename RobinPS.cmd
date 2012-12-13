@@ -9,9 +9,18 @@ Vary{
    Parameter{   // 
      Name    =  GOtag:Opt-AirTightness;
      Ini     =  1;
-     Values  =  "R2000, Cdn1ACH";
+     Values  =  "R2000";
      
    }    
+   
+   // Location: Whitehorse, Toronto
+   // 			Whitehorse
+   //			Toronto
+   Parameter{   // 
+     Name    =  GOtag:Opt-Location;
+     Ini     =  1;
+     Values  =  "Whitehorse, Toronto";
+   }  
    
    // Mainwalls. BaseR21
    //            SIPS-R22-Wall    
@@ -25,7 +34,7 @@ Vary{
    Parameter{   // 
      Name    =  GOtag:Opt-MainWall;
      Ini     =  1;
-     Values  =  "BaseR21, SIPS-R28-Wall, Stud-R35-Wall, DblStud-R52-Wall"; 
+     Values  =  "BaseR21"; 
    }    
   
    // Foundation walls: OBC-min-R12
@@ -43,7 +52,7 @@ Vary{
    Parameter{   // 
      Name    =  GOtag:Opt-BasementWallInsulation;
      Ini     =  1;
-     Values  =  "OBC-min-R12, Rigid+Batt-R30, Rigid+Batt-R37,ICF-base-R51 "; 
+     Values  =  "OBC-min-R12"; 
    } 
 
    // Basement Slab: NoInsulation
@@ -57,7 +66,7 @@ Vary{
    Parameter{   // 
      Name    =  GOtag:Opt-BasementSlabInsulation;
      Ini     =  1;
-     Values  =  "NoInsulation, R12EdgeP6, R12UnderSlab+edge, R24UnderSlab+edge"; 
+     Values  =  "NoInsulation"; 
    } 
 
    // Exposed floor: BaseExpFloor-R31
@@ -66,7 +75,7 @@ Vary{
    Parameter{   // 
      Name    =  GOtag:Opt-ExposedFloor;
      Ini     =  1;
-     Values  =  "BaseExpFloor-R31,ExpFloorFlash&Batt-R36,ExpFloorFoamed-R52";
+     Values  =  "BaseExpFloor-R31";
    }    
    
    
@@ -79,7 +88,7 @@ Vary{
    Parameter{   // 
      Name    =  GOtag:Opt-Ceilings;
      Ini     =  1;
-     Values  =  "CeilingR50,CeilingR60,CeilingR80,CeilingR90,CeilingR100";
+     Values  =  "CeilingR50";
    }    
   
   // Windows:  DoubleLowEHardCoatAirFill 
@@ -92,7 +101,7 @@ Vary{
      Name    =  GOtag:Opt-CasementWindows;
      Ini     =  1;
      // Values: "DoubleLowEHardCoatArgFill,DoubleLowESoftCoatArgFill,TripleLowEHardCoatKryFill,TripleLowESoftCoatKryFill"
-     Values  = "DoubleLowEHardCoatArgFill,TripleLowEHardCoatKryFill" ;    
+     Values  = "DoubleLowEHardCoatArgFill" ;    
      
    }    
    
@@ -130,7 +139,7 @@ Vary{
   Parameter{   // 
      Name    = GOtag:Opt-SolarDHW; 
      Ini     = 1; 
-     Values  = "none, DWHR, 1-flat-plate+DWHR, 2-flat-plate+DWHR"; 
+     Values  = "none"; 
   } 
   
   // Conventional DHW:  BaseDHW, 
@@ -142,7 +151,7 @@ Vary{
   Parameter{ //
      Name    = GOtag:Opt-DHWSystem;
      Ini     = 1; 
-     Values  = "ElectricStorage, GasInstantaneous" ; 
+     Values  = "ElectricStorage" ; 
   }
 
   
@@ -153,7 +162,7 @@ Vary{
   Parameter {// 
       Name   = GOtag:Opt-HVACSystem; 
       Ini    = 1; 
-      Values = "elec-baseboard, basefurnace, CCASHP"; 
+      Values = "elec-baseboard, CCASHP"; 
   }
   
   // PV: Set to autosize to ensure each run actually achieves NZEH.  

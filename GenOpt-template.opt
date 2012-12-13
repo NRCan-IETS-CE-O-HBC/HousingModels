@@ -6,7 +6,8 @@ GOconfig_step :  %stepNumber%
 ! and compute an average result)
 GOconfig_rotate      : %GOtag:GOconfig_rotate%
 
-
+! Select a geographic location
+OPT-WEATHER-FILE		: %GOtag:Opt-Location%
 
 OPT-HRV_ctl          : %GOtag:HRVcontrol%
 
