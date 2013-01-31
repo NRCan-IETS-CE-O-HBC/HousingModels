@@ -29,11 +29,6 @@
 *attribute:name  = OPT-HRV_ctl
 *attribute:tag:1 = <OPT-HRV_ctl>
 
-
-!*option:NoWindows!:value:1 = <Opt-MainWall-Bri>
-!*option:NoWindows!:value:2 = OPAQUE
-!*option:NoWindows!:cost:total    = 0
-
 *option:Continuious:value:1 = 7
 *option:Continuious:cost:total    = 0
   
@@ -569,28 +564,28 @@
 *attribute:tag:2   = <OPT-BsmCnnIndex>
 
 *option:NoInsulation:value:1 = BsmFlrR0
-*option[Opt-BasementWallInsulation=OBC-min-R12|Rigid+Blown-R43]:NoInsulation:value:2 = 1
+*option[Opt-BasementWallInsulation>BC-min-R12|Rigid+Blown-R43]:NoInsulation:value:2 = 1
 *option[else                                                  ]:NoInsulation:value:2 = 68
 *option:NoInsulation:cost:total    = 0
 
 *option:R10UnderSlab:value:1 = BsmFlrR10
-*option[Opt-BasementWallInsulation=OBC-min-R12|Rigid+Blown-R43]:R10UnderSlab:value:2 = 19
+*option[Opt-BasementWallInsulation>OBC-min-R12|Rigid+Blown-R43]:R10UnderSlab:value:2 = 19
 *option[else                                                  ]:R10UnderSlab:value:2 = 69
 *option:R10UnderSlab:cost:total    = 2645
 
 *option:R10UnderSlab+edge:value:1 = BsmFlrR10
-*option[Opt-BasementWallInsulation=OBC-min-R12|Rigid+Blown-R43]:R10UnderSlab+edge:value:2 = 22
+*option[Opt-BasementWallInsulation>OBC-min-R12|Rigid+Blown-R43]:R10UnderSlab+edge:value:2 = 22
 *option[else                                                  ]:R10UnderSlab+edge:value:2 = 69
 
 *option:R10UnderSlab+edge:cost:total    = 2645        ! Should be slightly higher!?!
 
 *option:R12UnderSlab+edge:value:1 = BsmFlrR12
-*option[Opt-BasementWallInsulation=OBC-min-R12|Rigid+Blown-R43]:R12UnderSlab+edge:value:2 = 22
+*option[Opt-BasementWallInsulation>OBC-min-R12|Rigid+Blown-R43]:R12UnderSlab+edge:value:2 = 22
 *option[else                                                  ]:R12UnderSlab+edge:value:2 = 69
 *option:R12UnderSlab+edge:cost:total    = 2540         
 
 *option:R24UnderSlab+edge:value:1 = BsmFlrR24
-*option[Opt-BasementWallInsulation=OBC-min-R12|Rigid+Blown-R43]:R24UnderSlab+edge:value:2 = 22
+*option[Opt-BasementWallInsulation>OBC-min-R12|Rigid+Blown-R43]:R24UnderSlab+edge:value:2 = 22
 *option[else                                                  ]:R24UnderSlab+edge:value:2 = 69
 
 *option:R24UnderSlab+edge:cost:total    = 4865      
@@ -598,14 +593,14 @@
 ! Perimeter, sub-slab 0.6m skirt insulation
 
 *option:R12EdgeP6:value:1 = BsmFlrR0
-*option[Opt-BasementWallInsulation=OBC-min-R12|Rigid+Blown-R43]:R12EdgeP6:value:2 = 23
+*option[Opt-BasementWallInsulation>OBC-min-R12|Rigid+Blown-R43]:R12EdgeP6:value:2 = 23
 *option[else                                                  ]:R12EdgeP6:value:2 = 69
 *option:R12EdgeP6:cost:total    = 735        
 
 ! Perimeter, sub-slab 1.0m skirt insulation
 
 *option:R12EdgeP10:value:1 = BsmFlrR0
-*option[Opt-BasementWallInsulation=OBC-min-R12|Rigid+Blown-R43]:R12EdgeP10:value:2 = 24
+*option[Opt-BasementWallInsulation>OBC-min-R12|Rigid+Blown-R43]:R12EdgeP10:value:2 = 24
 *option[else                                                  ]:R12EdgeP10:value:2 = 69
 *option:R12EdgeP10:cost:total    = 1210 
        
@@ -773,12 +768,12 @@
 *attribute:start
 *attribute:name     = Opt-RoofPitch
 *attribute:tag:1    = <zippo>
-*Option:6-12:value:1 = nil
-*Option:6-12:cost:total  = 0
-*Option:8-12:value:1 = nil
-*Option:8-12:cost:total  = 0
-*Option:12-12:value:1 = nil
-*Option:12-12:cost:total  = 0
+*option:6-12:value:1 = nil
+*option:6-12:cost:total  = 0
+*option:8-12:value:1 = nil
+*option:8-12:cost:total  = 0
+*option:12-12:value:1 = nil
+*option:12-12:cost:total  = 0
 *attribute:end
 
 !-----------------------------------------------------------------------

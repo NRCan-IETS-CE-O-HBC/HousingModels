@@ -21,7 +21,7 @@ Opt-BaseWindows      : MinWindows
 
 ! Add one, two or three windows to front of the house 
 Opt-FrontWindows     : NoExtraWin 
-Opt-BackWindows      : FiveExtraWin
+Opt-BackWindows      : NoExtraWin
 
 Opt-ExtLeftSideWindow : Yes            ! First floor - back side
 
@@ -35,7 +35,7 @@ Opt-ExtBasementWindow : Yes            ! Basement (back)
 !     Cdn1ACH
 !     PassiveHouse (unconfirmed cost data)
                  
-Opt-AirTightness     : TypicalGTA
+Opt-AirTightness     : Typical23
 
 ! Main wall insulation 
 !  BaseR21
@@ -55,14 +55,14 @@ Opt-MainWall         : BaseR21
 ! Options: 
 !   OneSheet
 !   TwoSheets
-Opt-ExtraDrywall     : TwoSheets
+Opt-ExtraDrywall     : OneSheet
 
 ! Add concrete to floors (internal partitions only)
 ! Options:  
 !   Wood 
 !   1-in-concrete
 !   2-in-concrete
-Opt-FloorSurface     : 2-in-concrete
+Opt-FloorSurface     : wood
 
 
 Opt-Ceilings         : CeilingR50
@@ -74,7 +74,7 @@ Opt-Ceilings         : CeilingR50
 !   R10UnderSlab+edge
 !   R12UnderSlab+edge
 !   R24UnderSlab+edge
-Opt-BasementSlabInsulation  : R24UnderSlab+edge
+Opt-BasementSlabInsulation  : NoInsulation
 
 ! Foundation walls. 
 ! Choices 
@@ -115,7 +115,7 @@ Opt-ExposedFloor     : BaseExpFloor-R31
 
 Opt-StandoffPV       : autosize
 
-Opt-SolarDHW         : 2-flat-plate+DWHR
+Opt-SolarDHW         : none
 
 ! NoReduction
 ! BasicReduction
@@ -140,4 +140,4 @@ Opt-DHWSystem        : BaseDHW
 !  basefurnace
 !  CCASHP
 
-Opt-HVACSystem       : GSHP
+Opt-HVACSystem       : basefurnace

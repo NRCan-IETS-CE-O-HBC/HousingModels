@@ -3,7 +3,7 @@
 ! and compute an average result)
 GOconfig_rotate      : S
 
-Opt-Location : Whitehorse
+Opt-Location : Toronto
 
 ! Assumptions about HRV operation . Not intended to be optimized!
 ! Recognized values: 
@@ -12,7 +12,7 @@ Opt-Location : Whitehorse
 !              natural and mechanical vent. 
 !  - EightHRpDay: HRV operates 33% of each hour, for 8hr/day total.
 
-OPT-HRV_ctl          : ERSp3ACH
+OPT-HRV_ctl          : EightHRpDay
 
 ! Turn orignial design windows opaque ( NoWindows!)
 ! or transparent (MinWindows). NoWindows doesn't presently work!
@@ -35,7 +35,7 @@ Opt-ExtBasementWindow : Yes            ! Basement (back)
 !     Cdn1ACH
 !     PassiveHouse (unconfirmed cost data)
                  
-Opt-AirTightness     : Typical23
+Opt-AirTightness     : Cdn1ACH
 
 ! Main wall insulation 
 !  BaseR21
@@ -48,7 +48,7 @@ Opt-AirTightness     : Typical23
 !  DblStud-R44-Wall
 !  Truss-R40-Wall
 
-Opt-MainWall         : BaseR21
+Opt-MainWall         : DblStud-R37-Wall
 
 
 ! Add extra drywall to wall constructions 
@@ -65,7 +65,7 @@ Opt-ExtraDrywall     : OneSheet
 Opt-FloorSurface     : wood
 
 
-Opt-Ceilings         : CeilingR80
+Opt-Ceilings         : CeilingR90
 
 ! Basement slab insulation 
 ! Choices: 
@@ -88,7 +88,7 @@ Opt-BasementSlabInsulation  : R24UnderSlab+edge
 !  ICF-base-R51     
 !  ICF-base-R51r    
 
-Opt-BasementWallInsulation  : ICF-base-R51r
+Opt-BasementWallInsulation  : Rigid+Batt-R30
 
 
 ! Optical and themral characteristics of casement windows (currently 
@@ -115,7 +115,7 @@ Opt-ExposedFloor     : ExpFloorFoamed-R52
 
 Opt-StandoffPV       : SizedPV
 
-Opt-SolarDHW         : 2-flat-plate+DWHR
+Opt-SolarDHW         : DWHR
 
 ! NoReduction
 ! BasicReduction
@@ -127,7 +127,7 @@ Opt-ElecLoadScale    : EfficientLiving
 
 Opt-DHWLoadScale     : EfficientLiving
 
-Opt-RoofPitch : 6-12
+Opt-RoofPitch : 8-12
 
 ! Hot water system. Choices:
 !  BaseDHW
@@ -141,4 +141,4 @@ Opt-DHWSystem        : ElectricHP
 !  basefurnace
 !  CCASHP
 
-Opt-HVACSystem       : basefurnace
+Opt-HVACSystem       : CCASHP

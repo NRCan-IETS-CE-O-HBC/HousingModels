@@ -353,18 +353,20 @@ while ( my $line = <OPTIONS> ){
 		# Cjeck option keyword to see if it has specific conditions
 		# format is *option[condition1>value1;condition2>value2 ...] 
 		
-		if ($breakToken[0]=~/\[.+\]/) {
+		if ($breakToken[0]=~/\[.+\]/ ) {
 			
 			$condition_string = $breakToken[0]; 
 			$condition_string =~ s/\*option\[//g; 
 			$condition_string =~ s/\]//g; 
 			$condition_string =~ s/>/=/g; 
-			# debug_out ("  + Reading conditions >$condition_string<!!!\n");
+			#debug_out ("  + Reading conditions >$condition_string<!!!\n");
 			
 						
 		}else{
 			$condition_string = "all"; 
 		}
+
+		#debug_out ("  + Reading conditions >$condition_string<!!!\n");
 		
 		my $OptionName = $breakToken[1];
 		my $DataType   = $breakToken[2];
@@ -377,9 +379,9 @@ while ( my $line = <OPTIONS> ){
 
 		if ( $DataType =~ /value/ ){
 			$ValueIndex = $breakToken[3]; 
-			$gOptions{$currentAttributeName}{"options"}{$OptionName}{"conditions"}{$condition_string}{"values"}{$ValueIndex} = $value; 
+			$gOptions{$currentAttributeName}{"options"}{$OptionName}{"values"}{$ValueIndex}{"conditions"}{$condition_string} = $value; 
 			
-			#debug_out ( "++++++  \$gOptions{$currentAttributeName}{options}{ $OptionName }{ $condition_string }{values}{ $ValueIndex } = $value \n" );  
+			#debug_out ( "++++++  \$gOptions{$currentAttributeName}{options}{ $OptionName }{values}{ $ValueIndex }{\"conditions\"}{$condition_string} = $value \n" );  
 			
 	    }
 		
@@ -392,19 +394,14 @@ while ( my $line = <OPTIONS> ){
 			#debug_out ( "++++++ \$gOptions{$currentAttributeName}{options}{ $OptionName }{cost} = $value  \n"); 
 			
 		}
-		
-		if ( $DataType =~ /meta/ ){
-		
-		    $gOptions{$currentAttributeName}{"options"}{$OptionName}{"meta"} = $value; 
-			#debug_out ( "++++++  \$gOptions{$currentAttributeName}{options}{ $OptionName }{ meta } = $value \n" );  
-		}
+	
 		
 		# External entities...
 		if ( $DataType =~ /production/ ){
 			if ( $DataType =~ /cost/ ){$CostType = $breakToken[3]; }
-			$gOptions{$currentAttributeName}{"options"}{$OptionName}{"conditions"}{$condition_string}{$DataType} = $value; 
+			$gOptions{$currentAttributeName}{"options"}{$OptionName}{$DataType}{"conditions"}{$condition_string} = $value; 
 			
-			#debug_out ( "++++++  \$gOptions{$currentAttributeName}{options}{ $OptionName }{conditions}{ $condition_string }{ $DataType } = $value \n" );  
+			#debug_out ( "++++++  \$gOptions{$currentAttributeName}{options}{ $OptionName }{ $DataType }{conditions}{ $condition_string } = $value \n" );  
 		}
 	  
 	  }
@@ -427,46 +424,50 @@ while ( my $line = <OPTIONS> ){
       #}
 
       # Store options 
-	  
+	  debug_out ( "========== $currentAttributeName ===========\n");
 	  debug_out ( "Storing data for $currentAttributeName: \n" );
 	  
 	  my $OptHash = $gOptions{$currentAttributeName}{"options"}; 
 	  
       for my $optionIndex ( keys (%$OptHash ) ){
 		debug_out( "    -> $optionIndex \n"); 
-		my $CondHash = $gOptions{$currentAttributeName}{"options"}{$optionIndex}{"conditions"}; 
+		my $cost_type    = $gOptions{$currentAttributeName}{"options"}{$optionIndex}{"cost-type"}; 	
+		my $cost         = $gOptions{$currentAttributeName}{"options"}{$optionIndex}{"cost"}; 	
+		my $ValHash = $gOptions{$currentAttributeName}{"options"}{$optionIndex}{"values"};
 		
-		for my $conditions ( keys (%$CondHash) ) {
-		    my $meta; 
-		   # my $meta = $gOptions{$currentAttributeName}{"options"}{$optionIndex}{$conditions}{"meta"}; 
-			if (! $meta ) {$meta =""}; 
-		    my $ValHash = $gOptions{$currentAttributeName}{"options"}{$optionIndex}{"conditions"}{$conditions}{"values"}; 
-			my $cost_type    = $gOptions{$currentAttributeName}{"options"}{$optionIndex}{"cost-type"}; 	
-			my $cost         = $gOptions{$currentAttributeName}{"options"}{$optionIndex}{"cost"}; 	
-			debug_out( "           - valid: [$conditions] , cost = \$$cost ($cost_type), meta = $meta \n"); 
+		for my $valueIndex ( keys (%$ValHash) ) {
+
+		    my $CondHash = $gOptions{$currentAttributeName}{"options"}{$optionIndex}{"values"}{$valueIndex}{"conditions"}; 
 			
 			
 			
-			for my $valueIndex ( keys (%$ValHash) ) {
+			
+			
+			for my $conditions( keys (%$CondHash) ) {
 				my $tag   = $gOptions{$currentAttributeName}{"tags"}{$valueIndex};
-				my $value = $gOptions{$currentAttributeName}{"options"}{$optionIndex}{"conditions"}{$conditions}{"values"}{$valueIndex};
-				debug_out ("           - sub-in:($tag = $value)  \n");		
+				my $value = $gOptions{$currentAttributeName}{"options"}{$optionIndex}{"values"}{$valueIndex}{"conditions"}{$conditions};
+				
+				debug_out( "           - $tag -> $value [valid: $conditions ]   \n");		
 			}
-			
+			 
 				
 			#Energy credits not modelled in ESP-r 
 			
-			my $ExtEnergyHash = $gOptions{$currentAttributeName}{"options"}{$optionIndex}{"conditions"}{$conditions}; 
-			for my $ExtEnergyType ( keys (%$ExtEnergyHash ) ){
-				if ( $ExtEnergyType =~ /production/ ) {
-					my $ExtEnergyCredit = $gOptions{$currentAttributeName}{"options"}{$optionIndex}{"conditions"}{$conditions}{$ExtEnergyType}; 
-					debug_out ("              - credit:($ExtEnergyType) $ExtEnergyCredit  \n");	
-				
-				}
+
+
+		}
+		debug_out( "           - cost = \$$cost ($cost_type) \n");
+		
+		my $ExtEnergyHash = $gOptions{$currentAttributeName}{"options"}{$optionIndex}; 
+		for my $ExtEnergyType ( keys (%$ExtEnergyHash ) ){
+			if ( $ExtEnergyType =~ /production/ ) {
+			my $CondHash = $gOptions{$currentAttributeName}{"options"}{$optionIndex}{$ExtEnergyType}{"conditions"}; 
+			for my $conditions( keys (%$CondHash) ) {
+				my $ExtEnergyCredit = $gOptions{$currentAttributeName}{"options"}{$optionIndex}{$ExtEnergyType}{"conditions"}{$conditions}; 
+				debug_out ("              - credit:($ExtEnergyType) $ExtEnergyCredit [valid: $conditions ] \n");	
 			
 			}
-			
-
+			}
 		}
 	  }
        
@@ -478,6 +479,7 @@ while ( my $line = <OPTIONS> ){
   
   #else{debug_out (" skipped...\n");}
 }
+
 
 close (OPTIONS);
  
@@ -562,6 +564,7 @@ debug_out(" Validating choices and options...\n");
 
 while ( my ( $attribute, $choice) = each %gChoices ){
   
+  debug_out ( "\n ======================== $attribute ============================\n");
   debug_out ( "Choosing $attribute -> $choice \n"); 
     
   # is attribute defined in options ?
@@ -588,38 +591,173 @@ while ( my ( $attribute, $choice) = each %gChoices ){
   }
   # Now we need to process conditions.
   
-  my $condRef = $gOptions{$attribute}{"options"}{$choice}{"conditions"}; 
-  my %condHash = %$condRef; 
+  my $ValRef = $gOptions{$attribute}{"options"}{$choice}{"values"}; 
   
-  
-  if ( defined( $condHash{"all"} ) ) { 
-    
-	$gOptions{$attribute}{"options"}{$choice}{"result"} = $condHash{"all"}{"values"};
-	
-  }else{
-    
-	# Loop through hash 
-	
-	for my $conditions ( keys %condHash ) {
-	
-		debug_out ( " >>>>> Testing $conditions \n" ) ; 
+  if (defined ($ValRef)){
+	  my %ValHash = %$ValRef; 
+	  
+	  for my $ValueIndex (keys %ValHash){
+	  
+		# for each value, check if corresponding conditions are valid
 		
-		my $valid_condition = 1; 
-		foreach my $condition (split /;/, $conditions ){
-
-		  debug_out ("      $condition ? "); 
-		  my ($TestAttribute, $TestValue) = split /=/, $condition; 
-		  if ( $gChoices{$TestAttribute} ne $TestValue ) { $valid_condition = 0; ; }
+		 my $CondRef = $gOptions{$attribute}{"options"}{$choice}{"values"}{$ValueIndex}{"conditions"}; 
+		 my %CondHash = %$CondRef; 
+	  
+		 # Check for 'all' conditions
+		  my $ValidConditionFound = 0;
+		  
+		  if ( defined( $CondHash{"all"} ) ) { 
+			debug_out ("   - VALINDEX: $ValueIndex : found valid condition: \"all\" !\n");
+			$gOptions{$attribute}{"options"}{$choice}{"result"}{$ValueIndex} = $CondHash{"all"};
+			$ValidConditionFound = 1; 
 			
-		  debug_out ("      \$gChoices{".$TestAttribute."} = ".$gChoices{$TestAttribute}."  -> $valid_condition \n"); 
-		
-		}
-		if ( $valid_condition ) { 
-		  $gOptions{$attribute}{"options"}{$choice}{"result"} = $condHash{$conditions};
-		}
+		  }else{
+			
+			# Loop through hash 
+			
+			for my $conditions ( keys %CondHash ) {
+			
+				#debug_out ( " >>>>> Testing $conditions \n" ) ; 
+				
+				my $valid_condition = 1; 
+				foreach my $condition (split /;/, $conditions ){
+
+				  #debug_out ("      $condition \n"); 
+				  my ($TestAttribute, $TestValueList) = split /=/, $condition; 
+				  if ( ! $TestValueList ) {$TestValueList = "XXXX";}
+				  my @TestValueArray = split /\|/, $TestValueList;
+				  my $thesevalsmatch =0; 
+				  foreach my $TestValue (@TestValueArray){
+				    if ( $gChoices{$TestAttribute} eq $TestValue ) { $thesevalsmatch = 1; }
+					 
+				   # debug_out ("      \$gChoices{".$TestAttribute."} = ".$gChoices{$TestAttribute}." / $TestValue / -> $thesevalsmatch \n"); 
+				  }
+				  if ( ! $thesevalsmatch ){$valid_condition = 0;}
+				  
+				}
+				if ( $valid_condition ) { 
+				  $gOptions{$attribute}{"options"}{$choice}{"result"}{$ValueIndex}  = $CondHash{$conditions};
+				  $ValidConditionFound = 1; 
+				  debug_out ("   - VALINDEX: $ValueIndex : found valid condition: \"$conditions\" !\n");
+				}
+
+			}
+			
+		  }
+		  # Check if else condition exists. 
+		  if ( ! $ValidConditionFound ) {
+		    if ( defined( $CondHash{"else"} ) ){
+			  $gOptions{$attribute}{"options"}{$choice}{"result"}{$ValueIndex} = $CondHash{"else"};
+			  $ValidConditionFound = 1;
+			  #debug_out ("   - VALINDEX: $ValueIndex : found valid condition: \"else\" !\n");
+			}
+		  
+		  }
+		  
+		  if ( ! $ValidConditionFound ) {
+			 stream_out ( "\nERROR: No valid conditions were defined for $attribute \n");
+			 stream_out (   "       in options file ($gOptionFile). Choices must match one \n");
+			 stream_out (   "       of the following:\n");
+			 for my $conditions ( keys %CondHash ) {
+				stream_out (   "            -> $conditions \n" );
+			 }
+			 
+			 $allok = 0; 
+		  }
+	  
+	  
+	  }
 	}
 	
-  }
+   # Check conditions on external entities that are not 'value' or 'cost' ...
+   my $ExtRef = $gOptions{$attribute}{"options"}{$choice}; 
+   my %ExtHash = %$ExtRef;
+   
+   foreach my $ExternalParam ( keys %ExtHash ){
+   
+	 if ( $ExternalParam =~ /production/ ){
+	
+
+#9999999999999999999999999999#999
+		
+		 my $CondRef = $gOptions{$attribute}{"options"}{$choice}{$ExternalParam}{"conditions"}; 
+		 my %CondHash = %$CondRef; 
+	  
+		 # Check for 'all' conditions
+		  my $ValidConditionFound = 0;
+		  
+		  if ( defined( $CondHash{"all"} ) ) { 
+			debug_out ("   - EXTPARAM: $ExternalParam : found valid condition: \"all\" ! (".$CondHash{"all"}.")\n");
+			$gOptions{$attribute}{"options"}{$choice}{"ext-result"}{$ExternalParam} = $CondHash{"all"};
+			$ValidConditionFound = 1; 
+			
+		  }else{
+			
+			# Loop through hash 
+			
+			for my $conditions ( keys %CondHash ) {
+			
+				#debug_out ( " >>>>> Testing $conditions \n" ) ; 
+				
+				my $valid_condition = 1; 
+				foreach my $condition (split /;/, $conditions ){
+
+				  #debug_out ("      $condition \n"); 
+				  my ($TestAttribute, $TestValueList) = split /=/, $condition; 
+				  if ( ! $TestValueList ) {$TestValueList = "XXXX";}
+				  my @TestValueArray = split /\|/, $TestValueList;
+				  my $thesevalsmatch =0; 
+				  foreach my $TestValue (@TestValueArray){
+				    if ( $gChoices{$TestAttribute} eq $TestValue ) { $thesevalsmatch = 1; }
+					 
+				    #debug_out ("      \$gChoices{".$TestAttribute."} = ".$gChoices{$TestAttribute}." / $TestValue / -> $thesevalsmatch \n"); 
+				  }
+				  if ( ! $thesevalsmatch ){$valid_condition = 0;}
+				  
+				}
+				if ( $valid_condition ) { 
+				  $gOptions{$attribute}{"options"}{$choice}{"ext-result"}{$ExternalParam}= $CondHash{$conditions};
+				  $ValidConditionFound = 1; 
+				  debug_out ("   - EXTPARAM: $ExternalParam : found valid condition: \"$conditions\" (".$CondHash{$conditions}.")\n");
+				}
+
+			}
+			
+		  }
+		  # Check if else condition exists. 
+		  if ( ! $ValidConditionFound ) {
+		    if ( defined( $CondHash{"else"} ) ){
+			  $gOptions{$attribute}{"options"}{$choice}{"ext-result"}{$ExternalParam} = $CondHash{"else"};
+			  $ValidConditionFound = 1;
+			  debug_out ("   - EXTPARAM: $ExternalParam : found valid condition: \"else\" ! (".$CondHash{"else"}.")\n");
+			}
+		  
+		  }
+		  
+		  if ( ! $ValidConditionFound ) {
+			 stream_out ( "\nERROR: No valid conditions were defined for $attribute \n");
+			 stream_out (   "       in options file ($gOptionFile). Choices must match one \n");
+			 stream_out (   "       of the following:\n");
+			 for my $conditions ( keys %CondHash ) {
+				stream_out (   "            -> $conditions \n" );
+			 }
+			 
+			 $allok = 0; 
+		  }
+	  
+	  
+
+	  
+#99999999999999999999999999999999	
+	 
+	 
+	 }
+   
+   }
+  
+  
+  
+ 
   
   #debug_out (" >>>>> ".$gOptions{$attribute}{"options"}{$choice}{"result"}{"production-elec-perKW"}."\n"); 
   
@@ -627,8 +765,8 @@ while ( my ( $attribute, $choice) = each %gChoices ){
   
   my ($BaseOption,$ScaleFactor,$BaseChoice,$BaseCost);
   
-  # This section implements the multiply-cost and meta-select parameters. 
-  # These are only supported on the gOptions attributes (and not gExtOptions). 
+  # This section implements the multiply-cost 
+  
   
   if ($allok ){
     
@@ -680,65 +818,16 @@ while ( my ( $attribute, $choice) = each %gChoices ){
       debug_out (     "  (cost computed as $ScaleFactor *  ".round($BaseCost)." [cost of $BaseChoice])\n");
     }
     
-    # Now select outcome based on status of some other meta value.
-
-    my $TagHash = $gOptions{$attribute}{"tags"}; 
-    my $ValHash = $gOptions{$attribute}{"options"}{$choice}{"values"};
-    
-    
-    for my $tagIndex ( sort keys (%$TagHash) ){
-      my $tag   = ${$TagHash}{$tagIndex};
-      my $value = ${$ValHash}{$tagIndex};
-      
-      
-      
-  #    debug_out ("          looking for : \$gOptions{ $attribute }{\"options\"}{ $choice }{\"values\"}\n");
-      
-      debug_out ("          $tag -> $value \n");
-      
-      if ( $value =~/\<METASELECT:.+/ ) {
-      
-        # If value contains a METASELECT statement, turn statement 
-        # into a ruleset we can use. 
-        $value =~ s/\<//g;
-        $value =~ s/\>//g;
-        $value =~ s/^METASELECT://g;
-        
-        my ($MetaOption,$MetaRuleString) = split /\?/ , $value;  
-        my @MetaRules = split /,/, $MetaRuleString; 
-        my %MetaRuleResult;
-        foreach my $rule (@MetaRules){
-          my ($match,$result)=split /:/, $rule; 
-          $MetaRuleResult{$match} = $result;
-        }
-        
-        # Find the matching option for specified statement
-        
-        my($MetaChoice) = $gChoices{$MetaOption};
-        my($MetaValue)  = $gOptions{$MetaOption}{"options"}{$MetaChoice}{"meta"}; 
-        my($ReMapValue) = $MetaRuleResult{$MetaValue};
-        #debug_out ("          $tag -> $value \n");
-        
-        debug_out ("             ->  REMAPPING Metaselect: $MetaOption | $MetaRuleString \n");
-        debug_out ("                           Querying  : $MetaChoice in option $MetaOption  \n");
-        debug_out ("                           Found:    : $MetaValue \n");
-        debug_out ("                           Rewriting : ".${$ValHash}{$tagIndex}."->".$ReMapValue."\n");
-        
-        $gOptions{$attribute}{"options"}{$choice}{"values"}{$tagIndex} = $ReMapValue; 
-        debug_out ("          $tag -> ".$gOptions{$attribute}{"options"}{$choice}{"values"}{$tagIndex}." \n");        
-      }
-      
-      
-
-    }
+  
     
   }
  
   
+
 }
 
- 
-die( "OK? $allok ?\n"); 
+# Seems like we've found everything!
+
 
 
 
@@ -777,7 +866,8 @@ my $gMasterPath = getcwd();
         },  $gWorkingModelFolder );
 
 
-# Could allow SE/NE/SW/NW here, or even NNE, ENE, ESE, SSE ... 
+# Could allow SE/NE/SW/NW here, or even NNE, ENE, ESE, SSE. Note that our solar calculations will not reflect 
+# orientation changes. For now, we assume the arrays must always point south.
 my %angles = ( "S" => 0 , 
                "E" => 90,
                "N" => 180,
@@ -802,6 +892,9 @@ else
 # one orientation is spec'd)
 my $ScaleResults = 1.0/($#Orientations+1); 
                
+			   
+# Variables that store the average utilit costs, energy amounts. Defined here because if we are running 
+# multiple orientations, we must average them as we go.	   
 my $gAvgCost_NatGas    = 0 ;
 my $gAvgCost_Electr    = 0 ;
 my $gAvgEnergy_Total   = 0 ; 
@@ -858,30 +951,33 @@ sub process_file($){
   my @file_contents = ();   
   
   while ( my $line = <READIN> ){
-  
+    my $matched =0;
+	my $linecopy = $line;   
     
     foreach my $attribute ( @gChoiceOrder ){
-    
-      if ( ! $gChoiceAttIsExt{$attribute} ){
-    
+
+      if ( $gOptions{$attribute}{"type"} eq "internal" ){
+            
         my $choice =  $gChoices{$attribute};
         
         my $tagHash = $gOptions{$attribute}{"tags"};
-        my $valHash = $gOptions{$attribute}{"options"}{$choice}{"values"};
+        my $valHash = $gOptions{$attribute}{"options"}{$choice}{"result"};
       
         for my $tagIndex ( keys ( %{$tagHash} ) ){
           
+		  
           my $tag   = ${$tagHash}{$tagIndex};
           my $value = ${$valHash}{$tagIndex};
-        
-       
+          if (!defined($value)){debug_out (">>>ERR on $tag\n");}        
+          if ( $line =~ /$tag/ ){ $matched = 1; }
           $line =~ s/$tag/$value/g; 
           
         }
-      
+        
       }
+	  
     }
-    
+    if ($matched ){debug_out("> $linecopy| $line");}
     push @file_contents, $line;
   
  
@@ -902,7 +998,6 @@ sub process_file($){
 
 
 sub runsims($){
-
 
   my ($RotationAngle) = @_;
 
@@ -1325,7 +1420,7 @@ sub postprocess($){
 
   # Add data from externally computed SDHW (presently not accounting for pump energy...)
   my $sizeSDHW = $gChoices{"Opt-SolarDHW"}; 
-  $gSimResults{"SDHW production"} = -1.0 * $gExtOptions{"Opt-SolarDHW"}{"options"}{$sizeSDHW }{"DHW"}; 
+  $gSimResults{"SDHW production"} = -1.0 * $gOptions{"Opt-SolarDHW"}{"options"}{$sizeSDHW}{"ext-result"}{"production-DHW"};
   
     
   # Adjust solar DHW energy credit to reflect actual consumption. Assume 
@@ -1343,10 +1438,12 @@ sub postprocess($){
   
   
   my $PVsize = $gChoices{"Opt-StandoffPV"}; 
-  if ( $PVsize !~ /autosize/ ){
+  my $PVArrayCost;
+  my $PVArraySized; 
+  if ( $PVsize !~ /SizedPV/ ){
     
     # Use spec'd PV sizes 
-    $gSimResults{"PV production"}=-1.0*$gExtOptions{"Opt-StandoffPV"}{"options"}{$PVsize}{"elec"}; 
+    $gSimResults{"PV production"}=-1.0*$gExtOptions{"Opt-StandoffPV"}{"options"}{$PVsize}{"ext-result"}{"production-elec-perKW"}; 
   
   }else{
     # Size pv to max, or to size required to reach Net-Zero. 
@@ -1362,58 +1459,26 @@ sub postprocess($){
     if ( $prePVEnergy > 0 ){
     
       # This should always be the case
-    
-      my $SizeFound = 0;
-    
-      my $PVdataHash= $gExtOptions{"Opt-StandoffPV"}{"options"}; 
       
-      # Loop through sizes until sufficient production is found 
-      foreach my $size ( sort keys (%$PVdataHash) ){
-        if ( $size !~ /autosize/ ){
-          
-          my $production = ${$PVdataHash}{$size}{"elec"}  ; 
-          debug_out ">$SizeFound> PV: $size -> $production ( ? $prePVEnergy ? ) \n"; 
+	  my $PVUnitOutput = $gOptions{"Opt-StandoffPV"}{"options"}{$PVsize}{"ext-result"}{"production-elec-perKW"};
+	  my $PVUnitCost   = $gOptions{"Opt-StandoffPV"}{"options"}{$PVsize}{"cost"};
+	 
+     debug_out (" >>> UNOT OUT: $PVsize | $PVUnitOutput | $PVUnitCost\n"); 
+	 $PVArraySized = $prePVEnergy / $PVUnitOutput ; # KW Capacity
+	  my $PVmultiplier = 1. ; 
+      if ( $PVArraySized > 14. ) { $PVmultiplier = 2. ; }
+	  
+	  $PVArrayCost  = $PVArraySized * $PVUnitCost * $PVmultiplier;
+	
         
-          if ( ! $SizeFound ){
-            $PVsize = $size; 
-            
-            if ( $prePVEnergy < $production ){
-              
-              $SizeFound = 1; 
-         
-              debug_out " Setting Size: $PVsize \n"; 
-            }
-          }
-        }
-      }
-      
-      # IF no size found, extrapolate from largest size (10 kW)
-      if ( ! $SizeFound ) {
-      
-        $gSimResults{"PV production"} = -1.0 * $prePVEnergy ;
-        
-        $PVsize = " scaled: ".eval(round1d($prePVEnergy*0.248756219))." kW" ;
+      $PVsize = " scaled: ".eval(round1d($PVArraySized))." kW" ;
 
-	# IF PV size is over 14kW, double cost (This effectively steers away from elaborate 
-        # rack-mounting systems that exceed available roof area ) 
-
-        my $PVmultiplier = 1. ; 
-
-        if ( $prePVEnergy*0.248756219 > 14. ) { $PVmultiplier = 2. ; }
-      
-        $gExtOptions{"Opt-StandoffPV"}{"options"}{$PVsize}{"cost"} 
-           = ( 57780 + 1383.333333 * ( $prePVEnergy - 39.42 ) ) * $PVmultiplier ; 
-
-      
-      }else{
-        
-        $gSimResults{"PV production"}=-1.0*$gExtOptions{"Opt-StandoffPV"}{"options"}{$PVsize}{"elec"};
-      
-      }
+      $gSimResults{"PV production"}=-1.0*$PVUnitOutput*$PVArraySized; 
     
     }else{
       # House is already energy positive, no PV needed. 
-      $PVsize = "0.0kW"
+      $PVsize = "0.0 kW" ;
+	  $PVArrayCost  = 0. ;
       
     }
     print ">$PVsize ...\n"; 
@@ -1421,7 +1486,7 @@ sub postprocess($){
   }  
   
   $gChoices{"Opt-StandoffPV"}=$PVsize;
-  
+  $gOptions{"Opt-StandoffPV"}{"options"}{$PVsize}{"cost"} = $PVArrayCost;
 
   debug_out("\n\n Energy Consumption: \n\n") ; 
 
@@ -1496,11 +1561,7 @@ sub postprocess($){
     
     my $choice = $gChoices{$attribute}; 
     my $cost; 
-    if ( $gChoiceAttIsExt{$attribute} ){
-      $cost  = $gExtOptions{$attribute}{"options"}{$choice}{"cost"};
-    }else{
-      $cost  = $gOptions{$attribute}{"options"}{$choice}{"cost"};
-    }
+    $cost  = $gOptions{$attribute}{"options"}{$choice}{"cost"};
     $gTotalCost += $cost;
 
     debug_out( " +  ".round($cost)." ( $attribute : $choice ) \n");
