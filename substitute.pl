@@ -14,13 +14,13 @@ use Math::Trig;
 sub runsims($);
 sub postprocess($);
 sub execute($);
-sub stream_out($);
+sub debug_out($);
 sub fatalerror($); 
 sub round($); 
 sub round1d($); 
 sub min($$);
 
-
+my $gDebug = 1; 
 
 my %gTest_params;          # test parameters
 my $gChoiceFile  = ""; 
@@ -51,7 +51,7 @@ my $gArchGOChoiceFile   = 0;
 
 my %gChoices; 
 my %gOptions;
-my %gExtOptions; 
+
 
 my $gEnergyPV; 
 my $gEnergySDHW;
@@ -248,17 +248,18 @@ stream_out (" >               OptionFile: $gOptionFile \n");
 
 
 
-# Parse option file 
+# Parse option file. This file defines the available choices and costs
+# that substitute.pl can pick from 
+
 open ( OPTIONS, "$gOptionFile") or fatalerror("Could not read $gOptionFile!");
-stream_out("\n\nReading $gOptionFile...");
+debug_out("\n\nReading $gOptionFile...");
 my $linecount = 0;
 my $currentAttributeName ="";
 my $AttributeOpen = 0;
 my $ExternalAttributeOpen = 0;
 
-my %currentOptions; 
-my %currentTags; 
 
+# Parse the option file. 
 while ( my $line = <OPTIONS> ){
   
   $line =~ s/\!.*$//g; 
@@ -267,15 +268,19 @@ while ( my $line = <OPTIONS> ){
 
     
   
-  stream_out ("  Line: $linecount >$line<\n");
+  #debug_out ("  Line: $linecount >$line<");
   
-  if ( $line ) {
-    
+  if ( $line !~ /^\s*$/ ) {
+    #debug_out (" processing...\n");
     my ( $token, $value ) = split /=/, $line ;
 
     # Allow value to contain spaces: if 
-    $value =~ s/~/ /g;
+    if ($value) { $value =~ s/~/ /g; }
 
+	
+	# The file contains 'attributes that are either internal (evaluated by ESP-r
+	# or external (computed elsewhere and post-processed). 
+	
     # Open up a new attribute    
     if ( $token =~ /^\*attribute:start/ ){
     
@@ -299,170 +304,204 @@ while ( my $line = <OPTIONS> ){
       if ( $token =~ /^\*attribute:name/ ){
     
         $currentAttributeName = $value ;
-        
+		if ( $ExternalAttributeOpen) { 
+			$gOptions{$currentAttributeName}{"type"} = "external"; 
+		}else{
+			$gOptions{$currentAttributeName}{"type"} = "internal"; 
+		}
+        debug_out ("    ---> $currentAttributeName \n"); 
+		
       }
       
       
       # For options that need to be replaced in the 
-      # external file. 
+      # external file. Note: External Attribubes do not have tags...
       if ( $token =~ /^\*attribute:tag/ ){
     
         my($rubbish,$junk,$TagIndex) = split /:/, $token;
-    
-        $currentTags{$TagIndex} = $value;
-    
+        
+        #$currentTags{$TagIndex} = $value;
+        $gOptions{$currentAttributeName}{"tags"}{$TagIndex} = $value ; 
       }
       
-      
-      if ( $token =~ /^\*option:.+:value:[0-9]+$/){
-      
-        my( $rubbish, $OptionName, $junk, $ValueIndex ) = split /:/, $token;
-        
-        $currentOptions{$OptionName}{"values"}{$ValueIndex} = $value; 
-      
-      }
-      
-      
-      # Get cost data 
-      stream_out "? $token ?"; 
-      if ( $token =~ /^\*option:.+:cost$/){
-      
-        my( $rubbish, $OptionName, $junk ) = split /:/, $token;
-        
-        # Strip '$', if present
-        $value =~ s/\$//g;
-        
-        $currentOptions{$OptionName}{"cost"} = $value; 
-        stream_out "+++ $OptionName cost: $value";
-      }
-      stream_out "\n"; 
-      # Get energy produced by components modelled outside ESP-r (ext. 
-      # components only). Components are tagged as "production-elec",
-      # "production-SH" or "production-DHW"
-      if ( $token =~ /^\*option:.+:production-.+$/){
-      
-        my( $rubbish, $OptionName, $ProdEnergyType ) = split /:/, $token;
-        
-        $ProdEnergyType =~ s/production-//g; 
-        
-        $currentOptions{$OptionName}{$ProdEnergyType} = $value; 
-      
-      }
-      
-      
-      
-      if ( $token =~ /^\*option:.+:meta$/){
-      
-        my( $rubbish, $OptionName, $junk ) = split /:/, $token;
-        
-        $currentOptions{$OptionName}{"meta"} = $value; 
-      
-      }
+	  # Standard form (no conditions) --- option:Name:MetaInfo:Index
+	  
+	  
+	  
+	  if ( $token =~ /^\*option/ ){
+	    # Format: 
+		
+		#  *Option:NAME:MetaType:Index or 
+		#  *Option[CONDITIONS]:NAME:MetaType:Index or 	
+		# MetaType is:
+		#  - cost
+		#  - value 
+		#  - production-elec
+		#  - production-sh
+		#  - production-dhw
+		
+		my @breakToken = split /:/, $token; 
+		my @OptionConditions = (); 
+		my $condition_string = ""; 
+		#if ($breakToken[0]){debug_out (" + bt0: ". $breakToken[0] ."\n"); }
+		#if ($breakToken[1]){debug_out (" + bt1: ". $breakToken[1] ."\n"); }
+		#if ($breakToken[2]){debug_out (" + bt2: ". $breakToken[2] ."\n"); }
+		#if ($breakToken[3]){debug_out (" + bt3: ". $breakToken[3] ."\n"); }
+		#if ($breakToken[4]){die (" + bt4: ". $breakToken[4] ."\n"); }
+		#if ($breakToken[5]){debug_out (" + bt5: ". $breakToken[5] ."\n"); }
+		
+		# Cjeck option keyword to see if it has specific conditions
+		# format is *option[condition1>value1;condition2>value2 ...] 
+		
+		if ($breakToken[0]=~/\[.+\]/) {
+			
+			$condition_string = $breakToken[0]; 
+			$condition_string =~ s/\*option\[//g; 
+			$condition_string =~ s/\]//g; 
+			$condition_string =~ s/>/=/g; 
+			# debug_out ("  + Reading conditions >$condition_string<!!!\n");
+			
+						
+		}else{
+			$condition_string = "all"; 
+		}
+		
+		my $OptionName = $breakToken[1];
+		my $DataType   = $breakToken[2];
+		
+		my $ValueIndex = ""; 
+		my $CostType   = "";
+		
+		
+		# Assign values 
+
+		if ( $DataType =~ /value/ ){
+			$ValueIndex = $breakToken[3]; 
+			$gOptions{$currentAttributeName}{"options"}{$OptionName}{"conditions"}{$condition_string}{"values"}{$ValueIndex} = $value; 
+			
+			#debug_out ( "++++++  \$gOptions{$currentAttributeName}{options}{ $OptionName }{ $condition_string }{values}{ $ValueIndex } = $value \n" );  
+			
+	    }
+		
+		if ( $DataType =~ /cost/ ){
+			if ( $DataType =~ /cost/ ){$CostType = $breakToken[3]; }
+			$gOptions{$currentAttributeName}{"options"}{$OptionName}{"cost-type"} = $CostType;
+			$gOptions{$currentAttributeName}{"options"}{$OptionName}{"cost"} = $value;
+			
+			#debug_out ( "++++++ \$gOptions{$currentAttributeName}{options}{ $OptionName }{cost-type} = $CostType \n"); 
+			#debug_out ( "++++++ \$gOptions{$currentAttributeName}{options}{ $OptionName }{cost} = $value  \n"); 
+			
+		}
+		
+		if ( $DataType =~ /meta/ ){
+		
+		    $gOptions{$currentAttributeName}{"options"}{$OptionName}{"meta"} = $value; 
+			#debug_out ( "++++++  \$gOptions{$currentAttributeName}{options}{ $OptionName }{ meta } = $value \n" );  
+		}
+		
+		# External entities...
+		if ( $DataType =~ /production/ ){
+			if ( $DataType =~ /cost/ ){$CostType = $breakToken[3]; }
+			$gOptions{$currentAttributeName}{"options"}{$OptionName}{"conditions"}{$condition_string}{$DataType} = $value; 
+			
+			#debug_out ( "++++++  \$gOptions{$currentAttributeName}{options}{ $OptionName }{conditions}{ $condition_string }{ $DataType } = $value \n" );  
+		}
+	  
+	  }
+	  
     
     }
     
     
     
     # Close attribute and append contents to global options array
-    if ( $token =~ /^\*attribute:end/ ){
+    if ( $token =~ /^\*attribute:end/ || $token =~ /^\*ext-attribute:end/){
     
        $AttributeOpen = 0; 
     
-      # Store tags 
-      for my $TagIndex (keys (%currentTags ) ){
-      
-        $gOptions{$currentAttributeName}{"tags"}{$TagIndex} = $currentTags{$TagIndex}; 
-      
-      }
+      # Store tags (what's a tag?)
+      #for my $TagIndex (keys (%currentTags ) ){
+      #  debug_out ("$currentAttributeName TAG -> $TagIndex ...\n"); 
+      #  $gOptions{$currentAttributeName}{"tags"}{$TagIndex} = $currentTags{$TagIndex}; 
+      #
+      #}
 
       # Store options 
-      for my $optionIndex ( keys (%currentOptions) ){
+	  
+	  debug_out ( "Storing data for $currentAttributeName: \n" );
+	  
+	  my $OptHash = $gOptions{$currentAttributeName}{"options"}; 
+	  
+      for my $optionIndex ( keys (%$OptHash ) ){
+		debug_out( "    -> $optionIndex \n"); 
+		my $CondHash = $gOptions{$currentAttributeName}{"options"}{$optionIndex}{"conditions"}; 
+		
+		for my $conditions ( keys (%$CondHash) ) {
+		    my $meta; 
+		   # my $meta = $gOptions{$currentAttributeName}{"options"}{$optionIndex}{$conditions}{"meta"}; 
+			if (! $meta ) {$meta =""}; 
+		    my $ValHash = $gOptions{$currentAttributeName}{"options"}{$optionIndex}{"conditions"}{$conditions}{"values"}; 
+			my $cost_type    = $gOptions{$currentAttributeName}{"options"}{$optionIndex}{"cost-type"}; 	
+			my $cost         = $gOptions{$currentAttributeName}{"options"}{$optionIndex}{"cost"}; 	
+			debug_out( "           - valid: [$conditions] , cost = \$$cost ($cost_type), meta = $meta \n"); 
+			
+			
+			
+			for my $valueIndex ( keys (%$ValHash) ) {
+				my $tag   = $gOptions{$currentAttributeName}{"tags"}{$valueIndex};
+				my $value = $gOptions{$currentAttributeName}{"options"}{$optionIndex}{"conditions"}{$conditions}{"values"}{$valueIndex};
+				debug_out ("           - sub-in:($tag = $value)  \n");		
+			}
+			
+				
+			#Energy credits not modelled in ESP-r 
+			
+			my $ExtEnergyHash = $gOptions{$currentAttributeName}{"options"}{$optionIndex}{"conditions"}{$conditions}; 
+			for my $ExtEnergyType ( keys (%$ExtEnergyHash ) ){
+				if ( $ExtEnergyType =~ /production/ ) {
+					my $ExtEnergyCredit = $gOptions{$currentAttributeName}{"options"}{$optionIndex}{"conditions"}{$conditions}{$ExtEnergyType}; 
+					debug_out ("              - credit:($ExtEnergyType) $ExtEnergyCredit  \n");	
+				
+				}
+			
+			}
+			
 
-        my $valHash = $currentOptions{$optionIndex}{"values"};
+		}
+	  }
+       
+      }     
       
-        for my $ValueIndex ( keys ( %$valHash ) ) {
-        
-          $gOptions{$currentAttributeName}{"options"}{$optionIndex}{"values"}{$ValueIndex}
-                                    = $currentOptions{$optionIndex}{"values"}{$ValueIndex};
-        
-        
-        }
-        stream_out ">+> $currentAttributeName:$optionIndex:cost: ". $currentOptions{$optionIndex}{"cost"}."\n";
-                                    
-        $gOptions{$currentAttributeName}{"options"}{$optionIndex}{"cost"}
-                                  = $currentOptions{$optionIndex}{"cost"}; 
-        
-        $gOptions{$currentAttributeName}{"options"}{$optionIndex}{"meta"}
-                                  = $currentOptions{$optionIndex}{"meta"};
-        
-      }
-     
-      stream_out " $currentAttributeName -> gOptions \n"; 
-     
-      for ( keys %currentOptions ){ delete $currentOptions{$_} ;}
-      for ( keys %currentTags )   { delete $currentTags{$_} ;}   
-      
+
     }
-    
-    
-    
-    
-    
-    # Close external attribute and append contents to global options 
-    # array 
-    if ( $token =~ /^\*ext-attribute:end/ ){
-      $ExternalAttributeOpen = 0; 
-      
-      # Store options. Option index will be the name of each option 
-      # for each attribute. 
-      for my $optionIndex ( keys (%currentOptions) ){
-
-        stream_out "() $optionIndex\n";
- 
-        $gExtOptions{$currentAttributeName}{"options"}{$optionIndex}{"cost"}
-                                  = $currentOptions{$optionIndex}{"cost"}; 
-        
-
-        $gExtOptions{$currentAttributeName}{"options"}{$optionIndex}{"elec"}
-                                  = $currentOptions{$optionIndex}{"elec"}; 
-                           
-        $gExtOptions{$currentAttributeName}{"options"}{$optionIndex}{"SH"}
-                                  = $currentOptions{$optionIndex}{"SH"};  
-
-        $gExtOptions{$currentAttributeName}{"options"}{$optionIndex}{"DHW"}
-                                  = $currentOptions{$optionIndex}{"DHW"}; 
-                                  
-        
-        
-      }
-      # Delete holding arrays
-      for ( keys %currentOptions ){ delete $currentOptions{$_} ;}
-      for ( keys %currentTags )   { delete $currentTags{$_} ;}   
-      
-    }
-    
-  }
   
+  
+  #else{debug_out (" skipped...\n");}
 }
+
 close (OPTIONS);
  
 
+
+ 
+ 
+ 
 for my $att (keys %gOptions ){ 
 
-  stream_out ".... $att \n"; 
+  #debug_out ".... $att \n"; 
   
 }
 
 
 
-stream_out ("...done.\n") ; 
-
+debug_out ("...done.\n") ; 
+ 
 # Parse configuration (choice file ) 
 
 
 open ( CHOICES, "$gChoiceFile" ) or fatalerror("Could not read $gChoiceFile!");
 
-stream_out("\n\nReading $gChoiceFile...");
+debug_out("\n\nReading $gChoiceFile...");
 
 $linecount = 0;
 
@@ -471,7 +510,7 @@ while ( my $line = <CHOICES> ){
   $line =~ s/\!.*$//g; 
   $line =~ s/\s*//g;
   $linecount++;
-  #stream_out ("  Line: $linecount >$line<\n");
+  #debug_out ("  Line: $linecount >$line<\n");
   
   if ( $line ) {
     my ($attribute, $value) = split /:/, $line;
@@ -495,69 +534,96 @@ while ( my $line = <CHOICES> ){
 
 
 close( CHOICES );
-stream_out ("...done.\n") ; 
+debug_out ("...done.\n") ; 
+
+# Optionally create a copy of the choice file for later use. 
+
 
 if ( $gArchGOChoiceFile and -d "../ArchGOChoiceFiles" ) { 
-  #stream_out( " Archiving $gChoiceFile -> ../ArchGOChoiceFiles/$gChoiceFile-$gGOStep" ); 
+  #debug_out( " Archiving $gChoiceFile -> ../ArchGOChoiceFiles/$gChoiceFile-$gGOStep" ); 
   #!execute ( " cp $gChoiceFile ../ArchGOChoiceFiles/$gChoiceFile-$gGOStep ") ; 
   
 } 
 
 
+
+
+
 my %gChoiceAttIsExt;
 
 
-
+my %gExtOptions;
 # Report 
 my $allok = 1;
 
+debug_out("-----------------------------------\n");
+debug_out("-----------------------------------\n");
+debug_out(" Validating choices and options...\n");  
+
 while ( my ( $attribute, $choice) = each %gChoices ){
   
+  debug_out ( "Choosing $attribute -> $choice \n"); 
     
   # is attribute defined in options ?
-  if ( ! defined( $gOptions{$attribute} ) && ! defined ( $gExtOptions{$attribute} ) ){
-    stream_out ( "\nERROR: Attribute $attribute appears in choice file ($gChoiceFile), \n");
-    stream_out (   "       but can't be found in options file ($gOptionFile)\n");
+  if ( ! defined( $gOptions{$attribute} ) ){
+    debug_out ( "\nERROR: Attribute $attribute appears in choice file ($gChoiceFile), \n");
+    debug_out (   "       but can't be found in options file ($gOptionFile)\n");
     $allok = 0;
+  }else{
+  
+	debug_out ( "   - found \$gOptions{\"$attribute\"} \n"); 
+  
   }
   
-  if ($allok){ 
-    if ( defined( $gOptions{$attribute} ) ){ 
-      $gChoiceAttIsExt{$attribute} = 0; 
-    }else{
-      $gChoiceAttIsExt{$attribute} = 1;
-    }
-  }
-  
-  if ( ! $gChoiceAttIsExt{$attribute} ) {  
-  
-    if ( ! defined( $gOptions{$attribute}{"options"}{$choice} ) ){
+
+  if ( ! defined( $gOptions{$attribute}{"options"}{$choice} ) ){
        
-       stream_out ( "\nERROR: Choice $choice (for attribute $attribute, defined \n");
-       stream_out (   "       in choice file $gChoiceFile), is not defined \n");
-       stream_out (   "       in options file ($gOptionFile)\n");
-       $allok = 0;
+     debug_out ( "\nERROR: Choice $choice (for attribute $attribute, defined \n");
+     debug_out (   "       in choice file $gChoiceFile), is not defined \n");
+     debug_out (   "       in options file ($gOptionFile)\n");
+     $allok = 0;
        
-    }
+  }else{ 
+	debug_out ( "   - found \$gOptions{\"$attribute\"}{\"options\"}{\"$choice\"} \n"); 
   }
+  # Now we need to process conditions.
   
-  if ( $gChoiceAttIsExt{$attribute} ) {  
-    if ( $attribute =~ /Opt-StandoffPV/ && $choice =~ /autosize/ ) {
+  my $condRef = $gOptions{$attribute}{"options"}{$choice}{"conditions"}; 
+  my %condHash = %$condRef; 
+  
+  
+  if ( defined( $condHash{"all"} ) ) { 
     
-      # Combination is OK: do nothing. 
+	$gOptions{$attribute}{"options"}{$choice}{"result"} = $condHash{"all"}{"values"};
+	
+  }else{
     
-    }elsif ( ! defined( $gExtOptions{$attribute}{"options"}{$choice} ) ){
-       
-       stream_out ( "\nERROR: Choice $choice (for attribute $attribute, defined \n");
-       stream_out (   "       in choice file $gChoiceFile), is not defined \n");
-       stream_out (   "       in options file ($gOptionFile)\n");
-       $allok = 0;
-       
-    }
+	# Loop through hash 
+	
+	for my $conditions ( keys %condHash ) {
+	
+		debug_out ( " >>>>> Testing $conditions \n" ) ; 
+		
+		my $valid_condition = 1; 
+		foreach my $condition (split /;/, $conditions ){
+
+		  debug_out ("      $condition ? "); 
+		  my ($TestAttribute, $TestValue) = split /=/, $condition; 
+		  if ( $gChoices{$TestAttribute} ne $TestValue ) { $valid_condition = 0; ; }
+			
+		  debug_out ("      \$gChoices{".$TestAttribute."} = ".$gChoices{$TestAttribute}."  -> $valid_condition \n"); 
+		
+		}
+		if ( $valid_condition ) { 
+		  $gOptions{$attribute}{"options"}{$choice}{"result"} = $condHash{$conditions};
+		}
+	}
+	
   }
   
-    
-       
+  #debug_out (" >>>>> ".$gOptions{$attribute}{"options"}{$choice}{"result"}{"production-elec-perKW"}."\n"); 
+  
+  
   
   my ($BaseOption,$ScaleFactor,$BaseChoice,$BaseCost);
   
@@ -566,21 +632,19 @@ while ( my ( $attribute, $choice) = each %gChoices ){
   
   if ($allok ){
     
-    my $cost; 
-    if ( ! $gChoiceAttIsExt{$attribute} ){
     
-      $cost = $gOptions{$attribute}{"options"}{$choice}{"cost"};
-    
-    }else{
-
-      $cost = $gExtOptions{$attribute}{"options"}{$choice}{"cost"};
-    
-    }
-    
+       
+    my $cost = $gOptions{$attribute}{"options"}{$choice}{"cost"};
+    my $cost_type = $gOptions{$attribute}{"options"}{$choice}{"cost-type"};
     my $repcost = defined( $cost ) ? $cost : "?" ; 
+     
+	debug_out ("   - found cost: \$$cost ($cost_type) \n"); 
     
-    
-    
+	# NOW, 
+	
+	
+	
+	
     my $ScaleCost = 0; 
     
     
@@ -601,84 +665,81 @@ while ( my ( $attribute, $choice) = each %gChoices ){
       my $CompCost = $BaseCost * $ScaleFactor; 
     
       $ScaleCost = 1; 
-      if ( $gChoiceAttIsExt{$attribute} ){
-        $gExtOptions{$attribute}{"options"}{$choice}{"cost"} = $CompCost; 
-      }else{
-        $gOptions{$attribute}{"options"}{$choice}{"cost"} = $CompCost; 
-      }
+      $gOptions{$attribute}{"options"}{$choice}{"cost"} = $CompCost; 
+      
       
       
     }
     
-    $cost = $gChoiceAttIsExt{$attribute} ? $gExtOptions{$attribute}{"options"}{$choice}{"cost"}  : 
-                                           $gOptions{$attribute}{"options"}{$choice}{"cost"} ;
+    $cost = $gOptions{$attribute}{"options"}{$choice}{"cost"} ;
     if ( ! defined ($cost) ){ $cost = "0" ; }                                       
-    stream_out ( "\n\nMAPPING for $attribute = $choice (@ \$".
+    debug_out ( "\n\nMAPPING for $attribute = $choice (@ \$".
                  round($cost).
-                 " inc. cost): \n"); 
+                 " inc. cost [$cost_type] ): \n"); 
     if ( $ScaleCost ){
-      stream_out (     "  (cost computed as $ScaleFactor *  ".round($BaseCost)." [cost of $BaseChoice])\n");
+      debug_out (     "  (cost computed as $ScaleFactor *  ".round($BaseCost)." [cost of $BaseChoice])\n");
     }
     
-    
-    if ( ! $gChoiceAttIsExt{$attribute} ){
-     
+    # Now select outcome based on status of some other meta value.
 
+    my $TagHash = $gOptions{$attribute}{"tags"}; 
+    my $ValHash = $gOptions{$attribute}{"options"}{$choice}{"values"};
     
-      my $TagHash = $gOptions{$attribute}{"tags"}; 
-      my $ValHash = $gOptions{$attribute}{"options"}{$choice}{"values"};
+    
+    for my $tagIndex ( sort keys (%$TagHash) ){
+      my $tag   = ${$TagHash}{$tagIndex};
+      my $value = ${$ValHash}{$tagIndex};
       
       
-      for my $tagIndex ( sort keys (%$TagHash) ){
-        my $tag   = ${$TagHash}{$tagIndex};
-        my $value = ${$ValHash}{$tagIndex};
+      
+  #    debug_out ("          looking for : \$gOptions{ $attribute }{\"options\"}{ $choice }{\"values\"}\n");
+      
+      debug_out ("          $tag -> $value \n");
+      
+      if ( $value =~/\<METASELECT:.+/ ) {
+      
+        # If value contains a METASELECT statement, turn statement 
+        # into a ruleset we can use. 
+        $value =~ s/\<//g;
+        $value =~ s/\>//g;
+        $value =~ s/^METASELECT://g;
         
-        
-        
-  #      stream_out ("          looking for : \$gOptions{ $attribute }{\"options\"}{ $choice }{\"values\"}\n");
-        
-        stream_out ("          $tag -> $value \n");
-        
-        if ( $value =~/\<METASELECT:.+/ ) {
-        
-          # If value contains a METASELECT statement, turn statement 
-          # into a ruleset we can use. 
-          $value =~ s/\<//g;
-          $value =~ s/\>//g;
-          $value =~ s/^METASELECT://g;
-          
-          my ($MetaOption,$MetaRuleString) = split /\?/ , $value;  
-          my @MetaRules = split /,/, $MetaRuleString; 
-          my %MetaRuleResult;
-          foreach my $rule (@MetaRules){
-            my ($match,$result)=split /:/, $rule; 
-            $MetaRuleResult{$match} = $result;
-          }
-          
-          # Find the matching option for specified statement
-          
-          my($MetaChoice) = $gChoices{$MetaOption};
-          my($MetaValue)  = $gOptions{$MetaOption}{"options"}{$MetaChoice}{"meta"}; 
-          my($ReMapValue) = $MetaRuleResult{$MetaValue};
-          #stream_out ("          $tag -> $value \n");
-          
-          stream_out ("             ->  REMAPPING Metaselect: $MetaOption | $MetaRuleString \n");
-          stream_out ("                           Querying  : $MetaChoice in option $MetaOption  \n");
-          stream_out ("                           Found:    : $MetaValue \n");
-          stream_out ("                           Rewriting : ".${$ValHash}{$tagIndex}."->".$ReMapValue."\n");
-          
-          $gOptions{$attribute}{"options"}{$choice}{"values"}{$tagIndex} = $ReMapValue; 
-          stream_out ("          $tag -> ".$gOptions{$attribute}{"options"}{$choice}{"values"}{$tagIndex}." \n");        
+        my ($MetaOption,$MetaRuleString) = split /\?/ , $value;  
+        my @MetaRules = split /,/, $MetaRuleString; 
+        my %MetaRuleResult;
+        foreach my $rule (@MetaRules){
+          my ($match,$result)=split /:/, $rule; 
+          $MetaRuleResult{$match} = $result;
         }
         
+        # Find the matching option for specified statement
         
-
+        my($MetaChoice) = $gChoices{$MetaOption};
+        my($MetaValue)  = $gOptions{$MetaOption}{"options"}{$MetaChoice}{"meta"}; 
+        my($ReMapValue) = $MetaRuleResult{$MetaValue};
+        #debug_out ("          $tag -> $value \n");
+        
+        debug_out ("             ->  REMAPPING Metaselect: $MetaOption | $MetaRuleString \n");
+        debug_out ("                           Querying  : $MetaChoice in option $MetaOption  \n");
+        debug_out ("                           Found:    : $MetaValue \n");
+        debug_out ("                           Rewriting : ".${$ValHash}{$tagIndex}."->".$ReMapValue."\n");
+        
+        $gOptions{$attribute}{"options"}{$choice}{"values"}{$tagIndex} = $ReMapValue; 
+        debug_out ("          $tag -> ".$gOptions{$attribute}{"options"}{$choice}{"values"}{$tagIndex}." \n");        
       }
+      
+      
+
     }
+    
   }
  
   
 }
+
+ 
+die( "OK? $allok ?\n"); 
+
 
 
 if ( ! $allok ) { 
@@ -687,12 +748,12 @@ if ( ! $allok ) {
 
 
 # Now create a copy of our base ESP-r file for manipulation. 
-stream_out("\n\n Creating a working folder for optimization work...");
+debug_out("\n\n Creating a working folder for optimization work...");
 if ( ! $gSkipSims ) {
   system ("rm -fr $gWorkingModelFolder ");
   system ("cp -fr $gBaseModelFolder $gWorkingModelFolder ");
 }
-stream_out("done.\n\n");
+debug_out("done.\n\n");
 
 
 
@@ -790,7 +851,7 @@ sub process_file($){
   my $startpath = getcwd();
   chdir $gMasterPath; 
   
-  stream_out("  + Performing substitutions on ".$file_path."\n");
+  debug_out("  + Performing substitutions on ".$file_path."\n");
   
   open(READIN,$file_path) or fatalerror("Could not open $file_path for reading!");
   
@@ -861,36 +922,36 @@ sub runsims($){
   execute("rm ../zones/*.con ../zones/*.tmc ../zones/*.shd ../zones/*.shda "); 
   if ( ! $gSkipSims ) { execute ("rm out.*"); }
   
-  stream_out ("\n\n Moved to path:". getcwd()."\n"); 
+  debug_out ("\n\n Moved to path:". getcwd()."\n"); 
 
   
   # Run the simulation
-  stream_out ("\n\n Invoking prj to update con files (\"$gPRJZoneConCmd\")...");
+  debug_out ("\n\n Invoking prj to update con files (\"$gPRJZoneConCmd\")...");
   execute($gPRJZoneConCmd);
-  stream_out ("done. \n");  
+  debug_out ("done. \n");  
 
    
   # Spin the model 
-  stream_out("\n\n Involing prj to rotate the model by $RotationAngle degrees (\"$gPRJZoneRotCmd $RotationAngle\")...");
+  debug_out("\n\n Involing prj to rotate the model by $RotationAngle degrees (\"$gPRJZoneRotCmd $RotationAngle\")...");
   execute("$gPRJZoneRotCmd $RotationAngle"); 
-  stream_out ("done. \n");   
+  debug_out ("done. \n");   
 
 
-  stream_out("\n\n Invoking ish via run.sh...");
+  debug_out("\n\n Invoking ish via run.sh...");
   execute($gISHcmd); 
-  stream_out("done...\n"); 
+  debug_out("done...\n"); 
 
 
 
-  stream_out ("\n\n Invoking ESP-r (\"$gBPScmd\")..." ); 
+  debug_out ("\n\n Invoking ESP-r (\"$gBPScmd\")..." ); 
   execute($gBPScmd); 
-  stream_out ("done. \n");         
+  debug_out ("done. \n");         
           
           
   # Save output files
  if ( ! -d "$gMasterPath/sim-output" ) {
 
-   execute("mkdir $gMasterPath/sim-output") or stream_out ("Could not create $gMasterPath/sim-output!\n"); 
+   execute("mkdir $gMasterPath/sim-output") or debug_out ("Could not create $gMasterPath/sim-output!\n"); 
    
  }
 #
@@ -898,9 +959,9 @@ sub runsims($){
 #         
 #         
 # # Cleanup
-# stream_out("\n\n Deleting working folder...");
+# debug_out("\n\n Deleting working folder...");
 #  #system ("rm -fr $gWorkingModelFolder ");
-#  stream_out("done.");ls 
+#  debug_out("done.");ls 
 
   chdir $gMasterPath;
 
@@ -1049,7 +1110,7 @@ sub postprocess($){
 
   # Move to working CFG directory, and parse out.summary file
   chdir $gWorkingCfgPath; 
-  stream_out ("\n\n Moved to path:". getcwd()."\n"); 
+  debug_out ("\n\n Moved to path:". getcwd()."\n"); 
   open (SIMRESULTS, "out.summary") or fatalerror("Could not open ".getcwd()."/out.summary!");
 
   my %gSimResults; 
@@ -1072,7 +1133,7 @@ sub postprocess($){
 
   # Read in timestep data
 
-  stream_out("\n\n Reading timestep data...") ; 
+  debug_out("\n\n Reading timestep data...") ; 
 
   open (TSRESULTS, "out.csv") or fatalerror("Could not open ".getcwd()."/out.csv!");
 
@@ -1101,7 +1162,7 @@ sub postprocess($){
         $data{$header}[$RowNumber] = $value; 
 
         
-        #if ( $RowNumber == 0 ) {stream_out (" > header: >$header<\n");}
+        #if ( $RowNumber == 0 ) {debug_out (" > header: >$header<\n");}
       }
 
       $RowNumber++;
@@ -1116,7 +1177,7 @@ sub postprocess($){
 
   my $NumberOfRows = scalar(@{$data{$headers[0]}});
 
-  stream_out("done (parsed $NumberOfRows rows)\n"); 
+  debug_out("done (parsed $NumberOfRows rows)\n"); 
 
   # Recover electrical & gas consumption data 
   my @Electrical_Use = @{ $data{" total fuel use:electricity:all end uses:quantity (kWh/s)"} };
@@ -1249,9 +1310,9 @@ sub postprocess($){
     
     #if ( $CurrMonth > 2 ) { die(); }
          
-    #stream_out ("  $CurrMonth $CurrDay $CurrHour | $CurrElecRatePeriod - $CurrPeakPeriod ($WeekendOrHoliday)  $ElecConsumption [kWh] * ( $ElecVarRate + $ElecTotalOtherCharges [\$/kWh] ) = $ElecConsumptionCost  \n");        
+    #debug_out ("  $CurrMonth $CurrDay $CurrHour | $CurrElecRatePeriod - $CurrPeakPeriod ($WeekendOrHoliday)  $ElecConsumption [kWh] * ( $ElecVarRate + $ElecTotalOtherCharges [\$/kWh] ) = $ElecConsumptionCost  \n");        
 
-    #stream_out ("  $CurrMonth $CurrDay $CurrHour | $MonthGasConsumption -> $CurrGasTarrif | $GasConsumptionCost += $CurrentGasConsumption * $CurrGasTarrif \n"); 
+    #debug_out ("  $CurrMonth $CurrDay $CurrHour | $MonthGasConsumption -> $CurrGasTarrif | $GasConsumptionCost += $CurrentGasConsumption * $CurrGasTarrif \n"); 
     
     
   }
@@ -1311,7 +1372,7 @@ sub postprocess($){
         if ( $size !~ /autosize/ ){
           
           my $production = ${$PVdataHash}{$size}{"elec"}  ; 
-          stream_out ">$SizeFound> PV: $size -> $production ( ? $prePVEnergy ? ) \n"; 
+          debug_out ">$SizeFound> PV: $size -> $production ( ? $prePVEnergy ? ) \n"; 
         
           if ( ! $SizeFound ){
             $PVsize = $size; 
@@ -1320,7 +1381,7 @@ sub postprocess($){
               
               $SizeFound = 1; 
          
-              stream_out " Setting Size: $PVsize \n"; 
+              debug_out " Setting Size: $PVsize \n"; 
             }
           }
         }
@@ -1362,7 +1423,7 @@ sub postprocess($){
   $gChoices{"Opt-StandoffPV"}=$PVsize;
   
 
-  stream_out("\n\n Energy Consumption: \n\n") ; 
+  debug_out("\n\n Energy Consumption: \n\n") ; 
 
   my $gTotalEnergy = 0;
 
@@ -1371,12 +1432,12 @@ sub postprocess($){
     my $value = $gSimResults{$token};
     $gTotalEnergy += $value; 
     
-    stream_out ( "  + $value ( $token, GJ ) \n");
+    debug_out ( "  + $value ( $token, GJ ) \n");
 
   }
   
-  stream_out ( " --------------------------------------------------------\n");
-  stream_out ( "    $gTotalEnergy ( Total energy, GJ ) \n");
+  debug_out ( " --------------------------------------------------------\n");
+  debug_out ( "    $gTotalEnergy ( Total energy, GJ ) \n");
 
 
   # Save Energy consumption for later
@@ -1410,13 +1471,13 @@ sub postprocess($){
   
   
   
-  stream_out("\n\n Energy Cost (not including credit for PV): \n\n") ; 
+  debug_out("\n\n Energy Cost (not including credit for PV): \n\n") ; 
 
-  stream_out("  + \$ ".round($TotalElecBill)." (Electricity)\n");
-  stream_out("  + \$ ".round($TotalGasBill)." (Natural Gas)\n");
+  debug_out("  + \$ ".round($TotalElecBill)." (Electricity)\n");
+  debug_out("  + \$ ".round($TotalGasBill)." (Natural Gas)\n");
 
-  stream_out ( " --------------------------------------------------------\n");
-  stream_out ( "    \$ ".round($TotalElecBill+$TotalGasBill) ." (All utilities).\n"); 
+  debug_out ( " --------------------------------------------------------\n");
+  debug_out ( "    \$ ".round($TotalElecBill+$TotalGasBill) ." (All utilities).\n"); 
 
   # Update global params for use in summary 
   $gAvgCost_NatGas    = $TotalGasBill  * $ScaleData; 
@@ -1429,7 +1490,7 @@ sub postprocess($){
 
   $gTotalCost = 0;         
 
-  stream_out ("\n\n Estimated costs: \n\n");
+  debug_out ("\n\n Estimated costs: \n\n");
 
   foreach my  $attribute ( sort keys %gChoices ){
     
@@ -1442,12 +1503,12 @@ sub postprocess($){
     }
     $gTotalCost += $cost;
 
-    stream_out( " +  ".round($cost)." ( $attribute : $choice ) \n");
+    debug_out( " +  ".round($cost)." ( $attribute : $choice ) \n");
     
   }
-  stream_out ( " - ".round($gIncBaseCosts)." (Base costs for windows)  \n"); 
-  stream_out ( " --------------------------------------------------------\n");
-  stream_out ( " =   ".round($gTotalCost-$gIncBaseCosts)." ( Total incremental cost ) \n");
+  debug_out ( " - ".round($gIncBaseCosts)." (Base costs for windows)  \n"); 
+  debug_out ( " --------------------------------------------------------\n");
+  debug_out ( " =   ".round($gTotalCost-$gIncBaseCosts)." ( Total incremental cost ) \n");
 
   chdir($gMasterPath);
   my $fileexists; 
@@ -1494,6 +1555,17 @@ sub stream_out($){
   }
 }
 
+sub debug_out($){
+  my($txt) = @_;
+  if ($gDebug == 1){
+    print $txt;
+  }
+  if ($gTest_params{"logfile"}){
+    print LOG $txt; 
+  }
+}
+
+
 sub round($){
   my ($var) = @_; 
   my $tmpRounded = int( abs($var) + 0.5);
@@ -1535,8 +1607,8 @@ sub execute($){
   my($command) =@_;
   my $result;
   if ($gTest_params{"verbosity"} eq "very_verbose"){    
-    stream_out("\n > executing $command \n");
-    stream_out(" > from path ".getcwd()."\n");
+    debug_out("\n > executing $command \n");
+    debug_out(" > from path ".getcwd()."\n");
     system($command);
   }else{
     $result = `$command 2>&1`;

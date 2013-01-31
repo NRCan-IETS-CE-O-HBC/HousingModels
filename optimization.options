@@ -1,0 +1,875 @@
+! Optimization substututions 
+
+!-----------------------------------------------------------------------
+! This option can be used to turn the model's minumum
+! number of windows opaque. It's not intended for optimization,
+! but might be useful in testing & debugging the model.
+!-----------------------------------------------------------------------
+*attribute:start 
+*attribute:name  = Opt-BaseWindows
+*attribute:tag:1 = <OptBW-Construction>
+*attribute:tag:2 = <OptBW-Optics>
+
+!*option:NoWindows!:value:1 = <Opt-MainWall-Bri>
+!*option:NoWindows!:value:2 = OPAQUE
+!*option:NoWindows!:cost:total    = 0
+
+*option:MinWindows:value:1 = <Opt-CasWinConstruction>
+*option:MinWindows:value:2 = <Opt-CasWinOptics>
+*option:MinWindows:cost:total    = 0
+                         
+!-----------------------------------------------------------------------
+! HRV control flag: flag defining assumptions associated with HRV control
+! (this relates to the NZEH performance definition, and isn't intended 
+! to be optimized. 
+!-----------------------------------------------------------------------
+*attribute:end
+
+*attribute:start 
+*attribute:name  = OPT-HRV_ctl
+*attribute:tag:1 = <OPT-HRV_ctl>
+
+
+!*option:NoWindows!:value:1 = <Opt-MainWall-Bri>
+!*option:NoWindows!:value:2 = OPAQUE
+!*option:NoWindows!:cost:total    = 0
+
+*option:Continuious:value:1 = 7
+*option:Continuious:cost:total    = 0
+  
+*option:ERSp3ACH:value:1 = 8
+*option:ERSp3ACH:cost:total    = 0
+  
+*option:EightHRpDay:value:1 = 9
+*option:EightHRpDay:cost:total    = 0  
+
+
+*attribute:end
+
+!-----------------------------------------------------------------------
+! Climate file manipulation
+!-----------------------------------------------------------------------
+
+*attribute:start 
+*attribute:name  = Opt-Location
+*attribute:tag:1 = <OPT-WEATHER-FILE>
+*attribute:tag:2 = <OPT-Latitude>
+*attribute:tag:3 = <OPT-Longitude>
+
+*option:Whitehorse:value:1 = can_whitehorse.cwec
+*option:Whitehorse:value:2 = 60.7161
+*option:Whitehorse:value:3 = -0.05
+*option:Whitehorse:cost:total    = 0
+  
+*option:Toronto:value:1 = can_toronto.cwec
+*option:Toronto:value:2 = 43.6481
+*option:Toronto:value:3 = -4.40
+*option:Toronto:cost:total    = 0
+  
+*attribute:end
+
+!-----------------------------------------------------------------------
+! The next three options add extra windows to the front of the house 
+! on the second story. (Zone top_fl) Costs are computed by scaling 
+! option Opt-CasementWindows option by the amount of increased glass area. 
+!-----------------------------------------------------------------------
+
+*attribute:start 
+*attribute:name  = Opt-FrontWindows
+*attribute:tag:1 = <OptTopFlExWin1Con>
+*attribute:tag:2 = <OptTopFlExWin1Opt>
+*attribute:tag:3 = <OptTopFlExWin2Con>
+*attribute:tag:4 = <OptTopFlExWin2Opt>
+*attribute:tag:5 = <OptTopFlExWin3Con>
+*attribute:tag:6 = <OptTopFlExWin3Opt>
+
+
+*option:NoExtraWin:value:1 = <Opt-MainWall-Bri>
+*option:NoExtraWin:value:2 = OPAQUE
+*option:NoExtraWin:value:3 = <Opt-MainWall-Bri>
+*option:NoExtraWin:value:4 = OPAQUE
+*option:NoExtraWin:value:5 = <Opt-MainWall-Bri>
+*option:NoExtraWin:value:6 = OPAQUE
+*option:NoExtraWin:cost:total    = 0
+
+*option:OneExtraWin:value:1 = <Opt-CasWinConstruction>
+*option:OneExtraWin:value:2 = <Opt-CasWinOptics>
+*option:OneExtraWin:value:3 = <Opt-MainWall-Bri>
+*option:OneExtraWin:value:4 = OPAQUE
+*option:OneExtraWin:value:5 = <Opt-MainWall-Bri>
+*option:OneExtraWin:value:6 = OPAQUE
+*option:OneExtraWin:cost:total    = <MULTIPLY-COST:Opt-CasementWindows*0.051917>
+
+
+*option:TwoExtraWin:value:1 = <Opt-CasWinConstruction>
+*option:TwoExtraWin:value:2 = <Opt-CasWinOptics>
+*option:TwoExtraWin:value:3 = <Opt-CasWinConstruction>
+*option:TwoExtraWin:value:4 = <Opt-CasWinOptics>
+*option:TwoExtraWin:value:5 = <Opt-MainWall-Bri>
+*option:TwoExtraWin:value:6 = OPAQUE
+*option:TwoExtraWin:cost:total    = <MULTIPLY-COST:Opt-CasementWindows*0.103834>
+
+
+*option:ThreeExtraWin:value:1 = <Opt-CasWinConstruction>
+*option:ThreeExtraWin:value:2 = <Opt-CasWinOptics>
+*option:ThreeExtraWin:value:3 = <Opt-CasWinConstruction>
+*option:ThreeExtraWin:value:4 = <Opt-CasWinOptics>
+*option:ThreeExtraWin:value:5 = <Opt-CasWinConstruction>
+*option:ThreeExtraWin:value:6 = <Opt-CasWinOptics>
+*option:ThreeExtraWin:cost:total    = <MULTIPLY-COST:Opt-CasementWindows*0.155751>
+
+*attribute:end 
+
+!-----------------------------------------------------------------------
+! Add up to 6 extra windows to the back of the house 
+!-----------------------------------------------------------------------
+*attribute:start 
+
+
+*attribute:name   = Opt-BackWindows
+
+*attribute:tag:1  = <OptFirstFlExWin1Con>
+*attribute:tag:2  = <OptFirstFlExWin1Opt>
+*attribute:tag:3  = <OptFirstFlExWin3Con>
+*attribute:tag:4  = <OptFirstFlExWin3Opt>
+*attribute:tag:5  = <OptFirstFlExWin4Con>
+*attribute:tag:6  = <OptFirstFlExWin4Opt>
+*attribute:tag:7  = <OptFirstFlExWin5Con>
+*attribute:tag:8  = <OptFirstFlExWin5Opt>
+*attribute:tag:9  = <OptFirstFlExWin6Con>
+*attribute:tag:10 = <OptFirstFlExWin6Opt>
+*attribute:tag:11 = <OptBedroomExWin1Con>
+*attribute:tag:12 = <OptBedroomExWin1Opt>
+*attribute:tag:13 = <OptMasterExWin1Con>
+*attribute:tag:14 = <OptMasterExWin1Opt>
+
+*option:NoExtraWin:value:1  = <Opt-MainWall-Bri>
+
+
+*option:NoExtraWin:value:2  = OPAQUE
+*option:NoExtraWin:value:3  = <Opt-MainWall-Bri>
+*option:NoExtraWin:value:4  = OPAQUE
+*option:NoExtraWin:value:5  = <Opt-MainWall-Bri>
+*option:NoExtraWin:value:6  = OPAQUE
+*option:NoExtraWin:value:7  = <Opt-MainWall-Bri>
+*option:NoExtraWin:value:8  = OPAQUE
+*option:NoExtraWin:value:9  = <Opt-MainWall-Bri>
+*option:NoExtraWin:value:10 = OPAQUE
+*option:NoExtraWin:value:11 = <Opt-MainWall-Bri>
+*option:NoExtraWin:value:12 = OPAQUE
+*option:NoExtraWin:value:13 = <Opt-MainWall-Bri>
+*option:NoExtraWin:value:14 = OPAQUE
+*option:NoExtraWin:cost:total     = 0
+
+*option:OneExtraWin:value:1  = <Opt-CasWinConstruction>
+*option:OneExtraWin:value:2  = <Opt-CasWinOptics>
+*option:OneExtraWin:value:3  = <Opt-MainWall-Bri>
+*option:OneExtraWin:value:4  = OPAQUE
+*option:OneExtraWin:value:5  = <Opt-MainWall-Bri>
+*option:OneExtraWin:value:6  = OPAQUE
+*option:OneExtraWin:value:7  = <Opt-MainWall-Bri>
+*option:OneExtraWin:value:8  = OPAQUE
+*option:OneExtraWin:value:9  = <Opt-MainWall-Bri>
+*option:OneExtraWin:value:10 = OPAQUE
+*option:OneExtraWin:value:11 = <Opt-MainWall-Bri>
+*option:OneExtraWin:value:12 = OPAQUE
+*option:OneExtraWin:value:13 = <Opt-MainWall-Bri>
+*option:OneExtraWin:value:14 = OPAQUE
+*option:OneExtraWin:cost:total     = <MULTIPLY-COST:Opt-CasementWindows*0.04138>
+
+*option:TwoExtraWin:value:1  = <Opt-CasWinConstruction>
+*option:TwoExtraWin:value:2  = <Opt-CasWinOptics>
+*option:TwoExtraWin:value:3  = <Opt-CasWinConstruction>
+*option:TwoExtraWin:value:4  = <Opt-CasWinOptics>
+*option:TwoExtraWin:value:5  = <Opt-MainWall-Bri>
+*option:TwoExtraWin:value:6  = OPAQUE
+*option:TwoExtraWin:value:7  = <Opt-MainWall-Bri>
+*option:TwoExtraWin:value:8  = OPAQUE
+*option:TwoExtraWin:value:9  = <Opt-MainWall-Bri>
+*option:TwoExtraWin:value:10 = OPAQUE
+*option:TwoExtraWin:value:11 = <Opt-MainWall-Bri>
+*option:TwoExtraWin:value:12 = OPAQUE
+*option:TwoExtraWin:value:13 = <Opt-MainWall-Bri>
+*option:TwoExtraWin:value:14 = OPAQUE
+*option:TwoExtraWin:cost:total     = <MULTIPLY-COST:Opt-CasementWindows*0.12921>
+
+*option:ThreeExtraWin:value:1  = <Opt-CasWinConstruction>
+*option:ThreeExtraWin:value:2  = <Opt-CasWinOptics>
+*option:ThreeExtraWin:value:3  = <Opt-CasWinConstruction>
+*option:ThreeExtraWin:value:4  = <Opt-CasWinOptics>
+*option:ThreeExtraWin:value:5  = <Opt-CasWinConstruction>
+*option:ThreeExtraWin:value:6  = <Opt-CasWinOptics>
+*option:ThreeExtraWin:value:7  = <Opt-MainWall-Bri>
+*option:ThreeExtraWin:value:8  = OPAQUE
+*option:ThreeExtraWin:value:9  = <Opt-MainWall-Bri>
+*option:ThreeExtraWin:value:10 = OPAQUE
+*option:ThreeExtraWin:value:11 = <Opt-MainWall-Bri>
+*option:ThreeExtraWin:value:12 = OPAQUE
+*option:ThreeExtraWin:value:13 = <Opt-MainWall-Bri>
+*option:ThreeExtraWin:value:14 = OPAQUE
+*option:ThreeExtraWin:cost:total     = <MULTIPLY-COST:Opt-CasementWindows*0.17059>
+
+*option:FourExtraWin:value:1  = <Opt-CasWinConstruction>
+*option:FourExtraWin:value:2  = <Opt-CasWinOptics>
+*option:FourExtraWin:value:3  = <Opt-CasWinConstruction>
+*option:FourExtraWin:value:4  = <Opt-CasWinOptics>
+*option:FourExtraWin:value:5  = <Opt-CasWinConstruction>
+*option:FourExtraWin:value:6  = <Opt-CasWinOptics>
+*option:FourExtraWin:value:7  = <Opt-CasWinConstruction>
+*option:FourExtraWin:value:8  = <Opt-CasWinOptics>
+*option:FourExtraWin:value:9  = <Opt-MainWall-Bri>
+*option:FourExtraWin:value:10 = OPAQUE
+*option:FourExtraWin:value:11 = <Opt-MainWall-Bri>
+*option:FourExtraWin:value:12 = OPAQUE
+*option:FourExtraWin:value:13 = <Opt-MainWall-Bri>
+*option:FourExtraWin:value:14 = OPAQUE
+*option:FourExtraWin:cost:total     = <MULTIPLY-COST:Opt-CasementWindows*0.21197>
+
+*option:FiveExtraWin:value:1  = <Opt-CasWinConstruction>
+*option:FiveExtraWin:value:2  = <Opt-CasWinOptics>
+*option:FiveExtraWin:value:3  = <Opt-CasWinConstruction>
+*option:FiveExtraWin:value:4  = <Opt-CasWinOptics>
+*option:FiveExtraWin:value:5  = <Opt-CasWinConstruction>
+*option:FiveExtraWin:value:6  = <Opt-CasWinOptics>
+*option:FiveExtraWin:value:7  = <Opt-CasWinConstruction>
+*option:FiveExtraWin:value:8  = <Opt-CasWinOptics>
+*option:FiveExtraWin:value:9  = <Opt-CasWinConstruction>
+*option:FiveExtraWin:value:10 = <Opt-CasWinOptics>
+*option:FiveExtraWin:value:11 = <Opt-MainWall-Bri>
+*option:FiveExtraWin:value:12 = OPAQUE
+*option:FiveExtraWin:value:13 = <Opt-MainWall-Bri>
+*option:FiveExtraWin:value:14 = OPAQUE
+*option:FiveExtraWin:cost:total     = <MULTIPLY-COST:Opt-CasementWindows*0.25335>
+
+*option:SixExtraWin:value:1  = <Opt-CasWinConstruction>
+*option:SixExtraWin:value:2  = <Opt-CasWinOptics>
+*option:SixExtraWin:value:3  = <Opt-CasWinConstruction>
+*option:SixExtraWin:value:4  = <Opt-CasWinOptics>
+*option:SixExtraWin:value:5  = <Opt-CasWinConstruction>
+*option:SixExtraWin:value:6  = <Opt-CasWinOptics>
+*option:SixExtraWin:value:7  = <Opt-CasWinConstruction>
+*option:SixExtraWin:value:8  = <Opt-CasWinOptics>
+*option:SixExtraWin:value:9  = <Opt-CasWinConstruction>
+*option:SixExtraWin:value:10 = <Opt-CasWinOptics>
+*option:SixExtraWin:value:11 = <Opt-CasWinConstruction>
+*option:SixExtraWin:value:12 = <Opt-CasWinOptics>
+*option:SixExtraWin:value:13 = <Opt-MainWall-Bri>
+*option:SixExtraWin:value:14 = OPAQUE
+*option:SixExtraWin:cost:total     = <MULTIPLY-COST:Opt-CasementWindows*0.34118>
+
+*option:SevenExtraWin:value:1  = <Opt-CasWinConstruction>
+*option:SevenExtraWin:value:2  = <Opt-CasWinOptics>
+*option:SevenExtraWin:value:3  = <Opt-CasWinConstruction>
+*option:SevenExtraWin:value:4  = <Opt-CasWinOptics>
+*option:SevenExtraWin:value:5  = <Opt-CasWinConstruction>
+*option:SevenExtraWin:value:6  = <Opt-CasWinOptics>
+*option:SevenExtraWin:value:7  = <Opt-CasWinConstruction>
+*option:SevenExtraWin:value:8  = <Opt-CasWinOptics>
+*option:SevenExtraWin:value:9  = <Opt-CasWinConstruction>
+*option:SevenExtraWin:value:10 = <Opt-CasWinOptics>
+*option:SevenExtraWin:value:11 = <Opt-CasWinConstruction>
+*option:SevenExtraWin:value:12 = <Opt-CasWinOptics>
+*option:SevenExtraWin:value:13 = <Opt-CasWinConstruction>
+*option:SevenExtraWin:value:14 = <Opt-CasWinOptics>
+*option:SevenExtraWin:cost:total     = <MULTIPLY-COST:Opt-CasementWindows*0.42901>
+
+
+*attribute:end 
+
+
+!!!!!!!! (Left-side window)
+*attribute:start 
+*attribute:name  = Opt-ExtLeftSideWindow 
+*attribute:tag:1 = <OptFirstFlExWin2Con>
+*attribute:tag:2 = <OptFirstFlExWin2Opt>
+
+*option:No:value:1 = <Opt-MainWall-Bri>
+*option:No:value:2 = OPAQUE
+*option:No:cost:total    = 0
+
+*option:Yes:value:1 = <Opt-CasWinConstruction>
+*option:Yes:value:2 = <Opt-CasWinOptics>
+*option:Yes:cost:total    = <MULTIPLY-COST:Opt-CasementWindows*0.051917>
+
+*attribute:end 
+
+
+
+!-----------------------------------------------------------------------
+! Add an extra window to the basement 
+!-----------------------------------------------------------------------
+
+*attribute:start 
+*attribute:name  = Opt-ExtBasementWindow
+*attribute:tag:1 = <OptBsmtExWin1Con>
+*attribute:tag:2 = <OptBsmtExWin1Opt>
+
+*option:No:value:1 = <OPT-BsmWall>
+*option:No:value:2 = OPAQUE
+*option:No:cost:total    = 0
+
+*option:Yes:value:1 = <Opt-CasWinConstruction>
+*option:Yes:value:2 = <Opt-CasWinOptics>
+*option:Yes:cost:total    = <MULTIPLY-COST:Opt-CasementWindows*0.03538>
+
+*attribute:end 
+
+
+!-----------------------------------------------------------------------
+! This option sets the optical and themral characteristics of 
+! the casement windows used in the model (currently all windows are 
+! considered casements)
+!-----------------------------------------------------------------------
+
+*attribute:start 
+*attribute:name  = Opt-CasementWindows
+*attribute:tag:1 = <Opt-CasWinConstruction>
+*attribute:tag:2 = <Opt-CasWinOptics>
+
+!*option:OriginalGlassParam:value:1 = DblArLowe
+!*option:OriginalGlassParam:value:2 = DBLLowE
+!*option:OriginalGlassParam:cost:total    = 0
+
+
+! Base option for windows has cost b/c we multply this amount 
+! by optional window areas.
+*option:DoubleLowEHardCoatAirFill:value:1 = DblLeHcAir
+*option:DoubleLowEHardCoatAirFill:value:2 = DblLeHcAir
+*option:DoubleLowEHardCoatAirFill:cost:total    = 10584
+
+
+*option:DoubleLowEHardCoatArgFill:value:1 = DblLeHcArg 
+*option:DoubleLowEHardCoatArgFill:value:2 = DblLeHcArg 
+*option:DoubleLowEHardCoatArgFill:cost:total    = 11727
+
+*option:TripleLowEHardCoatKryFill:value:1 = TplLeHcKry
+*option:TripleLowEHardCoatKryFill:value:2 = TplLeHcKry
+*option:TripleLowEHardCoatKryFill:cost:total    = 20871
+
+*option:TripleLowESoftCoatKryFill:value:1 = TplLeScKry
+*option:TripleLowESoftCoatKryFill:value:2 = TplLeScKry
+*option:TripleLowESoftCoatKryFill:cost:total    = 19310
+
+*option:DoubleLowESoftCoatArgFill:value:1 = DblLeScArg
+*option:DoubleLowESoftCoatArgFill:value:2 = DblLeScArg
+*option:DoubleLowESoftCoatArgFill:cost:total    = 10965
+
+*attribute:end
+
+
+
+!-----------------------------------------------------------------------
+! This option sets the airtightness by spec'ing the 
+! apporpriate aim2 input file. (cost estimates from 
+! Stirling-homes parameters)
+!-----------------------------------------------------------------------
+*attribute:start    
+*attribute:name = Opt-AirTightness
+*attribute:tag:1 = <Opt-AirTightness>
+
+*option:TypicalGTA:value:1    =   base.aim  
+*option:TypicalGTA:cost:total       =   0
+
+*option:Typical23:value:1    =   typical-2.3.aim  
+*option:Typical23:cost:total       =   0
+
+*option:R2000:value:1         =   R2000.aim
+*option:R2000:cost:total            =   2133
+
+*option:Cdn1ACH:value:1       =   Cdn1ACH.aim
+*option:Cdn1ACH:cost:total          =   3049
+                              
+! Data is unreliable.                               
+*option:PassiveHouse:value:1  =   PassiveHouse.aim
+*option:PassiveHouse:cost:total     =   3787.0
+
+*attribute:end
+
+
+
+!-----------------------------------------------------------------------
+!   Ceilings-Option2
+!-----------------------------------------------------------------------
+*attribute:start 
+   
+*attribute:name = Opt-Ceilings
+
+*attribute:tag:1  = <Opt-Ceiling>
+!*attribute:tag:2  = <Opt-CeilingR>
+
+*option:CeilingR50:value:1 =   CeilR50
+!*option:CeilingR50:value:2 =   CeilR50R
+*option:CeilingR50:cost:total    =   0
+
+*option:CeilingR60:value:1 =   CeilR60
+!*option:CeilingR60:value:2 =   CeilR60R
+*option:CeilingR60:cost:total    =   360.20
+
+*option:CeilingR70:value:1 =   CeilR70
+!*option:CeilingR70:value:2 =   CeilR70R
+*option:CeilingR70:cost:total    =   912.20
+
+*option:CeilingR80:value:1 =   CeilR80
+!*option:CeilingR80:value:2 =   CeilR80R
+*option:CeilingR80:cost:total    =   1395.20
+
+*option:CeilingR90:value:1 =   CeilR90
+!*option:CeilingR90:value:2 =   CeilR90R
+*option:CeilingR90:cost:total    =   1878.20
+
+*option:CeilingR100:value:1 =  CeilR100
+!*option:CeilingR100:value:2 =  CeilR100R
+*option:CeilingR100:cost:total    =  2361.2
+
+!*option:CeilingR110:value:1 =  CeilR110
+!!*option:CeilingR110:value:2 =  CeilR110R
+!*option:CeilingR110:cost:total    =  3051.2
+
+*attribute:end
+
+!-----------------------------------------------------------------------
+!   Main walls
+!-----------------------------------------------------------------------
+*attribute:start 
+   
+*attribute:name = Opt-MainWall
+
+*attribute:tag:1  = <Opt-MainWall-Bri>
+*attribute:tag:2  = <Opt-MainWall-Vin>
+*attribute:tag:3  = <Opt-MainWall-Dry>
+
+
+*option:BaseR21:value:1 =   BaseR21Bri
+*option:BaseR21:value:2 =   BaseR21Vin
+*option:BaseR21:value:3 =   BaseR21Dry 
+!*option:BaseR21:value:4 =   BaseR21DryR
+*option:BaseR21:cost:total    =   0
+
+!*option:ICFR22:value:1 =   IcfR22Bri
+!*option:ICFR22:value:2 =   IcfR22Vin
+!*option:ICFR22:value:3 =   IcfR22Dry 
+!!*option:ICFR22:value:4 =   IcfR22DryR
+!*option:ICFR22:cost:total    =   25150
+
+*option:SIPS-R22-Wall:value:1 =   SipR22Bri
+*option:SIPS-R22-Wall:value:2 =   SipR22Vin
+*option:SIPS-R22-Wall:value:3 =   SipR22Dry 
+!*option:SIPS-R22-Wall:value:4 =   SipR22DryR
+*option:SIPS-R22-Wall:cost:total    =   -816
+
+*option:SIPS-R28-Wall:value:1 =   SipR28Bri
+*option:SIPS-R28-Wall:value:2 =   SipR28Vin
+*option:SIPS-R28-Wall:value:3 =   SipR28Dry 
+!*option:SIPS-R28-Wall:value:4 =   SipR28DryR
+*option:SIPS-R28-Wall:cost:total    =   599
+
+!*option:SIPS-R36-Wall:value:1 =   SipR36Bri
+!*option:SIPS-R36-Wall:value:2 =   SipR36Vin
+!*option:SIPS-R36-Wall:value:3 =   SipR36Dry 
+!!*option:SIPS-R36-Wall:value:4 =   SipR36DryR
+!*option:SIPS-R36-Wall:cost:total    =   2042
+
+*option:Stud-R35-Wall:value:1 =   StudR35Bri
+*option:Stud-R35-Wall:value:2 =   StudR35Vin
+*option:Stud-R35-Wall:value:3 =   StudR35Dry 
+!*option:Stud-R35-Wall:value:4 =   StudR35DryR
+*option:Stud-R35-Wall:cost:total    =   3911
+
+*option:Stud-R40-Wall:value:1 =   StudR40Bri
+*option:Stud-R40-Wall:value:2 =   StudR40Vin
+*option:Stud-R40-Wall:value:3 =   StudR40Dry 
+!*option:Stud-R40-Wall:value:4 =   StudR40DryR
+*option:Stud-R40-Wall:cost:total    =   8318
+
+*option:DblStud-R37-Wall:value:1 =   DblSR37Bri
+*option:DblStud-R37-Wall:value:2 =   DblSR37Vin
+*option:DblStud-R37-Wall:value:3 =   DblSR37Dry 
+!*option:DblStud-R37-Wall:value:4 =   DblSR37DryR
+*option:DblStud-R37-Wall:cost:total    =   3165
+
+*option:DblStud-R52-Wall:value:1 =   DblSR52Bri
+*option:DblStud-R52-Wall:value:2 =   DblSR52Vin
+*option:DblStud-R52-Wall:value:3 =   DblSR52Dry 
+!*option:DblStud-R52-Wall:value:4 =   DblSR52DryR
+*option:DblStud-R52-Wall:cost:total    =   5985
+
+*option:Truss-R40-Wall:value:1 =   TruR40Bri
+*option:Truss-R40-Wall:value:2 =   TruR40Vin
+*option:Truss-R40-Wall:value:3 =   TruR40Dry 
+!*option:Truss-R40-Wall:value:4 =   TruR40DryR
+*option:Truss-R40-Wall:cost:total    =   5785
+
+*option:Truss-R52-Wall:value:1 =   TruR52Bri
+*option:Truss-R52-Wall:value:2 =   TruR52Vin
+*option:Truss-R52-Wall:value:3 =   TruR52Dry 
+!*option:Truss-R52-Wall:value:4 =   TruR52DryR
+*option:Truss-R52-Wall:cost:total    =   12755
+
+*attribute:end
+
+!-----------------------------------------------------------------------
+! Foundation Wall start
+!-----------------------------------------------------------------------
+*attribute:start
+*attribute:name    = Opt-BasementWallInsulation
+*attribute:tag:1   = <OPT-BsmWall>
+
+*option:OBC-min-R12:value:1 = BsmWllR12
+*option:OBC-min-R12:meta    = Int
+*option:OBC-min-R12:cost:total    = 0
+
+*option:Rigid+Batt-R20:value:1 = BsmWllR20
+*option:Rigid+Batt-R20:meta    = Comb
+*option:Rigid+Batt-R20:cost:total    = 1909
+
+*option:Rigid+Batt-R30:value:1 = BsmWllR30
+*option:Rigid+Batt-R30:meta    = Comb
+*option:Rigid+Batt-R30:cost:total    = 4642
+
+*option:Rigid+Batt-R37:value:1 = BsmWllR37
+*option:Rigid+Batt-R37:meta    = Comb
+*option:Rigid+Batt-R37:cost:total    = 5689
+
+*option:Rigid+Blown-R43:value:1 = BsmWllR43
+*option:Rigid+Blown-R43:meta    = Int
+*option:Rigid+Blown-R43:cost:total    = 7790
+
+*option:ICF-base-R22:value:1 = BsmIcfR22
+*option:ICF-base-R22:meta    = Comb
+*option:ICF-base-R22:cost:total    = 3805
+
+*option:ICF-base-R26:value:1 = BsmIcfR26
+*option:ICF-base-R26:meta    = Comb
+*option:ICF-base-R26:cost:total    = 5894
+
+*option:ICF-base-R32:value:1 = BsmIcfR32
+*option:ICF-base-R32:meta    = Comb
+*option:ICF-base-R32:cost:total    = 8844
+
+*option:ICF-base-R41:value:1 = BsmIcfR41
+*option:ICF-base-R41:meta    = Comb
+*option:ICF-base-R41:cost:total    = 10011
+
+*option:ICF-base-R51:value:1 = BsmIcfR51
+*option:ICF-base-R51:meta    = Comb
+*option:ICF-base-R51:cost:total    = 12000            ! Check with Mark!
+
+*option:ICF-base-R51r:value:1 = BsmIcfR51r
+*option:ICF-base-R51r:meta    = Comb
+*option:ICF-base-R51r:cost:total    = 12000            ! Check with Mark!
+
+*attribute:end
+
+!-----------------------------------------------------------------------
+! SubSlab insulation
+!-----------------------------------------------------------------------
+*attribute:start
+*attribute:name    = Opt-BasementSlabInsulation
+*attribute:tag:1   = <OPT-BsmFloor>
+*attribute:tag:2   = <OPT-BsmCnnIndex>
+
+*option:NoInsulation:value:1 = BsmFlrR0
+*option[Opt-BasementWallInsulation=OBC-min-R12|Rigid+Blown-R43]:NoInsulation:value:2 = 1
+*option[else                                                  ]:NoInsulation:value:2 = 68
+*option:NoInsulation:cost:total    = 0
+
+*option:R10UnderSlab:value:1 = BsmFlrR10
+*option[Opt-BasementWallInsulation=OBC-min-R12|Rigid+Blown-R43]:R10UnderSlab:value:2 = 19
+*option[else                                                  ]:R10UnderSlab:value:2 = 69
+*option:R10UnderSlab:cost:total    = 2645
+
+*option:R10UnderSlab+edge:value:1 = BsmFlrR10
+*option[Opt-BasementWallInsulation=OBC-min-R12|Rigid+Blown-R43]:R10UnderSlab+edge:value:2 = 22
+*option[else                                                  ]:R10UnderSlab+edge:value:2 = 69
+
+*option:R10UnderSlab+edge:cost:total    = 2645        ! Should be slightly higher!?!
+
+*option:R12UnderSlab+edge:value:1 = BsmFlrR12
+*option[Opt-BasementWallInsulation=OBC-min-R12|Rigid+Blown-R43]:R12UnderSlab+edge:value:2 = 22
+*option[else                                                  ]:R12UnderSlab+edge:value:2 = 69
+*option:R12UnderSlab+edge:cost:total    = 2540         
+
+*option:R24UnderSlab+edge:value:1 = BsmFlrR24
+*option[Opt-BasementWallInsulation=OBC-min-R12|Rigid+Blown-R43]:R24UnderSlab+edge:value:2 = 22
+*option[else                                                  ]:R24UnderSlab+edge:value:2 = 69
+
+*option:R24UnderSlab+edge:cost:total    = 4865      
+
+! Perimeter, sub-slab 0.6m skirt insulation
+
+*option:R12EdgeP6:value:1 = BsmFlrR0
+*option[Opt-BasementWallInsulation=OBC-min-R12|Rigid+Blown-R43]:R12EdgeP6:value:2 = 23
+*option[else                                                  ]:R12EdgeP6:value:2 = 69
+*option:R12EdgeP6:cost:total    = 735        
+
+! Perimeter, sub-slab 1.0m skirt insulation
+
+*option:R12EdgeP10:value:1 = BsmFlrR0
+*option[Opt-BasementWallInsulation=OBC-min-R12|Rigid+Blown-R43]:R12EdgeP10:value:2 = 24
+*option[else                                                  ]:R12EdgeP10:value:2 = 69
+*option:R12EdgeP10:cost:total    = 1210 
+       
+*attribute:end
+
+!-----------------------------------------------------------------------
+! Exposed Floor insulation 
+!-----------------------------------------------------------------------
+*attribute:start
+
+*attribute:name   =Opt-ExposedFloor 
+*attribute:tag:1  =<Opt-ExposedFloor>
+*attribute:tag:2  =<Opt-ExposedFloor-r>
+
+
+*option:BaseExpFloor-R31:value:1 = ExpFlR31
+*option:BaseExpFloor-R31:value:2 = ExpFlR31r
+*option:BaseExpFloor-R31:cost:total    = 0
+
+*option:ExpFloorFlash&Batt-R36:value:1 = ExpFlR36
+*option:ExpFloorFlash&Batt-R36:value:2 = ExpFlR36r
+*option:ExpFloorFlash&Batt-R36:cost:total    = 659.86
+
+*option:ExpFloorFoamed-R52:value:1 = ExpFlR52
+*option:ExpFloorFoamed-R52:value:2 = ExpFlR52r
+*option:ExpFloorFoamed-R52:cost:total    = 1720.82
+
+*attribute:end
+!-----------------------------------------------------------------------
+! Thickness of applied drywall.
+!-----------------------------------------------------------------------
+*attribute:start 
+  
+*attribute:name   = Opt-ExtraDrywall
+*attribute:tag:1  = <Opt-ExtraDrywall>
+
+*option:OneSheet:value:1 =   0.0125
+*option:OneSheet:cost:total    =   0 
+
+*option:TwoSheets:value:1 =   0.0250
+*option:TwoSheets:cost:total    =   1000
+
+*attribute:end
+
+
+!-----------------------------------------------------------------------
+! Concrete on floors  ( Costs need to be checked!)
+!-----------------------------------------------------------------------
+*attribute:start 
+  
+*attribute:name   = Opt-FloorSurface
+*attribute:tag:1  = <Opt-IntFloor>
+*attribute:tag:2  = <Opt-IntFloorInv>
+
+*option:wood:value:1 = floor 
+*option:wood:value:2 = floor_inv 
+*option:wood:cost:total    = 0
+
+*option:1-in-concrete:value:1 = floor1in 
+*option:1-in-concrete:value:2 = floorInv1in
+*option:1-in-concrete:cost:total    = 1800
+
+*option:2-in-concrete:value:1 = floor2in 
+*option:2-in-concrete:value:2 = floorInv2in
+*option:2-in-concrete:cost:total    = 3600
+
+*attribute:end 
+
+!-----------------------------------------------------------------------
+! HVAC
+!-----------------------------------------------------------------------
+*attribute:start
+*attribute:name    = Opt-HVACSystem
+*attribute:tag:1   = <Opt-HVACSystem>
+*attribute:tag:2   = <Opt-HideGSHPfile>
+
+*option:basefurnace:value:1 = basefurnace_ACv2.hvac
+*option:basefurnace:value:2 = #-no-GSHP-file
+*option:basefurnace:cost:total    = 0
+
+*option:elec-baseboard:value:1 = Baseboardv2.hvac
+*option:elec-baseboard:value:2 = #-no-GSHP-file
+*option:elec-baseboard:cost:total       = -3870
+
+*option:CCASHP:value:1      = CCASHPv2.hvac
+*option:CCASHP:value:2      = #-no-GSHP-file
+*option:CCASHP:cost:total         = 9595          ! Does this reflect AC system savings?
+
+
+*option:GSHP:value:1      = GSHPv2.hvac
+*option:GSHP:value:2      = *gshp~../hvac/heatx_v1.gshp
+*option:GSHP:cost:total         = 18560          ! Does this reflect AC syste$
+
+
+
+*attribute:end
+
+
+!-----------------------------------------------------------------------
+! Electric Loads
+!-----------------------------------------------------------------------
+*attribute:start 
+*attribute:name    = Opt-ElecLoadScale
+*attribute:tag:1   = <Opt-ElecLoadScale>
+
+*option:NoReduction:value:1  = 1.0
+*option:NoReduction:cost:total     = 0
+
+*option:BasicReduction:value:1 = 0.843
+*option:BasicReduction:cost:total    = 0
+
+*option:EfficientLiving:value:1 = 0.711
+*option:EfficientLiving:cost:total    = 0
+
+*attribute:end 
+
+!-----------------------------------------------------------------------
+! Hot water loads
+!-----------------------------------------------------------------------
+
+*attribute:start 
+*attribute:name    = Opt-DHWLoadScale 
+*attribute:tag:1   = <Opt-DHWEquivOccupants>
+
+*option:NoReduction:value:1  = 3.857
+*option:NoReduction:cost:total     = 0
+
+*option:BasicReduction:value:1 = 3.0
+*option:BasicReduction:cost:total    = 0
+
+*option:EfficientLiving:value:1 = 1.429
+*option:EfficientLiving:cost:total    = 0
+
+
+*attribute:end 
+
+!-----------------------------------------------------------------------
+! DHW System
+!-----------------------------------------------------------------------
+*attribute:start
+*attribute:name     = Opt-DHWSystem
+*attribute:tag:1    = <Opt-DHWInputFile>
+
+*option:BaseDHW:value:1     = BaseDHW.dhw
+*option:BaseDHW:cost:total        = 0
+
+*option:ElecInstantaneous:value:1 = ElecInstant.dhw
+*option:ElecInstantaneous:cost:total    = -245.0
+
+*option:ElectricStorage:value:1 = ElecStorage.dhw
+*option:ElectricStorage:cost:total    = -605.0
+
+*option:GasInstantaneous:value:1 = GasInstantaneous.dhw
+*option:GasInstantaneous:cost:total    = 995
+
+*option:ElectricHP:value:1 = ElecHP.dhw
+*option:ElectricHP:cost:total    = 1495
+
+*attribute:end
+
+!-----------------------------------------------------------------------
+! Roof pitch. Used for PV calculation. 
+!-----------------------------------------------------------------------
+
+*attribute:start
+*attribute:name     = Opt-RoofPitch
+*attribute:tag:1    = <zippo>
+*Option:6-12:value:1 = nil
+*Option:6-12:cost:total  = 0
+*Option:8-12:value:1 = nil
+*Option:8-12:cost:total  = 0
+*Option:12-12:value:1 = nil
+*Option:12-12:cost:total  = 0
+*attribute:end
+
+!-----------------------------------------------------------------------
+! External PV. Production data from PV Watts.
+!-----------------------------------------------------------------------
+
+
+*ext-attribute:start 
+*attribute:name      = Opt-StandoffPV
+
+*option[Opt-Location>Calgary    ;Opt-RoofPitch>6-12  ]:SizedPV:production-elec-perKW  = 4.630 ! GH/kW Installed
+*option[Opt-Location>Calgary    ;Opt-RoofPitch>8-12  ]:SizedPV:production-elec-perKW  = 4.733 ! GH/kW Installed
+*option[Opt-Location>Calgary    ;Opt-RoofPitch>12-12 ]:SizedPV:production-elec-perKW  = 4.814 ! GH/kW Installed
+*option[Opt-Location>Edmonton   ;Opt-RoofPitch>6-12  ]:SizedPV:production-elec-perKW  = 4.13208 ! GH/kW Installed
+*option[Opt-Location>Edmonton   ;Opt-RoofPitch>8-12  ]:SizedPV:production-elec-perKW  = 4.24764 ! GH/kW Installed
+*option[Opt-Location>Edmonton   ;Opt-RoofPitch>12-12 ]:SizedPV:production-elec-perKW  = 4.32324 ! GH/kW Installed
+*option[Opt-Location>Vancouver  ;Opt-RoofPitch>6-12  ]:SizedPV:production-elec-perKW  = 3.618	! GH/kW Installed
+*option[Opt-Location>Vancouver  ;Opt-RoofPitch>8-12  ]:SizedPV:production-elec-perKW  = 3.64716	! GH/kW Installed
+*option[Opt-Location>Vancouver  ;Opt-RoofPitch>12-12 ]:SizedPV:production-elec-perKW  = 3.60036	! GH/kW Installed
+*option[Opt-Location>Regina     ;Opt-RoofPitch>6-12  ]:SizedPV:production-elec-perKW  = 4.78764  ! GH/kW Installed
+*option[Opt-Location>Regina     ;Opt-RoofPitch>8-12  ]:SizedPV:production-elec-perKW  = 4.94604  ! GH/kW Installed
+*option[Opt-Location>Regina     ;Opt-RoofPitch>12-12 ]:SizedPV:production-elec-perKW  = 5.05584  ! GH/kW Installed
+*option[Opt-Location>Winnipeg   ;Opt-RoofPitch>6-12  ]:SizedPV:production-elec-perKW  = 4.49568	 ! GH/kW Installed
+*option[Opt-Location>Winnipeg   ;Opt-RoofPitch>8-12  ]:SizedPV:production-elec-perKW  = 4.60476	 ! GH/kW Installed
+*option[Opt-Location>Winnipeg   ;Opt-RoofPitch>12-12 ]:SizedPV:production-elec-perKW  = 4.66416	 ! GH/kW Installed
+*option[Opt-Location>Toronto    ;Opt-RoofPitch>6-12  ]:SizedPV:production-elec-perKW  = 3.9168	 ! GH/kW Installed
+*option[Opt-Location>Toronto    ;Opt-RoofPitch>8-12  ]:SizedPV:production-elec-perKW  = 3.942	 ! GH/kW Installed
+*option[Opt-Location>Toronto    ;Opt-RoofPitch>12-12 ]:SizedPV:production-elec-perKW  = 3.8844	 ! GH/kW Installed
+*option[Opt-Location>Ottawa     ;Opt-RoofPitch>6-12  ]:SizedPV:production-elec-perKW  = 4.16088	 ! GH/kW Installed
+*option[Opt-Location>Ottawa     ;Opt-RoofPitch>8-12  ]:SizedPV:production-elec-perKW  = 4.21956    ! GH/kW Installed
+*option[Opt-Location>Ottawa     ;Opt-RoofPitch>12-12 ]:SizedPV:production-elec-perKW  = 4.21164	 ! GH/kW Installed
+*option[Opt-Location>Montreal   ;Opt-RoofPitch>6-12  ]:SizedPV:production-elec-perKW  = 3.93192	 ! GH/kW Installed
+*option[Opt-Location>Montreal   ;Opt-RoofPitch>8-12  ]:SizedPV:production-elec-perKW  = 3.9852	   ! GH/kW Installed
+*option[Opt-Location>Montreal   ;Opt-RoofPitch>12-12 ]:SizedPV:production-elec-perKW  = 3.9654	 ! GH/kW Installed
+*option[Opt-Location>Quebec     ;Opt-RoofPitch>6-12  ]:SizedPV:production-elec-perKW  = 4.1526	 ! GH/kW Installed
+*option[Opt-Location>Quebec     ;Opt-RoofPitch>8-12  ]:SizedPV:production-elec-perKW  = 4.22496	 ! GH/kW Installed
+*option[Opt-Location>Quebec     ;Opt-RoofPitch>12-12 ]:SizedPV:production-elec-perKW  = 4.23216	 ! GH/kW Installed
+*option[Opt-Location>Fredricton ;Opt-RoofPitch>6-12  ]:SizedPV:production-elec-perKW  = 3.93732 ! GH/kW Installed
+*option[Opt-Location>Fredricton ;Opt-RoofPitch>8-12  ]:SizedPV:production-elec-perKW  = 4.00608 ! GH/kW Installed
+*option[Opt-Location>Fredricton ;Opt-RoofPitch>12-12 ]:SizedPV:production-elec-perKW  = 4.01544 ! GH/kW Installed
+*option[Opt-Location>Halifax    ;Opt-RoofPitch>6-12  ]:SizedPV:production-elec-perKW  = 3.85848! GH/kW Installed
+*option[Opt-Location>Halifax    ;Opt-RoofPitch>8-12  ]:SizedPV:production-elec-perKW  = 3.90168! GH/kW Installed
+*option[Opt-Location>Halifax    ;Opt-RoofPitch>12-12 ]:SizedPV:production-elec-perKW  = 3.86892! GH/kW Installed
+*option[Opt-Location>Whitehorse ;Opt-RoofPitch>6-12  ]:SizedPV:production-elec-perKW  = 3.36888! GH/kW Installed
+*option[Opt-Location>Whitehorse ;Opt-RoofPitch>8-12  ]:SizedPV:production-elec-perKW  = 3.47472! GH/kW Installed
+*option[Opt-Location>Whitehorse ;Opt-RoofPitch>12-12 ]:SizedPV:production-elec-perKW  = 3.55536! GH/kW Installed
+*option:SizedPV:cost:PerKW = 5780 
+
+*option:NoPV:production-elec-perKW  = 0! GH/kW Installed
+*option:NoPV:cost:PerKW = 0 
+
+*ext-attribute:end
+ 
+
+!-----------------------------------------------------------------------
+! Solar DHW
+!-----------------------------------------------------------------------
+
+*ext-attribute:start 
+*attribute:name      = Opt-SolarDHW
+
+*option:none:production-elec = 0 !GJ
+*option:none:production-SH   = 0 !GJ
+*option:none:production-DHW  = 0 !GJ
+*option:none:cost:total = 0
+
+*option:DWHR:production-elec = 0 !GJ
+*option:DWHR:production-SH   = 0 !GJ
+*option:DWHR:production-DHW  = 3.5388 !GJ
+*option:DWHR:cost:total = 890
+
+*option:1-flat-plate:production-elec = 0 !GJ
+*option:1-flat-plate:production-SH   = 0 !GJ
+*option:1-flat-plate:production-DHW  = 5.288 !GJ
+*option:1-flat-plate:cost:total = 5225
+
+*option:2-flat-plate:production-elec = 0 !GJ
+*option:2-flat-plate:production-SH   = 0 !GJ
+*option:2-flat-plate:production-DHW  = 7.142 !GJ
+*option:2-flat-plate:cost:total = 6510
+
+
+*option:1-flat-plate+DWHR:production-elec = 0 !GJ
+*option:1-flat-plate+DWHR:production-SH   = 0 !GJ
+*option:1-flat-plate+DWHR:production-DHW  = 5.933 !GJ
+*option:1-flat-plate+DWHR:cost:total = 6115
+
+*option:2-flat-plate+DWHR:production-elec = 0 !GJ
+*option:2-flat-plate+DWHR:production-SH   = 0 !GJ
+*option:2-flat-plate+DWHR:production-DHW  = 7.787 !GJ
+*option:2-flat-plate+DWHR:cost:total = 7400
+
+
+*ext-attribute:end
