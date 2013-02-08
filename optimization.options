@@ -60,6 +60,51 @@
 *option:Toronto:value:2 = 43.6481
 *option:Toronto:value:3 = -4.40
 *option:Toronto:cost:total    = 0
+
+*option:Edmonton:value:1 = can_edmonton.cwec
+*option:Edmonton:value:2 = 53.5
+*option:Edmonton:value:3 = -8.50
+*option:Edmonton:cost:total    = 0
+
+*option:Calgary:value:1 = can_calgary.cwec
+*option:Calgary:value:2 = 51.5
+*option:Calgary:value:3 = -9.2
+*option:Calgary:cost:total    = 0
+
+*option:Montreal:value:1 = can_montreal.cwec
+*option:Montreal:value:2 = 45.5
+*option:Montreal:value:3 = 1.5
+*option:Montreal:cost:total    = 0
+
+*option:Quebec:value:1 = can_quebec.cwec
+*option:Quebec:value:2 = 46.9
+*option:Quebec:value:3 = 3.8
+*option:Quebec:cost:total    = 0
+  
+*option:Halifax:value:1 = can_halifax.cwec
+*option:Halifax:value:2 = 44.6
+*option:Halifax:value:3 = -3.5
+*option:Halifax:cost:total    = 0  
+
+*option:Fredricton:value:1 = can_fredericton.cwec
+*option:Fredricton:value:2 = 45.96
+*option:Fredricton:value:3 = -6.6
+*option:Fredricton:cost:total    = 0  
+  
+*option:Winnipeg:value:1 = can_winnipeg.cwec
+*option:Winnipeg:value:2 = 49.8
+*option:Winnipeg:value:3 = -7.1
+*option:Winnipeg:cost:total    = 0    
+  
+*option:Regina:value:1 = can_regina.cwec
+*option:Regina:value:2 = 50.4
+*option:Regina:value:3 = -14.6
+*option:Regina:cost:total    = 0    
+
+*option:Vancouver:value:1 = can_vancouver.cwec
+*option:Vancouver:value:2 = 49.25
+*option:Vancouver:value:3 = -3.1
+*option:Vancouver:cost:total    = 0  
   
 *attribute:end
 
@@ -564,31 +609,31 @@
 *attribute:tag:2   = <OPT-BsmCnnIndex>
 
 *option:NoInsulation:value:1 = BsmFlrR0
-*option[Opt-BasementWallInsulation>BC-min-R12|Rigid+Blown-R43]:NoInsulation:value:2 = 1
+*option[Opt-BasementWallInsulation>OBC-min-R12|Rigid+Blown-R43]:NoInsulation:value:2 = 1 
 *option[else                                                  ]:NoInsulation:value:2 = 68
 *option:NoInsulation:cost:total    = 0
 
 *option:R10UnderSlab:value:1 = BsmFlrR10
-*option[Opt-BasementWallInsulation>OBC-min-R12|Rigid+Blown-R43]:R10UnderSlab:value:2 = 19
+*option[Opt-BasementWallInsulation>OBC-min-R12|Rigid+Blown-R43]:R10UnderSlab:value:2 = 19 
 *option[else                                                  ]:R10UnderSlab:value:2 = 69
 *option:R10UnderSlab:cost:total    = 2645
 
-*option:R10UnderSlab+edge:value:1 = BsmFlrR10
+*option:R10UnderSlabedge:value:1 = BsmFlrR10
 *option[Opt-BasementWallInsulation>OBC-min-R12|Rigid+Blown-R43]:R10UnderSlab+edge:value:2 = 22
 *option[else                                                  ]:R10UnderSlab+edge:value:2 = 69
 
 *option:R10UnderSlab+edge:cost:total    = 2645        ! Should be slightly higher!?!
 
-*option:R12UnderSlab+edge:value:1 = BsmFlrR12
+*option:R12UnderSlabedge:value:1 = BsmFlrR12
 *option[Opt-BasementWallInsulation>OBC-min-R12|Rigid+Blown-R43]:R12UnderSlab+edge:value:2 = 22
 *option[else                                                  ]:R12UnderSlab+edge:value:2 = 69
 *option:R12UnderSlab+edge:cost:total    = 2540         
 
-*option:R24UnderSlab+edge:value:1 = BsmFlrR24
+*option:R24UnderSlabedge:value:1 = BsmFlrR24
 *option[Opt-BasementWallInsulation>OBC-min-R12|Rigid+Blown-R43]:R24UnderSlab+edge:value:2 = 22
 *option[else                                                  ]:R24UnderSlab+edge:value:2 = 69
 
-*option:R24UnderSlab+edge:cost:total    = 4865      
+*option:R24UnderSlabedge:cost:total    = 4865      
 
 ! Perimeter, sub-slab 0.6m skirt insulation
 
@@ -681,18 +726,22 @@
 *option:basefurnace:value:2 = #-no-GSHP-file
 *option:basefurnace:cost:total    = 0
 
+*option:oilfurnace:value:1 = basefurnace_ACv2_oil.hvac
+*option:oilfurnace:value:2 = #-no-GSHP-file
+*option:oilfurnace:cost:total    = 0
+
 *option:elec-baseboard:value:1 = Baseboardv2.hvac
 *option:elec-baseboard:value:2 = #-no-GSHP-file
 *option:elec-baseboard:cost:total       = -3870
 
 *option:CCASHP:value:1      = CCASHPv2.hvac
 *option:CCASHP:value:2      = #-no-GSHP-file
-*option:CCASHP:cost:total         = 9595          ! Does this reflect AC system savings?
+*option:CCASHP:cost:total   = 9595          ! Does this reflect AC system savings?
 
 
 *option:GSHP:value:1      = GSHPv2.hvac
 *option:GSHP:value:2      = *gshp~../hvac/heatx_v1.gshp
-*option:GSHP:cost:total         = 18560          ! Does this reflect AC syste$
+*option:GSHP:cost:total    = 18560          ! Does this reflect AC syste$
 
 
 
@@ -706,7 +755,7 @@
 *attribute:name    = Opt-ElecLoadScale
 *attribute:tag:1   = <Opt-ElecLoadScale>
 
-*option:NoReduction:value:1  = 1.0
+*option:NoReduction:value:1  = 1.066
 *option:NoReduction:cost:total     = 0
 
 *option:BasicReduction:value:1 = 0.843
@@ -820,7 +869,7 @@
 *option[Opt-Location>Whitehorse ;Opt-RoofPitch>6-12  ]:SizedPV:production-elec-perKW  = 3.36888! GH/kW Installed
 *option[Opt-Location>Whitehorse ;Opt-RoofPitch>8-12  ]:SizedPV:production-elec-perKW  = 3.47472! GH/kW Installed
 *option[Opt-Location>Whitehorse ;Opt-RoofPitch>12-12 ]:SizedPV:production-elec-perKW  = 3.55536! GH/kW Installed
-*option:SizedPV:cost:PerKW = 5780 
+*option:SizedPV:cost:PerKW = 5780 ! $/kW installed
 
 *option:NoPV:production-elec-perKW  = 0! GH/kW Installed
 *option:NoPV:cost:PerKW = 0 
