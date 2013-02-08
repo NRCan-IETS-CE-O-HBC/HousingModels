@@ -35,7 +35,7 @@ Opt-ExtBasementWindow : Yes            ! Basement (back)
 !     Cdn1ACH
 !     PassiveHouse (unconfirmed cost data)
                  
-Opt-AirTightness     : Cdn1ACH
+Opt-AirTightness     : PassiveHouse
 
 ! Main wall insulation 
 !  BaseR21
@@ -48,7 +48,7 @@ Opt-AirTightness     : Cdn1ACH
 !  DblStud-R44-Wall
 !  Truss-R40-Wall
 
-Opt-MainWall         : DblStud-R37-Wall
+Opt-MainWall         : DblStud-R52-Wall
 
 
 ! Add extra drywall to wall constructions 
@@ -65,7 +65,7 @@ Opt-ExtraDrywall     : OneSheet
 Opt-FloorSurface     : wood
 
 
-Opt-Ceilings         : CeilingR90
+Opt-Ceilings         : CeilingR80
 
 ! Basement slab insulation 
 ! Choices: 
@@ -74,7 +74,7 @@ Opt-Ceilings         : CeilingR90
 !   R10UnderSlab+edge
 !   R12UnderSlab+edge
 !   R24UnderSlab+edge
-Opt-BasementSlabInsulation  : R24UnderSlab+edge
+Opt-BasementSlabInsulation  : R12EdgeP6
 
 ! Foundation walls. 
 ! Choices 
@@ -88,7 +88,7 @@ Opt-BasementSlabInsulation  : R24UnderSlab+edge
 !  ICF-base-R51     
 !  ICF-base-R51r    
 
-Opt-BasementWallInsulation  : Rigid+Batt-R30
+Opt-BasementWallInsulation  : Rigid+Batt-R20
 
 
 ! Optical and themral characteristics of casement windows (currently 
@@ -101,7 +101,7 @@ Opt-BasementWallInsulation  : Rigid+Batt-R30
 !    TripleLowESoftCoatKryFill
 !    DoubleLowESoftCoatArgFill
 
-Opt-CasementWindows  : TripleLowEHardCoatKryFill
+Opt-CasementWindows  : DoubleLowEHardCoatArgFill
 
 
 ! Exposed floor over garage (affects floor
@@ -111,7 +111,7 @@ Opt-CasementWindows  : TripleLowEHardCoatKryFill
 !  ExpFloorFlash&Batt-R36
 !  ExpFloorFoamed-R52
 
-Opt-ExposedFloor     : ExpFloorFoamed-R52
+Opt-ExposedFloor     : BaseExpFloor-R31
 
 Opt-StandoffPV       : SizedPV
 
@@ -140,5 +140,6 @@ Opt-DHWSystem        : ElectricHP
 ! HVAC system 
 !  basefurnace
 !  CCASHP
+! elec-baseboard
 
-Opt-HVACSystem       : CCASHP
+Opt-HVACSystem       : elec-baseboard

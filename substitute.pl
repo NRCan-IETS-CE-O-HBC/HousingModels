@@ -309,7 +309,7 @@ while ( my $line = <OPTIONS> ){
 		}else{
 			$gOptions{$currentAttributeName}{"type"} = "internal"; 
 		}
-        debug_out ("    ---> $currentAttributeName \n"); 
+        #debug_out ("    ---> $currentAttributeName \n"); 
 		
       }
       
@@ -977,7 +977,7 @@ sub process_file($){
       }
 	  
     }
-    if ($matched ){debug_out("> $linecopy| $line");}
+    #if ($matched ){debug_out("> $linecopy| $line");}
     push @file_contents, $line;
   
  
@@ -1090,7 +1090,7 @@ sub postprocess($){
   #=======================================================================
   # Fuel cost parameters: ELECTRICITY
 
-  my $ElecRateEsc = 1.49; 
+  my $ElecRateEsc = 1.0; # 1.49; 
 
   # Which months are summer, and which are winter?
   my @ElecRatePeriods = ( "winter",   # Jan 
@@ -1169,39 +1169,231 @@ sub postprocess($){
   # How much do we change for on-peak, mid-peak and off peak?      
   my %ElecPeakCharges; 
 
-  $ElecPeakCharges{"summer"}{"off-peak"} = 0.062 * $ElecRateEsc;  # $/kWh
-  $ElecPeakCharges{"summer"}{"mid-peak"} = 0.092 * $ElecRateEsc;
-  $ElecPeakCharges{"summer"}{"on-peak"}  = 0.108 * $ElecRateEsc;
-
-  $ElecPeakCharges{"winter"}{"off-peak"} = $ElecPeakCharges{"summer"}{"off-peak"} ;
-  $ElecPeakCharges{"winter"}{"mid-peak"} = $ElecPeakCharges{"summer"}{"mid-peak"} ;
-  $ElecPeakCharges{"winter"}{"on-peak"}  = $ElecPeakCharges{"summer"}{"on-peak"}  ;
-
-  my $ElecFixedCharge = 10.14 ; # $/month admin fees?
-
-  my $ElecTotalOtherCharges = (     0.0108   # Transmission
-                                  + 0.0203   # Local delivery
-                                  + 0.0002   # Low-voltage services
-                                  + 0.0065   # Reglatory charges
-                                  + 0.00694  # Debt retirement 
-                              );             # (all in $/kWh 
-
   #=======================================================================                           
   # Fuel cost parameters: Natural Gas
 
-  my $NGasIncreaseFrac    = 1.53;      # Scale for future forecast
+  my $NGasIncreaseFrac    = 1.0; #1.53;      # Scale for future forecast
 
-  my $NGasFixedCharge     = 19.       ; # $ / month; 
-  my $NGasSupplyCharge    = 0.136891 * $NGasIncreaseFrac ; # $ / m3
-  my $NGasTrasportCharge  = 0.057181  ; # $ / m3
-  my %NGasDeliveryTier    = (    30 => 0.082878, 
-                                 85 => 0.078155,
-                                170 => 0.074455,
-                              10000 => 0.071699  );  # $ / m3                           
+  
+  my $NGasFixedCharge; 
+  my $NGasSupplyCharge; 
+  my %NGasDeliveryTier; 
+  my $NGasTrasportCharge;
+  
+  my $ElecFixedCharge; 
+  my $ElecTotalOtherCharges; 
+  
+  my $OilFixedCharge; 
+  my $OilSupplyCharge;
+  my $OilTransportCharge;
+  my $OilDeliveryCharge; 
+  my $NGTierType;  
+  
+    #############################################################
+    #################                       #####################
+    #################   TORONTO/OTTAWA      #####################
+    #################                       #####################
+    #############################################################
+  
+  SWITCH:
+  {
+    if ( $gChoices{"Opt-Location"} =~/Toronto/ || $gChoices{"Opt-Location"} =~/Ottawa/ ){
+    
+       # Ontario gas charges 
+       $NGasFixedCharge     = 19.       ; # $ / month; 
+       $NGasSupplyCharge    = 0.136891 * $NGasIncreaseFrac ; # $ / m3
+       $NGasTrasportCharge  = 0.057181  ; # $ / m3
+       %NGasDeliveryTier    = (    30 => 0.082878, 
+                                      85 => 0.078155,
+                                     170 => 0.074455,
+                                   10000 => 0.071699  );  # $ / m3      
+       $NGTierType = "monthly";
+       # Ontario Electric Charges
+       $ElecPeakCharges{"summer"}{"off-peak"} = 0.062 * $ElecRateEsc;  # $/kWh
+       $ElecPeakCharges{"summer"}{"mid-peak"} = 0.092 * $ElecRateEsc;
+       $ElecPeakCharges{"summer"}{"on-peak"}  = 0.108 * $ElecRateEsc;
+
+
+       $ElecFixedCharge = 10.14 ; # $/month admin fees?
+
+       $ElecTotalOtherCharges = (     0.0108   # Transmission
+                                    + 0.0203   # Local delivery
+                                    + 0.0002   # Low-voltage services
+                                    + 0.0065   # Reglatory charges
+                                    + 0.00694  # Debt retirement 
+                                 );            # (all in $/kWh 
+
+       $OilFixedCharge = 0;
+       $OilSupplyCharge = 1.23; #$/L
+       $OilTransportCharge = 0; 
+       $OilDeliveryCharge = 0; 
+    
+       last SWITCH; 
+    }  
+    
+    #############################################################
+    #################                       #####################
+    #################     EDMONTON          #####################
+    #################                       #####################
+    #############################################################
+    
+    if ( $gChoices{"Opt-Location"} =~/Edmonton/ ){
+       
+       # Alberta gas charges (Atco gas NORTH) 
+       $NGasFixedCharge     = 0.867 * 365 / 12       ; # $ / month;  (ATCO charges by the day...)
+       $NGasSupplyCharge    = 0 ; # $ / m3
+       $NGasTrasportCharge  = 0 ; # $ / m3
+       # Pay $0.055479/m3 for fist 32200 m3 used all year, 0.055599 after. 
+       # Source: http://www.atcogas.com/Rates/Current_Rates/
+       %NGasDeliveryTier    = (    32200 => 0.055479, 
+                                 1000000 => 0.055599 );  # $ / m3      
+       $NGTierType = "annual";
+    
+       
+       
+       # Edmonton electrcric charges (EPCOR: http://www.epcor.com/power/rates-tariffs/RegulatedRateTariffsEdmonton/RegulatedRateTariff-2013-02.pdf
+       # M
+       my $RRORate = 0.0960 * $ElecRateEsc;# $/kWh (Regulated Rate Tariff, Edmondton, avg 2011-2013
+       
+       # No TOU in Edmonton.
+       $ElecPeakCharges{"summer"}{"off-peak"} = $RRORate ;  # $/kWh
+       $ElecPeakCharges{"summer"}{"mid-peak"} = $RRORate ;
+       $ElecPeakCharges{"summer"}{"on-peak"}  = $RRORate ;
+       
+       $ElecFixedCharge = 6.14 + 0.51906 * 365 / 12   ; # $/month admin fees?
+
+       $ElecTotalOtherCharges = (   0.02135   # Transmission
+                                  + 0.00626   # Distribution 
+                                 );            # (all in $/kWh 
+       
+       $OilFixedCharge = 0;
+       $OilSupplyCharge = 1.23; #$/L
+       $OilTransportCharge = 0; 
+       $OilDeliveryCharge = 0;        
+       
+       
+       last SWITCH; 
+    }
+    
+    
+    #############################################################
+    #################                       #####################
+    #################     CALGARY           #####################
+    #################                       #####################
+    #############################################################
+    
+    if ( $gChoices{"Opt-Location"} =~/Calgary/ ){
+       # Alberta gas charges (Atco gas SOUTH) 
+       $NGasFixedCharge     = 0.747 * 365 / 12       ; # $ / month;  (ATCO charges by the day...)
+       $NGasSupplyCharge    = 0 ; # $ / m3
+       $NGasTrasportCharge  = 0 ; # $ / m3
+       # Pay $0.044/m3 for fist 32200 m3 used all year, 0.041 after. Holy crap, gas is cheap!
+       # Source: http://www.atcogas.com/Rates/Current_Rates/
+       %NGasDeliveryTier    = (    32200 => 0.04358, 
+                                 1000000 => 0.041237 );  # $ / m3      
+       $NGTierType = "annual";
+    
+       # Calgary -- same as EDMONTON electrcric charges (EPCOR: http://www.epcor.com/power/rates-tariffs/RegulatedRateTariffsEdmonton/RegulatedRateTariff-2013-02.pdf
+       
+       my $RRORate = 0.0960 * $ElecRateEsc;# $/kWh (Regulated Rate Tariff, Edmondton, avg 2011-2013
+       
+       # No TOU in Edmonton.
+       $ElecPeakCharges{"summer"}{"off-peak"} = $RRORate ;  # $/kWh
+       $ElecPeakCharges{"summer"}{"mid-peak"} = $RRORate ;
+       $ElecPeakCharges{"summer"}{"on-peak"}  = $RRORate ;
+       
+       $ElecFixedCharge = 6.14 + 0.51906 * 365 / 12   ; # $/month admin fees?
+
+       $ElecTotalOtherCharges = (   0.02135   # Transmission
+                                  + 0.00626   # Distribution 
+                                 );            # (all in $/kWh )
+           $OilFixedCharge = 0;
+       $OilSupplyCharge = 1.23; #$/L
+       $OilTransportCharge = 0; 
+       $OilDeliveryCharge = 0; 
+    
+       last SWITCH; 
+    
+    }    
+    
+    #############################################################
+    #################                       #####################
+    #################  MONTREAL / QUEBEC    #####################
+    #################                       #####################
+    #############################################################
+    
+    if ( $gChoices{"Opt-Location"} =~/Montreal/ || $gChoices{"Opt-Location"} =~/Quebec/ ){
+       # GazMetro rates Rates are wacky: http://www.gazmetro.com/data/media/conditionsservicetarif_an.pdf?culture=en-ca 
+       $NGasFixedCharge     = 0.465 * 365 / 12       ; # $ / month;  (GazMetro charges by the day...)
+       $NGasSupplyCharge    = 0.14247  ; # $ / m3
+       $NGasTrasportCharge  = 0.00563  # Compression 
+                            + 0.00847  # Transportation (Southern zone
+                            + 0.00465; # Load balancing, $ / m3
+       
+       %NGasDeliveryTier    = (     30     =>  0.23263,  
+                                    70     =>  0.15904,  
+                                    200    =>  0.14666,  
+                                    700    =>  0.11103,  
+                                    2000   =>  0.08215,  
+                                    7000   =>  0.05777,    
+                                    20000  =>  0.04649,                    
+                                    70000  =>  0.03853,
+                                  1000000  =>  0.03195  ); 
+
+                             
+                                                           
+       $NGTierType = "monthly";
+    
+       # HYDRO QUEBEC: http://www.hydroquebec.com/publications/en/rates/pdf/distribution_tariff.pdf
+       # 5.32 c/kwh + 40.6 c/day *THATs' IT!*
+       
+       my $HydroRate = 0.0532 * $ElecRateEsc;# $/kWh (Regulated Rate Tariff, Edmondton, avg 2011-2013
+       
+       # No TOU in Edmonton.
+       $ElecPeakCharges{"summer"}{"off-peak"} = $HydroRate ;  # $/kWh
+       $ElecPeakCharges{"summer"}{"mid-peak"} = $HydroRate ;
+       $ElecPeakCharges{"summer"}{"on-peak"}  = $HydroRate ;
+       
+       $ElecFixedCharge = 0.406 * 365 / 12   ; # $/month admin fees?
+
+       $ElecTotalOtherCharges = (   0       # Transmission /s Distribution 
+                                 );            # (all in $/kWh )
+    
+    
+       $OilFixedCharge = 0;
+       $OilSupplyCharge = 1.16; #$/L
+       $OilTransportCharge = 0; 
+       $OilDeliveryCharge = 0;     
+    
+    
+       last SWITCH; 
+    
+    }    
+    
+        
+    
+    
+    
+    
+    
+    
+  }
+  
+
+  # Assume summer and winter rates are the same. 
+  $ElecPeakCharges{"winter"}{"off-peak"} = $ElecPeakCharges{"summer"}{"off-peak"} ;
+  $ElecPeakCharges{"winter"}{"mid-peak"} = $ElecPeakCharges{"summer"}{"mid-peak"} ;
+  $ElecPeakCharges{"winter"}{"on-peak"}  = $ElecPeakCharges{"summer"}{"on-peak"}  ;
+  
                               
-
+  
   my $gMasterPath = getcwd();
 
+  
+   
+  
+  
+  
 
   # Move to working CFG directory, and parse out.summary file
   chdir $gWorkingCfgPath; 
@@ -1277,7 +1469,7 @@ sub postprocess($){
   # Recover electrical & gas consumption data 
   my @Electrical_Use = @{ $data{" total fuel use:electricity:all end uses:quantity (kWh/s)"} };
   my @NaturalGas_Use = @{ $data{" total fuel use:natural gas:all end uses:quantity (m3/s)"}  };
-
+  my @Oil_Use        = @{ $data{" total fuel use:oil:all end uses:quantity (l/s)"}  };
   # Recover Day, Hour & Month
   my @DayOfYear   = @{  $data{" building:day:future (day)"}     } ;
   my @HourOfDay   = @{  $data{" building:hour:future (hours)"}  } ;
@@ -1290,6 +1482,7 @@ sub postprocess($){
   my $ElecConsumptionCost = 0; 
   my $MonthGasConsumption = 0; 
   my $GasConsumptionCost  = 0; 
+  my $OilConsumptionCost  = 0; 
 
   my $CurrDayOfWeek = $FirstDay_Day_Of_Week; 
 
@@ -1366,7 +1559,7 @@ sub postprocess($){
     # Check to see if this is a new month, and zero gas consumption counter 
     # if so.
 
-    if ( $CurrMonth != $OldMonth ){
+    if ( $CurrMonth != $OldMonth && $NGTierType =~ /monthly/  ){
 
       $MonthGasConsumption = 0; 
       
@@ -1377,7 +1570,7 @@ sub postprocess($){
     
     # Use current month's gas consumption to figure out tier of current 
     # gas consumption. 
-    my $CurrentGasConsumption = $NaturalGas_Use[$row] * $TSLength; # kWh
+    my $CurrentGasConsumption = $NaturalGas_Use[$row] * $TSLength; # M3
     
     $MonthGasConsumption += $CurrentGasConsumption; 
     
@@ -1403,6 +1596,13 @@ sub postprocess($){
                                                       + $NGasTrasportCharge ); 
     
     
+    #### OIL 
+    
+    my $CurrentOilConsumption = $Oil_Use[$row] * $TSLength; # M3
+    
+    $OilConsumptionCost += $CurrentOilConsumption * ( $OilSupplyCharge ); 
+    
+    
     #if ( $CurrMonth > 2 ) { die(); }
          
     #debug_out ("  $CurrMonth $CurrDay $CurrHour | $CurrElecRatePeriod - $CurrPeakPeriod ($WeekendOrHoliday)  $ElecConsumption [kWh] * ( $ElecVarRate + $ElecTotalOtherCharges [\$/kWh] ) = $ElecConsumptionCost  \n");        
@@ -1418,6 +1618,8 @@ sub postprocess($){
 
   my $TotalGasBill  = $NGasFixedCharge * 12. + $GasConsumptionCost  ; 
 
+  my $TotalOilBill  = $OilFixedCharge * 12. + $OilConsumptionCost  ; 
+  
   # Add data from externally computed SDHW (presently not accounting for pump energy...)
   my $sizeSDHW = $gChoices{"Opt-SolarDHW"}; 
   $gSimResults{"SDHW production"} = -1.0 * $gOptions{"Opt-SolarDHW"}{"options"}{$sizeSDHW}{"ext-result"}{"production-DHW"};
@@ -1540,9 +1742,10 @@ sub postprocess($){
 
   debug_out("  + \$ ".round($TotalElecBill)." (Electricity)\n");
   debug_out("  + \$ ".round($TotalGasBill)." (Natural Gas)\n");
+  debug_out("  + \$ ".round($TotalOilBill)." (Oil)\n");
 
   debug_out ( " --------------------------------------------------------\n");
-  debug_out ( "    \$ ".round($TotalElecBill+$TotalGasBill) ." (All utilities).\n"); 
+  debug_out ( "    \$ ".round($TotalElecBill+$TotalGasBill+$TotalOilBill) ." (All utilities).\n"); 
 
   # Update global params for use in summary 
   $gAvgCost_NatGas    = $TotalGasBill  * $ScaleData; 
