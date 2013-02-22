@@ -623,22 +623,21 @@
 *option[else                                                  ]:R10UnderSlab:value:2 = 69
 *option:R10UnderSlab:cost:total    = 2645
 
-*option:R10UnderSlabedge:value:1 = BsmFlrR10
+*option:R10UnderSlab+edge:value:1 = BsmFlrR10
 *option[Opt-BasementWallInsulation>OBC-min-R12|Rigid+Blown-R43]:R10UnderSlab+edge:value:2 = 22
 *option[else                                                  ]:R10UnderSlab+edge:value:2 = 69
 
 *option:R10UnderSlab+edge:cost:total    = 2645        ! Should be slightly higher!?!
 
-*option:R12UnderSlabedge:value:1 = BsmFlrR12
+*option:R12UnderSlab+edge:value:1 = BsmFlrR12
 *option[Opt-BasementWallInsulation>OBC-min-R12|Rigid+Blown-R43]:R12UnderSlab+edge:value:2 = 22
 *option[else                                                  ]:R12UnderSlab+edge:value:2 = 69
 *option:R12UnderSlab+edge:cost:total    = 2540         
 
-*option:R24UnderSlabedge:value:1 = BsmFlrR24
+*option:R24UnderSlab+edge:value:1 = BsmFlrR24
 *option[Opt-BasementWallInsulation>OBC-min-R12|Rigid+Blown-R43]:R24UnderSlab+edge:value:2 = 22
 *option[else                                                  ]:R24UnderSlab+edge:value:2 = 69
-
-*option:R24UnderSlabedge:cost:total    = 4865      
+*option:R24UnderSlab+edge:cost:total    = 4865      
 
 ! Perimeter, sub-slab 0.6m skirt insulation
 
