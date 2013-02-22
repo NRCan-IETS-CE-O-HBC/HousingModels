@@ -5,6 +5,28 @@
 */
 Vary{
 
+
+   // Location 
+   Parameter{ // One of:
+              //    Ottawa     
+              //    Toronto    
+              //    Vancouver  
+              //    Calgary    
+              //    Edmonton   
+              //    Regina     
+              //    Winipeg    
+              //    Montreal   
+              //    Quebec     
+              //    Fredricton 
+              //    Halifax    
+              //    Whitehorse 
+   
+     Name = GOtag:Opt-Location; 
+     Ini  = 1;
+     Values = "Calgary"; 
+   }
+
+
    // Air tightness: TypicalGTA, R2000, Cdn1ACH, PassiveHouse
    Parameter{   // 
      Name    =  GOtag:Opt-AirTightness;
@@ -79,7 +101,7 @@ Vary{
    Parameter{   // 
      Name    =  GOtag:Opt-Ceilings;
      Ini     =  1;
-     Values  =  "CeilingR50,CeilingR70";
+     Values  =  "CeilingR50";
    }    
   
   // Windows:  DoubleLowEHardCoatAirFill 
@@ -159,90 +181,55 @@ Vary{
   Parameter{   // 
      Name    =  GOtag:Opt-StandoffPV;
      Ini     =  1;
-     Values  = "autosize";
+     Values  = "SizedPV";
   } 
   
+  
+   
   
    //===================================================================
    // PASSIVE SOLAR: Include or exclude extra windows    
    //===================================================================
     
+   Parameter{  // Front windows 
+     Name    = GOtag:Opt-FrontWindows; 
+     Ini     = 1; 
+     Values  = "NoExtraWin"; 
+     // Can be : "NoExtraWin, OneExtraWin, TwoExtraWin, ThreeExtraWin"
+   }
    
-   // Extra windows in models: 
-   Parameter{   // Top floor -- front
-     Name    =  GOtag:Opt-ExtWinTopFl-1;
-     Ini     =  1;
-     Values  =  "No";
-   } 
-   
-   Parameter{   // Top floor -- front
-     Name    =  GOtag:Opt-ExtWinTopFl-2;
-     Ini     =  1;
-     Values  =  "No";
-   } 
-   
-  Parameter{   // Top floor -- front
-     Name    =  GOtag:Opt-ExtWinTopFl-3;
-     Ini     =  1;
-     Values  =  "No";
-   } 
-   
-   Parameter{   // First Floor -- back 
-     Name    =  GOtag:Opt-ExtWinFirstFl-1;
-     Ini     =  1;
-     Values  =  "No";
-   } 
+   Parameter{  // Back windows 
+     Name    = GOtag:Opt-BackWindows; 
+     Ini     = 1; 
+     Values  = "NoExtraWin"; 
+   }
    
    Parameter{   // First Floor -- left side (as viewed from front  
-     Name    =  GOtag:Opt-ExtWinFirstFl-2;
+     Name    =  GOtag:Opt-ExtLeftSideWindow;
      Ini     =  1;
      Values  =  "No";
    } 
    
-  Parameter{   // First Floor -- back 
-     Name    =  GOtag:Opt-ExtWinFirstFl-3;
-     Ini     =  1;
-     Values  =  "No";
-   }    
-   
-   Parameter{   // First Floor -- back 
-     Name    =  GOtag:Opt-ExtWinFirstFl-4;
-     Ini     =  1;
-     Values  =  "No";
-   } 
-   
-   Parameter{   // First Floor -- back 
-     Name    =  GOtag:Opt-ExtWinFirstFl-5;
-     Ini     =  1;
-     Values  =  "No";
-   } 
-   
-  Parameter{   // First Floor -- back 
-     Name    =  GOtag:Opt-ExtWinFirstFl-6;
-     Ini     =  1;
-     Values  =  "No";
-   }       
-   
-   
-   Parameter{   // Bedroom -- back 
-     Name    =  GOtag:Opt-ExtWinBedroom-1;
-     Ini     =  1;
-     Values  =  "No";
-   } 
    
   Parameter{   // Basement -- back 
-     Name    =  GOtag:Opt-ExtWinBsmt-1;
+     Name    =  GOtag:Opt-ExtBasementWindow;
      Ini     =  1;
      Values  =  "No";
    }            
    
    
-  Parameter{   // Extra window in master  -- back 
-     Name    =  GOtag:Opt-ExtWinMaster-1;
-     Ini     =  1;
-     Values  =  "No";
-   } 
+
   
+  
+  
+  // ===================================================================
+  // Roof pitch 
+  // ===================================================================
+  Parameter {  
+    Name = GOtag:RoofPitch;
+    Ini  = 1; 
+    Values = "8-12"; 
+  }
   
   
   
