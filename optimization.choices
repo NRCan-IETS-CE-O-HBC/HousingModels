@@ -3,7 +3,7 @@
 ! and compute an average result)
 GOconfig_rotate      : S
 
-Opt-Location : Toronto
+Opt-Location : Regina
 
 ! Assumptions about HRV operation . Not intended to be optimized!
 ! Recognized values: 
@@ -35,7 +35,7 @@ Opt-ExtBasementWindow : Yes            ! Basement (back)
 !     Cdn1ACH
 !     PassiveHouse (unconfirmed cost data)
                  
-Opt-AirTightness     : PassiveHouse
+Opt-AirTightness     : Typical23
 
 ! Main wall insulation 
 !  BaseR21
@@ -48,7 +48,7 @@ Opt-AirTightness     : PassiveHouse
 !  DblStud-R44-Wall
 !  Truss-R40-Wall
 
-Opt-MainWall         : DblStud-R52-Wall
+Opt-MainWall         : BaseR21
 
 
 ! Add extra drywall to wall constructions 
@@ -65,7 +65,7 @@ Opt-ExtraDrywall     : OneSheet
 Opt-FloorSurface     : wood
 
 
-Opt-Ceilings         : CeilingR80
+Opt-Ceilings         : CeilingR50
 
 ! Basement slab insulation 
 ! Choices: 
@@ -74,7 +74,7 @@ Opt-Ceilings         : CeilingR80
 !   R10UnderSlab+edge
 !   R12UnderSlab+edge
 !   R24UnderSlab+edge
-Opt-BasementSlabInsulation  : R12EdgeP6
+Opt-BasementSlabInsulation  : NoInsulation
 
 ! Foundation walls. 
 ! Choices 
@@ -88,7 +88,7 @@ Opt-BasementSlabInsulation  : R12EdgeP6
 !  ICF-base-R51     
 !  ICF-base-R51r    
 
-Opt-BasementWallInsulation  : Rigid+Batt-R20
+Opt-BasementWallInsulation  : OBC-min-R12
 
 
 ! Optical and themral characteristics of casement windows (currently 
@@ -115,18 +115,17 @@ Opt-ExposedFloor     : BaseExpFloor-R31
 
 Opt-StandoffPV       : SizedPV
 
-Opt-SolarDHW         : DWHR
+Opt-SolarDHW         : 1-flat-plate+DWHR
 
 ! NoReduction
 ! BasicReduction
 ! EfficientLiving
 
-Opt-ElecLoadScale    : EfficientLiving
+Opt-ElecLoadScale    : NoReduction
 
 ! Load scales 
 
-Opt-DHWLoadScale     : EfficientLiving
-
+Opt-DHWLoadScale     : BasicReduction
 Opt-RoofPitch : 8-12
 
 ! Hot water system. Choices:
@@ -135,11 +134,11 @@ Opt-RoofPitch : 8-12
 !  GasInstant
 !  ElectricHP
 
-Opt-DHWSystem        : ElectricHP
+Opt-DHWSystem        : ElectricStorage
 
 ! HVAC system 
 !  basefurnace
 !  CCASHP
 ! elec-baseboard
 
-Opt-HVACSystem       : elec-baseboard
+Opt-HVACSystem       : CCASHP

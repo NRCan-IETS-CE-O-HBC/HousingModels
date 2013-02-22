@@ -61,6 +61,11 @@
 *option:Toronto:value:3 = -4.40
 *option:Toronto:cost:total    = 0
 
+*option:Ottawa:value:1 = can_ottawa.cwec
+*option:Ottawa:value:2 = 43.6481
+*option:Ottawa:value:3 = -4.40
+*option:Ottawa:cost:total    = 0
+
 *option:Edmonton:value:1 = can_edmonton.cwec
 *option:Edmonton:value:2 = 53.5
 *option:Edmonton:value:3 = -8.50
@@ -774,12 +779,15 @@
 *attribute:name    = Opt-DHWLoadScale 
 *attribute:tag:1   = <Opt-DHWEquivOccupants>
 
-*option:NoReduction:value:1  = 3.857
+#220 L/day 
+*option:NoReduction:value:1  = 4.0
 *option:NoReduction:cost:total     = 0
 
+#190 L/day
 *option:BasicReduction:value:1 = 3.0
 *option:BasicReduction:cost:total    = 0
 
+# 135 L/day
 *option:EfficientLiving:value:1 = 1.429
 *option:EfficientLiving:cost:total    = 0
 
@@ -889,30 +897,214 @@
 *option:none:production-DHW  = 0 !GJ
 *option:none:cost:total = 0
 
-*option:DWHR:production-elec = 0 !GJ
-*option:DWHR:production-SH   = 0 !GJ
-*option:DWHR:production-DHW  = 3.5388 !GJ
+
+*option[Opt-Location>Ottawa     ; Opt-DHWLoadScale > NoReduction     ]:DWHR:production-DHW    = 3.7908
+*option[Opt-Location>Toronto    ; Opt-DHWLoadScale > NoReduction     ]:DWHR:production-DHW    = 3.4272
+*option[Opt-Location>Vancouver  ; Opt-DHWLoadScale > NoReduction     ]:DWHR:production-DHW    = 3.3984
+*option[Opt-Location>Calgary    ; Opt-DHWLoadScale > NoReduction     ]:DWHR:production-DHW    = 4.2048
+*option[Opt-Location>Edmonton   ; Opt-DHWLoadScale > NoReduction     ]:DWHR:production-DHW    = 4.4028
+*option[Opt-Location>Regina     ; Opt-DHWLoadScale > NoReduction     ]:DWHR:production-DHW    = 4.4676
+*option[Opt-Location>Winipeg    ; Opt-DHWLoadScale > NoReduction     ]:DWHR:production-DHW    = 4.2516
+*option[Opt-Location>Montreal   ; Opt-DHWLoadScale > NoReduction     ]:DWHR:production-DHW    = 4.2012
+*option[Opt-Location>Quebec     ; Opt-DHWLoadScale > NoReduction     ]:DWHR:production-DHW    = 4.0392
+*option[Opt-Location>Fredricton ; Opt-DHWLoadScale > NoReduction     ]:DWHR:production-DHW    = 3.9888
+*option[Opt-Location>Halifax    ; Opt-DHWLoadScale > NoReduction     ]:DWHR:production-DHW    = 3.8592
+*option[Opt-Location>Whitehorse ; Opt-DHWLoadScale > NoReduction     ]:DWHR:production-DHW    = 4.9284
+
+*option[Opt-Location>Ottawa     ; Opt-DHWLoadScale > BasicReduction  ]:DWHR:production-DHW    = 3.0925
+*option[Opt-Location>Toronto    ; Opt-DHWLoadScale > BasicReduction  ]:DWHR:production-DHW    = 2.7959
+*option[Opt-Location>Vancouver  ; Opt-DHWLoadScale > BasicReduction  ]:DWHR:production-DHW    = 2.7724
+*option[Opt-Location>Calgary    ; Opt-DHWLoadScale > BasicReduction  ]:DWHR:production-DHW    = 3.4302
+*option[Opt-Location>Edmonton   ; Opt-DHWLoadScale > BasicReduction  ]:DWHR:production-DHW    = 3.5918
+*option[Opt-Location>Regina     ; Opt-DHWLoadScale > BasicReduction  ]:DWHR:production-DHW    = 3.6446
+*option[Opt-Location>Winipeg    ; Opt-DHWLoadScale > BasicReduction  ]:DWHR:production-DHW    = 3.4684
+*option[Opt-Location>Montreal   ; Opt-DHWLoadScale > BasicReduction  ]:DWHR:production-DHW    = 3.4273
+*option[Opt-Location>Quebec     ; Opt-DHWLoadScale > BasicReduction  ]:DWHR:production-DHW    = 3.2951
+*option[Opt-Location>Fredricton ; Opt-DHWLoadScale > BasicReduction  ]:DWHR:production-DHW    = 3.2540
+*option[Opt-Location>Halifax    ; Opt-DHWLoadScale > BasicReduction  ]:DWHR:production-DHW    = 3.1483
+*option[Opt-Location>Whitehorse ; Opt-DHWLoadScale > BasicReduction  ]:DWHR:production-DHW    = 4.0205
+                                                                                              
+*option[Opt-Location>Ottawa     ; Opt-DHWLoadScale > EfficientLiving ]:DWHR:production-DHW    = 1.9952
+*option[Opt-Location>Toronto    ; Opt-DHWLoadScale > EfficientLiving ]:DWHR:production-DHW    = 1.8038
+*option[Opt-Location>Vancouver  ; Opt-DHWLoadScale > EfficientLiving ]:DWHR:production-DHW    = 1.7886
+*option[Opt-Location>Calgary    ; Opt-DHWLoadScale > EfficientLiving ]:DWHR:production-DHW    = 2.2131
+*option[Opt-Location>Edmonton   ; Opt-DHWLoadScale > EfficientLiving ]:DWHR:production-DHW    = 2.3173
+*option[Opt-Location>Regina     ; Opt-DHWLoadScale > EfficientLiving ]:DWHR:production-DHW    = 2.3514
+*option[Opt-Location>Winipeg    ; Opt-DHWLoadScale > EfficientLiving ]:DWHR:production-DHW    = 2.2377
+*option[Opt-Location>Montreal   ; Opt-DHWLoadScale > EfficientLiving ]:DWHR:production-DHW    = 2.2112
+*option[Opt-Location>Quebec     ; Opt-DHWLoadScale > EfficientLiving ]:DWHR:production-DHW    = 2.1259
+*option[Opt-Location>Fredricton ; Opt-DHWLoadScale > EfficientLiving ]:DWHR:production-DHW    = 2.0994
+*option[Opt-Location>Halifax    ; Opt-DHWLoadScale > EfficientLiving ]:DWHR:production-DHW    = 2.0312
+*option[Opt-Location>Whitehorse ; Opt-DHWLoadScale > EfficientLiving ]:DWHR:production-DHW    = 2.5939
 *option:DWHR:cost:total = 890
 
-*option:1-flat-plate:production-elec = 0 !GJ
-*option:1-flat-plate:production-SH   = 0 !GJ
-*option:1-flat-plate:production-DHW  = 5.288 !GJ
+! 1 Plate stand-alone 
+*option[Opt-Location>Ottawa     ; Opt-DHWLoadScale > NoReduction     ]:1-flat-plate:production-DHW     = 4.6840
+*option[Opt-Location>Toronto    ; Opt-DHWLoadScale > NoReduction     ]:1-flat-plate:production-DHW     = 4.5610
+*option[Opt-Location>Vancouver  ; Opt-DHWLoadScale > NoReduction     ]:1-flat-plate:production-DHW     = 4.3080
+*option[Opt-Location>Calgary    ; Opt-DHWLoadScale > NoReduction     ]:1-flat-plate:production-DHW     = 4.8560
+*option[Opt-Location>Edmonton   ; Opt-DHWLoadScale > NoReduction     ]:1-flat-plate:production-DHW     = 4.7560
+*option[Opt-Location>Regina     ; Opt-DHWLoadScale > NoReduction     ]:1-flat-plate:production-DHW     = 5.0380
+*option[Opt-Location>Winipeg    ; Opt-DHWLoadScale > NoReduction     ]:1-flat-plate:production-DHW     = 4.8260
+*option[Opt-Location>Montreal   ; Opt-DHWLoadScale > NoReduction     ]:1-flat-plate:production-DHW     = 4.8450
+*option[Opt-Location>Quebec     ; Opt-DHWLoadScale > NoReduction     ]:1-flat-plate:production-DHW     = 4.6930
+*option[Opt-Location>Fredricton ; Opt-DHWLoadScale > NoReduction     ]:1-flat-plate:production-DHW     = 4.5980
+*option[Opt-Location>Halifax    ; Opt-DHWLoadScale > NoReduction     ]:1-flat-plate:production-DHW     = 4.5300
+*option[Opt-Location>Whitehorse ; Opt-DHWLoadScale > NoReduction     ]:1-flat-plate:production-DHW     = 4.2190
+
+*option[Opt-Location>Ottawa     ; Opt-DHWLoadScale > BasicReduction  ]:1-flat-plate:production-DHW     = 4.2161
+*option[Opt-Location>Toronto    ; Opt-DHWLoadScale > BasicReduction  ]:1-flat-plate:production-DHW     = 4.0983
+*option[Opt-Location>Vancouver  ; Opt-DHWLoadScale > BasicReduction  ]:1-flat-plate:production-DHW     = 3.8891
+*option[Opt-Location>Calgary    ; Opt-DHWLoadScale > BasicReduction  ]:1-flat-plate:production-DHW     = 4.3774
+*option[Opt-Location>Edmonton   ; Opt-DHWLoadScale > BasicReduction  ]:1-flat-plate:production-DHW     = 4.3065
+*option[Opt-Location>Regina     ; Opt-DHWLoadScale > BasicReduction  ]:1-flat-plate:production-DHW     = 4.5395
+*option[Opt-Location>Winipeg    ; Opt-DHWLoadScale > BasicReduction  ]:1-flat-plate:production-DHW     = 4.3555
+*option[Opt-Location>Montreal   ; Opt-DHWLoadScale > BasicReduction  ]:1-flat-plate:production-DHW     = 4.3576
+*option[Opt-Location>Quebec     ; Opt-DHWLoadScale > BasicReduction  ]:1-flat-plate:production-DHW     = 4.2362
+*option[Opt-Location>Fredricton ; Opt-DHWLoadScale > BasicReduction  ]:1-flat-plate:production-DHW     = 4.1563
+*option[Opt-Location>Halifax    ; Opt-DHWLoadScale > BasicReduction  ]:1-flat-plate:production-DHW     = 4.0942
+*option[Opt-Location>Whitehorse ; Opt-DHWLoadScale > BasicReduction  ]:1-flat-plate:production-DHW     = 3.8944
+                                                                                              
+*option[Opt-Location>Ottawa     ; Opt-DHWLoadScale > EfficientLiving ]:1-flat-plate:production-DHW     = 3.4808
+*option[Opt-Location>Toronto    ; Opt-DHWLoadScale > EfficientLiving ]:1-flat-plate:production-DHW     = 3.3711
+*option[Opt-Location>Vancouver  ; Opt-DHWLoadScale > EfficientLiving ]:1-flat-plate:production-DHW     = 3.2308
+*option[Opt-Location>Calgary    ; Opt-DHWLoadScale > EfficientLiving ]:1-flat-plate:production-DHW     = 3.6254
+*option[Opt-Location>Edmonton   ; Opt-DHWLoadScale > EfficientLiving ]:1-flat-plate:production-DHW     = 3.6002
+*option[Opt-Location>Regina     ; Opt-DHWLoadScale > EfficientLiving ]:1-flat-plate:production-DHW     = 3.7562
+*option[Opt-Location>Winipeg    ; Opt-DHWLoadScale > EfficientLiving ]:1-flat-plate:production-DHW     = 3.6162
+*option[Opt-Location>Montreal   ; Opt-DHWLoadScale > EfficientLiving ]:1-flat-plate:production-DHW     = 3.5916
+*option[Opt-Location>Quebec     ; Opt-DHWLoadScale > EfficientLiving ]:1-flat-plate:production-DHW     = 3.5183
+*option[Opt-Location>Fredricton ; Opt-DHWLoadScale > EfficientLiving ]:1-flat-plate:production-DHW     = 3.4621
+*option[Opt-Location>Halifax    ; Opt-DHWLoadScale > EfficientLiving ]:1-flat-plate:production-DHW     = 3.4093
+*option[Opt-Location>Whitehorse ; Opt-DHWLoadScale > EfficientLiving ]:1-flat-plate:production-DHW     = 3.3844
 *option:1-flat-plate:cost:total = 5225
 
-*option:2-flat-plate:production-elec = 0 !GJ
-*option:2-flat-plate:production-SH   = 0 !GJ
-*option:2-flat-plate:production-DHW  = 7.142 !GJ
+! 2 Plate stand-alone 
+*option[Opt-Location>Ottawa     ; Opt-DHWLoadScale > NoReduction     ]:2-flat-plate:production-DHW    = 7.7240
+*option[Opt-Location>Toronto    ; Opt-DHWLoadScale > NoReduction     ]:2-flat-plate:production-DHW    = 7.5210
+*option[Opt-Location>Vancouver  ; Opt-DHWLoadScale > NoReduction     ]:2-flat-plate:production-DHW    = 7.1040
+*option[Opt-Location>Calgary    ; Opt-DHWLoadScale > NoReduction     ]:2-flat-plate:production-DHW    = 8.0070
+*option[Opt-Location>Edmonton   ; Opt-DHWLoadScale > NoReduction     ]:2-flat-plate:production-DHW    = 7.8420
+*option[Opt-Location>Regina     ; Opt-DHWLoadScale > NoReduction     ]:2-flat-plate:production-DHW    = 8.3070
+*option[Opt-Location>Winipeg    ; Opt-DHWLoadScale > NoReduction     ]:2-flat-plate:production-DHW    = 7.9580
+*option[Opt-Location>Montreal   ; Opt-DHWLoadScale > NoReduction     ]:2-flat-plate:production-DHW    = 7.9890
+*option[Opt-Location>Quebec     ; Opt-DHWLoadScale > NoReduction     ]:2-flat-plate:production-DHW    = 7.7380
+*option[Opt-Location>Fredricton ; Opt-DHWLoadScale > NoReduction     ]:2-flat-plate:production-DHW    = 7.5820
+*option[Opt-Location>Halifax    ; Opt-DHWLoadScale > NoReduction     ]:2-flat-plate:production-DHW    = 7.4700
+*option[Opt-Location>Whitehorse ; Opt-DHWLoadScale > NoReduction     ]:2-flat-plate:production-DHW    = 6.9570
+                                                                                   
+*option[Opt-Location>Ottawa     ; Opt-DHWLoadScale > BasicReduction  ]:2-flat-plate:production-DHW    = 6.9260
+*option[Opt-Location>Toronto    ; Opt-DHWLoadScale > BasicReduction  ]:2-flat-plate:production-DHW    = 6.6851
+*option[Opt-Location>Vancouver  ; Opt-DHWLoadScale > BasicReduction  ]:2-flat-plate:production-DHW    = 6.3417
+*option[Opt-Location>Calgary    ; Opt-DHWLoadScale > BasicReduction  ]:2-flat-plate:production-DHW    = 7.1979
+*option[Opt-Location>Edmonton   ; Opt-DHWLoadScale > BasicReduction  ]:2-flat-plate:production-DHW    = 7.0956
+*option[Opt-Location>Regina     ; Opt-DHWLoadScale > BasicReduction  ]:2-flat-plate:production-DHW    = 7.4795
+*option[Opt-Location>Winipeg    ; Opt-DHWLoadScale > BasicReduction  ]:2-flat-plate:production-DHW    = 7.1574
+*option[Opt-Location>Montreal   ; Opt-DHWLoadScale > BasicReduction  ]:2-flat-plate:production-DHW    = 7.1928
+*option[Opt-Location>Quebec     ; Opt-DHWLoadScale > BasicReduction  ]:2-flat-plate:production-DHW    = 6.9824
+*option[Opt-Location>Fredricton ; Opt-DHWLoadScale > BasicReduction  ]:2-flat-plate:production-DHW    = 6.8536
+*option[Opt-Location>Halifax    ; Opt-DHWLoadScale > BasicReduction  ]:2-flat-plate:production-DHW    = 6.7501
+*option[Opt-Location>Whitehorse ; Opt-DHWLoadScale > BasicReduction  ]:2-flat-plate:production-DHW    = 6.3896
+                                                                                                    
+*option[Opt-Location>Ottawa     ; Opt-DHWLoadScale > EfficientLiving ]:2-flat-plate:production-DHW    = 5.6720
+*option[Opt-Location>Toronto    ; Opt-DHWLoadScale > EfficientLiving ]:2-flat-plate:production-DHW    = 5.3714
+*option[Opt-Location>Vancouver  ; Opt-DHWLoadScale > EfficientLiving ]:2-flat-plate:production-DHW    = 5.1439
+*option[Opt-Location>Calgary    ; Opt-DHWLoadScale > EfficientLiving ]:2-flat-plate:production-DHW    = 5.9266
+*option[Opt-Location>Edmonton   ; Opt-DHWLoadScale > EfficientLiving ]:2-flat-plate:production-DHW    = 5.9226
+*option[Opt-Location>Regina     ; Opt-DHWLoadScale > EfficientLiving ]:2-flat-plate:production-DHW    = 6.1792
+*option[Opt-Location>Winipeg    ; Opt-DHWLoadScale > EfficientLiving ]:2-flat-plate:production-DHW    = 5.8994
+*option[Opt-Location>Montreal   ; Opt-DHWLoadScale > EfficientLiving ]:2-flat-plate:production-DHW    = 5.9417
+*option[Opt-Location>Quebec     ; Opt-DHWLoadScale > EfficientLiving ]:2-flat-plate:production-DHW    = 5.7949
+*option[Opt-Location>Fredricton ; Opt-DHWLoadScale > EfficientLiving ]:2-flat-plate:production-DHW    = 5.7091
+*option[Opt-Location>Halifax    ; Opt-DHWLoadScale > EfficientLiving ]:2-flat-plate:production-DHW    = 5.6188
+*option[Opt-Location>Whitehorse ; Opt-DHWLoadScale > EfficientLiving ]:2-flat-plate:production-DHW    = 5.4981
+
 *option:2-flat-plate:cost:total = 6510
 
+! One flat plate + DHWR 
+*option[Opt-Location>Ottawa     ; Opt-DHWLoadScale > NoReduction     ]:1-flat-plate+DWHR:production-DHW    = 7.2491
+*option[Opt-Location>Toronto    ; Opt-DHWLoadScale > NoReduction     ]:1-flat-plate+DWHR:production-DHW    = 6.8800
+*option[Opt-Location>Vancouver  ; Opt-DHWLoadScale > NoReduction     ]:1-flat-plate+DWHR:production-DHW    = 6.6076
+*option[Opt-Location>Calgary    ; Opt-DHWLoadScale > NoReduction     ]:1-flat-plate+DWHR:production-DHW    = 7.7012
+*option[Opt-Location>Edmonton   ; Opt-DHWLoadScale > NoReduction     ]:1-flat-plate+DWHR:production-DHW    = 7.7352
+*option[Opt-Location>Regina     ; Opt-DHWLoadScale > NoReduction     ]:1-flat-plate+DWHR:production-DHW    = 8.0610
+*option[Opt-Location>Winipeg    ; Opt-DHWLoadScale > NoReduction     ]:1-flat-plate+DWHR:production-DHW    = 7.7029
+*option[Opt-Location>Montreal   ; Opt-DHWLoadScale > NoReduction     ]:1-flat-plate+DWHR:production-DHW    = 7.6878
+*option[Opt-Location>Quebec     ; Opt-DHWLoadScale > NoReduction     ]:1-flat-plate+DWHR:production-DHW    = 7.4262
+*option[Opt-Location>Fredricton ; Opt-DHWLoadScale > NoReduction     ]:1-flat-plate+DWHR:production-DHW    = 7.2971
+*option[Opt-Location>Halifax    ; Opt-DHWLoadScale > NoReduction     ]:1-flat-plate+DWHR:production-DHW    = 7.1414
+*option[Opt-Location>Whitehorse ; Opt-DHWLoadScale > NoReduction     ]:1-flat-plate+DWHR:production-DHW    = 7.5538
+                                                                                        
+*option[Opt-Location>Ottawa     ; Opt-DHWLoadScale > BasicReduction  ]:1-flat-plate+DWHR:production-DHW    = 6.3087
+*option[Opt-Location>Toronto    ; Opt-DHWLoadScale > BasicReduction  ]:1-flat-plate+DWHR:production-DHW    = 5.9901
+*option[Opt-Location>Vancouver  ; Opt-DHWLoadScale > BasicReduction  ]:1-flat-plate+DWHR:production-DHW    = 5.7651
+*option[Opt-Location>Calgary    ; Opt-DHWLoadScale > BasicReduction  ]:1-flat-plate+DWHR:production-DHW    = 6.6985
+*option[Opt-Location>Edmonton   ; Opt-DHWLoadScale > BasicReduction  ]:1-flat-plate+DWHR:production-DHW    = 6.7369
+*option[Opt-Location>Regina     ; Opt-DHWLoadScale > BasicReduction  ]:1-flat-plate+DWHR:production-DHW    = 7.0057
+*option[Opt-Location>Winipeg    ; Opt-DHWLoadScale > BasicReduction  ]:1-flat-plate+DWHR:production-DHW    = 6.7025
+*option[Opt-Location>Montreal   ; Opt-DHWLoadScale > BasicReduction  ]:1-flat-plate+DWHR:production-DHW    = 6.6767
+*option[Opt-Location>Quebec     ; Opt-DHWLoadScale > BasicReduction  ]:1-flat-plate+DWHR:production-DHW    = 6.4658
+*option[Opt-Location>Fredricton ; Opt-DHWLoadScale > BasicReduction  ]:1-flat-plate+DWHR:production-DHW    = 6.3581
+*option[Opt-Location>Halifax    ; Opt-DHWLoadScale > BasicReduction  ]:1-flat-plate+DWHR:production-DHW    = 6.2245
+*option[Opt-Location>Whitehorse ; Opt-DHWLoadScale > BasicReduction  ]:1-flat-plate+DWHR:production-DHW    = 6.6150
+                                                                                                   
+*option[Opt-Location>Ottawa     ; Opt-DHWLoadScale > EfficientLiving ]:1-flat-plate+DWHR:production-DHW    = 4.8309
+*option[Opt-Location>Toronto    ; Opt-DHWLoadScale > EfficientLiving ]:1-flat-plate+DWHR:production-DHW    = 4.5917
+*option[Opt-Location>Vancouver  ; Opt-DHWLoadScale > EfficientLiving ]:1-flat-plate+DWHR:production-DHW    = 4.4411
+*option[Opt-Location>Calgary    ; Opt-DHWLoadScale > EfficientLiving ]:1-flat-plate+DWHR:production-DHW    = 5.1229
+*option[Opt-Location>Edmonton   ; Opt-DHWLoadScale > EfficientLiving ]:1-flat-plate+DWHR:production-DHW    = 5.1682
+*option[Opt-Location>Regina     ; Opt-DHWLoadScale > EfficientLiving ]:1-flat-plate+DWHR:production-DHW    = 5.3473
+*option[Opt-Location>Winipeg    ; Opt-DHWLoadScale > EfficientLiving ]:1-flat-plate+DWHR:production-DHW    = 5.1304
+*option[Opt-Location>Montreal   ; Opt-DHWLoadScale > EfficientLiving ]:1-flat-plate+DWHR:production-DHW    = 5.0878
+*option[Opt-Location>Quebec     ; Opt-DHWLoadScale > EfficientLiving ]:1-flat-plate+DWHR:production-DHW    = 4.9568
+*option[Opt-Location>Fredricton ; Opt-DHWLoadScale > EfficientLiving ]:1-flat-plate+DWHR:production-DHW    = 4.8827
+*option[Opt-Location>Halifax    ; Opt-DHWLoadScale > EfficientLiving ]:1-flat-plate+DWHR:production-DHW    = 4.7837
+*option[Opt-Location>Whitehorse ; Opt-DHWLoadScale > EfficientLiving ]:1-flat-plate+DWHR:production-DHW    = 5.1396
 
-*option:1-flat-plate+DWHR:production-elec = 0 !GJ
-*option:1-flat-plate+DWHR:production-SH   = 0 !GJ
-*option:1-flat-plate+DWHR:production-DHW  = 5.933 !GJ
 *option:1-flat-plate+DWHR:cost:total = 6115
 
-*option:2-flat-plate+DWHR:production-elec = 0 !GJ
-*option:2-flat-plate+DWHR:production-SH   = 0 !GJ
-*option:2-flat-plate+DWHR:production-DHW  = 7.787 !GJ
+! 2 Flat Plate + DHWR 
+
+*option[Opt-Location>Ottawa     ; Opt-DHWLoadScale > NoReduction     ]:2-flat-plate+DWHR:production-DHW    = 10.2891
+*option[Opt-Location>Toronto    ; Opt-DHWLoadScale > NoReduction     ]:2-flat-plate+DWHR:production-DHW    = 9.8400
+*option[Opt-Location>Vancouver  ; Opt-DHWLoadScale > NoReduction     ]:2-flat-plate+DWHR:production-DHW    = 9.4036
+*option[Opt-Location>Calgary    ; Opt-DHWLoadScale > NoReduction     ]:2-flat-plate+DWHR:production-DHW    = 10.8522
+*option[Opt-Location>Edmonton   ; Opt-DHWLoadScale > NoReduction     ]:2-flat-plate+DWHR:production-DHW    = 10.8212
+*option[Opt-Location>Regina     ; Opt-DHWLoadScale > NoReduction     ]:2-flat-plate+DWHR:production-DHW    = 11.3300
+*option[Opt-Location>Winipeg    ; Opt-DHWLoadScale > NoReduction     ]:2-flat-plate+DWHR:production-DHW    = 10.8349
+*option[Opt-Location>Montreal   ; Opt-DHWLoadScale > NoReduction     ]:2-flat-plate+DWHR:production-DHW    = 10.8318
+*option[Opt-Location>Quebec     ; Opt-DHWLoadScale > NoReduction     ]:2-flat-plate+DWHR:production-DHW    = 10.4712
+*option[Opt-Location>Fredricton ; Opt-DHWLoadScale > NoReduction     ]:2-flat-plate+DWHR:production-DHW    = 10.2811
+*option[Opt-Location>Halifax    ; Opt-DHWLoadScale > NoReduction     ]:2-flat-plate+DWHR:production-DHW    = 10.0814
+*option[Opt-Location>Whitehorse ; Opt-DHWLoadScale > NoReduction     ]:2-flat-plate+DWHR:production-DHW    = 10.2918
+                                                                                        
+*option[Opt-Location>Ottawa     ; Opt-DHWLoadScale > BasicReduction  ]:2-flat-plate+DWHR:production-DHW    = 9.0186
+*option[Opt-Location>Toronto    ; Opt-DHWLoadScale > BasicReduction  ]:2-flat-plate+DWHR:production-DHW    = 8.5769
+*option[Opt-Location>Vancouver  ; Opt-DHWLoadScale > BasicReduction  ]:2-flat-plate+DWHR:production-DHW    = 8.2177
+*option[Opt-Location>Calgary    ; Opt-DHWLoadScale > BasicReduction  ]:2-flat-plate+DWHR:production-DHW    = 9.5190
+*option[Opt-Location>Edmonton   ; Opt-DHWLoadScale > BasicReduction  ]:2-flat-plate+DWHR:production-DHW    = 9.5260
+*option[Opt-Location>Regina     ; Opt-DHWLoadScale > BasicReduction  ]:2-flat-plate+DWHR:production-DHW    = 9.9457
+*option[Opt-Location>Winipeg    ; Opt-DHWLoadScale > BasicReduction  ]:2-flat-plate+DWHR:production-DHW    = 9.5044
+*option[Opt-Location>Montreal   ; Opt-DHWLoadScale > BasicReduction  ]:2-flat-plate+DWHR:production-DHW    = 9.5120
+*option[Opt-Location>Quebec     ; Opt-DHWLoadScale > BasicReduction  ]:2-flat-plate+DWHR:production-DHW    = 9.2121
+*option[Opt-Location>Fredricton ; Opt-DHWLoadScale > BasicReduction  ]:2-flat-plate+DWHR:production-DHW    = 9.0555
+*option[Opt-Location>Halifax    ; Opt-DHWLoadScale > BasicReduction  ]:2-flat-plate+DWHR:production-DHW    = 8.8804
+*option[Opt-Location>Whitehorse ; Opt-DHWLoadScale > BasicReduction  ]:2-flat-plate+DWHR:production-DHW    = 9.1102
+                                                                                                   
+*option[Opt-Location>Ottawa     ; Opt-DHWLoadScale > EfficientLiving ]:2-flat-plate+DWHR:production-DHW    = 7.0220
+*option[Opt-Location>Toronto    ; Opt-DHWLoadScale > EfficientLiving ]:2-flat-plate+DWHR:production-DHW    = 6.5920
+*option[Opt-Location>Vancouver  ; Opt-DHWLoadScale > EfficientLiving ]:2-flat-plate+DWHR:production-DHW    = 6.3542
+*option[Opt-Location>Calgary    ; Opt-DHWLoadScale > EfficientLiving ]:2-flat-plate+DWHR:production-DHW    = 7.4241
+*option[Opt-Location>Edmonton   ; Opt-DHWLoadScale > EfficientLiving ]:2-flat-plate+DWHR:production-DHW    = 7.4906
+*option[Opt-Location>Regina     ; Opt-DHWLoadScale > EfficientLiving ]:2-flat-plate+DWHR:production-DHW    = 7.7703
+*option[Opt-Location>Winipeg    ; Opt-DHWLoadScale > EfficientLiving ]:2-flat-plate+DWHR:production-DHW    = 7.4135
+*option[Opt-Location>Montreal   ; Opt-DHWLoadScale > EfficientLiving ]:2-flat-plate+DWHR:production-DHW    = 7.4379
+*option[Opt-Location>Quebec     ; Opt-DHWLoadScale > EfficientLiving ]:2-flat-plate+DWHR:production-DHW    = 7.2335
+*option[Opt-Location>Fredricton ; Opt-DHWLoadScale > EfficientLiving ]:2-flat-plate+DWHR:production-DHW    = 7.1296
+*option[Opt-Location>Halifax    ; Opt-DHWLoadScale > EfficientLiving ]:2-flat-plate+DWHR:production-DHW    = 6.9932
+*option[Opt-Location>Whitehorse ; Opt-DHWLoadScale > EfficientLiving ]:2-flat-plate+DWHR:production-DHW    = 7.2532
+                                                                      
+
 *option:2-flat-plate+DWHR:cost:total = 7400
 
 

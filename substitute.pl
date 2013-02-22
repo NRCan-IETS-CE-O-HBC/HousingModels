@@ -61,6 +61,20 @@ my $gEnergyVentilation;
 my $gEnergyWaterHeating; 
 my $gEnergyEquipment; 
 
+# Data from Hanscomb 2011 NBC analysis
+my %RegionalCostFactors  = (  "Halifax"      =>  0.95 ,
+                              "Edmonton"     =>  1.12 ,
+                              "Calgary"      =>  1.12 ,  # Assume same as edmonton?
+                              "Ottawa"       =>  1.00 ,
+                              "Toronto"      =>  1.00 ,
+                              "Quebec"       =>  1.00 ,  # Assume same as montreal?
+                              "Montreal"     =>  1.00 ,
+                              "Vancouver"    =>  1.10 ,
+                              "Regina"       =>  1.08 ,  # Same as Winnipeg?
+                              "Winnipeg"     =>  1.08 ,
+                              "Fredricton"   =>  1.00 ,  # Same as Quebec?
+                              "Whitehorse"   =>  1.38    ); # Same as yellowknife?
+
 
 my @gChoiceOrder;
 
@@ -1188,212 +1202,132 @@ sub postprocess($){
   my $OilTransportCharge;
   my $OilDeliveryCharge; 
   my $NGTierType;  
-  
-    #############################################################
-    #################                       #####################
-    #################   TORONTO/OTTAWA      #####################
-    #################                       #####################
-    #############################################################
-  
-  SWITCH:
-  {
-    if ( $gChoices{"Opt-Location"} =~/Toronto/ || $gChoices{"Opt-Location"} =~/Ottawa/ ){
-    
-       # Ontario gas charges 
-       $NGasFixedCharge     = 19.       ; # $ / month; 
-       $NGasSupplyCharge    = 0.136891 * $NGasIncreaseFrac ; # $ / m3
-       $NGasTrasportCharge  = 0.057181  ; # $ / m3
-       %NGasDeliveryTier    = (    30 => 0.082878, 
-                                      85 => 0.078155,
-                                     170 => 0.074455,
-                                   10000 => 0.071699  );  # $ / m3      
-       $NGTierType = "monthly";
-       # Ontario Electric Charges
-       $ElecPeakCharges{"summer"}{"off-peak"} = 0.062 * $ElecRateEsc;  # $/kWh
-       $ElecPeakCharges{"summer"}{"mid-peak"} = 0.092 * $ElecRateEsc;
-       $ElecPeakCharges{"summer"}{"on-peak"}  = 0.108 * $ElecRateEsc;
-
-
-       $ElecFixedCharge = 10.14 ; # $/month admin fees?
-
-       $ElecTotalOtherCharges = (     0.0108   # Transmission
-                                    + 0.0203   # Local delivery
-                                    + 0.0002   # Low-voltage services
-                                    + 0.0065   # Reglatory charges
-                                    + 0.00694  # Debt retirement 
-                                 );            # (all in $/kWh 
-
-       $OilFixedCharge = 0;
-       $OilSupplyCharge = 1.23; #$/L
-       $OilTransportCharge = 0; 
-       $OilDeliveryCharge = 0; 
-    
-       last SWITCH; 
-    }  
-    
-    #############################################################
-    #################                       #####################
-    #################     EDMONTON          #####################
-    #################                       #####################
-    #############################################################
-    
-    if ( $gChoices{"Opt-Location"} =~/Edmonton/ ){
-       
-       # Alberta gas charges (Atco gas NORTH) 
-       $NGasFixedCharge     = 0.867 * 365 / 12       ; # $ / month;  (ATCO charges by the day...)
-       $NGasSupplyCharge    = 0 ; # $ / m3
-       $NGasTrasportCharge  = 0 ; # $ / m3
-       # Pay $0.055479/m3 for fist 32200 m3 used all year, 0.055599 after. 
-       # Source: http://www.atcogas.com/Rates/Current_Rates/
-       %NGasDeliveryTier    = (    32200 => 0.055479, 
-                                 1000000 => 0.055599 );  # $ / m3      
-       $NGTierType = "annual";
-    
-       
-       
-       # Edmonton electrcric charges (EPCOR: http://www.epcor.com/power/rates-tariffs/RegulatedRateTariffsEdmonton/RegulatedRateTariff-2013-02.pdf
-       # M
-       my $RRORate = 0.0960 * $ElecRateEsc;# $/kWh (Regulated Rate Tariff, Edmondton, avg 2011-2013
-       
-       # No TOU in Edmonton.
-       $ElecPeakCharges{"summer"}{"off-peak"} = $RRORate ;  # $/kWh
-       $ElecPeakCharges{"summer"}{"mid-peak"} = $RRORate ;
-       $ElecPeakCharges{"summer"}{"on-peak"}  = $RRORate ;
-       
-       $ElecFixedCharge = 6.14 + 0.51906 * 365 / 12   ; # $/month admin fees?
-
-       $ElecTotalOtherCharges = (   0.02135   # Transmission
-                                  + 0.00626   # Distribution 
-                                 );            # (all in $/kWh 
-       
-       $OilFixedCharge = 0;
-       $OilSupplyCharge = 1.23; #$/L
-       $OilTransportCharge = 0; 
-       $OilDeliveryCharge = 0;        
-       
-       
-       last SWITCH; 
-    }
-    
-    
-    #############################################################
-    #################                       #####################
-    #################     CALGARY           #####################
-    #################                       #####################
-    #############################################################
-    
-    if ( $gChoices{"Opt-Location"} =~/Calgary/ ){
-       # Alberta gas charges (Atco gas SOUTH) 
-       $NGasFixedCharge     = 0.747 * 365 / 12       ; # $ / month;  (ATCO charges by the day...)
-       $NGasSupplyCharge    = 0 ; # $ / m3
-       $NGasTrasportCharge  = 0 ; # $ / m3
-       # Pay $0.044/m3 for fist 32200 m3 used all year, 0.041 after. Holy crap, gas is cheap!
-       # Source: http://www.atcogas.com/Rates/Current_Rates/
-       %NGasDeliveryTier    = (    32200 => 0.04358, 
-                                 1000000 => 0.041237 );  # $ / m3      
-       $NGTierType = "annual";
-    
-       # Calgary -- same as EDMONTON electrcric charges (EPCOR: http://www.epcor.com/power/rates-tariffs/RegulatedRateTariffsEdmonton/RegulatedRateTariff-2013-02.pdf
-       
-       my $RRORate = 0.0960 * $ElecRateEsc;# $/kWh (Regulated Rate Tariff, Edmondton, avg 2011-2013
-       
-       # No TOU in Edmonton.
-       $ElecPeakCharges{"summer"}{"off-peak"} = $RRORate ;  # $/kWh
-       $ElecPeakCharges{"summer"}{"mid-peak"} = $RRORate ;
-       $ElecPeakCharges{"summer"}{"on-peak"}  = $RRORate ;
-       
-       $ElecFixedCharge = 6.14 + 0.51906 * 365 / 12   ; # $/month admin fees?
-
-       $ElecTotalOtherCharges = (   0.02135   # Transmission
-                                  + 0.00626   # Distribution 
-                                 );            # (all in $/kWh )
-           $OilFixedCharge = 0;
-       $OilSupplyCharge = 1.23; #$/L
-       $OilTransportCharge = 0; 
-       $OilDeliveryCharge = 0; 
-    
-       last SWITCH; 
-    
-    }    
-    
-    #############################################################
-    #################                       #####################
-    #################  MONTREAL / QUEBEC    #####################
-    #################                       #####################
-    #############################################################
-    
-    if ( $gChoices{"Opt-Location"} =~/Montreal/ || $gChoices{"Opt-Location"} =~/Quebec/ ){
-       # GazMetro rates Rates are wacky: http://www.gazmetro.com/data/media/conditionsservicetarif_an.pdf?culture=en-ca 
-       $NGasFixedCharge     = 0.465 * 365 / 12       ; # $ / month;  (GazMetro charges by the day...)
-       $NGasSupplyCharge    = 0.14247  ; # $ / m3
-       $NGasTrasportCharge  = 0.00563  # Compression 
-                            + 0.00847  # Transportation (Southern zone
-                            + 0.00465; # Load balancing, $ / m3
-       
-       %NGasDeliveryTier    = (     30     =>  0.23263,  
-                                    70     =>  0.15904,  
-                                    200    =>  0.14666,  
-                                    700    =>  0.11103,  
-                                    2000   =>  0.08215,  
-                                    7000   =>  0.05777,    
-                                    20000  =>  0.04649,                    
-                                    70000  =>  0.03853,
-                                  1000000  =>  0.03195  ); 
-
-                             
-                                                           
-       $NGTierType = "monthly";
-    
-       # HYDRO QUEBEC: http://www.hydroquebec.com/publications/en/rates/pdf/distribution_tariff.pdf
-       # 5.32 c/kwh + 40.6 c/day *THATs' IT!*
-       
-       my $HydroRate = 0.0532 * $ElecRateEsc;# $/kWh (Regulated Rate Tariff, Edmondton, avg 2011-2013
-       
-       # No TOU in Edmonton.
-       $ElecPeakCharges{"summer"}{"off-peak"} = $HydroRate ;  # $/kWh
-       $ElecPeakCharges{"summer"}{"mid-peak"} = $HydroRate ;
-       $ElecPeakCharges{"summer"}{"on-peak"}  = $HydroRate ;
-       
-       $ElecFixedCharge = 0.406 * 365 / 12   ; # $/month admin fees?
-
-       $ElecTotalOtherCharges = (   0       # Transmission /s Distribution 
-                                 );            # (all in $/kWh )
-    
-    
-       $OilFixedCharge = 0;
-       $OilSupplyCharge = 1.16; #$/L
-       $OilTransportCharge = 0; 
-       $OilDeliveryCharge = 0;     
-    
-    
-       last SWITCH; 
-    
-    }    
-    
-        
-    
-    
-    
-    
-    
-    
-  }
-  
 
   # Assume summer and winter rates are the same. 
-  $ElecPeakCharges{"winter"}{"off-peak"} = $ElecPeakCharges{"summer"}{"off-peak"} ;
-  $ElecPeakCharges{"winter"}{"mid-peak"} = $ElecPeakCharges{"summer"}{"mid-peak"} ;
-  $ElecPeakCharges{"winter"}{"on-peak"}  = $ElecPeakCharges{"summer"}{"on-peak"}  ;
+  #$ElecPeakCharges{"winter"}{"off-peak"} = $ElecPeakCharges{"summer"}{"off-peak"} ;
+  #$ElecPeakCharges{"winter"}{"mid-peak"} = $ElecPeakCharges{"summer"}{"mid-peak"} ;
+  #s$ElecPeakCharges{"winter"}{"on-peak"}  = $ElecPeakCharges{"summer"}{"on-peak"}  ;
   
-                              
   
-  my $gMasterPath = getcwd();
-
+  
+  
+  #_------------------------- New rates ! -------------------------
   
    
+  # Base charges for natural gas ($/month)
+  my %Elec_BaseCharge = ( "Halifax"      =>  10.83  ,
+                          "Edmonton"     =>  21.93  ,
+                          "Calgary"      =>  17.55  ,
+                          "Ottawa"       =>  9.42   ,
+                          "Toronto"      =>  18.93  ,
+                          "Quebec"       =>  12.36  ,
+                          "Montreal"     =>  12.36  ,
+                          "Vancouver"    =>  4.58   ,
+                          "Regina"       =>  20.22  ,
+                          "Winnipeg"     =>  6.85   ,
+                          "Fredricton"   =>  19.73  ,
+                          "Whitehorse"   =>  16.25    ); 
+	
+  # Base charges for natural gas ($/month)
+  my %NG_BaseCharge = ( "Halifax"      =>  21.87 ,
+                        "Edmonton"     =>  28.44 ,
+                        "Calgary"      =>  28.44 ,
+                        "Ottawa"       =>  20.00 ,
+                        "Toronto"      =>  20.00 ,
+                        "Quebec"       =>  14.01 ,
+                        "Montreal"     =>  14.01 ,
+                        "Vancouver"    =>  11.83 ,
+                        "Regina"       =>  18.85 ,
+                        "Winnipeg"     =>  14.00 ,
+                        "Fredricton"   =>  16.00 ,
+                        "Whitehorse"   =>  "nil"  ); 	
+
+   my %Elec_TierType  = ( "Halifax"      =>  "none" ,
+                          "Edmonton"     =>  "none" ,
+                          "Calgary"      =>  "none" ,
+                          "Ottawa"       =>  "OntTOU" ,
+                          "Toronto"      =>  "OntTOU" ,
+                          "Quebec"       =>  "1-day" ,
+                          "Montreal"     =>  "1-day" ,
+                          "Vancouver"    =>  "2-month",
+                          "Regina"       =>  "none" ,
+                          "Winnipeg"     =>  "none" ,
+                          "Fredricton"   =>  "none" ,
+                          "Whitehorse"   =>  "1-month"   ); 
+ 
+    my %NG_TierType  = (  "Halifax"      =>  "none" ,
+                          "Edmonton"     =>  "none" ,
+                          "Calgary"      =>  "none" ,
+                          "Ottawa"       =>  "1-month" ,
+                          "Toronto"      =>  "1-month" ,
+                          "Quebec"       =>  "1-month" ,
+                          "Montreal"     =>  "1-month" ,
+                          "Vancouver"    =>  "none",
+                          "Regina"       =>  "none" ,
+                          "Winnipeg"     =>  "none" ,
+                          "Fredricton"   =>  "none" ,
+                          "Whitehorse"   =>  "NA"   ); 
+ 
+    
+    my %EffElectricRates = ( "Halifax"    => 0.1436 ,
+                             "Edmonton"   => 0.1236 ,
+                             "Calgary"    => 0.1224 ,
+                             "Regina"     => 0.1113 ,
+                             "Winnipeg"   => 0.0694 ,
+                             "Fredricton" => 0.0985   ); 
+    # TOU for ottawa, toronto.                        
+    $EffElectricRates{"Ottawa"}{"off-peak"} =  0.1025 ;                        
+    $EffElectricRates{"Ottawa"}{"mid-peak"} =  0.1385 ;
+    $EffElectricRates{"Ottawa"}{"on-peak"}  =  0.1575 ;
+        
+    $EffElectricRates{"Toronto"}{"off-peak"} =  0.0967 ;  
+    $EffElectricRates{"Toronto"}{"mid-peak"} =  0.1327 ;
+    $EffElectricRates{"Toronto"}{"on-peak"}  =  0.1517 ;
+  
+    # Tiers for Montreal, Quebec 
+    $EffElectricRates{"Montreal"}{"30"}   = 0.0532 ;
+    $EffElectricRates{"Montreal"}{"9.9E99"} = 0.0751 ; 
+    $EffElectricRates{"Quebec"} = $EffElectricRates{"Montreal"}; 
+    
+    # Tiers for Vancouver
+    $EffElectricRates{"Vancouver"}{"1350"} = 0.0714 ; 
+    $EffElectricRates{"Vancouver"}{"9.9E99"} = 0.1070 ; 
+  
+    # Tiers for Whitehorse 
+    $EffElectricRates{"Whitehorse"}{"1000"} =  0.0967 ; 
+    $EffElectricRates{"Whitehorse"}{"2500"} =  0.1327 ;
+    $EffElectricRates{"Whitehorse"}{"9.9E99"} =  0.1517 ;
   
   
   
+    my %EffGasRates  = (  "Halifax"      =>  0.5124 ,
+                          "Edmonton"     =>  0.1482 ,
+                          "Calgary"      =>  0.1363 ,
+                          "Vancouver"    =>  0.2923 ,
+                          "Regina"       =>  0.2163 ,
+                          "Winnipeg"     =>  0.2298 ,
+                          "Fredricton"   =>  0.6458 ,
+                          "Whitehorse"   =>  99999.9   ); 
+   
+    # Tiers for ottawa, toronto
+    $EffGasRates{"Ottawa"}{"30"}     = 0.2669; 
+    $EffGasRates{"Ottawa"}{"85"}     = 0.2622; 
+    $EffGasRates{"Ottawa"}{"790"}    = 0.2586; 
+    $EffGasRates{"Ottawa"}{"9.9E99"} = 0.2564;
+    $EffGasRates{"Toronto"} = $EffGasRates{"Ottawa"} ; 
+  
+    # Tiers for Montreal, Quebec 
+    $EffGasRates{"Montreal"}{"30"}     = 0.5001; 
+    $EffGasRates{"Montreal"}{"100"}    = 0.4229; 
+    $EffGasRates{"Montreal"}{"300"}    = 0.4106; 
+    $EffGasRates{"Montreal"}{"9.9E99"} = 0.3749;
+    $EffGasRates{"Quebec"} = $EffGasRates{"Montreal"} ; 
+    
+    
+  
+  # ------ READ IN Summary Data.                            
+  
+  my $gMasterPath = getcwd();
 
   # Move to working CFG directory, and parse out.summary file
   chdir $gWorkingCfgPath; 
@@ -1462,6 +1396,8 @@ sub postprocess($){
 
   close (TSRESULTS);
 
+  my $Locale = $gChoices{"Opt-Location"}; 
+  
   my $NumberOfRows = scalar(@{$data{$headers[0]}});
 
   debug_out("done (parsed $NumberOfRows rows)\n"); 
@@ -1475,8 +1411,9 @@ sub postprocess($){
   my @HourOfDay   = @{  $data{" building:hour:future (hours)"}  } ;
   my @MonthOfYear = @{  $data{" building:month (-)"}            } ; 
 
-  # Now loop through data and apply 
+  # Now loop through data and apply energy rates
 
+  # Variables to track running tallies for energy consumption 
   my $row; 
 
   my $ElecConsumptionCost = 0; 
@@ -1484,35 +1421,65 @@ sub postprocess($){
   my $GasConsumptionCost  = 0; 
   my $OilConsumptionCost  = 0; 
 
+  my $GasCurrConsumpionForTiers = 0; 
+  my $ElecCurrConsumpionForTiers = 0; 
+  
+  
   my $CurrDayOfWeek = $FirstDay_Day_Of_Week; 
 
   my $OldDay   = 1; 
   my $OldMonth = 1; 
+  
+  
 
+  my $BiMonthCounter = 1; 
 
   for ( $row = 0; $row < $NumberOfRows; $row++){
 
-   
-
+    my $DayRollover = 0; 
+    my $MonthRollover = 0; 
+    my $BiMonthRollover = 0; 
+  
     # Get current hour, day & month as integers
     my $CurrDay   =  int($DayOfYear[$row])   ;
     my $CurrMonth =  int($MonthOfYear[$row]) ;
     my $CurrHour  =  int($HourOfDay[$row])   ;  
    
     
-    # ELECTRICITY---------------------------------------------------------
     # Check to see if this is a new day, and increment day of week as needed
     if ( $CurrDay != $OldDay ) {
     
       $CurrDayOfWeek++; 
       
+      $DayRollover = 1; 
+      
       # Roll over week after 7 days. 
       if ( $CurrDayOfWeek > 7 ){ $CurrDayOfWeek = 1; }
+      
       $OldDay = $CurrDay; 
     }
     
+    # Check to see if this is a new month for billing tiers 
+    if ( $CurrMonth != $OldMonth ) {
     
-    # Determine if this is a weekday or holiday 
+      $MonthRollover = 1;
+      # Increment counter for bi-monthly billing periods       
+      $BiMonthCounter++; 
+      
+      $OldMonth = $CurrMonth ; 
+    
+    }
+    
+    # Check to see if bimontly counter has reached 3 for bimonthly 
+    # billing tiers. 
+    if ( $BiMonthCounter > 2 ){
+        $BiMonthRollover = 1; 
+        $BiMonthCounter = 1; 
+    } 
+            
+    
+    # Determine if this is a weekday, weekend, or holiday for 
+    # TOU calculations
     my $WeekendOrHoliday = 0; 
 
     foreach (@holidays){
@@ -1538,74 +1505,172 @@ sub postprocess($){
     
     }
     
+    # For Tiered energy use, check tier type and possibly reset energy 
+    # consumption for tier period 
     
+    my $ElecTierType = $Elec_TierType{$Locale}; 
+    my $GasTierType  = $NG_TierType{$Locale}; 
+    if ( ( $ElecTierType eq "1-day"   && $DayRollover     ) || 
+         ( $ElecTierType eq "1-month" && $MonthRollover   ) || 
+         ( $ElecTierType eq "2-month" && $BiMonthRollover )    ){
+       $ElecCurrConsumpionForTiers = 0; 
+    }
+    if ( ( $GasTierType eq "1-day"   && $DayRollover     ) || 
+         ( $GasTierType eq "1-month" && $MonthRollover   ) || 
+         ( $GasTierType eq "2-month" && $BiMonthRollover )    ){
+       $GasCurrConsumpionForTiers = 0; 
+    }    
     
-    
+    # ELECTRICITY---------------------------------------------------------
     
     # Now apply electrical rates.
     
     my $ElecConsumption = $Electrical_Use[$row] * $TSLength;  # kWh 
     
-    my $ElecVarRate     = $ElecPeakCharges{$CurrElecRatePeriod}{$CurrPeakPeriod} ; # $/kWh
+    my $EffElecRate; 
     
-    my $ElecEffectRate  = $ElecVarRate + $ElecTotalOtherCharges ;  # $/kWh
+    if ( $Elec_TierType{$Locale} eq "none" ) {
+      # No tier --- province has a single rate`   
+      $EffElecRate = $EffElectricRates{$Locale}; 
+      $ElecConsumptionCost += $ElecConsumption * $EffElecRate
     
-    
-    $ElecConsumptionCost += $ElecConsumption * $ElecEffectRate ; 
-         
-         
-    # Natural GAS ========================================================
+    }elsif ( $Elec_TierType{$Locale} eq "OntTOU" ) {
+      # Ontario TOU
+      $EffElecRate = $EffElectricRates{$Locale}{$CurrPeakPeriod} ; 
+      $ElecConsumptionCost += $ElecConsumption * $EffElecRate ; 
+      stream_out ( " >ELE Charging $ElecConsumption kwh to tiers: ( TOU Period: $CurrPeakPeriod ) -> $ElecConsumptionCost @  $EffElecRate \n"); 
+    }else {
+      # Standard consumption tier. $ElecCurrConsumpionForTiers contains 
+      # current consumption in Tier billing period.  
+       
+      my $ElecTiersRef = $EffElectricRates{$Locale}; 
+      my %ElecTiers = %$ElecTiersRef; 
+      my $Done = 0;  
+      my $UnbilledConsumption = $ElecConsumption; 
+ 
+      SKIPme: foreach my $tier (sort {$a <=> $b} (keys %ElecTiers)){
 
-    # Check to see if this is a new month, and zero gas consumption counter 
-    # if so.
+        my $BilledConsumption = 0; 
+        # Rate for this tier: 
+        $EffElecRate = $ElecTiers{$tier}; 
+        
+        if ( $ElecCurrConsumpionForTiers >= $tier ) { 
+        
+            # Next tier 
+        
+        }elsif ($UnbilledConsumption > 0.001 ) { 
+        
+          # Bill only for the amount that 'fits' in the current tier. 
+          $BilledConsumption = 
+              $ElecCurrConsumpionForTiers + $UnbilledConsumption > $tier ? 
+              $tier - $ElecCurrConsumpionForTiers : $UnbilledConsumption   ; 
+              
+          # Save remaining amount of unbilled consumption for the 
+          # next tier ( maybe zero). 
+          
+          $UnbilledConsumption -= $BilledConsumption; 
 
-    if ( $CurrMonth != $OldMonth && $NGTierType =~ /monthly/  ){
-
-      $MonthGasConsumption = 0; 
+          # Add billed consumption to current amount in tier. 
+          $ElecCurrConsumpionForTiers += $BilledConsumption; 
+          
+          # Compute cost of billed consumption
+          $ElecConsumptionCost += $BilledConsumption * $EffElecRate ; 
+          
+        }
+        
+        
+        stream_out ( " >ELE Charging $ElecConsumption kwh to tiers: ( is $ElecCurrConsumpionForTiers > $tier ?) -> $BilledConsumption @  $EffElecRate \n"); 
+        
+        #stream_out ( "> Tiers: $tier \n" ); 
+        #if ( $Done ) { last SKIPme; } 
+      }
       
-      $OldMonth = $CurrMonth;
-    
     }
     
+         
+    # Natural GAS ========================================================
     
     # Use current month's gas consumption to figure out tier of current 
     # gas consumption. 
-    my $CurrentGasConsumption = $NaturalGas_Use[$row] * $TSLength; # M3
+    # stream_out ("> raw NG: $NaturalGas_Use[$row] \n"); 
+    my $GasConsumption = $NaturalGas_Use[$row] < 0 ?
+                         0 : $NaturalGas_Use[$row] * $TSLength; # M3
     
-    $MonthGasConsumption += $CurrentGasConsumption; 
+    #$$$$$$$$$$$$$$$$$$$$$$$$$$
     
-    my $CurrGasTarrif;
     
-    SKIP: foreach my $tier (sort {$a <=> $b} (keys %NGasDeliveryTier)){
-      
-      
-      
-      if ( $MonthGasConsumption < $tier ){
+    my $EffGasRate; 
+    if ( $NG_TierType{$Locale} eq "NA" ) {
+    
+        if ($GasConsumption > 0.000001 ) {
+          fatalerror ( " GAS FOUND ($GasConsumption m3), But no gas rate for $Locale !" ); 
+        }else{
+            $GasConsumptionCost  = 0; 
+            $EffGasRate = 0; 
+        }
+    
+    }elsif ( $NG_TierType{$Locale} eq "none" ) {
+      # No tier --- province has a single rate`   
+      $EffGasRate = $EffGasRates{$Locale}; 
+      $GasConsumptionCost += $GasConsumption * $EffGasRate
+    
+    }else {
+      # Standard consumption tier. $GasCurrConsumpionForTiers contains 
+      # current consumption in Tier billing period.  
+       
+      my $GasTiersRef = $EffGasRates{$Locale}; 
+      my %GasTiers = %$GasTiersRef; 
+      my $UnbilledConsumption = $GasConsumption; 
+      SKIPme: foreach my $tier (sort {$a <=> $b} (keys %GasTiers)){
+     
+        my $BilledConsumption = 0; 
+        # Rate for this tier: 
+        $EffGasRate = $GasTiers{$tier}; 
         
-        $CurrGasTarrif = $NGasDeliveryTier{$tier} ; 
-        last SKIP; 
+        if ( $GasCurrConsumpionForTiers >= $tier ) { 
+        
+            # Next tier 
+        
+        }elsif ($UnbilledConsumption > 0.001 ) { 
+        
+          # Bill only for the amount that 'fits' in the current tier. 
+          $BilledConsumption = 
+              $GasCurrConsumpionForTiers + $UnbilledConsumption > $tier ? 
+              $tier - $GasCurrConsumpionForTiers : $UnbilledConsumption   ; 
+              
+          # Save remaining amount of unbilled consumption for the 
+          # next tier ( maybe zero). 
+          
+          $UnbilledConsumption -= $BilledConsumption; 
+
+          # Add billed consumption to current amount in tier. 
+          $GasCurrConsumpionForTiers += $BilledConsumption; 
+          
+          # Compute cost of billed consumption
+          $GasConsumptionCost += $BilledConsumption * $EffGasRate ; 
+          
+        }
+        
+        
+        #print  " >GAS Charging $GasConsumption m3 to tiers: ( is $GasCurrConsumpionForTiers > $tier ?) -> $BilledConsumption @  $EffGasRate \n"; 
+
       }
+      
+    }    
     
-    }
-    
-    
-    
-    
-    $GasConsumptionCost += $CurrentGasConsumption * (   $CurrGasTarrif 
-                                                      + $NGasSupplyCharge 
-                                                      + $NGasTrasportCharge ); 
+    #$$$$$$$$$$$$$$$$$$$$$$$$$
     
     
     #### OIL 
     
-    my $CurrentOilConsumption = $Oil_Use[$row] * $TSLength; # M3
+    #my $CurrentOilConsumption = $Oil_Use[$row] * $TSLength; # M3
     
-    $OilConsumptionCost += $CurrentOilConsumption * ( $OilSupplyCharge ); 
+    #$OilConsumptionCost += $CurrentOilConsumption * ( $OilSupplyCharge ); 
     
     
     #if ( $CurrMonth > 2 ) { die(); }
          
-    #debug_out ("  $CurrMonth $CurrDay $CurrHour | $CurrElecRatePeriod - $CurrPeakPeriod ($WeekendOrHoliday)  $ElecConsumption [kWh] * ( $ElecVarRate + $ElecTotalOtherCharges [\$/kWh] ) = $ElecConsumptionCost  \n");        
+    #debug_out (" $Locale: TIER: $Elec_TierType{$Locale}  $CurrMonth $CurrDay $CurrHour | $CurrElecRatePeriod - $CurrPeakPeriod ($WeekendOrHoliday)  $ElecConsumption [kWh] * ( old:  vs new: $EffElecRate [\$/kWh] ) = $ElecConsumptionCost  \n");        
 
     #debug_out ("  $CurrMonth $CurrDay $CurrHour | $MonthGasConsumption -> $CurrGasTarrif | $GasConsumptionCost += $CurrentGasConsumption * $CurrGasTarrif \n"); 
     
@@ -1614,10 +1679,9 @@ sub postprocess($){
 
 
 
-  my $TotalElecBill = $ElecFixedCharge * 12. + $ElecConsumptionCost ; 
-
-  my $TotalGasBill  = $NGasFixedCharge * 12. + $GasConsumptionCost  ; 
-
+  my $TotalElecBill = $Elec_BaseCharge{$Locale}* 12. + $ElecConsumptionCost ; 
+  my $TotalGasBill  = $GasConsumptionCost < 0.01 ? 0 : $NG_BaseCharge{$Locale} * 12. + $GasConsumptionCost  ; 
+  
   my $TotalOilBill  = $OilFixedCharge * 12. + $OilConsumptionCost  ; 
   
   # Add data from externally computed SDHW (presently not accounting for pump energy...)
@@ -1757,22 +1821,22 @@ sub postprocess($){
   # Estimate total cost of upgrades
 
   $gTotalCost = 0;         
-
-  debug_out ("\n\n Estimated costs: \n\n");
+  my $RegionalCostAdj = $RegionalCostFactors{$Locale}; 
+  debug_out ("\n\n Estimated costs in $Locale (x$RegionalCostAdj Ottawa costs) : \n\n");
 
   foreach my  $attribute ( sort keys %gChoices ){
     
     my $choice = $gChoices{$attribute}; 
     my $cost; 
-    $cost  = $gOptions{$attribute}{"options"}{$choice}{"cost"};
-    $gTotalCost += $cost;
+    $cost  = $gOptions{$attribute}{"options"}{$choice}{"cost"} * $RegionalCostAdj;
+    $gTotalCost += $cost ;
 
     debug_out( " +  ".round($cost)." ( $attribute : $choice ) \n");
     
   }
-  debug_out ( " - ".round($gIncBaseCosts)." (Base costs for windows)  \n"); 
+  debug_out ( " - ".round($gIncBaseCosts * $RegionalCostAdj)." (Base costs for windows)  \n"); 
   debug_out ( " --------------------------------------------------------\n");
-  debug_out ( " =   ".round($gTotalCost-$gIncBaseCosts)." ( Total incremental cost ) \n");
+  debug_out ( " =   ".round($gTotalCost-$gIncBaseCosts* $RegionalCostAdj )." ( Total incremental cost ) \n");
 
   chdir($gMasterPath);
   my $fileexists; 
@@ -1795,7 +1859,7 @@ foreach my  $attribute ( sort keys %gChoices ){
 }
 
 $RS1stline .= ",ENERGY_GJ,COST_\$";
-$RS2ndline .= ",".$gTotalEnergy.",".round($gTotalCost-$gIncBaseCosts)."";
+$RS2ndline .= ",".$gTotalEnergy.",".round($gTotalCost-$gIncBaseCosts* $RegionalCostFactors{$Locale})."";
 
 if (  ! $fileexists ) { print RSGRAPH "$RS1stline" };
 print RSGRAPH "\n $RS2ndline ";
