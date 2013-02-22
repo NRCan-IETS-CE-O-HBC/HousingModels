@@ -7,7 +7,7 @@ GOconfig_step :  %stepNumber%
 GOconfig_rotate      : %GOtag:GOconfig_rotate%
 
 ! Select a geographic location
-OPT-WEATHER-FILE		: %GOtag:Opt-Location%
+Opt-Location :  %GOtag:Opt-Location%
 
 OPT-HRV_ctl          : %GOtag:HRVcontrol%
 
@@ -117,3 +117,4 @@ Opt-DHWLoadScale     : %GOtag:DHWLoadScale%
 
 OPT-HRV_ctl          : %GOtag:HRVcontrol%
 
+Opt-RoofPitch : %GOtag:RoofPitch% 
