@@ -31,7 +31,7 @@ Vary{
    Parameter{   // 
      Name    =  GOtag:Opt-AirTightness;
      Ini     =  1;
-     Values  =  "TypicalGTA, R2000";
+     Values  =  "R2000, Cdn1ACH, PassiveHouse";
      
    }    
    
@@ -47,7 +47,7 @@ Vary{
    Parameter{   // 
      Name    =  GOtag:Opt-MainWall;
      Ini     =  1;
-     Values  =  "BaseR21, Stud-R40-Wall"; 
+     Values  =  "BaseR21,Stud-R40-Wall,SIPS-R28-Wall,Stud-R35-Wall,DblStud-R37-Wall,DblStud-R52-Wall "; 
    }    
   
    // Foundation walls: OBC-min-R12
@@ -65,7 +65,7 @@ Vary{
    Parameter{   // 
      Name    =  GOtag:Opt-BasementWallInsulation;
      Ini     =  1;
-     Values  =  "OBC-min-R12"; 
+     Values  =  "OBC-min-R12,Rigid+Batt-R20,Rigid+Batt-R30,Rigid+Batt-R37,ICF-base-R51"; 
    } 
 
    // Basement Slab: NoInsulation
@@ -79,7 +79,7 @@ Vary{
    Parameter{   // 
      Name    =  GOtag:Opt-BasementSlabInsulation;
      Ini     =  1;
-     Values  =  "NoInsulation"; 
+     Values  =  "NoInsulation,R10UnderSlab,R10UnderSlab+edge,R12UnderSlab+edge,R12EdgeP6,R12EdgeP10,R12EdgeP6"; 
    } 
 
    // Exposed floor: BaseExpFloor-R31
@@ -88,7 +88,7 @@ Vary{
    Parameter{   // 
      Name    =  GOtag:Opt-ExposedFloor;
      Ini     =  1;
-     Values  =  "BaseExpFloor-R31";
+     Values  =  "BaseExpFloor-R31,ExpFloorFlash&Batt-R36,ExpFloorFoamed-R52";
    }    
    
    
@@ -101,19 +101,19 @@ Vary{
    Parameter{   // 
      Name    =  GOtag:Opt-Ceilings;
      Ini     =  1;
-     Values  =  "CeilingR50";
+     Values  =  "CeilingR50,CeilingR60,CeilingR70,CeilingR80,CeilingR90,CeilingR100";
    }    
   
   // Windows:  DoubleLowEHardCoatAirFill 
   //           DoubleLowEHardCoatArgFill
   //           DoubleLowESoftCoatArgFill 
   //           TripleLowEHardCoatKryFill
-  //           TripleLowESoftCoatKryFill
+  //           TripleLowEHardCoatKryFill
   
   Parameter{   // 
      Name    =  GOtag:Opt-CasementWindows;
      Ini     =  1;
-     Values  =  "DoubleLowEHardCoatArgFill";    
+     Values  =  "DoubleLowEHardCoatArgFill,DoubleLowESoftCoatArgFill,TripleLowEHardCoatKryFill,TripleLowEHardCoatKryFill";    
      
    }    
    
@@ -123,7 +123,7 @@ Vary{
   Parameter{   // 
      Name    =  GOtag:Ext-DryWall;
      Ini     =  1;
-     Values  =  "OneSheet";    
+     Values  =  "OneSheet, TwoSheets";    
      
    }    
    
@@ -134,7 +134,7 @@ Vary{
   Parameter{   // 
      Name    =  GOtag:Opt-FloorSurface;
      Ini     =  1;
-     Values  =  "wood";    
+     Values  =  "wood,1-in-concrete,2-in-concrete";    
    }       
  
    
@@ -142,7 +142,7 @@ Vary{
   
   
   // SolarDHW: none, 
-  //           DHWR, 
+  //           DWHR, 
   //           1-flat-plate, 
   //           1-flat-plate+DWHR, 
   //           2-flat-plate, 
@@ -151,7 +151,7 @@ Vary{
   Parameter{   // 
      Name    = GOtag:Opt-SolarDHW; 
      Ini     = 1; 
-     Values  = "none"; 
+     Values  = "none,DWHR,1-flat-plate,1-flat-plate+DWHR,2-flat-plate,2-flat-plate+DWHR"; 
   } 
   
   // Conventional DHW:  BaseDHW, 
@@ -163,7 +163,7 @@ Vary{
   Parameter{ //
      Name    = GOtag:Opt-DHWSystem;
      Ini     = 1; 
-     Values  = "BaseDHW" ; 
+     Values  = "BaseDHW,ElecInstantaneous,ElectricStorage,GasInstantaneous,ElectricHP" ; 
   }
 
   
@@ -174,7 +174,7 @@ Vary{
   Parameter {// 
       Name   = GOtag:Opt-HVACSystem; 
       Ini    = 1; 
-      Values = "basefurnace"; 
+      Values = "basefurnace,elec-baseboard,CCASHP,GSHP"; 
   }
   
   // PV: Set to autosize to ensure each run actually achieves NZEH.  
@@ -201,7 +201,7 @@ Vary{
    Parameter{  // Back windows 
      Name    = GOtag:Opt-BackWindows; 
      Ini     = 1; 
-     Values  = "NoExtraWin"; 
+     Values  = "NoExtraWin,OneExtraWin,TwoExtraWin,ThreeExtraWin,FourExtraWin,FiveExtraWin,SixExtraWin,SevenExtraWin"; 
    }
    
    Parameter{   // First Floor -- left side (as viewed from front  
@@ -277,23 +277,23 @@ Vary{
 
 
 OptimizationSettings{
-  MaxIte = 10000;
-  MaxEqualResults = 100;
+  MaxIte = 100000;
+  MaxEqualResults = 1000;
   WriteStepNumber = true;
 }
 
 
 Algorithm{
- Main                      = PSOIW;
+ Main                       = PSOIW;
   NeighborhoodTopology      = vonNeumann;
   NeighborhoodSize          = 10; // Disregarded for vonNeumann topology
-  NumberOfParticle          = 20;
-  NumberOfGeneration        = 5;
-  Seed                      = 56;
-  CognitiveAcceleration     = 1; // 0 < CognitiveAcceleration
+  NumberOfParticle          = 32;
+  NumberOfGeneration        = 100;
+  Seed                      = 0;
+  CognitiveAcceleration     = 1.2; // 0 < CognitiveAcceleration
   SocialAcceleration        = 1; // 0 < SocialAcceleration
-  MaxVelocityGainContinuous = 1;
-  MaxVelocityDiscrete       = 1; // 0 < MaxVelocityDiscrete
+  MaxVelocityGainContinuous = 0.5;
+  MaxVelocityDiscrete       = 0.5; // 0 < MaxVelocityDiscrete
   InitialInertiaWeight      = 1.2;    // 0 < InitialInertiaWeight
   FinalInertiaWeight        = 0;      // 0 < FinalInertiaWeight
 }
