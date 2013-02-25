@@ -286,9 +286,9 @@ OptimizationSettings{
 Algorithm{
  Main                       = PSOIW;
   NeighborhoodTopology      = vonNeumann;
-  NeighborhoodSize          = 10; // Disregarded for vonNeumann topology
-  NumberOfParticle          = 32;
-  NumberOfGeneration        = 100;
+  NeighborhoodSize          = 8; // Disregarded for vonNeumann topology
+  NumberOfParticle          = 24;
+  NumberOfGeneration        = 2000;
   Seed                      = 0;
   CognitiveAcceleration     = 1.2; // 0 < CognitiveAcceleration
   SocialAcceleration        = 1; // 0 < SocialAcceleration
@@ -301,6 +301,10 @@ Algorithm{
 
 
 //Algorithm{
+
+
+
+
 //  Main = Mesh;
 //  StopAtError = true; 
 //}

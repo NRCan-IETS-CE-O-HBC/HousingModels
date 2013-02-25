@@ -134,7 +134,7 @@ Opt-DHWLoadScale     : EfficientLiving
 !  GasInstant
 !  ElectricHP
 
-Opt-DHWSystem        : BaseDHW
+Opt-DHWSystem        : ElecInstantaneous
 
 ! HVAC system 
 !  basefurnace
