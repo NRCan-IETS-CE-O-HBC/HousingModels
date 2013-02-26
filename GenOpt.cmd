@@ -113,7 +113,7 @@ Vary{
   Parameter{   // 
      Name    =  GOtag:Opt-CasementWindows;
      Ini     =  1;
-     Values  =  "DoubleLowEHardCoatArgFill,DoubleLowESoftCoatArgFill,TripleLowEHardCoatKryFill,TripleLowEHardCoatKryFill";    
+     Values  =  "DoubleLowEHardCoatArgFill,DoubleLowESoftCoatArgFill,TripleLowEHardCoatKryFill,TripleLowESoftCoatKryFill";    
      
    }    
    
@@ -290,7 +290,7 @@ Algorithm{
   NumberOfParticle          = 24;
   NumberOfGeneration        = 2000;
   Seed                      = 0;
-  CognitiveAcceleration     = 1.2; // 0 < CognitiveAcceleration
+  CognitiveAcceleration     = 2; // 0 < CognitiveAcceleration
   SocialAcceleration        = 1; // 0 < SocialAcceleration
   MaxVelocityGainContinuous = 0.5;
   MaxVelocityDiscrete       = 0.5; // 0 < MaxVelocityDiscrete
