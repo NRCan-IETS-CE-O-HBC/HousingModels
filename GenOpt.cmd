@@ -65,7 +65,9 @@ Vary{
    Parameter{   // 
      Name    =  GOtag:Opt-BasementWallInsulation;
      Ini     =  1;
-     Values  =  "OBC-min-R12,Rigid+Batt-R20,Rigid+Batt-R30,Rigid+Batt-R37,ICF-base-R51"; 
+     Values  =  "OBC-min-R12,Rigid+Batt-R20,Rigid+Batt-R30,Rigid+Batt-R37"; 
+    // Values  =  "OBC-min-R12,Rigid+Batt-R20,Rigid+Batt-R30,Rigid+Batt-R37,ICF-base-R51";
+
    } 
 
    // Basement Slab: NoInsulation
@@ -289,8 +291,8 @@ Algorithm{
   NeighborhoodSize          = 8; // Disregarded for vonNeumann topology
   NumberOfParticle          = 24;
   NumberOfGeneration        = 2000;
-  Seed                      = 0;
-  CognitiveAcceleration     = 2; // 0 < CognitiveAcceleration
+  Seed                      = 2605;
+  CognitiveAcceleration     = 3; // 0 < CognitiveAcceleration
   SocialAcceleration        = 1; // 0 < SocialAcceleration
   MaxVelocityGainContinuous = 0.5;
   MaxVelocityDiscrete       = 0.5; // 0 < MaxVelocityDiscrete
