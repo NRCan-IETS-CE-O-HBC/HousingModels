@@ -23,7 +23,7 @@ Vary{
    
      Name = GOtag:Opt-Location; 
      Ini  = 1;
-     Values = "Calgary"; 
+     Values = "Edmonton"; 
    }
 
 
@@ -46,8 +46,8 @@ Vary{
    //            Truss-R52-Wall
    Parameter{   // 
      Name    =  GOtag:Opt-MainWall;
-     Ini     =  1;
-     Values  =  "BaseR21,Stud-R40-Wall,SIPS-R28-Wall,Stud-R35-Wall,DblStud-R37-Wall,DblStud-R52-Wall "; 
+     Ini     =  3;
+     Values  =  "SIPS-R28-Wall,Stud-R35-Wall,DblStud-R37-Wall,DblStud-R52-Wall "; 
    }    
   
    // Foundation walls: OBC-min-R12
@@ -65,8 +65,8 @@ Vary{
    Parameter{   // 
      Name    =  GOtag:Opt-BasementWallInsulation;
      Ini     =  1;
-     Values  =  "OBC-min-R12,Rigid+Batt-R20,Rigid+Batt-R30,Rigid+Batt-R37"; 
-    // Values  =  "OBC-min-R12,Rigid+Batt-R20,Rigid+Batt-R30,Rigid+Batt-R37,ICF-base-R51";
+     //Values  =  "Rigid+Batt-R20,Rigid+Batt-R30,Rigid+Batt-R37"; 
+   Values  =  "OBC-min-R12,Rigid+Batt-R20,Rigid+Batt-R30,Rigid+Batt-R37";
 
    } 
 
@@ -80,8 +80,8 @@ Vary{
    
    Parameter{   // 
      Name    =  GOtag:Opt-BasementSlabInsulation;
-     Ini     =  1;
-     Values  =  "NoInsulation,R10UnderSlab,R10UnderSlab+edge,R12UnderSlab+edge,R12EdgeP6,R12EdgeP10,R12EdgeP6"; 
+     Ini     =  4;
+     Values  =  "R10UnderSlab,R10UnderSlab+edge,R12UnderSlab+edge,R12EdgeP6,R12EdgeP10,R12EdgeP6"; 
    } 
 
    // Exposed floor: BaseExpFloor-R31
@@ -102,8 +102,8 @@ Vary{
    //           CeilingR100
    Parameter{   // 
      Name    =  GOtag:Opt-Ceilings;
-     Ini     =  1;
-     Values  =  "CeilingR50,CeilingR60,CeilingR70,CeilingR80,CeilingR90,CeilingR100";
+     Ini     =  3;
+     Values  =  "CeilingR60,CeilingR70,CeilingR80,CeilingR90,CeilingR100";
    }    
   
   // Windows:  DoubleLowEHardCoatAirFill 
@@ -152,7 +152,7 @@ Vary{
   
   Parameter{   // 
      Name    = GOtag:Opt-SolarDHW; 
-     Ini     = 1; 
+     Ini     = 2; 
      Values  = "none,DWHR,1-flat-plate,1-flat-plate+DWHR,2-flat-plate,2-flat-plate+DWHR"; 
   } 
   
@@ -165,7 +165,7 @@ Vary{
   Parameter{ //
      Name    = GOtag:Opt-DHWSystem;
      Ini     = 1; 
-     Values  = "BaseDHW,ElecInstantaneous,ElectricStorage,GasInstantaneous,ElectricHP" ; 
+     Values  = "ElecInstantaneous,ElectricStorage,GasInstantaneous,ElectricHP,BaseDHW" ; 
   }
 
   
@@ -176,7 +176,7 @@ Vary{
   Parameter {// 
       Name   = GOtag:Opt-HVACSystem; 
       Ini    = 1; 
-      Values = "basefurnace,elec-baseboard,CCASHP,GSHP"; 
+      Values = "basefurnace,elec-baseboard,CCASHP"; 
   }
   
   // PV: Set to autosize to ensure each run actually achieves NZEH.  
@@ -203,7 +203,7 @@ Vary{
    Parameter{  // Back windows 
      Name    = GOtag:Opt-BackWindows; 
      Ini     = 1; 
-     Values  = "NoExtraWin,OneExtraWin,TwoExtraWin,ThreeExtraWin,FourExtraWin,FiveExtraWin,SixExtraWin,SevenExtraWin"; 
+     Values  = "NoExtraWin,OneExtraWin,TwoExtraWin,ThreeExtraWin,FourExtraWin,FiveExtraWin,SixExtraWin"; 
    }
    
    Parameter{   // First Floor -- left side (as viewed from front  
@@ -291,11 +291,11 @@ Algorithm{
   NeighborhoodSize          = 8; // Disregarded for vonNeumann topology
   NumberOfParticle          = 24;
   NumberOfGeneration        = 2000;
-  Seed                      = 2605;
-  CognitiveAcceleration     = 3; // 0 < CognitiveAcceleration
-  SocialAcceleration        = 1; // 0 < SocialAcceleration
-  MaxVelocityGainContinuous = 0.5;
-  MaxVelocityDiscrete       = 0.5; // 0 < MaxVelocityDiscrete
+  Seed                      = 628;
+  CognitiveAcceleration     = 2; // 0 < CognitiveAcceleration
+  SocialAcceleration        = 3; // 0 < SocialAcceleration
+  MaxVelocityGainContinuous = 1.0;
+  MaxVelocityDiscrete       = 1.0; // 0 < MaxVelocityDiscrete
   InitialInertiaWeight      = 1.2;    // 0 < InitialInertiaWeight
   FinalInertiaWeight        = 0;      // 0 < FinalInertiaWeight
 }
