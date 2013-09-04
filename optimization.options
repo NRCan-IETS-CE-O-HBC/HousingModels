@@ -1,4 +1,27 @@
-! Optimization substututions 
+! Optimization substitutions 
+
+!-----------------------------------------------------------------------------
+! Change Mode Option - this options switches between a 'debug' mode in which
+! the timestep is defined as one day and the shading calculator (ish) is disabled 
+! AND a full simulation mode in which the timestep is a full year and ish is enabled
+!-----------------------------------------------------------------------  
+*attribute:start
+*attribute:name     = Opt-calcmode
+*attribute:tag:1    = <Opt-endday>
+*attribute:tag:2    = <Opt-endmonth>
+*attribute:tag:3    = <Opt-disable_isi>
+
+*option:debug:value:1    = 1
+*option:debug:value:2    = 1
+*option:debug:value:3 = #
+*option:debug:cost:total = 0
+
+*option:calc:value:1   = 31
+*option:calc:value:2   = 12
+*option:calc:value:3 = *isi
+*option:calc:cost:total = 0
+
+*attribute:end
 
 !-----------------------------------------------------------------------
 ! This option can be used to turn the model's minumum
@@ -17,13 +40,14 @@
 *option:MinWindows:value:1 = <Opt-CasWinConstruction>
 *option:MinWindows:value:2 = <Opt-CasWinOptics>
 *option:MinWindows:cost:total    = 0
-                         
+
+*attribute:end
+                       
 !-----------------------------------------------------------------------
 ! HRV control flag: flag defining assumptions associated with HRV control
 ! (this relates to the NZEH performance definition, and isn't intended 
 ! to be optimized. 
 !-----------------------------------------------------------------------
-*attribute:end
 
 *attribute:start 
 *attribute:name  = OPT-HRV_ctl
@@ -37,7 +61,6 @@
   
 *option:EightHRpDay:value:1 = 9
 *option:EightHRpDay:cost:total    = 0  
-
 
 *attribute:end
 
@@ -128,7 +151,6 @@
 *attribute:tag:5 = <OptTopFlExWin3Con>
 *attribute:tag:6 = <OptTopFlExWin3Opt>
 
-
 *option:NoExtraWin:value:1 = <Opt-MainWall-Bri>
 *option:NoExtraWin:value:2 = OPAQUE
 *option:NoExtraWin:value:3 = <Opt-MainWall-Bri>
@@ -145,7 +167,6 @@
 *option:OneExtraWin:value:6 = OPAQUE
 *option:OneExtraWin:cost:total    = <MULTIPLY-COST:Opt-CasementWindows*0.051917>
 
-
 *option:TwoExtraWin:value:1 = <Opt-CasWinConstruction>
 *option:TwoExtraWin:value:2 = <Opt-CasWinOptics>
 *option:TwoExtraWin:value:3 = <Opt-CasWinConstruction>
@@ -153,7 +174,6 @@
 *option:TwoExtraWin:value:5 = <Opt-MainWall-Bri>
 *option:TwoExtraWin:value:6 = OPAQUE
 *option:TwoExtraWin:cost:total    = <MULTIPLY-COST:Opt-CasementWindows*0.103834>
-
 
 *option:ThreeExtraWin:value:1 = <Opt-CasWinConstruction>
 *option:ThreeExtraWin:value:2 = <Opt-CasWinOptics>
@@ -169,7 +189,6 @@
 ! Add up to 6 extra windows to the back of the house 
 !-----------------------------------------------------------------------
 *attribute:start 
-
 
 *attribute:name   = Opt-BackWindows
 
@@ -189,7 +208,6 @@
 *attribute:tag:14 = <OptMasterExWin1Opt>
 
 *option:NoExtraWin:value:1  = <Opt-MainWall-Bri>
-
 
 *option:NoExtraWin:value:2  = OPAQUE
 *option:NoExtraWin:value:3  = <Opt-MainWall-Bri>
@@ -318,9 +336,7 @@
 *option:SevenExtraWin:value:14 = <Opt-CasWinOptics>
 *option:SevenExtraWin:cost:total     = <MULTIPLY-COST:Opt-CasementWindows*0.42901>
 
-
 *attribute:end 
-
 
 !!!!!!!! (Left-side window)
 *attribute:start 
@@ -361,7 +377,7 @@
 
 
 !-----------------------------------------------------------------------
-! This option sets the optical and themral characteristics of 
+! This option sets the optical and thermal characteristics of 
 ! the casement windows used in the model (currently all windows are 
 ! considered casements)
 !-----------------------------------------------------------------------
@@ -376,7 +392,7 @@
 !*option:OriginalGlassParam:cost:total    = 0
 
 
-! Base option for windows has cost b/c we multply this amount 
+! Base option for windows has cost b/c we multiply this amount 
 ! by optional window areas.
 *option:DoubleLowEHardCoatAirFill:value:1 = DblLeHcAir
 *option:DoubleLowEHardCoatAirFill:value:2 = DblLeHcAir
@@ -399,13 +415,60 @@
 *option:DoubleLowESoftCoatArgFill:value:2 = DblLeScArg
 *option:DoubleLowESoftCoatArgFill:cost:total    = 10965
 
+
+!---------------------------------------------------------------------
+! Whitehorse window models
+!---------------------------------------------------------------------
+
+! Base option for windows has cost b/c we multiply this amount 
+! by optional window areas.
+*option:Wind1_trp_CL :value:1 = Wind1_trp_CL   
+*option:Wind1_trp_CL :value:2 = Wind1_trp_CL   
+*option:Wind1_trp_CL :cost:total    = 20551
+
+*option:Win2scLE1_tr:value:1 = Win2scLE1_tr
+*option:Win2scLE1_tr:value:2 = Win2scLE1_tr 
+*option:Win2scLE1_tr:cost:total   = 22883
+
+*option:Win3hcLE1_tr:value:1 = Win3hcLE1_tr
+*option:Win3hcLE1_tr:value:2 = Win3hcLE1_tr
+*option:Win3hcLE1_tr:cost:total   = 23550
+
+*option:Win4scLE2_trp:value:1 = Win4_quadCL 
+*option:Win4scLE2_trp:value:2 = Win4_quadCL  
+*option:Win4scLE2_trp:cost:total   = 23824
+
+*option:Win5hcLE2_trp:value:1 = Win5_quad1LEs
+*option:Win5hcLE2_trp:value:2 = Win5_quad1LEs
+*option:Win5hcLE2_trp:cost:total   = 24491
+
+*option:Win6_qd_CL:value:1 = Win6_qd_CL
+*option:Win6_qd_CL:value:2 = Win6_qd_CL
+*option:Win6_qd_CL:cost:total   = 25226
+
+*option:Win7scle1_qd:value:1 = Win7scle1_qd
+*option:Win7scle1_qd:value:2 = Win7scle1_qd
+*option:Win7scle1_qd:cost:total   = 28209
+
+*option:Win8hcle1_qd:value:1 = Win8hcle1_qd
+*option:Win8hcle1_qd:value:2 = Win8hcle1_qd
+*option:Win8hcle1_qd:cost:total   = 28876
+
+*option:Win9scle2_qd:value:1 = Win9scle2_qd
+*option:Win9scle2_qd:value:2 = Win9scle2_qd
+*option:Win9scle2_qd:cost:total   = 29120
+
+*option:Win10scle2_q:value:1 = Win10scle2_q
+*option:Win10scle2_q:value:2 = Win10scle2_q
+*option:Win10scle2_q:cost:total   = 29787
+
 *attribute:end
 
 
 
 !-----------------------------------------------------------------------
 ! This option sets the airtightness by spec'ing the 
-! apporpriate aim2 input file. (cost estimates from 
+! appropriate aim2 input file. (cost estimates from 
 ! Stirling-homes parameters)
 !-----------------------------------------------------------------------
 *attribute:start    
@@ -428,12 +491,26 @@
 *option:PassiveHouse:value:1  =   PassiveHouse.aim
 *option:PassiveHouse:cost:total     =   3787.0
 
+!-----------------------------------------------------------------------
+! Whitehorse airtightness options - spec's the appropriate aim2 input file
+! (cost estimates from James Wigmore) - WH Code - 1.5ACH
+!-----------------------------------------------------------------------
+
+*option:Whitehorse_code_1.5ACH:value:1    =   Base_WH_1.5.aim  
+*option:Whitehorse_code_1.5ACH:cost:total      =   0
+
+*option:1.0ACH:value:1         =   WH_1.0.aim
+*option:1.0ACH:cost:total           =   1797
+
+*option:0.5ACH:value:1       =   WH_0.5.aim
+*option:0.5ACH:cost:total         =   2469
+
 *attribute:end
 
 
 
 !-----------------------------------------------------------------------
-!   Ceilings-Option2
+!   Ceils-Option2 - Whitehorse code R50
 !-----------------------------------------------------------------------
 *attribute:start 
    
@@ -442,33 +519,33 @@
 *attribute:tag:1  = <Opt-Ceiling>
 !*attribute:tag:2  = <Opt-CeilingR>
 
-*option:CeilingR50:value:1 =   CeilR50
-!*option:CeilingR50:value:2 =   CeilR50R
-*option:CeilingR50:cost:total    =   0
+*option:CeilR50:value:1 =   CeilR50
+!*option:CeilR50:value:2 =   CeilR50R
+*option:CeilR50:cost:total    =   0
 
-*option:CeilingR60:value:1 =   CeilR60
-!*option:CeilingR60:value:2 =   CeilR60R
-*option:CeilingR60:cost:total    =   360.20
+*option:CeilR60:value:1 =   CeilR60
+!*option:CeilR60:value:2 =   CeilR60R
+*option:CeilR60:cost:total    =   442
 
-*option:CeilingR70:value:1 =   CeilR70
-!*option:CeilingR70:value:2 =   CeilR70R
-*option:CeilingR70:cost:total    =   912.20
+*option:CeilR80:value:1 =   CeilR80
+!*option:CeilR80:value:2 =   CeilR80R
+*option:CeilR80:cost:total    =   1426
 
-*option:CeilingR80:value:1 =   CeilR80
-!*option:CeilingR80:value:2 =   CeilR80R
-*option:CeilingR80:cost:total    =   1395.20
+*option:CeilR90:value:1 =   CeilR90
+!*option:CeilR90:value:2 =   CeilR90R
+*option:CeilR90:cost:total    =   1877
 
-*option:CeilingR90:value:1 =   CeilR90
-!*option:CeilingR90:value:2 =   CeilR90R
-*option:CeilingR90:cost:total    =   1878.20
+*option:CeilR100:value:1 =  CeilR100
+!*option:CeilR100:value:2 =  CeilR100R
+*option:CeilR100:cost:total    =  2328
 
-*option:CeilingR100:value:1 =  CeilR100
-!*option:CeilingR100:value:2 =  CeilR100R
-*option:CeilingR100:cost:total    =  2361.2
+*option:CeilR110:value:1 =  CeilR110
+!*option:CeilR110:value:2 =  CeilR110R
+*option:CeilR110:cost:total    =  2788
 
-!*option:CeilingR110:value:1 =  CeilR110
-!!*option:CeilingR110:value:2 =  CeilR110R
-!*option:CeilingR110:cost:total    =  3051.2
+*option:CeilR120:value:1 =  CeilR120
+!*option:CeilR120:value:2 =  CeilR120R
+*option:CeilR120:cost:total    =  3257
 
 *attribute:end
 
@@ -550,6 +627,106 @@
 !*option:Truss-R52-Wall:value:4 =   TruR52DryR
 *option:Truss-R52-Wall:cost:total    =   12755
 
+!-------------------------------------------------------------------------------
+Whitehorse Wall Options (Code is R28)
+!-------------------------------------------------------------------------------
+
+*option:W15_R25:value:1 =   W15_R25Bri
+*option:W15_R25:value:2 =   W15_R25Vin
+*option:W15_R25:value:3 =   W15_R25Dry 
+!*option:W15_R2521:value:4 =   W15_R25DryR
+*option:W15_R25:cost:total   =   0
+
+*option:W5_R36:value:1 =   W5_R36Bri
+*option:W5_R36:value:2 =   W5_R36Vin
+*option:W5_R36:value:3 =   W5_R36Dry 
+!*option:W5_R36:value:4 =   W5_R36DryR
+*option:W5_R36:cost:total   =   10549
+
+*option:W6_R56:value:1 =   W6_R56Bri
+*option:W6_R56:value:2 =   W6_R56Vin
+*option:W6_R56:value:3 =   W6_R56Dry 
+!*option:W6_R56:value:4 =  W6_R56DryR
+*option:W6_R56:cost:total   =   18636
+
+*option:W8_R42:value:1 =   W8_R42Bri
+*option:W8_R42:value:2 =   W8_R42Vin
+*option:W8_R42:value:3 =   W8_R42Dry 
+!*option:W8_R42:value:4 =   W8_R42DryR
+*option:W8_R42:cost:total   =   6802
+
+*option:W9_R62:value:1 =   W9_R62Bri
+*option:W9_R62:value:2 =   W9_R62Vin
+*option:W9_R62:value:3 =   W9_R62Dry 
+!*option:W9_R62:value:4 =   W9_R62DryR
+*option:W9_R62:cost:total   =   15101
+
+*option:W10_R82:value:1 =   W10_R82Bri
+*option:W10_R82:value:2 =   W10_R82Vin
+*option:W10_R82:value:3 =   W10_R82Dry 
+!*option:W10_R82:value:4 =   W10_R82DryR
+*option:W10_R82:cost:total   =   23399
+
+*option:W12_R59:value:1 =   W12_R59Bri
+*option:W12_R59:value:2 =   W12_R59Vin
+*option:W12_R59:value:3 =   W12_R59Dry 
+!*option:W12_R59:value:4 =   W12_R59DryR
+*option:W12_R59:cost:total   =   15806
+
+*option:W13_R78:value:1 =   W13_R78Bri
+*option:W13_R78:value:2 =   W13_R78Vin
+*option:W13_R78:value:3 =   W13_R78Dry 
+!*option:W13_R78:value:4 =   W13_R78DryR
+*option:W13_R78:cost:total   =   24030
+
+*option:W16_R38:value:1 =   W16_R38Bri
+*option:W16_R38:value:2 =   W16_R38Vin
+*option:W16_R38:value:3 =   W16_R38Dry 
+!*option:W16_R38:value:4 =   W16_R38DryR
+*option:W16_R38:cost:total   =   1713
+
+*option:W17_R58:value:1 =   W17_R58Bri
+*option:W17_R58:value:2 =   W17_R58Vin
+*option:W17_R58:value:3 =   W17_R58Dry 
+!*option:W17_R58:value:4 =   W17_R58DryR
+*option:W17_R58:cost:total   =   10011
+
+*option:W18_R78:value:1 =   W18_R78Bri
+*option:W18_R78:value:2 =   W18_R78Vin
+*option:W18_R78:value:3 =   W18_R78Dry 
+!*option:W18_R78:value:4 =   W18_R78DryR
+*option:W18_R78:cost:total   =   18309
+
+*option:W19_R27:value:1 =   W19_R27Bri
+*option:W19_R27:value:2 =   W19_R27Vin
+*option:W19_R27:value:3 =   W19_R27Dry 
+!*option:W19_R27:value:4 =   W19_R27DryR
+*option:W19_R27:cost:total   =   -2226
+
+*option:W20_R39:value:1 =   W20_R39Bri
+*option:W20_R39:value:2 =   W20_R39Vin
+*option:W20_R39:value:3 =   W20_R39Dry 
+!*option:W20_R39:value:4 =   W20_R39ryR
+*option:W20_R39:cost:total   =   3036
+
+*option:W21_R59:value:1 =   W21_R59Bri
+*option:W21_R59:value:2 =   W21_R59Vin
+*option:W21_R59:value:3 =   W21_R59Dry 
+!*option:W21_R59:value:4 =   W21_R59ryR
+*option:W21_R59:cost:total   =   12448
+
+*option:W23_R56:value:1 =   W23_R56Bri
+*option:W23_R56:value:2 =   W23_R56Vin
+*option:W23_R56:value:3 =   W23_R56Dry 
+!*option:W23_R56:value:4 =   W23_R56ryR
+*option:W23_R56:cost:total   =   18201
+
+*option:W26_R56:value:1 =   W26_R56Bri
+*option:W26_R56:value:2 =   W26_R56Vin
+*option:W26_R56:value:3 =   W26_R56Dry 
+!*option:W26_R56:value:4 =   W26_R56ryR
+*option:W26_R56:cost:total   =   18470
+
 *attribute:end
 
 !-----------------------------------------------------------------------
@@ -603,6 +780,29 @@
 *option:ICF-base-R51r:meta    = Comb
 *option:ICF-base-R51r:cost:total    = 12000            ! Check with Mark!
 
+!-------------------------------------------------------------------------------
+Whitehorse Foundation Options (Code is R28)
+!-------------------------------------------------------------------------------
+*option:Fnd0PWF_R28:value:1 = Fnd0PWF_R28
+*option:Fnd0PWF_R28:meta    = Int
+*option:Fnd0PWF_R28:cost:total   = 0
+
+*option:Fnd1PWF_R36:value:1 = Fnd1PWF_R36
+*option:Fnd1PWF_R36:meta    = Int
+*option:Fnd1PWF_R36:cost:total   = 1362
+
+*option:Fnd2PWF_R56:value:1 = Fnd2PWF_R56
+*option:Fnd2PWF_R56:meta    = Int
+*option:Fnd2PWF_R56:cost:total   = 5103
+
+*option:Fnd3PWF_R76:value:1 = Fnd3PWF_R76
+*option:Fnd3PWF_R76:meta    = Int
+*option:Fnd3PWF_R76:cost:total   = 8843
+
+*option:Fnd8ICF_R28:value:1 = Fnd8ICF_R28
+*option:Fnd8ICF_R28:meta    = Comb
+*option:Fnd8ICF_R28:cost:total   = 19782
+
 *attribute:end
 
 !-----------------------------------------------------------------------
@@ -613,45 +813,21 @@
 *attribute:tag:1   = <OPT-BsmFloor>
 *attribute:tag:2   = <OPT-BsmCnnIndex>
 
-*option:NoInsulation:value:1 = BsmFlrR0
-*option[Opt-BasementWallInsulation>OBC-min-R12|Rigid+Blown-R43]:NoInsulation:value:2 = 1 
-*option[else                                                  ]:NoInsulation:value:2 = 68
-*option:NoInsulation:cost:total    = 0
+*option:Slab_5_R10:value:1 = Slab_5_R10
+*option:Slab_5_R10:value:2 = 69
+*option:Slab_5_R10:cost:total   = 0
 
-*option:R10UnderSlab:value:1 = BsmFlrR10
-*option[Opt-BasementWallInsulation>OBC-min-R12|Rigid+Blown-R43]:R10UnderSlab:value:2 = 19 
-*option[else                                                  ]:R10UnderSlab:value:2 = 69
-*option:R10UnderSlab:cost:total    = 2645
+*option:Slab_6_R20:value:1 = Slab_6_R20
+*option:Slab_6_R20:value:2 = 69
+*option:Slab_6_R20:cost:total   = 1330         
 
-*option:R10UnderSlab+edge:value:1 = BsmFlrR10
-*option[Opt-BasementWallInsulation>OBC-min-R12|Rigid+Blown-R43]:R10UnderSlab+edge:value:2 = 22
-*option[else                                                  ]:R10UnderSlab+edge:value:2 = 69
+*option:Slab_7_R30:value:1 = Slab_7_R30
+*option:Slab_7_R30:value:2 = 69
+*option:Slab_7_R30:cost:total   = 2804     
 
-*option:R10UnderSlab+edge:cost:total    = 2645        ! Should be slightly higher!?!
-
-*option:R12UnderSlab+edge:value:1 = BsmFlrR12
-*option[Opt-BasementWallInsulation>OBC-min-R12|Rigid+Blown-R43]:R12UnderSlab+edge:value:2 = 22
-*option[else                                                  ]:R12UnderSlab+edge:value:2 = 69
-*option:R12UnderSlab+edge:cost:total    = 2540         
-
-*option:R24UnderSlab+edge:value:1 = BsmFlrR24
-*option[Opt-BasementWallInsulation>OBC-min-R12|Rigid+Blown-R43]:R24UnderSlab+edge:value:2 = 22
-*option[else                                                  ]:R24UnderSlab+edge:value:2 = 69
-*option:R24UnderSlab+edge:cost:total    = 4865      
-
-! Perimeter, sub-slab 0.6m skirt insulation
-
-*option:R12EdgeP6:value:1 = BsmFlrR0
-*option[Opt-BasementWallInsulation>OBC-min-R12|Rigid+Blown-R43]:R12EdgeP6:value:2 = 23
-*option[else                                                  ]:R12EdgeP6:value:2 = 69
-*option:R12EdgeP6:cost:total    = 735        
-
-! Perimeter, sub-slab 1.0m skirt insulation
-
-*option:R12EdgeP10:value:1 = BsmFlrR0
-*option[Opt-BasementWallInsulation>OBC-min-R12|Rigid+Blown-R43]:R12EdgeP10:value:2 = 24
-*option[else                                                  ]:R12EdgeP10:value:2 = 69
-*option:R12EdgeP10:cost:total    = 1210 
+*option:Slab_8_R40:value:1 = Slab_8_R40
+*option:Slab_8_R40:value:2 = 69
+*option:Slab_8_R40:cost:total   = 4269  
        
 *attribute:end
 
@@ -747,6 +923,45 @@
 *option:GSHP:value:2      = *gshp~../hvac/heatx_v1.gshp
 *option:GSHP:cost:total    = 18560          ! Does this reflect AC syste$
 
+!-----------------------------------------------------------------------
+! HVAC - WH Data - Basecase = Oil, forced-air furnace 85% AFUE, oil tank, ducting, HRV
+!-----------------------------------------------------------------------
+
+*option:baseoil85furnace:value:1 = baseoilfurnace.hvac
+*option:baseoil85furnace:value:2 = #-no-GSHP-file
+*option:baseoil85furnace:cost:total   = 0
+
+*option:oil95furnace:value:1 = oil95furnace.hvac
+*option:oil95furnace:value:2 = #-no-GSHP-file
+*option:oil95furnace:cost:total      = 1100
+
+*option:propanefurnace:value:1      = propanefurnace.hvac
+*option:propanefurnace:value:2      = #-no-GSHP-file
+*option:propanefurnace:cost:total        = -4500         
+
+*option:elecfurnace:value:1      = elecfurnace.hvac
+*option:elecfurnace:value:2      = #-no-GSHP-file
+*option:elecfurnace:cost:total        = -8400 
+
+*option:woodstove65:value:1      = woodstove65.hvac
+*option:woodstove65:value:2      = #-no-GSHP-file
+*option:woodstove65:cost:total        = -8400
+
+*option:pelletstove75:value:1      = pelletstove75.hvac
+*option:pelletstove75:value:2      = #-no-GSHP-file
+*option:pelletstove75:cost:total        = -9400
+
+*option:elec-baseboard:value:1 = Baseboardv2.hvac
+*option:elec-baseboard:value:2 = #-no-GSHP-file
+*option:elec-baseboard:cost:total      = -12900
+
+*option:GSHP:value:1      = GSHPv2.hvac
+*option:GSHP:value:2      = *gshp~../hvac/heatx_v1.gshp
+*option:GSHP:cost:total        = 24100         
+
+*option:CCASHP:value:1      = CCASHPv2.hvac
+*option:CCASHP:value:2      = #-no-GSHP-file
+*option:CCASHP:cost:total        = 3100   
 
 
 *attribute:end
@@ -876,7 +1091,7 @@
 *option[Opt-Location>Whitehorse ;Opt-RoofPitch>6-12  ]:SizedPV:production-elec-perKW  = 3.36888! GH/kW Installed
 *option[Opt-Location>Whitehorse ;Opt-RoofPitch>8-12  ]:SizedPV:production-elec-perKW  = 3.47472! GH/kW Installed
 *option[Opt-Location>Whitehorse ;Opt-RoofPitch>12-12 ]:SizedPV:production-elec-perKW  = 3.55536! GH/kW Installed
-*option:SizedPV:cost:PerKW = 5780 ! $/kW installed
+*option:SizedPV:cost:PerKW = 4696 ! $/kW installed
 
 *option:NoPV:production-elec-perKW  = 0! GH/kW Installed
 *option:NoPV:cost:PerKW = 0 

@@ -73,7 +73,7 @@ my %RegionalCostFactors  = (  "Halifax"      =>  0.95 ,
                               "Regina"       =>  1.08 ,  # Same as Winnipeg?
                               "Winnipeg"     =>  1.08 ,
                               "Fredricton"   =>  1.00 ,  # Same as Quebec?
-                              "Whitehorse"   =>  1.38    ); # Same as yellowknife?
+                              "Whitehorse"   =>  1.00    ); # Same as yellowknife, 1.38?
 
 
 my @gChoiceOrder;
@@ -1184,7 +1184,7 @@ sub postprocess($){
   my %ElecPeakCharges; 
 
   #=======================================================================                           
-  # Fuel cost parameters: Natural Gas
+  # Fuel cost parameters: 
 
   my $NGasIncreaseFrac    = 1.0; #1.53;      # Scale for future forecast
 
@@ -1198,9 +1198,25 @@ sub postprocess($){
   my $ElecTotalOtherCharges; 
   
   my $OilFixedCharge; 
-  my $OilSupplyCharge;
+  my $OilSupplyCharge     = 1.34;    # Whitehorse cost of furnace oil / arctic stove oil is $1.34/l  (Yukon energy statistics)
   my $OilTransportCharge;
   my $OilDeliveryCharge; 
+  
+  #my $PropaneFixedCharge; 
+  #my $PropaneSupplyCharge    = 0.1039;   # Yukon cost of propane supply per litre. YK bureau of statistics.Aug 2013. http://www.eco.gov.yk.ca/stats/pdf/fuel_aug13.pdf
+  #my $PropaneDeliveryCharge; 
+  #my $PropaneTrasportCharge;
+  
+  #my $WoodFixedCharge; 
+  #my $WoodSupplyCharge    = 260.0;   # ESC Heat Info Sheet - Assumes 18700 MJ / cord
+  #my %WoodDeliveryTier; 
+  #my $WoodTrasportCharge;
+  
+  #my $PelletsFixedCharge; 
+  #my $PelletsSupplyCharge    = 340.0;   # ESC Heat Info Sheet - Assumes 18000 MJ/ton of pellets
+  #my %PelletsDeliveryTier; 
+  #my $PelletsTrasportCharge;
+  
   my $NGTierType;  
 
   # Assume summer and winter rates are the same. 
@@ -1402,10 +1418,13 @@ sub postprocess($){
 
   debug_out("done (parsed $NumberOfRows rows)\n"); 
 
-  # Recover electrical & gas consumption data 
+  # Recover electrical, natural gas, oil, propane, wood, or pellet consumption data 
   my @Electrical_Use = @{ $data{" total fuel use:electricity:all end uses:quantity (kWh/s)"} };
   my @NaturalGas_Use = @{ $data{" total fuel use:natural gas:all end uses:quantity (m3/s)"}  };
   my @Oil_Use        = @{ $data{" total fuel use:oil:all end uses:quantity (l/s)"}  };
+  #my @Propane_Use    = @{ $data{" total fuel use:propane:all end uses:quantity (l/s)"}  };
+  #my @Wood_Use       = @{ $data{" total fuel use:wood:all end uses:quantity (cord/s)"}  };
+  #my @Pellets_Use    = @{ $data{" total fuel use:pellets:all end uses:quantity (ton/s)"}  };
   # Recover Day, Hour & Month
   my @DayOfYear   = @{  $data{" building:day:future (day)"}     } ;
   my @HourOfDay   = @{  $data{" building:hour:future (hours)"}  } ;
@@ -1420,6 +1439,9 @@ sub postprocess($){
   my $MonthGasConsumption = 0; 
   my $GasConsumptionCost  = 0; 
   my $OilConsumptionCost  = 0; 
+  #my $PropaneConsumptionCost  = 0; 
+  #my $WoodConsumptionCost  = 0; 
+  #my $PelletsConsumptionCost  = 0; 
 
   my $GasCurrConsumpionForTiers = 0; 
   my $ElecCurrConsumpionForTiers = 0; 
@@ -1663,18 +1685,43 @@ sub postprocess($){
     
     #### OIL 
     
-    #my $CurrentOilConsumption = $Oil_Use[$row] * $TSLength; # M3
+    my $CurrentOilConsumption = $Oil_Use[$row] * $TSLength; # l
     
-    #$OilConsumptionCost += $CurrentOilConsumption * ( $OilSupplyCharge ); 
-    
+    $OilConsumptionCost += $CurrentOilConsumption * ( $OilSupplyCharge ); 
+  
     
     #if ( $CurrMonth > 2 ) { die(); }
          
     #debug_out (" $Locale: TIER: $Elec_TierType{$Locale}  $CurrMonth $CurrDay $CurrHour | $CurrElecRatePeriod - $CurrPeakPeriod ($WeekendOrHoliday)  $ElecConsumption [kWh] * ( old:  vs new: $EffElecRate [\$/kWh] ) = $ElecConsumptionCost  \n");        
 
     #debug_out ("  $CurrMonth $CurrDay $CurrHour | $MonthGasConsumption -> $CurrGasTarrif | $GasConsumptionCost += $CurrentGasConsumption * $CurrGasTarrif \n"); 
+  
+  
+    #### PROPANE
     
+    #my $CurrentPropaneConsumption = $Propane_Use[$row] * $TSLength; # l
     
+    #$PropaneConsumptionCost += $CurrentPropaneConsumption * ( $PropaneSupplyCharge ); 
+  
+    
+    #if ( $CurrMonth > 2 ) { die(); }
+         
+    #debug_out (" $Locale: TIER: $Elec_TierType{$Locale}  $CurrMonth $CurrDay $CurrHour | $CurrElecRatePeriod - $CurrPeakPeriod ($WeekendOrHoliday)  $ElecConsumption [kWh] * ( old:  vs new: $EffElecRate [\$/kWh] ) = $ElecConsumptionCost  \n");        
+
+    #debug_out ("  $CurrMonth $CurrDay $CurrHour | $MonthGasConsumption -> $CurrGasTarrif | $GasConsumptionCost += $CurrentGasConsumption * $CurrGasTarrif \n");  
+	
+	#### Wood
+    
+    #my $CurrentWoodConsumption = $Wood_Use[$row] * $TSLength; # l
+    
+    #$WoodConsumptionCost += $CurrentWoodConsumption * ( $WoodSupplyCharge ); 
+
+		
+	#### Pellets
+    
+    #my $CurrentPelletsConsumption = $Pellets_Use[$row] * $TSLength; # l
+    
+    #$PelletsConsumptionCost += $CurrentPelletsConsumption * ( $PelletsSupplyCharge ); 
   }
 
 
@@ -1683,6 +1730,12 @@ sub postprocess($){
   my $TotalGasBill  = $GasConsumptionCost < 0.01 ? 0 : $NG_BaseCharge{$Locale} * 12. + $GasConsumptionCost  ; 
   
   my $TotalOilBill  = $OilFixedCharge * 12. + $OilConsumptionCost  ; 
+  
+  #my $TotalPropaneBill  = $PropaneFixedCharge * 12. + $PropaneConsumptionCost  ; 
+  
+  #my $TotalWoodBill  = $WoodFixedCharge * 12. + $WoodConsumptionCost  ; 
+	
+  #my $TotalPelletsBill  = $PelletsFixedCharge * 12. + $PelletsConsumptionCost  ; 
   
   # Add data from externally computed SDHW (presently not accounting for pump energy...)
   my $sizeSDHW = $gChoices{"Opt-SolarDHW"}; 
@@ -1807,6 +1860,7 @@ sub postprocess($){
   debug_out("  + \$ ".round($TotalElecBill)." (Electricity)\n");
   debug_out("  + \$ ".round($TotalGasBill)." (Natural Gas)\n");
   debug_out("  + \$ ".round($TotalOilBill)." (Oil)\n");
+  #debug_out("  + \$ ".round($TotalPropaneBill)." (Propane)\n");
 
   debug_out ( " --------------------------------------------------------\n");
   debug_out ( "    \$ ".round($TotalElecBill+$TotalGasBill+$TotalOilBill) ." (All utilities).\n"); 

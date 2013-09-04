@@ -3,7 +3,7 @@
 ! and compute an average result)
 GOconfig_rotate      : S
 
-Opt-Location : Regina
+Opt-Location : Whitehorse
 
 ! Assumptions about HRV operation . Not intended to be optimized!
 ! Recognized values: 
@@ -14,7 +14,7 @@ Opt-Location : Regina
 
 OPT-HRV_ctl          : EightHRpDay
 
-! Turn orignial design windows opaque ( NoWindows!)
+! Turn original design windows opaque ( NoWindows!)
 ! or transparent (MinWindows). NoWindows doesn't presently work!
 
 Opt-BaseWindows      : MinWindows
@@ -23,10 +23,10 @@ Opt-BaseWindows      : MinWindows
 Opt-FrontWindows     : NoExtraWin 
 Opt-BackWindows      : NoExtraWin
 
-Opt-ExtLeftSideWindow : Yes            ! First floor - back side
+Opt-ExtLeftSideWindow : No            ! First floor - back side
 
 
-Opt-ExtBasementWindow : Yes            ! Basement (back)
+Opt-ExtBasementWindow : No          ! Basement (back)
 
 
 ! Air-Tightness: 
@@ -34,8 +34,11 @@ Opt-ExtBasementWindow : Yes            ! Basement (back)
 !     R2000
 !     Cdn1ACH
 !     PassiveHouse (unconfirmed cost data)
+!     Whitehorse_code_1.5ACH
+!     1.0ACH
+!     0.5ACH
                  
-Opt-AirTightness     : Typical23
+Opt-AirTightness     : 0.5ACH
 
 ! Main wall insulation 
 !  BaseR21
@@ -47,8 +50,9 @@ Opt-AirTightness     : Typical23
 !  Stud-R50-Wall
 !  DblStud-R44-Wall
 !  Truss-R40-Wall
+!  W15_R25
 
-Opt-MainWall         : BaseR21
+Opt-MainWall         : W18_R78
 
 
 ! Add extra drywall to wall constructions 
@@ -65,7 +69,7 @@ Opt-ExtraDrywall     : OneSheet
 Opt-FloorSurface     : wood
 
 
-Opt-Ceilings         : CeilingR50
+Opt-Ceilings         : CeilR120
 
 ! Basement slab insulation 
 ! Choices: 
@@ -74,7 +78,7 @@ Opt-Ceilings         : CeilingR50
 !   R10UnderSlab+edge
 !   R12UnderSlab+edge
 !   R24UnderSlab+edge
-Opt-BasementSlabInsulation  : NoInsulation
+Opt-BasementSlabInsulation  : Slab_8_R40
 
 ! Foundation walls. 
 ! Choices 
@@ -86,12 +90,13 @@ Opt-BasementSlabInsulation  : NoInsulation
 !  ICF-base-R32
 !  ICF-base-R41
 !  ICF-base-R51     
-!  ICF-base-R51r    
+!  ICF-base-R51r
+!  Fnd0PWF_R28   
 
-Opt-BasementWallInsulation  : OBC-min-R12
+Opt-BasementWallInsulation  : Fnd3PWF_R76
 
 
-! Optical and themral characteristics of casement windows (currently 
+! Optical and thermal characteristics of casement windows (currently 
 ! all windows in model. 
 ! Choices: 
 !   "OriginalGlassParam" - Neil's original dbl-low-e spec
@@ -100,8 +105,10 @@ Opt-BasementWallInsulation  : OBC-min-R12
 !    TripleLowEHardCoatKryFill
 !    TripleLowESoftCoatKryFill
 !    DoubleLowESoftCoatArgFill
+! Whitehorse Windows
+!    Wind1_trp_CL	
 
-Opt-CasementWindows  : DoubleLowEHardCoatArgFill
+Opt-CasementWindows  :  Win10scle2_q
 
 
 ! Exposed floor over garage (affects floor
@@ -111,21 +118,28 @@ Opt-CasementWindows  : DoubleLowEHardCoatArgFill
 !  ExpFloorFlash&Batt-R36
 !  ExpFloorFoamed-R52
 
-Opt-ExposedFloor     : BaseExpFloor-R31
+Opt-ExposedFloor     : ExpFloorFoamed-R52
 
 Opt-StandoffPV       : SizedPV
 
-Opt-SolarDHW         : 1-flat-plate+DWHR
+! Solar DHW
+!   DWHR
+!   1-flat-plate
+!   2-flat-plate
+!   1-flat-plate+DWHR
+!   2-flat-plate+DWHR
+!   
+Opt-SolarDHW         : 2-flat-plate+DWHR
 
 ! NoReduction
 ! BasicReduction
 ! EfficientLiving
 
-Opt-ElecLoadScale    : NoReduction
+Opt-ElecLoadScale    : EfficientLiving
 
 ! Load scales 
 
-Opt-DHWLoadScale     : BasicReduction
+Opt-DHWLoadScale     : EfficientLiving
 Opt-RoofPitch : 8-12
 
 ! Hot water system. Choices:
@@ -141,4 +155,25 @@ Opt-DHWSystem        : ElectricStorage
 !  CCASHP
 ! elec-baseboard
 
+! WHITEHORSE HVAC
+!  baseoil85furnace
+!  oil95furnace
+!  propanefurnace
+!  elecfurnace
+!  woodstove65
+!  pelletstove75
+!  elec-baseboard
+!  GSHP
+!  CCASHP
+
 Opt-HVACSystem       : CCASHP
+
+!-----------------------------------------------------------------------------
+! Change Mode Option - this options switches between a 'debug' mode in which
+! the timestep is defined as one day and the shading calculator (ish) is disabled 
+! AND a full simulation mode in which the timestep is a full year and ish is enabled
+!-----------------------------------------------------------------------  
+!  debug
+!  calc
+
+Opt-calcmode          : calc
