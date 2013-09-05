@@ -166,7 +166,7 @@ Opt-DHWSystem        : ElectricStorage
 !  GSHP
 !  CCASHP
 
-Opt-HVACSystem       : CCASHP
+Opt-HVACSystem       : propanefurnace
 
 !-----------------------------------------------------------------------------
 ! Change Mode Option - this options switches between a 'debug' mode in which

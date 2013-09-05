@@ -912,6 +912,8 @@ my $ScaleResults = 1.0/($#Orientations+1);
 my $gAvgCost_NatGas    = 0 ;
 my $gAvgCost_Electr    = 0 ;
 my $gAvgEnergy_Total   = 0 ; 
+my $gAvgCost_Propane   = 0 ;
+my $gAvgCost_Oil       = 0 ;
  
 for my $Direction  ( @Orientations ){
 
@@ -920,7 +922,7 @@ for my $Direction  ( @Orientations ){
 
 }
 
-my $gAvgCost_Total   = $gAvgCost_Electr + $gAvgCost_NatGas ;
+my $gAvgCost_Total   = $gAvgCost_Electr + $gAvgCost_NatGas + $gAvgCost_Propane + $gAvgCost_Oil ;
 
 open (SUMMARY, ">$gMasterPath/pl-out.txt") or fatalerror ("Could not open $gMasterPath/pl-out.txt");
 
@@ -928,6 +930,8 @@ print SUMMARY "Energy-Total-GJ =  $gAvgEnergy_Total \n";
 print SUMMARY "Util-Bill-Total =  $gAvgCost_Total   \n";
 print SUMMARY "Util-Bill-Elec  =  $gAvgCost_Electr  \n";
 print SUMMARY "Util-Bill-Gas   =  $gAvgCost_NatGas  \n";
+print SUMMARY "Util-Bill-Prop  =  $gAvgCost_Propane \n";
+print SUMMARY "Util-Bill-Oil   =  $gAvgCost_Oil \n";
 
 print SUMMARY "Energy-PV       =  $gEnergyPV \n";
 print SUMMARY "Energy-SDHW     =  $gEnergySDHW \n";
@@ -1202,10 +1206,10 @@ sub postprocess($){
   my $OilTransportCharge;
   my $OilDeliveryCharge; 
   
-  #my $PropaneFixedCharge; 
-  #my $PropaneSupplyCharge    = 0.1039;   # Yukon cost of propane supply per litre. YK bureau of statistics.Aug 2013. http://www.eco.gov.yk.ca/stats/pdf/fuel_aug13.pdf
-  #my $PropaneDeliveryCharge; 
-  #my $PropaneTrasportCharge;
+  my $PropaneFixedCharge; 
+  my $PropaneSupplyCharge    = 0.855;   # Yukon cost of propane supply (LPG) $0.855 per litre. YK bureau of statistics.Aug 2013. http://www.eco.gov.yk.ca/stats/pdf/fuel_aug13.pdf  1l of LPG expands to about 270l gaseous propane at 1bar. 
+  my $PropaneDeliveryCharge; 
+  my $PropaneTrasportCharge;
   
   #my $WoodFixedCharge; 
   #my $WoodSupplyCharge    = 260.0;   # ESC Heat Info Sheet - Assumes 18700 MJ / cord
@@ -1422,7 +1426,7 @@ sub postprocess($){
   my @Electrical_Use = @{ $data{" total fuel use:electricity:all end uses:quantity (kWh/s)"} };
   my @NaturalGas_Use = @{ $data{" total fuel use:natural gas:all end uses:quantity (m3/s)"}  };
   my @Oil_Use        = @{ $data{" total fuel use:oil:all end uses:quantity (l/s)"}  };
-  #my @Propane_Use    = @{ $data{" total fuel use:propane:all end uses:quantity (l/s)"}  };
+  my @Propane_Use    = @{ $data{" total fuel use:propane:all end uses:quantity (m3/s)"}  };
   #my @Wood_Use       = @{ $data{" total fuel use:wood:all end uses:quantity (cord/s)"}  };
   #my @Pellets_Use    = @{ $data{" total fuel use:pellets:all end uses:quantity (ton/s)"}  };
   # Recover Day, Hour & Month
@@ -1439,7 +1443,7 @@ sub postprocess($){
   my $MonthGasConsumption = 0; 
   my $GasConsumptionCost  = 0; 
   my $OilConsumptionCost  = 0; 
-  #my $PropaneConsumptionCost  = 0; 
+  my $PropaneConsumptionCost  = 0; 
   #my $WoodConsumptionCost  = 0; 
   #my $PelletsConsumptionCost  = 0; 
 
@@ -1560,7 +1564,7 @@ sub postprocess($){
       # Ontario TOU
       $EffElecRate = $EffElectricRates{$Locale}{$CurrPeakPeriod} ; 
       $ElecConsumptionCost += $ElecConsumption * $EffElecRate ; 
-      stream_out ( " >ELE Charging $ElecConsumption kwh to tiers: ( TOU Period: $CurrPeakPeriod ) -> $ElecConsumptionCost @  $EffElecRate \n"); 
+#      stream_out ( " S Charging $ElecConsumption kwh to tiers: ( TOU Period: $CurrPeakPeriod ) -> $ElecConsumptionCost @  $EffElecRate \n"); 
     }else {
       # Standard consumption tier. $ElecCurrConsumpionForTiers contains 
       # current consumption in Tier billing period.  
@@ -1601,7 +1605,7 @@ sub postprocess($){
         }
         
         
-        stream_out ( " >ELE Charging $ElecConsumption kwh to tiers: ( is $ElecCurrConsumpionForTiers > $tier ?) -> $BilledConsumption @  $EffElecRate \n"); 
+       # stream_out ( " >ELE Charging $ElecConsumption kwh to tiers: ( is $ElecCurrConsumpionForTiers > $tier ?) -> $BilledConsumption @  $EffElecRate \n"); 
         
         #stream_out ( "> Tiers: $tier \n" ); 
         #if ( $Done ) { last SKIPme; } 
@@ -1688,7 +1692,6 @@ sub postprocess($){
     my $CurrentOilConsumption = $Oil_Use[$row] * $TSLength; # l
     
     $OilConsumptionCost += $CurrentOilConsumption * ( $OilSupplyCharge ); 
-  
     
     #if ( $CurrMonth > 2 ) { die(); }
          
@@ -1699,11 +1702,11 @@ sub postprocess($){
   
     #### PROPANE
     
-    #my $CurrentPropaneConsumption = $Propane_Use[$row] * $TSLength; # l
+    my $CurrentPropaneConsumption = $Propane_Use[$row] * $TSLength; # l
     
-    #$PropaneConsumptionCost += $CurrentPropaneConsumption * ( $PropaneSupplyCharge ); 
+    $PropaneConsumptionCost += $CurrentPropaneConsumption * ( $PropaneSupplyCharge ); 
   
-    
+    debug_out ("###Debug Note $PropaneConsumptionCost  += $CurrentPropaneConsumption * ( $PropaneSupplyCharge ) \n"); 
     #if ( $CurrMonth > 2 ) { die(); }
          
     #debug_out (" $Locale: TIER: $Elec_TierType{$Locale}  $CurrMonth $CurrDay $CurrHour | $CurrElecRatePeriod - $CurrPeakPeriod ($WeekendOrHoliday)  $ElecConsumption [kWh] * ( old:  vs new: $EffElecRate [\$/kWh] ) = $ElecConsumptionCost  \n");        
@@ -1731,7 +1734,7 @@ sub postprocess($){
   
   my $TotalOilBill  = $OilFixedCharge * 12. + $OilConsumptionCost  ; 
   
-  #my $TotalPropaneBill  = $PropaneFixedCharge * 12. + $PropaneConsumptionCost  ; 
+  my $TotalPropaneBill  = $PropaneFixedCharge * 12. + $PropaneConsumptionCost  ; 
   
   #my $TotalWoodBill  = $WoodFixedCharge * 12. + $WoodConsumptionCost  ; 
 	
@@ -1860,14 +1863,16 @@ sub postprocess($){
   debug_out("  + \$ ".round($TotalElecBill)." (Electricity)\n");
   debug_out("  + \$ ".round($TotalGasBill)." (Natural Gas)\n");
   debug_out("  + \$ ".round($TotalOilBill)." (Oil)\n");
-  #debug_out("  + \$ ".round($TotalPropaneBill)." (Propane)\n");
+  debug_out("  + \$ ".round($TotalPropaneBill)." (Propane)\n");
 
   debug_out ( " --------------------------------------------------------\n");
-  debug_out ( "    \$ ".round($TotalElecBill+$TotalGasBill+$TotalOilBill) ." (All utilities).\n"); 
+  debug_out ( "    \$ ".round($TotalElecBill+$TotalGasBill+$TotalOilBill+$TotalPropaneBill) ." (All utilities).\n"); 
 
   # Update global params for use in summary 
   $gAvgCost_NatGas    = $TotalGasBill  * $ScaleData; 
   $gAvgCost_Electr    = $TotalElecBill * $ScaleData;  
+  $gAvgCost_Propane   = $TotalPropaneBill * $ScaleData; 
+  $gAvgCost_Oil       = $TotalOilBill * $ScaleData; 
   $gAvgEnergy_Total   = $gTotalEnergy  * $ScaleData; 
   
 

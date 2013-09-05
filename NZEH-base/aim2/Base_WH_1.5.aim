@@ -1,0 +1,23 @@
+#
+# AIM-2 input for ANZEH - Whitehorse minimum code ACH is 1.5ACH@50Pa
+#
+#
+#---Leakage description--------------------ex-----------------------------------------------------
+2 1.5 10. 0 459.3         # Air leakage code level in Whitehorse
+#---Leakage distribution------------------------------------------------------------------------
+0              # Default leakage distribution(0 for not given).
+#---Shielding and terrain data------------------------------------------------------------------
+3 7 3 2 10.0                # Suburban forest.
+#                           # Suburban forest.
+#                           # Heavy shielding on walls.
+#                           # Light local shielding on flue.
+#                           # Height of anemometer at weather station. (assumed)
+#---Height of building eaves (m)----------------------------------------------------------------
+6.277
+#---Flue diameters (mm)-------------------------------------------------------------------------
+0  0. 0. 0. 0.              # furnace, fire#1, fire#2, dhw#1, dhw#2.
+#---Zone indices--------------------------------------------------------------------------------
+3                           # Zone whose temperature used to calculate density of indoor air.
+6 1 3 4 5 6 7               # Total number of zones receiving infil; indices of zones receive infil.
+1 0 8                       # Index of basement zone (=0 if no basement), crawlspace, and attic.
+#-----------------------------------------------------------------------------------------------
