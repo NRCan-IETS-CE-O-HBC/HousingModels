@@ -60,10 +60,11 @@ Vary{
    //		 W21_R59
    //		 W23_R56
    //		 W26_R56
+   //		 W31b_R55
    Parameter{   // 
      Name    =  GOtag:Opt-MainWall;
      Ini     =  1;
-     Values  =  "W15_R25,W5_R36,W6_R56,W8_R42,W9_R62,W10_R82"; 
+     Values  =  "W15_R25,W5_R36,W6_R56,W8_R42,W9_R62,W10_R82,W12_R59,W13_R78,W16_R38,W17_R58,W18_R78,W19_R27,W20_R39,W21_R59,W23_R56,W26_R56,W31b_R55"; 
    }    
   
    // Foundation walls: OBC-min-R12
@@ -87,7 +88,7 @@ Vary{
    Parameter{   // 
      Name    =  GOtag:Opt-BasementWallInsulation;
      Ini     =  1;
-   Values  =  "Fnd0PWF_R28,Fnd1PWF_R36,Fnd2PWF_R56,Fnd3PWF_R76";
+   Values  =  "Fnd0PWF_R28,Fnd1PWF_R36,Fnd2PWF_R56,Fnd3PWF_R76,Fnd8ICF_R28";
 
    } 
 
@@ -115,7 +116,7 @@ Vary{
    Parameter{   // 
      Name    =  GOtag:Opt-ExposedFloor;
      Ini     =  1;
-     Values  =  "ExpFloorFoamed-R52,BaseExpFloor-R31"; 
+     Values  =  "ExpFloorFoamed-R52,BaseExpFloor-R31,ExpFloorFlash&Batt-R36"; 
    }    
    
    
@@ -131,7 +132,7 @@ Vary{
    Parameter{   // 
      Name    =  GOtag:Opt-Ceilings;
      Ini     =  1;
-     Values  =  "CeilR120,CeilR60";
+     Values  =  "CeilR120,CeilR60,CeilR70,CeilR80,CeilR90,CeilR100,CeilR110";
    }    
   
   // Windows:  DoubleLowEHardCoatAirFill 
@@ -164,7 +165,7 @@ Vary{
   Parameter{   // 
      Name    =  GOtag:Ext-DryWall;
      Ini     =  1;
-     Values  =  "OneSheet";    
+     Values  =  "OneSheet,TwoSheets";    
      
    }    
    
@@ -175,7 +176,7 @@ Vary{
   Parameter{   // 
      Name    =  GOtag:Opt-FloorSurface;
      Ini     =  1;
-     Values  =  "wood";    
+     Values  =  "wood,1-in-concrete,2-in-concrete";    
    }       
  
    
@@ -192,7 +193,7 @@ Vary{
   Parameter{   // 
      Name    = GOtag:Opt-SolarDHW; 
      Ini     = 1; 
-     Values  = "DWHR"; 
+     Values  = "none,DWHR,1-flat-plate,1-flat-plate+DWHR,2-flat-plate,2-flat-plate+DWHR"; 
   } 
   
   // Conventional DHW:  BaseDHW, 
@@ -203,7 +204,7 @@ Vary{
   Parameter{ //
      Name    = GOtag:Opt-DHWSystem;
      Ini     = 1; 
-     Values  = "ElectricHP" ;
+     Values  = "ElectricHP,ElecInstantaneous,ElectricStorage" ;
   }
 
   
@@ -220,7 +221,7 @@ Vary{
   Parameter {// 
       Name   = GOtag:Opt-HVACSystem; 
       Ini    = 1; 
-      Values = "baseoilfurnace,oil95furnace,propanefurnace,elecfurnace,CCASHP,elec-baseboard "; 
+      Values = "baseoilfurnace,oil95furnace,propanefurnace,elecfurnace,CCASHP,elec-baseboard,GSHP"; 
   }
   
   // PV: Set to autosize to ensure each run actually achieves NZEH.  
