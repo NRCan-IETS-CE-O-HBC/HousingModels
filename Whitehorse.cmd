@@ -31,7 +31,7 @@ Vary{
    Parameter{   // 
      Name    =  GOtag:Opt-AirTightness;
      Ini     =  1;
-     Values  =  "WH_0.5";
+     Values  =  "Base_WH_1.5,WH_1.0,WH_0.5";
      
    }    
    
@@ -62,8 +62,8 @@ Vary{
    //		 W26_R56
    Parameter{   // 
      Name    =  GOtag:Opt-MainWall;
-     Ini     =  3;
-     Values  =  "W15_R25,W10_R82 "; 
+     Ini     =  1;
+     Values  =  "W15_R25,W5_R36,W6_R56,W8_R42,W9_R62,W10_R82"; 
    }    
   
    // Foundation walls: OBC-min-R12
@@ -87,7 +87,7 @@ Vary{
    Parameter{   // 
      Name    =  GOtag:Opt-BasementWallInsulation;
      Ini     =  1;
-   Values  =  "Fnd0PWF_R28";
+   Values  =  "Fnd0PWF_R28,Fnd1PWF_R36,Fnd2PWF_R56,Fnd3PWF_R76";
 
    } 
 
@@ -105,8 +105,8 @@ Vary{
    
    Parameter{   // 
      Name    =  GOtag:Opt-BasementSlabInsulation;
-     Ini     =  4;
-     Values  =  "Slab_5_R10"; 
+     Ini     =  1;
+     Values  =  "Slab_5_R10,Slab_6_R20,Slab_7_R30,Slab_8_R40"; 
    } 
 
    // Exposed floor: BaseExpFloor-R31
@@ -115,7 +115,7 @@ Vary{
    Parameter{   // 
      Name    =  GOtag:Opt-ExposedFloor;
      Ini     =  1;
-     Values  =  "ExpFloorFoamed-R52";
+     Values  =  "ExpFloorFoamed-R52,BaseExpFloor-R31"; 
    }    
    
    
@@ -127,12 +127,11 @@ Vary{
    //           CeilR100
    //           CeilR110, 
    //           CeilR120, 
-   
-   
+      
    Parameter{   // 
      Name    =  GOtag:Opt-Ceilings;
-     Ini     =  3;
-     Values  =  "CeilR120";
+     Ini     =  1;
+     Values  =  "CeilR120,CeilR60";
    }    
   
   // Windows:  DoubleLowEHardCoatAirFill 
@@ -154,8 +153,8 @@ Vary{
   
   Parameter{   // 
      Name    =  GOtag:Opt-CasementWindows;
-     Ini     =  1;
-     Values  =  "Win10hcle2_q";    
+     Ini     =  2;
+     Values  =  "Wind1_trp_CL,Win2scLE1_tr,Win3hcLE1_tr,Win4scLE2_tr,Win5hcLE2_tr,Win6_qd_CL,Win7scle1_qd,Win8hcle1_qd,Win9scle2_qd,Win10hcle2_q";    
      
    }    
    
@@ -165,7 +164,7 @@ Vary{
   Parameter{   // 
      Name    =  GOtag:Ext-DryWall;
      Ini     =  1;
-     Values  =  "OneSheet, TwoSheets";    
+     Values  =  "OneSheet";    
      
    }    
    
@@ -176,7 +175,7 @@ Vary{
   Parameter{   // 
      Name    =  GOtag:Opt-FloorSurface;
      Ini     =  1;
-     Values  =  "wood,1-in-concrete,2-in-concrete";    
+     Values  =  "wood";    
    }       
  
    
@@ -192,7 +191,7 @@ Vary{
   
   Parameter{   // 
      Name    = GOtag:Opt-SolarDHW; 
-     Ini     = 2; 
+     Ini     = 1; 
      Values  = "DWHR"; 
   } 
   
@@ -204,7 +203,7 @@ Vary{
   Parameter{ //
      Name    = GOtag:Opt-DHWSystem;
      Ini     = 1; 
-     Values  = "ElectricHP" ; 
+     Values  = "ElectricHP" ;
   }
 
   
@@ -221,7 +220,7 @@ Vary{
   Parameter {// 
       Name   = GOtag:Opt-HVACSystem; 
       Ini    = 1; 
-      Values = "baseoilfurnace"; 
+      Values = "baseoilfurnace,oil95furnace,propanefurnace,elecfurnace,CCASHP,elec-baseboard "; 
   }
   
   // PV: Set to autosize to ensure each run actually achieves NZEH.  

@@ -1,6 +1,6 @@
 # composite construction db defined in ../dbs/NZEH.constrdb
 # based on materials db ../dbs/material.db3.a
-  183 # no of composites 
+  187 # no of composites 
 # layers  description   optics name   symmetry tag
     2    bsm_flr       OPAQ  OPAQUE        NONSYMMETRIC  
 # mat ref thickness (m) mat descr & air gap R
@@ -1195,7 +1195,7 @@
 #----------------------
 # Win4scLE2_trp
 # 142: layers  description   optics name   symmetry tag
-    5    Win4scLE2_trp TRAN  Win4scLE2_trp SYMMETRIC
+    5    Win4scLE2_tr  TRAN  Win4scLE2_tr  SYMMETRIC
 # mat ref thickness (m) mat descr & air gap R
   242    0.0060  plate glass : Plate glass 
     0    0.0125  air  0.279 0.279 0.279
@@ -1205,7 +1205,7 @@
 #----------------------
 # Win5hcLE2_trp
 # 143: layers  description   optics name   symmetry tag
-    5    Win5hcLE2_trp TRAN  Win5hcLE2_trp SYMMETRIC
+    5    Win5hcLE2_tr  TRAN  Win5hcLE2_tr  SYMMETRIC
 # mat ref thickness (m) mat descr & air gap R
   242    0.0060  plate glass : Plate glass 
     0    0.0125  air  0.248 0.248 0.248
@@ -1263,7 +1263,7 @@
 #----------------------
 # Win10scle2_q
 # 148: layers  description   optics name   symmetry tag
-    7    Win10scle2_q  TRAN  Win10scle2_q  SYMMETRIC
+    7    Win10hcle2_q  TRAN  Win10hcle2_q  SYMMETRIC
 # mat ref thickness (m) mat descr & air gap R
   242    0.0060  plate glass : Plate glass 
     0    0.0125  air  0.169 0.169 0.169
@@ -1542,3 +1542,41 @@
    72    0.0280  plywood 700d : Plywood (700 density)
     0    0.2410  air  0.170 0.170 0.170
   301    0.0125  gypsum board : Gypsum board
+#------------------------------------------------------------
+# MAIN WALLS: 31b. Double Stud with VIP-15mm
+# 184: layers  description   optics name   symmetry tag
+    6    W31b_R55Bri    OPAQ  OPAQUE        NONSYMMETRIC 
+# mat ref thickness (m) mat descr & air gap R
+    1    0.0809  Paviour brick 
+    0    0.0250  air  0.170 0.170 0.170
+   79	 0.0120  OSB	
+  205    0.1397  Polyurethane foam
+  233    0.1864  cellulose fiber flakes
+  301    0.0125  gypsum board 
+# 185: layers  description   optics name   symmetry tag
+    6    W31b_R55Vyn    OPAQ  OPAQUE        NONSYMMETRIC 
+# mat ref thickness (m) mat descr & air gap R
+  144    0.0064  plastic tile : Plastic tile  
+    0    0.0250  air  0.170 0.170 0.170
+   79	 0.0120  OSB	
+  205    0.1397  Polyurethane foam
+  233    0.1864  cellulose fiber flakes
+  301    0.0125  gypsum board 
+# 186: layers  description   optics name   symmetry tag
+    6    W31b_R55Dry    OPAQ  OPAQUE        W31b_R55DryR
+# mat ref thickness (m) mat descr & air gap R
+  301    0.0125  gypsum board  
+    0    0.0250  air  0.170 0.170 0.170
+   79	 0.0120  OSB	
+  205    0.1397  Polyurethane foam
+  233    0.1864  cellulose fiber flakes
+  301    0.0125  gypsum board 
+# 187: layers  description   optics name   symmetry tag
+    6    W31b_R55DryR   OPAQ  OPAQUE        W31b_R55Dry
+# mat ref thickness (m) mat descr & air gap R
+  301    0.0125  gypsum board  
+  233    0.1864  cellulose fiber flakes
+  205    0.1397  Polyurethane foam
+   79	 0.0120  OSB
+    0    0.0250  air  0.170 0.170 0.170
+  301    0.0125  gypsum board   

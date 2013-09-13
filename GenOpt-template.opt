@@ -118,3 +118,13 @@ Opt-DHWLoadScale     : %GOtag:DHWLoadScale%
 OPT-HRV_ctl          : %GOtag:HRVcontrol%
 
 Opt-RoofPitch : %GOtag:RoofPitch% 
+
+!-----------------------------------------------------------------------------
+! Change Mode Option - this options switches between a 'debug' mode in which
+! the timestep is defined as one day and the shading calculator (ish) is disabled 
+! AND a full simulation mode in which the timestep is a full year and ish is enabled
+!-----------------------------------------------------------------------  
+!  debug
+!  calc
+
+Opt-calcmode  : calc 

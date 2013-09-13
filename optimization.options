@@ -434,13 +434,13 @@
 *option:Win3hcLE1_tr:value:2 = Win3hcLE1_tr
 *option:Win3hcLE1_tr:cost:total   = 23550
 
-*option:Win4scLE2_trp:value:1 = Win4_quadCL 
-*option:Win4scLE2_trp:value:2 = Win4_quadCL  
-*option:Win4scLE2_trp:cost:total   = 23824
+*option:Win4scLE2_tr:value:1 = Win4scLE2_tr 
+*option:Win4scLE2_tr:value:2 = Win4scLE2_tr
+*option:Win4scLE2_tr:cost:total   = 23824
 
-*option:Win5hcLE2_trp:value:1 = Win5_quad1LEs
-*option:Win5hcLE2_trp:value:2 = Win5_quad1LEs
-*option:Win5hcLE2_trp:cost:total   = 24491
+*option:Win5hcLE2_tr:value:1 = Win5hcLE2_tr
+*option:Win5hcLE2_tr:value:2 = Win5hcLE2_tr
+*option:Win5hcLE2_tr:cost:total   = 24491
 
 *option:Win6_qd_CL:value:1 = Win6_qd_CL
 *option:Win6_qd_CL:value:2 = Win6_qd_CL
@@ -458,9 +458,9 @@
 *option:Win9scle2_qd:value:2 = Win9scle2_qd
 *option:Win9scle2_qd:cost:total   = 29120
 
-*option:Win10scle2_q:value:1 = Win10scle2_q
-*option:Win10scle2_q:value:2 = Win10scle2_q
-*option:Win10scle2_q:cost:total   = 29787
+*option:Win10hcle2_q:value:1 = Win10hcle2_q
+*option:Win10hcle2_q:value:2 = Win10hcle2_q
+*option:Win10hcle2_q:cost:total   = 29787
 
 *attribute:end
 
@@ -475,35 +475,35 @@
 *attribute:name = Opt-AirTightness
 *attribute:tag:1 = <Opt-AirTightness>
 
-*option:TypicalGTA:value:1    =   base.aim  
-*option:TypicalGTA:cost:total       =   0
+!*option:TypicalGTA:value:1    =   base.aim  
+!*option:TypicalGTA:cost:total       =   0
 
-*option:Typical23:value:1    =   typical-2.3.aim  
-*option:Typical23:cost:total       =   0
+!*option:Typical23:value:1    =   typical-2.3.aim  
+!*option:Typical23:cost:total       =   0
 
-*option:R2000:value:1         =   R2000.aim
-*option:R2000:cost:total            =   2133
+!*option:R2000:value:1         =   R2000.aim
+!*option:R2000:cost:total            =   2133
 
-*option:Cdn1ACH:value:1       =   Cdn1ACH.aim
-*option:Cdn1ACH:cost:total          =   3049
+!*option:Cdn1ACH:value:1       =   Cdn1ACH.aim
+!*option:Cdn1ACH:cost:total          =   3049
                               
 ! Data is unreliable.                               
-*option:PassiveHouse:value:1  =   PassiveHouse.aim
-*option:PassiveHouse:cost:total     =   3787.0
+!*option:PassiveHouse:value:1  =   PassiveHouse.aim
+!*option:PassiveHouse:cost:total     =   3787.0
 
 !-----------------------------------------------------------------------
 ! Whitehorse airtightness options - spec's the appropriate aim2 input file
 ! (cost estimates from James Wigmore) - WH Code - 1.5ACH
 !-----------------------------------------------------------------------
 
-*option:Whitehorse_code_1.5ACH:value:1    =   Base_WH_1.5.aim  
-*option:Whitehorse_code_1.5ACH:cost:total      =   0
+*option:Base_WH_1.5:value:1    =   Base_WH_1.5.aim  
+*option:Base_WH_1.5:cost:total      =   0
 
-*option:1.0ACH:value:1         =   WH_1.0.aim
-*option:1.0ACH:cost:total           =   1797
+*option:WH_1.0:value:1         =   WH_1.0.aim
+*option:WH_1.0:cost:total           =   1797
 
-*option:0.5ACH:value:1       =   WH_0.5.aim
-*option:0.5ACH:cost:total         =   2469
+*option:WH_0.5:value:1       =   WH_0.5.aim
+*option:WH_0.5:cost:total         =   2469
 
 *attribute:end
 
@@ -727,6 +727,12 @@ Whitehorse Wall Options (Code is R28)
 !*option:W26_R56:value:4 =   W26_R56ryR
 *option:W26_R56:cost:total   =   18470
 
+*option:W31b_R55:value:1 =   W31b_R55Bri
+*option:W31b_R55:value:2 =   W31b_R55Vin
+*option:W31b_R55:value:3 =   W31b_R55Dry 
+!*option:W31b_R55:value:4 =   W31b_R55ryR
+*option:W31b_R55:cost:total   =   25000
+
 *attribute:end
 
 !-----------------------------------------------------------------------
@@ -919,17 +925,18 @@ Whitehorse Foundation Options (Code is R28)
 *option:CCASHP:cost:total   = 9595          ! Does this reflect AC system savings?
 
 
-*option:GSHP:value:1      = GSHPv2.hvac
-*option:GSHP:value:2      = *gshp~../hvac/heatx_v1.gshp
-*option:GSHP:cost:total    = 18560          ! Does this reflect AC syste$
+!Reflects southern Ontario costs
+!*option:GSHP:value:1      = GSHPv2.hvac
+!*option:GSHP:value:2      = *gshp~../hvac/heatx_v1.gshp
+!*option:GSHP:cost:total    = 18560          ! Does this reflect AC syste$
 
 !-----------------------------------------------------------------------
 ! HVAC - WH Data - Basecase = Oil, forced-air furnace 85% AFUE, oil tank, ducting, HRV
 !-----------------------------------------------------------------------
 
-*option:baseoil85furnace:value:1 = baseoilfurnace.hvac
-*option:baseoil85furnace:value:2 = #-no-GSHP-file
-*option:baseoil85furnace:cost:total   = 0
+*option:baseoilfurnace:value:1 = baseoil85furnace.hvac
+*option:baseoilfurnace:value:2 = #-no-GSHP-file
+*option:baseoilfurnace:cost:total   = 0
 
 *option:oil95furnace:value:1 = oil95furnace.hvac
 *option:oil95furnace:value:2 = #-no-GSHP-file
@@ -955,7 +962,7 @@ Whitehorse Foundation Options (Code is R28)
 *option:elec-baseboard:value:2 = #-no-GSHP-file
 *option:elec-baseboard:cost:total      = -12900
 
-*option:GSHP:value:1      = GSHPv2.hvac
+*option:GSHP:value:1      = GSHP_WH.hvac
 *option:GSHP:value:2      = *gshp~../hvac/heatx_v1.gshp
 *option:GSHP:cost:total        = 24100         
 

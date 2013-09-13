@@ -34,11 +34,11 @@ Opt-ExtBasementWindow : No          ! Basement (back)
 !     R2000
 !     Cdn1ACH
 !     PassiveHouse (unconfirmed cost data)
-!     Whitehorse_code_1.5ACH
-!     1.0ACH
-!     0.5ACH
+!     Base_WH_1.5
+!     WH_1.0
+!     WH_0.5
                  
-Opt-AirTightness     : 0.5ACH
+Opt-AirTightness     : WH_0.5
 
 ! Main wall insulation 
 !  BaseR21
@@ -52,7 +52,7 @@ Opt-AirTightness     : 0.5ACH
 !  Truss-R40-Wall
 !  W15_R25
 
-Opt-MainWall         : W18_R78
+Opt-MainWall         : W31b_R55
 
 
 ! Add extra drywall to wall constructions 
@@ -108,7 +108,7 @@ Opt-BasementWallInsulation  : Fnd3PWF_R76
 ! Whitehorse Windows
 !    Wind1_trp_CL	
 
-Opt-CasementWindows  :  Win10scle2_q
+Opt-CasementWindows  :  Win10hcle2_q
 
 
 ! Exposed floor over garage (affects floor
@@ -166,7 +166,7 @@ Opt-DHWSystem        : ElectricStorage
 !  GSHP
 !  CCASHP
 
-Opt-HVACSystem       : propanefurnace
+Opt-HVACSystem       : GSHP
 
 !-----------------------------------------------------------------------------
 ! Change Mode Option - this options switches between a 'debug' mode in which
