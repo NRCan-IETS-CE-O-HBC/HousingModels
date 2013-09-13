@@ -1,6 +1,6 @@
 # composite construction db defined in ../dbs/NZEH.constrdb
 # based on materials db ../dbs/material.db3.a
-  187 # no of composites 
+  191 # no of composites 
 # layers  description   optics name   symmetry tag
     2    bsm_flr       OPAQ  OPAQUE        NONSYMMETRIC  
 # mat ref thickness (m) mat descr & air gap R
@@ -1580,3 +1580,41 @@
    79	 0.0120  OSB
     0    0.0250  air  0.170 0.170 0.170
   301    0.0125  gypsum board   
+#------------------------------------------------------------
+# MAIN WALLS: 21. 2x4 with Exterior Polyisocyanurate Rigid Foam R-59
+# 188: layers  description   optics name   symmetry tag
+    6    W21_R59Bri    OPAQ  OPAQUE        NONSYMMETRIC 
+# mat ref thickness (m) mat descr & air gap R
+    1    0.0809  Paviour brick 
+    0    0.0250  air  0.170 0.170 0.170
+   79    0.0120  OSB
+  220    0.4010  XPS CO2 foamed
+   79    0.0120  OSB
+  301    0.0125  gypsum board 
+# 189: layers  description   optics name   symmetry tag
+    6    W21_R59Vyn    OPAQ  OPAQUE        NONSYMMETRIC 
+# mat ref thickness (m) mat descr & air gap R
+  144    0.0064  plastic tile : Plastic tile  
+    0    0.0250  air  0.170 0.170 0.170
+   79    0.0120  OSB
+  220    0.4010  XPS CO2 foamed
+   79    0.0120  OSB
+  301    0.0125  gypsum board 
+# 190: layers  description   optics name   symmetry tag
+    6    W21_R59Dry    OPAQ  OPAQUE        W21_R59DryR
+# mat ref thickness (m) mat descr & air gap R
+  301    0.0125  gypsum board  
+    0    0.0250  air  0.170 0.170 0.170
+   79    0.0120  OSB
+  220    0.4010  XPS CO2 foamed
+   79    0.0120  OSB
+  301    0.0125  gypsum board 
+# 191: layers  description   optics name   symmetry tag
+    6    W21_R59DryR   OPAQ  OPAQUE        W21_R59Dry
+# mat ref thickness (m) mat descr & air gap R
+  301    0.0125  gypsum board  
+   79    0.0120  OSB
+  220    0.4010  XPS CO2 foamed
+   79    0.0120  OSB
+    0    0.0250  air  0.170 0.170 0.170
+  301    0.0125  gypsum board 

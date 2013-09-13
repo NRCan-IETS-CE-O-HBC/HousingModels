@@ -715,18 +715,6 @@ Whitehorse Wall Options (Code is R28)
 !*option:W21_R59:value:4 =   W21_R59ryR
 *option:W21_R59:cost:total   =   12448
 
-*option:W23_R56:value:1 =   W23_R56Bri
-*option:W23_R56:value:2 =   W23_R56Vin
-*option:W23_R56:value:3 =   W23_R56Dry 
-!*option:W23_R56:value:4 =   W23_R56ryR
-*option:W23_R56:cost:total   =   18201
-
-*option:W26_R56:value:1 =   W26_R56Bri
-*option:W26_R56:value:2 =   W26_R56Vin
-*option:W26_R56:value:3 =   W26_R56Dry 
-!*option:W26_R56:value:4 =   W26_R56ryR
-*option:W26_R56:cost:total   =   18470
-
 *option:W31b_R55:value:1 =   W31b_R55Bri
 *option:W31b_R55:value:2 =   W31b_R55Vin
 *option:W31b_R55:value:3 =   W31b_R55Dry 

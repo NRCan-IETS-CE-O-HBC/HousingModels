@@ -52,7 +52,7 @@ Opt-AirTightness     : WH_0.5
 !  Truss-R40-Wall
 !  W15_R25
 
-Opt-MainWall         : W31b_R55
+Opt-MainWall         : W21_R59
 
 
 ! Add extra drywall to wall constructions 

@@ -58,13 +58,11 @@ Vary{
    //		 W19_R27
    //		 W20_R39
    //		 W21_R59
-   //		 W23_R56
-   //		 W26_R56
    //		 W31b_R55
    Parameter{   // 
      Name    =  GOtag:Opt-MainWall;
      Ini     =  1;
-     Values  =  "W15_R25,W5_R36,W6_R56,W8_R42,W9_R62,W10_R82,W12_R59,W13_R78,W16_R38,W17_R58,W18_R78,W19_R27,W20_R39,W21_R59,W23_R56,W26_R56,W31b_R55"; 
+     Values  =  "W15_R25,W5_R36,W6_R56,W8_R42,W9_R62,W10_R82,W12_R59,W13_R78,W16_R38,W17_R58,W18_R78,W19_R27,W20_R39,W21_R59,W31b_R55"; 
    }    
   
    // Foundation walls: OBC-min-R12
