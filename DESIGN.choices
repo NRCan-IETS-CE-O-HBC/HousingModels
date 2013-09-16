@@ -1,0 +1,182 @@
+!-----------------------------------------------------------------------------
+! Change Mode Option - this options switches between a 'debug' mode in which
+! the timestep is defined as one day and the shading calculator (ish) is disabled 
+! AND a full simulation mode in which the timestep is a full year and ish is enabled
+!-----------------------------------------------------------------------  
+!  debug
+!  calc
+
+Opt-calcmode          : calc
+
+
+! Optimization substututions 
+! Set the orientation for the model (N,S,E,W, or AVG to run all four directions
+! and compute an average result)
+GOconfig_rotate      : S
+
+Opt-Location : Whitehorse
+
+! Assumptions about HRV operation . Not intended to be optimized!
+! Recognized values: 
+!  - Continuious: HRV runs continious
+!  - ERSp3ACH: Existing ERS assumptions of 0.3 ACH from 
+!              natural and mechanical vent. 
+!  - EightHRpDay: HRV operates 33% of each hour, for 8hr/day total.
+
+OPT-HRV_ctl          : EightHRpDay
+
+! Turn original design windows opaque ( NoWindows!)
+! or transparent (MinWindows). NoWindows doesn't presently work!
+
+Opt-BaseWindows      : MinWindows
+
+! Add one, two or three windows to front of the house 
+Opt-FrontWindows     : NoExtraWin 
+Opt-BackWindows      : NoExtraWin
+
+Opt-ExtLeftSideWindow : No            ! First floor - back side
+
+
+Opt-ExtBasementWindow : No          ! Basement (back)
+
+
+! Air-Tightness: 
+!     TypicalGTA
+!     R2000
+!     Cdn1ACH
+!     PassiveHouse (unconfirmed cost data)
+!     Base_WH_1.5
+!     WH_1.0
+!     WH_0.5
+                 
+Opt-AirTightness     : WH_0.5
+
+! Main wall insulation 
+!  BaseR21
+!  ICFR22
+!  SIPS-R29-Wall
+!  SIPS-R38-Wall
+!  SIPS-R44-Wall
+!  Stud-R38-Wall
+!  Stud-R50-Wall
+!  DblStud-R44-Wall
+!  Truss-R40-Wall
+!  W15_R25
+
+Opt-MainWall         : W21_R59
+
+
+! Add extra drywall to wall constructions 
+! Options: 
+!   OneSheet
+!   TwoSheets
+Opt-ExtraDrywall     : OneSheet
+
+! Add concrete to floors (internal partitions only)
+! Options:  
+!   Wood 
+!   1-in-concrete
+!   2-in-concrete
+Opt-FloorSurface     : wood
+
+
+Opt-Ceilings         : CeilR120
+
+! Basement slab insulation 
+! Choices: 
+!   NoInsulation
+!   R10UnderSlab
+!   R10UnderSlab+edge
+!   R12UnderSlab+edge
+!   R24UnderSlab+edge
+Opt-BasementSlabInsulation  : Slab_8_R40
+
+! Foundation walls. 
+! Choices 
+!  OBC-min-R12
+!  Rigid+Batt-R30
+!  Rigid+Blown-R43
+!  ICF-base-R22
+!  ICF-base-R26
+!  ICF-base-R32
+!  ICF-base-R41
+!  ICF-base-R51     
+!  ICF-base-R51r
+!  Fnd0PWF_R28   
+
+Opt-BasementWallInsulation  : Fnd3PWF_R76
+
+
+! Optical and thermal characteristics of casement windows (currently 
+! all windows in model. 
+! Choices: 
+!   "OriginalGlassParam" - Neil's original dbl-low-e spec
+!    DoubleLowEHardCoatAirFill
+!    DoubleLowEHardCoatArgFill
+!    TripleLowEHardCoatKryFill
+!    TripleLowESoftCoatKryFill
+!    DoubleLowESoftCoatArgFill
+! Whitehorse Windows
+!    Wind1_trp_CL	
+
+Opt-CasementWindows  :  Win10hcle2_q
+
+
+! Exposed floor over garage (affects floor
+! sections in Master and Top floor)
+! Choices:
+!  BaseExpFloor-R31
+!  ExpFloorFlash&Batt-R36
+!  ExpFloorFoamed-R52
+
+Opt-ExposedFloor     : ExpFloorFoamed-R52
+
+Opt-StandoffPV       : SizedPV
+
+! Solar DHW
+!   DWHR
+!   1-flat-plate
+!   2-flat-plate
+!   1-flat-plate+DWHR
+!   2-flat-plate+DWHR
+!   
+Opt-SolarDHW         : 2-flat-plate+DWHR
+
+! NoReduction
+! BasicReduction
+! EfficientLiving
+
+Opt-ElecLoadScale    : EfficientLiving
+
+! Load scales 
+
+Opt-DHWLoadScale     : EfficientLiving
+Opt-RoofPitch : 8-12
+
+! Hot water system. Choices:
+!  BaseDHW
+!  ElectricStorage
+!  GasInstant
+!  ElectricHP
+
+Opt-DHWSystem        : ElectricStorage
+
+! HVAC system 
+!  basefurnace
+!  CCASHP
+! elec-baseboard
+
+! WHITEHORSE HVAC
+!  baseoil85furnace
+!  oil95furnace
+!  propanefurnace
+!  elecfurnace
+!  woodstove65
+!  pelletstove75
+!  elec-baseboard
+!  GSHP
+!  CCASHP
+
+Opt-HVACSystem       : CCASHP
+
+
