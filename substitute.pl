@@ -19,8 +19,10 @@ sub fatalerror($);
 sub round($); 
 sub round1d($); 
 sub min($$);
+sub stream_out($);
 
-my $gDebug = 1; 
+
+my $gDebug = 0; 
 
 my %gTest_params;          # test parameters
 my $gChoiceFile  = ""; 
@@ -152,6 +154,7 @@ $cmd_arguements =~ s/-c;/--choices;/g;
 $cmd_arguements =~ s/-o;/--options;/g;
 $cmd_arguements =~ s/-v;/--verbose;/g;
 $cmd_arguements =~ s/-vv;/--very_verbose;/g;
+$cmd_arguements =~ s/-vvv;/--very_very_verbose;/g;
 $cmd_arguements =~ s/-b;/--base_folder;/g;
 
 # Collate options expecting arguments
@@ -236,6 +239,14 @@ foreach $arg (@processed_args){
       last SWITCH;
     }
 
+    
+    if ( $arg =~ /^--very_very_verbose/ ){
+      # steam out all messages
+      $gTest_params{"verbosity"} = "very_very_verbose";
+      $gDebug = 1; 
+      last SWITCH;
+    }    
+    
     if ( $arg =~ /^--base_folder/ ){
       # Base folder name overrides initialized value (at top)
       $gBaseModelFolder = $arg;
@@ -264,6 +275,7 @@ foreach $arg (@processed_args){
   }
 }
 
+
 # Create base folder for working model
 if (! -d "$gBaseModelFolder" && -d "../$gBaseModelFolder" ){ 
   execute ("cp -fr ../$gBaseModelFolder ./");
@@ -286,7 +298,7 @@ stream_out (" >               OptionFile: $gOptionFile \n");
 # that substitute.pl can pick from 
 
 open ( OPTIONS, "$gOptionFile") or fatalerror("Could not read $gOptionFile!");
-debug_out("\n\nReading $gOptionFile...");
+stream_out("\n\nReading $gOptionFile...");
 my $linecount = 0;
 my $currentAttributeName ="";
 my $AttributeOpen = 0;
@@ -511,7 +523,7 @@ while ( my $line = <OPTIONS> ){
     }
   
   
-  #else{debug_out (" skipped...\n");}
+  else{debug_out (" skipped...\n");}
 }
 
 
@@ -530,14 +542,14 @@ for my $att (keys %gOptions ){
 
 
 
-debug_out ("...done.\n") ; 
+stream_out ("...done.\n") ; 
  
 # Parse configuration (choice file ) 
 
 
 open ( CHOICES, "$gChoiceFile" ) or fatalerror("Could not read $gChoiceFile!");
 
-debug_out("\n\nReading $gChoiceFile...");
+stream_out("\n\nReading $gChoiceFile...");
 
 $linecount = 0;
 
@@ -570,7 +582,7 @@ while ( my $line = <CHOICES> ){
 
 
 close( CHOICES );
-debug_out ("...done.\n") ; 
+stream_out ("...done.\n") ; 
 
 # Optionally create a copy of the choice file for later use. 
 
@@ -594,7 +606,7 @@ my $allok = 1;
 
 debug_out("-----------------------------------\n");
 debug_out("-----------------------------------\n");
-debug_out(" Validating choices and options...\n");  
+stream_out(" Validating choices and options...\n");  
 
 while ( my ( $attribute, $choice) = each %gChoices ){
   
@@ -791,31 +803,6 @@ while ( my ( $attribute, $choice) = each %gChoices ){
    
    }
   
-  while ( my ( $option, $null ) = each %gOptions ){
-    stream_out ( "---> Option: $option ");
-    if ( ! defined( $gChoices{$option} ) ) { 
-             $ThisError  = "\nWARNING: Option $option found in in options file ($gOptionFile). Choices must match one \n";
-             $ThisError .=   "         was not found in Choices file ($g\n";       
-
-    }else{
-       stream_out (":".$gChoices{$option}); 
-    }
-    stream_out("\n"); 
-  
-  }
-  die(); 
-  #while ( my ( $attribute, $choice) = each %gChoices ){
- # 
- # debug_out ( "\n ======================== $attribute ============================\n");
- # debug_out ( "Choosing $attribute -> $choice \n"); 
-    
-  # is attribute defined in options ?
-#  if ( ! defined( $gOptions{$attribute} ) ){
-  
-  
-  
-  
- 
   
   #debug_out (" >>>>> ".$gOptions{$attribute}{"options"}{$choice}{"result"}{"production-elec-perKW"}."\n"); 
   
@@ -884,6 +871,22 @@ while ( my ( $attribute, $choice) = each %gChoices ){
 
 }
 
+while ( my ( $option, $null ) = each %gOptions ){
+    #stream_out ("> option : $option ?\n"); 
+    if ( ! defined( $gChoices{$option} ) ) { 
+             $ThisError = "\nWARNING: Option $option found in in options file ($gOptionFile) \n";
+             $ThisError .=   "         was not specified in Choices file ($gChoiceFile) \n";       
+             $ErrorBuffer .= $ThisError; 
+             
+             stream_out ( $ThisError ); 
+
+    }
+    $ThisError = ""; 
+}
+
+  
+
+
 # Seems like we've found everything!
 
 
@@ -896,16 +899,18 @@ if ( ! $allok ) {
     stream_out($ErrorBuffer); 
 
     fatalerror(" Choices in $gChoiceFile do not match options in $gOptionFile!");
-}
+}else{
+    stream_out (" done.\n");
+} 
 
 
 # Now create a copy of our base ESP-r file for manipulation. 
-debug_out("\n\n Creating a working folder for optimization work...");
+stream_out("\n\n Creating a working folder for optimization work...");
 if ( ! $gSkipSims ) {
   system ("rm -fr $gWorkingModelFolder ");
   system ("cp -fr $gBaseModelFolder $gWorkingModelFolder ");
 }
-debug_out("done.\n\n");
+stream_out("done.\n");
 
 
 
@@ -1011,7 +1016,7 @@ sub process_file($){
   my $startpath = getcwd();
   chdir $gMasterPath; 
   
-  debug_out("  + Performing substitutions on ".$file_path."\n");
+  stream_out("  + Performing substitutions on ".$file_path."\n");
   
   open(READIN,$file_path) or fatalerror("Could not open $file_path for reading!");
   
@@ -1088,26 +1093,26 @@ sub runsims($){
 
   
   # Run the simulation
-  debug_out ("\n\n Invoking prj to update con files (\"$gPRJZoneConCmd\")...");
+  stream_out ("\n\n Invoking prj to update con files (\"$gPRJZoneConCmd\")...");
   execute($gPRJZoneConCmd);
-  debug_out ("done. \n");  
+  stream_out ("done. \n");  
 
    
   # Spin the model 
-  debug_out("\n\n Involing prj to rotate the model by $RotationAngle degrees (\"$gPRJZoneRotCmd $RotationAngle\")...");
+  stream_out("\n\n Involing prj to rotate the model by $RotationAngle degrees (\"$gPRJZoneRotCmd $RotationAngle\")...");
   execute("$gPRJZoneRotCmd $RotationAngle"); 
-  debug_out ("done. \n");   
+  stream_out ("done. \n");   
 
 
-  debug_out("\n\n Invoking ish via run.sh...");
+  stream_out("\n\n Invoking ish via run.sh...");
   execute($gISHcmd); 
-  debug_out("done...\n"); 
+  stream_out("done...\n"); 
 
 
 
-  debug_out ("\n\n Invoking ESP-r (\"$gBPScmd\")..." ); 
+  stream_out ("\n\n Invoking ESP-r (\"$gBPScmd\")..." ); 
   execute($gBPScmd); 
-  debug_out ("done. \n");         
+  stream_out ("done. \n");         
           
           
   # Save output files
@@ -1423,7 +1428,7 @@ sub postprocess($){
 
   # Read in timestep data
 
-  debug_out("\n\n Reading timestep data...") ; 
+  stream_out("\n\n Reading timestep data...") ; 
 
   open (TSRESULTS, "out.csv") or fatalerror("Could not open ".getcwd()."/out.csv!");
 
@@ -1469,7 +1474,7 @@ sub postprocess($){
   
   my $NumberOfRows = scalar(@{$data{$headers[0]}});
 
-  debug_out("done (parsed $NumberOfRows rows)\n"); 
+  stream_out("done (parsed $NumberOfRows rows)\n"); 
 
   # Recover electrical, natural gas, oil, propane, wood, or pellet consumption data 
   my @Electrical_Use = @{ $data{" total fuel use:electricity:all end uses:quantity (kWh/s)"} };
@@ -1939,12 +1944,12 @@ sub postprocess($){
     $cost  = $gOptions{$attribute}{"options"}{$choice}{"cost"} * $RegionalCostAdj;
     $gTotalCost += $cost ;
 
-    debug_out( " +  ".round($cost)." ( $attribute : $choice ) \n");
+    stream_out( " +  ".round($cost)." ( $attribute : $choice ) \n");
     
   }
-  debug_out ( " - ".round($gIncBaseCosts * $RegionalCostAdj)." (Base costs for windows)  \n"); 
-  debug_out ( " --------------------------------------------------------\n");
-  debug_out ( " =   ".round($gTotalCost-$gIncBaseCosts* $RegionalCostAdj )." ( Total incremental cost ) \n");
+  stream_out ( " - ".round($gIncBaseCosts * $RegionalCostAdj)." (Base costs for windows)  \n"); 
+  stream_out ( " --------------------------------------------------------\n");
+  stream_out ( " =   ".round($gTotalCost-$gIncBaseCosts* $RegionalCostAdj )." ( Total incremental cost ) \n");
 
   chdir($gMasterPath);
   my $fileexists; 
@@ -2030,9 +2035,13 @@ sub fatalerror($){
     print LOG "\nsubstitute.pl -> Fatal error: \n"; 
     print LOG "$err_msg\n"; 
   }
-  print "\nsubstitute.pl -> Fatal error: \n";
+  print "\n=========================================================\n"; 
+  print "substitute.pl -> Fatal error: \n\n";
   print "$err_msg \n";
-  die;
+  print "\n\n"; 
+  print "substitute.pl -> Error and warning messages:\n\n";
+  print "$ErrorBuffer \n"; 
+  die "Run stopped";
 }
 
 
@@ -2042,7 +2051,7 @@ sub fatalerror($){
 sub execute($){
   my($command) =@_;
   my $result;
-  if ($gTest_params{"verbosity"} eq "very_verbose"){    
+  if ($gTest_params{"verbosity"} eq "very_verbose" || $gTest_params{"verbosity"} eq "very_very_verbose" ){    
     debug_out("\n > executing $command \n");
     debug_out(" > from path ".getcwd()."\n");
     system($command);
