@@ -1,4 +1,4 @@
-#!/usr/bin/perl
+#!/usr/bin/perl    
 
 # This script parses through the files
 
@@ -29,6 +29,7 @@ my $gOptionFile  = "" ;
 my $gBPSpath            = "~/esp-r/bin/bps"; 
 my $gPRJpath            = "~/esp-r/bin/prj"; 
 
+# $gBaseModelFolder initialized here but can be over-ridden by command line value with -b option
 my $gBaseModelFolder    = "NZEH-base";
 my $gWorkingModelFolder = "NZEH-work"; 
 my $gWorkingCfgPath     = "$gWorkingModelFolder/cfg";
@@ -41,7 +42,7 @@ my $gBPScmd             = "$gBPSpath -file $gModelCfgFile -mode text -p fullyear
 
 my $gTotalCost          = 0; 
 my $gIncBaseCosts       = 11727; 
-
+my $cost_type           = 0;
 my $gSkipSims           = 0; 
 
 my $gRotate             = "S";
@@ -85,7 +86,7 @@ $gTest_params{"logfile"}   = "$master_path/pl-log.txt";
 
 open(LOG, ">".$gTest_params{"logfile"}) or fatalerror("Could not open ".$gTest_params{"logfile"}."\n"); 
 
-# List of extentions that we should operate on
+# List of extensions that we should operate on
 
 my @search_these_exts=( "cfg",
                         "aim",
@@ -102,7 +103,7 @@ my @search_these_exts=( "cfg",
                        
                         
 #-------------------------------------------------------------------
-# Help text. Dumped if help requested, or if no arguements supplied.
+# Help text. Dumped if help requested, or if no arguments supplied.
 #-------------------------------------------------------------------
 my $Help_msg = "
 
@@ -112,16 +113,18 @@ my $Help_msg = "
  and substitutes values from a specified input file. 
  
  use: ./substitute.pl --options options.opt     \
-                      --choices choices.options
+                      --choices choices.options  \
+                      --base_folder BaseFolderName
                       
  use for optimization work:
  
   ./substitute.pl -c optimization-choices.opt \
-                  -o optimization-options.opt  
+                  -o optimization-options.opt \
+                  -b BaseFolderName           \
                   -v(v);
-                       
+				  
 ";
-# dump help text, if no arguement given
+# dump help text, if no argument given
 if (!@ARGV){
   print $Help_msg;
   die;
@@ -131,7 +134,7 @@ if (!@ARGV){
 
 my ($arg, $cmd_arguements,@processed_args, @binaries);
 
-# Compress arguements into a space-separated string
+# Compress arguments into a space-separated string
 foreach $arg (@ARGV){
   $cmd_arguements .= " $arg ";
 }
@@ -140,33 +143,34 @@ foreach $arg (@ARGV){
 $cmd_arguements =~ s/\s+/ /g;
 $cmd_arguements =~ s/\s+/;/g;
 
-# Translate shorthand arguements into longhand
+# Translate shorthand arguments into longhand
 $cmd_arguements =~ s/-h;/--help;/g;
 $cmd_arguements =~ s/-p;/--path;/g;
 $cmd_arguements =~ s/-c;/--choices;/g;
 $cmd_arguements =~ s/-o;/--options;/g;
 $cmd_arguements =~ s/-v;/--verbose;/g;
 $cmd_arguements =~ s/-vv;/--very_verbose;/g;
+$cmd_arguements =~ s/-b;/--base_folder;/g;
 
-
-# Collate options expecting arguements
+# Collate options expecting arguments
 $cmd_arguements =~ s/--options;/--options:/g;
 $cmd_arguements =~ s/--choices;/--choices:/g;
 $cmd_arguements =~ s/--rotate;/--rotate:/g;
+$cmd_arguements =~ s/--base_folder;/--base_folder:/g;
 
-# If any options expecting arguements are followed by other
-# options, insert empty arguement:
+# If any options expecting arguments are followed by other
+# options, insert empty argument:
 $cmd_arguements =~ s/:-/:;-/;
 
 # remove leading and trailing ;'s
 $cmd_arguements =~ s/^;//g;
 $cmd_arguements =~ s/;$//g;
 
-# split processed arguements back into array
+# split processed arguments back into array
 @processed_args = split /;/, $cmd_arguements;
 
 
-# Intrepret arguements
+# Interpret arguments
 foreach $arg (@processed_args){
   SWITCH:
   {
@@ -199,7 +203,7 @@ foreach $arg (@processed_args){
     
     
     if ( $arg =~ /^--rotate:/ ){
-      # stream out progess messages
+      # stream out progress messages
       $gRotate = $arg;
       $gRotate =~ s/--rotate://g; 
       if ($gRotate !~ /^[NSEW]$/ && $gRotate !~ /AVG/ ){
@@ -210,14 +214,14 @@ foreach $arg (@processed_args){
     }
     
     if ( $arg =~ /^--skip-sims/ ){
-      # stream out progess messages
+      # stream out progress messages
       $gSkipSims = 1;
       last SWITCH;
     }
     
     
     if ( $arg =~ /^--verbose/ ){
-      # stream out progess messages
+      # stream out progress messages
       $gTest_params{"verbosity"} = "verbose";
       last SWITCH;
     }
@@ -230,6 +234,19 @@ foreach $arg (@processed_args){
       last SWITCH;
     }
 
+    if ( $arg =~ /^--base_folder/ ){
+      # Base folder name overrides initialized value (at top)
+      $gBaseModelFolder = $arg;
+      $gBaseModelFolder =~ s/--base_folder://g;
+      if ( ! $gBaseModelFolder ){
+        fatalerror("Base folder name missing after --base_folder (or -b) option!");
+      }
+      if (! -d "$gBaseModelFolder"){ 
+		fatalerror("Base folder does not exist - create and populate folder first!");
+	  }
+
+	  last SWITCH;
+    }
     
     
     
