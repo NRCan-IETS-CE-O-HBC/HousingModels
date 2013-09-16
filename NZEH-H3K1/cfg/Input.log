@@ -1,0 +1,1065 @@
+---------------------------------------
+ObjecType:        zone_obj
+m_zoneID:         2
+m_zoneObjID:      12
+m_zoneLabel:      L2 Z2 Core Main
+m_zoneBelow:      1
+m_location:       0
+m_level:          1
+m_attachedTo:     (null)
+m_ceilingAbove:   14
+totalWallCount:   -842150451
+m_howManyFloors:  1
+bAttic:           0
+---------------------------------------
+ObjecType:        zone_obj
+m_zoneID:         1
+m_zoneObjID:      1
+m_zoneLabel:      L1 Z1 Core Basement
+m_zoneBelow:      -1
+m_location:       0
+m_level:          0
+m_attachedTo:     (null)
+m_ceilingAbove:   3
+totalWallCount:   -842150451
+m_howManyFloors:  1
+bAttic:           0
+---------------------------------------
+ObjecType:        zone_obj
+m_zoneID:         3
+m_zoneObjID:      25
+m_zoneLabel:      L3 Z3 Core Main
+m_zoneBelow:      12
+m_location:       0
+m_level:          2
+m_attachedTo:     (null)
+m_ceilingAbove:   0
+totalWallCount:   -842150451
+m_howManyFloors:  1
+bAttic:           0
+---------------------------------------
+ObjecType:        zone_obj
+m_zoneID:         4
+m_zoneObjID:      36
+m_zoneLabel:      L3 Z4 Core Attic
+m_zoneBelow:      25
+m_location:       0
+m_level:          2
+m_attachedTo:     (null)
+m_ceilingAbove:   0
+totalWallCount:   -842150451
+m_howManyFloors:  1
+bAttic:           0
+---------------------------------------
+ObjecType:        floor_ob
+m_objectID:       2
+m_parentObjectID: 1
+m_label:          fl01C0101
+m_floorType:      105227024
+m_floorTypeDesc:  User specified
+m_area:           200.000000
+m_rvalue:         0.116000
+m_attachedZone:   -1
+m_interiorFloor:  0
+sSurfaceType:     hêp
+iSurfaceNumber:   1
+Vertices:         4
+iDirection:       0
+0) (100.000000, 100.000000, 98.379997)
+1) (100.000000, 110.000000, 98.379997)
+2) (120.000000, 110.000000, 98.379997)
+3) (120.000000, 100.000000, 98.379997)
+---------------------------------------
+ObjecType:        ceiling
+m_objectID:       3
+m_parentObjectID: 1
+m_label:          ce01C0101
+m_ceilingType:    1
+m_ceilingTypeDesc:User specified
+m_constType:      5 Ñ‡E
+m_slope:          1
+m_length:         3.160000
+m_area:           200.000000
+m_roofSlope:      0.000000
+m_rvalue:         0.650000
+m_location:       -842150451
+m_endGableOrient: 4
+m_overHang:       0.000000
+bBasementCeiling: 0
+bAtticFloor:      0
+m_bInternalCeiling:1
+sSurfaceType:     †Êr
+iSurfaceNumber:   1
+Vertices:         4
+iDirection:       0
+0) (100.000000, 100.000000, 100.659996)
+1) (120.000000, 100.000000, 100.659996)
+2) (120.000000, 110.000000, 100.659996)
+3) (100.000000, 110.000000, 100.659996)
+---------------------------------------
+ObjecType:        wall
+m_objectID:       4
+m_parentObjectID: 1
+m_label:          wa01C0101
+m_wallType:       1
+m_wallTypeDesc:   User specified
+m_direction:      8
+m_height:         2.280000
+m_perimeter:      10.000000
+m_width:          10.000000
+m_area:           22.799999
+m_rvalue:         1.240000
+m_adjacentWall:   0
+m_attachedZone:   0
+m_floor:          0
+m_interiorWall:   0
+m_floor:          0
+m_faceDirection:  3
+m_interiorWall:   0
+sSurfaceType:     ìw
+iSurfaceNumber:   1
+Vertices:         11
+iDirection:       0
+0) (100.000000, 110.000000, 98.379997)
+1) (100.000000, 100.000000, 98.379997)
+2) (100.000000, 100.000000, 100.659996)
+3) (100.000000, 110.000000, 100.659996)
+4) (100.000000, 110.000000, 98.379997)
+5) (100.000000, 100.584999, 99.279999)
+6) (100.000000, 100.584999, 100.479996)
+7) (100.000000, 100.300003, 100.479996)
+8) (100.000000, 100.300003, 99.279999)
+9) (100.000000, 100.584999, 99.279999)
+10) (100.000000, 110.000000, 98.379997)
+---------------------------------------
+ObjecType:        window
+m_objectID:       5
+m_parentObjectID: 4
+m_label:          wi01C0101
+m_windowType:     202022
+m_windowTypeDesc: 202022
+m_orientation:    7
+m_location:       4
+m_windowID:       0
+m_area:           0.342000
+m_height:         1200.000000
+m_width:          285.000000
+m_rvalue:         0.309611
+sSurfaceType:     ÿ<u
+iSurfaceNumber:   1
+Vertices:         4
+iDirection:       0
+0) (100.000000, 100.584999, 99.279999)
+1) (100.000000, 100.300003, 99.279999)
+2) (100.000000, 100.300003, 100.479996)
+3) (100.000000, 100.584999, 100.479996)
+---------------------------------------
+ObjecType:        wall
+m_objectID:       6
+m_parentObjectID: 1
+m_label:          wa02C0101
+m_wallType:       1
+m_wallTypeDesc:   
+m_direction:      6
+m_height:         2.280000
+m_perimeter:      20.000000
+m_width:          20.000000
+m_area:           45.599998
+m_rvalue:         1.700000
+m_adjacentWall:   -1
+m_attachedZone:   -1
+m_floor:          0
+m_interiorWall:   0
+m_floor:          0
+m_faceDirection:  1
+m_interiorWall:   0
+sSurfaceType:     Ä?|
+iSurfaceNumber:   2
+Vertices:         11
+iDirection:       0
+0) (120.000000, 110.000000, 98.379997)
+1) (100.000000, 110.000000, 98.379997)
+2) (100.000000, 110.000000, 100.659996)
+3) (120.000000, 110.000000, 100.659996)
+4) (120.000000, 110.000000, 98.379997)
+5) (105.430000, 110.000000, 99.279999)
+6) (105.430000, 110.000000, 100.479996)
+7) (100.300003, 110.000000, 100.479996)
+8) (100.300003, 110.000000, 99.279999)
+9) (105.430000, 110.000000, 99.279999)
+10) (120.000000, 110.000000, 98.379997)
+---------------------------------------
+ObjecType:        window
+m_objectID:       7
+m_parentObjectID: 6
+m_label:          wi02C0101
+m_windowType:     202022
+m_windowTypeDesc: 202022
+m_orientation:    5
+m_location:       6
+m_windowID:       0
+m_area:           6.156000
+m_height:         1200.000000
+m_width:          5130.000000
+m_rvalue:         0.304407
+sSurfaceType:     HÈy
+iSurfaceNumber:   2
+Vertices:         4
+iDirection:       0
+0) (105.430000, 110.000000, 99.279999)
+1) (100.300003, 110.000000, 99.279999)
+2) (100.300003, 110.000000, 100.479996)
+3) (105.430000, 110.000000, 100.479996)
+---------------------------------------
+ObjecType:        wall
+m_objectID:       8
+m_parentObjectID: 1
+m_label:          wa03C0101
+m_wallType:       1
+m_wallTypeDesc:   
+m_direction:      4
+m_height:         2.280000
+m_perimeter:      10.000000
+m_width:          10.000000
+m_area:           22.799999
+m_rvalue:         1.700000
+m_adjacentWall:   -1
+m_attachedZone:   -1
+m_floor:          0
+m_interiorWall:   0
+m_floor:          0
+m_faceDirection:  1
+m_interiorWall:   0
+sSurfaceType:     ÎÄ
+iSurfaceNumber:   3
+Vertices:         11
+iDirection:       0
+0) (120.000000, 100.000000, 98.379997)
+1) (120.000000, 110.000000, 98.379997)
+2) (120.000000, 110.000000, 100.659996)
+3) (120.000000, 100.000000, 100.659996)
+4) (120.000000, 100.000000, 98.379997)
+5) (120.000000, 109.415001, 99.279999)
+6) (120.000000, 109.415001, 100.479996)
+7) (120.000000, 109.699997, 100.479996)
+8) (120.000000, 109.699997, 99.279999)
+9) (120.000000, 109.415001, 99.279999)
+10) (120.000000, 100.000000, 98.379997)
+---------------------------------------
+ObjecType:        window
+m_objectID:       9
+m_parentObjectID: 8
+m_label:          wi03C0101
+m_windowType:     202022
+m_windowTypeDesc: 202022
+m_orientation:    3
+m_location:       8
+m_windowID:       0
+m_area:           0.342000
+m_height:         1200.000000
+m_width:          285.000000
+m_rvalue:         0.309611
+sSurfaceType:     ∏ï~
+iSurfaceNumber:   3
+Vertices:         4
+iDirection:       0
+0) (120.000000, 109.415001, 99.279999)
+1) (120.000000, 109.699997, 99.279999)
+2) (120.000000, 109.699997, 100.479996)
+3) (120.000000, 109.415001, 100.479996)
+---------------------------------------
+ObjecType:        wall
+m_objectID:       10
+m_parentObjectID: 1
+m_label:          wa04C0101
+m_wallType:       1
+m_wallTypeDesc:   
+m_direction:      2
+m_height:         2.280000
+m_perimeter:      20.000000
+m_width:          20.000000
+m_area:           45.599998
+m_rvalue:         1.700000
+m_adjacentWall:   -1
+m_attachedZone:   -1
+m_floor:          0
+m_interiorWall:   0
+m_floor:          0
+m_faceDirection:  1
+m_interiorWall:   0
+sSurfaceType:     `òÖ
+iSurfaceNumber:   4
+Vertices:         11
+iDirection:       0
+0) (100.000000, 100.000000, 98.379997)
+1) (120.000000, 100.000000, 98.379997)
+2) (120.000000, 100.000000, 100.659996)
+3) (100.000000, 100.000000, 100.659996)
+4) (100.000000, 100.000000, 98.379997)
+5) (114.570000, 100.000000, 99.279999)
+6) (114.570000, 100.000000, 100.479996)
+7) (119.699997, 100.000000, 100.479996)
+8) (119.699997, 100.000000, 99.279999)
+9) (114.570000, 100.000000, 99.279999)
+10) (100.000000, 100.000000, 98.379997)
+---------------------------------------
+ObjecType:        window
+m_objectID:       11
+m_parentObjectID: 10
+m_label:          wi04C0101
+m_windowType:     202022
+m_windowTypeDesc: 202022
+m_orientation:    1
+m_location:       10
+m_windowID:       0
+m_area:           6.156000
+m_height:         1200.000000
+m_width:          5130.000000
+m_rvalue:         0.304407
+sSurfaceType:     (BÉ
+iSurfaceNumber:   4
+Vertices:         4
+iDirection:       0
+0) (114.570000, 100.000000, 99.279999)
+1) (119.699997, 100.000000, 99.279999)
+2) (119.699997, 100.000000, 100.479996)
+3) (114.570000, 100.000000, 100.479996)
+---------------------------------------
+ObjecType:        floor_ob
+m_objectID:       13
+m_parentObjectID: 12
+m_label:          fl01C0202
+m_floorType:      105227984
+m_floorTypeDesc:  
+m_area:           200.000000
+m_rvalue:         0.650000
+m_attachedZone:   1
+m_interiorFloor:  1
+sSurfaceType:     òÓá
+iSurfaceNumber:   1
+Vertices:         4
+iDirection:       0
+0) (100.000000, 100.000000, 100.659996)
+1) (100.000000, 110.000000, 100.659996)
+2) (120.000000, 110.000000, 100.659996)
+3) (120.000000, 100.000000, 100.659996)
+---------------------------------------
+ObjecType:        ceiling
+m_objectID:       14
+m_parentObjectID: 12
+m_label:          ce01C0202
+m_ceilingType:    1
+m_ceilingTypeDesc:
+m_constType:      5 Ñ‡E
+m_slope:          0
+m_length:         3.160000
+m_area:           200.000000
+m_roofSlope:      0.000000
+m_rvalue:         0.650000
+m_location:       -842150451
+m_endGableOrient: 1
+m_overHang:       0.000000
+bBasementCeiling: 0
+bAtticFloor:      0
+m_bInternalCeiling:1
+sSurfaceType:     –Dä
+iSurfaceNumber:   1
+Vertices:         4
+iDirection:       0
+0) (100.000000, 100.000000, 103.110001)
+1) (120.000000, 100.000000, 103.110001)
+2) (120.000000, 110.000000, 103.110001)
+3) (100.000000, 110.000000, 103.110001)
+---------------------------------------
+ObjecType:        wall
+m_objectID:       15
+m_parentObjectID: 12
+m_label:          wa01C0202
+m_wallType:       D*2x6 wd frm wall
+m_wallTypeDesc:   2x6 wd frm wall
+m_direction:      8
+m_height:         2.450000
+m_perimeter:      10.000000
+m_width:          10.000000
+m_area:           24.500000
+m_rvalue:         5.450000
+m_adjacentWall:   0
+m_attachedZone:   0
+m_floor:          1
+m_interiorWall:   0
+m_floor:          1
+m_faceDirection:  3
+m_interiorWall:   0
+sSurfaceType:     @Òé
+iSurfaceNumber:   1
+Vertices:         11
+iDirection:       0
+0) (100.000000, 110.000000, 100.659996)
+1) (100.000000, 100.000000, 100.659996)
+2) (100.000000, 100.000000, 103.110001)
+3) (100.000000, 110.000000, 103.110001)
+4) (100.000000, 110.000000, 100.659996)
+5) (100.000000, 100.606247, 101.559998)
+6) (100.000000, 100.606247, 102.759995)
+7) (100.000000, 100.300003, 102.759995)
+8) (100.000000, 100.300003, 101.559998)
+9) (100.000000, 100.606247, 101.559998)
+10) (100.000000, 110.000000, 100.659996)
+---------------------------------------
+ObjecType:        window
+m_objectID:       16
+m_parentObjectID: 15
+m_label:          wi01C0202
+m_windowType:     D*Double with Argon, Low-e
+m_windowTypeDesc: Double with Argon, Low-e
+m_orientation:    7
+m_location:       15
+m_windowID:       0
+m_area:           0.367500
+m_height:         1200.000000
+m_width:          306.250000
+m_rvalue:         0.310000
+sSurfaceType:     õå
+iSurfaceNumber:   1
+Vertices:         4
+iDirection:       0
+0) (100.000000, 100.606247, 101.559998)
+1) (100.000000, 100.300003, 101.559998)
+2) (100.000000, 100.300003, 102.759995)
+3) (100.000000, 100.606247, 102.759995)
+---------------------------------------
+ObjecType:        wall
+m_objectID:       17
+m_parentObjectID: 12
+m_label:          wa02C0202
+m_wallType:       D*2x6 wd frm wall
+m_wallTypeDesc:   2x6 wd frm wall
+m_direction:      6
+m_height:         2.450000
+m_perimeter:      20.000000
+m_width:          20.000000
+m_area:           49.000000
+m_rvalue:         5.480000
+m_adjacentWall:   0
+m_attachedZone:   0
+m_floor:          1
+m_interiorWall:   0
+m_floor:          1
+m_faceDirection:  1
+m_interiorWall:   0
+sSurfaceType:     ê
+iSurfaceNumber:   2
+Vertices:         15
+iDirection:       0
+0) (120.000000, 110.000000, 100.659996)
+1) (119.699997, 110.000000, 100.659996)
+2) (119.699997, 110.000000, 102.759995)
+3) (118.800003, 110.000000, 102.759995)
+4) (118.800003, 110.000000, 100.659996)
+5) (100.000000, 110.000000, 100.659996)
+6) (100.000000, 110.000000, 103.110001)
+7) (120.000000, 110.000000, 103.110001)
+8) (120.000000, 110.000000, 100.659996)
+9) (105.812500, 110.000000, 101.559998)
+10) (105.812500, 110.000000, 102.759995)
+11) (100.300003, 110.000000, 102.759995)
+12) (100.300003, 110.000000, 101.559998)
+13) (105.812500, 110.000000, 101.559998)
+14) (120.000000, 110.000000, 100.659996)
+---------------------------------------
+ObjecType:        door
+m_objectID:       18
+m_parentObjectID: 17
+m_label:          do01C0202
+m_doorType:       8
+m_location:       17
+m_doorID:         0
+m_height:         2.100000
+m_width:          0.900000
+m_area:           1.890000
+m_rvalue:         0.390000
+m_attachedZone:   0
+sSurfaceType:     xGë
+iSurfaceNumber:   1
+Vertices:         4
+iDirection:       0
+0) (119.699997, 110.000000, 100.659996)
+1) (118.800003, 110.000000, 100.659996)
+2) (118.800003, 110.000000, 102.759995)
+3) (119.699997, 110.000000, 102.759995)
+---------------------------------------
+ObjecType:        window
+m_objectID:       19
+m_parentObjectID: 17
+m_label:          wi02C0202
+m_windowType:     D*Double with Argon, Low-e
+m_windowTypeDesc: Double with Argon, Low-e
+m_orientation:    5
+m_location:       17
+m_windowID:       0
+m_area:           6.615000
+m_height:         1200.000000
+m_width:          5512.500000
+m_rvalue:         0.510000
+sSurfaceType:     ∞ùì
+iSurfaceNumber:   2
+Vertices:         4
+iDirection:       0
+0) (105.812500, 110.000000, 101.559998)
+1) (100.300003, 110.000000, 101.559998)
+2) (100.300003, 110.000000, 102.759995)
+3) (105.812500, 110.000000, 102.759995)
+---------------------------------------
+ObjecType:        wall
+m_objectID:       20
+m_parentObjectID: 12
+m_label:          wa03C0202
+m_wallType:       D*2x6 wd frm wall
+m_wallTypeDesc:   2x6 wd frm wall
+m_direction:      4
+m_height:         2.450000
+m_perimeter:      10.000000
+m_width:          10.000000
+m_area:           24.500000
+m_rvalue:         5.450000
+m_adjacentWall:   0
+m_attachedZone:   0
+m_floor:          1
+m_interiorWall:   0
+m_floor:          1
+m_faceDirection:  2
+m_interiorWall:   0
+sSurfaceType:     
+iSurfaceNumber:   3
+Vertices:         11
+iDirection:       0
+0) (120.000000, 100.000000, 100.659996)
+1) (120.000000, 110.000000, 100.659996)
+2) (120.000000, 110.000000, 103.110001)
+3) (120.000000, 100.000000, 103.110001)
+4) (120.000000, 100.000000, 100.659996)
+5) (120.000000, 109.393753, 101.559998)
+6) (120.000000, 109.393753, 102.759995)
+7) (120.000000, 109.699997, 102.759995)
+8) (120.000000, 109.699997, 101.559998)
+9) (120.000000, 109.393753, 101.559998)
+10) (120.000000, 100.000000, 100.659996)
+---------------------------------------
+ObjecType:        window
+m_objectID:       21
+m_parentObjectID: 20
+m_label:          wi03C0202
+m_windowType:     D*Double with Argon, Low-e
+m_windowTypeDesc: Double with Argon, Low-e
+m_orientation:    3
+m_location:       20
+m_windowID:       0
+m_area:           0.367500
+m_height:         1200.000000
+m_width:          306.250000
+m_rvalue:         0.310000
+sSurfaceType:     »V5
+iSurfaceNumber:   3
+Vertices:         4
+iDirection:       0
+0) (120.000000, 109.393753, 101.559998)
+1) (120.000000, 109.699997, 101.559998)
+2) (120.000000, 109.699997, 102.759995)
+3) (120.000000, 109.393753, 102.759995)
+---------------------------------------
+ObjecType:        wall
+m_objectID:       22
+m_parentObjectID: 12
+m_label:          wa04C0202
+m_wallType:       D*2x6 wd frm wall
+m_wallTypeDesc:   2x6 wd frm wall
+m_direction:      2
+m_height:         2.450000
+m_perimeter:      20.000000
+m_width:          20.000000
+m_area:           49.000000
+m_rvalue:         5.480000
+m_adjacentWall:   0
+m_attachedZone:   0
+m_floor:          1
+m_interiorWall:   0
+m_floor:          1
+m_faceDirection:  4
+m_interiorWall:   0
+sSurfaceType:     ®Ø>
+iSurfaceNumber:   4
+Vertices:         15
+iDirection:       0
+0) (100.000000, 100.000000, 100.659996)
+1) (100.300003, 100.000000, 100.659996)
+2) (100.300003, 100.000000, 102.759995)
+3) (101.199997, 100.000000, 102.759995)
+4) (101.199997, 100.000000, 100.659996)
+5) (120.000000, 100.000000, 100.659996)
+6) (120.000000, 100.000000, 103.110001)
+7) (100.000000, 100.000000, 103.110001)
+8) (100.000000, 100.000000, 100.659996)
+9) (114.187500, 100.000000, 101.559998)
+10) (114.187500, 100.000000, 102.759995)
+11) (119.699997, 100.000000, 102.759995)
+12) (119.699997, 100.000000, 101.559998)
+13) (114.187500, 100.000000, 101.559998)
+14) (100.000000, 100.000000, 100.659996)
+---------------------------------------
+ObjecType:        door
+m_objectID:       23
+m_parentObjectID: 22
+m_label:          do02C0202
+m_doorType:       8
+m_location:       22
+m_doorID:         0
+m_height:         2.100000
+m_width:          0.900000
+m_area:           1.890000
+m_rvalue:         0.390000
+m_attachedZone:   0
+sSurfaceType:     8:
+iSurfaceNumber:   2
+Vertices:         4
+iDirection:       0
+0) (100.300003, 100.000000, 100.659996)
+1) (101.199997, 100.000000, 100.659996)
+2) (101.199997, 100.000000, 102.759995)
+3) (100.300003, 100.000000, 102.759995)
+---------------------------------------
+ObjecType:        window
+m_objectID:       24
+m_parentObjectID: 22
+m_label:          wi04C0202
+m_windowType:     D*Double with Argon, Low-e
+m_windowTypeDesc: Double with Argon, Low-e
+m_orientation:    1
+m_location:       22
+m_windowID:       0
+m_area:           6.615000
+m_height:         1200.000000
+m_width:          5512.500000
+m_rvalue:         0.510000
+sSurfaceType:     pY<
+iSurfaceNumber:   4
+Vertices:         4
+iDirection:       0
+0) (114.187500, 100.000000, 101.559998)
+1) (119.699997, 100.000000, 101.559998)
+2) (119.699997, 100.000000, 102.759995)
+3) (114.187500, 100.000000, 102.759995)
+---------------------------------------
+ObjecType:        floor_ob
+m_objectID:       26
+m_parentObjectID: 25
+m_label:          fl01C0303
+m_floorType:      105228624
+m_floorTypeDesc:  
+m_area:           200.000000
+m_rvalue:         0.650000
+m_attachedZone:   12
+m_interiorFloor:  1
+sSurfaceType:     ‡A
+iSurfaceNumber:   1
+Vertices:         4
+iDirection:       0
+0) (100.000000, 100.000000, 103.110001)
+1) (100.000000, 110.000000, 103.110001)
+2) (120.000000, 110.000000, 103.110001)
+3) (120.000000, 100.000000, 103.110001)
+---------------------------------------
+ObjecType:        ceiling
+m_objectID:       27
+m_parentObjectID: 25
+m_label:          ce01C0303
+m_ceilingType:    1
+m_ceilingTypeDesc:
+m_constType:      5 Ñ‡E
+m_slope:          0
+m_length:         3.160000
+m_area:           200.000000
+m_roofSlope:      0.000000
+m_rvalue:         4.140000
+m_location:       -842150451
+m_endGableOrient: 1
+m_overHang:       0.000000
+bBasementCeiling: 0
+bAtticFloor:      0
+m_bInternalCeiling:1
+sSurfaceType:     \C
+iSurfaceNumber:   1
+Vertices:         4
+iDirection:       0
+0) (100.000000, 100.000000, 105.559998)
+1) (120.000000, 100.000000, 105.559998)
+2) (120.000000, 110.000000, 105.559998)
+3) (100.000000, 110.000000, 105.559998)
+---------------------------------------
+ObjecType:        wall
+m_objectID:       28
+m_parentObjectID: 25
+m_label:          wa01C0303
+m_wallType:       D*2x6 wd frm wall
+m_wallTypeDesc:   2x6 wd frm wall
+m_direction:      8
+m_height:         2.450000
+m_perimeter:      10.000000
+m_width:          10.000000
+m_area:           24.500000
+m_rvalue:         5.450000
+m_adjacentWall:   0
+m_attachedZone:   0
+m_floor:          2
+m_interiorWall:   0
+m_floor:          2
+m_faceDirection:  3
+m_interiorWall:   0
+sSurfaceType:     àH
+iSurfaceNumber:   1
+Vertices:         11
+iDirection:       0
+0) (100.000000, 110.000000, 103.110001)
+1) (100.000000, 100.000000, 103.110001)
+2) (100.000000, 100.000000, 105.559998)
+3) (100.000000, 110.000000, 105.559998)
+4) (100.000000, 110.000000, 103.110001)
+5) (100.000000, 100.606247, 104.009995)
+6) (100.000000, 100.606247, 105.209999)
+7) (100.000000, 100.300003, 105.209999)
+8) (100.000000, 100.300003, 104.009995)
+9) (100.000000, 100.606247, 104.009995)
+10) (100.000000, 110.000000, 103.110001)
+---------------------------------------
+ObjecType:        window
+m_objectID:       29
+m_parentObjectID: 28
+m_label:          wi01C0303
+m_windowType:     202022
+m_windowTypeDesc: 202022
+m_orientation:    7
+m_location:       28
+m_windowID:       0
+m_area:           0.367500
+m_height:         1200.000000
+m_width:          306.250000
+m_rvalue:         0.309083
+sSurfaceType:     P≤E
+iSurfaceNumber:   1
+Vertices:         4
+iDirection:       0
+0) (100.000000, 100.606247, 104.009995)
+1) (100.000000, 100.300003, 104.009995)
+2) (100.000000, 100.300003, 105.209999)
+3) (100.000000, 100.606247, 105.209999)
+---------------------------------------
+ObjecType:        wall
+m_objectID:       30
+m_parentObjectID: 25
+m_label:          wa02C0303
+m_wallType:       D*2x6 wd frm wall
+m_wallTypeDesc:   2x6 wd frm wall
+m_direction:      6
+m_height:         2.450000
+m_perimeter:      20.000000
+m_width:          20.000000
+m_area:           49.000000
+m_rvalue:         5.480000
+m_adjacentWall:   0
+m_attachedZone:   0
+m_floor:          2
+m_interiorWall:   0
+m_floor:          2
+m_faceDirection:  1
+m_interiorWall:   0
+sSurfaceType:     ¯¥L
+iSurfaceNumber:   2
+Vertices:         11
+iDirection:       0
+0) (120.000000, 110.000000, 103.110001)
+1) (100.000000, 110.000000, 103.110001)
+2) (100.000000, 110.000000, 105.559998)
+3) (120.000000, 110.000000, 105.559998)
+4) (120.000000, 110.000000, 103.110001)
+5) (105.812500, 110.000000, 104.009995)
+6) (105.812500, 110.000000, 105.209999)
+7) (100.300003, 110.000000, 105.209999)
+8) (100.300003, 110.000000, 104.009995)
+9) (105.812500, 110.000000, 104.009995)
+10) (120.000000, 110.000000, 103.110001)
+---------------------------------------
+ObjecType:        window
+m_objectID:       31
+m_parentObjectID: 30
+m_label:          wi02C0303
+m_windowType:     202022
+m_windowTypeDesc: 202022
+m_orientation:    5
+m_location:       30
+m_windowID:       0
+m_area:           6.615000
+m_height:         1200.000000
+m_width:          5512.500488
+m_rvalue:         0.304418
+sSurfaceType:     ¿^J
+iSurfaceNumber:   2
+Vertices:         4
+iDirection:       0
+0) (105.812500, 110.000000, 104.009995)
+1) (100.300003, 110.000000, 104.009995)
+2) (100.300003, 110.000000, 105.209999)
+3) (105.812500, 110.000000, 105.209999)
+---------------------------------------
+ObjecType:        wall
+m_objectID:       32
+m_parentObjectID: 25
+m_label:          wa03C0303
+m_wallType:       D*2x6 wd frm wall
+m_wallTypeDesc:   2x6 wd frm wall
+m_direction:      4
+m_height:         2.450000
+m_perimeter:      10.000000
+m_width:          10.000000
+m_area:           24.500000
+m_rvalue:         5.450000
+m_adjacentWall:   0
+m_attachedZone:   0
+m_floor:          2
+m_interiorWall:   0
+m_floor:          2
+m_faceDirection:  2
+m_interiorWall:   0
+sSurfaceType:     haQ
+iSurfaceNumber:   3
+Vertices:         11
+iDirection:       0
+0) (120.000000, 100.000000, 103.110001)
+1) (120.000000, 110.000000, 103.110001)
+2) (120.000000, 110.000000, 105.559998)
+3) (120.000000, 100.000000, 105.559998)
+4) (120.000000, 100.000000, 103.110001)
+5) (120.000000, 109.393753, 104.009995)
+6) (120.000000, 109.393753, 105.209999)
+7) (120.000000, 109.699997, 105.209999)
+8) (120.000000, 109.699997, 104.009995)
+9) (120.000000, 109.393753, 104.009995)
+10) (120.000000, 100.000000, 103.110001)
+---------------------------------------
+ObjecType:        window
+m_objectID:       33
+m_parentObjectID: 32
+m_label:          wi03C0303
+m_windowType:     202022
+m_windowTypeDesc: 202022
+m_orientation:    3
+m_location:       32
+m_windowID:       0
+m_area:           0.367500
+m_height:         1200.000000
+m_width:          306.250000
+m_rvalue:         0.309083
+sSurfaceType:     0O
+iSurfaceNumber:   3
+Vertices:         4
+iDirection:       0
+0) (120.000000, 109.393753, 104.009995)
+1) (120.000000, 109.699997, 104.009995)
+2) (120.000000, 109.699997, 105.209999)
+3) (120.000000, 109.393753, 105.209999)
+---------------------------------------
+ObjecType:        wall
+m_objectID:       34
+m_parentObjectID: 25
+m_label:          wa04C0303
+m_wallType:       D*2x6 wd frm wall
+m_wallTypeDesc:   2x6 wd frm wall
+m_direction:      2
+m_height:         2.450000
+m_perimeter:      20.000000
+m_width:          20.000000
+m_area:           49.000000
+m_rvalue:         5.480000
+m_adjacentWall:   0
+m_attachedZone:   0
+m_floor:          2
+m_interiorWall:   0
+m_floor:          2
+m_faceDirection:  4
+m_interiorWall:   0
+sSurfaceType:     ÿV
+iSurfaceNumber:   4
+Vertices:         11
+iDirection:       0
+0) (100.000000, 100.000000, 103.110001)
+1) (120.000000, 100.000000, 103.110001)
+2) (120.000000, 100.000000, 105.559998)
+3) (100.000000, 100.000000, 105.559998)
+4) (100.000000, 100.000000, 103.110001)
+5) (114.187500, 100.000000, 104.009995)
+6) (114.187500, 100.000000, 105.209999)
+7) (119.699997, 100.000000, 105.209999)
+8) (119.699997, 100.000000, 104.009995)
+9) (114.187500, 100.000000, 104.009995)
+10) (100.000000, 100.000000, 103.110001)
+---------------------------------------
+ObjecType:        window
+m_objectID:       35
+m_parentObjectID: 34
+m_label:          wi04C0303
+m_windowType:     202022
+m_windowTypeDesc: 202022
+m_orientation:    1
+m_location:       34
+m_windowID:       0
+m_area:           6.615000
+m_height:         1200.000000
+m_width:          5512.500488
+m_rvalue:         0.304418
+sSurfaceType:     †∑S
+iSurfaceNumber:   4
+Vertices:         4
+iDirection:       0
+0) (114.187500, 100.000000, 104.009995)
+1) (119.699997, 100.000000, 104.009995)
+2) (119.699997, 100.000000, 105.209999)
+3) (114.187500, 100.000000, 105.209999)
+---------------------------------------
+ObjecType:        floor_ob
+m_objectID:       37
+m_parentObjectID: 36
+m_label:          fl01C0304
+m_floorType:      105229264
+m_floorTypeDesc:  
+m_area:           200.000000
+m_rvalue:         4.140000
+m_attachedZone:   25
+m_interiorFloor:  1
+sSurfaceType:     dX
+iSurfaceNumber:   1
+Vertices:         4
+iDirection:       0
+0) (100.000000, 100.000000, 105.559998)
+1) (100.000000, 110.000000, 105.559998)
+2) (120.000000, 110.000000, 105.559998)
+3) (120.000000, 100.000000, 105.559998)
+---------------------------------------
+ObjecType:        ceiling
+m_objectID:       38
+m_parentObjectID: 36
+m_label:          ce01C0304
+m_ceilingType:    1
+m_ceilingTypeDesc:
+m_constType:      2 Ñ‡E
+m_slope:          0
+m_length:         3.160000
+m_area:           105.408203
+m_roofSlope:      18.433229
+m_rvalue:         4.140000
+m_location:       -842150451
+m_endGableOrient: 1
+m_overHang:       0.000000
+bBasementCeiling: 0
+bAtticFloor:      1
+m_bInternalCeiling:0
+sSurfaceType:     H∫Z
+iSurfaceNumber:   1
+Vertices:         4
+iDirection:       0
+0) (100.000000, 100.000000, 105.559998)
+1) (120.000000, 100.000000, 105.559998)
+2) (120.000000, 105.000000, 107.226494)
+3) (100.000000, 105.000000, 107.226494)
+---------------------------------------
+ObjecType:        wall
+m_objectID:       39
+m_parentObjectID: 36
+m_label:          wa01C0304
+m_wallType:       1
+m_wallTypeDesc:   User specified
+m_direction:      4
+m_height:         2.450000
+m_perimeter:      10.000000
+m_width:          10.000000
+m_area:           8.332500
+m_rvalue:         1.700000
+m_adjacentWall:   0
+m_attachedZone:   0
+m_floor:          2
+m_interiorWall:   0
+m_floor:          2
+m_faceDirection:  2
+m_interiorWall:   0
+sSurfaceType:     Ä]
+iSurfaceNumber:   1
+Vertices:         3
+iDirection:       0
+0) (120.000000, 100.000000, 105.559998)
+1) (120.000000, 110.000000, 105.559998)
+2) (120.000000, 105.000000, 107.226494)
+---------------------------------------
+ObjecType:        ceiling
+m_objectID:       40
+m_parentObjectID: 36
+m_label:          ce02C0304
+m_ceilingType:    1
+m_ceilingTypeDesc:
+m_constType:      2 Ñ‡E
+m_slope:          0
+m_length:         3.160000
+m_area:           105.408203
+m_roofSlope:      18.433229
+m_rvalue:         4.140000
+m_location:       -842150451
+m_endGableOrient: 1
+m_overHang:       0.000000
+bBasementCeiling: 0
+bAtticFloor:      1
+m_bInternalCeiling:0
+sSurfaceType:     ∏f_
+iSurfaceNumber:   2
+Vertices:         4
+iDirection:       0
+0) (120.000000, 110.000000, 105.559998)
+1) (100.000000, 110.000000, 105.559998)
+2) (100.000000, 105.000000, 107.226494)
+3) (120.000000, 105.000000, 107.226494)
+---------------------------------------
+ObjecType:        wall
+m_objectID:       41
+m_parentObjectID: 36
+m_label:          wa02C0304
+m_wallType:       1
+m_wallTypeDesc:   User specified
+m_direction:      8
+m_height:         2.450000
+m_perimeter:      10.000000
+m_width:          10.000000
+m_area:           8.332500
+m_rvalue:         1.700000
+m_adjacentWall:   0
+m_attachedZone:   0
+m_floor:          2
+m_interiorWall:   0
+m_floor:          2
+m_faceDirection:  3
+m_interiorWall:   0
+sSurfaceType:     ºa
+iSurfaceNumber:   2
+Vertices:         3
+iDirection:       0
+0) (100.000000, 110.000000, 105.559998)
+1) (100.000000, 100.000000, 105.559998)
+2) (100.000000, 105.000000, 107.226494)
+---------------------------------------
+ObjecType:        natair
+---------------------------------------
+ObjecType:        unknown object
+---------------------------------------
+ObjecType:        hotwater
+---------------------------------------
+ObjecType:        heatcool
+---------------------------------------
+ObjecType:        temperatures
+---------------------------------------
+ObjecType:        baseload
+---------------------------------------
+ObjecType:        generation

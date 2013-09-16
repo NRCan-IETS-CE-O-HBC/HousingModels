@@ -1,0 +1,36 @@
+# transparent properties of L2Z2CoreMain defined in user/NZEH-H3K1/zones/L2Z2CoreMain.tmc
+  12    # surfaces
+# tmc index for each surface
+  0  0  0  0  0  0  1  0  2  3  0  4
+   3  wi01C0202     # layers in tmc type  1
+# Transmission @ 5 angles & visible tr.
+0.548 0.517 0.427 0.312 0.144 0.736
+# For each layer absorption @ 5 angles
+0.1063 0.1175 0.1298 0.1369 0.1390 
+0.0102 0.0102 0.0102 0.0102 0.0102 
+0.1308 0.1471 0.1574 0.1584 0.1063 
+0   # blind/shutter control flag
+   3  wi02C0202     # layers in tmc type  2
+# Transmission @ 5 angles & visible tr.
+0.763 0.720 0.595 0.434 0.201 1.025
+# For each layer absorption @ 5 angles
+0.1480 0.1637 0.1808 0.1907 0.1936 
+0.0142 0.0142 0.0142 0.0142 0.0142 
+0.1822 0.2050 0.2192 0.2206 0.1480 
+0   # blind/shutter control flag
+   3  wi03C0202     # layers in tmc type  3
+# Transmission @ 5 angles & visible tr.
+0.548 0.517 0.427 0.312 0.144 0.736
+# For each layer absorption @ 5 angles
+0.1063 0.1175 0.1298 0.1369 0.1390 
+0.0102 0.0102 0.0102 0.0102 0.0102 
+0.1308 0.1471 0.1574 0.1584 0.1063 
+0   # blind/shutter control flag
+   3  wi04C0202     # layers in tmc type  4
+# Transmission @ 5 angles & visible tr.
+0.763 0.720 0.595 0.434 0.201 1.025
+# For each layer absorption @ 5 angles
+0.1480 0.1637 0.1808 0.1907 0.1936 
+0.0142 0.0142 0.0142 0.0142 0.0142 
+0.1822 0.2050 0.2192 0.2206 0.1480 
+0   # blind/shutter control flag

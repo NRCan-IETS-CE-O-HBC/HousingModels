@@ -1,0 +1,37 @@
+# operations of L3Z3CoreMain defined in: 
+# user/NZEH-H3K1/zones/L3Z3CoreMain.opr
+nil_operations  # description
+# control(no control of air flow   ), low & high setpoints
+   0      0.000      0.000      0.000
+     1   # number of Weekday flow periods
+#Wkd:start, stop, infil, ventil, source, data
+   0, 24,    0.000     0.000     0     0.000
+     1  # number of Saturday flow periods
+# Sat: start, stop, infil, ventil, source, data
+   0, 24,    0.000     0.000     0     0.000
+     1   # number of Sunday flow periods
+# Sun: start, stop, infil, ventil, source, data
+   0, 24,    0.000     0.000     0     0.000
+     4  # number of Weekday casual gains 
+# Weekdays:
+# typ, BCDcol, BLfrac, sta, fin, sen_frac, lat_frac, rad_frac, con_frac
+   1,    1,   0.33,    0,   24,     1.00,     0.00,     0.50,     0.50,             # APPLIANCES
+   2,    2,   0.33,    0,   24,     1.00,     0.00,     0.50,     0.50,                 # LIGHTS
+   3,    3,   0.33,    0,   24,     1.00,     0.00,     0.50,     0.50,       # OTHER ELECTRICAL
+   4,    4,   0.33,    0,   24,     1.00,     0.00,     0.50,     0.50,              # OCCUPANTS
+     4  # number of Saturday casual gains
+# Weekdays:
+# typ, BCDcol, BLfrac, sta, fin, sen_frac, lat_frac, rad_frac, con_frac
+   1,    1,   0.33,    0,   24,     1.00,     0.00,     0.50,     0.50,             # APPLIANCES
+   2,    2,   0.33,    0,   24,     1.00,     0.00,     0.50,     0.50,                 # LIGHTS
+   3,    3,   0.33,    0,   24,     1.00,     0.00,     0.50,     0.50,       # OTHER ELECTRICAL
+   4,    4,   0.33,    0,   24,     1.00,     0.00,     0.50,     0.50,              # OCCUPANTS
+     4  # number of Sunday casual gains
+# Weekdays:
+# typ, BCDcol, BLfrac, sta, fin, sen_frac, lat_frac, rad_frac, con_frac
+   1,    1,   0.33,    0,   24,     1.00,     0.00,     0.50,     0.50,             # APPLIANCES
+   2,    2,   0.33,    0,   24,     1.00,     0.00,     0.50,     0.50,                 # LIGHTS
+   3,    3,   0.33,    0,   24,     1.00,     0.00,     0.50,     0.50,       # OTHER ELECTRICAL
+   4,    4,   0.33,    0,   24,     1.00,     0.00,     0.50,     0.50,              # OCCUPANTS
+# Labels for gain types 
+bcd_Appliances bcd_Lights bcd_Other_elec bcd_Occupants 

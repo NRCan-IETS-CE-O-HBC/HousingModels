@@ -1,0 +1,23 @@
+# SysType; Pri; Zones;
+Field (2a,b,c)  HVAC system type/System Priority/Number of zones served by HVAC system
+(SysType)   iSystemType          = 7
+(Pri)       iSystemPriority      = 1
+(Zones)     iNumOfZonesServed    = 3
+
+Field (3a 3b 3c 3d 3e 3f 3g or 3e) Furnace Type/Fuel Type/Number of first zone/Frac of cap for zone1
+(FnType) iFurnaceType         = 7
+(fuel)   iPrimaryFuelType     = 2
+Number Of Zones Served = 3
+(zone1)  iZones              = 1
+(frac)   fFracEquipCapToZone = 0.247031
+(zone1)  iZones              = 2
+(frac)   fFracEquipCapToZone = 0.339834
+(zone1)  iZones              = 3
+(frac)   fFracEquipCapToZone = 0.413136
+(cap)    fHeatingCapacity     = 25000.000000
+(eff)    fEfficiency          = 0.780000
+(FanMode)iCircFanMode         = 1
+(FanPwr) fHeatFanPower        = 485.000031
+(FanPwr) fDraftFanPower       = 0.000000
+(pilot)  fPilotEnergy         = 292.822205
+(duct)   iDuctSystemFlag      = 1

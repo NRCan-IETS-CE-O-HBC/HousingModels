@@ -1,0 +1,45 @@
+#
+# Dhw input file
+#
+*FileVersion3.0
+#
+1    # Num of Dhw tanks
+0    # Column num in BCD file for annual draw schedule. 0 if 24hr schedule included here.
+-1    # Num of Occupants ( if -1, user specified daily load value OR annual schedule if BCD is used )
+55.000000    # Hot Supply Temp
+2    # Location of tank (L1 Z1 Core Basement)
+2    # Fuel Type
+1    # Tank Type
+0.554000    # Tank efficiency
+2000.000000    # Tank Burner Capacity
+0.000000    # Pilot Energy Rate
+151.399994    # Tank Size
+10.000000    # Temperature Band
+0.000000    # Blanket RSI
+#
+# 24 hr draw profile [Litres]
+#
+0.000000    # hr 1
+0.000000    # hr 2
+0.000000    # hr 3
+0.000000    # hr 4
+0.000000    # hr 5
+0.000000    # hr 6
+0.000000    # hr 7
+7.492500    # hr 8
+18.742500    # hr 9
+18.742500    # hr 10
+33.750000    # hr 11
+18.742500    # hr 12
+7.492500    # hr 13
+3.735000    # hr 14
+0.000000    # hr 15
+0.000000    # hr 16
+11.250000    # hr 17
+18.742500    # hr 18
+33.750000    # hr 19
+18.742500    # hr 20
+22.500000    # hr 21
+7.492500    # hr 22
+3.735000    # hr 23
+0.000000    # hr 24

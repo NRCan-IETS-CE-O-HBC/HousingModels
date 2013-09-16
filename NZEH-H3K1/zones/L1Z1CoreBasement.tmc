@@ -1,0 +1,36 @@
+# transparent properties of L1Z1CoreBasement defined in user/NZEH-H3K1/zones/L1Z1CoreBasement.tmc
+  10    # surfaces
+# tmc index for each surface
+  0  0  0  0  0  0  1  2  3  4
+   3  wi01C0101     # layers in tmc type  1
+# Transmission @ 5 angles & visible tr.
+0.451 0.433 0.369 0.279 0.130 0.499
+# For each layer absorption @ 5 angles
+0.0601 0.0658 0.0748 0.0812 0.0850 
+0.0064 0.0064 0.0064 0.0064 0.0064 
+0.0473 0.0511 0.0518 0.0473 0.0352 
+0   # blind/shutter control flag
+   3  wi02C0101     # layers in tmc type  2
+# Transmission @ 5 angles & visible tr.
+0.641 0.617 0.525 0.396 0.186 0.709
+# For each layer absorption @ 5 angles
+0.0855 0.0937 0.1064 0.1155 0.1209 
+0.0091 0.0091 0.0091 0.0091 0.0091 
+0.0673 0.0727 0.0737 0.0673 0.0500 
+0   # blind/shutter control flag
+   3  wi03C0101     # layers in tmc type  3
+# Transmission @ 5 angles & visible tr.
+0.451 0.433 0.369 0.279 0.130 0.499
+# For each layer absorption @ 5 angles
+0.0601 0.0658 0.0748 0.0812 0.0850 
+0.0064 0.0064 0.0064 0.0064 0.0064 
+0.0473 0.0511 0.0518 0.0473 0.0352 
+0   # blind/shutter control flag
+   3  wi04C0101     # layers in tmc type  4
+# Transmission @ 5 angles & visible tr.
+0.641 0.617 0.525 0.396 0.186 0.709
+# For each layer absorption @ 5 angles
+0.0855 0.0937 0.1064 0.1155 0.1209 
+0.0091 0.0091 0.0091 0.0091 0.0091 
+0.0673 0.0727 0.0737 0.0673 0.0500 
+0   # blind/shutter control flag
