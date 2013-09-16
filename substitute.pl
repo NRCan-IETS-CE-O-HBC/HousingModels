@@ -53,6 +53,8 @@ my $gArchGOChoiceFile   = 0;
 my %gChoices; 
 my %gOptions;
 
+my $ThisError   = ""; 
+my $ErrorBuffer = ""; 
 
 my $gEnergyPV; 
 my $gEnergySDHW;
@@ -82,7 +84,7 @@ my @gChoiceOrder;
 my $master_path = getcwd(); 
 
 $gTest_params{"verbosity"} = "quiet"; 
-$gTest_params{"logfile"}   = "$master_path/pl-log.txt"; 
+$gTest_params{"logfile"}   = "$master_path/SubstitutePL-log.txt"; 
 
 open(LOG, ">".$gTest_params{"logfile"}) or fatalerror("Could not open ".$gTest_params{"logfile"}."\n"); 
 
@@ -238,6 +240,7 @@ foreach $arg (@processed_args){
       # Base folder name overrides initialized value (at top)
       $gBaseModelFolder = $arg;
       $gBaseModelFolder =~ s/--base_folder://g;
+      $gModelCfgFile = "$gBaseModelFolder.cfg"; 
       if ( ! $gBaseModelFolder ){
         fatalerror("Base folder name missing after --base_folder (or -b) option!");
       }
@@ -600,8 +603,10 @@ while ( my ( $attribute, $choice) = each %gChoices ){
     
   # is attribute defined in options ?
   if ( ! defined( $gOptions{$attribute} ) ){
-    debug_out ( "\nERROR: Attribute $attribute appears in choice file ($gChoiceFile), \n");
-    debug_out (   "       but can't be found in options file ($gOptionFile)\n");
+    $ThisError  = "\nERROR: Attribute $attribute appears in choice file ($gChoiceFile), \n"; 
+    $ThisError .=  "       but can't be found in options file ($gOptionFile)\n"; 
+    $ErrorBuffer .= $ThisError; 
+    stream_out( $ThisError ); 
     $allok = 0;
   }else{
   
@@ -611,11 +616,13 @@ while ( my ( $attribute, $choice) = each %gChoices ){
   
 
   if ( ! defined( $gOptions{$attribute}{"options"}{$choice} ) ){
+    $ThisError  = "\nERROR: Choice $choice (for attribute $attribute, defined \n"; 
+    $ThisError .=   "       in choice file $gChoiceFile), is not defined \n"; 
+    $ThisError .=   "       in options file ($gOptionFile)\n";
+    $ErrorBuffer .= $ThisError; 
+    stream_out( $ThisError );   
        
-     debug_out ( "\nERROR: Choice $choice (for attribute $attribute, defined \n");
-     debug_out (   "       in choice file $gChoiceFile), is not defined \n");
-     debug_out (   "       in options file ($gOptionFile)\n");
-     $allok = 0;
+    $allok = 0;
        
   }else{ 
 	debug_out ( "   - found \$gOptions{\"$attribute\"}{\"options\"}{\"$choice\"} \n"); 
@@ -686,13 +693,16 @@ while ( my ( $attribute, $choice) = each %gChoices ){
 		  }
 		  
 		  if ( ! $ValidConditionFound ) {
-			 stream_out ( "\nERROR: No valid conditions were defined for $attribute \n");
-			 stream_out (   "       in options file ($gOptionFile). Choices must match one \n");
-			 stream_out (   "       of the following:\n");
+             $ThisError  = "\nERROR: No valid conditions were defined for $attribute \n";
+             $ThisError .=   "       in options file ($gOptionFile). Choices must match one \n";
+             $ThisError .=   "       of the following:\n";
 			 for my $conditions ( keys %CondHash ) {
-				stream_out (   "            -> $conditions \n" );
+				$ThisError .=   "            -> $conditions \n" ;
 			 }
-			 
+
+             $ErrorBuffer .= $ThisError; 
+             stream_out( $ThisError );  
+		 
 			 $allok = 0; 
 		  }
 	  
@@ -707,9 +717,6 @@ while ( my ( $attribute, $choice) = each %gChoices ){
    foreach my $ExternalParam ( keys %ExtHash ){
    
 	 if ( $ExternalParam =~ /production/ ){
-	
-
-#9999999999999999999999999999#999
 		
 		 my $CondRef = $gOptions{$attribute}{"options"}{$choice}{$ExternalParam}{"conditions"}; 
 		 my %CondHash = %$CondRef; 
@@ -766,25 +773,45 @@ while ( my ( $attribute, $choice) = each %gChoices ){
 		  }
 		  
 		  if ( ! $ValidConditionFound ) {
-			 stream_out ( "\nERROR: No valid conditions were defined for $attribute \n");
-			 stream_out (   "       in options file ($gOptionFile). Choices must match one \n");
-			 stream_out (   "       of the following:\n");
+             $ThisError  = "\nERROR: No valid conditions were defined for $attribute \n";
+             $ThisError .=   "       in options file ($gOptionFile). Choices must match one \n";
+             $ThisError .=   "       of the following:\n";
 			 for my $conditions ( keys %CondHash ) {
-				stream_out (   "            -> $conditions \n" );
+				$ThisError .=  "            -> $conditions \n" ;
 			 }
+
+             $ErrorBuffer .= $ThisError; 
+             stream_out( $ThisError );            
 			 
 			 $allok = 0; 
 		  }
-	  
-	  
 
-	  
-#99999999999999999999999999999999	
-	 
 	 
 	 }
    
    }
+  
+  while ( my ( $option, $null ) = each %gOptions ){
+    stream_out ( "---> Option: $option ");
+    if ( ! defined( $gChoices{$option} ) ) { 
+             $ThisError  = "\nWARNING: Option $option found in in options file ($gOptionFile). Choices must match one \n";
+             $ThisError .=   "         was not found in Choices file ($g\n";       
+
+    }else{
+       stream_out (":".$gChoices{$option}); 
+    }
+    stream_out("\n"); 
+  
+  }
+  die(); 
+  #while ( my ( $attribute, $choice) = each %gChoices ){
+ # 
+ # debug_out ( "\n ======================== $attribute ============================\n");
+ # debug_out ( "Choosing $attribute -> $choice \n"); 
+    
+  # is attribute defined in options ?
+#  if ( ! defined( $gOptions{$attribute} ) ){
+  
   
   
   
@@ -863,6 +890,11 @@ while ( my ( $attribute, $choice) = each %gChoices ){
 
 
 if ( ! $allok ) { 
+
+    stream_out("\n--------------------------------------------------------------\n");
+    stream_out("\nSubstitute.pl encountered the following errors:\n"); 
+    stream_out($ErrorBuffer); 
+
     fatalerror(" Choices in $gChoiceFile do not match options in $gOptionFile!");
 }
 
@@ -941,7 +973,7 @@ for my $Direction  ( @Orientations ){
 
 my $gAvgCost_Total   = $gAvgCost_Electr + $gAvgCost_NatGas + $gAvgCost_Propane + $gAvgCost_Oil ;
 
-open (SUMMARY, ">$gMasterPath/pl-out.txt") or fatalerror ("Could not open $gMasterPath/pl-out.txt");
+open (SUMMARY, ">$gMasterPath/SubstitutePL-output.txt") or fatalerror ("Could not open $gMasterPath/SubstitutePL-output.txt");
 
 print SUMMARY "Energy-Total-GJ =  $gAvgEnergy_Total \n"; 
 print SUMMARY "Util-Bill-Total =  $gAvgCost_Total   \n";
