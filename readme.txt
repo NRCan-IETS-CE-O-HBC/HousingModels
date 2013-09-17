@@ -11,7 +11,7 @@ SET UP THE ENIVIRONMENT
    From your home directory: 
       
       cd ~/ 
-      svn co https://espr.svn.cvsdude.com/esp-r/branches/Alex_Ferguson @ r9421 
+      svn co https://espr.svn.cvsdude.com/esp-r/branches/Alex_Ferguson@r9421 
       cd Alex_Ferguson/src
       ./Install ~/ --xml --no_training --no_dbs --silent --force --debug bps ish prj
       cd ~/    
