@@ -1,5 +1,5 @@
 =========================================================================
-NRCan Residential optimzation platform. For use on Cygwin/linux systems. 
+NRCan Residential optimization platform. For use on Cygwin/linux systems. 
 =========================================================================
 
 
@@ -13,7 +13,7 @@ SET UP THE ENIVIRONMENT
       cd ~/ 
       svn co https://espr.svn.cvsdude.com/esp-r/branches/Alex_Ferguson@r9421 
       cd Alex_Ferguson/src
-      ./Install ~/ --xml --no_training --no_dbs --silent --force --debug bps ish prj
+      ./Install -d ~/ --xml --no_training --no_dbs --silent --force --debug bps ish prj
       cd ~/    
 
 2. Update the climate database depending on whether you are using cygwin or linux.
@@ -30,7 +30,7 @@ SET UP THE ENIVIRONMENT
 RUN A SIMULATION FOR A SINGLE DESIGN
 ------------------------------------      
 
-3. To run a single case, execute substiture.pl while specifying a) a 
+3. To run a single case, execute substitute.pl while specifying a) a 
    design-choices file, and an options file:
 
    From your NZEH-optimization directory:
@@ -78,7 +78,7 @@ RUN AN OPTIMIZATION USING GENOPT
    
         java -classpath genopt.jar genopt.GenOpt [Genopt-ini-file] 
         
-    Example: 
+   Example: 
 
         java -classpath genopt.jar genopt.GenOpt Genopt-BASE-ini.GO-ini
     
