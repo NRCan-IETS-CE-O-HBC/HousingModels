@@ -6,10 +6,10 @@
 !  debug
 !  calc
 
-Opt-calcmode          : calc
+Opt-calcmode          :calc
 
 
-! Optimization substututions 
+! Optimization substitutions 
 ! Set the orientation for the model (N,S,E,W, or AVG to run all four directions
 ! and compute an average result)
 GOconfig_rotate      : S
@@ -18,7 +18,7 @@ Opt-Location : Whitehorse
 
 ! Assumptions about HRV operation . Not intended to be optimized!
 ! Recognized values: 
-!  - Continuious: HRV runs continious
+!  - Continuous: HRV runs continuously 
 !  - ERSp3ACH: Existing ERS assumptions of 0.3 ACH from 
 !              natural and mechanical vent. 
 !  - EightHRpDay: HRV operates 33% of each hour, for 8hr/day total.
