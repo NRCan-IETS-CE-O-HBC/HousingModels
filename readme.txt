@@ -3,6 +3,9 @@ NRCan Residential optimzation platform. For use on Cygwin/linux systems.
 =========================================================================
 
 
+SET UP THE ENIVIRONMENT 
+-----------------------
+
 1. Checkout and install Alex_Ferguson @ r9421 
 
    From your home directory: 
@@ -23,6 +26,9 @@ NRCan Residential optimzation platform. For use on Cygwin/linux systems.
       
       cp -fr ./climate_linux ./NZEH-base/climate 
       
+      
+RUN A SIMULATION FOR A SINGLE DESIGN
+------------------------------------      
 
 3. To run a single case, execute substiture.pl while specifying a) a 
    design-choices file, and an options file:
@@ -34,10 +40,45 @@ NRCan Residential optimzation platform. For use on Cygwin/linux systems.
    Example: 
    
       ./substitute.pl -o OPTIONS-General.options -c DESIGN-Arch2-OBC2012.choices  -vv
-      
-
-===== Update this below === 
-
-2. invoke optimization: 
+  
    
-   java -classpath genopt.jar genopt.GenOpt <GENOPT INI FILE
+4. To run a simulation with a different design, edit the design file 
+   (eg. design-choices.choices). Make sure your specified choices 
+   are defined in the options file (eg. OPTIONS-General.options).
+         
+RUN AN OPTIMIZATION USING GENOPT
+--------------------------------
+
+5. Edit the CallParameter specification in the GenoptBase-INI.ini to 
+   reflect windows or linux usage. Set the prefix parameter as follows:
+   
+   Windows (CYGWIN):
+   
+          CallParameter {
+          
+              // Windows only: 
+              Prefix = "C:\\cygwin\\bin\\perl.exe ";
+
+              Suffix = " -c GenOpt-picked-these-choices.GO-tmp -o OPTIONS-General.options "; 
+     
+          }
+     
+    Linux :
+   
+          CallParameter {
+          
+              // Linux only: 
+              Prefix = "";
+
+              Suffix = " -c GenOpt-picked-these-choices.GO-tmp -o OPTIONS-General.options "; 
+     
+          }  
+
+6. Invoke Genopt: 
+   
+        java -classpath genopt.jar genopt.GenOpt [Genopt-ini-file] 
+        
+    Example: 
+
+        java -classpath genopt.jar genopt.GenOpt Genopt-BASE-ini.GO-ini
+    
