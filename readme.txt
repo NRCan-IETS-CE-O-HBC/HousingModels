@@ -16,21 +16,15 @@ SET UP THE ENIVIRONMENT
       ./Install -d ~/ --xml --no_training --no_dbs --silent --force --debug bps ish prj
       cd ~/    
 
-2. Update the climate database depending on whether you are using cygwin or linux.
-
-   From your NZEH-optimization directory:
-      
-      cp -fr ./climate_cygwin ./NZEH-base/climate 
-      
-               --- OR ---
-      
-      cp -fr ./climate_linux ./NZEH-base/climate 
-      
+    Previous versions of the platform required you to copy the climate database 
+    directories (climate_linux or climate_cygwin). These operations are now 
+    automated by substitute.pl. 
+          
       
 RUN A SIMULATION FOR A SINGLE DESIGN
 ------------------------------------      
 
-3. To run a single case, execute substitute.pl while specifying a) a 
+2. To run a single case, execute substitute.pl while specifying a) a 
    design-choices file, and an options file:
 
    From your NZEH-optimization directory:
@@ -42,7 +36,7 @@ RUN A SIMULATION FOR A SINGLE DESIGN
       ./substitute.pl -o OPTIONS-General.options -c DESIGN-Arch2-OBC2012.choices  -vv
   
    
-4. To run a simulation with a different design, edit the design file 
+3. To run a simulation with a different design, edit the design file 
    (eg. design-choices.choices). Make sure your specified choices 
    are defined in the options file (eg. OPTIONS-General.options).
          
@@ -74,7 +68,7 @@ RUN AN OPTIMIZATION USING GENOPT
      
           }  
 
-6. Invoke Genopt: 
+5. Invoke Genopt: 
    
         java -classpath genopt.jar genopt.GenOpt [Genopt-ini-file] 
         

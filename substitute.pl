@@ -36,11 +36,6 @@ my $gBaseModelFolder    = "NZEH-base";
 my $gWorkingModelFolder = "NZEH-work"; 
 my $gWorkingCfgPath     = "$gWorkingModelFolder/cfg";
 my $gModelCfgFile       = "NZEH.cfg";
-my $gISHcmd             = "./run.sh $gModelCfgFile";
-my $gPRJZoneConCmd      = "$gPRJpath -mode text -file $gModelCfgFile -act update_con_files";
-my $gPRJZoneRotCmd      = "$gPRJpath -mode text -file $gModelCfgFile -act rotate ";
-my $gBPScmd             = "$gBPSpath -file $gModelCfgFile -mode text -p fullyear silent";
-#$gBPScmd                = "$gBPSpath -file $gModelCfgFile -mode text -p jan silent";
 
 my $gTotalCost          = 0; 
 my $gIncBaseCosts       = 11727; 
@@ -252,6 +247,8 @@ foreach $arg (@processed_args){
       $gBaseModelFolder = $arg;
       $gBaseModelFolder =~ s/--base_folder://g;
       $gModelCfgFile = "$gBaseModelFolder.cfg"; 
+      
+
       if ( ! $gBaseModelFolder ){
         fatalerror("Base folder name missing after --base_folder (or -b) option!");
       }
@@ -274,6 +271,18 @@ foreach $arg (@processed_args){
     
   }
 }
+
+
+# Update ESP-r commands to use defined cfg file name.
+
+my $gISHcmd             = "./run.sh $gModelCfgFile";
+my $gPRJZoneConCmd      = "$gPRJpath -mode text -file $gModelCfgFile -act update_con_files";
+my $gPRJZoneRotCmd      = "$gPRJpath -mode text -file $gModelCfgFile -act rotate ";
+my $gBPScmd             = "$gBPSpath -file $gModelCfgFile -mode text -p fullyear silent";
+   
+     
+     
+
 
 
 # Create base folder for working model
@@ -523,7 +532,7 @@ while ( my $line = <OPTIONS> ){
     }
   
   
-  else{debug_out (" skipped...\n");}
+  #else{debug_out (" skipped...\n");}
 }
 
 
@@ -904,6 +913,10 @@ if ( ! $allok ) {
 } 
 
 
+
+
+
+
 # Now create a copy of our base ESP-r file for manipulation. 
 stream_out("\n\n Creating a working folder for optimization work...");
 if ( ! $gSkipSims ) {
@@ -913,8 +926,52 @@ if ( ! $gSkipSims ) {
 stream_out("done.\n");
 
 
-
+# This cmd seems to duplicate definition of $master_path above.
 my $gMasterPath = getcwd();
+
+# Optimization runs need climate files, which will vary between linux and 
+# windows systems. We need to find the approprate climate folder, and link to it 
+# within the model directory. 
+#
+# Check to see if working folder contains link to climate directory
+# 
+
+stream_out ("? cwd ?: $gMasterPath / $master_path \n"); 
+
+my $system = `uname`; 
+my $source_clm_dir="UNKNOWN"; 
+my $clm_link_target = ""; 
+if ( $system =~ /cygwin/i ) {$source_clm_dir = "climate_cygwin";}
+if ( $system =~ /linux /i ) {$source_clm_dir = "climate_linux";}
+stream_out ( " Creating link to $source_clm_dir \n "); 
+
+# Find the approprate path. If substitute has been invoked directly, 
+# Cli
+if  ( -d "$gMasterPath/$source_clm_dir" ) {
+    stream_out ( "Found $gMasterPath/$source_clm_dir. Linking.\n");
+    $clm_link_target = "$gMasterPath/$source_clm_dir"; 
+}
+# Fi
+elsif ( -d "$gMasterPath/../$source_clm_dir" ) {
+    stream_out ( "Found $gMasterPath/$source_clm_dir. Linking.\n");
+    $clm_link_target = "$gMasterPath/../$source_clm_dir"; 
+}
+else {
+    stream_out ( "Could not find $source_clm_dir. \n");
+    
+    $ThisError  = "\nERROR: Climate file directory ($source_clm_dir) could not be found.  \n"; 
+    $ErrorBuffer .= $ThisError; 
+    stream_out ( "$ThisError \n");
+    $allok = 0; 
+    fatalerror ( " Could not locate climate files !" ); 
+  
+}
+
+# Now create the link
+
+stream_out ("Linking  $clm_link_target $gWorkingModelFolder/climate -> $clm_link_target"); 
+execute ( "ln -s  $clm_link_target $gWorkingModelFolder/climate "); 
+
 
 # Search through all files in the working directory, and perform substitutions as needed 
  find( sub{
