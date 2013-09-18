@@ -936,32 +936,33 @@ my $gMasterPath = getcwd();
 # Check to see if working folder contains link to climate directory
 # 
 
-stream_out ("? cwd ?: $gMasterPath / $master_path \n"); 
+debug_out ("? cwd ?: $gMasterPath / $master_path \n"); 
 
 my $system = `uname`; 
+debug_out (">>>System is $system \n"); 
 my $source_clm_dir="UNKNOWN"; 
 my $clm_link_target = ""; 
 if ( $system =~ /cygwin/i ) {$source_clm_dir = "climate_cygwin";}
-if ( $system =~ /linux /i ) {$source_clm_dir = "climate_linux";}
-stream_out ( " Creating link to $source_clm_dir \n "); 
+if ( $system =~ /linux/i ) {$source_clm_dir = "climate_linux";}
+debug_out ( " Creating link to $source_clm_dir \n "); 
 
 # Find the approprate path. If substitute has been invoked directly, 
 # Cli
 if  ( -d "$gMasterPath/$source_clm_dir" ) {
-    stream_out ( "Found $gMasterPath/$source_clm_dir. Linking.\n");
+    debug_out ( "Found $gMasterPath/$source_clm_dir. Linking.\n");
     $clm_link_target = "$gMasterPath/$source_clm_dir"; 
 }
 # Fi
 elsif ( -d "$gMasterPath/../$source_clm_dir" ) {
-    stream_out ( "Found $gMasterPath/$source_clm_dir. Linking.\n");
+    debug_out ( "Found $gMasterPath/$source_clm_dir. Linking.\n");
     $clm_link_target = "$gMasterPath/../$source_clm_dir"; 
 }
 else {
-    stream_out ( "Could not find $source_clm_dir. \n");
+    debug_out ( "Could not find $source_clm_dir. \n");
     
     $ThisError  = "\nERROR: Climate file directory ($source_clm_dir) could not be found.  \n"; 
     $ErrorBuffer .= $ThisError; 
-    stream_out ( "$ThisError \n");
+    debug_out ( "$ThisError \n");
     $allok = 0; 
     fatalerror ( " Could not locate climate files !" ); 
   
