@@ -61,6 +61,8 @@ my $gEnergyVentilation;
 my $gEnergyWaterHeating; 
 my $gEnergyEquipment; 
 
+my $gSkipPRJ = 0; 
+
 # Data from Hanscomb 2011 NBC analysis
 my %RegionalCostFactors  = (  "Halifax"      =>  0.95 ,
                               "Edmonton"     =>  1.12 ,
@@ -218,6 +220,12 @@ foreach $arg (@processed_args){
       $gSkipSims = 1;
       last SWITCH;
     }
+
+    if ( $arg =~ /^--skip-prj/ ){
+      # skip PRJ related operations
+      $gSkipPRJ = 1;
+      last SWITCH;
+    }
     
     
     if ( $arg =~ /^--verbose/ ){
@@ -278,13 +286,9 @@ foreach $arg (@processed_args){
 my $gISHcmd             = "./run.sh $gModelCfgFile";
 my $gPRJZoneConCmd      = "$gPRJpath -mode text -file $gModelCfgFile -act update_con_files";
 my $gPRJZoneRotCmd      = "$gPRJpath -mode text -file $gModelCfgFile -act rotate ";
-my $gBPScmd             = "$gBPSpath -file $gModelCfgFile -mode text -p fullyear silent";
+my $gBPScmd             = "$gBPSpath -h3k -file $gModelCfgFile -mode text -p fullyear silent";
    
-     
-     
-
-
-
+   
 # Create base folder for working model
 if (! -d "$gBaseModelFolder" && -d "../$gBaseModelFolder" ){ 
   execute ("cp -fr ../$gBaseModelFolder ./");
@@ -1131,55 +1135,106 @@ sub runsims($){
 
   my ($RotationAngle) = @_;
 
-  
-  #my $gBPSpath            = "/home/aferguso/esp-r/bin/bps"; 
-  #my $gPRJpath            = "/home/aferguso/esp-r/bin/prj"; 
-  #
-  #my $gBaseModelFolder    = "NZEH-base";
-  #my $gWorkingModelFolder = "NZEH-work"; 
-  #my $gWorkingCfgPath     = "$gWorkingModelFolder/cfg";
-  #my $gModelCfgFile       = "NZEH.cfg";
 
   chdir $gWorkingCfgPath; 
-
+ 
   
-  
-  execute("rm ../zones/*.con ../zones/*.tmc ../zones/*.shd ../zones/*.shda "); 
+  #execute("rm ../zones/*.con ../zones/*.tmc ../zones/*.shd ../zones/*.shda "); 
   if ( ! $gSkipSims ) { execute ("rm out.*"); }
   
   debug_out ("\n\n Moved to path:". getcwd()."\n"); 
 
   
-  # Run the simulation
-  stream_out ("\n\n Invoking prj to update con files (\"$gPRJZoneConCmd\")...");
-  execute($gPRJZoneConCmd);
-  stream_out ("done. \n");  
+
 
    
   # Spin the model 
-  stream_out("\n\n Involing prj to rotate the model by $RotationAngle degrees (\"$gPRJZoneRotCmd $RotationAngle\")...");
-  execute("$gPRJZoneRotCmd $RotationAngle"); 
-  stream_out ("done. \n");   
+  if ( ! $gSkipPRJ ) {
+
+    # Update construction files 
+    stream_out ("\n\n Invoking prj to update con files (\"$gPRJZoneConCmd\")...");
+    execute($gPRJZoneConCmd);
+    stream_out ("done. \n");  
+
+    stream_out("\n\n Involing prj to rotate the model by $RotationAngle degrees (\"$gPRJZoneRotCmd $RotationAngle\")...");
+    execute("$gPRJZoneRotCmd $RotationAngle"); 
+    stream_out ("done. \n");   
+
+  }
+
+  # Loop through zone shading status flag, and regenerate
+  # shading for any 'shaded zones' using ish. 
 
 
-  stream_out("\n\n Invoking ish via run.sh...");
-  execute($gISHcmd); 
-  stream_out("done...\n"); 
+
+  open(CFG_FILE, "$gModelCfgFile" ) or fatalerror("Could not open $gModelCfgFile!");
+
+
+  my %zone_shading_status; 
+  my $zone_number; 
+  while ( my $line = <CFG_FILE> ) {
+    # rename results libraries for consistancy
 
 
 
-  stream_out ("\n\n Invoking ESP-r (\"$gBPScmd\")..." ); 
+    #--------------------------------------------
+    # Save zone geo file paths & shading tags
+    # for use when regenerating shading files.
+    #--------------------------------------------
+
+
+    
+    # If line describes zone #, parse number
+    if ($line =~ /^\*zon\s+/ ){
+      $zone_number = $line;
+      $zone_number =~ s/^\s*\*zon\s+([0-9]+).*$/$1/g;
+      $zone_number =~ s/\s*\n*//g;
+      debug_out ("> ZONE $zone_number / $line \n"); 
+      # initialize zone shading file flag to zero.
+      $zone_shading_status{$zone_number} = 0;
+      
+    }
+    
+    # If line describes zone geometry record, save
+    #   in zone geo buffer.
+
+    #if ( $line =~ /^\*geo\s+/ ){
+    #  $zone_geo_files{$zone_number} = $line;
+    #  $zone_geo_files{$zone_number} =~ s/^\*geo\s+([^\s]+).*$/$1/g;
+    #}
+
+    # Check if line describes zone shading file, and set flag
+
+    if ( $line =~ /\*isi\s+/ ){
+      $zone_shading_status{$zone_number} = 1;
+      stream_out (" -> Found shading for zone # $zone_number  / $line \n"); 
+    }
+    
+  }
+  close (CFG_FILE);
+
+  
+  
+  
+  while ( my($zone,$regen) = each ( %zone_shading_status ) ){
+    if ( $regen ) {stream_out("\n\n Invoking ish via run.sh...");
+      stream_out("   Regenerating shading files for zone $zone using ish"); 
+      my $cmd = "~/esp-r/bin/ish -mode text -file $gModelCfgFile -zone $zone -act update_silent";
+      execute($cmd);      
+      stream_out("   Done.\n");
+    }stream_out ("done. \n");         
+  }        
+
+  stream_out ("\n\n Invoking ESP-r (\"$gBPScmd\")..." );
   execute($gBPScmd); 
-  stream_out ("done. \n");         
-          
           
   # Save output files
  if ( ! -d "$gMasterPath/sim-output" ) {
-
+  
    execute("mkdir $gMasterPath/sim-output") or debug_out ("Could not create $gMasterPath/sim-output!\n"); 
    
  }
-#
+# 
  if ( -d "$gMasterPath/sim-output") { execute("cp $gMasterPath/$gWorkingCfgPath/out* $gMasterPath/sim-output/");}
 #         
 #         
@@ -1187,16 +1242,16 @@ sub runsims($){
 # debug_out("\n\n Deleting working folder...");
 #  #system ("rm -fr $gWorkingModelFolder ");
 #  debug_out("done.");ls 
-
+  
   chdir $gMasterPath;
 
-}
+} 
 
-
+  
 sub postprocess($){
-
+  
   my $ScaleData  = @_; 
-
+  
   my $TSLength            = 3600. ;  # Seconds
 #  my $gBaseModelFolder    = "NZEH-base";
 #  my $gWorkingModelFolder = "NZEH-work"; 

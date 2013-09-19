@@ -1,0 +1,260 @@
+# composite construction db defined in ../dbs/CCHT_model.constrdb
+# based on materials db ../dbs/material.db3.a
+   42     # no of composites 
+# layers  description   optics name   symmetry tag
+    1    NZ_bsm_flr    OPAQ  OPAQUE        SYMMETRIC     
+# mat ref thickness (m) mat descr & air gap R
+   21    0.1016  light mix concrete : Light mix concrete
+# layers  description   optics name   symmetry tag
+    1    NZ_bsm_wal    OPAQ  OPAQUE        SYMMETRIC     
+# mat ref thickness (m) mat descr & air gap R
+   21    0.1016  light mix concrete : Light mix concrete
+# layers  description   optics name   symmetry tag
+    1    bsmt_walls    OPAQ  OPAQUE        SYMMETRIC     
+# mat ref thickness (m) mat descr & air gap R
+   21    0.2032  light mix concrete : Light mix concrete
+# layers  description   optics name   symmetry tag
+    5    ext_wall      OPAQ  OPAQUE        ext_wall_inv  
+# mat ref thickness (m) mat descr & air gap R
+    1    0.0889  Paviour brick : Paviour brick
+    0    0.0250  air  0.170 0.170 0.170
+  302    0.0110  particle board underlay : Particle board underlayment
+  283    0.1150  fiberglass batt : fiberglass batt insulation
+  301    0.0120  gypsum board : Gypsum board
+# layers  description   optics name   symmetry tag
+    5    ext_wall_inv  OPAQ  OPAQUE        ext_wall      
+# mat ref thickness (m) mat descr & air gap R
+  301    0.0120  gypsum board : Gypsum board
+  283    0.1150  fiberglass batt : fiberglass batt insulation
+  302    0.0110  particle board underlay : Particle board underlayment
+    0    0.0250  air  0.170 0.170 0.170
+    1    0.0889  Paviour brick : Paviour brick
+# layers  description   optics name   symmetry tag
+    4    ext_wall_gar  OPAQ  OPAQUE        NONSYMMETRIC  
+# mat ref thickness (m) mat descr & air gap R
+    1    0.1000  Paviour brick : Paviour brick
+    0    0.0250  air  0.170 0.170 0.170
+   67    0.0110  chipboard : Chipboard
+   70    0.0120  plywood 560d : Plywood (generic 560 density)
+# layers  description   optics name   symmetry tag
+    4    bsmt_ceiling  OPAQ  OPAQUE        main_floor    
+# mat ref thickness (m) mat descr & air gap R
+  221    0.0127  Wilton : Wilton weave wool carpet
+   70    0.0191  plywood 560d : Plywood (generic 560 density)
+    0    0.1905  air  0.170 0.170 0.170
+  301    0.0125  gypsum board : Gypsum board
+# layers  description   optics name   symmetry tag
+    4    main_floor    OPAQ  OPAQUE        bsmt_ceiling  
+# mat ref thickness (m) mat descr & air gap R
+  301    0.0125  gypsum board : Gypsum board
+    0    0.1905  air  0.170 0.170 0.170
+   70    0.0191  plywood 560d : Plywood (generic 560 density)
+  221    0.0127  Wilton : Wilton weave wool carpet
+# layers  description   optics name   symmetry tag
+    3    main_ceiling  OPAQ  OPAQUE        attic_floor   
+# mat ref thickness (m) mat descr & air gap R
+  301    0.0125  gypsum board : Gypsum board
+  283    0.1905  fiberglass batt : fiberglass batt insulation
+   70    0.0191  plywood 560d : Plywood (generic 560 density)
+# layers  description   optics name   symmetry tag
+    3    attic_floor   OPAQ  OPAQUE        main_ceiling  
+# mat ref thickness (m) mat descr & air gap R
+   70    0.0191  plywood 560d : Plywood (generic 560 density)
+  283    0.1905  fiberglass batt : fiberglass batt insulation
+  301    0.0125  gypsum board : Gypsum board
+# layers  description   optics name   symmetry tag
+    1    roof          OPAQ  OPAQUE        SYMMETRIC     
+# mat ref thickness (m) mat descr & air gap R
+  155    0.0125  Ceiling tile : Ceiling tiles
+# layers  description   optics name   symmetry tag
+    3    window        TRAN  DCF6741_06n   SYMMETRIC     
+# mat ref thickness (m) mat descr & air gap R
+  242    0.0060  plate glass : Plate glass with placeholder single layer optics
+    0    0.0127  air  0.350 0.350 0.350
+  242    0.0060  plate glass : Plate glass with placeholder single layer optics
+# layers  description   optics name   symmetry tag
+    5    glz_glz_shd   CFC   USE GSLedit   NONSYMMETRIC  
+# mat ref thickness (m) mat descr & air gap R
+  242    0.0060  plate glass : Plate glass with placeholder single layer optics
+    0    0.0127  air  0.170 0.170 0.170
+  242    0.0060  plate glass : Plate glass with placeholder single layer optics
+    0    0.0400  air  0.170 0.170 0.170
+   11    0.0150  brick honeycomb : Brick extruded honeycomb from IBO PassivHaus (diffu a
+# layers  description   optics name   symmetry tag
+    3    DblArLowe     TRAN  DBLLowE       SYMMETRIC     
+# mat ref thickness (m) mat descr & air gap R
+  242    0.0060  plate glass : Plate glass with placeholder single layer optics
+    0    0.0125  air  0.400 0.400 0.400
+  242    0.0060  plate glass : Plate glass with placeholder single layer optics
+# layers  description   optics name   symmetry tag
+    4    flr-abv-gar   OPAQ  OPAQUE        gar-ceiling   
+# mat ref thickness (m) mat descr & air gap R
+  301    0.0125  gypsum board : Gypsum board
+  283    0.1905  fiberglass batt : fiberglass batt insulation
+   70    0.0191  plywood 560d : Plywood (generic 560 density)
+  221    0.0127  Wilton : Wilton weave wool carpet
+# layers  description   optics name   symmetry tag
+    4    gar-ceiling   OPAQ  OPAQUE        flr-abv-gar   
+# mat ref thickness (m) mat descr & air gap R
+  221    0.0127  Wilton : Wilton weave wool carpet
+   70    0.0191  plywood 560d : Plywood (generic 560 density)
+  283    0.1905  fiberglass batt : fiberglass batt insulation
+  301    0.0125  gypsum board : Gypsum board
+# layers  description   optics name   symmetry tag
+    5    Sdb_mn_wall   OPAQ  OPAQUE        Sdb_grg_invW  
+# mat ref thickness (m) mat descr & air gap R
+    1    0.0889  Paviour brick : Paviour brick
+    0    0.0250  air  0.170 0.170 0.170
+  214    0.0508  EPS : EPS (expanded polystyrene)
+  283    0.1110  fiberglass batt : fiberglass batt insulation
+  301    0.0120  gypsum board : Gypsum board
+# layers  description   optics name   symmetry tag
+    3    Sdb_glz       TRAN  DCF6741_06n   NONSYMMETRIC  
+# mat ref thickness (m) mat descr & air gap R
+  242    0.0064  plate glass : Plate glass with placeholder single layer optics
+    0    0.0159  air  0.170 0.170 0.170
+  246    0.0064  low_e glass : 6mm CF Low_e glass with placeholder single layer optics
+# layers  description   optics name   symmetry tag
+    3    Sdb_frnt_dr   OPAQ  OPAQUE        NONSYMMETRIC  
+# mat ref thickness (m) mat descr & air gap R
+  242    0.0064  plate glass : Plate glass with placeholder single layer optics
+    0    0.0159  air  0.170 0.170 0.170
+  246    0.0064  low_e glass : 6mm CF Low_e glass with placeholder single layer optics
+# layers  description   optics name   symmetry tag
+    1    Sdb_roof      OPAQ  OPAQUE        SYMMETRIC     
+# mat ref thickness (m) mat descr & air gap R
+  155    0.0125  Ceiling tile : Ceiling tiles
+# layers  description   optics name   symmetry tag
+    2    Sdb_mn_ceil   OPAQ  OPAQUE        Sdb_att_flor  
+# mat ref thickness (m) mat descr & air gap R
+  283    0.1690  fiberglass batt : fiberglass batt insulation
+  301    0.0125  gypsum board : Gypsum board
+# layers  description   optics name   symmetry tag
+    2    Sdb_att_flor  OPAQ  OPAQUE        Sdb_mn_ceil   
+# mat ref thickness (m) mat descr & air gap R
+  301    0.0125  gypsum board : Gypsum board
+  283    0.1690  fiberglass batt : fiberglass batt insulation
+# layers  description   optics name   symmetry tag
+    4    Sdb_grg_w     OPAQ  OPAQUE        Sdb_grg_C_IN  
+# mat ref thickness (m) mat descr & air gap R
+  214    0.0508  EPS : EPS (expanded polystyrene)
+    0    0.0250  air  0.170 0.170 0.170
+  283    0.0975  fiberglass batt : fiberglass batt insulation
+  301    0.0120  gypsum board : Gypsum board
+# layers  description   optics name   symmetry tag
+    2    Sdb_grg_ceil  OPAQ  OPAQUE        NONSYMMETRIC  
+# mat ref thickness (m) mat descr & air gap R
+  283    0.1505  fiberglass batt : fiberglass batt insulation
+  301    0.0125  gypsum board : Gypsum board
+# layers  description   optics name   symmetry tag
+    3    Sdb_bsmt_wal  OPAQ  OPAQUE        NONSYMMETRIC  
+# mat ref thickness (m) mat descr & air gap R
+   21    0.2032  light mix concrete : Light mix concrete
+  283    0.0480  fiberglass batt : fiberglass batt insulation
+  301    0.0127  gypsum board : Gypsum board
+# layers  description   optics name   symmetry tag
+    1    no_ther_mass  OPAQ  OPAQUE        no_ther_INV   
+# mat ref thickness (m) mat descr & air gap R
+   72    0.0159  plywood 700d : Plywood (700 density)
+# layers  description   optics name   symmetry tag
+    1    no_ther_INV   OPAQ  OPAQUE        no_ther_mass  
+# mat ref thickness (m) mat descr & air gap R
+   72    0.0159  plywood 700d : Plywood (700 density)
+# layers  description   optics name   symmetry tag
+    4    Sdb_grg_C_IN  OPAQ  OPAQUE        Sdb_grg_w     
+# mat ref thickness (m) mat descr & air gap R
+  301    0.0120  gypsum board : Gypsum board
+  283    0.0975  fiberglass batt : fiberglass batt insulation
+    0    0.0250  air  0.170 0.170 0.170
+  214    0.0508  EPS : EPS (expanded polystyrene)
+# layers  description   optics name   symmetry tag
+    5    Sdb_grg_ext   OPAQ  OPAQUE        NONSYMMETRIC  
+# mat ref thickness (m) mat descr & air gap R
+    1    0.0889  Paviour brick : Paviour brick
+    0    0.0250  air  0.170 0.170 0.170
+  214    0.0508  EPS : EPS (expanded polystyrene)
+  283    0.0370  fiberglass batt : fiberglass batt insulation
+  301    0.0120  gypsum board : Gypsum board
+# layers  description   optics name   symmetry tag
+    4    mass_upgr_1   OPAQ  OPAQUE        mass_up_1_IN  
+# mat ref thickness (m) mat descr & air gap R
+   70    0.0159  plywood 560d : Plywood (generic 560 density)
+   21    0.0064  light mix concrete : Light mix concrete
+  101    0.0064  dense plaster : Dense plaster
+  141    0.0095  clay tile : Clay tile
+# layers  description   optics name   symmetry tag
+    4    mass_upgr_2   OPAQ  OPAQUE        mass_up_2_IN  
+# mat ref thickness (m) mat descr & air gap R
+   70    0.0159  plywood 560d : Plywood (generic 560 density)
+   21    0.0254  light mix concrete : Light mix concrete
+  101    0.0064  dense plaster : Dense plaster
+  141    0.0095  clay tile : Clay tile
+# layers  description   optics name   symmetry tag
+    2    mass_upgr_3   OPAQ  OPAQUE        mass_up_3_IN  
+# mat ref thickness (m) mat descr & air gap R
+   70    0.0159  plywood 560d : Plywood (generic 560 density)
+   21    0.0508  light mix concrete : Light mix concrete
+# layers  description   optics name   symmetry tag
+    4    mass_up_1_IN  OPAQ  OPAQUE        mass_upgr_1   
+# mat ref thickness (m) mat descr & air gap R
+  141    0.0095  clay tile : Clay tile
+  101    0.0064  dense plaster : Dense plaster
+   21    0.0064  light mix concrete : Light mix concrete
+   70    0.0159  plywood 560d : Plywood (generic 560 density)
+# layers  description   optics name   symmetry tag
+    4    mass_up_2_IN  OPAQ  OPAQUE        mass_upgr_2   
+# mat ref thickness (m) mat descr & air gap R
+  141    0.0095  clay tile : Clay tile
+  101    0.0064  dense plaster : Dense plaster
+   21    0.0254  light mix concrete : Light mix concrete
+   70    0.0159  plywood 560d : Plywood (generic 560 density)
+# layers  description   optics name   symmetry tag
+    2    mass_up_3_IN  OPAQ  OPAQUE        mass_upgr_3   
+# mat ref thickness (m) mat descr & air gap R
+   21    0.0508  light mix concrete : Light mix concrete
+   70    0.0159  plywood 560d : Plywood (generic 560 density)
+# layers  description   optics name   symmetry tag
+    2    bsmt_flr_up   OPAQ  OPAQUE        NONSYMMETRIC  
+# mat ref thickness (m) mat descr & air gap R
+  283    0.0505  fiberglass batt : fiberglass batt insulation
+   21    0.1016  light mix concrete : Light mix concrete
+# layers  description   optics name   symmetry tag
+    3    Sdbsm_wal_up  OPAQ  OPAQUE        NONSYMMETRIC  
+# mat ref thickness (m) mat descr & air gap R
+   21    0.2032  light mix concrete : Light mix concrete
+  283    0.0710  fiberglass batt : fiberglass batt insulation
+  301    0.0127  gypsum board : Gypsum board
+# layers  description   optics name   symmetry tag
+    2    Sdb_mn_cl_up  OPAQ  OPAQUE        Sdb_at_fl_up  
+# mat ref thickness (m) mat descr & air gap R
+  283    0.2480  fiberglass batt : fiberglass batt insulation
+  301    0.0125  gypsum board : Gypsum board
+# layers  description   optics name   symmetry tag
+    2    Sdb_at_fl_up  OPAQ  OPAQUE        Sdb_mn_cl_up  
+# mat ref thickness (m) mat descr & air gap R
+  301    0.0125  gypsum board : Gypsum board
+  283    0.2480  fiberglass batt : fiberglass batt insulation
+# layers  description   optics name   symmetry tag
+    5    Tpl-low-e     TRAN  Tpl-2coats    NONSYMMETRIC  
+# mat ref thickness (m) mat descr & air gap R
+  243    0.0030  clear float : 4mm clear float glass with optics from UK national method
+    0    0.0127  air  0.208 0.208 0.208
+  246    0.0030  low_e glass : 6mm CF Low_e glass with placeholder single layer optics
+    0    0.0127  air  0.208 0.208 0.208
+  246    0.0030  low_e glass : 6mm CF Low_e glass with placeholder single layer optics
+# layers  description   optics name   symmetry tag
+    5    Tpl-frt_dr    OPAQ  OPAQUE        NONSYMMETRIC  
+# mat ref thickness (m) mat descr & air gap R
+  243    0.0030  clear float : 4mm clear float glass with optics from UK national method
+    0    0.0127  air  0.208 0.208 0.208
+  246    0.0030  low_e glass : 6mm CF Low_e glass with placeholder single layer optics
+    0    0.0127  air  0.208 0.208 0.208
+  246    0.0030  low_e glass : 6mm CF Low_e glass with placeholder single layer optics
+# layers  description   optics name   symmetry tag
+    4    upgraydd      OPAQ  OPAQUE        NONSYMMETRIC
+# mat ref thickness (m) mat descr & air gap R
+   70    0.0159  plywood 560d : Plywood (generic 560 density)
+   21    0.0064  light mix concrete : Light mix concrete
+  101    0.0064  dense plaster : Dense plaster
+  141    0.0095  clay tile : Clay tile
+
