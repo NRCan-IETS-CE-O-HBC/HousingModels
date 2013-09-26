@@ -48,11 +48,9 @@
     *zone-link 7 0.2 
     *zone-links-end
     *sys-data-start
-#
-        performance 1
-        capacity 9960.0
-        COP 4.3
-        
+
+        capacity 11720.
+        COP 3.
         circ-fan-flow 1
         circ-fan-rated-flow 1
         circ-fan-mode 1
@@ -66,6 +64,9 @@
         cut-off-temperature -25.1
 
     *sys-data-end
+    *misc-param-start
+        performance CCASHP-CCHT
+    *misc-param-end     
     *backup backup-sys
     *fan-ctl-loop 1
 
@@ -88,11 +89,9 @@
     *zone-links-end
     *sys-data-start
 
-        performance 1
-        capacity 10555.
+        
+        capacity 11720.
         COP 3.
-        #circ-fan-flow -
-        #circ-fan-rated-flow 1.5
         circ-fan-mode 1
         circ-fan-position 1
         circ-fan-power 140.
@@ -105,6 +104,9 @@
         sys-num-for-heating-mode 2
 
     *sys-data-end
+    *misc-param-start
+        performance good
+    *misc-param-end 
     *OA-schedule-start
 
         *day-type-start
