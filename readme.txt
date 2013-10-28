@@ -6,12 +6,12 @@ NRCan Residential optimization platform. For use on Cygwin/linux systems.
 SET UP THE ENIVIRONMENT 
 -----------------------
 
-1. Checkout and install Alex_Ferguson @ r9421 
+1. Checkout and install (or update to) Alex_Ferguson @ r9508 
 
    From your home directory: 
       
       cd ~/ 
-      svn co https://espr.svn.cvsdude.com/esp-r/branches/Alex_Ferguson@r9421 
+      svn co https://espr.svn.cvsdude.com/esp-r/branches/Alex_Ferguson@r9508
       cd Alex_Ferguson/src
       ./Install -d ~/ --xml --no_training --no_dbs --silent --force --debug bps ish prj
       cd ~/    
