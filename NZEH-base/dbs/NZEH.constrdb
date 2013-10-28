@@ -1,6 +1,6 @@
 # composite construction db defined in ../dbs/NZEH.constrdb
 # based on materials db ../dbs/material.db3.a
-  191 # no of composites 
+  193 # no of composites 
 # layers  description   optics name   symmetry tag
     2    bsm_flr       OPAQ  OPAQUE        NONSYMMETRIC  
 # mat ref thickness (m) mat descr & air gap R
@@ -1618,3 +1618,16 @@
    79    0.0120  OSB
     0    0.0250  air  0.170 0.170 0.170
   301    0.0125  gypsum board 
+#----------------------
+# Ceilings: R70
+# 192: layers  description   optics name   symmetry tag  
+    2    CeilR70       OPAQ  OPAQUE        CeilR70R
+# mat ref thickness (m) mat descr & air gap R 
+  233    0.4897  celulose fiber flakes 
+  301    0.0125  gypsum board
+# 193: layers  description   optics name   symmetry tag  
+    2    CeilR70R      OPAQ  OPAQUE        CeilR70
+# mat ref thickness (m) mat descr & air gap R 
+  301    0.0125  gypsum board
+  233    0.4897  celulose fiber flakes
+ 
