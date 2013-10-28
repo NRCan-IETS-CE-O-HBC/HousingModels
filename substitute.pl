@@ -11,6 +11,7 @@ use Cwd 'chdir';
 use File::Find;
 use Math::Trig;
 
+sub UpdateCon();
 sub runsims($);
 sub postprocess($);
 sub execute($);
@@ -19,6 +20,7 @@ sub fatalerror($);
 sub round($); 
 sub round1d($); 
 sub min($$);
+sub stream_out($);
 sub stream_out($);
 
 
@@ -60,6 +62,8 @@ my $gEnergyCooling;
 my $gEnergyVentilation; 
 my $gEnergyWaterHeating; 
 my $gEnergyEquipment; 
+
+my $gRotationAngle; 
 
 my $gSkipPRJ = 0; 
 
@@ -1031,6 +1035,9 @@ my $gAvgEnergy_Total   = 0 ;
 my $gAvgCost_Propane   = 0 ;
 my $gAvgCost_Oil       = 0 ;
  
+ 
+UpdateCon();  
+ 
 for my $Direction  ( @Orientations ){
 
     if ( ! $gSkipSims ) { runsims( $angles{$Direction} ); }
@@ -1061,6 +1068,7 @@ print SUMMARY "Upgrade-cost    =  ".eval($gTotalCost-$gIncBaseCosts)."\n";
 
 my $PVcapacity = $gChoices{"Opt-StandoffPV"}; 
 $PVcapacity =~ s/[a-zA-Z:\s]//g;
+if (! $PVcapacity ) { $PVcapacity = 0. ; }
 
 print SUMMARY "PV-size-kW      =  ".$PVcapacity."\n"; 
 close (SUMMARY); 
@@ -1131,10 +1139,33 @@ sub process_file($){
 }
 
 
+sub UpdateCon(){
+
+  chdir $gWorkingCfgPath;
+  debug_out ("\n\n Moved to path:". getcwd()."\n"); 
+
+  
+  
+  # Update con files. 
+  if ( ! $gSkipPRJ ) {
+
+    # Update construction files 
+    stream_out ("\n\n Invoking prj to update con files (\"$gPRJZoneConCmd\")...");
+    execute($gPRJZoneConCmd);
+    stream_out ("done. \n");  
+
+  }
+
+
+}
+
+
 sub runsims($){
 
   my ($RotationAngle) = @_;
 
+  # Save rotation angle for reporting
+  $gRotationAngle = $RotationAngle; 
 
   chdir $gWorkingCfgPath; 
  
@@ -1144,17 +1175,9 @@ sub runsims($){
   
   debug_out ("\n\n Moved to path:". getcwd()."\n"); 
 
-  
-
-
-   
+     
   # Spin the model 
   if ( ! $gSkipPRJ ) {
-
-    # Update construction files 
-    stream_out ("\n\n Invoking prj to update con files (\"$gPRJZoneConCmd\")...");
-    execute($gPRJZoneConCmd);
-    stream_out ("done. \n");  
 
     stream_out("\n\n Involing prj to rotate the model by $RotationAngle degrees (\"$gPRJZoneRotCmd $RotationAngle\")...");
     execute("$gPRJZoneRotCmd $RotationAngle"); 
@@ -1977,7 +2000,7 @@ sub postprocess($){
   $gChoices{"Opt-StandoffPV"}=$PVsize;
   $gOptions{"Opt-StandoffPV"}{"options"}{$PVsize}{"cost"} = $PVArrayCost;
 
-  debug_out("\n\n Energy Consumption: \n\n") ; 
+  stream_out("\n\n Energy Consumption: \n\n") ; 
 
   my $gTotalEnergy = 0;
 
@@ -1986,12 +2009,12 @@ sub postprocess($){
     my $value = $gSimResults{$token};
     $gTotalEnergy += $value; 
     
-    debug_out ( "  + $value ( $token, GJ ) \n");
+    stream_out ( "  + $value ( $token, GJ ) \n");
 
   }
   
-  debug_out ( " --------------------------------------------------------\n");
-  debug_out ( "    $gTotalEnergy ( Total energy, GJ ) \n");
+  stream_out ( " --------------------------------------------------------\n");
+  stream_out ( "    $gTotalEnergy ( Total energy, GJ ) \n");
 
 
   # Save Energy consumption for later
@@ -2025,15 +2048,15 @@ sub postprocess($){
   
   
   
-  debug_out("\n\n Energy Cost (not including credit for PV): \n\n") ; 
+  stream_out("\n\n Energy Cost (not including credit for PV, direction $gRotationAngle ): \n\n") ; 
+  
+  stream_out("  + \$ ".round($TotalElecBill)." (Electricity)\n");
+  stream_out("  + \$ ".round($TotalGasBill)." (Natural Gas)\n");
+  stream_out("  + \$ ".round($TotalOilBill)." (Oil)\n");
+  stream_out("  + \$ ".round($TotalPropaneBill)." (Propane)\n");
 
-  debug_out("  + \$ ".round($TotalElecBill)." (Electricity)\n");
-  debug_out("  + \$ ".round($TotalGasBill)." (Natural Gas)\n");
-  debug_out("  + \$ ".round($TotalOilBill)." (Oil)\n");
-  debug_out("  + \$ ".round($TotalPropaneBill)." (Propane)\n");
-
-  debug_out ( " --------------------------------------------------------\n");
-  debug_out ( "    \$ ".round($TotalElecBill+$TotalGasBill+$TotalOilBill+$TotalPropaneBill) ." (All utilities).\n"); 
+  stream_out ( " --------------------------------------------------------\n");
+  stream_out ( "    \$ ".round($TotalElecBill+$TotalGasBill+$TotalOilBill+$TotalPropaneBill) ." (All utilities).\n"); 
 
   # Update global params for use in summary 
   $gAvgCost_NatGas    = $TotalGasBill  * $ScaleData; 
@@ -2048,7 +2071,7 @@ sub postprocess($){
 
   $gTotalCost = 0;         
   my $RegionalCostAdj = $RegionalCostFactors{$Locale}; 
-  debug_out ("\n\n Estimated costs in $Locale (x$RegionalCostAdj Ottawa costs) : \n\n");
+  stream_out ("\n\n Estimated costs in $Locale (x$RegionalCostAdj Ottawa costs) : \n\n");
 
   foreach my  $attribute ( sort keys %gChoices ){
     
