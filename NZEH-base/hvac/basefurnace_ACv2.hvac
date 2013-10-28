@@ -51,7 +51,6 @@
     *zone-links-end
     *sys-data-start
 
-        performance 1
         capacity 10555.
         COP 3.
         #circ-fan-flow -
@@ -68,6 +67,9 @@
         sys-num-for-heating-mode 1
 
     *sys-data-end
+    *misc-param-start
+        performance good
+    *misc-param-end     
     *fan-ctl-loop 1
     *OA-schedule-start
 
