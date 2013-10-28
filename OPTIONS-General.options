@@ -527,6 +527,10 @@
 !*option:CeilR60:value:2 =   CeilR60R
 *option:CeilR60:cost:total    =   442
 
+*option:CeilR70:value:1 =   CeilR70
+!*option:CeilR70:value:2 =   CeilR70R
+*option:CeilR70:cost    =   912.20
+
 *option:CeilR80:value:1 =   CeilR80
 !*option:CeilR80:value:2 =   CeilR80R
 *option:CeilR80:cost:total    =   1426
@@ -814,7 +818,7 @@ Whitehorse Foundation Options (Code is R28)
 
 *option:Slab_5_R10:value:1 = Slab_5_R10
 *option:Slab_5_R10:value:2 = 69
-*option:Slab_5_R10:cost:total   = 0
+*option:Slab_5_R10:cost:total   = 2645
 
 *option:Slab_6_R20:value:1 = Slab_6_R20
 *option:Slab_6_R20:value:2 = 69
@@ -905,6 +909,11 @@ Whitehorse Foundation Options (Code is R28)
 *option:basefurnace:value:2 = #-no-GSHP-file
 *option:basefurnace:cost:total    = 0
 
+*option:propanefurnaceAC:value:1 = propane_furnace_ACv2.hvac
+*option:propanefurnaceAC:value:2 = #-no-GSHP-file
+*option:propanefurnaceAC:cost:total    = 0
+
+
 *option:oilfurnace:value:1 = basefurnace_ACv2_oil.hvac
 *option:oilfurnace:value:2 = #-no-GSHP-file
 *option:oilfurnace:cost:total    = 0
@@ -955,13 +964,17 @@ Whitehorse Foundation Options (Code is R28)
 *option:elec-baseboard:value:2 = #-no-GSHP-file
 *option:elec-baseboard:cost:total      = -12900
 
-*option:GSHP:value:1      = GSHP_WH.hvac
+*option:GSHP:value:1      = GSHPv2.hvac
 *option:GSHP:value:2      = *gshp~../hvac/heatx_v1.gshp
 *option:GSHP:cost:total        = 24100         
 
 *option:CCASHP:value:1      = CCASHPv2.hvac
 *option:CCASHP:value:2      = #-no-GSHP-file
 *option:CCASHP:cost:total        = 3100   
+
+*option:ASHP:value:1      = ASHPv2.hvac
+*option:ASHP:value:2      = #-no-GSHP-file
+*option:ASHP:cost:total        = 3100   
 
 
 *attribute:end
