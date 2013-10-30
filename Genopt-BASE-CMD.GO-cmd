@@ -14,7 +14,7 @@ Vary{
               //    Calgary    
               //    Edmonton   
               //    Regina     
-              //    Winipeg    
+              //    Winnipeg    
               //    Montreal   
               //    Quebec     
               //    Fredricton 
@@ -23,15 +23,15 @@ Vary{
    
      Name = GOtag:Opt-Location; 
      Ini  = 1;
-     Values = "Ottawa"; 
+     Values = "Ottawa,Toronto,Vancouver,Calgary,Edmonton,Regina,Winnipeg,Montreal,Quebec,Fredricton,Halifax"; 
    }
 
 
-   // Air tightness: TypicalGTA, R2000, Cdn1ACH, PassiveHouse, Base_WH_1.5, WH_1.0, WH_0.5
+   // Air tightness: Typical23, TypicalGTA, R2000, Cdn1ACH, PassiveHouse, Base_WH_1.5, WH_1.0, WH_0.5
    Parameter{   // 
      Name    =  GOtag:Opt-AirTightness;
      Ini     =  1;
-     Values  =  "R2000,PassiveHouse";
+     Values  =  "Typical23";
      
    }    
    
@@ -110,12 +110,13 @@ Vary{
    } 
 
    // Exposed floor: NoInsulation
+   //                BaseExpFloor-R31
    //                ExpFloorFlash&Batt-R36
    //                ExpFloorFoamed-R52
    Parameter{   // 
      Name    =  GOtag:Opt-ExposedFloor;
      Ini     =  1;
-     Values  =  "ExpFloorFoamed-R52";
+     Values  =  "BaseExpFloor-R31";
    }    
    
    
@@ -193,7 +194,7 @@ Vary{
   Parameter{   // 
      Name    = GOtag:Opt-SolarDHW; 
      Ini     = 1; 
-     Values  = "DWHR"; 
+     Values  = "none"; 
   } 
   
   // Conventional DHW:  BaseDHW, 
@@ -204,7 +205,7 @@ Vary{
   Parameter{ //
      Name    = GOtag:Opt-DHWSystem;
      Ini     = 1; 
-     Values  = "ElectricHP" ; 
+     Values  = "BaseDHW" ; 
   }
 
   
@@ -221,14 +222,16 @@ Vary{
   Parameter {// 
       Name   = GOtag:Opt-HVACSystem; 
       Ini    = 1; 
-      Values = "basefurnace"; 
+      Values = "basefurnace,elec-baseboard,CCASHP,GSHP"; 
   }
   
-  // PV: Set to autosize to ensure each run actually achieves NZEH.  
+  // PV: Set to autosize to ensure each run actually achieves NZEH. 
+  // NoPV
+  // SizedPV 
   Parameter{   // 
      Name    =  GOtag:Opt-StandoffPV;
      Ini     =  1;
-     Values  = "SizedPV";
+     Values  = "NoPV";
   } 
   
   
@@ -251,23 +254,19 @@ Vary{
      Values  = "NoExtraWin"; 
    }
    
-   Parameter{   // First Floor -- left side (as viewed from front  
+   Parameter{   // First Floor -- left side (as viewed from front)  
      Name    =  GOtag:Opt-ExtLeftSideWindow;
      Ini     =  1;
-     Values  =  "No";
+     Values  =  "Yes";
    } 
-   
-   
+      
   Parameter{   // Basement -- back 
      Name    =  GOtag:Opt-ExtBasementWindow;
      Ini     =  1;
      Values  =  "No";
    }            
    
-   
-
-  
-  
+    
   
   // ===================================================================
   // Roof pitch 
@@ -289,13 +288,13 @@ Vary{
       Name   = GOtag:ElecLoadScale; 
       Ini    = 1;
       // Value may be one of  NoReduction, BasicReduction, EfficientLiving      
-      Values = "EfficientLiving"; 
+      Values = "BasicReduction"; 
   }
   Parameter { // 
       Name   = GOtag:DHWLoadScale; 
       Ini    = 1;
       // Value may be one of  NoReduction, BasicReduction, EfficientLiving      
-      Values = "EfficientLiving"; 
+      Values = "BasicReduction"; 
   }
   
   Parameter { // 
@@ -307,14 +306,14 @@ Vary{
   
     
    // Orientation: for parametric study. Set to one of 
-   // "S, N, E, W, or avg", "AVG" causes substitute.pl 
+   // "S, N, E, W, or AVG", "AVG" causes substitute.pl 
    // to run four simulations (in four different orientations) 
    // for each set of parameters and average the results. 
    
    Parameter{   // 
      Name    =  GOtag:GOconfig_rotate;
      Ini     =  1;
-     Values  =  "S";
+     Values  =  "AVG";
    }      
     
      

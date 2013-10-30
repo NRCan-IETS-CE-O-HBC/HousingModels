@@ -13,7 +13,7 @@ SET UP THE ENIVIRONMENT
       cd ~/ 
       svn co https://espr.svn.cvsdude.com/esp-r/branches/Alex_Ferguson@r9508
       cd Alex_Ferguson/src
-      ./Install -d ~/ --xml --no_training --no_dbs --silent --force --debug bps ish prj
+      ./Install -d ~/ --xml --no_training --no_dbs --silent --force --debug --noX bps ish prj
       cd ~/    
 
     Previous versions of the platform required you to copy the climate database 
