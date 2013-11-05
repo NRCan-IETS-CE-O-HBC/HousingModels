@@ -6,7 +6,7 @@ NRCan Residential optimization platform. For use on Cygwin/linux systems.
 SET UP THE ENIVIRONMENT 
 -----------------------
 
-1. Checkout and install (or update to) Alex_Ferguson @ r9508 
+1. Checkout and install (or update to) Alex_Ferguson @ r9510 
 
    From your home directory: 
       

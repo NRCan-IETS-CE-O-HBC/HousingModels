@@ -1,6 +1,6 @@
 /*
 
- GenOpt command file for general optimization run. 
+ GenOpt command file for general optimization run. Baseline.
 
 */
 Vary{
