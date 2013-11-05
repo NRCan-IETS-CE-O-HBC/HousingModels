@@ -156,7 +156,7 @@ Vary{
   Parameter{   // 
      Name    =  GOtag:Opt-CasementWindows;
      Ini     =  1;
-     Values  =  "DoubleLowEHardCoatAirFill";    
+     Values  =  "DoubleLowEHardCoatArgFill";    
      
    }    
    
