@@ -1938,13 +1938,13 @@ sub postprocess($){
   
   # Add data from externally computed SDHW (presently not accounting for pump energy...)
   my $sizeSDHW = $gChoices{"Opt-SolarDHW"}; 
-  $gSimResults{"SDHW production"} = -1.0 * $gOptions{"Opt-SolarDHW"}{"options"}{$sizeSDHW}{"ext-result"}{"production-DHW"};
+  $gSimResults{"SDHW production::AnnualTotal"} = -1.0 * $gOptions{"Opt-SolarDHW"}{"options"}{$sizeSDHW}{"ext-result"}{"production-DHW"};
   
     
   # Adjust solar DHW energy credit to reflect actual consumption. Assume 
   # SDHW credit cannot be more than 60% of total water load. 
   
-  $gSimResults{"SDHW production"} = min( $gSimResults{"SDHW production"}*-1.,
+  $gSimResults{"SDHW production::AnnualTotal"} = min( $gSimResults{"SDHW production::AnnualTotal"}*-1.,
                                          0.6 * $gSimResults{"total_fuel_use/test/all_fuels/water_heating/energy_content::AnnualTotal"} 
                                        ) * (-1.) ; 
   
@@ -1961,22 +1961,23 @@ sub postprocess($){
   if ( $PVsize !~ /SizedPV/ ){
     
     # Use spec'd PV sizes 
-    $gSimResults{"PV production"}=-1.0*$gExtOptions{"Opt-StandoffPV"}{"options"}{$PVsize}{"ext-result"}{"production-elec-perKW"}; 
+    $gSimResults{"PV production::AnnualTotal"}=-1.0*$gExtOptions{"Opt-StandoffPV"}{"options"}{$PVsize}{"ext-result"}{"production-elec-perKW"}; 
   
   }else{
     # Size pv to max, or to size required to reach Net-Zero. 
     my $prePVEnergy = 0;
 
+    # gSimResults contains all sorts of data. Filter by annual energy consumption (rows containing AnnualTotal).
     foreach my $token ( sort keys %gSimResults ){
-
-      my $value = $gSimResults{$token};
-      $prePVEnergy += $value; 
-            
+      if ( $token =~ /AnnualTotal/ ){ 
+        my $value = $gSimResults{$token};
+        $prePVEnergy += $value; 
+      }    
     }
 
     if ( $prePVEnergy > 0 ){
     
-      # This should always be the case
+      # This should always be the case!
       
 	  my $PVUnitOutput = $gOptions{"Opt-StandoffPV"}{"options"}{$PVsize}{"ext-result"}{"production-elec-perKW"};
 	  my $PVUnitCost   = $gOptions{"Opt-StandoffPV"}{"options"}{$PVsize}{"cost"};
@@ -1991,14 +1992,15 @@ sub postprocess($){
         
       $PVsize = " scaled: ".eval(round1d($PVArraySized))." kW" ;
 
-      $gSimResults{"PV production"}=-1.0*$PVUnitOutput*$PVArraySized; 
+      $gSimResults{"PV production::AnnualTotal"}=-1.0*$PVUnitOutput*$PVArraySized; 
     
     }else{
-      # House is already energy positive, no PV needed. 
+      # House is already energy positive, no PV needed. Shouldn't happen!
       $PVsize = "0.0 kW" ;
 	  $PVArrayCost  = 0. ;
       
     }
+    # Degbug: How big is the sized array?
     print ">$PVsize ...\n"; 
     
   }  
@@ -2012,7 +2014,7 @@ sub postprocess($){
 
   foreach my $token ( sort keys %gSimResults ){
 
-    if ( $token !~ /quantity/ ){
+    if ( $token =~ /AnnualTotal/ ){
         my $value = $gSimResults{$token};
         $gTotalEnergy += $value; 
         stream_out ( "  + $value ( $token, GJ ) \n");
