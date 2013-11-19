@@ -1049,6 +1049,9 @@ for my $Direction  ( @Orientations ){
 
 my $gAvgCost_Total   = $gAvgCost_Electr + $gAvgCost_NatGas + $gAvgCost_Propane + $gAvgCost_Oil ;
 
+$gEnergyElec = $gEnergyElec*3600*8760;
+$gEnergyGas = $gEnergyGas*3600*8760;
+
 open (SUMMARY, ">$gMasterPath/SubstitutePL-output.txt") or fatalerror ("Could not open $gMasterPath/SubstitutePL-output.txt");
 
 print SUMMARY "Energy-Total-GJ =  $gAvgEnergy_Total \n"; 
@@ -1065,8 +1068,8 @@ print SUMMARY "Energy-Cooling  =  $gEnergyCooling \n";
 print SUMMARY "Energy-Vent     =  $gEnergyVentilation \n";
 print SUMMARY "Energy-DHW      =  $gEnergyWaterHeating \n";
 print SUMMARY "Energy-Plug     =  $gEnergyEquipment \n";  
-print SUMMARY "EnergyElec      =  $gEnergyElec*3600*8760 \n";
-print SUMMARY "EnergyGas       =  $gEnergyGas*3600*8760 \n";
+print SUMMARY "EnergyElec      =  $gEnergyElec \n";
+print SUMMARY "EnergyGas       =  $gEnergyGas \n";
 print SUMMARY "Upgrade-cost    =  ".eval($gTotalCost-$gIncBaseCosts)."\n"; 
 
 my $PVcapacity = $gChoices{"Opt-StandoffPV"}; 
@@ -2046,12 +2049,11 @@ sub postprocess($){
   $gEnergyEquipment = defined( $gSimResults{"total_fuel_use/test/all_fuels/equipment/energy_content::AnnualTotal"} ) ? 
                          $gSimResults{"total_fuel_use/test/all_fuels/equipment/energy_content::AnnualTotal"} : 0 ;  
 
-  $gEnergyElec   = defined($gSimResults{
-  "total_fuel_use/electricity/all_end_uses/quantity::Total_Average"} ) ? 
-                         $gSimResults{"total_fuel_use/electricity/all_end_uses/energy_content::Total_Average"} : 0 ;  
+  $gEnergyElec   = defined($gSimResults{"total_fuel_use/electricity/all_end_uses/quantity::Total_Average"} ) ? 
+                         $gSimResults{"total_fuel_use/electricity/all_end_uses/quantity::Total_Average"} : 0 ;  
   
   $gEnergyGas   = defined($gSimResults{"total_fuel_use/natural_gas/all_end_uses/quantity::Total_Average"} ) ? 
-                         $gSimResults{"total_fuel_use/natural_gas/all_end_uses/energy_content::Total_Average"} : 0 ;  
+                         $gSimResults{"total_fuel_use/natural_gas/all_end_uses/quantity::Total_Average"} : 0 ;  
   
   stream_out("\n\n Energy Cost (not including credit for PV, direction $gRotationAngle ): \n\n") ; 
   
