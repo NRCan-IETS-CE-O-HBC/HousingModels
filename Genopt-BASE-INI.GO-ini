@@ -88,7 +88,10 @@ Simulation{
       Delimiter14 = "Util-Bill-Oil   = ";
       Name15 = UtilCostProp; 
       Delimiter15 = "Util-Bill-Prop  = ";
-
+      Name16 = EnergyElec;
+	  Delimiter16 = "EnergyElec      = ";
+      Name17 = EnergyGas;
+	  Delimiter17 = "EnergyGas       = ";
 
    } // end Simulation.ObjectiveFunctionLocation
    

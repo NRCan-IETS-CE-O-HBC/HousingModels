@@ -205,7 +205,7 @@ Vary{
   Parameter{ //
      Name    = GOtag:Opt-DHWSystem;
      Ini     = 1; 
-     Values  = "BaseDHW" ; 
+     Values  = "BaseDHW,ElectricStorage"; 
   }
 
   
