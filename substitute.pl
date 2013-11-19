@@ -1153,7 +1153,7 @@ sub UpdateCon(){
   
   
   # Update con files. 
-  if ( ! $gSkipPRJ ) {
+  if ( ! $gSkipPRJ && ! $gSkipSims ) {
 
     # Update construction files 
     stream_out ("\n\n Invoking prj to update con files (\"$gPRJZoneConCmd\")...");
@@ -1556,7 +1556,7 @@ sub postprocess($){
 
     my ( $token, $value, $units ) = split / /, $line; 
     
-    if ( $units =~ /GJ/ ) {
+    if ( $units =~ /GJ/ || $units =~ /kWh\/s/ || $units =~ /m3\/s/  ) {
     
       $gSimResults{$token} = $value; 
     
@@ -2012,11 +2012,11 @@ sub postprocess($){
 
   foreach my $token ( sort keys %gSimResults ){
 
-    my $value = $gSimResults{$token};
-    $gTotalEnergy += $value; 
-    
-    stream_out ( "  + $value ( $token, GJ ) \n");
-
+    if ( $token !~ /quantity/ ){
+        my $value = $gSimResults{$token};
+        $gTotalEnergy += $value; 
+        stream_out ( "  + $value ( $token, GJ ) \n");
+    }
   }
   
   stream_out ( " --------------------------------------------------------\n");
