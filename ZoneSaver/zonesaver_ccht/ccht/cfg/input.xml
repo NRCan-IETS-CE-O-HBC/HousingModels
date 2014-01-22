@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+  <apply_style_sheet>true</apply_style_sheet>
+  <dump_all_data>false</dump_all_data>
+  <enable_xml_wildcards>true</enable_xml_wildcards>
+  <hierarchy>tree</hierarchy>
+  <link_style_sheet>false</link_style_sheet>
+  <output_dictionary>true</output_dictionary>
+  <report_startup_period_data>false</report_startup_period_data>
+  <save_to_disk>false</save_to_disk>
+  <time_step_averaging>false</time_step_averaging>
+  <style_sheet>monthly_results.xsl</style_sheet>
+  <style_sheet>h3k.xsl</style_sheet>
+  <style_sheet>monthly_tables.xsl</style_sheet>
+  <transform_destination_file>monthly_results.html</transform_destination_file>
+  <transform_destination_file>annual_results.html</transform_destination_file>
+  <transform_destination_file>monthly_results_table.csv</transform_destination_file>
+  <log_variable>climate/wind/direction</log_variable>
+  <log_variable>climate/wind/velocity</log_variable>
+  <log_variable>building/all_zones/*</log_variable>
+  <log_variable>building/zone_*/envelope/*</log_variable>
+  <log_variable>plant/ideal_DHW_model*</log_variable>
+  <log_variable>plant/ideal_hvac_models*</log_variable>
+  <log_variable>total_fuel_use*</log_variable>
+  <log_variable>building/spmatl/pv-array*</log_variable>
+  <log_variable>electrical_net/nodes/node*</log_variable>
+  <log_variable>electrical_net/hybrid_components/*</log_variable>
+  <log_variable>electrical_net/power_only_components/*</log_variable>
+  <log_variable>plant/*</log_variable>
+  <step_variable>climate/dry_bulb_temperature</step_variable>
+  <step_variable>climate/relative_humidity</step_variable>
+  <step_variable>climate/solar/Diffuse_horizontal_radiation</step_variable>
+  <step_variable>climate/solar/direct_normal_radiation</step_variable>
+  <step_variable>building/month</step_variable>
+  <step_variable>building/day_number/present</step_variable>
+  <step_variable>building/hour/present</step_variable>
+  <step_variable>building/time_step</step_variable>
+  <step_variable>building/zone_*/air_point/temperature</step_variable>
+  <step_variable>building/zone_*/air_point/relative_humidity</step_variable>
+  <step_variable>building/zone_*/infiltration/*</step_variable>
+  <step_variable>building/zone_*/internal_gains/*</step_variable>
+  <step_variable>building/zone_*/insolation/*</step_variable>
+  <step_variable>building/zone_*/supplied_energy/*</step_variable>
+  <step_variable>building/zone_*/thermal_loads/*</step_variable>
+  <step_variable>plant/ideal_hvac_models/*</step_variable>
+  <step_variable>flow rate - main floor to basement</step_variable>
+  <step_variable>flow rate - main floor to second floor</step_variable>
+  <step_variable>flow rate - second floor to main floor</step_variable>
+  <step_variable>plant/ideal_hvac_models/component_02/zone_cap_frac/zone_01</step_variable>
+  <step_variable>plant/ideal_hvac_models/component_02/zone_cap_frac/zone_02</step_variable>
+  <step_variable>plant/ideal_hvac_models/component_02/zone_cap_frac/zone_03</step_variable>
+  <step_variable>plant/ideal_hvac_models/component_02/zone_ret_cap_frac/zone_01</step_variable>
+  <step_variable>plant/ideal_hvac_models/component_02/zone_ret_cap_frac/zone_02</step_variable>
+  <step_variable>plant/ideal_hvac_models/component_02/zone_ret_cap_frac/zone_03</step_variable>
+  <step_variable>plant/ideal_hvac_models/component_02/circ_flow_rate</step_variable>
+  <step_variable>plant/ideal_hvac_models/component_02/outdoor_fan_power</step_variable>
+  <step_variable>mfn/air/basement-&gt;bsmt_E (via crack_bsmt)/flow</step_variable>
+  <step_variable>mfn/air/basement-&gt;bsmt_N (via crack_bsmt)/flow</step_variable>
+  <step_variable>mfn/air/basement-&gt;bsmt_S (via crack_bsmt)/flow</step_variable>
+  <step_variable>mfn/air/basement-&gt;bsmt_W (via crack_bsmt)/flow</step_variable>
+  <step_variable>mfn/air/mainfloor-&gt;1st_E (via crack_1st)/flow</step_variable>
+  <step_variable>mfn/air/mainfloor-&gt;1st_N (via crack_1st)/flow</step_variable>
+  <step_variable>mfn/air/mainfloor-&gt;1st_S (via crack_1st)/flow</step_variable>
+  <step_variable>mfn/air/mainfloor-&gt;1st_W (via crack_1st)/flow</step_variable>
+  <step_variable>mfn/air/secondfloor-&gt;2nd_E (via crack_2nd)/flow</step_variable>
+  <step_variable>mfn/air/secondfloor-&gt;2nd_N (via crack_2nd)/flow</step_variable>
+  <step_variable>mfn/air/secondfloor-&gt;2nd_S (via crack_2nd)/flow</step_variable>
+  <step_variable>mfn/air/secondfloor-&gt;2nd_W (via crack_2nd)/flow</step_variable>
+  <step_variable>mfn/air/secondfloor-&gt;mainfloor (via flow_up_main)/flow</step_variable>
+  <step_variable>mfn/air/mainfloor-&gt;basement (via flow_main_bs)/flow</step_variable>
+  <step_variable>mfn/air/mainfloor-&gt;secondfloor (via flow_main_up)/flow</step_variable>
+  <step_variable>mfn/air/supply_1st-&gt;mainfloor (via supply_1st)/flow</step_variable>
+  <step_variable>mfn/air/mainfloor-&gt;return_1st (via return_1st)/flow</step_variable>
+  <step_variable>mfn/air/supply_2nd-&gt;secondfloor (via supply_2nd)/flow</step_variable>
+  <step_variable>mfn/air/secondfloor-&gt;return_2nd (via return_2nd)/flow</step_variable>
+  <step_variable>mfn/air/basement-&gt;return_bsmt (via return_bsmt)/flow</step_variable>
+  <summary_variable>climate/dry_bulb_temperature</summary_variable>
+  <summary_variable>climate/relative_humidity</summary_variable>
+  <summary_variable>climate/solar/Diffuse_horizontal_radiation</summary_variable>
+  <summary_variable>climate/solar/direct_normal_radiation</summary_variable>
+  <summary_variable>climate/wind/direction</summary_variable>
+  <summary_variable>climate/wind/velocity</summary_variable>
+  <summary_variable>building/month</summary_variable>
+  <summary_variable>building/day_number/present</summary_variable>
+  <summary_variable>building/hour/present</summary_variable>
+  <summary_variable>building/time/present</summary_variable>
+  <summary_variable>building/all_zones/*</summary_variable>
+  <summary_variable>building/zone_*/envelope/*</summary_variable>
+  <summary_variable>building/zone_*/air_point/temperature</summary_variable>
+  <summary_variable>building/zone_*/infiltration/*</summary_variable>
+  <summary_variable>building/zone_*/internal_gains/*</summary_variable>
+  <summary_variable>building/zone_*/insolation/*</summary_variable>
+  <summary_variable>building/zone_*/supplied_energy/*</summary_variable>
+  <summary_variable>building/zone_*/thermal_loads/*</summary_variable>
+  <summary_variable>plant/ideal_hvac_models/*</summary_variable>
+  <summary_variable>plant/ideal_DHW_model*</summary_variable>
+  <summary_variable>plant/ideal_hvac_models*</summary_variable>
+  <summary_variable>total_fuel_use*</summary_variable>
+  <summary_variable>building/spmatl/pv-array*</summary_variable>
+  <summary_variable>electrical_net/nodes/node*</summary_variable>
+  <summary_variable>electrical_net/hybrid_components/*</summary_variable>
+  <summary_variable>electrical_net/power_only_components/*</summary_variable>
+  <summary_variable>plant/*</summary_variable>
+</configuration>

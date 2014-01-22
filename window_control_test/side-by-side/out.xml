@@ -1,0 +1,3926 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<system version="1.0">
+  <building>
+    <all_zones>
+      <supplied_energy>
+        <cooling>
+          <name>cooling</name>
+          <description>Total amount of cooling supplied to the building (all zones).</description>
+          <units>(W)</units>
+          <binned_data type="monthly">
+            <index>0</index>
+            <steps>744</steps>
+            <active_steps>744</active_steps>
+            <sum>0.000000</sum>
+            <max>0.000000</max>
+            <min>0.000000</min>
+            <active_average>0.000000</active_average>
+            <total_average>0.000000</total_average>
+          </binned_data>
+          <binned_data type="monthly">
+            <index>1</index>
+            <steps>672</steps>
+            <active_steps>672</active_steps>
+            <sum>0.000000</sum>
+            <max>0.000000</max>
+            <min>0.000000</min>
+            <active_average>0.000000</active_average>
+            <total_average>0.000000</total_average>
+          </binned_data>
+          <binned_data type="monthly">
+            <index>2</index>
+            <steps>744</steps>
+            <active_steps>744</active_steps>
+            <sum>0.000000</sum>
+            <max>0.000000</max>
+            <min>0.000000</min>
+            <active_average>0.000000</active_average>
+            <total_average>0.000000</total_average>
+          </binned_data>
+          <binned_data type="monthly">
+            <index>3</index>
+            <steps>720</steps>
+            <active_steps>720</active_steps>
+            <sum>0.000000</sum>
+            <max>0.000000</max>
+            <min>0.000000</min>
+            <active_average>0.000000</active_average>
+            <total_average>0.000000</total_average>
+          </binned_data>
+          <binned_data type="monthly">
+            <index>4</index>
+            <steps>744</steps>
+            <active_steps>744</active_steps>
+            <sum>0.000000</sum>
+            <max>0.000000</max>
+            <min>0.000000</min>
+            <active_average>0.000000</active_average>
+            <total_average>0.000000</total_average>
+          </binned_data>
+          <binned_data type="monthly">
+            <index>5</index>
+            <steps>720</steps>
+            <active_steps>720</active_steps>
+            <sum>0.000000</sum>
+            <max>0.000000</max>
+            <min>0.000000</min>
+            <active_average>0.000000</active_average>
+            <total_average>0.000000</total_average>
+          </binned_data>
+          <binned_data type="monthly">
+            <index>6</index>
+            <steps>744</steps>
+            <active_steps>744</active_steps>
+            <sum>0.000000</sum>
+            <max>0.000000</max>
+            <min>0.000000</min>
+            <active_average>0.000000</active_average>
+            <total_average>0.000000</total_average>
+          </binned_data>
+          <binned_data type="monthly">
+            <index>7</index>
+            <steps>744</steps>
+            <active_steps>744</active_steps>
+            <sum>0.000000</sum>
+            <max>0.000000</max>
+            <min>0.000000</min>
+            <active_average>0.000000</active_average>
+            <total_average>0.000000</total_average>
+          </binned_data>
+          <binned_data type="monthly">
+            <index>8</index>
+            <steps>720</steps>
+            <active_steps>720</active_steps>
+            <sum>0.000000</sum>
+            <max>0.000000</max>
+            <min>0.000000</min>
+            <active_average>0.000000</active_average>
+            <total_average>0.000000</total_average>
+          </binned_data>
+          <binned_data type="monthly">
+            <index>9</index>
+            <steps>744</steps>
+            <active_steps>744</active_steps>
+            <sum>0.000000</sum>
+            <max>0.000000</max>
+            <min>0.000000</min>
+            <active_average>0.000000</active_average>
+            <total_average>0.000000</total_average>
+          </binned_data>
+          <binned_data type="monthly">
+            <index>10</index>
+            <steps>720</steps>
+            <active_steps>720</active_steps>
+            <sum>0.000000</sum>
+            <max>0.000000</max>
+            <min>0.000000</min>
+            <active_average>0.000000</active_average>
+            <total_average>0.000000</total_average>
+          </binned_data>
+          <binned_data type="monthly">
+            <index>11</index>
+            <steps>744</steps>
+            <active_steps>744</active_steps>
+            <sum>0.000000</sum>
+            <max>0.000000</max>
+            <min>0.000000</min>
+            <active_average>0.000000</active_average>
+            <total_average>0.000000</total_average>
+          </binned_data>
+          <binned_data type="annual">
+            <steps>8760</steps>
+            <active_steps>8760</active_steps>
+            <sum>0.000000</sum>
+            <max>0.000000</max>
+            <min>0.000000</min>
+            <active_average>0.000000</active_average>
+            <total_average>0.000000</total_average>
+          </binned_data>
+          <integrated_data units="GJ">
+            <bin number="0" type="monthly">0.000000</bin>
+            <bin number="1" type="monthly">0.000000</bin>
+            <bin number="2" type="monthly">0.000000</bin>
+            <bin number="3" type="monthly">0.000000</bin>
+            <bin number="4" type="monthly">0.000000</bin>
+            <bin number="5" type="monthly">0.000000</bin>
+            <bin number="6" type="monthly">0.000000</bin>
+            <bin number="7" type="monthly">0.000000</bin>
+            <bin number="8" type="monthly">0.000000</bin>
+            <bin number="9" type="monthly">0.000000</bin>
+            <bin number="10" type="monthly">0.000000</bin>
+            <bin number="11" type="monthly">0.000000</bin>
+            <bin type="annual">0.000000</bin>
+          </integrated_data>
+        </cooling>
+        <heating>
+          <name>heating</name>
+          <description>Total amount of heat supplied to the building (all zones).</description>
+          <units>(W)</units>
+          <binned_data type="monthly">
+            <index>0</index>
+            <steps>744</steps>
+            <active_steps>744</active_steps>
+            <sum>0.000000</sum>
+            <max>0.000000</max>
+            <min>0.000000</min>
+            <active_average>0.000000</active_average>
+            <total_average>0.000000</total_average>
+          </binned_data>
+          <binned_data type="monthly">
+            <index>1</index>
+            <steps>672</steps>
+            <active_steps>672</active_steps>
+            <sum>0.000000</sum>
+            <max>0.000000</max>
+            <min>0.000000</min>
+            <active_average>0.000000</active_average>
+            <total_average>0.000000</total_average>
+          </binned_data>
+          <binned_data type="monthly">
+            <index>2</index>
+            <steps>744</steps>
+            <active_steps>744</active_steps>
+            <sum>0.000000</sum>
+            <max>0.000000</max>
+            <min>0.000000</min>
+            <active_average>0.000000</active_average>
+            <total_average>0.000000</total_average>
+          </binned_data>
+          <binned_data type="monthly">
+            <index>3</index>
+            <steps>720</steps>
+            <active_steps>720</active_steps>
+            <sum>0.000000</sum>
+            <max>0.000000</max>
+            <min>0.000000</min>
+            <active_average>0.000000</active_average>
+            <total_average>0.000000</total_average>
+          </binned_data>
+          <binned_data type="monthly">
+            <index>4</index>
+            <steps>744</steps>
+            <active_steps>744</active_steps>
+            <sum>0.000000</sum>
+            <max>0.000000</max>
+            <min>0.000000</min>
+            <active_average>0.000000</active_average>
+            <total_average>0.000000</total_average>
+          </binned_data>
+          <binned_data type="monthly">
+            <index>5</index>
+            <steps>720</steps>
+            <active_steps>720</active_steps>
+            <sum>0.000000</sum>
+            <max>0.000000</max>
+            <min>0.000000</min>
+            <active_average>0.000000</active_average>
+            <total_average>0.000000</total_average>
+          </binned_data>
+          <binned_data type="monthly">
+            <index>6</index>
+            <steps>744</steps>
+            <active_steps>744</active_steps>
+            <sum>0.000000</sum>
+            <max>0.000000</max>
+            <min>0.000000</min>
+            <active_average>0.000000</active_average>
+            <total_average>0.000000</total_average>
+          </binned_data>
+          <binned_data type="monthly">
+            <index>7</index>
+            <steps>744</steps>
+            <active_steps>744</active_steps>
+            <sum>0.000000</sum>
+            <max>0.000000</max>
+            <min>0.000000</min>
+            <active_average>0.000000</active_average>
+            <total_average>0.000000</total_average>
+          </binned_data>
+          <binned_data type="monthly">
+            <index>8</index>
+            <steps>720</steps>
+            <active_steps>720</active_steps>
+            <sum>0.000000</sum>
+            <max>0.000000</max>
+            <min>0.000000</min>
+            <active_average>0.000000</active_average>
+            <total_average>0.000000</total_average>
+          </binned_data>
+          <binned_data type="monthly">
+            <index>9</index>
+            <steps>744</steps>
+            <active_steps>744</active_steps>
+            <sum>0.000000</sum>
+            <max>0.000000</max>
+            <min>0.000000</min>
+            <active_average>0.000000</active_average>
+            <total_average>0.000000</total_average>
+          </binned_data>
+          <binned_data type="monthly">
+            <index>10</index>
+            <steps>720</steps>
+            <active_steps>720</active_steps>
+            <sum>0.000000</sum>
+            <max>0.000000</max>
+            <min>0.000000</min>
+            <active_average>0.000000</active_average>
+            <total_average>0.000000</total_average>
+          </binned_data>
+          <binned_data type="monthly">
+            <index>11</index>
+            <steps>744</steps>
+            <active_steps>744</active_steps>
+            <sum>0.000000</sum>
+            <max>0.000000</max>
+            <min>0.000000</min>
+            <active_average>0.000000</active_average>
+            <total_average>0.000000</total_average>
+          </binned_data>
+          <binned_data type="annual">
+            <steps>8760</steps>
+            <active_steps>8760</active_steps>
+            <sum>0.000000</sum>
+            <max>0.000000</max>
+            <min>0.000000</min>
+            <active_average>0.000000</active_average>
+            <total_average>0.000000</total_average>
+          </binned_data>
+          <integrated_data units="GJ">
+            <bin number="0" type="monthly">0.000000</bin>
+            <bin number="1" type="monthly">0.000000</bin>
+            <bin number="2" type="monthly">0.000000</bin>
+            <bin number="3" type="monthly">0.000000</bin>
+            <bin number="4" type="monthly">0.000000</bin>
+            <bin number="5" type="monthly">0.000000</bin>
+            <bin number="6" type="monthly">0.000000</bin>
+            <bin number="7" type="monthly">0.000000</bin>
+            <bin number="8" type="monthly">0.000000</bin>
+            <bin number="9" type="monthly">0.000000</bin>
+            <bin number="10" type="monthly">0.000000</bin>
+            <bin number="11" type="monthly">0.000000</bin>
+            <bin type="annual">0.000000</bin>
+          </integrated_data>
+        </heating>
+      </supplied_energy>
+    </all_zones>
+    <month>
+      <name>month</name>
+      <description>Month corresponding to current simulation time row </description>
+      <units>(-)</units>
+      <binned_data type="monthly">
+        <index>0</index>
+        <steps>744</steps>
+        <active_steps>744</active_steps>
+        <sum>744.000000</sum>
+        <max>1.000000</max>
+        <min>1.000000</min>
+        <active_average>1.000000</active_average>
+        <total_average>1.000000</total_average>
+      </binned_data>
+      <binned_data type="monthly">
+        <index>1</index>
+        <steps>672</steps>
+        <active_steps>672</active_steps>
+        <sum>1344.000000</sum>
+        <max>2.000000</max>
+        <min>2.000000</min>
+        <active_average>2.000000</active_average>
+        <total_average>2.000000</total_average>
+      </binned_data>
+      <binned_data type="monthly">
+        <index>2</index>
+        <steps>744</steps>
+        <active_steps>744</active_steps>
+        <sum>2232.000000</sum>
+        <max>3.000000</max>
+        <min>3.000000</min>
+        <active_average>3.000000</active_average>
+        <total_average>3.000000</total_average>
+      </binned_data>
+      <binned_data type="monthly">
+        <index>3</index>
+        <steps>720</steps>
+        <active_steps>720</active_steps>
+        <sum>2880.000000</sum>
+        <max>4.000000</max>
+        <min>4.000000</min>
+        <active_average>4.000000</active_average>
+        <total_average>4.000000</total_average>
+      </binned_data>
+      <binned_data type="monthly">
+        <index>4</index>
+        <steps>744</steps>
+        <active_steps>744</active_steps>
+        <sum>3720.000000</sum>
+        <max>5.000000</max>
+        <min>5.000000</min>
+        <active_average>5.000000</active_average>
+        <total_average>5.000000</total_average>
+      </binned_data>
+      <binned_data type="monthly">
+        <index>5</index>
+        <steps>720</steps>
+        <active_steps>720</active_steps>
+        <sum>4320.000000</sum>
+        <max>6.000000</max>
+        <min>6.000000</min>
+        <active_average>6.000000</active_average>
+        <total_average>6.000000</total_average>
+      </binned_data>
+      <binned_data type="monthly">
+        <index>6</index>
+        <steps>744</steps>
+        <active_steps>744</active_steps>
+        <sum>5208.000000</sum>
+        <max>7.000000</max>
+        <min>7.000000</min>
+        <active_average>7.000000</active_average>
+        <total_average>7.000000</total_average>
+      </binned_data>
+      <binned_data type="monthly">
+        <index>7</index>
+        <steps>744</steps>
+        <active_steps>744</active_steps>
+        <sum>5952.000000</sum>
+        <max>8.000000</max>
+        <min>8.000000</min>
+        <active_average>8.000000</active_average>
+        <total_average>8.000000</total_average>
+      </binned_data>
+      <binned_data type="monthly">
+        <index>8</index>
+        <steps>720</steps>
+        <active_steps>720</active_steps>
+        <sum>6480.000000</sum>
+        <max>9.000000</max>
+        <min>9.000000</min>
+        <active_average>9.000000</active_average>
+        <total_average>9.000000</total_average>
+      </binned_data>
+      <binned_data type="monthly">
+        <index>9</index>
+        <steps>744</steps>
+        <active_steps>744</active_steps>
+        <sum>7440.000000</sum>
+        <max>10.000000</max>
+        <min>10.000000</min>
+        <active_average>10.000000</active_average>
+        <total_average>10.000000</total_average>
+      </binned_data>
+      <binned_data type="monthly">
+        <index>10</index>
+        <steps>720</steps>
+        <active_steps>720</active_steps>
+        <sum>7920.000000</sum>
+        <max>11.000000</max>
+        <min>11.000000</min>
+        <active_average>11.000000</active_average>
+        <total_average>11.000000</total_average>
+      </binned_data>
+      <binned_data type="monthly">
+        <index>11</index>
+        <steps>744</steps>
+        <active_steps>744</active_steps>
+        <sum>8928.000000</sum>
+        <max>12.000000</max>
+        <min>12.000000</min>
+        <active_average>12.000000</active_average>
+        <total_average>12.000000</total_average>
+      </binned_data>
+      <binned_data type="annual">
+        <steps>8760</steps>
+        <active_steps>8760</active_steps>
+        <sum>57168.000000</sum>
+        <max>12.000000</max>
+        <min>1.000000</min>
+        <active_average>6.526027</active_average>
+        <total_average>6.526027</total_average>
+      </binned_data>
+    </month>
+    <zone_01>
+      <air_point>
+        <temperature>
+          <name>temperature</name>
+          <description>Zone air-point temperature</description>
+          <units>(oC)</units>
+          <binned_data type="monthly">
+            <index>0</index>
+            <steps>744</steps>
+            <active_steps>744</active_steps>
+            <sum>-3418.105744</sum>
+            <max>7.959449</max>
+            <min>-11.924793</min>
+            <active_average>-4.594228</active_average>
+            <total_average>-4.594228</total_average>
+          </binned_data>
+          <binned_data type="monthly">
+            <index>1</index>
+            <steps>672</steps>
+            <active_steps>672</active_steps>
+            <sum>573.601872</sum>
+            <max>9.132930</max>
+            <min>-11.537731</min>
+            <active_average>0.853574</active_average>
+            <total_average>0.853574</total_average>
+          </binned_data>
+          <binned_data type="monthly">
+            <index>2</index>
+            <steps>744</steps>
+            <active_steps>744</active_steps>
+            <sum>6698.251816</sum>
+            <max>16.897106</max>
+            <min>-1.623027</min>
+            <active_average>9.003027</active_average>
+            <total_average>9.003027</total_average>
+          </binned_data>
+          <binned_data type="monthly">
+            <index>3</index>
+            <steps>720</steps>
+            <active_steps>720</active_steps>
+            <sum>11611.554862</sum>
+            <max>29.678349</max>
+            <min>3.830482</min>
+            <active_average>16.127160</active_average>
+            <total_average>16.127160</total_average>
+          </binned_data>
+          <binned_data type="monthly">
+            <index>4</index>
+            <steps>744</steps>
+            <active_steps>744</active_steps>
+            <sum>18463.547606</sum>
+            <max>33.568977</max>
+            <min>16.684107</min>
+            <active_average>24.816596</active_average>
+            <total_average>24.816596</total_average>
+          </binned_data>
+          <binned_data type="monthly">
+            <index>5</index>
+            <steps>720</steps>
+            <active_steps>720</active_steps>
+            <sum>22354.216177</sum>
+            <max>39.343098</max>
+            <min>20.219723</min>
+            <active_average>31.047522</active_average>
+            <total_average>31.047522</total_average>
+          </binned_data>
+          <binned_data type="monthly">
+            <index>6</index>
+            <steps>744</steps>
+            <active_steps>744</active_steps>
+            <sum>25722.532528</sum>
+            <max>44.004028</max>
+            <min>26.097960</min>
+            <active_average>34.573296</active_average>
+            <total_average>34.573296</total_average>
+          </binned_data>
+          <binned_data type="monthly">
+            <index>7</index>
+            <steps>744</steps>
+            <active_steps>744</active_steps>
+            <sum>24423.724867</sum>
+            <max>39.824020</max>
+            <min>22.540653</min>
+            <active_average>32.827587</active_average>
+            <total_average>32.827587</total_average>
+          </binned_data>
+          <binned_data type="monthly">
+            <index>8</index>
+            <steps>720</steps>
+            <active_steps>720</active_steps>
+            <sum>18695.402084</sum>
+            <max>36.243313</max>
+            <min>18.328348</min>
+            <active_average>25.965836</active_average>
+            <total_average>25.965836</total_average>
+          </binned_data>
+          <binned_data type="monthly">
+            <index>9</index>
+            <steps>744</steps>
+            <active_steps>744</active_steps>
+            <sum>11699.629366</sum>
+            <max>27.388016</max>
+            <min>4.995427</min>
+            <active_average>15.725308</active_average>
+            <total_average>15.725308</total_average>
+          </binned_data>
+          <binned_data type="monthly">
+            <index>10</index>
+            <steps>720</steps>
+            <active_steps>720</active_steps>
+            <sum>4669.662232</sum>
+            <max>17.310432</max>
+            <min>-1.576811</min>
+            <active_average>6.485642</active_average>
+            <total_average>6.485642</total_average>
+          </binned_data>
+          <binned_data type="monthly">
+            <index>11</index>
+            <steps>744</steps>
+            <active_steps>744</active_steps>
+            <sum>-1152.774768</sum>
+            <max>7.293375</max>
+            <min>-8.937451</min>
+            <active_average>-1.549428</active_average>
+            <total_average>-1.549428</total_average>
+          </binned_data>
+          <binned_data type="annual">
+            <steps>8760</steps>
+            <active_steps>8760</active_steps>
+            <sum>140341.242898</sum>
+            <max>44.004028</max>
+            <min>-11.924793</min>
+            <active_average>16.020690</active_average>
+            <total_average>16.020690</total_average>
+          </binned_data>
+        </temperature>
+      </air_point>
+      <insolation>
+        <total>
+          <name>total</name>
+          <description>Solar gains admitted through glazing </description>
+          <units>(W)</units>
+          <binned_data type="monthly">
+            <index>0</index>
+            <steps>744</steps>
+            <active_steps>744</active_steps>
+            <sum>221139.194401</sum>
+            <max>2024.633179</max>
+            <min>0.000000</min>
+            <active_average>297.230100</active_average>
+            <total_average>297.230100</total_average>
+          </binned_data>
+          <binned_data type="monthly">
+            <index>1</index>
+            <steps>672</steps>
+            <active_steps>672</active_steps>
+            <sum>320425.690318</sum>
+            <max>2094.305420</max>
+            <min>0.000000</min>
+            <active_average>476.823944</active_average>
+            <total_average>476.823944</total_average>
+          </binned_data>
+          <binned_data type="monthly">
+            <index>2</index>
+            <steps>744</steps>
+            <active_steps>744</active_steps>
+            <sum>396932.309861</sum>
+            <max>2254.904541</max>
+            <min>0.000000</min>
+            <active_average>533.511169</active_average>
+            <total_average>533.511169</total_average>
+          </binned_data>
+          <binned_data type="monthly">
+            <index>3</index>
+            <steps>720</steps>
+            <active_steps>720</active_steps>
+            <sum>371137.381069</sum>
+            <max>2030.866577</max>
+            <min>0.000000</min>
+            <active_average>515.468585</active_average>
+            <total_average>515.468585</total_average>
+          </binned_data>
+          <binned_data type="monthly">
+            <index>4</index>
+            <steps>744</steps>
+            <active_steps>744</active_steps>
+            <sum>399870.748048</sum>
+            <max>1625.906982</max>
+            <min>0.000000</min>
+            <active_average>537.460683</active_average>
+            <total_average>537.460683</total_average>
+          </binned_data>
+          <binned_data type="monthly">
+            <index>5</index>
+            <steps>720</steps>
+            <active_steps>720</active_steps>
+            <sum>412751.751381</sum>
+            <max>1490.765015</max>
+            <min>0.000000</min>
+            <active_average>573.266321</active_average>
+            <total_average>573.266321</total_average>
+          </binned_data>
+          <binned_data type="monthly">
+            <index>6</index>
+            <steps>744</steps>
+            <active_steps>744</active_steps>
+            <sum>440630.317462</sum>
+            <max>1564.798828</max>
+            <min>0.000000</min>
+            <active_average>592.245050</active_average>
+            <total_average>592.245050</total_average>
+          </binned_data>
+          <binned_data type="monthly">
+            <index>7</index>
+            <steps>744</steps>
+            <active_steps>744</active_steps>
+            <sum>380722.361145</sum>
+            <max>1687.980591</max>
+            <min>0.000000</min>
+            <active_average>511.723604</active_average>
+            <total_average>511.723604</total_average>
+          </binned_data>
+          <binned_data type="monthly">
+            <index>8</index>
+            <steps>720</steps>
+            <active_steps>720</active_steps>
+            <sum>348402.160777</sum>
+            <max>1934.800781</max>
+            <min>0.000000</min>
+            <active_average>483.891890</active_average>
+            <total_average>483.891890</total_average>
+          </binned_data>
+          <binned_data type="monthly">
+            <index>9</index>
+            <steps>744</steps>
+            <active_steps>744</active_steps>
+            <sum>280052.516673</sum>
+            <max>1929.568604</max>
+            <min>0.000000</min>
+            <active_average>376.414673</active_average>
+            <total_average>376.414673</total_average>
+          </binned_data>
+          <binned_data type="monthly">
+            <index>10</index>
+            <steps>720</steps>
+            <active_steps>720</active_steps>
+            <sum>177150.357716</sum>
+            <max>1908.635254</max>
+            <min>0.000000</min>
+            <active_average>246.042163</active_average>
+            <total_average>246.042163</total_average>
+          </binned_data>
+          <binned_data type="monthly">
+            <index>11</index>
+            <steps>744</steps>
+            <active_steps>744</active_steps>
+            <sum>204612.136156</sum>
+            <max>1950.355835</max>
+            <min>0.000000</min>
+            <active_average>275.016312</active_average>
+            <total_average>275.016312</total_average>
+          </binned_data>
+          <binned_data type="annual">
+            <steps>8760</steps>
+            <active_steps>8760</active_steps>
+            <sum>3953826.925006</sum>
+            <max>2254.904541</max>
+            <min>0.000000</min>
+            <active_average>451.350106</active_average>
+            <total_average>451.350106</total_average>
+          </binned_data>
+          <integrated_data units="GJ">
+            <bin number="0" type="monthly">0.796101</bin>
+            <bin number="1" type="monthly">1.153532</bin>
+            <bin number="2" type="monthly">1.428956</bin>
+            <bin number="3" type="monthly">1.336095</bin>
+            <bin number="4" type="monthly">1.439535</bin>
+            <bin number="5" type="monthly">1.485906</bin>
+            <bin number="6" type="monthly">1.586269</bin>
+            <bin number="7" type="monthly">1.370601</bin>
+            <bin number="8" type="monthly">1.254248</bin>
+            <bin number="9" type="monthly">1.008189</bin>
+            <bin number="10" type="monthly">0.637741</bin>
+            <bin number="11" type="monthly">0.736604</bin>
+            <bin type="annual">14.233777</bin>
+          </integrated_data>
+        </total>
+      </insolation>
+      <supplied_energy>
+        <cooling>
+          <name>cooling</name>
+          <description>Zone net heat extraction </description>
+          <units>(W)</units>
+          <binned_data type="monthly">
+            <index>0</index>
+            <steps>744</steps>
+            <active_steps>744</active_steps>
+            <sum>0.000000</sum>
+            <max>0.000000</max>
+            <min>0.000000</min>
+            <active_average>0.000000</active_average>
+            <total_average>0.000000</total_average>
+          </binned_data>
+          <binned_data type="monthly">
+            <index>1</index>
+            <steps>672</steps>
+            <active_steps>672</active_steps>
+            <sum>0.000000</sum>
+            <max>0.000000</max>
+            <min>0.000000</min>
+            <active_average>0.000000</active_average>
+            <total_average>0.000000</total_average>
+          </binned_data>
+          <binned_data type="monthly">
+            <index>2</index>
+            <steps>744</steps>
+            <active_steps>744</active_steps>
+            <sum>0.000000</sum>
+            <max>0.000000</max>
+            <min>0.000000</min>
+            <active_average>0.000000</active_average>
+            <total_average>0.000000</total_average>
+          </binned_data>
+          <binned_data type="monthly">
+            <index>3</index>
+            <steps>720</steps>
+            <active_steps>720</active_steps>
+            <sum>0.000000</sum>
+            <max>0.000000</max>
+            <min>0.000000</min>
+            <active_average>0.000000</active_average>
+            <total_average>0.000000</total_average>
+          </binned_data>
+          <binned_data type="monthly">
+            <index>4</index>
+            <steps>744</steps>
+            <active_steps>744</active_steps>
+            <sum>0.000000</sum>
+            <max>0.000000</max>
+            <min>0.000000</min>
+            <active_average>0.000000</active_average>
+            <total_average>0.000000</total_average>
+          </binned_data>
+          <binned_data type="monthly">
+            <index>5</index>
+            <steps>720</steps>
+            <active_steps>720</active_steps>
+            <sum>0.000000</sum>
+            <max>0.000000</max>
+            <min>0.000000</min>
+            <active_average>0.000000</active_average>
+            <total_average>0.000000</total_average>
+          </binned_data>
+          <binned_data type="monthly">
+            <index>6</index>
+            <steps>744</steps>
+            <active_steps>744</active_steps>
+            <sum>0.000000</sum>
+            <max>0.000000</max>
+            <min>0.000000</min>
+            <active_average>0.000000</active_average>
+            <total_average>0.000000</total_average>
+          </binned_data>
+          <binned_data type="monthly">
+            <index>7</index>
+            <steps>744</steps>
+            <active_steps>744</active_steps>
+            <sum>0.000000</sum>
+            <max>0.000000</max>
+            <min>0.000000</min>
+            <active_average>0.000000</active_average>
+            <total_average>0.000000</total_average>
+          </binned_data>
+          <binned_data type="monthly">
+            <index>8</index>
+            <steps>720</steps>
+            <active_steps>720</active_steps>
+            <sum>0.000000</sum>
+            <max>0.000000</max>
+            <min>0.000000</min>
+            <active_average>0.000000</active_average>
+            <total_average>0.000000</total_average>
+          </binned_data>
+          <binned_data type="monthly">
+            <index>9</index>
+            <steps>744</steps>
+            <active_steps>744</active_steps>
+            <sum>0.000000</sum>
+            <max>0.000000</max>
+            <min>0.000000</min>
+            <active_average>0.000000</active_average>
+            <total_average>0.000000</total_average>
+          </binned_data>
+          <binned_data type="monthly">
+            <index>10</index>
+            <steps>720</steps>
+            <active_steps>720</active_steps>
+            <sum>0.000000</sum>
+            <max>0.000000</max>
+            <min>0.000000</min>
+            <active_average>0.000000</active_average>
+            <total_average>0.000000</total_average>
+          </binned_data>
+          <binned_data type="monthly">
+            <index>11</index>
+            <steps>744</steps>
+            <active_steps>744</active_steps>
+            <sum>0.000000</sum>
+            <max>0.000000</max>
+            <min>0.000000</min>
+            <active_average>0.000000</active_average>
+            <total_average>0.000000</total_average>
+          </binned_data>
+          <binned_data type="annual">
+            <steps>8760</steps>
+            <active_steps>8760</active_steps>
+            <sum>0.000000</sum>
+            <max>0.000000</max>
+            <min>0.000000</min>
+            <active_average>0.000000</active_average>
+            <total_average>0.000000</total_average>
+          </binned_data>
+          <integrated_data units="GJ">
+            <bin number="0" type="monthly">0.000000</bin>
+            <bin number="1" type="monthly">0.000000</bin>
+            <bin number="2" type="monthly">0.000000</bin>
+            <bin number="3" type="monthly">0.000000</bin>
+            <bin number="4" type="monthly">0.000000</bin>
+            <bin number="5" type="monthly">0.000000</bin>
+            <bin number="6" type="monthly">0.000000</bin>
+            <bin number="7" type="monthly">0.000000</bin>
+            <bin number="8" type="monthly">0.000000</bin>
+            <bin number="9" type="monthly">0.000000</bin>
+            <bin number="10" type="monthly">0.000000</bin>
+            <bin number="11" type="monthly">0.000000</bin>
+            <bin type="annual">0.000000</bin>
+          </integrated_data>
+        </cooling>
+        <heating>
+          <name>heating</name>
+          <description>Zone net heat injection </description>
+          <units>(W)</units>
+          <binned_data type="monthly">
+            <index>0</index>
+            <steps>744</steps>
+            <active_steps>744</active_steps>
+            <sum>0.000000</sum>
+            <max>0.000000</max>
+            <min>0.000000</min>
+            <active_average>0.000000</active_average>
+            <total_average>0.000000</total_average>
+          </binned_data>
+          <binned_data type="monthly">
+            <index>1</index>
+            <steps>672</steps>
+            <active_steps>672</active_steps>
+            <sum>0.000000</sum>
+            <max>0.000000</max>
+            <min>0.000000</min>
+            <active_average>0.000000</active_average>
+            <total_average>0.000000</total_average>
+          </binned_data>
+          <binned_data type="monthly">
+            <index>2</index>
+            <steps>744</steps>
+            <active_steps>744</active_steps>
+            <sum>0.000000</sum>
+            <max>0.000000</max>
+            <min>0.000000</min>
+            <active_average>0.000000</active_average>
+            <total_average>0.000000</total_average>
+          </binned_data>
+          <binned_data type="monthly">
+            <index>3</index>
+            <steps>720</steps>
+            <active_steps>720</active_steps>
+            <sum>0.000000</sum>
+            <max>0.000000</max>
+            <min>0.000000</min>
+            <active_average>0.000000</active_average>
+            <total_average>0.000000</total_average>
+          </binned_data>
+          <binned_data type="monthly">
+            <index>4</index>
+            <steps>744</steps>
+            <active_steps>744</active_steps>
+            <sum>0.000000</sum>
+            <max>0.000000</max>
+            <min>0.000000</min>
+            <active_average>0.000000</active_average>
+            <total_average>0.000000</total_average>
+          </binned_data>
+          <binned_data type="monthly">
+            <index>5</index>
+            <steps>720</steps>
+            <active_steps>720</active_steps>
+            <sum>0.000000</sum>
+            <max>0.000000</max>
+            <min>0.000000</min>
+            <active_average>0.000000</active_average>
+            <total_average>0.000000</total_average>
+          </binned_data>
+          <binned_data type="monthly">
+            <index>6</index>
+            <steps>744</steps>
+            <active_steps>744</active_steps>
+            <sum>0.000000</sum>
+            <max>0.000000</max>
+            <min>0.000000</min>
+            <active_average>0.000000</active_average>
+            <total_average>0.000000</total_average>
+          </binned_data>
+          <binned_data type="monthly">
+            <index>7</index>
+            <steps>744</steps>
+            <active_steps>744</active_steps>
+            <sum>0.000000</sum>
+            <max>0.000000</max>
+            <min>0.000000</min>
+            <active_average>0.000000</active_average>
+            <total_average>0.000000</total_average>
+          </binned_data>
+          <binned_data type="monthly">
+            <index>8</index>
+            <steps>720</steps>
+            <active_steps>720</active_steps>
+            <sum>0.000000</sum>
+            <max>0.000000</max>
+            <min>0.000000</min>
+            <active_average>0.000000</active_average>
+            <total_average>0.000000</total_average>
+          </binned_data>
+          <binned_data type="monthly">
+            <index>9</index>
+            <steps>744</steps>
+            <active_steps>744</active_steps>
+            <sum>0.000000</sum>
+            <max>0.000000</max>
+            <min>0.000000</min>
+            <active_average>0.000000</active_average>
+            <total_average>0.000000</total_average>
+          </binned_data>
+          <binned_data type="monthly">
+            <index>10</index>
+            <steps>720</steps>
+            <active_steps>720</active_steps>
+            <sum>0.000000</sum>
+            <max>0.000000</max>
+            <min>0.000000</min>
+            <active_average>0.000000</active_average>
+            <total_average>0.000000</total_average>
+          </binned_data>
+          <binned_data type="monthly">
+            <index>11</index>
+            <steps>744</steps>
+            <active_steps>744</active_steps>
+            <sum>0.000000</sum>
+            <max>0.000000</max>
+            <min>0.000000</min>
+            <active_average>0.000000</active_average>
+            <total_average>0.000000</total_average>
+          </binned_data>
+          <binned_data type="annual">
+            <steps>8760</steps>
+            <active_steps>8760</active_steps>
+            <sum>0.000000</sum>
+            <max>0.000000</max>
+            <min>0.000000</min>
+            <active_average>0.000000</active_average>
+            <total_average>0.000000</total_average>
+          </binned_data>
+          <integrated_data units="GJ">
+            <bin number="0" type="monthly">0.000000</bin>
+            <bin number="1" type="monthly">0.000000</bin>
+            <bin number="2" type="monthly">0.000000</bin>
+            <bin number="3" type="monthly">0.000000</bin>
+            <bin number="4" type="monthly">0.000000</bin>
+            <bin number="5" type="monthly">0.000000</bin>
+            <bin number="6" type="monthly">0.000000</bin>
+            <bin number="7" type="monthly">0.000000</bin>
+            <bin number="8" type="monthly">0.000000</bin>
+            <bin number="9" type="monthly">0.000000</bin>
+            <bin number="10" type="monthly">0.000000</bin>
+            <bin number="11" type="monthly">0.000000</bin>
+            <bin type="annual">0.000000</bin>
+          </integrated_data>
+        </heating>
+      </supplied_energy>
+    </zone_01>
+    <zone_02>
+      <air_point>
+        <temperature>
+          <name>temperature</name>
+          <description>Zone air-point temperature</description>
+          <units>(oC)</units>
+          <binned_data type="monthly">
+            <index>0</index>
+            <steps>744</steps>
+            <active_steps>744</active_steps>
+            <sum>-4476.580214</sum>
+            <max>6.675763</max>
+            <min>-13.476805</min>
+            <active_average>-6.016909</active_average>
+            <total_average>-6.016909</total_average>
+          </binned_data>
+          <binned_data type="monthly">
+            <index>1</index>
+            <steps>672</steps>
+            <active_steps>672</active_steps>
+            <sum>-792.023851</sum>
+            <max>7.255116</max>
+            <min>-12.863702</min>
+            <active_average>-1.178607</active_average>
+            <total_average>-1.178607</total_average>
+          </binned_data>
+          <binned_data type="monthly">
+            <index>2</index>
+            <steps>744</steps>
+            <active_steps>744</active_steps>
+            <sum>5033.215249</sum>
+            <max>13.759387</max>
+            <min>-3.785665</min>
+            <active_average>6.765074</active_average>
+            <total_average>6.765074</total_average>
+          </binned_data>
+          <binned_data type="monthly">
+            <index>3</index>
+            <steps>720</steps>
+            <active_steps>720</active_steps>
+            <sum>10061.286611</sum>
+            <max>27.014288</max>
+            <min>1.256855</min>
+            <active_average>13.974009</active_average>
+            <total_average>13.974009</total_average>
+          </binned_data>
+          <binned_data type="monthly">
+            <index>4</index>
+            <steps>744</steps>
+            <active_steps>744</active_steps>
+            <sum>16550.222168</sum>
+            <max>30.753656</max>
+            <min>13.858817</min>
+            <active_average>22.244922</active_average>
+            <total_average>22.244922</total_average>
+          </binned_data>
+          <binned_data type="monthly">
+            <index>5</index>
+            <steps>720</steps>
+            <active_steps>720</active_steps>
+            <sum>20473.366310</sum>
+            <max>36.956062</max>
+            <min>18.853628</min>
+            <active_average>28.435231</active_average>
+            <total_average>28.435231</total_average>
+          </binned_data>
+          <binned_data type="monthly">
+            <index>6</index>
+            <steps>744</steps>
+            <active_steps>744</active_steps>
+            <sum>23592.349918</sum>
+            <max>41.250633</max>
+            <min>24.435022</min>
+            <active_average>31.710148</active_average>
+            <total_average>31.710148</total_average>
+          </binned_data>
+          <binned_data type="monthly">
+            <index>7</index>
+            <steps>744</steps>
+            <active_steps>744</active_steps>
+            <sum>22343.980522</sum>
+            <max>36.938427</max>
+            <min>20.107227</min>
+            <active_average>30.032232</active_average>
+            <total_average>30.032232</total_average>
+          </binned_data>
+          <binned_data type="monthly">
+            <index>8</index>
+            <steps>720</steps>
+            <active_steps>720</active_steps>
+            <sum>16962.913568</sum>
+            <max>33.576298</max>
+            <min>16.050850</min>
+            <active_average>23.559602</active_average>
+            <total_average>23.559602</total_average>
+          </binned_data>
+          <binned_data type="monthly">
+            <index>9</index>
+            <steps>744</steps>
+            <active_steps>744</active_steps>
+            <sum>10434.742363</sum>
+            <max>26.067793</max>
+            <min>3.011871</min>
+            <active_average>14.025191</active_average>
+            <total_average>14.025191</total_average>
+          </binned_data>
+          <binned_data type="monthly">
+            <index>10</index>
+            <steps>720</steps>
+            <active_steps>720</active_steps>
+            <sum>3867.570627</sum>
+            <max>15.537934</max>
+            <min>-2.911831</min>
+            <active_average>5.371626</active_average>
+            <total_average>5.371626</total_average>
+          </binned_data>
+          <binned_data type="monthly">
+            <index>11</index>
+            <steps>744</steps>
+            <active_steps>744</active_steps>
+            <sum>-2057.524906</sum>
+            <max>7.573500</max>
+            <min>-11.156528</min>
+            <active_average>-2.765490</active_average>
+            <total_average>-2.765490</total_average>
+          </binned_data>
+          <binned_data type="annual">
+            <steps>8760</steps>
+            <active_steps>8760</active_steps>
+            <sum>121993.518366</sum>
+            <max>41.250633</max>
+            <min>-13.476805</min>
+            <active_average>13.926201</active_average>
+            <total_average>13.926201</total_average>
+          </binned_data>
+        </temperature>
+      </air_point>
+      <insolation>
+        <total>
+          <name>total</name>
+          <description>Solar gains admitted through glazing </description>
+          <units>(W)</units>
+          <binned_data type="monthly">
+            <index>0</index>
+            <steps>744</steps>
+            <active_steps>744</active_steps>
+            <sum>221139.175226</sum>
+            <max>2024.632935</max>
+            <min>0.000000</min>
+            <active_average>297.230074</active_average>
+            <total_average>297.230074</total_average>
+          </binned_data>
+          <binned_data type="monthly">
+            <index>1</index>
+            <steps>672</steps>
+            <active_steps>672</active_steps>
+            <sum>320425.660699</sum>
+            <max>2094.305176</max>
+            <min>0.000000</min>
+            <active_average>476.823900</active_average>
+            <total_average>476.823900</total_average>
+          </binned_data>
+          <binned_data type="monthly">
+            <index>2</index>
+            <steps>744</steps>
+            <active_steps>744</active_steps>
+            <sum>396932.277779</sum>
+            <max>2254.904541</max>
+            <min>0.000000</min>
+            <active_average>533.511126</active_average>
+            <total_average>533.511126</total_average>
+          </binned_data>
+          <binned_data type="monthly">
+            <index>3</index>
+            <steps>720</steps>
+            <active_steps>720</active_steps>
+            <sum>371137.356321</sum>
+            <max>2030.866577</max>
+            <min>0.000000</min>
+            <active_average>515.468550</active_average>
+            <total_average>515.468550</total_average>
+          </binned_data>
+          <binned_data type="monthly">
+            <index>4</index>
+            <steps>744</steps>
+            <active_steps>744</active_steps>
+            <sum>399870.725156</sum>
+            <max>1625.906738</max>
+            <min>0.000000</min>
+            <active_average>537.460652</active_average>
+            <total_average>537.460652</total_average>
+          </binned_data>
+          <binned_data type="monthly">
+            <index>5</index>
+            <steps>720</steps>
+            <active_steps>720</active_steps>
+            <sum>412751.728825</sum>
+            <max>1490.764893</max>
+            <min>0.000000</min>
+            <active_average>573.266290</active_average>
+            <total_average>573.266290</total_average>
+          </binned_data>
+          <binned_data type="monthly">
+            <index>6</index>
+            <steps>744</steps>
+            <active_steps>744</active_steps>
+            <sum>440630.292687</sum>
+            <max>1564.798584</max>
+            <min>0.000000</min>
+            <active_average>592.245017</active_average>
+            <total_average>592.245017</total_average>
+          </binned_data>
+          <binned_data type="monthly">
+            <index>7</index>
+            <steps>744</steps>
+            <active_steps>744</active_steps>
+            <sum>380722.334369</sum>
+            <max>1687.980469</max>
+            <min>0.000000</min>
+            <active_average>511.723568</active_average>
+            <total_average>511.723568</total_average>
+          </binned_data>
+          <binned_data type="monthly">
+            <index>8</index>
+            <steps>720</steps>
+            <active_steps>720</active_steps>
+            <sum>348402.132914</sum>
+            <max>1934.800659</max>
+            <min>0.000000</min>
+            <active_average>483.891851</active_average>
+            <total_average>483.891851</total_average>
+          </binned_data>
+          <binned_data type="monthly">
+            <index>9</index>
+            <steps>744</steps>
+            <active_steps>744</active_steps>
+            <sum>280052.490935</sum>
+            <max>1929.568115</max>
+            <min>0.000000</min>
+            <active_average>376.414638</active_average>
+            <total_average>376.414638</total_average>
+          </binned_data>
+          <binned_data type="monthly">
+            <index>10</index>
+            <steps>720</steps>
+            <active_steps>720</active_steps>
+            <sum>177150.339895</sum>
+            <max>1908.634766</max>
+            <min>0.000000</min>
+            <active_average>246.042139</active_average>
+            <total_average>246.042139</total_average>
+          </binned_data>
+          <binned_data type="monthly">
+            <index>11</index>
+            <steps>744</steps>
+            <active_steps>744</active_steps>
+            <sum>204612.115316</sum>
+            <max>1950.355591</max>
+            <min>0.000000</min>
+            <active_average>275.016284</active_average>
+            <total_average>275.016284</total_average>
+          </binned_data>
+          <binned_data type="annual">
+            <steps>8760</steps>
+            <active_steps>8760</active_steps>
+            <sum>3953826.630123</sum>
+            <max>2254.904541</max>
+            <min>0.000000</min>
+            <active_average>451.350072</active_average>
+            <total_average>451.350072</total_average>
+          </binned_data>
+          <integrated_data units="GJ">
+            <bin number="0" type="monthly">0.796101</bin>
+            <bin number="1" type="monthly">1.153532</bin>
+            <bin number="2" type="monthly">1.428956</bin>
+            <bin number="3" type="monthly">1.336094</bin>
+            <bin number="4" type="monthly">1.439535</bin>
+            <bin number="5" type="monthly">1.485906</bin>
+            <bin number="6" type="monthly">1.586269</bin>
+            <bin number="7" type="monthly">1.370600</bin>
+            <bin number="8" type="monthly">1.254248</bin>
+            <bin number="9" type="monthly">1.008189</bin>
+            <bin number="10" type="monthly">0.637741</bin>
+            <bin number="11" type="monthly">0.736604</bin>
+            <bin type="annual">14.233776</bin>
+          </integrated_data>
+        </total>
+      </insolation>
+      <supplied_energy>
+        <cooling>
+          <name>cooling</name>
+          <description>Zone net heat extraction </description>
+          <units>(W)</units>
+          <binned_data type="monthly">
+            <index>0</index>
+            <steps>744</steps>
+            <active_steps>744</active_steps>
+            <sum>0.000000</sum>
+            <max>0.000000</max>
+            <min>0.000000</min>
+            <active_average>0.000000</active_average>
+            <total_average>0.000000</total_average>
+          </binned_data>
+          <binned_data type="monthly">
+            <index>1</index>
+            <steps>672</steps>
+            <active_steps>672</active_steps>
+            <sum>0.000000</sum>
+            <max>0.000000</max>
+            <min>0.000000</min>
+            <active_average>0.000000</active_average>
+            <total_average>0.000000</total_average>
+          </binned_data>
+          <binned_data type="monthly">
+            <index>2</index>
+            <steps>744</steps>
+            <active_steps>744</active_steps>
+            <sum>0.000000</sum>
+            <max>0.000000</max>
+            <min>0.000000</min>
+            <active_average>0.000000</active_average>
+            <total_average>0.000000</total_average>
+          </binned_data>
+          <binned_data type="monthly">
+            <index>3</index>
+            <steps>720</steps>
+            <active_steps>720</active_steps>
+            <sum>0.000000</sum>
+            <max>0.000000</max>
+            <min>0.000000</min>
+            <active_average>0.000000</active_average>
+            <total_average>0.000000</total_average>
+          </binned_data>
+          <binned_data type="monthly">
+            <index>4</index>
+            <steps>744</steps>
+            <active_steps>744</active_steps>
+            <sum>0.000000</sum>
+            <max>0.000000</max>
+            <min>0.000000</min>
+            <active_average>0.000000</active_average>
+            <total_average>0.000000</total_average>
+          </binned_data>
+          <binned_data type="monthly">
+            <index>5</index>
+            <steps>720</steps>
+            <active_steps>720</active_steps>
+            <sum>0.000000</sum>
+            <max>0.000000</max>
+            <min>0.000000</min>
+            <active_average>0.000000</active_average>
+            <total_average>0.000000</total_average>
+          </binned_data>
+          <binned_data type="monthly">
+            <index>6</index>
+            <steps>744</steps>
+            <active_steps>744</active_steps>
+            <sum>0.000000</sum>
+            <max>0.000000</max>
+            <min>0.000000</min>
+            <active_average>0.000000</active_average>
+            <total_average>0.000000</total_average>
+          </binned_data>
+          <binned_data type="monthly">
+            <index>7</index>
+            <steps>744</steps>
+            <active_steps>744</active_steps>
+            <sum>0.000000</sum>
+            <max>0.000000</max>
+            <min>0.000000</min>
+            <active_average>0.000000</active_average>
+            <total_average>0.000000</total_average>
+          </binned_data>
+          <binned_data type="monthly">
+            <index>8</index>
+            <steps>720</steps>
+            <active_steps>720</active_steps>
+            <sum>0.000000</sum>
+            <max>0.000000</max>
+            <min>0.000000</min>
+            <active_average>0.000000</active_average>
+            <total_average>0.000000</total_average>
+          </binned_data>
+          <binned_data type="monthly">
+            <index>9</index>
+            <steps>744</steps>
+            <active_steps>744</active_steps>
+            <sum>0.000000</sum>
+            <max>0.000000</max>
+            <min>0.000000</min>
+            <active_average>0.000000</active_average>
+            <total_average>0.000000</total_average>
+          </binned_data>
+          <binned_data type="monthly">
+            <index>10</index>
+            <steps>720</steps>
+            <active_steps>720</active_steps>
+            <sum>0.000000</sum>
+            <max>0.000000</max>
+            <min>0.000000</min>
+            <active_average>0.000000</active_average>
+            <total_average>0.000000</total_average>
+          </binned_data>
+          <binned_data type="monthly">
+            <index>11</index>
+            <steps>744</steps>
+            <active_steps>744</active_steps>
+            <sum>0.000000</sum>
+            <max>0.000000</max>
+            <min>0.000000</min>
+            <active_average>0.000000</active_average>
+            <total_average>0.000000</total_average>
+          </binned_data>
+          <binned_data type="annual">
+            <steps>8760</steps>
+            <active_steps>8760</active_steps>
+            <sum>0.000000</sum>
+            <max>0.000000</max>
+            <min>0.000000</min>
+            <active_average>0.000000</active_average>
+            <total_average>0.000000</total_average>
+          </binned_data>
+          <integrated_data units="GJ">
+            <bin number="0" type="monthly">0.000000</bin>
+            <bin number="1" type="monthly">0.000000</bin>
+            <bin number="2" type="monthly">0.000000</bin>
+            <bin number="3" type="monthly">0.000000</bin>
+            <bin number="4" type="monthly">0.000000</bin>
+            <bin number="5" type="monthly">0.000000</bin>
+            <bin number="6" type="monthly">0.000000</bin>
+            <bin number="7" type="monthly">0.000000</bin>
+            <bin number="8" type="monthly">0.000000</bin>
+            <bin number="9" type="monthly">0.000000</bin>
+            <bin number="10" type="monthly">0.000000</bin>
+            <bin number="11" type="monthly">0.000000</bin>
+            <bin type="annual">0.000000</bin>
+          </integrated_data>
+        </cooling>
+        <heating>
+          <name>heating</name>
+          <description>Zone net heat injection </description>
+          <units>(W)</units>
+          <binned_data type="monthly">
+            <index>0</index>
+            <steps>744</steps>
+            <active_steps>744</active_steps>
+            <sum>0.000000</sum>
+            <max>0.000000</max>
+            <min>0.000000</min>
+            <active_average>0.000000</active_average>
+            <total_average>0.000000</total_average>
+          </binned_data>
+          <binned_data type="monthly">
+            <index>1</index>
+            <steps>672</steps>
+            <active_steps>672</active_steps>
+            <sum>0.000000</sum>
+            <max>0.000000</max>
+            <min>0.000000</min>
+            <active_average>0.000000</active_average>
+            <total_average>0.000000</total_average>
+          </binned_data>
+          <binned_data type="monthly">
+            <index>2</index>
+            <steps>744</steps>
+            <active_steps>744</active_steps>
+            <sum>0.000000</sum>
+            <max>0.000000</max>
+            <min>0.000000</min>
+            <active_average>0.000000</active_average>
+            <total_average>0.000000</total_average>
+          </binned_data>
+          <binned_data type="monthly">
+            <index>3</index>
+            <steps>720</steps>
+            <active_steps>720</active_steps>
+            <sum>0.000000</sum>
+            <max>0.000000</max>
+            <min>0.000000</min>
+            <active_average>0.000000</active_average>
+            <total_average>0.000000</total_average>
+          </binned_data>
+          <binned_data type="monthly">
+            <index>4</index>
+            <steps>744</steps>
+            <active_steps>744</active_steps>
+            <sum>0.000000</sum>
+            <max>0.000000</max>
+            <min>0.000000</min>
+            <active_average>0.000000</active_average>
+            <total_average>0.000000</total_average>
+          </binned_data>
+          <binned_data type="monthly">
+            <index>5</index>
+            <steps>720</steps>
+            <active_steps>720</active_steps>
+            <sum>0.000000</sum>
+            <max>0.000000</max>
+            <min>0.000000</min>
+            <active_average>0.000000</active_average>
+            <total_average>0.000000</total_average>
+          </binned_data>
+          <binned_data type="monthly">
+            <index>6</index>
+            <steps>744</steps>
+            <active_steps>744</active_steps>
+            <sum>0.000000</sum>
+            <max>0.000000</max>
+            <min>0.000000</min>
+            <active_average>0.000000</active_average>
+            <total_average>0.000000</total_average>
+          </binned_data>
+          <binned_data type="monthly">
+            <index>7</index>
+            <steps>744</steps>
+            <active_steps>744</active_steps>
+            <sum>0.000000</sum>
+            <max>0.000000</max>
+            <min>0.000000</min>
+            <active_average>0.000000</active_average>
+            <total_average>0.000000</total_average>
+          </binned_data>
+          <binned_data type="monthly">
+            <index>8</index>
+            <steps>720</steps>
+            <active_steps>720</active_steps>
+            <sum>0.000000</sum>
+            <max>0.000000</max>
+            <min>0.000000</min>
+            <active_average>0.000000</active_average>
+            <total_average>0.000000</total_average>
+          </binned_data>
+          <binned_data type="monthly">
+            <index>9</index>
+            <steps>744</steps>
+            <active_steps>744</active_steps>
+            <sum>0.000000</sum>
+            <max>0.000000</max>
+            <min>0.000000</min>
+            <active_average>0.000000</active_average>
+            <total_average>0.000000</total_average>
+          </binned_data>
+          <binned_data type="monthly">
+            <index>10</index>
+            <steps>720</steps>
+            <active_steps>720</active_steps>
+            <sum>0.000000</sum>
+            <max>0.000000</max>
+            <min>0.000000</min>
+            <active_average>0.000000</active_average>
+            <total_average>0.000000</total_average>
+          </binned_data>
+          <binned_data type="monthly">
+            <index>11</index>
+            <steps>744</steps>
+            <active_steps>744</active_steps>
+            <sum>0.000000</sum>
+            <max>0.000000</max>
+            <min>0.000000</min>
+            <active_average>0.000000</active_average>
+            <total_average>0.000000</total_average>
+          </binned_data>
+          <binned_data type="annual">
+            <steps>8760</steps>
+            <active_steps>8760</active_steps>
+            <sum>0.000000</sum>
+            <max>0.000000</max>
+            <min>0.000000</min>
+            <active_average>0.000000</active_average>
+            <total_average>0.000000</total_average>
+          </binned_data>
+          <integrated_data units="GJ">
+            <bin number="0" type="monthly">0.000000</bin>
+            <bin number="1" type="monthly">0.000000</bin>
+            <bin number="2" type="monthly">0.000000</bin>
+            <bin number="3" type="monthly">0.000000</bin>
+            <bin number="4" type="monthly">0.000000</bin>
+            <bin number="5" type="monthly">0.000000</bin>
+            <bin number="6" type="monthly">0.000000</bin>
+            <bin number="7" type="monthly">0.000000</bin>
+            <bin number="8" type="monthly">0.000000</bin>
+            <bin number="9" type="monthly">0.000000</bin>
+            <bin number="10" type="monthly">0.000000</bin>
+            <bin number="11" type="monthly">0.000000</bin>
+            <bin type="annual">0.000000</bin>
+          </integrated_data>
+        </heating>
+      </supplied_energy>
+    </zone_02>
+    <zone_03>
+      <air_point>
+        <temperature>
+          <name>temperature</name>
+          <description>Zone air-point temperature</description>
+          <units>(oC)</units>
+          <binned_data type="monthly">
+            <index>0</index>
+            <steps>744</steps>
+            <active_steps>744</active_steps>
+            <sum>-4013.442041</sum>
+            <max>7.232437</max>
+            <min>-12.702569</min>
+            <active_average>-5.394411</active_average>
+            <total_average>-5.394411</total_average>
+          </binned_data>
+          <binned_data type="monthly">
+            <index>1</index>
+            <steps>672</steps>
+            <active_steps>672</active_steps>
+            <sum>-114.759624</sum>
+            <max>8.317659</max>
+            <min>-12.220310</min>
+            <active_average>-0.170773</active_average>
+            <total_average>-0.170773</total_average>
+          </binned_data>
+          <binned_data type="monthly">
+            <index>2</index>
+            <steps>744</steps>
+            <active_steps>744</active_steps>
+            <sum>5775.730935</sum>
+            <max>15.389290</max>
+            <min>-2.851127</min>
+            <active_average>7.763079</active_average>
+            <total_average>7.763079</total_average>
+          </binned_data>
+          <binned_data type="monthly">
+            <index>3</index>
+            <steps>720</steps>
+            <active_steps>720</active_steps>
+            <sum>10860.805153</sum>
+            <max>28.192190</max>
+            <min>2.174413</min>
+            <active_average>15.084452</active_average>
+            <total_average>15.084452</total_average>
+          </binned_data>
+          <binned_data type="monthly">
+            <index>4</index>
+            <steps>744</steps>
+            <active_steps>744</active_steps>
+            <sum>17571.174487</sum>
+            <max>32.324478</max>
+            <min>15.269053</min>
+            <active_average>23.617170</active_average>
+            <total_average>23.617170</total_average>
+          </binned_data>
+          <binned_data type="monthly">
+            <index>5</index>
+            <steps>720</steps>
+            <active_steps>720</active_steps>
+            <sum>21479.334457</sum>
+            <max>38.443893</max>
+            <min>19.724649</min>
+            <active_average>29.832409</active_average>
+            <total_average>29.832409</total_average>
+          </binned_data>
+          <binned_data type="monthly">
+            <index>6</index>
+            <steps>744</steps>
+            <active_steps>744</active_steps>
+            <sum>24761.755444</sum>
+            <max>42.860397</max>
+            <min>25.401777</min>
+            <active_average>33.281929</active_average>
+            <total_average>33.281929</total_average>
+          </binned_data>
+          <binned_data type="monthly">
+            <index>7</index>
+            <steps>744</steps>
+            <active_steps>744</active_steps>
+            <sum>23529.460567</sum>
+            <max>38.646957</max>
+            <min>21.460875</min>
+            <active_average>31.625619</active_average>
+            <total_average>31.625619</total_average>
+          </binned_data>
+          <binned_data type="monthly">
+            <index>8</index>
+            <steps>720</steps>
+            <active_steps>720</active_steps>
+            <sum>17960.380980</sum>
+            <max>35.254555</max>
+            <min>17.329475</min>
+            <active_average>24.944974</active_average>
+            <total_average>24.944974</total_average>
+          </binned_data>
+          <binned_data type="monthly">
+            <index>9</index>
+            <steps>744</steps>
+            <active_steps>744</active_steps>
+            <sum>11176.617482</sum>
+            <max>26.898935</max>
+            <min>4.136060</min>
+            <active_average>15.022335</active_average>
+            <total_average>15.022335</total_average>
+          </binned_data>
+          <binned_data type="monthly">
+            <index>10</index>
+            <steps>720</steps>
+            <active_steps>720</active_steps>
+            <sum>4371.696974</sum>
+            <max>16.729088</max>
+            <min>-2.120434</min>
+            <active_average>6.071801</active_average>
+            <total_average>6.071801</total_average>
+          </binned_data>
+          <binned_data type="monthly">
+            <index>11</index>
+            <steps>744</steps>
+            <active_steps>744</active_steps>
+            <sum>-1639.550737</sum>
+            <max>7.373643</max>
+            <min>-10.411271</min>
+            <active_average>-2.203697</active_average>
+            <total_average>-2.203697</total_average>
+          </binned_data>
+          <binned_data type="annual">
+            <steps>8760</steps>
+            <active_steps>8760</active_steps>
+            <sum>131719.204077</sum>
+            <max>42.860397</max>
+            <min>-12.702569</min>
+            <active_average>15.036439</active_average>
+            <total_average>15.036439</total_average>
+          </binned_data>
+        </temperature>
+      </air_point>
+      <insolation>
+        <total>
+          <name>total</name>
+          <description>Solar gains admitted through glazing </description>
+          <units>(W)</units>
+          <binned_data type="monthly">
+            <index>0</index>
+            <steps>744</steps>
+            <active_steps>744</active_steps>
+            <sum>221139.160353</sum>
+            <max>2024.632446</max>
+            <min>0.000000</min>
+            <active_average>297.230054</active_average>
+            <total_average>297.230054</total_average>
+          </binned_data>
+          <binned_data type="monthly">
+            <index>1</index>
+            <steps>672</steps>
+            <active_steps>672</active_steps>
+            <sum>320425.641063</sum>
+            <max>2094.305176</max>
+            <min>0.000000</min>
+            <active_average>476.823871</active_average>
+            <total_average>476.823871</total_average>
+          </binned_data>
+          <binned_data type="monthly">
+            <index>2</index>
+            <steps>744</steps>
+            <active_steps>744</active_steps>
+            <sum>396932.266467</sum>
+            <max>2254.904297</max>
+            <min>0.000000</min>
+            <active_average>533.511111</active_average>
+            <total_average>533.511111</total_average>
+          </binned_data>
+          <binned_data type="monthly">
+            <index>3</index>
+            <steps>720</steps>
+            <active_steps>720</active_steps>
+            <sum>371137.355190</sum>
+            <max>2030.866333</max>
+            <min>0.000000</min>
+            <active_average>515.468549</active_average>
+            <total_average>515.468549</total_average>
+          </binned_data>
+          <binned_data type="monthly">
+            <index>4</index>
+            <steps>744</steps>
+            <active_steps>744</active_steps>
+            <sum>399870.731483</sum>
+            <max>1625.906860</max>
+            <min>0.000000</min>
+            <active_average>537.460661</active_average>
+            <total_average>537.460661</total_average>
+          </binned_data>
+          <binned_data type="monthly">
+            <index>5</index>
+            <steps>720</steps>
+            <active_steps>720</active_steps>
+            <sum>412751.740137</sum>
+            <max>1490.764893</max>
+            <min>0.000000</min>
+            <active_average>573.266306</active_average>
+            <total_average>573.266306</total_average>
+          </binned_data>
+          <binned_data type="monthly">
+            <index>6</index>
+            <steps>744</steps>
+            <active_steps>744</active_steps>
+            <sum>440630.304276</sum>
+            <max>1564.798706</max>
+            <min>0.000000</min>
+            <active_average>592.245033</active_average>
+            <total_average>592.245033</total_average>
+          </binned_data>
+          <binned_data type="monthly">
+            <index>7</index>
+            <steps>744</steps>
+            <active_steps>744</active_steps>
+            <sum>380722.337442</sum>
+            <max>1687.980469</max>
+            <min>0.000000</min>
+            <active_average>511.723572</active_average>
+            <total_average>511.723572</total_average>
+          </binned_data>
+          <binned_data type="monthly">
+            <index>8</index>
+            <steps>720</steps>
+            <active_steps>720</active_steps>
+            <sum>348402.129756</sum>
+            <max>1934.800537</max>
+            <min>0.000000</min>
+            <active_average>483.891847</active_average>
+            <total_average>483.891847</total_average>
+          </binned_data>
+          <binned_data type="monthly">
+            <index>9</index>
+            <steps>744</steps>
+            <active_steps>744</active_steps>
+            <sum>280052.481182</sum>
+            <max>1929.568115</max>
+            <min>0.000000</min>
+            <active_average>376.414625</active_average>
+            <total_average>376.414625</total_average>
+          </binned_data>
+          <binned_data type="monthly">
+            <index>10</index>
+            <steps>720</steps>
+            <active_steps>720</active_steps>
+            <sum>177150.330403</sum>
+            <max>1908.634766</max>
+            <min>0.000000</min>
+            <active_average>246.042126</active_average>
+            <total_average>246.042126</total_average>
+          </binned_data>
+          <binned_data type="monthly">
+            <index>11</index>
+            <steps>744</steps>
+            <active_steps>744</active_steps>
+            <sum>204612.099835</sum>
+            <max>1950.355347</max>
+            <min>0.000000</min>
+            <active_average>275.016263</active_average>
+            <total_average>275.016263</total_average>
+          </binned_data>
+          <binned_data type="annual">
+            <steps>8760</steps>
+            <active_steps>8760</active_steps>
+            <sum>3953826.577588</sum>
+            <max>2254.904297</max>
+            <min>0.000000</min>
+            <active_average>451.350066</active_average>
+            <total_average>451.350066</total_average>
+          </binned_data>
+          <integrated_data units="GJ">
+            <bin number="0" type="monthly">0.796101</bin>
+            <bin number="1" type="monthly">1.153532</bin>
+            <bin number="2" type="monthly">1.428956</bin>
+            <bin number="3" type="monthly">1.336094</bin>
+            <bin number="4" type="monthly">1.439535</bin>
+            <bin number="5" type="monthly">1.485906</bin>
+            <bin number="6" type="monthly">1.586269</bin>
+            <bin number="7" type="monthly">1.370600</bin>
+            <bin number="8" type="monthly">1.254248</bin>
+            <bin number="9" type="monthly">1.008189</bin>
+            <bin number="10" type="monthly">0.637741</bin>
+            <bin number="11" type="monthly">0.736604</bin>
+            <bin type="annual">14.233776</bin>
+          </integrated_data>
+        </total>
+      </insolation>
+      <supplied_energy>
+        <cooling>
+          <name>cooling</name>
+          <description>Zone net heat extraction </description>
+          <units>(W)</units>
+          <binned_data type="monthly">
+            <index>0</index>
+            <steps>744</steps>
+            <active_steps>744</active_steps>
+            <sum>0.000000</sum>
+            <max>0.000000</max>
+            <min>0.000000</min>
+            <active_average>0.000000</active_average>
+            <total_average>0.000000</total_average>
+          </binned_data>
+          <binned_data type="monthly">
+            <index>1</index>
+            <steps>672</steps>
+            <active_steps>672</active_steps>
+            <sum>0.000000</sum>
+            <max>0.000000</max>
+            <min>0.000000</min>
+            <active_average>0.000000</active_average>
+            <total_average>0.000000</total_average>
+          </binned_data>
+          <binned_data type="monthly">
+            <index>2</index>
+            <steps>744</steps>
+            <active_steps>744</active_steps>
+            <sum>0.000000</sum>
+            <max>0.000000</max>
+            <min>0.000000</min>
+            <active_average>0.000000</active_average>
+            <total_average>0.000000</total_average>
+          </binned_data>
+          <binned_data type="monthly">
+            <index>3</index>
+            <steps>720</steps>
+            <active_steps>720</active_steps>
+            <sum>0.000000</sum>
+            <max>0.000000</max>
+            <min>0.000000</min>
+            <active_average>0.000000</active_average>
+            <total_average>0.000000</total_average>
+          </binned_data>
+          <binned_data type="monthly">
+            <index>4</index>
+            <steps>744</steps>
+            <active_steps>744</active_steps>
+            <sum>0.000000</sum>
+            <max>0.000000</max>
+            <min>0.000000</min>
+            <active_average>0.000000</active_average>
+            <total_average>0.000000</total_average>
+          </binned_data>
+          <binned_data type="monthly">
+            <index>5</index>
+            <steps>720</steps>
+            <active_steps>720</active_steps>
+            <sum>0.000000</sum>
+            <max>0.000000</max>
+            <min>0.000000</min>
+            <active_average>0.000000</active_average>
+            <total_average>0.000000</total_average>
+          </binned_data>
+          <binned_data type="monthly">
+            <index>6</index>
+            <steps>744</steps>
+            <active_steps>744</active_steps>
+            <sum>0.000000</sum>
+            <max>0.000000</max>
+            <min>0.000000</min>
+            <active_average>0.000000</active_average>
+            <total_average>0.000000</total_average>
+          </binned_data>
+          <binned_data type="monthly">
+            <index>7</index>
+            <steps>744</steps>
+            <active_steps>744</active_steps>
+            <sum>0.000000</sum>
+            <max>0.000000</max>
+            <min>0.000000</min>
+            <active_average>0.000000</active_average>
+            <total_average>0.000000</total_average>
+          </binned_data>
+          <binned_data type="monthly">
+            <index>8</index>
+            <steps>720</steps>
+            <active_steps>720</active_steps>
+            <sum>0.000000</sum>
+            <max>0.000000</max>
+            <min>0.000000</min>
+            <active_average>0.000000</active_average>
+            <total_average>0.000000</total_average>
+          </binned_data>
+          <binned_data type="monthly">
+            <index>9</index>
+            <steps>744</steps>
+            <active_steps>744</active_steps>
+            <sum>0.000000</sum>
+            <max>0.000000</max>
+            <min>0.000000</min>
+            <active_average>0.000000</active_average>
+            <total_average>0.000000</total_average>
+          </binned_data>
+          <binned_data type="monthly">
+            <index>10</index>
+            <steps>720</steps>
+            <active_steps>720</active_steps>
+            <sum>0.000000</sum>
+            <max>0.000000</max>
+            <min>0.000000</min>
+            <active_average>0.000000</active_average>
+            <total_average>0.000000</total_average>
+          </binned_data>
+          <binned_data type="monthly">
+            <index>11</index>
+            <steps>744</steps>
+            <active_steps>744</active_steps>
+            <sum>0.000000</sum>
+            <max>0.000000</max>
+            <min>0.000000</min>
+            <active_average>0.000000</active_average>
+            <total_average>0.000000</total_average>
+          </binned_data>
+          <binned_data type="annual">
+            <steps>8760</steps>
+            <active_steps>8760</active_steps>
+            <sum>0.000000</sum>
+            <max>0.000000</max>
+            <min>0.000000</min>
+            <active_average>0.000000</active_average>
+            <total_average>0.000000</total_average>
+          </binned_data>
+          <integrated_data units="GJ">
+            <bin number="0" type="monthly">0.000000</bin>
+            <bin number="1" type="monthly">0.000000</bin>
+            <bin number="2" type="monthly">0.000000</bin>
+            <bin number="3" type="monthly">0.000000</bin>
+            <bin number="4" type="monthly">0.000000</bin>
+            <bin number="5" type="monthly">0.000000</bin>
+            <bin number="6" type="monthly">0.000000</bin>
+            <bin number="7" type="monthly">0.000000</bin>
+            <bin number="8" type="monthly">0.000000</bin>
+            <bin number="9" type="monthly">0.000000</bin>
+            <bin number="10" type="monthly">0.000000</bin>
+            <bin number="11" type="monthly">0.000000</bin>
+            <bin type="annual">0.000000</bin>
+          </integrated_data>
+        </cooling>
+        <heating>
+          <name>heating</name>
+          <description>Zone net heat injection </description>
+          <units>(W)</units>
+          <binned_data type="monthly">
+            <index>0</index>
+            <steps>744</steps>
+            <active_steps>744</active_steps>
+            <sum>0.000000</sum>
+            <max>0.000000</max>
+            <min>0.000000</min>
+            <active_average>0.000000</active_average>
+            <total_average>0.000000</total_average>
+          </binned_data>
+          <binned_data type="monthly">
+            <index>1</index>
+            <steps>672</steps>
+            <active_steps>672</active_steps>
+            <sum>0.000000</sum>
+            <max>0.000000</max>
+            <min>0.000000</min>
+            <active_average>0.000000</active_average>
+            <total_average>0.000000</total_average>
+          </binned_data>
+          <binned_data type="monthly">
+            <index>2</index>
+            <steps>744</steps>
+            <active_steps>744</active_steps>
+            <sum>0.000000</sum>
+            <max>0.000000</max>
+            <min>0.000000</min>
+            <active_average>0.000000</active_average>
+            <total_average>0.000000</total_average>
+          </binned_data>
+          <binned_data type="monthly">
+            <index>3</index>
+            <steps>720</steps>
+            <active_steps>720</active_steps>
+            <sum>0.000000</sum>
+            <max>0.000000</max>
+            <min>0.000000</min>
+            <active_average>0.000000</active_average>
+            <total_average>0.000000</total_average>
+          </binned_data>
+          <binned_data type="monthly">
+            <index>4</index>
+            <steps>744</steps>
+            <active_steps>744</active_steps>
+            <sum>0.000000</sum>
+            <max>0.000000</max>
+            <min>0.000000</min>
+            <active_average>0.000000</active_average>
+            <total_average>0.000000</total_average>
+          </binned_data>
+          <binned_data type="monthly">
+            <index>5</index>
+            <steps>720</steps>
+            <active_steps>720</active_steps>
+            <sum>0.000000</sum>
+            <max>0.000000</max>
+            <min>0.000000</min>
+            <active_average>0.000000</active_average>
+            <total_average>0.000000</total_average>
+          </binned_data>
+          <binned_data type="monthly">
+            <index>6</index>
+            <steps>744</steps>
+            <active_steps>744</active_steps>
+            <sum>0.000000</sum>
+            <max>0.000000</max>
+            <min>0.000000</min>
+            <active_average>0.000000</active_average>
+            <total_average>0.000000</total_average>
+          </binned_data>
+          <binned_data type="monthly">
+            <index>7</index>
+            <steps>744</steps>
+            <active_steps>744</active_steps>
+            <sum>0.000000</sum>
+            <max>0.000000</max>
+            <min>0.000000</min>
+            <active_average>0.000000</active_average>
+            <total_average>0.000000</total_average>
+          </binned_data>
+          <binned_data type="monthly">
+            <index>8</index>
+            <steps>720</steps>
+            <active_steps>720</active_steps>
+            <sum>0.000000</sum>
+            <max>0.000000</max>
+            <min>0.000000</min>
+            <active_average>0.000000</active_average>
+            <total_average>0.000000</total_average>
+          </binned_data>
+          <binned_data type="monthly">
+            <index>9</index>
+            <steps>744</steps>
+            <active_steps>744</active_steps>
+            <sum>0.000000</sum>
+            <max>0.000000</max>
+            <min>0.000000</min>
+            <active_average>0.000000</active_average>
+            <total_average>0.000000</total_average>
+          </binned_data>
+          <binned_data type="monthly">
+            <index>10</index>
+            <steps>720</steps>
+            <active_steps>720</active_steps>
+            <sum>0.000000</sum>
+            <max>0.000000</max>
+            <min>0.000000</min>
+            <active_average>0.000000</active_average>
+            <total_average>0.000000</total_average>
+          </binned_data>
+          <binned_data type="monthly">
+            <index>11</index>
+            <steps>744</steps>
+            <active_steps>744</active_steps>
+            <sum>0.000000</sum>
+            <max>0.000000</max>
+            <min>0.000000</min>
+            <active_average>0.000000</active_average>
+            <total_average>0.000000</total_average>
+          </binned_data>
+          <binned_data type="annual">
+            <steps>8760</steps>
+            <active_steps>8760</active_steps>
+            <sum>0.000000</sum>
+            <max>0.000000</max>
+            <min>0.000000</min>
+            <active_average>0.000000</active_average>
+            <total_average>0.000000</total_average>
+          </binned_data>
+          <integrated_data units="GJ">
+            <bin number="0" type="monthly">0.000000</bin>
+            <bin number="1" type="monthly">0.000000</bin>
+            <bin number="2" type="monthly">0.000000</bin>
+            <bin number="3" type="monthly">0.000000</bin>
+            <bin number="4" type="monthly">0.000000</bin>
+            <bin number="5" type="monthly">0.000000</bin>
+            <bin number="6" type="monthly">0.000000</bin>
+            <bin number="7" type="monthly">0.000000</bin>
+            <bin number="8" type="monthly">0.000000</bin>
+            <bin number="9" type="monthly">0.000000</bin>
+            <bin number="10" type="monthly">0.000000</bin>
+            <bin number="11" type="monthly">0.000000</bin>
+            <bin type="annual">0.000000</bin>
+          </integrated_data>
+        </heating>
+      </supplied_energy>
+    </zone_03>
+    <zone_04>
+      <air_point>
+        <temperature>
+          <name>temperature</name>
+          <description>Zone air-point temperature</description>
+          <units>(oC)</units>
+          <binned_data type="monthly">
+            <index>0</index>
+            <steps>744</steps>
+            <active_steps>744</active_steps>
+            <sum>-6746.125407</sum>
+            <max>3.747072</max>
+            <min>-20.605783</min>
+            <active_average>-9.067373</active_average>
+            <total_average>-9.067373</total_average>
+          </binned_data>
+          <binned_data type="monthly">
+            <index>1</index>
+            <steps>672</steps>
+            <active_steps>672</active_steps>
+            <sum>-3754.061533</sum>
+            <max>4.153230</max>
+            <min>-17.939787</min>
+            <active_average>-5.586401</active_average>
+            <total_average>-5.586401</total_average>
+          </binned_data>
+          <binned_data type="monthly">
+            <index>2</index>
+            <steps>744</steps>
+            <active_steps>744</active_steps>
+            <sum>818.195553</sum>
+            <max>10.814804</max>
+            <min>-9.243907</min>
+            <active_average>1.099725</active_average>
+            <total_average>1.099725</total_average>
+          </binned_data>
+          <binned_data type="monthly">
+            <index>3</index>
+            <steps>720</steps>
+            <active_steps>720</active_steps>
+            <sum>6520.337958</sum>
+            <max>26.573168</max>
+            <min>-9.895427</min>
+            <active_average>9.056025</active_average>
+            <total_average>9.056025</total_average>
+          </binned_data>
+          <binned_data type="monthly">
+            <index>4</index>
+            <steps>744</steps>
+            <active_steps>744</active_steps>
+            <sum>12031.233370</sum>
+            <max>28.523567</max>
+            <min>5.015672</min>
+            <active_average>16.171013</active_average>
+            <total_average>16.171013</total_average>
+          </binned_data>
+          <binned_data type="monthly">
+            <index>5</index>
+            <steps>720</steps>
+            <active_steps>720</active_steps>
+            <sum>15860.878077</sum>
+            <max>32.932655</max>
+            <min>12.786747</min>
+            <active_average>22.028997</active_average>
+            <total_average>22.028997</total_average>
+          </binned_data>
+          <binned_data type="monthly">
+            <index>6</index>
+            <steps>744</steps>
+            <active_steps>744</active_steps>
+            <sum>18985.525029</sum>
+            <max>36.974400</max>
+            <min>15.894909</min>
+            <active_average>25.518179</active_average>
+            <total_average>25.518179</total_average>
+          </binned_data>
+          <binned_data type="monthly">
+            <index>7</index>
+            <steps>744</steps>
+            <active_steps>744</active_steps>
+            <sum>19266.522315</sum>
+            <max>35.900841</max>
+            <min>13.083814</min>
+            <active_average>25.895863</active_average>
+            <total_average>25.895863</total_average>
+          </binned_data>
+          <binned_data type="monthly">
+            <index>8</index>
+            <steps>720</steps>
+            <active_steps>720</active_steps>
+            <sum>13434.251548</sum>
+            <max>30.026541</max>
+            <min>8.279130</min>
+            <active_average>18.658683</active_average>
+            <total_average>18.658683</total_average>
+          </binned_data>
+          <binned_data type="monthly">
+            <index>9</index>
+            <steps>744</steps>
+            <active_steps>744</active_steps>
+            <sum>7570.749244</sum>
+            <max>23.222548</max>
+            <min>-2.949030</min>
+            <active_average>10.175738</active_average>
+            <total_average>10.175738</total_average>
+          </binned_data>
+          <binned_data type="monthly">
+            <index>10</index>
+            <steps>720</steps>
+            <active_steps>720</active_steps>
+            <sum>2238.823116</sum>
+            <max>14.399570</max>
+            <min>-7.414557</min>
+            <active_average>3.109477</active_average>
+            <total_average>3.109477</total_average>
+          </binned_data>
+          <binned_data type="monthly">
+            <index>11</index>
+            <steps>744</steps>
+            <active_steps>744</active_steps>
+            <sum>-4224.008782</sum>
+            <max>10.764130</max>
+            <min>-18.873503</min>
+            <active_average>-5.677431</active_average>
+            <total_average>-5.677431</total_average>
+          </binned_data>
+          <binned_data type="annual">
+            <steps>8760</steps>
+            <active_steps>8760</active_steps>
+            <sum>82002.320489</sum>
+            <max>36.974400</max>
+            <min>-20.605783</min>
+            <active_average>9.360995</active_average>
+            <total_average>9.360995</total_average>
+          </binned_data>
+        </temperature>
+      </air_point>
+      <insolation>
+        <total>
+          <name>total</name>
+          <description>Solar gains admitted through glazing </description>
+          <units>(W)</units>
+          <binned_data type="monthly">
+            <index>0</index>
+            <steps>744</steps>
+            <active_steps>744</active_steps>
+            <sum>221139.283113</sum>
+            <max>2024.634033</max>
+            <min>0.000000</min>
+            <active_average>297.230219</active_average>
+            <total_average>297.230219</total_average>
+          </binned_data>
+          <binned_data type="monthly">
+            <index>1</index>
+            <steps>672</steps>
+            <active_steps>672</active_steps>
+            <sum>320425.806463</sum>
+            <max>2094.305908</max>
+            <min>0.000000</min>
+            <active_average>476.824117</active_average>
+            <total_average>476.824117</total_average>
+          </binned_data>
+          <binned_data type="monthly">
+            <index>2</index>
+            <steps>744</steps>
+            <active_steps>744</active_steps>
+            <sum>396932.421727</sum>
+            <max>2254.905518</max>
+            <min>0.000000</min>
+            <active_average>533.511320</active_average>
+            <total_average>533.511320</total_average>
+          </binned_data>
+          <binned_data type="monthly">
+            <index>3</index>
+            <steps>720</steps>
+            <active_steps>720</active_steps>
+            <sum>371137.453004</sum>
+            <max>2030.867188</max>
+            <min>0.000000</min>
+            <active_average>515.468685</active_average>
+            <total_average>515.468685</total_average>
+          </binned_data>
+          <binned_data type="monthly">
+            <index>4</index>
+            <steps>744</steps>
+            <active_steps>744</active_steps>
+            <sum>399870.807310</sum>
+            <max>1625.907349</max>
+            <min>0.000000</min>
+            <active_average>537.460763</active_average>
+            <total_average>537.460763</total_average>
+          </binned_data>
+          <binned_data type="monthly">
+            <index>5</index>
+            <steps>720</steps>
+            <active_steps>720</active_steps>
+            <sum>412751.802839</sum>
+            <max>1490.765381</max>
+            <min>0.000000</min>
+            <active_average>573.266393</active_average>
+            <total_average>573.266393</total_average>
+          </binned_data>
+          <binned_data type="monthly">
+            <index>6</index>
+            <steps>744</steps>
+            <active_steps>744</active_steps>
+            <sum>440630.371733</sum>
+            <max>1564.798828</max>
+            <min>0.000000</min>
+            <active_average>592.245123</active_average>
+            <total_average>592.245123</total_average>
+          </binned_data>
+          <binned_data type="monthly">
+            <index>7</index>
+            <steps>744</steps>
+            <active_steps>744</active_steps>
+            <sum>380722.425853</sum>
+            <max>1687.981079</max>
+            <min>0.000000</min>
+            <active_average>511.723691</active_average>
+            <total_average>511.723691</total_average>
+          </binned_data>
+          <binned_data type="monthly">
+            <index>8</index>
+            <steps>720</steps>
+            <active_steps>720</active_steps>
+            <sum>348402.240411</sum>
+            <max>1934.801514</max>
+            <min>0.000000</min>
+            <active_average>483.892001</active_average>
+            <total_average>483.892001</total_average>
+          </binned_data>
+          <binned_data type="monthly">
+            <index>9</index>
+            <steps>744</steps>
+            <active_steps>744</active_steps>
+            <sum>280052.604784</sum>
+            <max>1929.569580</max>
+            <min>0.000000</min>
+            <active_average>376.414791</active_average>
+            <total_average>376.414791</total_average>
+          </binned_data>
+          <binned_data type="monthly">
+            <index>10</index>
+            <steps>720</steps>
+            <active_steps>720</active_steps>
+            <sum>177150.419411</sum>
+            <max>1908.635864</max>
+            <min>0.000000</min>
+            <active_average>246.042249</active_average>
+            <total_average>246.042249</total_average>
+          </binned_data>
+          <binned_data type="monthly">
+            <index>11</index>
+            <steps>744</steps>
+            <active_steps>744</active_steps>
+            <sum>204612.218496</sum>
+            <max>1950.356689</max>
+            <min>0.000000</min>
+            <active_average>275.016423</active_average>
+            <total_average>275.016423</total_average>
+          </binned_data>
+          <binned_data type="annual">
+            <steps>8760</steps>
+            <active_steps>8760</active_steps>
+            <sum>3953827.855145</sum>
+            <max>2254.905518</max>
+            <min>0.000000</min>
+            <active_average>451.350212</active_average>
+            <total_average>451.350212</total_average>
+          </binned_data>
+          <integrated_data units="GJ">
+            <bin number="0" type="monthly">0.796101</bin>
+            <bin number="1" type="monthly">1.153533</bin>
+            <bin number="2" type="monthly">1.428957</bin>
+            <bin number="3" type="monthly">1.336095</bin>
+            <bin number="4" type="monthly">1.439535</bin>
+            <bin number="5" type="monthly">1.485906</bin>
+            <bin number="6" type="monthly">1.586269</bin>
+            <bin number="7" type="monthly">1.370601</bin>
+            <bin number="8" type="monthly">1.254248</bin>
+            <bin number="9" type="monthly">1.008189</bin>
+            <bin number="10" type="monthly">0.637742</bin>
+            <bin number="11" type="monthly">0.736604</bin>
+            <bin type="annual">14.233780</bin>
+          </integrated_data>
+        </total>
+      </insolation>
+      <supplied_energy>
+        <cooling>
+          <name>cooling</name>
+          <description>Zone net heat extraction </description>
+          <units>(W)</units>
+          <binned_data type="monthly">
+            <index>0</index>
+            <steps>744</steps>
+            <active_steps>744</active_steps>
+            <sum>0.000000</sum>
+            <max>0.000000</max>
+            <min>0.000000</min>
+            <active_average>0.000000</active_average>
+            <total_average>0.000000</total_average>
+          </binned_data>
+          <binned_data type="monthly">
+            <index>1</index>
+            <steps>672</steps>
+            <active_steps>672</active_steps>
+            <sum>0.000000</sum>
+            <max>0.000000</max>
+            <min>0.000000</min>
+            <active_average>0.000000</active_average>
+            <total_average>0.000000</total_average>
+          </binned_data>
+          <binned_data type="monthly">
+            <index>2</index>
+            <steps>744</steps>
+            <active_steps>744</active_steps>
+            <sum>0.000000</sum>
+            <max>0.000000</max>
+            <min>0.000000</min>
+            <active_average>0.000000</active_average>
+            <total_average>0.000000</total_average>
+          </binned_data>
+          <binned_data type="monthly">
+            <index>3</index>
+            <steps>720</steps>
+            <active_steps>720</active_steps>
+            <sum>0.000000</sum>
+            <max>0.000000</max>
+            <min>0.000000</min>
+            <active_average>0.000000</active_average>
+            <total_average>0.000000</total_average>
+          </binned_data>
+          <binned_data type="monthly">
+            <index>4</index>
+            <steps>744</steps>
+            <active_steps>744</active_steps>
+            <sum>0.000000</sum>
+            <max>0.000000</max>
+            <min>0.000000</min>
+            <active_average>0.000000</active_average>
+            <total_average>0.000000</total_average>
+          </binned_data>
+          <binned_data type="monthly">
+            <index>5</index>
+            <steps>720</steps>
+            <active_steps>720</active_steps>
+            <sum>0.000000</sum>
+            <max>0.000000</max>
+            <min>0.000000</min>
+            <active_average>0.000000</active_average>
+            <total_average>0.000000</total_average>
+          </binned_data>
+          <binned_data type="monthly">
+            <index>6</index>
+            <steps>744</steps>
+            <active_steps>744</active_steps>
+            <sum>0.000000</sum>
+            <max>0.000000</max>
+            <min>0.000000</min>
+            <active_average>0.000000</active_average>
+            <total_average>0.000000</total_average>
+          </binned_data>
+          <binned_data type="monthly">
+            <index>7</index>
+            <steps>744</steps>
+            <active_steps>744</active_steps>
+            <sum>0.000000</sum>
+            <max>0.000000</max>
+            <min>0.000000</min>
+            <active_average>0.000000</active_average>
+            <total_average>0.000000</total_average>
+          </binned_data>
+          <binned_data type="monthly">
+            <index>8</index>
+            <steps>720</steps>
+            <active_steps>720</active_steps>
+            <sum>0.000000</sum>
+            <max>0.000000</max>
+            <min>0.000000</min>
+            <active_average>0.000000</active_average>
+            <total_average>0.000000</total_average>
+          </binned_data>
+          <binned_data type="monthly">
+            <index>9</index>
+            <steps>744</steps>
+            <active_steps>744</active_steps>
+            <sum>0.000000</sum>
+            <max>0.000000</max>
+            <min>0.000000</min>
+            <active_average>0.000000</active_average>
+            <total_average>0.000000</total_average>
+          </binned_data>
+          <binned_data type="monthly">
+            <index>10</index>
+            <steps>720</steps>
+            <active_steps>720</active_steps>
+            <sum>0.000000</sum>
+            <max>0.000000</max>
+            <min>0.000000</min>
+            <active_average>0.000000</active_average>
+            <total_average>0.000000</total_average>
+          </binned_data>
+          <binned_data type="monthly">
+            <index>11</index>
+            <steps>744</steps>
+            <active_steps>744</active_steps>
+            <sum>0.000000</sum>
+            <max>0.000000</max>
+            <min>0.000000</min>
+            <active_average>0.000000</active_average>
+            <total_average>0.000000</total_average>
+          </binned_data>
+          <binned_data type="annual">
+            <steps>8760</steps>
+            <active_steps>8760</active_steps>
+            <sum>0.000000</sum>
+            <max>0.000000</max>
+            <min>0.000000</min>
+            <active_average>0.000000</active_average>
+            <total_average>0.000000</total_average>
+          </binned_data>
+          <integrated_data units="GJ">
+            <bin number="0" type="monthly">0.000000</bin>
+            <bin number="1" type="monthly">0.000000</bin>
+            <bin number="2" type="monthly">0.000000</bin>
+            <bin number="3" type="monthly">0.000000</bin>
+            <bin number="4" type="monthly">0.000000</bin>
+            <bin number="5" type="monthly">0.000000</bin>
+            <bin number="6" type="monthly">0.000000</bin>
+            <bin number="7" type="monthly">0.000000</bin>
+            <bin number="8" type="monthly">0.000000</bin>
+            <bin number="9" type="monthly">0.000000</bin>
+            <bin number="10" type="monthly">0.000000</bin>
+            <bin number="11" type="monthly">0.000000</bin>
+            <bin type="annual">0.000000</bin>
+          </integrated_data>
+        </cooling>
+        <heating>
+          <name>heating</name>
+          <description>Zone net heat injection </description>
+          <units>(W)</units>
+          <binned_data type="monthly">
+            <index>0</index>
+            <steps>744</steps>
+            <active_steps>744</active_steps>
+            <sum>0.000000</sum>
+            <max>0.000000</max>
+            <min>0.000000</min>
+            <active_average>0.000000</active_average>
+            <total_average>0.000000</total_average>
+          </binned_data>
+          <binned_data type="monthly">
+            <index>1</index>
+            <steps>672</steps>
+            <active_steps>672</active_steps>
+            <sum>0.000000</sum>
+            <max>0.000000</max>
+            <min>0.000000</min>
+            <active_average>0.000000</active_average>
+            <total_average>0.000000</total_average>
+          </binned_data>
+          <binned_data type="monthly">
+            <index>2</index>
+            <steps>744</steps>
+            <active_steps>744</active_steps>
+            <sum>0.000000</sum>
+            <max>0.000000</max>
+            <min>0.000000</min>
+            <active_average>0.000000</active_average>
+            <total_average>0.000000</total_average>
+          </binned_data>
+          <binned_data type="monthly">
+            <index>3</index>
+            <steps>720</steps>
+            <active_steps>720</active_steps>
+            <sum>0.000000</sum>
+            <max>0.000000</max>
+            <min>0.000000</min>
+            <active_average>0.000000</active_average>
+            <total_average>0.000000</total_average>
+          </binned_data>
+          <binned_data type="monthly">
+            <index>4</index>
+            <steps>744</steps>
+            <active_steps>744</active_steps>
+            <sum>0.000000</sum>
+            <max>0.000000</max>
+            <min>0.000000</min>
+            <active_average>0.000000</active_average>
+            <total_average>0.000000</total_average>
+          </binned_data>
+          <binned_data type="monthly">
+            <index>5</index>
+            <steps>720</steps>
+            <active_steps>720</active_steps>
+            <sum>0.000000</sum>
+            <max>0.000000</max>
+            <min>0.000000</min>
+            <active_average>0.000000</active_average>
+            <total_average>0.000000</total_average>
+          </binned_data>
+          <binned_data type="monthly">
+            <index>6</index>
+            <steps>744</steps>
+            <active_steps>744</active_steps>
+            <sum>0.000000</sum>
+            <max>0.000000</max>
+            <min>0.000000</min>
+            <active_average>0.000000</active_average>
+            <total_average>0.000000</total_average>
+          </binned_data>
+          <binned_data type="monthly">
+            <index>7</index>
+            <steps>744</steps>
+            <active_steps>744</active_steps>
+            <sum>0.000000</sum>
+            <max>0.000000</max>
+            <min>0.000000</min>
+            <active_average>0.000000</active_average>
+            <total_average>0.000000</total_average>
+          </binned_data>
+          <binned_data type="monthly">
+            <index>8</index>
+            <steps>720</steps>
+            <active_steps>720</active_steps>
+            <sum>0.000000</sum>
+            <max>0.000000</max>
+            <min>0.000000</min>
+            <active_average>0.000000</active_average>
+            <total_average>0.000000</total_average>
+          </binned_data>
+          <binned_data type="monthly">
+            <index>9</index>
+            <steps>744</steps>
+            <active_steps>744</active_steps>
+            <sum>0.000000</sum>
+            <max>0.000000</max>
+            <min>0.000000</min>
+            <active_average>0.000000</active_average>
+            <total_average>0.000000</total_average>
+          </binned_data>
+          <binned_data type="monthly">
+            <index>10</index>
+            <steps>720</steps>
+            <active_steps>720</active_steps>
+            <sum>0.000000</sum>
+            <max>0.000000</max>
+            <min>0.000000</min>
+            <active_average>0.000000</active_average>
+            <total_average>0.000000</total_average>
+          </binned_data>
+          <binned_data type="monthly">
+            <index>11</index>
+            <steps>744</steps>
+            <active_steps>744</active_steps>
+            <sum>0.000000</sum>
+            <max>0.000000</max>
+            <min>0.000000</min>
+            <active_average>0.000000</active_average>
+            <total_average>0.000000</total_average>
+          </binned_data>
+          <binned_data type="annual">
+            <steps>8760</steps>
+            <active_steps>8760</active_steps>
+            <sum>0.000000</sum>
+            <max>0.000000</max>
+            <min>0.000000</min>
+            <active_average>0.000000</active_average>
+            <total_average>0.000000</total_average>
+          </binned_data>
+          <integrated_data units="GJ">
+            <bin number="0" type="monthly">0.000000</bin>
+            <bin number="1" type="monthly">0.000000</bin>
+            <bin number="2" type="monthly">0.000000</bin>
+            <bin number="3" type="monthly">0.000000</bin>
+            <bin number="4" type="monthly">0.000000</bin>
+            <bin number="5" type="monthly">0.000000</bin>
+            <bin number="6" type="monthly">0.000000</bin>
+            <bin number="7" type="monthly">0.000000</bin>
+            <bin number="8" type="monthly">0.000000</bin>
+            <bin number="9" type="monthly">0.000000</bin>
+            <bin number="10" type="monthly">0.000000</bin>
+            <bin number="11" type="monthly">0.000000</bin>
+            <bin type="annual">0.000000</bin>
+          </integrated_data>
+        </heating>
+      </supplied_energy>
+    </zone_04>
+    <zone_05>
+      <air_point>
+        <temperature>
+          <name>temperature</name>
+          <description>Zone air-point temperature</description>
+          <units>(oC)</units>
+          <binned_data type="monthly">
+            <index>0</index>
+            <steps>744</steps>
+            <active_steps>744</active_steps>
+            <sum>-4013.440916</sum>
+            <max>7.232438</max>
+            <min>-12.702564</min>
+            <active_average>-5.394410</active_average>
+            <total_average>-5.394410</total_average>
+          </binned_data>
+          <binned_data type="monthly">
+            <index>1</index>
+            <steps>672</steps>
+            <active_steps>672</active_steps>
+            <sum>-114.757866</sum>
+            <max>8.317661</max>
+            <min>-12.220304</min>
+            <active_average>-0.170771</active_average>
+            <total_average>-0.170771</total_average>
+          </binned_data>
+          <binned_data type="monthly">
+            <index>2</index>
+            <steps>744</steps>
+            <active_steps>744</active_steps>
+            <sum>5775.731819</sum>
+            <max>15.389292</max>
+            <min>-2.851126</min>
+            <active_average>7.763080</active_average>
+            <total_average>7.763080</total_average>
+          </binned_data>
+          <binned_data type="monthly">
+            <index>3</index>
+            <steps>720</steps>
+            <active_steps>720</active_steps>
+            <sum>10480.320447</sum>
+            <max>27.243521</max>
+            <min>2.174412</min>
+            <active_average>14.556001</active_average>
+            <total_average>14.556001</total_average>
+          </binned_data>
+          <binned_data type="monthly">
+            <index>4</index>
+            <steps>744</steps>
+            <active_steps>744</active_steps>
+            <sum>15320.086833</sum>
+            <max>29.363762</max>
+            <min>13.864236</min>
+            <active_average>20.591515</active_average>
+            <total_average>20.591515</total_average>
+          </binned_data>
+          <binned_data type="monthly">
+            <index>5</index>
+            <steps>720</steps>
+            <active_steps>720</active_steps>
+            <sum>16807.532483</sum>
+            <max>33.079647</max>
+            <min>13.406624</min>
+            <active_average>23.343795</active_average>
+            <total_average>23.343795</total_average>
+          </binned_data>
+          <binned_data type="monthly">
+            <index>6</index>
+            <steps>744</steps>
+            <active_steps>744</active_steps>
+            <sum>19132.759777</sum>
+            <max>36.974407</max>
+            <min>15.895365</min>
+            <active_average>25.716075</active_average>
+            <total_average>25.716075</total_average>
+          </binned_data>
+          <binned_data type="monthly">
+            <index>7</index>
+            <steps>744</steps>
+            <active_steps>744</active_steps>
+            <sum>19525.863405</sum>
+            <max>36.088837</max>
+            <min>17.508121</min>
+            <active_average>26.244440</active_average>
+            <total_average>26.244440</total_average>
+          </binned_data>
+          <binned_data type="monthly">
+            <index>8</index>
+            <steps>720</steps>
+            <active_steps>720</active_steps>
+            <sum>15472.873663</sum>
+            <max>30.453325</max>
+            <min>11.786186</min>
+            <active_average>21.490102</active_average>
+            <total_average>21.490102</total_average>
+          </binned_data>
+          <binned_data type="monthly">
+            <index>9</index>
+            <steps>744</steps>
+            <active_steps>744</active_steps>
+            <sum>10811.568402</sum>
+            <max>25.786484</max>
+            <min>4.130594</min>
+            <active_average>14.531678</active_average>
+            <total_average>14.531678</total_average>
+          </binned_data>
+          <binned_data type="monthly">
+            <index>10</index>
+            <steps>720</steps>
+            <active_steps>720</active_steps>
+            <sum>4371.696139</sum>
+            <max>16.729088</max>
+            <min>-2.120434</min>
+            <active_average>6.071800</active_average>
+            <total_average>6.071800</total_average>
+          </binned_data>
+          <binned_data type="monthly">
+            <index>11</index>
+            <steps>744</steps>
+            <active_steps>744</active_steps>
+            <sum>-1639.549590</sum>
+            <max>7.373645</max>
+            <min>-10.411272</min>
+            <active_average>-2.203696</active_average>
+            <total_average>-2.203696</total_average>
+          </binned_data>
+          <binned_data type="annual">
+            <steps>8760</steps>
+            <active_steps>8760</active_steps>
+            <sum>111930.684598</sum>
+            <max>36.974407</max>
+            <min>-12.702564</min>
+            <active_average>12.777475</active_average>
+            <total_average>12.777475</total_average>
+          </binned_data>
+        </temperature>
+      </air_point>
+      <insolation>
+        <total>
+          <name>total</name>
+          <description>Solar gains admitted through glazing </description>
+          <units>(W)</units>
+          <binned_data type="monthly">
+            <index>0</index>
+            <steps>744</steps>
+            <active_steps>744</active_steps>
+            <sum>221139.263847</sum>
+            <max>2024.633545</max>
+            <min>0.000000</min>
+            <active_average>297.230193</active_average>
+            <total_average>297.230193</total_average>
+          </binned_data>
+          <binned_data type="monthly">
+            <index>1</index>
+            <steps>672</steps>
+            <active_steps>672</active_steps>
+            <sum>320425.777957</sum>
+            <max>2094.305664</max>
+            <min>0.000000</min>
+            <active_average>476.824074</active_average>
+            <total_average>476.824074</total_average>
+          </binned_data>
+          <binned_data type="monthly">
+            <index>2</index>
+            <steps>744</steps>
+            <active_steps>744</active_steps>
+            <sum>396932.393492</sum>
+            <max>2254.905029</max>
+            <min>0.000000</min>
+            <active_average>533.511282</active_average>
+            <total_average>533.511282</total_average>
+          </binned_data>
+          <binned_data type="monthly">
+            <index>3</index>
+            <steps>720</steps>
+            <active_steps>720</active_steps>
+            <sum>371137.431252</sum>
+            <max>2030.866699</max>
+            <min>0.000000</min>
+            <active_average>515.468655</active_average>
+            <total_average>515.468655</total_average>
+          </binned_data>
+          <binned_data type="monthly">
+            <index>4</index>
+            <steps>744</steps>
+            <active_steps>744</active_steps>
+            <sum>399870.790677</sum>
+            <max>1625.906982</max>
+            <min>0.000000</min>
+            <active_average>537.460740</active_average>
+            <total_average>537.460740</total_average>
+          </binned_data>
+          <binned_data type="monthly">
+            <index>5</index>
+            <steps>720</steps>
+            <active_steps>720</active_steps>
+            <sum>412751.791519</sum>
+            <max>1490.765381</max>
+            <min>0.000000</min>
+            <active_average>573.266377</active_average>
+            <total_average>573.266377</total_average>
+          </binned_data>
+          <binned_data type="monthly">
+            <index>6</index>
+            <steps>744</steps>
+            <active_steps>744</active_steps>
+            <sum>440630.357228</sum>
+            <max>1564.798706</max>
+            <min>0.000000</min>
+            <active_average>592.245104</active_average>
+            <total_average>592.245104</total_average>
+          </binned_data>
+          <binned_data type="monthly">
+            <index>7</index>
+            <steps>744</steps>
+            <active_steps>744</active_steps>
+            <sum>380722.407382</sum>
+            <max>1687.981079</max>
+            <min>0.000000</min>
+            <active_average>511.723666</active_average>
+            <total_average>511.723666</total_average>
+          </binned_data>
+          <binned_data type="monthly">
+            <index>8</index>
+            <steps>720</steps>
+            <active_steps>720</active_steps>
+            <sum>348402.219049</sum>
+            <max>1934.801270</max>
+            <min>0.000000</min>
+            <active_average>483.891971</active_average>
+            <total_average>483.891971</total_average>
+          </binned_data>
+          <binned_data type="monthly">
+            <index>9</index>
+            <steps>744</steps>
+            <active_steps>744</active_steps>
+            <sum>280052.583563</sum>
+            <max>1929.569092</max>
+            <min>0.000000</min>
+            <active_average>376.414763</active_average>
+            <total_average>376.414763</total_average>
+          </binned_data>
+          <binned_data type="monthly">
+            <index>10</index>
+            <steps>720</steps>
+            <active_steps>720</active_steps>
+            <sum>177150.406557</sum>
+            <max>1908.635620</max>
+            <min>0.000000</min>
+            <active_average>246.042231</active_average>
+            <total_average>246.042231</total_average>
+          </binned_data>
+          <binned_data type="monthly">
+            <index>11</index>
+            <steps>744</steps>
+            <active_steps>744</active_steps>
+            <sum>204612.200665</sum>
+            <max>1950.356689</max>
+            <min>0.000000</min>
+            <active_average>275.016399</active_average>
+            <total_average>275.016399</total_average>
+          </binned_data>
+          <binned_data type="annual">
+            <steps>8760</steps>
+            <active_steps>8760</active_steps>
+            <sum>3953827.623190</sum>
+            <max>2254.905029</max>
+            <min>0.000000</min>
+            <active_average>451.350185</active_average>
+            <total_average>451.350185</total_average>
+          </binned_data>
+          <integrated_data units="GJ">
+            <bin number="0" type="monthly">0.796101</bin>
+            <bin number="1" type="monthly">1.153533</bin>
+            <bin number="2" type="monthly">1.428957</bin>
+            <bin number="3" type="monthly">1.336095</bin>
+            <bin number="4" type="monthly">1.439535</bin>
+            <bin number="5" type="monthly">1.485906</bin>
+            <bin number="6" type="monthly">1.586269</bin>
+            <bin number="7" type="monthly">1.370601</bin>
+            <bin number="8" type="monthly">1.254248</bin>
+            <bin number="9" type="monthly">1.008189</bin>
+            <bin number="10" type="monthly">0.637741</bin>
+            <bin number="11" type="monthly">0.736604</bin>
+            <bin type="annual">14.233779</bin>
+          </integrated_data>
+        </total>
+      </insolation>
+      <supplied_energy>
+        <cooling>
+          <name>cooling</name>
+          <description>Zone net heat extraction </description>
+          <units>(W)</units>
+          <binned_data type="monthly">
+            <index>0</index>
+            <steps>744</steps>
+            <active_steps>744</active_steps>
+            <sum>0.000000</sum>
+            <max>0.000000</max>
+            <min>0.000000</min>
+            <active_average>0.000000</active_average>
+            <total_average>0.000000</total_average>
+          </binned_data>
+          <binned_data type="monthly">
+            <index>1</index>
+            <steps>672</steps>
+            <active_steps>672</active_steps>
+            <sum>0.000000</sum>
+            <max>0.000000</max>
+            <min>0.000000</min>
+            <active_average>0.000000</active_average>
+            <total_average>0.000000</total_average>
+          </binned_data>
+          <binned_data type="monthly">
+            <index>2</index>
+            <steps>744</steps>
+            <active_steps>744</active_steps>
+            <sum>0.000000</sum>
+            <max>0.000000</max>
+            <min>0.000000</min>
+            <active_average>0.000000</active_average>
+            <total_average>0.000000</total_average>
+          </binned_data>
+          <binned_data type="monthly">
+            <index>3</index>
+            <steps>720</steps>
+            <active_steps>720</active_steps>
+            <sum>0.000000</sum>
+            <max>0.000000</max>
+            <min>0.000000</min>
+            <active_average>0.000000</active_average>
+            <total_average>0.000000</total_average>
+          </binned_data>
+          <binned_data type="monthly">
+            <index>4</index>
+            <steps>744</steps>
+            <active_steps>744</active_steps>
+            <sum>0.000000</sum>
+            <max>0.000000</max>
+            <min>0.000000</min>
+            <active_average>0.000000</active_average>
+            <total_average>0.000000</total_average>
+          </binned_data>
+          <binned_data type="monthly">
+            <index>5</index>
+            <steps>720</steps>
+            <active_steps>720</active_steps>
+            <sum>0.000000</sum>
+            <max>0.000000</max>
+            <min>0.000000</min>
+            <active_average>0.000000</active_average>
+            <total_average>0.000000</total_average>
+          </binned_data>
+          <binned_data type="monthly">
+            <index>6</index>
+            <steps>744</steps>
+            <active_steps>744</active_steps>
+            <sum>0.000000</sum>
+            <max>0.000000</max>
+            <min>0.000000</min>
+            <active_average>0.000000</active_average>
+            <total_average>0.000000</total_average>
+          </binned_data>
+          <binned_data type="monthly">
+            <index>7</index>
+            <steps>744</steps>
+            <active_steps>744</active_steps>
+            <sum>0.000000</sum>
+            <max>0.000000</max>
+            <min>0.000000</min>
+            <active_average>0.000000</active_average>
+            <total_average>0.000000</total_average>
+          </binned_data>
+          <binned_data type="monthly">
+            <index>8</index>
+            <steps>720</steps>
+            <active_steps>720</active_steps>
+            <sum>0.000000</sum>
+            <max>0.000000</max>
+            <min>0.000000</min>
+            <active_average>0.000000</active_average>
+            <total_average>0.000000</total_average>
+          </binned_data>
+          <binned_data type="monthly">
+            <index>9</index>
+            <steps>744</steps>
+            <active_steps>744</active_steps>
+            <sum>0.000000</sum>
+            <max>0.000000</max>
+            <min>0.000000</min>
+            <active_average>0.000000</active_average>
+            <total_average>0.000000</total_average>
+          </binned_data>
+          <binned_data type="monthly">
+            <index>10</index>
+            <steps>720</steps>
+            <active_steps>720</active_steps>
+            <sum>0.000000</sum>
+            <max>0.000000</max>
+            <min>0.000000</min>
+            <active_average>0.000000</active_average>
+            <total_average>0.000000</total_average>
+          </binned_data>
+          <binned_data type="monthly">
+            <index>11</index>
+            <steps>744</steps>
+            <active_steps>744</active_steps>
+            <sum>0.000000</sum>
+            <max>0.000000</max>
+            <min>0.000000</min>
+            <active_average>0.000000</active_average>
+            <total_average>0.000000</total_average>
+          </binned_data>
+          <binned_data type="annual">
+            <steps>8760</steps>
+            <active_steps>8760</active_steps>
+            <sum>0.000000</sum>
+            <max>0.000000</max>
+            <min>0.000000</min>
+            <active_average>0.000000</active_average>
+            <total_average>0.000000</total_average>
+          </binned_data>
+          <integrated_data units="GJ">
+            <bin number="0" type="monthly">0.000000</bin>
+            <bin number="1" type="monthly">0.000000</bin>
+            <bin number="2" type="monthly">0.000000</bin>
+            <bin number="3" type="monthly">0.000000</bin>
+            <bin number="4" type="monthly">0.000000</bin>
+            <bin number="5" type="monthly">0.000000</bin>
+            <bin number="6" type="monthly">0.000000</bin>
+            <bin number="7" type="monthly">0.000000</bin>
+            <bin number="8" type="monthly">0.000000</bin>
+            <bin number="9" type="monthly">0.000000</bin>
+            <bin number="10" type="monthly">0.000000</bin>
+            <bin number="11" type="monthly">0.000000</bin>
+            <bin type="annual">0.000000</bin>
+          </integrated_data>
+        </cooling>
+        <heating>
+          <name>heating</name>
+          <description>Zone net heat injection </description>
+          <units>(W)</units>
+          <binned_data type="monthly">
+            <index>0</index>
+            <steps>744</steps>
+            <active_steps>744</active_steps>
+            <sum>0.000000</sum>
+            <max>0.000000</max>
+            <min>0.000000</min>
+            <active_average>0.000000</active_average>
+            <total_average>0.000000</total_average>
+          </binned_data>
+          <binned_data type="monthly">
+            <index>1</index>
+            <steps>672</steps>
+            <active_steps>672</active_steps>
+            <sum>0.000000</sum>
+            <max>0.000000</max>
+            <min>0.000000</min>
+            <active_average>0.000000</active_average>
+            <total_average>0.000000</total_average>
+          </binned_data>
+          <binned_data type="monthly">
+            <index>2</index>
+            <steps>744</steps>
+            <active_steps>744</active_steps>
+            <sum>0.000000</sum>
+            <max>0.000000</max>
+            <min>0.000000</min>
+            <active_average>0.000000</active_average>
+            <total_average>0.000000</total_average>
+          </binned_data>
+          <binned_data type="monthly">
+            <index>3</index>
+            <steps>720</steps>
+            <active_steps>720</active_steps>
+            <sum>0.000000</sum>
+            <max>0.000000</max>
+            <min>0.000000</min>
+            <active_average>0.000000</active_average>
+            <total_average>0.000000</total_average>
+          </binned_data>
+          <binned_data type="monthly">
+            <index>4</index>
+            <steps>744</steps>
+            <active_steps>744</active_steps>
+            <sum>0.000000</sum>
+            <max>0.000000</max>
+            <min>0.000000</min>
+            <active_average>0.000000</active_average>
+            <total_average>0.000000</total_average>
+          </binned_data>
+          <binned_data type="monthly">
+            <index>5</index>
+            <steps>720</steps>
+            <active_steps>720</active_steps>
+            <sum>0.000000</sum>
+            <max>0.000000</max>
+            <min>0.000000</min>
+            <active_average>0.000000</active_average>
+            <total_average>0.000000</total_average>
+          </binned_data>
+          <binned_data type="monthly">
+            <index>6</index>
+            <steps>744</steps>
+            <active_steps>744</active_steps>
+            <sum>0.000000</sum>
+            <max>0.000000</max>
+            <min>0.000000</min>
+            <active_average>0.000000</active_average>
+            <total_average>0.000000</total_average>
+          </binned_data>
+          <binned_data type="monthly">
+            <index>7</index>
+            <steps>744</steps>
+            <active_steps>744</active_steps>
+            <sum>0.000000</sum>
+            <max>0.000000</max>
+            <min>0.000000</min>
+            <active_average>0.000000</active_average>
+            <total_average>0.000000</total_average>
+          </binned_data>
+          <binned_data type="monthly">
+            <index>8</index>
+            <steps>720</steps>
+            <active_steps>720</active_steps>
+            <sum>0.000000</sum>
+            <max>0.000000</max>
+            <min>0.000000</min>
+            <active_average>0.000000</active_average>
+            <total_average>0.000000</total_average>
+          </binned_data>
+          <binned_data type="monthly">
+            <index>9</index>
+            <steps>744</steps>
+            <active_steps>744</active_steps>
+            <sum>0.000000</sum>
+            <max>0.000000</max>
+            <min>0.000000</min>
+            <active_average>0.000000</active_average>
+            <total_average>0.000000</total_average>
+          </binned_data>
+          <binned_data type="monthly">
+            <index>10</index>
+            <steps>720</steps>
+            <active_steps>720</active_steps>
+            <sum>0.000000</sum>
+            <max>0.000000</max>
+            <min>0.000000</min>
+            <active_average>0.000000</active_average>
+            <total_average>0.000000</total_average>
+          </binned_data>
+          <binned_data type="monthly">
+            <index>11</index>
+            <steps>744</steps>
+            <active_steps>744</active_steps>
+            <sum>0.000000</sum>
+            <max>0.000000</max>
+            <min>0.000000</min>
+            <active_average>0.000000</active_average>
+            <total_average>0.000000</total_average>
+          </binned_data>
+          <binned_data type="annual">
+            <steps>8760</steps>
+            <active_steps>8760</active_steps>
+            <sum>0.000000</sum>
+            <max>0.000000</max>
+            <min>0.000000</min>
+            <active_average>0.000000</active_average>
+            <total_average>0.000000</total_average>
+          </binned_data>
+          <integrated_data units="GJ">
+            <bin number="0" type="monthly">0.000000</bin>
+            <bin number="1" type="monthly">0.000000</bin>
+            <bin number="2" type="monthly">0.000000</bin>
+            <bin number="3" type="monthly">0.000000</bin>
+            <bin number="4" type="monthly">0.000000</bin>
+            <bin number="5" type="monthly">0.000000</bin>
+            <bin number="6" type="monthly">0.000000</bin>
+            <bin number="7" type="monthly">0.000000</bin>
+            <bin number="8" type="monthly">0.000000</bin>
+            <bin number="9" type="monthly">0.000000</bin>
+            <bin number="10" type="monthly">0.000000</bin>
+            <bin number="11" type="monthly">0.000000</bin>
+            <bin type="annual">0.000000</bin>
+          </integrated_data>
+        </heating>
+      </supplied_energy>
+    </zone_05>
+  </building>
+  <climate>
+    <dry_bulb_temperature>
+      <name>dry_bulb_temperature</name>
+      <description>Climate dry-bulb temperature</description>
+      <units>(oC)</units>
+      <binned_data type="monthly">
+        <index>0</index>
+        <steps>744</steps>
+        <active_steps>744</active_steps>
+        <sum>-8560.300009</sum>
+        <max>6.800000</max>
+        <min>-25.000000</min>
+        <active_average>-11.505780</active_average>
+        <total_average>-11.505780</total_average>
+      </binned_data>
+      <binned_data type="monthly">
+        <index>1</index>
+        <steps>672</steps>
+        <active_steps>672</active_steps>
+        <sum>-6261.099999</sum>
+        <max>4.700000</max>
+        <min>-21.100000</min>
+        <active_average>-9.317113</active_average>
+        <total_average>-9.317113</total_average>
+      </binned_data>
+      <binned_data type="monthly">
+        <index>2</index>
+        <steps>744</steps>
+        <active_steps>744</active_steps>
+        <sum>-1545.999992</sum>
+        <max>11.100000</max>
+        <min>-12.200000</min>
+        <active_average>-2.077957</active_average>
+        <total_average>-2.077957</total_average>
+      </binned_data>
+      <binned_data type="monthly">
+        <index>3</index>
+        <steps>720</steps>
+        <active_steps>720</active_steps>
+        <sum>4024.899997</sum>
+        <max>22.200001</max>
+        <min>-12.800000</min>
+        <active_average>5.590139</active_average>
+        <total_average>5.590139</total_average>
+      </binned_data>
+      <binned_data type="monthly">
+        <index>4</index>
+        <steps>744</steps>
+        <active_steps>744</active_steps>
+        <sum>9041.900021</sum>
+        <max>23.900000</max>
+        <min>0.000000</min>
+        <active_average>12.153091</active_average>
+        <total_average>12.153091</total_average>
+      </binned_data>
+      <binned_data type="monthly">
+        <index>5</index>
+        <steps>720</steps>
+        <active_steps>720</active_steps>
+        <sum>13001.600024</sum>
+        <max>30.600000</max>
+        <min>6.700000</min>
+        <active_average>18.057778</active_average>
+        <total_average>18.057778</total_average>
+      </binned_data>
+      <binned_data type="monthly">
+        <index>6</index>
+        <steps>744</steps>
+        <active_steps>744</active_steps>
+        <sum>15103.499996</sum>
+        <max>33.000000</max>
+        <min>8.500000</min>
+        <active_average>20.300403</active_average>
+        <total_average>20.300403</total_average>
+      </binned_data>
+      <binned_data type="monthly">
+        <index>7</index>
+        <steps>744</steps>
+        <active_steps>744</active_steps>
+        <sum>14349.799987</sum>
+        <max>29.900000</max>
+        <min>9.700000</min>
+        <active_average>19.287366</active_average>
+        <total_average>19.287366</total_average>
+      </binned_data>
+      <binned_data type="monthly">
+        <index>8</index>
+        <steps>720</steps>
+        <active_steps>720</active_steps>
+        <sum>10247.100005</sum>
+        <max>28.000000</max>
+        <min>0.500000</min>
+        <active_average>14.232083</active_average>
+        <total_average>14.232083</total_average>
+      </binned_data>
+      <binned_data type="monthly">
+        <index>9</index>
+        <steps>744</steps>
+        <active_steps>744</active_steps>
+        <sum>5491.199996</sum>
+        <max>23.299999</max>
+        <min>-6.700000</min>
+        <active_average>7.380645</active_average>
+        <total_average>7.380645</total_average>
+      </binned_data>
+      <binned_data type="monthly">
+        <index>10</index>
+        <steps>720</steps>
+        <active_steps>720</active_steps>
+        <sum>865.300003</sum>
+        <max>17.400000</max>
+        <min>-11.700000</min>
+        <active_average>1.201806</active_average>
+        <total_average>1.201806</total_average>
+      </binned_data>
+      <binned_data type="monthly">
+        <index>11</index>
+        <steps>744</steps>
+        <active_steps>744</active_steps>
+        <sum>-5495.300019</sum>
+        <max>12.200000</max>
+        <min>-23.299999</min>
+        <active_average>-7.386156</active_average>
+        <total_average>-7.386156</total_average>
+      </binned_data>
+      <binned_data type="annual">
+        <steps>8760</steps>
+        <active_steps>8760</active_steps>
+        <sum>50262.600011</sum>
+        <max>33.000000</max>
+        <min>-25.000000</min>
+        <active_average>5.737740</active_average>
+        <total_average>5.737740</total_average>
+      </binned_data>
+    </dry_bulb_temperature>
+    <relative_humidity>
+      <name>relative_humidity</name>
+      <description>Climate relative humidity</description>
+      <units>(%)</units>
+      <binned_data type="monthly">
+        <index>0</index>
+        <steps>744</steps>
+        <active_steps>744</active_steps>
+        <sum>49071.000000</sum>
+        <max>95.000000</max>
+        <min>31.000000</min>
+        <active_average>65.955645</active_average>
+        <total_average>65.955645</total_average>
+      </binned_data>
+      <binned_data type="monthly">
+        <index>1</index>
+        <steps>672</steps>
+        <active_steps>672</active_steps>
+        <sum>44544.000000</sum>
+        <max>94.000000</max>
+        <min>30.000000</min>
+        <active_average>66.285714</active_average>
+        <total_average>66.285714</total_average>
+      </binned_data>
+      <binned_data type="monthly">
+        <index>2</index>
+        <steps>744</steps>
+        <active_steps>744</active_steps>
+        <sum>46086.000000</sum>
+        <max>100.000000</max>
+        <min>26.000000</min>
+        <active_average>61.943548</active_average>
+        <total_average>61.943548</total_average>
+      </binned_data>
+      <binned_data type="monthly">
+        <index>3</index>
+        <steps>720</steps>
+        <active_steps>720</active_steps>
+        <sum>42632.000000</sum>
+        <max>97.000000</max>
+        <min>16.000000</min>
+        <active_average>59.211111</active_average>
+        <total_average>59.211111</total_average>
+      </binned_data>
+      <binned_data type="monthly">
+        <index>4</index>
+        <steps>744</steps>
+        <active_steps>744</active_steps>
+        <sum>46501.000000</sum>
+        <max>107.000000</max>
+        <min>17.000000</min>
+        <active_average>62.501344</active_average>
+        <total_average>62.501344</total_average>
+      </binned_data>
+      <binned_data type="monthly">
+        <index>5</index>
+        <steps>720</steps>
+        <active_steps>720</active_steps>
+        <sum>44625.000000</sum>
+        <max>97.000000</max>
+        <min>22.000000</min>
+        <active_average>61.979167</active_average>
+        <total_average>61.979167</total_average>
+      </binned_data>
+      <binned_data type="monthly">
+        <index>6</index>
+        <steps>744</steps>
+        <active_steps>744</active_steps>
+        <sum>50333.000000</sum>
+        <max>100.000000</max>
+        <min>32.000000</min>
+        <active_average>67.651882</active_average>
+        <total_average>67.651882</total_average>
+      </binned_data>
+      <binned_data type="monthly">
+        <index>7</index>
+        <steps>744</steps>
+        <active_steps>744</active_steps>
+        <sum>56045.000000</sum>
+        <max>100.000000</max>
+        <min>31.000000</min>
+        <active_average>75.329301</active_average>
+        <total_average>75.329301</total_average>
+      </binned_data>
+      <binned_data type="monthly">
+        <index>8</index>
+        <steps>720</steps>
+        <active_steps>720</active_steps>
+        <sum>53506.000000</sum>
+        <max>99.000000</max>
+        <min>47.000000</min>
+        <active_average>74.313889</active_average>
+        <total_average>74.313889</total_average>
+      </binned_data>
+      <binned_data type="monthly">
+        <index>9</index>
+        <steps>744</steps>
+        <active_steps>744</active_steps>
+        <sum>52561.000000</sum>
+        <max>97.000000</max>
+        <min>30.000000</min>
+        <active_average>70.646505</active_average>
+        <total_average>70.646505</total_average>
+      </binned_data>
+      <binned_data type="monthly">
+        <index>10</index>
+        <steps>720</steps>
+        <active_steps>720</active_steps>
+        <sum>53663.000000</sum>
+        <max>100.000000</max>
+        <min>44.000000</min>
+        <active_average>74.531944</active_average>
+        <total_average>74.531944</total_average>
+      </binned_data>
+      <binned_data type="monthly">
+        <index>11</index>
+        <steps>744</steps>
+        <active_steps>744</active_steps>
+        <sum>55719.000000</sum>
+        <max>100.000000</max>
+        <min>34.000000</min>
+        <active_average>74.891129</active_average>
+        <total_average>74.891129</total_average>
+      </binned_data>
+      <binned_data type="annual">
+        <steps>8760</steps>
+        <active_steps>8760</active_steps>
+        <sum>595286.000000</sum>
+        <max>107.000000</max>
+        <min>16.000000</min>
+        <active_average>67.955023</active_average>
+        <total_average>67.955023</total_average>
+      </binned_data>
+    </relative_humidity>
+    <solar>
+      <diffuse_horizontal_radiation>
+        <name>diffuse_horizontal_radiation</name>
+        <description>Climate diffuse horizontal solar radiation</description>
+        <units>(W/m2)</units>
+        <binned_data type="monthly">
+          <index>0</index>
+          <steps>744</steps>
+          <active_steps>744</active_steps>
+          <sum>24350.000000</sum>
+          <max>202.000000</max>
+          <min>0.000000</min>
+          <active_average>32.728495</active_average>
+          <total_average>32.728495</total_average>
+        </binned_data>
+        <binned_data type="monthly">
+          <index>1</index>
+          <steps>672</steps>
+          <active_steps>672</active_steps>
+          <sum>30057.000000</sum>
+          <max>290.000000</max>
+          <min>0.000000</min>
+          <active_average>44.727679</active_average>
+          <total_average>44.727679</total_average>
+        </binned_data>
+        <binned_data type="monthly">
+          <index>2</index>
+          <steps>744</steps>
+          <active_steps>744</active_steps>
+          <sum>48691.000000</sum>
+          <max>370.500000</max>
+          <min>0.000000</min>
+          <active_average>65.444892</active_average>
+          <total_average>65.444892</total_average>
+        </binned_data>
+        <binned_data type="monthly">
+          <index>3</index>
+          <steps>720</steps>
+          <active_steps>720</active_steps>
+          <sum>58041.000000</sum>
+          <max>440.000000</max>
+          <min>0.000000</min>
+          <active_average>80.612500</active_average>
+          <total_average>80.612500</total_average>
+        </binned_data>
+        <binned_data type="monthly">
+          <index>4</index>
+          <steps>744</steps>
+          <active_steps>744</active_steps>
+          <sum>73834.000000</sum>
+          <max>412.500000</max>
+          <min>0.000000</min>
+          <active_average>99.239247</active_average>
+          <total_average>99.239247</total_average>
+        </binned_data>
+        <binned_data type="monthly">
+          <index>5</index>
+          <steps>720</steps>
+          <active_steps>720</active_steps>
+          <sum>83535.000000</sum>
+          <max>446.500000</max>
+          <min>0.000000</min>
+          <active_average>116.020833</active_average>
+          <total_average>116.020833</total_average>
+        </binned_data>
+        <binned_data type="monthly">
+          <index>6</index>
+          <steps>744</steps>
+          <active_steps>744</active_steps>
+          <sum>80997.000000</sum>
+          <max>433.500000</max>
+          <min>0.000000</min>
+          <active_average>108.866935</active_average>
+          <total_average>108.866935</total_average>
+        </binned_data>
+        <binned_data type="monthly">
+          <index>7</index>
+          <steps>744</steps>
+          <active_steps>744</active_steps>
+          <sum>68113.000000</sum>
+          <max>407.500000</max>
+          <min>0.000000</min>
+          <active_average>91.549731</active_average>
+          <total_average>91.549731</total_average>
+        </binned_data>
+        <binned_data type="monthly">
+          <index>8</index>
+          <steps>720</steps>
+          <active_steps>720</active_steps>
+          <sum>50824.000000</sum>
+          <max>371.000000</max>
+          <min>0.000000</min>
+          <active_average>70.588889</active_average>
+          <total_average>70.588889</total_average>
+        </binned_data>
+        <binned_data type="monthly">
+          <index>9</index>
+          <steps>744</steps>
+          <active_steps>744</active_steps>
+          <sum>36135.000000</sum>
+          <max>299.000000</max>
+          <min>0.000000</min>
+          <active_average>48.568548</active_average>
+          <total_average>48.568548</total_average>
+        </binned_data>
+        <binned_data type="monthly">
+          <index>10</index>
+          <steps>720</steps>
+          <active_steps>720</active_steps>
+          <sum>22931.000000</sum>
+          <max>259.000000</max>
+          <min>0.000000</min>
+          <active_average>31.848611</active_average>
+          <total_average>31.848611</total_average>
+        </binned_data>
+        <binned_data type="monthly">
+          <index>11</index>
+          <steps>744</steps>
+          <active_steps>744</active_steps>
+          <sum>22609.000000</sum>
+          <max>180.000000</max>
+          <min>0.000000</min>
+          <active_average>30.388441</active_average>
+          <total_average>30.388441</total_average>
+        </binned_data>
+        <binned_data type="annual">
+          <steps>8760</steps>
+          <active_steps>8760</active_steps>
+          <sum>600117.000000</sum>
+          <max>446.500000</max>
+          <min>0.000000</min>
+          <active_average>68.506507</active_average>
+          <total_average>68.506507</total_average>
+        </binned_data>
+      </diffuse_horizontal_radiation>
+      <direct_normal_radiation>
+        <name>direct_normal_radiation</name>
+        <description>Climate direct normal solar radiation</description>
+        <units>(W/m2)</units>
+        <binned_data type="monthly">
+          <index>0</index>
+          <steps>744</steps>
+          <active_steps>744</active_steps>
+          <sum>69229.000000</sum>
+          <max>902.000000</max>
+          <min>0.000000</min>
+          <active_average>93.049731</active_average>
+          <total_average>93.049731</total_average>
+        </binned_data>
+        <binned_data type="monthly">
+          <index>1</index>
+          <steps>672</steps>
+          <active_steps>672</active_steps>
+          <sum>112702.000000</sum>
+          <max>969.000000</max>
+          <min>0.000000</min>
+          <active_average>167.711310</active_average>
+          <total_average>167.711310</total_average>
+        </binned_data>
+        <binned_data type="monthly">
+          <index>2</index>
+          <steps>744</steps>
+          <active_steps>744</active_steps>
+          <sum>141198.000000</sum>
+          <max>1001.500000</max>
+          <min>0.000000</min>
+          <active_average>189.782258</active_average>
+          <total_average>189.782258</total_average>
+        </binned_data>
+        <binned_data type="monthly">
+          <index>3</index>
+          <steps>720</steps>
+          <active_steps>720</active_steps>
+          <sum>137205.000000</sum>
+          <max>1007.000000</max>
+          <min>0.000000</min>
+          <active_average>190.562500</active_average>
+          <total_average>190.562500</total_average>
+        </binned_data>
+        <binned_data type="monthly">
+          <index>4</index>
+          <steps>744</steps>
+          <active_steps>744</active_steps>
+          <sum>145543.000000</sum>
+          <max>968.500000</max>
+          <min>0.000000</min>
+          <active_average>195.622312</active_average>
+          <total_average>195.622312</total_average>
+        </binned_data>
+        <binned_data type="monthly">
+          <index>5</index>
+          <steps>720</steps>
+          <active_steps>720</active_steps>
+          <sum>147165.000000</sum>
+          <max>886.000000</max>
+          <min>0.000000</min>
+          <active_average>204.395833</active_average>
+          <total_average>204.395833</total_average>
+        </binned_data>
+        <binned_data type="monthly">
+          <index>6</index>
+          <steps>744</steps>
+          <active_steps>744</active_steps>
+          <sum>165198.000000</sum>
+          <max>916.500000</max>
+          <min>0.000000</min>
+          <active_average>222.040323</active_average>
+          <total_average>222.040323</total_average>
+        </binned_data>
+        <binned_data type="monthly">
+          <index>7</index>
+          <steps>744</steps>
+          <active_steps>744</active_steps>
+          <sum>132247.000000</sum>
+          <max>896.500000</max>
+          <min>0.000000</min>
+          <active_average>177.751344</active_average>
+          <total_average>177.751344</total_average>
+        </binned_data>
+        <binned_data type="monthly">
+          <index>8</index>
+          <steps>720</steps>
+          <active_steps>720</active_steps>
+          <sum>117171.000000</sum>
+          <max>887.500000</max>
+          <min>0.000000</min>
+          <active_average>162.737500</active_average>
+          <total_average>162.737500</total_average>
+        </binned_data>
+        <binned_data type="monthly">
+          <index>9</index>
+          <steps>744</steps>
+          <active_steps>744</active_steps>
+          <sum>87177.000000</sum>
+          <max>883.500000</max>
+          <min>0.000000</min>
+          <active_average>117.173387</active_average>
+          <total_average>117.173387</total_average>
+        </binned_data>
+        <binned_data type="monthly">
+          <index>10</index>
+          <steps>720</steps>
+          <active_steps>720</active_steps>
+          <sum>51819.000000</sum>
+          <max>874.000000</max>
+          <min>0.000000</min>
+          <active_average>71.970833</active_average>
+          <total_average>71.970833</total_average>
+        </binned_data>
+        <binned_data type="monthly">
+          <index>11</index>
+          <steps>744</steps>
+          <active_steps>744</active_steps>
+          <sum>62077.000000</sum>
+          <max>859.000000</max>
+          <min>0.000000</min>
+          <active_average>83.436828</active_average>
+          <total_average>83.436828</total_average>
+        </binned_data>
+        <binned_data type="annual">
+          <steps>8760</steps>
+          <active_steps>8760</active_steps>
+          <sum>1368731.000000</sum>
+          <max>1007.000000</max>
+          <min>0.000000</min>
+          <active_average>156.247831</active_average>
+          <total_average>156.247831</total_average>
+        </binned_data>
+      </direct_normal_radiation>
+    </solar>
+  </climate>
+</system>

@@ -1,0 +1,5 @@
+1   0.0000000     #Number of hvac systems,site_altitude
+#         
+#===Information for System 1 Furnace====
+1  1  1 # HVAC system type; priority; # zones served
+8  2  1  1.00  10500.00   0.90  2   203.70   0.00   0.00  0 # type; fuel; 1st zone; fraction to 1st; SS capacity; eff; fan ops; fan power; pilot pwr; duct

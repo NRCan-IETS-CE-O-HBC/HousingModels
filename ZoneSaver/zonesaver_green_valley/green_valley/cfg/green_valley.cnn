@@ -1,0 +1,44 @@
+*connections for green_valley
+*Date Thu May  5 16:16:26 2011
+     41   # number of connections
+   1   1   0   0   0  #    1 wa01C0101 in basement is External
+   1   2   3   4   5  #    2 wa02C0101 in basement >|< wa05F0104 in garage
+   1   3   3   4   2  #    3 wa03C0101 in basement >|< wa02F0104 in garage
+   1   4   1   0   0  #    4 wa04C0101 in basement >|< Identical environment
+   1   5   0   0   0  #    5 wa05C0101 in basement is External
+   1   6   1   0   0  #    6 wa06C0101 in basement >|< Identical environment
+   1   7   6  28 100  #    7 fl01C0101 in basement is BASESIMP fndtn
+   1   8   3   2   6  #    8 ce01C0101 in basement >|< fl02C0202 in main
+   1   9   0   0   0  #    9 do01C0101 in basement is External
+   1  10   0   0   0  #   10 wi02C0101 in basement is External
+   1  11   0   0   0  #   11 wi03C0101 in basement is External
+   2   1   0   0   0  #   12 wa01C0202 in main is External
+   2   2   1   0   0  #   13 wa02C0202 in main >|< Identical environment
+   2   3   0   0   0  #   14 wa03C0202 in main is External
+   2   4   1   0   0  #   15 wa04C0202 in main >|< Identical environment
+   2   5   3   4   7  #   16 fl01C0202 in main >|< ce01F0104 in garage
+   2   6   3   1   8  #   17 fl02C0202 in main >|< ce01C0101 in basement
+   2   7   3   3   5  #   18 ce01C0202 in main >|< fl01C0303 in second
+   2   8   0   0   0  #   19 wi01C0202 in main is External
+   2   9   0   0   0  #   20 wi03C0202 in main is External
+   2  10   0   0   0  #   21 wi02C0202 in main is External
+   2  11   0   0   0  #   22 wi04C0202 in main is External
+   3   1   1   0   0  #   23 wa01C0303 in second >|< Identical environment
+   3   2   0   0   0  #   24 wa02C0303 in second is External
+   3   3   1   0   0  #   25 wa03C0303 in second >|< Identical environment
+   3   4   0   0   0  #   26 wa04C0303 in second is External
+   3   5   3   2   7  #   27 fl01C0303 in second >|< ce01C0202 in main
+   3   6   0   0   0  #   28 ce01C0303 in second is External
+   3   7   0   0   0  #   29 wi01C0303 in second is External
+   3   8   0   0   0  #   30 wi03C0303 in second is External
+   3   9   0   0   0  #   31 wi02C0303 in second is External
+   3  10   0   0   0  #   32 wi04C0303 in second is External
+   4   1   1   0   0  #   33 wa01F0104 in garage >|< Identical environment
+   4   2   3   1   3  #   34 wa02F0104 in garage >|< wa03C0101 in basement
+   4   3   0   0   0  #   35 wa03F0104 in garage is External
+   4   4   0   0   0  #   36 wa04F0104 in garage is External
+   4   5   3   1   2  #   37 wa05F0104 in garage >|< wa02C0101 in basement
+   4   6   6  28 100  #   38 fl01F0104 in garage is BASESIMP fndtn
+   4   7   3   2   5  #   39 ce01F0104 in garage >|< fl01C0202 in main
+   4   8   0   0   0  #   40 ce02F0104 in garage is External
+   4   9   0   0   0  #   41 do02F0104 in garage is External

@@ -1,0 +1,66 @@
+   20   11   20    1.000    (nodes, components, connections, wind reduction)
+ Node         Fld. Type   Height    Temperature    Data_1       Data_2
+ basement        1    0   1.3000       20.000       0.0000       267.48    
+ secondfloor     1    0   6.8525       20.000       0.0000       347.41    
+ bsmt_S          1    3   1.3000       0.0000       1.0000       180.00    
+ bsmt_E          1    3   1.3000       0.0000       1.0000       90.000    
+ bsmt_N          1    3   1.3000       0.0000       1.0000       0.0000    
+ bsmt_W          1    3   1.3000       0.0000       1.0000       270.00    
+ 1st_S           1    3   3.6600       0.0000       1.0000       180.00    
+ 1st_E           1    3   3.8130       0.0000       1.0000       90.000    
+ 1st_N           1    3   3.7220       0.0000       1.0000       0.0000    
+ 1st_W           1    3   4.1100       0.0000       1.0000       270.00    
+ 2nd_S           1    3   6.8310       0.0000       1.0000       180.00    
+ 2nd_E           1    3   6.6060       0.0000       1.0000       90.000    
+ 2nd_N           1    3   6.6420       0.0000       1.0000       0.0000    
+ 2nd_W           1    3   6.8470       0.0000       1.0000       270.00    
+ mainfloor       1    0   4.1100       20.000       0.0000       310.69    
+ supply_2nd      1    2   6.8500      -1.0000       0.0000       0.0000    
+ return_2nd      1    2   6.8500      -1.0000       0.0000       0.0000    
+ supply_1st      1    2   4.1100      -1.0000       0.0000       0.0000    
+ return_1st      1    2   4.1100      -1.0000       0.0000       0.0000    
+ return_bsmt     1    2   1.3000      -1.0000       0.0000       0.0000    
+ Component    Type C+ L+ Description
+ crack_bsmt    120  3  0 Specific air flow crack             m = rho.f(W,L,dP)       
+   1.000000      9.9999998E-03  1.0000000    
+ crack_1st     120  3  0 Specific air flow crack             m = rho.f(W,L,dP)       
+   1.000000      9.9999998E-03   1.800000    
+ crack_2nd     120  3  0 Specific air flow crack             m = rho.f(W,L,dP)       
+   1.000000      9.9999998E-03   1.800000    
+ flow_up_main   30  2  0 Constant vol. flow rate component   m = rho.a               
+   1.000000       0.000000    
+ flow_main_up   30  2  0 Constant vol. flow rate component   m = rho.a               
+   1.000000       0.000000    
+ flow_main_bs   30  2  0 Constant vol. flow rate component   m = rho.a               
+   1.000000       0.000000    
+ supply_2nd     30  2  0 Constant vol. flow rate component   m = rho.a               
+   1.000000       0.000000    
+ return_2nd     30  2  0 Constant vol. flow rate component   m = rho.a               
+   1.000000       0.000000    
+ supply_1st     30  2  0 Constant vol. flow rate component   m = rho.a               
+   1.000000       0.000000    
+ return_1st     30  2  0 Constant vol. flow rate component   m = rho.a               
+   1.000000       0.000000    
+ return_bsmt    30  2  0 Constant vol. flow rate component   m = rho.a               
+   1.000000       0.000000    
+ +Node         dHght   -Node         dHght   via Component
+ basement      0.000   bsmt_S        0.000   crack_bsmt                              
+ basement      0.000   bsmt_E        0.000   crack_bsmt                              
+ basement      0.000   bsmt_N        0.000   crack_bsmt                              
+ basement      0.000   bsmt_W        0.000   crack_bsmt                              
+ mainfloor     0.000   1st_S         0.000   crack_1st                               
+ mainfloor     0.000   1st_E         0.000   crack_1st                               
+ mainfloor     0.000   1st_N         0.000   crack_1st                               
+ mainfloor     0.000   1st_W         0.000   crack_1st                               
+ secondfloor   0.000   2nd_S         0.000   crack_2nd                               
+ secondfloor   0.000   2nd_E         0.000   crack_2nd                               
+ secondfloor   0.000   2nd_N         0.000   crack_2nd                               
+ secondfloor   0.000   2nd_W         0.000   crack_2nd                               
+ mainfloor     2.700   secondfloor  -2.700   flow_main_up                            
+ secondfloor  -2.700   mainfloor     2.700   flow_up_main                            
+ mainfloor    -1.405   basement      1.405   flow_main_bs                            
+ supply_2nd    0.000   secondfloor   0.000   supply_2nd                              
+ secondfloor   0.000   return_2nd    0.000   return_2nd                              
+ supply_1st    0.000   mainfloor     0.000   supply_1st                              
+ mainfloor     0.000   return_1st    0.000   return_1st                              
+ basement      0.000   return_bsmt   0.000   return_bsmt                             

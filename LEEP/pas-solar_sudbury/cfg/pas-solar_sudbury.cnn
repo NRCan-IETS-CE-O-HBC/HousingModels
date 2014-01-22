@@ -1,0 +1,76 @@
+*connections for pas-solar_sudbury
+*Date Mon Jan 31 11:48:40 2011
+     73   # number of connections
+   1   1   0   0   0  #    1 main_w in main_flr is External
+   1   2   0   0   0  #    2 main_s in main_flr is External
+   1   3   0   0   0  #    3 main_e in main_flr is External
+   1   4   0   0   0  #    4 main_n in main_flr is External
+   1   5   3   4   5  #    5 main_cl in main_flr >|< atc_fl in attic
+   1   6   3   2   5  #    6 no_th_m in main_flr >|< sub_fl in basement
+   1   7   0   0   0  #    7 main_glz_ws in main_flr is External
+   1   8   0   0   0  #    8 main_glz_wn in main_flr is External
+   1   9   0   0   0  #    9 main_glz_e in main_flr is External
+   1  10   0   0   0  #   10 main_glz_sw in main_flr is External
+   1  11   0   0   0  #   11 main_glz_ss in main_flr is External
+   1  12   0   0   0  #   12 main_glz_lrg in main_flr is External
+   1  13   0   0   0  #   13 main_glz_n in main_flr is External
+   1  14   0   0   0  #   14 front_door in main_flr is External
+   1  15   0   0   0  #   15 rear_door in main_flr is External
+   1  16   3   2  19  #   16 th_m_1 in main_flr >|< Top-19 in basement
+   1  17   3   2  18  #   17 th_m_2 in main_flr >|< Top-18 in basement
+   1  18   3   2  17  #   18 th_m_3 in main_flr >|< Top-17 in basement
+   1  19   3   2  16  #   19 bathroom in main_flr >|< Top-16 in basement
+   1  20   3   2  23  #   20 th_m_4 in main_flr >|< Top-23 in basement
+   1  21   3   2  22  #   21 th_m_5 in main_flr >|< Top-22 in basement
+   1  22   3   2  21  #   22 th_m_6 in main_flr >|< Top-21 in basement
+   1  23   3   2  20  #   23 th_m_7 in main_flr >|< Top-20 in basement
+   1  24   3   2  15  #   24 th_m_8 in main_flr >|< Top-15 in basement
+   1  25   3   2  14  #   25 th_m_9 in main_flr >|< Top-14 in basement
+   1  26   3   2  29  #   26 th_m_10 in main_flr >|< Top-29 in basement
+   1  27   3   2  27  #   27 th_m_11 in main_flr >|< Top-27 in basement
+   1  28   3   2  25  #   28 th_m_12 in main_flr >|< Top-25 in basement
+   1  29   3   2  28  #   29 th_m_13 in main_flr >|< Top-28 in basement
+   1  30   3   2  26  #   30 th_m_14 in main_flr >|< Top-26 in basement
+   1  31   3   2  24  #   31 th_m_15 in main_flr >|< Top-24 in basement
+   1  32   0   0   0  #   32 main_s_bf in main_flr is External
+   1  33   3   3   1  #   33 grg_connect in main_flr >|< grg_s in garage
+   2   1   6   1  12  #   34 bw_g_w in basement is BASESIMP fndtn
+   2   2   6   1  10  #   35 bw_g_s in basement is BASESIMP fndtn
+   2   3   6   1  12  #   36 bw_g_e in basement is BASESIMP fndtn
+   2   4   6   1  16  #   37 bw_g_n in basement is BASESIMP fndtn
+   2   5   3   1   6  #   38 sub_fl in basement >|< no_th_m in main_flr
+   2   6   6   1  50  #   39 grd_fl in basement is BASESIMP fndtn
+   2   7   0   0   0  #   40 av_g_w in basement is External
+   2   8   0   0   0  #   41 av_g_s in basement is External
+   2   9   0   0   0  #   42 av_g_e in basement is External
+   2  10   0   0   0  #   43 av_g_n in basement is External
+   2  11   0   0   0  #   44 bsm_glz_e in basement is External
+   2  12   0   0   0  #   45 bsm_glz_sw in basement is External
+   2  13   0   0   0  #   46 bsm_glz_se in basement is External
+   2  14   3   1  25  #   47 Top-14 in basement >|< th_m_9 in main_flr
+   2  15   3   1  24  #   48 Top-15 in basement >|< th_m_8 in main_flr
+   2  16   3   1  19  #   49 Top-16 in basement >|< bathroom in main_flr
+   2  17   3   1  18  #   50 Top-17 in basement >|< th_m_3 in main_flr
+   2  18   3   1  17  #   51 Top-18 in basement >|< th_m_2 in main_flr
+   2  19   3   1  16  #   52 Top-19 in basement >|< th_m_1 in main_flr
+   2  20   3   1  23  #   53 Top-20 in basement >|< th_m_7 in main_flr
+   2  21   3   1  22  #   54 Top-21 in basement >|< th_m_6 in main_flr
+   2  22   3   1  21  #   55 Top-22 in basement >|< th_m_5 in main_flr
+   2  23   3   1  20  #   56 Top-23 in basement >|< th_m_4 in main_flr
+   2  24   3   1  31  #   57 Top-24 in basement >|< th_m_15 in main_flr
+   2  25   3   1  28  #   58 Top-25 in basement >|< th_m_12 in main_flr
+   2  26   3   1  30  #   59 Top-26 in basement >|< th_m_14 in main_flr
+   2  27   3   1  27  #   60 Top-27 in basement >|< th_m_11 in main_flr
+   2  28   3   1  29  #   61 Top-28 in basement >|< th_m_13 in main_flr
+   2  29   3   1  26  #   62 Top-29 in basement >|< th_m_10 in main_flr
+   3   1   3   1  33  #   63 grg_s in garage >|< grg_connect in main_flr
+   3   2   0   0   0  #   64 grg_e in garage is External
+   3   3   0   0   0  #   65 grg_n in garage is External
+   3   4   0   0   0  #   66 grg_w in garage is External
+   3   5   0   0   0  #   67 grg_cl in garage is External
+   3   6   6  29 100  #   68 grg_fl in garage is BASESIMP fndtn
+   4   1   0   0   0  #   69 atc_w in attic is External
+   4   2   0   0   0  #   70 atc_s in attic is External
+   4   3   0   0   0  #   71 atc_e in attic is External
+   4   4   0   0   0  #   72 atc_n in attic is External
+   4   5   3   1   5  #   73 atc_fl in attic >|< main_cl in main_flr

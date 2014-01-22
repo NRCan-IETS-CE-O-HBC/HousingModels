@@ -1,0 +1,11 @@
+*ESP-r visualisation scene configuration file.
+Mon Feb 28 10:03:15 2011 # latest file modification.
+  1 # No. of scenes
+# Scene number  1
+*snm NZEH_Extern                          # Scene name
+*rnm NZEH_Extern.rif                      # Rif name
+*srt NZEH_Extern                          # Scene prefix
+*rde Scene of NZEH for External analysis. # Description
+*rpu External                             # Intended use
+*sceneEND
+*end

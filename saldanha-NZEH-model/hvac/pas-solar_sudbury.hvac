@@ -1,0 +1,6 @@
+2 0. # number of HVAC systems; altitude
+1 1 1 # furnace; primary system; # zones served
+8 2 3 1 2941.176 0.94 1 -1 75 0. 1 # type; fuel; 1st zone; fraction to 1st; 2nd zone; fraction to 2nd; SS capacity; eff; fan ops; fan power; pilot pwr; duct
+7 1 1 # HVAC system type; priority; zones served
+2 1 3 1 2941.176 3. -1 -1 1 300. 1 # AC type; priority; 1st zone; fraction; 2nd zone; fraction; capacity; COP; flow rate; rated flow rate; circulation fan mode; power; duct
+0.75 1 1.5 1 1 1 # sensible heat ratio; cooling type; flow rate, open window area, control function

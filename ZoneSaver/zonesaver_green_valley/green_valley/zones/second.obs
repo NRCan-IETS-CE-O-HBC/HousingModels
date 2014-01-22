@@ -1,0 +1,9 @@
+# site obstruction file defined in ../zones/second.obs
+# associated with zone geometry file ../zones/second.geo
+ 0. 0.   # dummy values for site position
+    2    # no obstruction blocks
+# origin X Y Z, width, depth, height, rot angle, descr, material
+0.000 13.050 7.470 6.400 0.300 0.100 0.000 First NONE # block 1
+0.000 3.050 7.470 6.400 0.300 0.100 0.000 new_blk NONE # block 2
+# grid surf X surf Z
+    20    20

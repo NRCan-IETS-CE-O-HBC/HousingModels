@@ -1,0 +1,24 @@
+# thermophysical properties of attic defined in ../zones_tm3/attic.con
+# no of |air |surface(from geo)| multilayer construction
+# layers|gaps|  no.  name      | database name 
+     1,     0  #  1 atc_w        Sdb_roof    
+     1,     0  #  2 atc_s        Sdb_roof    
+     1,     0  #  3 atc_e        Sdb_roof    
+     1,     0  #  4 atc_n        Sdb_roof    
+     2,     0  #  5 atc_fl       Sdb_at_fl_up
+# conduc-  |  density | specific | thick- |dpnd|  ref. |  temp. |moisture| surf|lyr
+# tivity   |          | heat     |ness(m) |type|  temp | factor | factor |     |  
+     0.0600,     250.0,    1000.0,  0.0125,   0,   0.00, 0.00000, 0.00000  #  1   1
+     0.0600,     250.0,    1000.0,  0.0125,   0,   0.00, 0.00000, 0.00000  #  2   1
+     0.0600,     250.0,    1000.0,  0.0125,   0,   0.00, 0.00000, 0.00000  #  3   1
+     0.0600,     250.0,    1000.0,  0.0125,   0,   0.00, 0.00000, 0.00000  #  4   1
+     0.1600,     800.0,    1090.0,  0.0125,   0,   0.00, 0.00000, 0.00000  #  5   1
+     0.0360,     100.0,     960.0,  0.2480,   0,   0.00, 0.00000, 0.00000  #      2
+# for each surface: inside face emissivity
+ 0.90000,0.90000,0.90000,0.90000,0.93000
+# for each surface: outside face emissivity
+ 0.90000,0.90000,0.90000,0.90000,0.90000
+# for each surface: inside face solar absorptivity
+ 0.70000,0.70000,0.70000,0.70000,0.93000
+# for each surface: outside face solar absorptivity
+ 0.70000,0.70000,0.70000,0.70000,0.90000

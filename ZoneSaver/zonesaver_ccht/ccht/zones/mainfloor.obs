@@ -1,0 +1,12 @@
+# site obstruction file defined in ../zones/mainfloor.obs
+# associated with zone geometry file ../zones/mainfloor.geo
+ 0. 0.   # dummy values for site position
+    5    # no obstruction blocks
+# origin X Y Z, width, depth, height, rot angle, descr, material
+0.990 -12.080 3.190 2.450 0.075 0.010 0.000 w_livings ccht_wall # block 1
+0.990 -12.080 5.040 2.450 0.075 0.010 0.000 w_livingh ccht_wall # block 2
+0.990 -12.080 3.190 0.010 0.075 1.860 0.000 w_livingl ccht_wall # block 3
+3.430 -12.080 3.190 0.010 0.075 1.860 0.000 w_livingr ccht_wall # block 4
+0.000 0.000 0.000 0.000 0.000 0.000 0.000 new_blk NONE # block 5
+# grid surf X surf Z
+    20    20

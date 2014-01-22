@@ -1,0 +1,19 @@
+*HC_CTL for zone second
+*Date,Thu May  5 16:16:33 2011
+   1 # number control intervals
+  10 # number of surfaces
+# (wa01C0303 wa02C0303 wa03C0303 wa04C0303 fl01C0303 ce01C0303 wi01C0303 wi03C0303 wi02C0303 wi04C0303)
+  0.00    24.00 # start and end time of interval
+   3 # adaptive calculation control type
+*Doc,convection via fan in room
+   1.   6.  -1.   0.  99.  99.  99.  99.
+   1.   6.  -1.   0.  99.  99.  99.  99.
+   1.   6.  -1.   0.  99.  99.  99.  99.
+   1.   6.  -1.   0.  99.  99.  99.  99.
+   1.  70.  -1.   0.  99.  99.  99.  99.
+   1.  61.  -1.   0.  99.  99.  99.  99.
+   1.   6.  -1.   0.  99.  99.  99.  99.
+   1.   6.  -1.   0.  99.  99.  99.  99.
+   1.   6.  -1.   0.  99.  99.  99.  99.
+   1.   6.  -1.   0.  99.  99.  99.  99.
+  0 0.000 0.000 # Air origin zone (+ chan. width & height if Bar-Cohen cor.)

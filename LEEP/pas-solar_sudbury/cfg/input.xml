@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+  <apply_style_sheet>true</apply_style_sheet>
+  <dump_all_data>false</dump_all_data>
+  <enable_xml_wildcards>true</enable_xml_wildcards>
+  <hierarchy>tree</hierarchy>
+  <output_dictionary>true</output_dictionary>
+  <report_startup_period_data>false</report_startup_period_data>
+  <save_to_disk>false</save_to_disk>
+  <link_style_sheet>false</link_style_sheet> 
+  <time_step_averaging>false</time_step_averaging>
+  
+  <step_variable>building/time_step</step_variable>
+  <step_variable>building/all_zones/supplied_energy/cooling</step_variable>
+  <step_variable>building/all_zones/supplied_energy/heating</step_variable>  
+  <step_variable>building/all_zones/insolation/adverse</step_variable>
+  <step_variable>building/all_zones/insolation/total</step_variable>
+  <step_variable>building/all_zones/insolation/useful</step_variable>
+  <step_variable>building/day_number/present</step_variable>
+  <step_variable>building/hour/present</step_variable>
+  <step_variable>building/month</step_variable>      
+  <step_variable>building/zone_01/air_point/temperature</step_variable>
+  <step_variable>building/zone_01/supplied_energy/heating</step_variable>
+  <step_variable>building/zone_01/surface_06/temperature</step_variable>
+  <step_variable>building/zone_01/surface_16/temperature</step_variable>
+  <step_variable>building/zone_01/surface_17/temperature</step_variable>
+  <step_variable>building/zone_01/surface_18/temperature</step_variable>
+  <step_variable>building/zone_01/surface_19/temperature</step_variable>
+  <step_variable>building/zone_01/surface_20/temperature</step_variable>
+  <step_variable>building/zone_01/surface_21/temperature</step_variable>
+  <step_variable>building/zone_01/surface_22/temperature</step_variable>
+  <step_variable>building/zone_01/surface_23/temperature</step_variable>
+  <step_variable>building/zone_01/surface_24/temperature</step_variable>
+  <step_variable>building/zone_01/surface_25/temperature</step_variable>
+  <step_variable>building/zone_01/surface_26/temperature</step_variable>
+  <step_variable>building/zone_01/surface_27/temperature</step_variable>
+  <step_variable>building/zone_01/surface_28/temperature</step_variable>
+  <step_variable>building/zone_01/surface_29/temperature</step_variable>
+  <step_variable>building/zone_01/surface_30/temperature</step_variable>
+  <step_variable>building/zone_01/surface_31/temperature</step_variable>     
+  <step_variable>building/zone_02/air_point/temperature</step_variable>
+  <step_variable>building/zone_02/supplied_energy/heating</step_variable>
+  <step_variable>building/zone_03/air_point/temperature</step_variable>
+  <step_variable>building/zone_03/supplied_energy/heating</step_variable>
+  <step_variable>building/zone_04/air_point/temperature</step_variable>
+  <step_variable>building/zone_04/supplied_energy/heating</step_variable>
+  <step_variable>climate/dry_bulb_temperature</step_variable>
+
+  <step_variable>*windows/position*</step_variable>
+  <step_variable>building/zone_01/envelope/infiltration/air_changes_per_hour</step_variable>
+  
+  
+  <link_style_sheet>false</link_style_sheet> 
+  <time_step_averaging>false</time_step_averaging>
+  
+  <style_sheet>monthly_tables.xsl</style_sheet>
+  <transform_destination_file>monthly_results.csv</transform_destination_file>
+  
+   
+  <log_variable>*month*</log_variable>
+  <log_variable>climate/dry_bulb_temperature</log_variable>
+  <log_variable>climate/relative_humidity</log_variable>
+  <log_variable>climate/solar/diffuse_horizontal_radiation</log_variable>
+  <log_variable>climate/solar/direct_normal_radiation</log_variable>
+  
+  <log_variable>plant/ideal_hvac_models/*</log_variable>
+  
+  <log_variable>building/all_zones/supplied_energy/heating</log_variable>
+  <log_variable>building/all_zones/supplied_energy/cooling</log_variable>
+  <log_variable>building/zone_0*/insolation/total</log_variable>
+  <log_variable>building/zone_0*/air_point/temperature</log_variable>
+  <log_variable>building/zone_0*/supplied_energy/cooling</log_variable>
+  <log_variable>building/zone_0*/supplied_energy/heating</log_variable>
+
+  <log_variable>total_fuel_use*</log_variable>
+  
+  <summary_variable>building/all_zones/supplied_energy/heating</summary_variable>
+  <summary_variable>building/all_zones/supplied_energy/cooling</summary_variable>
+  
+    
+</configuration>

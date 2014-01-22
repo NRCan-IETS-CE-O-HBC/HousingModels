@@ -1,0 +1,17 @@
+#New 2-Layer System
+2                        #<-- number of layers
+GLZ GLZ                  #<-- Layer types, layer 1,2 ... 
+CLEAR_3.DAT     102 a  8.340e-001 7.500e-002 7.500e-002 8.990e-001 8.300e-002 8.300e-002 0.000e+000 8.400e-001 8.400e-001 3.048e-003 1.000e+000 #<--Layer 1
+CMFTE1_5.AFG    905 a  7.170e-001 1.050e-001 9.400e-002 8.240e-001 1.140e-001 1.080e-001 0.000e+000 2.990e-001 8.400e-001 4.775e-003 1.000e+000 #<--Layer 2
+norm                     #<-- Gap types, gap 1,2 ... 
+norm/000/100/000/000/000/000/none       1.2700e-002    #<-- name (char 40) and thickness (m) of gap(1)
+039.9480                            #<-- molecular mass (g/gmole)
++2.477e-003 +5.071e-005             #<-- a and b coefficients - conductivity (W/m.K(.K))
++3.618e-006 +6.440e-008             #<-- a and b coefficients - viscosity (kg/m.s(.K) or N.s/m2(.K))
++5.257e+002 -1.376e-002             #<-- a and b coefficients - specific heat (J/kg.K(.K))
+#********    user-defined gas (UDG) data    *****************
+none                                #<-- name of user-defined gas (UDG) component - if any
+028.9700                            #<-- molecular mass of UDG (g/gmole)
++2.301e-003 +7.987e-005             #<-- a and b coefficients - UDG conductivity (W/m.K(.K))
++3.517e-003 +4.980e-005             #<-- a and b coefficients - UDG viscosity  (g/m.s(.K) or mN.s/m2(.K))
++2.902e+001 +4.249e-004             #<-- a and b coefficients - UDG specific heat (J/gmole.K(.K))

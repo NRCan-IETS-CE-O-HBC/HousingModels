@@ -1,0 +1,36 @@
+# transparent properties of second defined in user/green_valley/zones/second.tmc
+  10    # surfaces
+# tmc index for each surface
+  0  0  0  0  0  0  1  2  3  4
+   3  wi01C0303     # layers in tmc type  1
+# Transmission @ 5 angles & visible tr.
+0.612 0.588 0.501 0.378 0.177 0.677
+# For each layer absorption @ 5 angles
+0.0816 0.0894 0.1015 0.1102 0.1154 
+0.0087 0.0087 0.0087 0.0087 0.0087 
+0.0642 0.0694 0.0703 0.0642 0.0477 
+0   # blind/shutter control flag
+   3  wi03C0303     # layers in tmc type  2
+# Transmission @ 5 angles & visible tr.
+0.551 0.530 0.451 0.341 0.159 0.609
+# For each layer absorption @ 5 angles
+0.0734 0.0805 0.0914 0.0992 0.1039 
+0.0078 0.0078 0.0078 0.0078 0.0078 
+0.0578 0.0625 0.0633 0.0578 0.0430 
+0   # blind/shutter control flag
+   3  wi02C0303     # layers in tmc type  3
+# Transmission @ 5 angles & visible tr.
+0.612 0.588 0.501 0.378 0.177 0.677
+# For each layer absorption @ 5 angles
+0.0816 0.0894 0.1015 0.1102 0.1154 
+0.0087 0.0087 0.0087 0.0087 0.0087 
+0.0642 0.0694 0.0703 0.0642 0.0477 
+0   # blind/shutter control flag
+   3  wi04C0303     # layers in tmc type  4
+# Transmission @ 5 angles & visible tr.
+0.551 0.530 0.451 0.341 0.159 0.609
+# For each layer absorption @ 5 angles
+0.0734 0.0805 0.0914 0.0992 0.1039 
+0.0078 0.0078 0.0078 0.0078 0.0078 
+0.0578 0.0625 0.0633 0.0578 0.0430 
+0   # blind/shutter control flag

@@ -1,0 +1,199 @@
+# Radiance glazing definitions
+# (first line of file must not be edited)
+  
+void  glass  unknown_glz
+0 
+0 
+3    0.87    0.87    0.87
+  
+void glass DblArLowe
+0 
+0 
+3    0.67  0.67  0.67
+  
+# bsmt Surface defs..
+  
+  
+#@mkillum e=DblArLowe d=48 s=32
+DblArLowe  polygon  bsmt:win1
+0 
+0 
+ 12
+   10.63620    0.60000    2.65600
+   10.63620    2.03000    2.65600
+   10.63620    2.03000    2.05600
+   10.63620    0.60000    2.05600
+  
+#@mkillum e=DblArLowe d=48 s=32
+DblArLowe  polygon  bsmt:win2
+0 
+0 
+ 12
+   10.63620    2.80000    2.65600
+   10.63620    4.23000    2.65600
+   10.63620    4.23000    2.05600
+   10.63620    2.80000    2.05600
+  
+#@mkillum e=DblArLowe d=48 s=32
+DblArLowe  polygon  bsmt:win3
+0 
+0 
+ 12
+   10.63620   10.40330    2.65600
+   10.63620   11.83330    2.65600
+   10.63620   11.83330    2.05600
+   10.63620   10.40330    2.05600
+  
+#@mkillum e=DblArLowe d=48 s=32
+DblArLowe  polygon  bsmt:win4
+0 
+0 
+ 12
+   -1.21920   11.53330    2.65600
+   -1.21920   10.10330    2.65600
+   -1.21920   10.10330    2.05600
+   -1.21920   11.53330    2.05600
+# garage Surface defs..
+  
+# first_fl Surface defs..
+  
+  
+#@mkillum e=DblArLowe d=48 s=32
+DblArLowe  polygon  first_fl:win1
+0 
+0 
+ 12
+   10.63620    2.03000    5.20000
+   10.63620    2.03000    3.77000
+   10.63620    0.60000    3.77000
+   10.63620    0.60000    5.20000
+  
+#@mkillum e=DblArLowe d=48 s=32
+DblArLowe  polygon  first_fl:win2
+0 
+0 
+ 12
+   10.63620    4.43000    5.20000
+   10.63620    4.43000    3.77000
+   10.63620    3.60700    3.77000
+   10.63620    3.60700    5.20000
+  
+#@mkillum e=DblArLowe d=48 s=32
+DblArLowe  polygon  first_fl:win3
+0 
+0 
+ 12
+   10.63620    5.50000    5.00000
+   10.63620    7.22500    5.00000
+   10.63620    7.22500    3.00000
+   10.63620    5.50000    3.00000
+  
+#@mkillum e=DblArLowe d=48 s=32
+DblArLowe  polygon  first_fl:win4
+0 
+0 
+ 12
+   10.63620   11.80000    5.20000
+   10.63620   11.80000    3.77000
+   10.63620    8.94000    3.77000
+   10.63620    8.94000    5.20000
+  
+#@mkillum e=DblArLowe d=48 s=32
+DblArLowe  polygon  first_fl:win5
+0 
+0 
+ 12
+   10.40000   12.43330    5.20000
+    9.38500   12.43330    5.20000
+    9.38500   12.43330    3.67600
+   10.40000   12.43330    3.67600
+  
+#@mkillum e=DblArLowe d=48 s=32
+DblArLowe  polygon  first_fl:win6
+0 
+0 
+ 12
+    5.43600   12.43330    5.20000
+    4.82600   12.43330    5.20000
+    4.82600   12.43330    4.47010
+    5.43600   12.43330    4.47010
+  
+#@mkillum e=DblArLowe d=48 s=32
+DblArLowe  polygon  first_fl:win7
+0 
+0 
+ 12
+   -1.21920   11.60000    5.20000
+   -1.21920    9.46640    5.20000
+   -1.21920    9.46640    3.67600
+   -1.21920   11.60000    3.67600
+# master Surface defs..
+  
+  
+#@mkillum e=DblArLowe d=48 s=32
+DblArLowe  polygon  master:win
+0 
+0 
+ 12
+   10.63620    1.23330    7.91100
+   10.63620    2.66330    7.91100
+   10.63620    2.66330    6.48100
+   10.63620    1.23330    6.48100
+# ensuite Surface defs..
+  
+  
+#@mkillum e=DblArLowe d=48 s=32
+DblArLowe  polygon  ensuite:win
+0 
+0 
+ 12
+   10.63620    5.50000    7.91100
+   10.63620    6.32330    7.91100
+   10.63620    6.32330    6.48100
+   10.63620    5.50000    6.48100
+# bedroom Surface defs..
+  
+  
+#@mkillum e=DblArLowe d=48 s=32
+DblArLowe  polygon  bedroom:win
+0 
+0 
+ 12
+   10.63620    9.77000    7.91100
+   10.63620   11.20000    7.91100
+   10.63620   11.20000    6.48100
+   10.63620    9.77000    6.48100
+# top_fl Surface defs..
+  
+  
+#@mkillum e=DblArLowe d=48 s=32
+DblArLowe  polygon  top_fl:win1
+0 
+0 
+ 12
+   -1.21920   11.20000    7.91100
+   -1.21920    9.77000    7.91100
+   -1.21920    9.77000    6.48100
+   -1.21920   11.20000    6.48100
+  
+#@mkillum e=DblArLowe d=48 s=32
+DblArLowe  polygon  top_fl:win2
+0 
+0 
+ 12
+    0.00000    5.37700    7.91100
+    0.00000    2.00000    7.91100
+    0.00000    2.00000    6.48100
+    0.00000    5.37700    6.48100
+  
+#@mkillum e=DblArLowe d=48 s=32
+DblArLowe  polygon  top_fl:win3
+0 
+0 
+ 12
+    5.00000   12.43300    7.91100
+    4.17700   12.43300    7.91100
+    4.17700   12.43300    6.89600
+    5.00000   12.43300    6.89600
+# roof Surface defs..
+  

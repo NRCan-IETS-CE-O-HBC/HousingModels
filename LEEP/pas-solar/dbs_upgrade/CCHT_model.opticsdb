@@ -1,0 +1,24 @@
+# optical properties db for transparent,
+# constructions (TMC) and casual gain control
+# 
+# Glazed info follows:
+# 12 char id |  description       | thick | blind
+SC_fictit     :Fictitious 99/99
+# def lyr, tmc lyr, vis trn, sol refl, sol absor, U val
+  1   1  0.990  0.010  0.010  9.000
+# direct trn @ 5 angles, total heat gain @ 5 angles
+  0.998 0.987 0.986 0.985 0.984 0.980 0.970 0.960 0.950 0.940
+# refr index, absorption @ 5 angles for each tmc layer
+  1.520 0.001 0.001 0.001 0.001 0.001
+# 12 char id |  description       | thick | blind
+TPL-low-e     :UNKNOWN
+# def lyr, tmc lyr, vis trn, sol refl, sol absor, U val
+  1   5  0.640  0.070  0.110  5.400
+# direct trn @ 5 angles, total heat gain @ 5 angles
+  0.456 0.433 0.000 0.100 0.100 0.200 0.200 0.200 0.200 0.200
+# refr index, absorption @ 5 angles for each tmc layer
+  1.520 0.100 0.100 0.100 0.100 0.100
+  1.000 0.001 0.001 0.001 0.001 0.001
+  1.000 0.200 0.200 0.200 0.200 0.200
+  1.000 0.001 0.001 0.001 0.001 0.001
+  1.520 0.100 0.100 0.100 0.100 0.100

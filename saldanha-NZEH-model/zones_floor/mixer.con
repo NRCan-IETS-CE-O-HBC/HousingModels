@@ -1,0 +1,31 @@
+# thermophysical properties of mixer defined in ../zones_floor/mixer.con
+# no of |air |surface(from geo)| multilayer construction
+# layers|gaps|  no.  name      | database name 
+     2,     0  #  1 Wall-1       bsm_flr     
+     2,     0  #  2 Wall-2       bsm_flr     
+     2,     0  #  3 Wall-3       bsm_flr     
+     2,     0  #  4 Wall-4       bsm_flr     
+     2,     0  #  5 Top-5        bsm_flr     
+     2,     0  #  6 Base-6       bsm_flr     
+# conduc-  |  density | specific | thick- |dpnd|  ref. |  temp. |moisture| surf|lyr
+# tivity   |          | heat     |ness(m) |type|  temp | factor | factor |     |  
+     0.5200,    2050.0,     184.0,  0.1500,   0,   0.00, 0.00000, 0.00000  #  1   1
+     0.3800,    2350.0,     880.0,  0.0890,   0,   0.00, 0.00000, 0.00000  #      2
+     0.5200,    2050.0,     184.0,  0.1500,   0,   0.00, 0.00000, 0.00000  #  2   1
+     0.3800,    2350.0,     880.0,  0.0890,   0,   0.00, 0.00000, 0.00000  #      2
+     0.5200,    2050.0,     184.0,  0.1500,   0,   0.00, 0.00000, 0.00000  #  3   1
+     0.3800,    2350.0,     880.0,  0.0890,   0,   0.00, 0.00000, 0.00000  #      2
+     0.5200,    2050.0,     184.0,  0.1500,   0,   0.00, 0.00000, 0.00000  #  4   1
+     0.3800,    2350.0,     880.0,  0.0890,   0,   0.00, 0.00000, 0.00000  #      2
+     0.5200,    2050.0,     184.0,  0.1500,   0,   0.00, 0.00000, 0.00000  #  5   1
+     0.3800,    2350.0,     880.0,  0.0890,   0,   0.00, 0.00000, 0.00000  #      2
+     0.5200,    2050.0,     184.0,  0.1500,   0,   0.00, 0.00000, 0.00000  #  6   1
+     0.3800,    2350.0,     880.0,  0.0890,   0,   0.00, 0.00000, 0.00000  #      2
+# for each surface: inside face emissivity
+ 0.90000,0.90000,0.90000,0.90000,0.90000,0.90000
+# for each surface: outside face emissivity
+ 0.90000,0.90000,0.90000,0.90000,0.90000,0.90000
+# for each surface: inside face solar absorptivity
+ 0.65000,0.65000,0.65000,0.65000,0.65000,0.65000
+# for each surface: outside face solar absorptivity
+ 0.85000,0.85000,0.85000,0.85000,0.85000,0.85000

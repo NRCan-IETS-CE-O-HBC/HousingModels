@@ -1,0 +1,22 @@
+# Radiance RIF file: NZEH_Extern.rif
+#e2r_gen_view   0 -1
+#e2r_glaz_type   1
+view= def -vtv -vp  -100.000 -100.000  100.000 -vd   0.5937  0.6023 -0.5336 -vu 0 0 1 -vh    7.7 -vv    7.7 -vs 0 -vl 0
+scene= NZEH_Extern.sky
+scene= NZEH_Extern-glz.rad
+scene= NZEH_Extern.mat
+scene= NZEH_Extern-out.rad
+scene= NZEH_Extern-in.rad
+UP= Z
+QUALITY= Medium
+DETAIL= Medium
+VARIABILITY= High  
+RESOLUTION=   258
+INDIRECT=  1
+PENUMBRAS= False
+REPORT=    1
+render= -av  0.2  0.2  0.2
+ZONE= Exterior   -22.99   32.41  -21.49   33.92    0.00   27.70
+OPTFILE= NZEH_Extern.opt
+OCTREE= NZEH_Extern.oct
+PICTURE= NZEH_Extern

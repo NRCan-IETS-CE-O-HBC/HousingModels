@@ -1,0 +1,59 @@
+*connections for CCHT_model
+*Date Fri Oct  8 00:06:01 2010
+     56   # number of connections
+   1   1   6   1   6  #    1 Wall-1 in basement is BASESIMP fndtn
+   1   2   6   1   6  #    2 Wall-2 in basement is BASESIMP fndtn
+   1   3   6   1   6  #    3 Wall-3 in basement is BASESIMP fndtn
+   1   4   6   1   6  #    4 Wall-4 in basement is BASESIMP fndtn
+   1   5   6   1  12  #    5 Wall-5 in basement is BASESIMP fndtn
+   1   6   6   1  13  #    6 Wall-6 in basement is BASESIMP fndtn
+   1   7   3   4  15  #    7 Top-7 in basement >|< Base-8 in main_flrs
+   1   8   6   1  50  #    8 Base-8 in basement is BASESIMP fndtn
+   2   1   0   0   0  #    9 Wall-1 in garage is External
+   2   2   0   0   0  #   10 Wall-2 in garage is External
+   2   3   3   4   6  #   11 Wall-3 in garage >|< Wall-3 in main_flrs
+   2   4   3   4   7  #   12 Wall-4 in garage >|< Wall-20 in main_flrs
+   2   5   6   2 100  #   13 Base-6 in garage is BASESIMP fndtn
+   2   6   3   4  11  #   14 Top-13 in garage >|< Top-13 in main_flrs
+   2   7   3   3  12  #   15 Base-13 in garage >|< Base-13 in attic
+   3   1   0   0   0  #   16 Wall-7 in attic is External
+   3   2   0   0   0  #   17 Surf-3 in attic is External
+   3   3   0   0   0  #   18 Wall-4 in attic is External
+   3   4   0   0   0  #   19 Wall-5 in attic is External
+   3   5   0   0   0  #   20 Surf-6 in attic is External
+   3   6   0   0   0  #   21 Surf-7 in attic is External
+   3   7   0   0   0  #   22 Surf-17 in attic is External
+   3   8   3   4   5  #   23 Top-7 in attic >|< Top-7 in main_flrs
+   3   9   0   0   0  #   24 Wall-10 in attic is External
+   3  10   3   4   8  #   25 Wall-11 in attic >|< Wall-9 in main_flrs
+   3  11   3   4   9  #   26 Wall-12 in attic >|< Wall-10 in main_flrs
+   3  12   3   2   7  #   27 Base-13 in attic >|< Base-13 in garage
+   3  13   0   0   0  #   28 Wall-14 in attic is External
+   3  14   3   4  13  #   29 Wall-15 in attic >|< Surf-15 in main_flrs
+   3  15   3   4  10  #   30 Wall-16 in attic >|< Wall-11 in main_flrs
+   3  16   3   4  14  #   31 Base-17 in attic >|< Top-16 in main_flrs
+   3  17   0   0   0  #   32 Wall-18 in attic is External
+   3  18   0   0   0  #   33 Wall-19 in attic is External
+   4   1   0   0   0  #   34 Wall-1 in main_flrs is External
+   4   2   0   0   0  #   35 Wall-4 in main_flrs is External
+   4   3   0   0   0  #   36 Wall-5 in main_flrs is External
+   4   4   0   0   0  #   37 Wall-6 in main_flrs is External
+   4   5   3   3   8  #   38 Top-7 in main_flrs >|< Top-7 in attic
+   4   6   3   2   3  #   39 Wall-3 in main_flrs >|< Wall-3 in garage
+   4   7   3   2   4  #   40 Wall-20 in main_flrs >|< Wall-4 in garage
+   4   8   3   3  10  #   41 Wall-9 in main_flrs >|< Wall-11 in attic
+   4   9   3   3  11  #   42 Wall-10 in main_flrs >|< Wall-12 in attic
+   4  10   3   3  15  #   43 Wall-11 in main_flrs >|< Wall-16 in attic
+   4  11   3   2   6  #   44 Top-13 in main_flrs >|< Top-13 in garage
+   4  12   0   0   0  #   45 Wall-14 in main_flrs is External
+   4  13   3   3  14  #   46 Surf-15 in main_flrs >|< Wall-15 in attic
+   4  14   3   3  16  #   47 Top-16 in main_flrs >|< Base-17 in attic
+   4  15   3   1   7  #   48 Base-8 in main_flrs >|< Top-7 in basement
+   4  16   0   0   0  #   49 win_w in main_flrs is External
+   4  17   0   0   0  #   50 win_n_bot in main_flrs is External
+   4  18   0   0   0  #   51 win_s in main_flrs is External
+   4  19   0   0   0  #   52 win_e in main_flrs is External
+   4  20   0   0   0  #   53 win_s_bot in main_flrs is External
+   4  21   1   0   0  #   54 fin-bottom in main_flrs >|< Identical environment
+   4  22   1   0   0  #   55 fin-top in main_flrs >|< Identical environment
+   4  23   0   0   0  #   56 win-n-top in main_flrs is External

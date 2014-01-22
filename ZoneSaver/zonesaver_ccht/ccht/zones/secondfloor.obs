@@ -1,0 +1,19 @@
+# site obstruction file defined in ../zones/secondfloor.obs
+# associated with zone geometry file ../zones/secondfloor.geo
+ 0. 0.   # dummy values for site position
+   12    # no obstruction blocks
+# origin X Y Z, width, depth, height, rot angle, descr, material
+0.990 -12.080 6.010 2.450 0.075 0.010 0.000 w_bedrm2s ccht_wall # block 1
+0.990 -13.580 7.660 2.450 1.575 0.010 0.000 w_bedrm2h ccht_wall # block 2
+0.990 -12.080 6.010 0.010 0.075 1.660 0.000 w_bedrm2l ccht_wall # block 3
+3.430 -12.080 6.010 0.010 0.075 1.660 0.000 w_bedrm2r ccht_wall # block 4
+4.240 -12.080 6.610 1.650 0.075 0.010 0.000 w_bathros ccht_wall # block 5
+4.240 -12.080 7.660 1.650 0.075 0.010 0.000 w_bathroh ccht_wall # block 6
+4.240 -12.080 6.610 0.010 0.075 1.060 0.000 w_bathrol ccht_wall # block 7
+5.880 -12.080 6.610 0.010 0.075 1.060 0.000 w_bathror ccht_wall # block 8
+6.990 -12.080 6.400 2.240 0.075 0.010 0.000 w_masters ccht_wall # block 9
+6.990 -12.080 7.660 2.240 0.075 0.010 0.000 w_masterh ccht_wall # block 10
+6.990 -12.080 6.400 0.010 0.075 1.270 0.000 w_masterl ccht_wall # block 11
+9.220 -12.080 6.400 0.010 0.075 1.270 0.000 w_masterr ccht_wall # block 12
+# grid surf X surf Z
+    20    20

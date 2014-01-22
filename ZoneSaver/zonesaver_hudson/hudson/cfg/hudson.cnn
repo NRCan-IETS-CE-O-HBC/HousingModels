@@ -1,0 +1,53 @@
+*connections for hudson
+*Date Thu May  5 15:50:08 2011
+     50   # number of connections
+   1   1   6   1   5  #    1 Wall-1 in basement is BASESIMP fndtn
+   1   2   6   1   5  #    2 Wall-2 in basement is BASESIMP fndtn
+   1   3   6   1   5  #    3 Wall-3 in basement is BASESIMP fndtn
+   1   4   6   1  10  #    4 Wall-4 in basement is BASESIMP fndtn
+   1   5   6   1  10  #    5 Wall-5 in basement is BASESIMP fndtn
+   1   6   6   1  10  #    6 Wall-6 in basement is BASESIMP fndtn
+   1   7   3   2   6  #    7 Top-7 in basement >|< Base-8 in main
+   1   8   6   1  55  #    8 Base-8 in basement is BASESIMP fndtn
+   2   1   3   4   2  #    9 Wall-1 in main >|< Wall-3 in garage
+   2   2   3   4   8  #   10 Wall-2 in main >|< Wall-8 in garage
+   2   3   0   0   0  #   11 Wall-3 in main is External
+   2   4   0   0   0  #   12 Wall-4 in main is External
+   2   5   0   0   0  #   13 Wall-6 in main is External
+   2   6   3   1   7  #   14 Base-8 in main >|< Top-7 in basement
+   2   7   3   3  10  #   15 Top-7 in main >|< Base-8 in second
+   2   8   0   0   0  #   16 Wall-5 in main is External
+   2   9   0   0   0  #   17 Slop-1 in main is External
+   2  10   0   0   0  #   18 Slop-2 in main is External
+   2  11   3   3   5  #   19 Wall-9 in main >|< Wall-6 in second
+   2  12   0   0   0  #   20 window1 in main is External
+   2  13   0   0   0  #   21 door in main is External
+   2  14   0   0   0  #   22 window2 in main is External
+   2  15   0   0   0  #   23 window3 in main is External
+   2  16   0   0   0  #   24 window4 in main is External
+   3   1   0   0   0  #   25 Wall-1 in second is External
+   3   2   0   0   0  #   26 Wall-2 in second is External
+   3   3   0   0   0  #   27 Wall-4 in second is External
+   3   4   3   5   1  #   28 Top-5 in second >|< Base-6 in attic
+   3   5   3   2  11  #   29 Wall-6 in second >|< Wall-9 in main
+   3   6   0   0   0  #   30 Wall-7 in second is External
+   3   7   0   0   0  #   31 Wall-8 in second is External
+   3   8   0   0   0  #   32 Base-10 in second is External
+   3   9   3   4   6  #   33 Base-9 in second >|< Top-7 in garage
+   3  10   3   2   7  #   34 Base-8 in second >|< Top-7 in main
+   3  11   0   0   0  #   35 Window1 in second is External
+   3  12   0   0   0  #   36 Window2 in second is External
+   3  13   0   0   0  #   37 Window3 in second is External
+   4   1   0   0   0  #   38 Wall-1 in garage is External
+   4   2   3   2   1  #   39 Wall-3 in garage >|< Wall-1 in main
+   4   3   0   0   0  #   40 Wall-4 in garage is External
+   4   4   4   1   0  #   41 Base-6 in garage >|< ground profile 1
+   4   5   0   0   0  #   42 Top-6 in garage is External
+   4   6   3   3   9  #   43 Top-7 in garage >|< Base-9 in second
+   4   7   0   0   0  #   44 Wall-7 in garage is External
+   4   8   3   2   2  #   45 Wall-8 in garage >|< Wall-2 in main
+   5   1   3   3   4  #   46 Base-6 in attic >|< Top-5 in second
+   5   2   0   0   0  #   47 Surf-2 in attic is External
+   5   3   0   0   0  #   48 Surf-3 in attic is External
+   5   4   0   0   0  #   49 Surf-4 in attic is External
+   5   5   0   0   0  #   50 Surf-5 in attic is External

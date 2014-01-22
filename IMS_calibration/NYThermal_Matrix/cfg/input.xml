@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+  <apply_style_sheet>false</apply_style_sheet>
+  <dump_all_data>false</dump_all_data>
+  <output_dictionary>true</output_dictionary>	
+  <enable_xml_wildcards>true</enable_xml_wildcards>
+  <hierarchy>tree</hierarchy>
+  <report_startup_period_data>false</report_startup_period_data>
+  <time_step_averaging>false</time_step_averaging>
+  <step_variable>building/time_step</step_variable>
+  <step_variable>*step_interpolation*</step_variable>
+  <step_variable>plant/CETC_HVAC/system_1(IMS)/additional_heat_transfer_to_space</step_variable>
+  <step_variable>plant/CETC_HVAC/system_1(IMS)/efficiency/space_heating</step_variable>
+  <step_variable>plant/CETC_HVAC/system_1(IMS)/efficiency/water_heating</step_variable>
+  <step_variable>plant/CETC_HVAC/system_1(IMS)/fuel_power/space_and_water_heating</step_variable>
+  <step_variable>plant/CETC_HVAC/system_1(IMS)/fuel_power/space_heating</step_variable>
+  <step_variable>plant/CETC_HVAC/system_1(IMS)/fuel_power/water_heating</step_variable>
+  <step_variable>plant/CETC_HVAC/system_1(IMS)/loads/water_heating</step_variable>
+  <step_variable>plant/CETC_HVAC/system_1(IMS)/loads/space_heating</step_variable>
+  <step_variable>plant/CETC_HVAC/system_1(IMS)/skin_losses</step_variable>
+  <step_variable>plant/CETC_HVAC/system_1(IMS)/unmet_space_heating_loads</step_variable>
+  <summary_variable>plant/CETC_HVAC/system_1(IMS)/*</summary_variable>
+<!--  <step_variable></step_variable>
+  <step_variable></step_variable>
+  <step_variable></step_variable>-->
+</configuration>

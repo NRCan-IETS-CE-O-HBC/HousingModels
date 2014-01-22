@@ -1,0 +1,66 @@
+INTEGRATED ENERGY FLOW DATA,,,,,,,,,,,,,,,,
+Metric, Units,Jan, Feb, Mar, Apr, May, Jun, Jul, Aug, Sep, Oct, Nov, Dec, Annual total, ,Description 
+system : building : all_zones : supplied_energy : cooling : , GJ,0,0,0,0,0.0488,1.521149,3.021948,2.614385,0.377388,0,0,0,7.58367, , Total amount of cooling supplied to the building (all zones).
+system : building : all_zones : supplied_energy : heating : , GJ,15.792103,11.376682,8.550768,4.444477,0.250687,0,0,0,0.021129,3.256782,6.982297,12.286519,62.961444, , Total amount of heat supplied to the building (all zones).
+system : building : zone_01 : supplied_energy : cooling : , GJ,0,0,0,0,0.012202,0.381015,0.756486,0.655333,0.094689,0,0,0,1.899725, , Zone net heat extraction 
+system : building : zone_01 : supplied_energy : heating : , GJ,3.946926,2.844152,2.138612,1.114082,0.062672,0,0,0,0.005282,0.812799,1.744518,3.071155,15.740197, , Zone net heat injection 
+system : building : zone_04 : insolation : total : , GJ,1.270963,1.761901,1.936627,1.585692,1.597212,1.598924,1.694087,1.599774,1.612443,1.46427,0.994221,1.199734,18.315849, , Solar gains admitted through glazing 
+system : building : zone_04 : supplied_energy : cooling : , GJ,0,0,0,0,0.036597,1.140134,2.265462,1.959052,0.2827,0,0,0,5.683945, , Zone net heat extraction 
+system : building : zone_04 : supplied_energy : heating : , GJ,11.845177,8.532531,6.412156,3.330395,0.188015,0,0,0,0.015847,2.443983,5.237779,9.215364,47.221247, , Zone net heat injection 
+system : plant : ideal_hvac_models : HRV : elec_load : , GJ,0.3348,0.3024,0.3348,0.324,0.3348,0.324,0.3348,0.3348,0.324,0.3348,0.324,0.3348,3.942, , Idealized HVAC models: Amount of  electricity  used by  Ventilation/HRV  system
+system : plant : ideal_hvac_models : circulation_fans : fuel_use : energy_input : , GJ,0.607464,0.493079,0.468963,0.383021,0.317017,0.348947,0.406762,0.392743,0.313237,0.371208,0.429412,0.53969,5.071545, , Idealized HVAC models: energy used by circulation fans.
+system : plant : ideal_hvac_models : circulation_fans : heat_transfer : , GJ,0.607464,0.493079,0.468963,0.383021,0.317017,0.348947,0.406762,0.392743,0.313237,0.371208,0.429412,0.53969,5.071545, , Idealized HVAC models: heat transferred to space by circulation fans.
+system : plant : ideal_hvac_models : component_01_furnace : fuel_use : energy_input : heating : , GJ,16.303397,11.676799,8.708394,4.544209,0.2874,0,0,0,0.030863,3.347782,7.088153,12.586846,64.573843, , Idealized HVAC models: Primary energy used by furnace system for heating
+system : plant : ideal_hvac_models : component_01_furnace : thermal_output : heating : , GJ,15.491566,11.160175,8.38804,4.359895,0.245916,0,0,0,0.020727,3.194803,6.849419,12.052697,61.763237, , Idealized HVAC models: furnace heating thermal output
+system : plant : ideal_hvac_models : component_02_air_source_heat_pump : coil_load : cooling : latent : , GJ,0,0,0,0,0.003695,0.274451,0.661288,0.512288,0.091639,0,0,0,1.543361, , Idealized HVAC models: air_source_heat_pump latent cooling load at coil
+system : plant : ideal_hvac_models : component_02_air_source_heat_pump : coil_load : cooling : sensible : , GJ,0,0,0,0,0.05042,1.569992,3.11863,2.697051,0.389935,0,0,0,7.826028, , Idealized HVAC models: air_source_heat_pump sensible cooling load at coil
+system : plant : ideal_hvac_models : component_02_air_source_heat_pump : coil_load : cooling : total : , GJ,0,0,0,0,0.054115,1.844443,3.779919,3.209339,0.481574,0,0,0,9.369389, , Idealized HVAC models: air_source_heat_pump total cooling load at coil
+system : plant : ideal_hvac_models : component_02_air_source_heat_pump : fuel_use : energy_input : cooling : , GJ,0,0,0,0,0.019281,0.55428,1.100202,0.926119,0.146755,0,0,0,2.746636, , Idealized HVAC models: Primary energy used by air_source_heat_pump system for cooling
+system : plant : ideal_hvac_models : component_02_air_source_heat_pump : fuel_use : energy_input : total : , GJ,0,0,0,0,0.019281,0.55428,1.100202,0.926119,0.146755,0,0,0,2.746636, , Idealized HVAC models: Primary energy used by air_source_heat_pump system for both heating and cooling
+system : plant : ideal_hvac_models : component_02_air_source_heat_pump : thermal_output : cooling : , GJ,0,0,0,0,0.054115,1.844443,3.779919,3.209339,0.481574,0,0,0,9.369389, , Idealized HVAC models: air_source_heat_pump cooling thermal output
+system : total_fuel_use : electricity : all_end_uses : energy_content : , GJ,0.942264,0.795479,0.803763,0.707021,0.671098,1.227227,1.841764,1.653662,0.783992,0.706008,0.753412,0.87449,11.760181, , Energy content of all electricity used on site.
+system : total_fuel_use : natural_gas : all_end_uses : energy_content : , GJ,16.303397,11.676799,8.708394,4.544209,0.2874,0,0,0,0.030863,3.347782,7.088153,12.586846,64.573843, , Energy content of all natural gas used on site.
+
+
+SYSTEM FUEL USE ,,,,,,,,,,,,,,,,
+Metric, units, Jan, Feb, Mar, Apr, May, Jun, Jul, Aug, Sep, Oct, Nov, Dec, Annual,,
+system : plant : ideal_hvac_models : circulation_fans : fuel_use : electricity : amount : , kWh,168.740278,136.9666,130.267726,106.394794,88.060408,96.929842,112.98953,109.095272,87.010478,103.113479,119.281175,149.91406,1408.763643, , Idealized HVAC models: electricity used by circulation fans.
+system : plant : ideal_hvac_models : component_01_furnace : fuel_use : electricity : amount : , kWh,0,0,0,0,0,0,0,0,0,0,0,0,0, , Idealized HVAC models: Amount of electricity used by furnace system
+system : plant : ideal_hvac_models : component_01_furnace : fuel_use : natural_gas : amount : , m3,438.450515,314.026494,234.196599,122.208313,7.729118,0,0,0,0.830004,90.032567,190.623115,338.500577,1736.597301, , Idealized HVAC models: Amount of natural gas used by furnace system
+system : plant : ideal_hvac_models : component_02_air_source_heat_pump : fuel_use : electricity : amount : , kWh,0,0,0,0,5.355709,153.966748,305.611821,257.255614,40.765267,0,0,0,762.95516, , Idealized HVAC models: Amount of electricity used by air_source_heat_pump system
+system : total_fuel_use : electricity : all_end_uses : quantity : , kWh,261.740357,220.966671,223.267805,196.394869,186.41619,340.896664,511.601426,459.350963,217.775815,196.113556,209.281251,242.91414,3266.719709, , Total amount of electricity used on site.
+system : total_fuel_use : electricity : space_cooling : quantity : , kWh,0,0,0,0,5.355709,153.966748,305.611821,257.255614,40.765267,0,0,0,762.95516, , Total amount of electricity used for space cooling.
+system : total_fuel_use : electricity : ventilation : quantity : , kWh,261.740357,220.966671,223.267805,196.394869,181.06048,186.929916,205.989607,202.09535,177.010548,196.113556,209.281251,242.91414,2503.764551, , Total amount of electricity used for ventilation.
+system : total_fuel_use : hard_wood : all_end_uses : quantity : , tonne,0,0,0,0,0,0,0,0,0,0,0,0,0, , Total amount of hard wood used on site.
+system : total_fuel_use : mixed_wood : all_end_uses : quantity : , tonne,0,0,0,0,0,0,0,0,0,0,0,0,0, , Total amount of mixed wood used on site.
+system : total_fuel_use : natural_gas : all_end_uses : quantity : , m3,438.450515,314.026494,234.196599,122.208313,7.729118,0,0,0,0.830004,90.032567,190.623115,338.500577,1736.597301, , Total amount of natural gas used on site.
+system : total_fuel_use : natural_gas : space_heating : quantity : , m3,438.450515,314.026494,234.196599,122.208313,7.729118,0,0,0,0.830004,90.032567,190.623115,338.500577,1736.597301, , Total amount of natural gas used for space heating.
+system : total_fuel_use : oil : all_end_uses : quantity : , l,0,0,0,0,0,0,0,0,0,0,0,0,0, , Total amount of oil used on site.
+system : total_fuel_use : propane : all_end_uses : quantity : , m3,0,0,0,0,0,0,0,0,0,0,0,0,0, , Total amount of propane used on site.
+system : total_fuel_use : soft_wood : all_end_uses : quantity : , tonne,0,0,0,0,0,0,0,0,0,0,0,0,0, , Total amount of soft wood used on site.
+system : total_fuel_use : wood_pellets : all_end_uses : quantity : , tonne,0,0,0,0,0,0,0,0,0,0,0,0,0, , Total amount of wood pellets used on site.
+
+
+AVERAGED TEMPERATURE DATA (oC),,,,,,,,,,,,,,,,
+Metric, , Jan, Feb, Mar, Apr, May, Jun, Jul, Aug, Sep, Oct, Nov, Dec, Annual,,
+system : building : zone_01 : air_point : temperature : , (min),17.107595,16.533436,16.378904,16.51107,14.339808,15.704925,18.487774,17.839626,15.745624,16.646881,16.284704,16.285595,14.339808, , Zone air-point temperature
+, (max),19.987518,18.043476,17.545994,18.131905,19.382772,19.128069,19.403238,19.467527,20.50839,19.107904,17.070808,20.29071,20.50839, , Zone air-point temperature
+, (avg),17.953496,17.134625,16.803798,16.987029,16.529881,18.484687,19.030468,19.093532,18.431516,17.148801,16.717771,17.146801,17.625506, , Zone air-point temperature
+system : building : zone_04 : air_point : temperature : , (min),19,19,19,19,16,17.138498,19.893667,17.541845,16,18,18,18,16, , Zone air-point temperature
+, (max),19,19.240362,19.370211,23.347874,23,21.5,21.5,21.5,23,24.179853,19.988485,18,24.179853, , Zone air-point temperature
+, (avg),19,19.000629,19.001339,19.331497,18.732807,20.991323,21.43968,21.332096,20.251891,18.540206,18.023137,18,19.472282, , Zone air-point temperature
+system : building : zone_04 : surface_15 : temperature : , (min),15.137816,15.411106,15.748184,16.124409,14.619268,16.661049,20.212671,17.875126,15.789658,15.650608,15.232628,14.471109,14.471109, , Temperature on zone inside face
+, (max),20.158186,20.60573,20.67107,22.572514,23.633696,23.243393,23.673712,23.893423,25.277218,23.365788,20.996706,19.642937,25.277218, , Temperature on zone inside face
+, (avg),16.439183,16.865075,17.355164,18.267516,18.668902,21.291057,22.099979,21.927877,20.436036,17.843719,16.439612,15.884158,18.635718, , Temperature on zone inside face
+system : climate : dry_bulb_temperature : , (min),-25,-21.1,-12.2,-12.8,0,6.7,8.5,9.7,0.5,-6.7,-11.7,-23.299999,-25, , Climate dry-bulb temperature
+, (max),6.8,4.7,11.1,22.200001,23.9,30.6,33,29.9,28,23.299999,17.4,12.2,33, , Climate dry-bulb temperature
+, (avg),-11.50578,-9.317113,-2.077957,5.590139,12.153091,18.057778,20.300403,19.287366,14.232083,7.380645,1.201806,-7.386156,5.73774, , Climate dry-bulb temperature
+
+
+AVERAGED MISCELLANEOUS DATA ,,,,,,,,,,,,,,,,
+Metric, Units, Jan, Feb, Mar, Apr, May, Jun, Jul, Aug, Sep, Oct, Nov, Dec, Annual, ,Description
+system : building : month : , (-),1,2,3,4,5,6,7,8,9,10,11,12,6.526027, , Month corresponding to current simulation time row 
+system : plant : ideal_hvac_models : component_01_furnace : efficiency : , (-),0.953394,0.957393,0.952012,0.714222,0.124793,0,0,0,0.021244,0.639401,0.941455,0.960036,0.519543, , Idealized HVAC models: Efficiency of  furnace system (thermal output / HHV Fuel input)
+system : plant : ideal_hvac_models : component_01_furnace : part_load_ratio : heating : , (-),0.422182,0.336728,0.228594,0.122778,0.006702,0,0,0,0.000584,0.087066,0.192885,0.328464,0.142956, , Idealized HVAC models: furnace heating part-load-ratio (PLR)
+system : plant : ideal_hvac_models : component_02_air_source_heat_pump : COP : cooling : , (-),0,0,0,0,0.126645,1.89758,2.906385,2.67688,0.556679,0,0,0,0.686671, , Idealized HVAC models: Cooling coefficient-of-performance of  air_source_heat_pump system (thermal output / electricity input)
+system : plant : ideal_hvac_models : component_02_air_source_heat_pump : part_load_ratio : cooling : , (-),0,0,0,0,0.003012,0.106656,0.21028,0.178223,0.026903,0,0,0,0.044229, , Idealized HVAC models: air_source_heat_pump cooling part-load-ratio (PLR)

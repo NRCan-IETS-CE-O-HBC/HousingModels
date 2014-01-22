@@ -1,0 +1,13 @@
+2 114.0        # Number of HVAC systems, site altitude
+# System #1 - Furnace
+1 1 2 # SysType; Pri; Zones;
+8 2 4 0.75 1 0.25 13700 0.94 1 -1 0 0 1 # Furnace Type;Fuel Type;Num of 1st zone;Frac for zone2;Frac for zone4;cap
+7 1 2 # System/Priority/Num zones served
+2 1 4 0.75 1 0.25 # HP Fn/HP Type/Num 1st zone/Frac of cap
+7030.0 3.43 #Heat Pump Cooling Capacity/Cooling COP
+0.38 0.38 1 1 265.8 0.0 150.0 1 -1.0 # HP Flow Rate & Rating/Circ Fan Mode & Pos & Pwr/Outdoor fan pwr/Circ Fan Pwr (Auto)/Circ Fan Pos at Rating/Fan Pwr at Rating
+0.76 1 # Sensible Heat Ratio/Cooling Type
+1  # Number of Outdoor Air Day Types
+1 8760 # OA Day Types Number of Periods/Finish Hour
+24 0.0 # Finish Hour Period 1/OA Flow Rate for Period 1
+1 1 # System Number for Heating Control Function Cooling

@@ -1,0 +1,124 @@
+  Window 5.2a  v5.2.17a  Report         Page 1                     08/27/10 15:33:48
+      ID: 1                                                                     
+    Name: Window like thermotech                                                
+ EnvCond: 1 NFRC 100-2001                                                       
+                                                                                
+    Type: Fixed (picture)                                                       
+    Tilt:  90                                                                   
+   Width: 1200.0  mm                                                            
+  Height: 1500.0  mm                                                            
+    Area:   1.80 m2                                                             
+                                                                                
+                                                                                
+                                                                                
+ U-value: 1.348 W/m2-K                                                          
+    SHGC: 0.503                                                                 
+      Vt: 0.513                                                                 
+      CI: N/A                                                                   
+
+
+
+Data for Glazing Systems
+
+                        COG
+ID     Name             Area #Lay  Tilt      Uc      SCc   SHGCc   Vtc    RHG
+                         m2                 W/m2
+------ --------------- ----- ----  ----   -------   -----  -----  -----  -----
+    13 Triple-pane lik 1.151   3    90      0.961   0.703  0.610  0.640    451
+
+Glass and Gas Data for Glazing System '13 Triple-pane like thermotech'
+
+ID     Name            D(mm) Tsol  1 Rsol 2 Tvis  1 Rvis 2  Tir  1 Emis 2 Keff
+------ --------------- ----- ---- ---- ---- ---- ---- ---- ---- ---- ---- ----
+Outside
+   102 CLEAR_3.DAT    #  3.0 .834 .075 .075 .899 .083 .083 .000 .840 .840 1.00  
+       9 Air (10%) / Ar 12.7 SF6:   0%      Ar:    0%                     .029  
+   906 CMFTE2_2.AFG   #  2.2 .707 .116 .103 .834 .096 .089 .000 .204 .840 1.00  
+       9 Air (10%) / Ar 12.7 SF6:   0%      Ar:    0%                     .031  
+   906 CMFTE2_2.AFG   #  2.2 .707 .116 .103 .834 .096 .089 .000 .204 .840 1.00  
+Inside
+
+Frame Data
+                                                     Frame   Edge
+Location         ID      Name          Source        Area    Area    Uframe   Uedge
+                                                      m2      m2        W/m2-K
+---------------- ------  ------------- ------------- -----   -----  -------  ------
+Header                5  Vinyl         ASHRAE/LBL    0.079   0.063   1.7000  2.4490                                                                                
+Left Jamb             5  Vinyl         ASHRAE/LBL    0.100   0.082   1.7000  2.4490                                                                                
+Right Jamb            5  Vinyl         ASHRAE/LBL    0.100   0.082   1.7000  2.4490                                                                                
+Sill                  5  Vinyl         ASHRAE/LBL    0.079   0.063   1.7000  2.4490                                                                                
+
+
+
+Window 5.2a  v5.2.17a  Report        Page 2                    08/27/10 15:33:48
+
+Gas Data
+
+ID      Name                      Type   Cond    Visc    Cp     Dens    Pran  
+                                         W/m-K  kg/m-s J/kg-K   kg/m3           
+                                                 x e-6
+______  ________________________  _____ ______ _______ _______ _______ ______ 
+
+     9  Air (10%) / Argon (90%) M Mix   0.0171   20.66 558.03  1.7329 0.6758                                                                                
+
+
+Environmental Conditions: 1 NFRC 100-2001
+
+          Tout   Tin  WndSpd   Wnd Dir   Solar  Tsky  Esky
+          (C)    (C)   (m/s)            (W/m2)  (C)
+         -----  ----  ------  --------  ------  ----  ----
+Uvalue   -18.0  21.0    5.50  Windward     0.0 -18.0  1.00
+Solar     32.0  24.0    2.80  Windward   783.0  32.0  1.00
+
+
+Frame Library Data
+                                       U-value    Edge GlzSys GlzSys Width
+ID     Name            Source       Frame   Edge  Corr Width    Uc   (PFD)  Abs
+                                    W/m2-K W/m2-K        mm   W/m2-K  mm        
+______ _____________  ____________  ______ ______ ____ ______ ______ _____  ____
+
+     5 Vinyl          ASHRAE/LBL    1.7000    N/A   1     N/A    N/A 69.85  0.90                                                                                
+
+
+Divider Library Data
+                                       U-value    Edge GlzSys GlzSys Width
+ID     Name            Source        Div    Edge  Corr Width    Uc   (PFD)  Abs
+                                    W/m2-K W/m2-K        mm   W/m2-K  mm        
+______ _____________  ____________  ______ ______ ____ ______ ______ _____  ____
+
+No Dividers for this Glazing System
+
+
+  Window 5.2a  v5.2.17a  Report         Page 3                     08/27/10 15:33:48
+Optical Properties for Glazing System '13 Triple-pane lik'
+
+Angle      0    10    20    30    40    50    60    70    80    90 Hemis
+
+Vtc  : 0.640 0.640 0.632 0.624 0.612 0.580 0.497 0.340 0.145 0.000 0.530
+Rf   : 0.217 0.215 0.217 0.221 0.233 0.264 0.341 0.495 0.726 1.000 0.306
+Rb   : 0.192 0.191 0.191 0.195 0.206 0.235 0.306 0.448 0.674 1.000 0.275
+
+Tsol : 0.456 0.455 0.449 0.442 0.433 0.408 0.347 0.235 0.096 0.000 0.373
+Rf   : 0.196 0.195 0.196 0.199 0.208 0.233 0.298 0.432 0.649 1.000 0.272
+Rb   : 0.175 0.174 0.175 0.178 0.188 0.213 0.275 0.409 0.640 1.000 0.251
+
+Abs1 : 0.102 0.103 0.104 0.108 0.112 0.119 0.127 0.137 0.138 0.000 0.117
+Abs2 : 0.155 0.156 0.158 0.158 0.157 0.153 0.149 0.135 0.087 0.000 0.147
+Abs3 : 0.091 0.091 0.092 0.092 0.091 0.087 0.079 0.061 0.030 0.000 0.081
+
+SHGCc: 0.610 0.610 0.606 0.599 0.587 0.558 0.489 0.356 0.168 0.000 0.516
+
+Tdw-K  :  0.353
+Tdw-ISO:  0.501
+Tuv    :  0.295
+
+
+
+
+      Temperature Distribution (degrees C)
+        Winter         Summer
+       Out   In       Out   In
+      ----  ----     ----  ----
+Lay1 -16.7 -16.6     38.8  39.2   
+Lay2  -0.1  -0.1     59.5  59.5   
+Lay3  15.3  15.4     40.4  40.2   

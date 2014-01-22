@@ -1,0 +1,127 @@
+*connections for NZEH
+*Date Mon May  2 11:14:25 2011
+    124   # number of connections
+   1   1   6   1   4  #    1 Wall-1 in bsmt is BASESIMP fndtn
+   1   2   6   1   4  #    2 Wall-2 in bsmt is BASESIMP fndtn
+   1   3   6   1  12  #    3 Wall-3 in bsmt is BASESIMP fndtn
+   1   4   6   1   4  #    4 Wall-4 in bsmt is BASESIMP fndtn
+   1   5   6   1   2  #    5 Wall-5 in bsmt is BASESIMP fndtn
+   1   6   6   1   4  #    6 Wall-6 in bsmt is BASESIMP fndtn
+   1   7   6   1  10  #    7 Wall-7 in bsmt is BASESIMP fndtn
+   1   8   6   1  10  #    8 Wall-8 in bsmt is BASESIMP fndtn
+   1   9   3   3  10  #    9 Top_th in bsmt >|< Top_th in first_fl
+   1  10   6   1  30  #   10 Base_th in bsmt is BASESIMP fndtn
+   1  11   0   0   0  #   11 Wall-11 in bsmt is External
+   1  12   0   0   0  #   12 Wall-12 in bsmt is External
+   1  13   0   0   0  #   13 Wall-13 in bsmt is External
+   1  14   0   0   0  #   14 Wall-14 in bsmt is External
+   1  15   0   0   0  #   15 Wall-15 in bsmt is External
+   1  16   0   0   0  #   16 Wall-16 in bsmt is External
+   1  17   3   2   8  #   17 Wall-17 in bsmt >|< Wall-8 in garage
+   1  18   3   2   7  #   18 Wall-18 in bsmt >|< Wall-7 in garage
+   1  19   3   3   9  #   19 Top in bsmt >|< Top in first_fl
+   1  20   6   1  20  #   20 Base in bsmt is BASESIMP fndtn
+   1  21   3   3  11  #   21 gr_th in bsmt >|< great_th in first_fl
+   1  22   3   3  12  #   22 gr_th2 in bsmt >|< great_th_2 in first_fl
+   1  23   3   3  13  #   23 Top-23 in bsmt >|< Top-23 in first_fl
+   1  24   3   3  14  #   24 din_th1 in bsmt >|< din_th1 in first_fl
+   1  25   3   3  15  #   25 din_th2 in bsmt >|< din_th2 in first_fl
+   1  26   0   0   0  #   26 win1 in bsmt is External
+   1  27   0   0   0  #   27 win2 in bsmt is External
+   1  28   0   0   0  #   28 win3 in bsmt is External
+   1  29   0   0   0  #   29 win4 in bsmt is External
+   2   1   0   0   0  #   30 Wall-1 in garage is External
+   2   2   3   3   8  #   31 Wall-2 in garage >|< Wall-8 in first_fl
+   2   3   3   3   7  #   32 Wall-3 in garage >|< Wall-7 in first_fl
+   2   4   0   0   0  #   33 Wall-4 in garage is External
+   2   5   3   7  14  #   34 Top-5 in garage >|< Base-14 in top_fl
+   2   6   6  29 100  #   35 Base-6 in garage is BASESIMP fndtn
+   2   7   3   1  18  #   36 Wall-7 in garage >|< Wall-18 in bsmt
+   2   8   3   1  17  #   37 Wall-8 in garage >|< Wall-17 in bsmt
+   2   9   3   4   9  #   38 Top-9 in garage >|< Base-9 in master
+   3   1   0   0   0  #   39 Wall-1 in first_fl is External
+   3   2   0   0   0  #   40 Wall-2 in first_fl is External
+   3   3   0   0   0  #   41 Wall-3 in first_fl is External
+   3   4   0   0   0  #   42 Wall-4 in first_fl is External
+   3   5   0   0   0  #   43 Wall-5 in first_fl is External
+   3   6   0   0   0  #   44 Wall-6 in first_fl is External
+   3   7   3   2   3  #   45 Wall-7 in first_fl >|< Wall-3 in garage
+   3   8   3   2   2  #   46 Wall-8 in first_fl >|< Wall-2 in garage
+   3   9   3   1  19  #   47 Top in first_fl >|< Top in bsmt
+   3  10   3   1   9  #   48 Top_th in first_fl >|< Top_th in bsmt
+   3  11   3   1  21  #   49 great_th in first_fl >|< gr_th in bsmt
+   3  12   3   1  22  #   50 great_th_2 in first_fl >|< gr_th2 in bsmt
+   3  13   3   1  23  #   51 Top-23 in first_fl >|< Top-23 in bsmt
+   3  14   3   1  24  #   52 din_th1 in first_fl >|< din_th1 in bsmt
+   3  15   3   1  25  #   53 din_th2 in first_fl >|< din_th2 in bsmt
+   3  16   3   6   6  #   54 bedrom in first_fl >|< Base-6 in bedroom
+   3  17   3   5   6  #   55 ensuit in first_fl >|< Base-6 in ensuite
+   3  18   3   4   8  #   56 Base-8 in first_fl >|< Base-8 in master
+   3  19   3   7  12  #   57 Base-12 in first_fl >|< Base-12 in top_fl
+   3  20   0   0   0  #   58 win1 in first_fl is External
+   3  21   0   0   0  #   59 win2 in first_fl is External
+   3  22   0   0   0  #   60 win3 in first_fl is External
+   3  23   0   0   0  #   61 win4 in first_fl is External
+   3  24   0   0   0  #   62 win5 in first_fl is External
+   3  25   0   0   0  #   63 win6 in first_fl is External
+   3  26   0   0   0  #   64 win7 in first_fl is External
+   3  27   0   0   0  #   65 door in first_fl is External
+   4   1   0   0   0  #   66 Wall-1 in master is External
+   4   2   0   0   0  #   67 Wall-2 in master is External
+   4   3   3   5   1  #   68 Wall-3 in master >|< Wall-1 in ensuite
+   4   4   3   7  13  #   69 Wall-4 in master >|< Wall-13 in top_fl
+   4   5   3   7   3  #   70 Wall-5 in master >|< Wall-3 in top_fl
+   4   6   3   7   2  #   71 Wall-6 in master >|< Wall-2 in top_fl
+   4   7   3   8   9  #   72 Top-7 in master >|< Top-7 in roof
+   4   8   3   3  18  #   73 Base-8 in master >|< Base-8 in first_fl
+   4   9   3   2   9  #   74 Base-9 in master >|< Top-9 in garage
+   4  10   0   0   0  #   75 win in master is External
+   5   1   3   4   3  #   76 Wall-1 in ensuite >|< Wall-3 in master
+   5   2   0   0   0  #   77 Wall-2 in ensuite is External
+   5   3   3   6   1  #   78 Wall-3 in ensuite >|< Wall-1 in bedroom
+   5   4   3   7   4  #   79 Wall-4 in ensuite >|< Wall-4 in top_fl
+   5   5   3   8  10  #   80 Top-5 in ensuite >|< Top-5 in roof
+   5   6   3   3  17  #   81 Base-6 in ensuite >|< ensuit in first_fl
+   5   7   0   0   0  #   82 win in ensuite is External
+   6   1   3   5   3  #   83 Wall-1 in bedroom >|< Wall-3 in ensuite
+   6   2   0   0   0  #   84 Wall-2 in bedroom is External
+   6   3   0   0   0  #   85 Wall-3 in bedroom is External
+   6   4   3   7   6  #   86 Wall-4 in bedroom >|< Wall-6 in top_fl
+   6   5   3   8  11  #   87 Top-5 in bedroom >|< Top-6 in roof
+   6   6   3   3  16  #   88 Base-6 in bedroom >|< bedrom in first_fl
+   6   7   3   7   5  #   89 Wall-7 in bedroom >|< Wall-5 in top_fl
+   6   8   0   0   0  #   90 win in bedroom is External
+   7   1   0   0   0  #   91 Wall-1 in top_fl is External
+   7   2   3   4   6  #   92 Wall-2 in top_fl >|< Wall-6 in master
+   7   3   3   4   5  #   93 Wall-3 in top_fl >|< Wall-5 in master
+   7   4   3   5   4  #   94 Wall-4 in top_fl >|< Wall-4 in ensuite
+   7   5   3   6   7  #   95 Wall-5 in top_fl >|< Wall-7 in bedroom
+   7   6   3   6   4  #   96 Wall-6 in top_fl >|< Wall-4 in bedroom
+   7   7   0   0   0  #   97 Wall-7 in top_fl is External
+   7   8   0   0   0  #   98 Wall-8 in top_fl is External
+   7   9   0   0   0  #   99 Wall-9 in top_fl is External
+   7  10   0   0   0  #  100 Wall-10 in top_fl is External
+   7  11   3   8   8  #  101 Top-11 in top_fl >|< Top-11 in roof
+   7  12   3   3  19  #  102 Base-12 in top_fl >|< Base-12 in first_fl
+   7  13   3   4   4  #  103 Wall-13 in top_fl >|< Wall-4 in master
+   7  14   3   2   5  #  104 Base-14 in top_fl >|< Top-5 in garage
+   7  15   0   0   0  #  105 win1 in top_fl is External
+   7  16   0   0   0  #  106 win2 in top_fl is External
+   7  17   0   0   0  #  107 win3 in top_fl is External
+   8   1   0   0   0  #  108 Wall-1 in roof is External
+   8   2   0   0   0  #  109 Wall-3 in roof is External
+   8   3   0   0   0  #  110 Surf-4 in roof is External
+   8   4   0   0   0  #  111 Surf-5 in roof is External
+   8   5   0   0   0  #  112 Wall-6 in roof is External
+   8   6   0   0   0  #  113 Surf-7 in roof is External
+   8   7   0   0   0  #  114 Surf-8 in roof is External
+   8   8   3   7  11  #  115 Top-11 in roof >|< Top-11 in top_fl
+   8   9   3   4   7  #  116 Top-7 in roof >|< Top-7 in master
+   8  10   3   5   5  #  117 Top-5 in roof >|< Top-5 in ensuite
+   8  11   3   6   5  #  118 Top-6 in roof >|< Top-5 in bedroom
+   9   1   5   0   0  #  119 Wall-1 in mixer is adiabatic
+   9   2   5   0   0  #  120 Wall-2 in mixer is adiabatic
+   9   3   5   0   0  #  121 Wall-3 in mixer is adiabatic
+   9   4   5   0   0  #  122 Wall-4 in mixer is adiabatic
+   9   5   5   0   0  #  123 Top-5 in mixer is adiabatic
+   9   6   5   0   0  #  124 Base-6 in mixer is adiabatic

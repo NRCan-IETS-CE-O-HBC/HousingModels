@@ -1,0 +1,15 @@
+#---Leakage description--------------------------------------
+  0  2  15.00  10.00                    # Blower door input;  15.00ac/h @50 Pa; ELA dP=  10.00 Pa;ELA not given                                                                                                                                                                                 
+#---Leakage distribution-------------------------------------
+  0                                     # Use default leakage distribution
+#---Shielding and terrain data-------------------------------
+  1  7  2  1  10.00                     # Weather station terrain:Open sea,fetch > 5 km;   Building site terrain:Suburban, forest                                                                                                                                                               
+                                        # Wall shielding:Light;   flue shielding:None;   anemometer height= 10.00 m
+#---Height of building eaves (m)-----------------------------
+   5.40
+#---Flue diameters (mm)--------------------------------------
+ 100.00 200.00   0.00 100.00   0.00     # Furnace, fire#1, fire#2, dhw#1, dhw#2                                                                                                                                                                                                                 
+#---Zone indices---------------------------------------------
+  1                                     # Zone whose temperature is used to calculate the density of indoor air                                                                                                                                                                                 
+  2  1  2                               # Total number of zones receiving infil; indices of zones receiving infil                                                                                                                                       
+  0  0  0                               # Index of basement, crawlspace & attic zones (=0 if none)                                                                                                                                                                                              

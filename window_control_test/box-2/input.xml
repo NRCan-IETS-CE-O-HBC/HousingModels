@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+
+  <dump_all_data>false</dump_all_data>
+  <enable_xml_wildcards>true</enable_xml_wildcards>
+  <hierarchy>tree</hierarchy>
+  <link_style_sheet>false</link_style_sheet>
+  <output_dictionary>true</output_dictionary>
+  <report_startup_period_data>false</report_startup_period_data>
+  <save_to_disk>false</save_to_disk>
+  
+  <time_step_averaging>false</time_step_averaging>
+  
+  <style_sheet>monthly_tables.xsl</style_sheet>
+  <apply_style_sheet>true</apply_style_sheet>
+  <transform_destination_file>monthly_results.csv</transform_destination_file>
+  
+  
+  <step_variable>building/time_step</step_variable>
+  <step_variable>building/day/future</step_variable>
+
+  <step_variable>building/zone/ventilative_cooling</step_variable>
+
+ <step_variable>*month*</step_variable>
+  <step_variable>climate/dry_bulb_temperature</step_variable>
+  <step_variable>climate/relative_humidity</step_variable>
+  <step_variable>climate/solar/diffuse_horizontal_radiation</step_variable>
+  <step_variable>climate/solar/direct_normal_radiation</step_variable>
+  
+  <step_variable>plant/ideal_hvac_models/*</step_variable>
+  
+  <step_variable>building/all_zones/supplied_energy/heating</step_variable>
+  <step_variable>building/all_zones/supplied_energy/cooling</step_variable>
+  <step_variable>building/zone_*/insolation/total</step_variable>
+  <step_variable>building/zone_*/air_point/temperature</step_variable>
+  <step_variable>building/zone_*/supplied_energy/cooling</step_variable>
+  <step_variable>building/zone_*/supplied_energy/heating</step_variable>
+  <step_variable>building/zone_*/windows/position</step_variable>
+  <step_variable>building/zone_*/*infiltration*</step_variable>
+ 
+ 
+  <log_variable>*month*</log_variable>
+  <log_variable>climate/dry_bulb_temperature</log_variable>
+  <log_variable>climate/relative_humidity</log_variable>
+  <log_variable>climate/solar/diffuse_horizontal_radiation</log_variable>
+  <log_variable>climate/solar/direct_normal_radiation</log_variable>
+  
+  <log_variable>plant/ideal_hvac_models/*</log_variable>
+  
+  <log_variable>building/all_zones/supplied_energy/heating</log_variable>
+  <log_variable>building/all_zones/supplied_energy/cooling</log_variable>
+  <log_variable>building/zone_*/insolation/total</log_variable>
+  <log_variable>building/zone_*/air_point/temperature</log_variable>
+  <log_variable>building/zone_*/supplied_energy/cooling</log_variable>
+  <log_variable>building/zone_*/supplied_energy/heating</log_variable>  
+
+  <summary_variable>building/all_zones/supplied_energy/heating</summary_variable>
+  <summary_variable>building/all_zones/supplied_energy/cooling</summary_variable>
+</configuration>

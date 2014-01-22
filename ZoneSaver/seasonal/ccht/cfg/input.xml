@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+        <hierarchy>tree</hierarchy>
+        <dump_all_data>false</dump_all_data>
+        <time_step_averaging>false</time_step_averaging>
+        <apply_style_sheet>true</apply_style_sheet>
+        <enable_xml_wildcards>true</enable_xml_wildcards>
+        <output_dictionary>true</output_dictionary>
+
+        <log_variable>climate/dry_bulb_temperature</log_variable>
+        <log_variable>climate/relative_humidity</log_variable>
+        <log_variable>climate/solar/Diffuse_horizontal_radiation</log_variable>
+        <log_variable>climate/solar/direct_normal_radiation</log_variable>
+        <log_variable>climate/wind/direction</log_variable>
+        <log_variable>climate/wind/velocity</log_variable>
+
+        <log_variable>building/month</log_variable>
+        <log_variable>building/day_number/present</log_variable>
+        <log_variable>building/hour/present</log_variable>
+        <log_variable>building/time/present</log_variable>
+
+        <!-- Building-wide data. -->
+        <log_variable>building/all_zones/*</log_variable>
+
+        <!-- Zone-by-zone data -->
+        <log_variable>building/zone_*/envelope/*</log_variable>
+        <log_variable>building/zone_*/air_point/temperature</log_variable>
+        <log_variable>building/zone_*/infiltration/*</log_variable>
+        <log_variable>building/zone_*/internal_gains/*</log_variable>
+        <log_variable>building/zone_*/insolation/*</log_variable>
+        <log_variable>building/zone_*/supplied_energy/*</log_variable>
+        <log_variable>building/zone_*/thermal_loads/*</log_variable>
+        <log_variable>plant/ideal_hvac_models/*</log_variable>
+        <log_variable>building/zone_*/zone_label/*</log_variable>          
+
+        <!-- Ideal zone -->
+        <log_variable>plant/ideal_DHW_model*</log_variable>
+        <log_variable>plant/ideal_hvac_models*</log_variable>
+        <log_variable>total_fuel_use*</log_variable>
+
+         <!-- Electrical net for PV -->
+         <log_variable>building/spmatl/pv-array*</log_variable>
+         <log_variable>electrical_net/nodes/node*</log_variable>
+         <log_variable>electrical_net/hybrid_components/*</log_variable>
+         <log_variable>electrical_net/power_only_components/*</log_variable>
+
+         <!-- plant data for sdhw systems -->
+         <log_variable>plant/*</log_variable>
+         
+         <!-- Fuel costs -->                       
+        <log_variable>total_fuel_cost*</log_variable>
+        
+        
+        <summary_variable>climate/dry_bulb_temperature</summary_variable>
+        <summary_variable>climate/relative_humidity</summary_variable>
+        <summary_variable>climate/solar/Diffuse_horizontal_radiation</summary_variable>
+        <summary_variable>climate/solar/direct_normal_radiation</summary_variable>
+        <summary_variable>climate/wind/direction</summary_variable>
+        <summary_variable>climate/wind/velocity</summary_variable>
+
+        <summary_variable>building/month</summary_variable>
+        <summary_variable>building/day_number/present</summary_variable>
+        <summary_variable>building/hour/present</summary_variable>
+        <summary_variable>building/time/present</summary_variable>
+
+        <!-- Building-wide data. -->
+        <summary_variable>building/all_zones/*</summary_variable>
+
+        <!-- Zone-by-zone data -->
+        <summary_variable>building/zone_*/envelope/*</summary_variable>
+        <summary_variable>building/zone_*/air_point/temperature</summary_variable>
+        <summary_variable>building/zone_*/infiltration/*</summary_variable>
+        <summary_variable>building/zone_*/internal_gains/*</summary_variable>
+        <summary_variable>building/zone_*/insolation/*</summary_variable>
+        <summary_variable>building/zone_*/supplied_energy/*</summary_variable>
+        <summary_variable>building/zone_*/thermal_loads/*</summary_variable>
+        <summary_variable>plant/ideal_hvac_models/*</summary_variable>
+        <summary_variable>building/zone_*/zone_label/*</summary_variable>         
+
+        <!-- Ideal zone -->
+        <summary_variable>plant/ideal_DHW_model*</summary_variable>
+        <summary_variable>plant/ideal_hvac_models*</summary_variable>
+        <summary_variable>total_fuel_use*</summary_variable>
+
+         <!-- Electrical net for PV -->
+         <summary_variable>building/spmatl/pv-array*</summary_variable>
+         <summary_variable>electrical_net/nodes/node*</summary_variable>
+         <summary_variable>electrical_net/hybrid_components/*</summary_variable>
+         <summary_variable>electrical_net/power_only_components/*</summary_variable>
+
+         <!-- plant data for sdhw systems -->
+         <summary_variable>plant/*</summary_variable>         
+         
+         <!-- Fuel costs -->                       
+        <summary_variable>total_fuel_cost*</summary_variable>         
+         
+        <style_sheet>../../../xslt_files/monthly_results.xsl</style_sheet>
+        <transform_destination_file>monthly_results.html</transform_destination_file>
+
+        <style_sheet>../../../xslt_files/h3k.xsl</style_sheet>
+        <transform_destination_file>annual_results.html</transform_destination_file>
+
+        <style_sheet>../../../xslt_files/monthly_tables.xsl</style_sheet>
+        <transform_destination_file>monthly_results_table.csv</transform_destination_file>
+
+</configuration>
+

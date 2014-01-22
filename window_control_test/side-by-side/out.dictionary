@@ -1,0 +1,3068 @@
+Building/Ground_Reflectivity:
+
+     Reflectivity of the ground for solar radiation dimensionless
+
+Climate/SnowDepth:
+
+     Depth of the snow on the ground cm
+
+building/all_zones/energy_balance/net:
+
+     Energy balance in building (Gains + Plant interaction - Loads; all zones). (W)
+
+building/all_zones/envelope/all_components/heat_loss:
+
+     Heat lost through all components of envelope (all zones) (W)
+
+building/all_zones/envelope/all_components/net_flux:
+
+     Net heat lost through all components of envelope (all zones) (W)
+
+building/all_zones/envelope/ceilings/heat_gain:
+
+     Heat gain from surroundings through ceilings (all zones)  (W)
+
+building/all_zones/envelope/ceilings/heat_loss:
+
+     Heat loss to surroundings through ceilings (all zones)  (W)
+
+building/all_zones/envelope/ceilings/net_flux:
+
+     Net heat loss to surroundings through ceilings (all zones)  (W)
+
+building/all_zones/envelope/floors/heat_gain:
+
+     Heat gain from surroundings through overhanging floors (all zones)  (W)
+
+building/all_zones/envelope/floors/heat_loss:
+
+     Heat loss to surroundings through overhanging floors (all zones)  (W)
+
+building/all_zones/envelope/floors/net_flux:
+
+     Net heat loss to surroundings through overhanging floors (all zones)  (W)
+
+building/all_zones/envelope/foundation/heat_gain:
+
+     Heat gain from ground through below-grade elements (all zones)   (W)
+
+building/all_zones/envelope/foundation/heat_loss:
+
+     Heat loss to ground through below-grade elements (all zones)   (W)
+
+building/all_zones/envelope/foundation/net_flux:
+
+     Net heat loss to ground through below-grade elements (all zones)   (W)
+
+building/all_zones/envelope/infiltration/heat_gain:
+
+     Heat gain from surroundings via infiltration (all zones)   (W)
+
+building/all_zones/envelope/infiltration/heat_loss:
+
+     Heat loss to surroundings via infiltration (all zones)   (W)
+
+building/all_zones/envelope/infiltration/net_flux:
+
+     Net heat loss to surroundings via infiltration (all zones)   (W)
+
+building/all_zones/envelope/walls/heat_gain:
+
+     Heat gain from surroundings through walls (all zones)  (W)
+
+building/all_zones/envelope/walls/heat_loss:
+
+     Heat loss to surroundings through walls (all zones) (W)
+
+building/all_zones/envelope/walls/net_flux:
+
+     Net heat loss to surroundings through walls (all zones) (W)
+
+building/all_zones/envelope/windows/heat_gain:
+
+     Heat gain from surroundings through windows (all zones, excluding insolation)  (W)
+
+building/all_zones/envelope/windows/heat_loss:
+
+     Heat loss to surroundings through windows  (all zones)  (W)
+
+building/all_zones/envelope/windows/net_flux:
+
+     Net heat loss to surroundings through windows  (all zones)  (W)
+
+building/all_zones/insolation/adverse:
+
+     Solar gains admitted through glazing that increase cooling loads (all zones). (W)
+
+building/all_zones/insolation/total:
+
+     Total solar gains admitted through glazing (all zones). (W)
+
+building/all_zones/insolation/useful:
+
+     Solar gains admitted through glazing that supplant heating loads (all zones). (W)
+
+building/all_zones/internal_gains/adverse:
+
+     Sensible heat transfer from occupants, lights and equipment that increase cooling loads (all zones). (W)
+
+building/all_zones/internal_gains/total:
+
+     Sensible heat transfer from occupants, lights and equipment (all zones). (W)
+
+building/all_zones/internal_gains/useful:
+
+     Sensible heat transfer from occupants, lights and equipment that supplant heating loads (all zones). (W)
+
+building/all_zones/supplied_energy/cooling:
+
+     Total amount of cooling supplied to the building (all zones). (W)
+
+building/all_zones/supplied_energy/heating:
+
+     Total amount of heat supplied to the building (all zones). (W)
+
+building/all_zones/supplied_energy/net_flux:
+
+     Net heat/cooling supplied to the building (all zones). (W)
+
+building/all_zones/thermal_loads/cooling/total:
+
+     Total cooling load ( heat gain through envelope +  ventilation and infiltration loads; all zones ) (W)
+
+building/all_zones/thermal_loads/heating/total:
+
+     Total heating load ( heat loss through envelope +  ventilation and infiltration loads; all zones) (W)
+
+building/all_zones/thermal_loads/net:
+
+     Total net load ( heat gain through envelope +  ventilation and infiltration loads; all zones ) (W)
+
+building/day/future:
+
+     Day corresponding to future simulation time row (day)
+
+building/day/present:
+
+     Day corresponding to current simulation time row (days)
+
+building/day_number/future:
+
+     Day # corresponding to future simulation day (day)
+
+building/day_number/present:
+
+     Day # corresponding to current simulation day (days)
+
+building/hour/future:
+
+     Hour corresponding to future simulation hour (hours)
+
+building/hour/present:
+
+     Hour corresponding to current simulation hour (hours)
+
+building/month:
+
+     Month corresponding to current simulation time row  (-)
+
+building/time/future:
+
+     Time corresponding to future simulation time row (hours)
+
+building/time/present:
+
+     Time corresponding to current simulation time row (hours)
+
+building/time_step:
+
+     Time step # (-)
+
+building/zone_01/air_flow_model:
+
+     Air-flow-model (0->3) (-)
+
+building/zone_01/air_point/relative_humidity:
+
+     Zone relative humidity (%)
+
+building/zone_01/air_point/temperature:
+
+     Zone air-point temperature (oC)
+
+building/zone_01/envelope/all_components/heat_gain:
+
+     Heat gained through all components of envelope (W)
+
+building/zone_01/envelope/all_components/heat_loss:
+
+     Heat lost through all components of envelope (W)
+
+building/zone_01/envelope/all_components/net_flux:
+
+     Net flux through all components of envelope (W)
+
+building/zone_01/envelope/ceilings/heat_gain:
+
+     Contribution of ceilings to cooling load (W)
+
+building/zone_01/envelope/ceilings/heat_loss:
+
+     Contribution of Ceilings to heating load (W)
+
+building/zone_01/envelope/ceilings/net_flux:
+
+     Contribution of ceilings to net heat flux (W)
+
+building/zone_01/envelope/floors/heat_gain:
+
+     Contribution of overhanging floors to cooling load (W)
+
+building/zone_01/envelope/floors/heat_loss:
+
+     Contribution of overhanging floors to heating load (W)
+
+building/zone_01/envelope/floors/net_flux:
+
+     Contribution of overhanging floors to net heat flux (W)
+
+building/zone_01/envelope/foundation/heat_gain:
+
+     Contribution of foundation to cooling load (W)
+
+building/zone_01/envelope/foundation/heat_loss:
+
+     Contribution of foundation to heating load (W)
+
+building/zone_01/envelope/foundation/net_flux:
+
+     Contribution of foundation to net heat flux (W)
+
+building/zone_01/envelope/infiltration/air_changes_per_hour:
+
+     Zone infiltration (air changes per hour) (ACH)
+
+building/zone_01/envelope/infiltration/balance/air:
+
+     Air movement into zone (kg/s?)
+
+building/zone_01/envelope/infiltration/balance/air_exchange:
+
+     Air movement into zone (ACH)
+
+building/zone_01/envelope/infiltration/heat_gain:
+
+     Contribution of infiltration to cooling load (W)
+
+building/zone_01/envelope/infiltration/heat_loss:
+
+     Contribution of infiltration to heating load (W)
+
+building/zone_01/envelope/infiltration/net_flux:
+
+     Contribution of infiltration to heating load (W)
+
+building/zone_01/envelope/walls/heat_gain:
+
+     Contribution of walls to cooling load (W)
+
+building/zone_01/envelope/walls/heat_loss:
+
+     Contribution of walls to heating load (W)
+
+building/zone_01/envelope/walls/net_flux:
+
+     Contribution of walls to net heat flux (W)
+
+building/zone_01/envelope/windows/heat_gain:
+
+     Contribution of windows to cooling load (W)
+
+building/zone_01/envelope/windows/heat_loss:
+
+     Contribution of windows to heating load (W)
+
+building/zone_01/envelope/windows/net_flux:
+
+     Contribution of windows to net heat flux (W)
+
+building/zone_01/insolation/adverse:
+
+     Solar gains admitted through glazing that increase cooling loads (W)
+
+building/zone_01/insolation/total:
+
+     Solar gains admitted through glazing  (W)
+
+building/zone_01/insolation/useful:
+
+     Solar gains admitted through glazing that supplant heating loads (W)
+
+building/zone_01/internal_gains/adverse:
+
+     Internal heat gains(convective + radiant) that increase cooling loads (W)
+
+building/zone_01/internal_gains/total:
+
+     Internal heat gains(convective + radiant) (W)
+
+building/zone_01/internal_gains/useful:
+
+     Internal heat gains(convective + radiant) that supplant heating loads (W)
+
+building/zone_01/supplied_energy/cooling:
+
+     Zone net heat extraction  (W)
+
+building/zone_01/supplied_energy/cooling_Perm2:
+
+     Zone net heat extraction  (W/m2)
+
+building/zone_01/supplied_energy/heating:
+
+     Zone net heat injection  (W)
+
+building/zone_01/supplied_energy/heating_Perm2:
+
+     Zone net heat injection  (W/m2)
+
+building/zone_01/supplied_energy/net:
+
+     Zone net heat injection/extraction  (W)
+
+building/zone_01/supplied_energy/net_Perm2:
+
+     Zone net heat injection/extraction  (W/m2)
+
+building/zone_01/surface_01/AmbRT:
+
+     Ambient radiant temperature for exterior surface (oC)
+
+building/zone_01/surface_01/HCe:
+
+     External side convective coefficient (W/(m2 K))
+
+building/zone_01/surface_01/HCi:
+
+     Internal side convective coefficient (W/(m2 K))
+
+building/zone_01/surface_01/ext_surf_temperature:
+
+     Temperature on exterior face (oC)
+
+building/zone_01/surface_01/heat_flux/above_grade/net:
+
+     Heat transfer through building envelope (above-grade) (W)
+
+building/zone_01/surface_01/heat_flux/radiation/shortwave:
+
+     Short-wave solar radiation (W)
+
+building/zone_01/surface_01/heat_flux/radiation/shortwave/unit_area:
+
+     Short-wave solar radiation per unit area (W/m2)
+
+building/zone_01/surface_01/plant_containment_flux:
+
+     Plant containment radiant heat flux at surface (W)
+
+building/zone_01/surface_01/temperature:
+
+     Temperature on zone inside face (oC)
+
+building/zone_01/surface_02/AmbRT:
+
+     Ambient radiant temperature for exterior surface (oC)
+
+building/zone_01/surface_02/HCe:
+
+     External side convective coefficient (W/(m2 K))
+
+building/zone_01/surface_02/HCi:
+
+     Internal side convective coefficient (W/(m2 K))
+
+building/zone_01/surface_02/ext_surf_temperature:
+
+     Temperature on exterior face (oC)
+
+building/zone_01/surface_02/heat_flux/above_grade/net:
+
+     Heat transfer through building envelope (above-grade) (W)
+
+building/zone_01/surface_02/heat_flux/radiation/shortwave:
+
+     Short-wave solar radiation (W)
+
+building/zone_01/surface_02/heat_flux/radiation/shortwave/unit_area:
+
+     Short-wave solar radiation per unit area (W/m2)
+
+building/zone_01/surface_02/plant_containment_flux:
+
+     Plant containment radiant heat flux at surface (W)
+
+building/zone_01/surface_02/temperature:
+
+     Temperature on zone inside face (oC)
+
+building/zone_01/surface_03/AmbRT:
+
+     Ambient radiant temperature for exterior surface (oC)
+
+building/zone_01/surface_03/HCe:
+
+     External side convective coefficient (W/(m2 K))
+
+building/zone_01/surface_03/HCi:
+
+     Internal side convective coefficient (W/(m2 K))
+
+building/zone_01/surface_03/ext_surf_temperature:
+
+     Temperature on exterior face (oC)
+
+building/zone_01/surface_03/heat_flux/above_grade/net:
+
+     Heat transfer through building envelope (above-grade) (W)
+
+building/zone_01/surface_03/heat_flux/radiation/shortwave:
+
+     Short-wave solar radiation (W)
+
+building/zone_01/surface_03/heat_flux/radiation/shortwave/unit_area:
+
+     Short-wave solar radiation per unit area (W/m2)
+
+building/zone_01/surface_03/plant_containment_flux:
+
+     Plant containment radiant heat flux at surface (W)
+
+building/zone_01/surface_03/temperature:
+
+     Temperature on zone inside face (oC)
+
+building/zone_01/surface_04/AmbRT:
+
+     Ambient radiant temperature for exterior surface (oC)
+
+building/zone_01/surface_04/HCe:
+
+     External side convective coefficient (W/(m2 K))
+
+building/zone_01/surface_04/HCi:
+
+     Internal side convective coefficient (W/(m2 K))
+
+building/zone_01/surface_04/ext_surf_temperature:
+
+     Temperature on exterior face (oC)
+
+building/zone_01/surface_04/heat_flux/above_grade/net:
+
+     Heat transfer through building envelope (above-grade) (W)
+
+building/zone_01/surface_04/heat_flux/radiation/shortwave:
+
+     Short-wave solar radiation (W)
+
+building/zone_01/surface_04/heat_flux/radiation/shortwave/unit_area:
+
+     Short-wave solar radiation per unit area (W/m2)
+
+building/zone_01/surface_04/plant_containment_flux:
+
+     Plant containment radiant heat flux at surface (W)
+
+building/zone_01/surface_04/temperature:
+
+     Temperature on zone inside face (oC)
+
+building/zone_01/surface_05/AmbRT:
+
+     Ambient radiant temperature for exterior surface (oC)
+
+building/zone_01/surface_05/HCe:
+
+     External side convective coefficient (W/(m2 K))
+
+building/zone_01/surface_05/HCi:
+
+     Internal side convective coefficient (W/(m2 K))
+
+building/zone_01/surface_05/ext_surf_temperature:
+
+     Temperature on exterior face (oC)
+
+building/zone_01/surface_05/heat_flux/above_grade/net:
+
+     Heat transfer through building envelope (above-grade) (W)
+
+building/zone_01/surface_05/heat_flux/radiation/shortwave:
+
+     Short-wave solar radiation (W)
+
+building/zone_01/surface_05/heat_flux/radiation/shortwave/unit_area:
+
+     Short-wave solar radiation per unit area (W/m2)
+
+building/zone_01/surface_05/plant_containment_flux:
+
+     Plant containment radiant heat flux at surface (W)
+
+building/zone_01/surface_05/temperature:
+
+     Temperature on zone inside face (oC)
+
+building/zone_01/surface_06/AmbRT:
+
+     Ambient radiant temperature for exterior surface (oC)
+
+building/zone_01/surface_06/HCe:
+
+     External side convective coefficient (W/(m2 K))
+
+building/zone_01/surface_06/HCi:
+
+     Internal side convective coefficient (W/(m2 K))
+
+building/zone_01/surface_06/ext_surf_temperature:
+
+     Temperature on exterior face (oC)
+
+building/zone_01/surface_06/heat_flux/above_grade/net:
+
+     Heat transfer through building envelope (above-grade) (W)
+
+building/zone_01/surface_06/heat_flux/radiation/shortwave:
+
+     Short-wave solar radiation (W)
+
+building/zone_01/surface_06/heat_flux/radiation/shortwave/unit_area:
+
+     Short-wave solar radiation per unit area (W/m2)
+
+building/zone_01/surface_06/plant_containment_flux:
+
+     Plant containment radiant heat flux at surface (W)
+
+building/zone_01/surface_06/temperature:
+
+     Temperature on zone inside face (oC)
+
+building/zone_01/surface_07/AmbRT:
+
+     Ambient radiant temperature for exterior surface (oC)
+
+building/zone_01/surface_07/HCe:
+
+     External side convective coefficient (W/(m2 K))
+
+building/zone_01/surface_07/HCi:
+
+     Internal side convective coefficient (W/(m2 K))
+
+building/zone_01/surface_07/ext_surf_temperature:
+
+     Temperature on exterior face (oC)
+
+building/zone_01/surface_07/heat_flux/above_grade/net:
+
+     Heat transfer through building envelope (above-grade) (W)
+
+building/zone_01/surface_07/heat_flux/radiation/shortwave:
+
+     Short-wave solar radiation (W)
+
+building/zone_01/surface_07/heat_flux/radiation/shortwave/unit_area:
+
+     Short-wave solar radiation per unit area (W/m2)
+
+building/zone_01/surface_07/plant_containment_flux:
+
+     Plant containment radiant heat flux at surface (W)
+
+building/zone_01/surface_07/temperature:
+
+     Temperature on zone inside face (oC)
+
+building/zone_01/surface_08/AmbRT:
+
+     Ambient radiant temperature for exterior surface (oC)
+
+building/zone_01/surface_08/HCe:
+
+     External side convective coefficient (W/(m2 K))
+
+building/zone_01/surface_08/HCi:
+
+     Internal side convective coefficient (W/(m2 K))
+
+building/zone_01/surface_08/ext_surf_temperature:
+
+     Temperature on exterior face (oC)
+
+building/zone_01/surface_08/heat_flux/above_grade/net:
+
+     Heat transfer through building envelope (above-grade) (W)
+
+building/zone_01/surface_08/heat_flux/radiation/shortwave:
+
+     Short-wave solar radiation (W)
+
+building/zone_01/surface_08/heat_flux/radiation/shortwave/unit_area:
+
+     Short-wave solar radiation per unit area (W/m2)
+
+building/zone_01/surface_08/plant_containment_flux:
+
+     Plant containment radiant heat flux at surface (W)
+
+building/zone_01/surface_08/temperature:
+
+     Temperature on zone inside face (oC)
+
+building/zone_01/surface_09/AmbRT:
+
+     Ambient radiant temperature for exterior surface (oC)
+
+building/zone_01/surface_09/HCe:
+
+     External side convective coefficient (W/(m2 K))
+
+building/zone_01/surface_09/HCi:
+
+     Internal side convective coefficient (W/(m2 K))
+
+building/zone_01/surface_09/ext_surf_temperature:
+
+     Temperature on exterior face (oC)
+
+building/zone_01/surface_09/heat_flux/above_grade/net:
+
+     Heat transfer through building envelope (above-grade) (W)
+
+building/zone_01/surface_09/heat_flux/radiation/shortwave:
+
+     Short-wave solar radiation (W)
+
+building/zone_01/surface_09/heat_flux/radiation/shortwave/unit_area:
+
+     Short-wave solar radiation per unit area (W/m2)
+
+building/zone_01/surface_09/plant_containment_flux:
+
+     Plant containment radiant heat flux at surface (W)
+
+building/zone_01/surface_09/temperature:
+
+     Temperature on zone inside face (oC)
+
+building/zone_01/surface_10/AmbRT:
+
+     Ambient radiant temperature for exterior surface (oC)
+
+building/zone_01/surface_10/HCe:
+
+     External side convective coefficient (W/(m2 K))
+
+building/zone_01/surface_10/HCi:
+
+     Internal side convective coefficient (W/(m2 K))
+
+building/zone_01/surface_10/ext_surf_temperature:
+
+     Temperature on exterior face (oC)
+
+building/zone_01/surface_10/heat_flux/above_grade/net:
+
+     Heat transfer through building envelope (above-grade) (W)
+
+building/zone_01/surface_10/heat_flux/radiation/shortwave:
+
+     Short-wave solar radiation (W)
+
+building/zone_01/surface_10/heat_flux/radiation/shortwave/unit_area:
+
+     Short-wave solar radiation per unit area (W/m2)
+
+building/zone_01/surface_10/plant_containment_flux:
+
+     Plant containment radiant heat flux at surface (W)
+
+building/zone_01/surface_10/temperature:
+
+     Temperature on zone inside face (oC)
+
+building/zone_01/thermal_loads/cooling/total:
+
+     Total cooling load ( heat gain trough envelope +  ventilation and infiltration loads ) (W)
+
+building/zone_01/thermal_loads/cooling/total_Perm2:
+
+     Total cooling load ( heat gain trough envelope +  ventilation and infiltration loads ) (W/m2)
+
+building/zone_01/thermal_loads/heating/total:
+
+     Total heating load ( heat loss trough envelope +  ventilation and infiltration loads ) (W)
+
+building/zone_01/thermal_loads/heating/total_Perm2:
+
+     Total heating load ( heat loss trough envelope +  ventilation and infiltration loads ) (W/m2)
+
+building/zone_01/thermal_loads/net_load:
+
+     Net load ( heat gain/loss trough envelope +  ventilation and infiltration loads ) (W)
+
+building/zone_01/thermal_loads/net_load_Perm2:
+
+     Net load ( heat gain/loss trough envelope +  ventilation and infiltration loads ) (W/m2)
+
+building/zone_01/windows/position:
+
+     Window position as per BCL25 controller (0->1) (-)
+
+building/zone_02/air_flow_model:
+
+     Air-flow-model (0->3) (-)
+
+building/zone_02/air_point/relative_humidity:
+
+     Zone relative humidity (%)
+
+building/zone_02/air_point/temperature:
+
+     Zone air-point temperature (oC)
+
+building/zone_02/envelope/all_components/heat_gain:
+
+     Heat gained through all components of envelope (W)
+
+building/zone_02/envelope/all_components/heat_loss:
+
+     Heat lost through all components of envelope (W)
+
+building/zone_02/envelope/all_components/net_flux:
+
+     Net flux through all components of envelope (W)
+
+building/zone_02/envelope/ceilings/heat_gain:
+
+     Contribution of ceilings to cooling load (W)
+
+building/zone_02/envelope/ceilings/heat_loss:
+
+     Contribution of Ceilings to heating load (W)
+
+building/zone_02/envelope/ceilings/net_flux:
+
+     Contribution of ceilings to net heat flux (W)
+
+building/zone_02/envelope/floors/heat_gain:
+
+     Contribution of overhanging floors to cooling load (W)
+
+building/zone_02/envelope/floors/heat_loss:
+
+     Contribution of overhanging floors to heating load (W)
+
+building/zone_02/envelope/floors/net_flux:
+
+     Contribution of overhanging floors to net heat flux (W)
+
+building/zone_02/envelope/foundation/heat_gain:
+
+     Contribution of foundation to cooling load (W)
+
+building/zone_02/envelope/foundation/heat_loss:
+
+     Contribution of foundation to heating load (W)
+
+building/zone_02/envelope/foundation/net_flux:
+
+     Contribution of foundation to net heat flux (W)
+
+building/zone_02/envelope/infiltration/air_changes_per_hour:
+
+     Zone infiltration (air changes per hour) (ACH)
+
+building/zone_02/envelope/infiltration/balance/air:
+
+     Air movement into zone (kg/s?)
+
+building/zone_02/envelope/infiltration/balance/air_exchange:
+
+     Air movement into zone (ACH)
+
+building/zone_02/envelope/infiltration/heat_gain:
+
+     Contribution of infiltration to cooling load (W)
+
+building/zone_02/envelope/infiltration/heat_loss:
+
+     Contribution of infiltration to heating load (W)
+
+building/zone_02/envelope/infiltration/net_flux:
+
+     Contribution of infiltration to heating load (W)
+
+building/zone_02/envelope/walls/heat_gain:
+
+     Contribution of walls to cooling load (W)
+
+building/zone_02/envelope/walls/heat_loss:
+
+     Contribution of walls to heating load (W)
+
+building/zone_02/envelope/walls/net_flux:
+
+     Contribution of walls to net heat flux (W)
+
+building/zone_02/envelope/windows/heat_gain:
+
+     Contribution of windows to cooling load (W)
+
+building/zone_02/envelope/windows/heat_loss:
+
+     Contribution of windows to heating load (W)
+
+building/zone_02/envelope/windows/net_flux:
+
+     Contribution of windows to net heat flux (W)
+
+building/zone_02/insolation/adverse:
+
+     Solar gains admitted through glazing that increase cooling loads (W)
+
+building/zone_02/insolation/total:
+
+     Solar gains admitted through glazing  (W)
+
+building/zone_02/insolation/useful:
+
+     Solar gains admitted through glazing that supplant heating loads (W)
+
+building/zone_02/internal_gains/adverse:
+
+     Internal heat gains(convective + radiant) that increase cooling loads (W)
+
+building/zone_02/internal_gains/total:
+
+     Internal heat gains(convective + radiant) (W)
+
+building/zone_02/internal_gains/useful:
+
+     Internal heat gains(convective + radiant) that supplant heating loads (W)
+
+building/zone_02/supplied_energy/cooling:
+
+     Zone net heat extraction  (W)
+
+building/zone_02/supplied_energy/cooling_Perm2:
+
+     Zone net heat extraction  (W/m2)
+
+building/zone_02/supplied_energy/heating:
+
+     Zone net heat injection  (W)
+
+building/zone_02/supplied_energy/heating_Perm2:
+
+     Zone net heat injection  (W/m2)
+
+building/zone_02/supplied_energy/net:
+
+     Zone net heat injection/extraction  (W)
+
+building/zone_02/supplied_energy/net_Perm2:
+
+     Zone net heat injection/extraction  (W/m2)
+
+building/zone_02/surface_01/AmbRT:
+
+     Ambient radiant temperature for exterior surface (oC)
+
+building/zone_02/surface_01/HCe:
+
+     External side convective coefficient (W/(m2 K))
+
+building/zone_02/surface_01/HCi:
+
+     Internal side convective coefficient (W/(m2 K))
+
+building/zone_02/surface_01/ext_surf_temperature:
+
+     Temperature on exterior face (oC)
+
+building/zone_02/surface_01/heat_flux/above_grade/net:
+
+     Heat transfer through building envelope (above-grade) (W)
+
+building/zone_02/surface_01/heat_flux/radiation/shortwave:
+
+     Short-wave solar radiation (W)
+
+building/zone_02/surface_01/heat_flux/radiation/shortwave/unit_area:
+
+     Short-wave solar radiation per unit area (W/m2)
+
+building/zone_02/surface_01/plant_containment_flux:
+
+     Plant containment radiant heat flux at surface (W)
+
+building/zone_02/surface_01/temperature:
+
+     Temperature on zone inside face (oC)
+
+building/zone_02/surface_02/AmbRT:
+
+     Ambient radiant temperature for exterior surface (oC)
+
+building/zone_02/surface_02/HCe:
+
+     External side convective coefficient (W/(m2 K))
+
+building/zone_02/surface_02/HCi:
+
+     Internal side convective coefficient (W/(m2 K))
+
+building/zone_02/surface_02/ext_surf_temperature:
+
+     Temperature on exterior face (oC)
+
+building/zone_02/surface_02/heat_flux/above_grade/net:
+
+     Heat transfer through building envelope (above-grade) (W)
+
+building/zone_02/surface_02/heat_flux/radiation/shortwave:
+
+     Short-wave solar radiation (W)
+
+building/zone_02/surface_02/heat_flux/radiation/shortwave/unit_area:
+
+     Short-wave solar radiation per unit area (W/m2)
+
+building/zone_02/surface_02/plant_containment_flux:
+
+     Plant containment radiant heat flux at surface (W)
+
+building/zone_02/surface_02/temperature:
+
+     Temperature on zone inside face (oC)
+
+building/zone_02/surface_03/AmbRT:
+
+     Ambient radiant temperature for exterior surface (oC)
+
+building/zone_02/surface_03/HCe:
+
+     External side convective coefficient (W/(m2 K))
+
+building/zone_02/surface_03/HCi:
+
+     Internal side convective coefficient (W/(m2 K))
+
+building/zone_02/surface_03/ext_surf_temperature:
+
+     Temperature on exterior face (oC)
+
+building/zone_02/surface_03/heat_flux/above_grade/net:
+
+     Heat transfer through building envelope (above-grade) (W)
+
+building/zone_02/surface_03/heat_flux/radiation/shortwave:
+
+     Short-wave solar radiation (W)
+
+building/zone_02/surface_03/heat_flux/radiation/shortwave/unit_area:
+
+     Short-wave solar radiation per unit area (W/m2)
+
+building/zone_02/surface_03/plant_containment_flux:
+
+     Plant containment radiant heat flux at surface (W)
+
+building/zone_02/surface_03/temperature:
+
+     Temperature on zone inside face (oC)
+
+building/zone_02/surface_04/AmbRT:
+
+     Ambient radiant temperature for exterior surface (oC)
+
+building/zone_02/surface_04/HCe:
+
+     External side convective coefficient (W/(m2 K))
+
+building/zone_02/surface_04/HCi:
+
+     Internal side convective coefficient (W/(m2 K))
+
+building/zone_02/surface_04/ext_surf_temperature:
+
+     Temperature on exterior face (oC)
+
+building/zone_02/surface_04/heat_flux/above_grade/net:
+
+     Heat transfer through building envelope (above-grade) (W)
+
+building/zone_02/surface_04/heat_flux/radiation/shortwave:
+
+     Short-wave solar radiation (W)
+
+building/zone_02/surface_04/heat_flux/radiation/shortwave/unit_area:
+
+     Short-wave solar radiation per unit area (W/m2)
+
+building/zone_02/surface_04/plant_containment_flux:
+
+     Plant containment radiant heat flux at surface (W)
+
+building/zone_02/surface_04/temperature:
+
+     Temperature on zone inside face (oC)
+
+building/zone_02/surface_05/AmbRT:
+
+     Ambient radiant temperature for exterior surface (oC)
+
+building/zone_02/surface_05/HCe:
+
+     External side convective coefficient (W/(m2 K))
+
+building/zone_02/surface_05/HCi:
+
+     Internal side convective coefficient (W/(m2 K))
+
+building/zone_02/surface_05/ext_surf_temperature:
+
+     Temperature on exterior face (oC)
+
+building/zone_02/surface_05/heat_flux/above_grade/net:
+
+     Heat transfer through building envelope (above-grade) (W)
+
+building/zone_02/surface_05/heat_flux/radiation/shortwave:
+
+     Short-wave solar radiation (W)
+
+building/zone_02/surface_05/heat_flux/radiation/shortwave/unit_area:
+
+     Short-wave solar radiation per unit area (W/m2)
+
+building/zone_02/surface_05/plant_containment_flux:
+
+     Plant containment radiant heat flux at surface (W)
+
+building/zone_02/surface_05/temperature:
+
+     Temperature on zone inside face (oC)
+
+building/zone_02/surface_06/AmbRT:
+
+     Ambient radiant temperature for exterior surface (oC)
+
+building/zone_02/surface_06/HCe:
+
+     External side convective coefficient (W/(m2 K))
+
+building/zone_02/surface_06/HCi:
+
+     Internal side convective coefficient (W/(m2 K))
+
+building/zone_02/surface_06/ext_surf_temperature:
+
+     Temperature on exterior face (oC)
+
+building/zone_02/surface_06/heat_flux/above_grade/net:
+
+     Heat transfer through building envelope (above-grade) (W)
+
+building/zone_02/surface_06/heat_flux/radiation/shortwave:
+
+     Short-wave solar radiation (W)
+
+building/zone_02/surface_06/heat_flux/radiation/shortwave/unit_area:
+
+     Short-wave solar radiation per unit area (W/m2)
+
+building/zone_02/surface_06/plant_containment_flux:
+
+     Plant containment radiant heat flux at surface (W)
+
+building/zone_02/surface_06/temperature:
+
+     Temperature on zone inside face (oC)
+
+building/zone_02/surface_07/AmbRT:
+
+     Ambient radiant temperature for exterior surface (oC)
+
+building/zone_02/surface_07/HCe:
+
+     External side convective coefficient (W/(m2 K))
+
+building/zone_02/surface_07/HCi:
+
+     Internal side convective coefficient (W/(m2 K))
+
+building/zone_02/surface_07/ext_surf_temperature:
+
+     Temperature on exterior face (oC)
+
+building/zone_02/surface_07/heat_flux/above_grade/net:
+
+     Heat transfer through building envelope (above-grade) (W)
+
+building/zone_02/surface_07/heat_flux/radiation/shortwave:
+
+     Short-wave solar radiation (W)
+
+building/zone_02/surface_07/heat_flux/radiation/shortwave/unit_area:
+
+     Short-wave solar radiation per unit area (W/m2)
+
+building/zone_02/surface_07/plant_containment_flux:
+
+     Plant containment radiant heat flux at surface (W)
+
+building/zone_02/surface_07/temperature:
+
+     Temperature on zone inside face (oC)
+
+building/zone_02/surface_08/AmbRT:
+
+     Ambient radiant temperature for exterior surface (oC)
+
+building/zone_02/surface_08/HCe:
+
+     External side convective coefficient (W/(m2 K))
+
+building/zone_02/surface_08/HCi:
+
+     Internal side convective coefficient (W/(m2 K))
+
+building/zone_02/surface_08/ext_surf_temperature:
+
+     Temperature on exterior face (oC)
+
+building/zone_02/surface_08/heat_flux/above_grade/net:
+
+     Heat transfer through building envelope (above-grade) (W)
+
+building/zone_02/surface_08/heat_flux/radiation/shortwave:
+
+     Short-wave solar radiation (W)
+
+building/zone_02/surface_08/heat_flux/radiation/shortwave/unit_area:
+
+     Short-wave solar radiation per unit area (W/m2)
+
+building/zone_02/surface_08/plant_containment_flux:
+
+     Plant containment radiant heat flux at surface (W)
+
+building/zone_02/surface_08/temperature:
+
+     Temperature on zone inside face (oC)
+
+building/zone_02/surface_09/AmbRT:
+
+     Ambient radiant temperature for exterior surface (oC)
+
+building/zone_02/surface_09/HCe:
+
+     External side convective coefficient (W/(m2 K))
+
+building/zone_02/surface_09/HCi:
+
+     Internal side convective coefficient (W/(m2 K))
+
+building/zone_02/surface_09/ext_surf_temperature:
+
+     Temperature on exterior face (oC)
+
+building/zone_02/surface_09/heat_flux/above_grade/net:
+
+     Heat transfer through building envelope (above-grade) (W)
+
+building/zone_02/surface_09/heat_flux/radiation/shortwave:
+
+     Short-wave solar radiation (W)
+
+building/zone_02/surface_09/heat_flux/radiation/shortwave/unit_area:
+
+     Short-wave solar radiation per unit area (W/m2)
+
+building/zone_02/surface_09/plant_containment_flux:
+
+     Plant containment radiant heat flux at surface (W)
+
+building/zone_02/surface_09/temperature:
+
+     Temperature on zone inside face (oC)
+
+building/zone_02/surface_10/AmbRT:
+
+     Ambient radiant temperature for exterior surface (oC)
+
+building/zone_02/surface_10/HCe:
+
+     External side convective coefficient (W/(m2 K))
+
+building/zone_02/surface_10/HCi:
+
+     Internal side convective coefficient (W/(m2 K))
+
+building/zone_02/surface_10/ext_surf_temperature:
+
+     Temperature on exterior face (oC)
+
+building/zone_02/surface_10/heat_flux/above_grade/net:
+
+     Heat transfer through building envelope (above-grade) (W)
+
+building/zone_02/surface_10/heat_flux/radiation/shortwave:
+
+     Short-wave solar radiation (W)
+
+building/zone_02/surface_10/heat_flux/radiation/shortwave/unit_area:
+
+     Short-wave solar radiation per unit area (W/m2)
+
+building/zone_02/surface_10/plant_containment_flux:
+
+     Plant containment radiant heat flux at surface (W)
+
+building/zone_02/surface_10/temperature:
+
+     Temperature on zone inside face (oC)
+
+building/zone_02/thermal_loads/cooling/total:
+
+     Total cooling load ( heat gain trough envelope +  ventilation and infiltration loads ) (W)
+
+building/zone_02/thermal_loads/cooling/total_Perm2:
+
+     Total cooling load ( heat gain trough envelope +  ventilation and infiltration loads ) (W/m2)
+
+building/zone_02/thermal_loads/heating/total:
+
+     Total heating load ( heat loss trough envelope +  ventilation and infiltration loads ) (W)
+
+building/zone_02/thermal_loads/heating/total_Perm2:
+
+     Total heating load ( heat loss trough envelope +  ventilation and infiltration loads ) (W/m2)
+
+building/zone_02/thermal_loads/net_load:
+
+     Net load ( heat gain/loss trough envelope +  ventilation and infiltration loads ) (W)
+
+building/zone_02/thermal_loads/net_load_Perm2:
+
+     Net load ( heat gain/loss trough envelope +  ventilation and infiltration loads ) (W/m2)
+
+building/zone_02/windows/position:
+
+     Window position as per BCL25 controller (0->1) (-)
+
+building/zone_03/air_flow_model:
+
+     Air-flow-model (0->3) (-)
+
+building/zone_03/air_point/relative_humidity:
+
+     Zone relative humidity (%)
+
+building/zone_03/air_point/temperature:
+
+     Zone air-point temperature (oC)
+
+building/zone_03/envelope/all_components/heat_gain:
+
+     Heat gained through all components of envelope (W)
+
+building/zone_03/envelope/all_components/heat_loss:
+
+     Heat lost through all components of envelope (W)
+
+building/zone_03/envelope/all_components/net_flux:
+
+     Net flux through all components of envelope (W)
+
+building/zone_03/envelope/ceilings/heat_gain:
+
+     Contribution of ceilings to cooling load (W)
+
+building/zone_03/envelope/ceilings/heat_loss:
+
+     Contribution of Ceilings to heating load (W)
+
+building/zone_03/envelope/ceilings/net_flux:
+
+     Contribution of ceilings to net heat flux (W)
+
+building/zone_03/envelope/floors/heat_gain:
+
+     Contribution of overhanging floors to cooling load (W)
+
+building/zone_03/envelope/floors/heat_loss:
+
+     Contribution of overhanging floors to heating load (W)
+
+building/zone_03/envelope/floors/net_flux:
+
+     Contribution of overhanging floors to net heat flux (W)
+
+building/zone_03/envelope/foundation/heat_gain:
+
+     Contribution of foundation to cooling load (W)
+
+building/zone_03/envelope/foundation/heat_loss:
+
+     Contribution of foundation to heating load (W)
+
+building/zone_03/envelope/foundation/net_flux:
+
+     Contribution of foundation to net heat flux (W)
+
+building/zone_03/envelope/infiltration/air_changes_per_hour:
+
+     Zone infiltration (air changes per hour) (ACH)
+
+building/zone_03/envelope/infiltration/balance/air:
+
+     Air movement into zone (kg/s?)
+
+building/zone_03/envelope/infiltration/balance/air_exchange:
+
+     Air movement into zone (ACH)
+
+building/zone_03/envelope/infiltration/heat_gain:
+
+     Contribution of infiltration to cooling load (W)
+
+building/zone_03/envelope/infiltration/heat_loss:
+
+     Contribution of infiltration to heating load (W)
+
+building/zone_03/envelope/infiltration/net_flux:
+
+     Contribution of infiltration to heating load (W)
+
+building/zone_03/envelope/walls/heat_gain:
+
+     Contribution of walls to cooling load (W)
+
+building/zone_03/envelope/walls/heat_loss:
+
+     Contribution of walls to heating load (W)
+
+building/zone_03/envelope/walls/net_flux:
+
+     Contribution of walls to net heat flux (W)
+
+building/zone_03/envelope/windows/heat_gain:
+
+     Contribution of windows to cooling load (W)
+
+building/zone_03/envelope/windows/heat_loss:
+
+     Contribution of windows to heating load (W)
+
+building/zone_03/envelope/windows/net_flux:
+
+     Contribution of windows to net heat flux (W)
+
+building/zone_03/insolation/adverse:
+
+     Solar gains admitted through glazing that increase cooling loads (W)
+
+building/zone_03/insolation/total:
+
+     Solar gains admitted through glazing  (W)
+
+building/zone_03/insolation/useful:
+
+     Solar gains admitted through glazing that supplant heating loads (W)
+
+building/zone_03/internal_gains/adverse:
+
+     Internal heat gains(convective + radiant) that increase cooling loads (W)
+
+building/zone_03/internal_gains/total:
+
+     Internal heat gains(convective + radiant) (W)
+
+building/zone_03/internal_gains/useful:
+
+     Internal heat gains(convective + radiant) that supplant heating loads (W)
+
+building/zone_03/supplied_energy/cooling:
+
+     Zone net heat extraction  (W)
+
+building/zone_03/supplied_energy/cooling_Perm2:
+
+     Zone net heat extraction  (W/m2)
+
+building/zone_03/supplied_energy/heating:
+
+     Zone net heat injection  (W)
+
+building/zone_03/supplied_energy/heating_Perm2:
+
+     Zone net heat injection  (W/m2)
+
+building/zone_03/supplied_energy/net:
+
+     Zone net heat injection/extraction  (W)
+
+building/zone_03/supplied_energy/net_Perm2:
+
+     Zone net heat injection/extraction  (W/m2)
+
+building/zone_03/surface_01/AmbRT:
+
+     Ambient radiant temperature for exterior surface (oC)
+
+building/zone_03/surface_01/HCe:
+
+     External side convective coefficient (W/(m2 K))
+
+building/zone_03/surface_01/HCi:
+
+     Internal side convective coefficient (W/(m2 K))
+
+building/zone_03/surface_01/ext_surf_temperature:
+
+     Temperature on exterior face (oC)
+
+building/zone_03/surface_01/heat_flux/above_grade/net:
+
+     Heat transfer through building envelope (above-grade) (W)
+
+building/zone_03/surface_01/heat_flux/radiation/shortwave:
+
+     Short-wave solar radiation (W)
+
+building/zone_03/surface_01/heat_flux/radiation/shortwave/unit_area:
+
+     Short-wave solar radiation per unit area (W/m2)
+
+building/zone_03/surface_01/plant_containment_flux:
+
+     Plant containment radiant heat flux at surface (W)
+
+building/zone_03/surface_01/temperature:
+
+     Temperature on zone inside face (oC)
+
+building/zone_03/surface_02/AmbRT:
+
+     Ambient radiant temperature for exterior surface (oC)
+
+building/zone_03/surface_02/HCe:
+
+     External side convective coefficient (W/(m2 K))
+
+building/zone_03/surface_02/HCi:
+
+     Internal side convective coefficient (W/(m2 K))
+
+building/zone_03/surface_02/ext_surf_temperature:
+
+     Temperature on exterior face (oC)
+
+building/zone_03/surface_02/heat_flux/above_grade/net:
+
+     Heat transfer through building envelope (above-grade) (W)
+
+building/zone_03/surface_02/heat_flux/radiation/shortwave:
+
+     Short-wave solar radiation (W)
+
+building/zone_03/surface_02/heat_flux/radiation/shortwave/unit_area:
+
+     Short-wave solar radiation per unit area (W/m2)
+
+building/zone_03/surface_02/plant_containment_flux:
+
+     Plant containment radiant heat flux at surface (W)
+
+building/zone_03/surface_02/temperature:
+
+     Temperature on zone inside face (oC)
+
+building/zone_03/surface_03/AmbRT:
+
+     Ambient radiant temperature for exterior surface (oC)
+
+building/zone_03/surface_03/HCe:
+
+     External side convective coefficient (W/(m2 K))
+
+building/zone_03/surface_03/HCi:
+
+     Internal side convective coefficient (W/(m2 K))
+
+building/zone_03/surface_03/ext_surf_temperature:
+
+     Temperature on exterior face (oC)
+
+building/zone_03/surface_03/heat_flux/above_grade/net:
+
+     Heat transfer through building envelope (above-grade) (W)
+
+building/zone_03/surface_03/heat_flux/radiation/shortwave:
+
+     Short-wave solar radiation (W)
+
+building/zone_03/surface_03/heat_flux/radiation/shortwave/unit_area:
+
+     Short-wave solar radiation per unit area (W/m2)
+
+building/zone_03/surface_03/plant_containment_flux:
+
+     Plant containment radiant heat flux at surface (W)
+
+building/zone_03/surface_03/temperature:
+
+     Temperature on zone inside face (oC)
+
+building/zone_03/surface_04/AmbRT:
+
+     Ambient radiant temperature for exterior surface (oC)
+
+building/zone_03/surface_04/HCe:
+
+     External side convective coefficient (W/(m2 K))
+
+building/zone_03/surface_04/HCi:
+
+     Internal side convective coefficient (W/(m2 K))
+
+building/zone_03/surface_04/ext_surf_temperature:
+
+     Temperature on exterior face (oC)
+
+building/zone_03/surface_04/heat_flux/above_grade/net:
+
+     Heat transfer through building envelope (above-grade) (W)
+
+building/zone_03/surface_04/heat_flux/radiation/shortwave:
+
+     Short-wave solar radiation (W)
+
+building/zone_03/surface_04/heat_flux/radiation/shortwave/unit_area:
+
+     Short-wave solar radiation per unit area (W/m2)
+
+building/zone_03/surface_04/plant_containment_flux:
+
+     Plant containment radiant heat flux at surface (W)
+
+building/zone_03/surface_04/temperature:
+
+     Temperature on zone inside face (oC)
+
+building/zone_03/surface_05/AmbRT:
+
+     Ambient radiant temperature for exterior surface (oC)
+
+building/zone_03/surface_05/HCe:
+
+     External side convective coefficient (W/(m2 K))
+
+building/zone_03/surface_05/HCi:
+
+     Internal side convective coefficient (W/(m2 K))
+
+building/zone_03/surface_05/ext_surf_temperature:
+
+     Temperature on exterior face (oC)
+
+building/zone_03/surface_05/heat_flux/above_grade/net:
+
+     Heat transfer through building envelope (above-grade) (W)
+
+building/zone_03/surface_05/heat_flux/radiation/shortwave:
+
+     Short-wave solar radiation (W)
+
+building/zone_03/surface_05/heat_flux/radiation/shortwave/unit_area:
+
+     Short-wave solar radiation per unit area (W/m2)
+
+building/zone_03/surface_05/plant_containment_flux:
+
+     Plant containment radiant heat flux at surface (W)
+
+building/zone_03/surface_05/temperature:
+
+     Temperature on zone inside face (oC)
+
+building/zone_03/surface_06/AmbRT:
+
+     Ambient radiant temperature for exterior surface (oC)
+
+building/zone_03/surface_06/HCe:
+
+     External side convective coefficient (W/(m2 K))
+
+building/zone_03/surface_06/HCi:
+
+     Internal side convective coefficient (W/(m2 K))
+
+building/zone_03/surface_06/ext_surf_temperature:
+
+     Temperature on exterior face (oC)
+
+building/zone_03/surface_06/heat_flux/above_grade/net:
+
+     Heat transfer through building envelope (above-grade) (W)
+
+building/zone_03/surface_06/heat_flux/radiation/shortwave:
+
+     Short-wave solar radiation (W)
+
+building/zone_03/surface_06/heat_flux/radiation/shortwave/unit_area:
+
+     Short-wave solar radiation per unit area (W/m2)
+
+building/zone_03/surface_06/plant_containment_flux:
+
+     Plant containment radiant heat flux at surface (W)
+
+building/zone_03/surface_06/temperature:
+
+     Temperature on zone inside face (oC)
+
+building/zone_03/surface_07/AmbRT:
+
+     Ambient radiant temperature for exterior surface (oC)
+
+building/zone_03/surface_07/HCe:
+
+     External side convective coefficient (W/(m2 K))
+
+building/zone_03/surface_07/HCi:
+
+     Internal side convective coefficient (W/(m2 K))
+
+building/zone_03/surface_07/ext_surf_temperature:
+
+     Temperature on exterior face (oC)
+
+building/zone_03/surface_07/heat_flux/above_grade/net:
+
+     Heat transfer through building envelope (above-grade) (W)
+
+building/zone_03/surface_07/heat_flux/radiation/shortwave:
+
+     Short-wave solar radiation (W)
+
+building/zone_03/surface_07/heat_flux/radiation/shortwave/unit_area:
+
+     Short-wave solar radiation per unit area (W/m2)
+
+building/zone_03/surface_07/plant_containment_flux:
+
+     Plant containment radiant heat flux at surface (W)
+
+building/zone_03/surface_07/temperature:
+
+     Temperature on zone inside face (oC)
+
+building/zone_03/surface_08/AmbRT:
+
+     Ambient radiant temperature for exterior surface (oC)
+
+building/zone_03/surface_08/HCe:
+
+     External side convective coefficient (W/(m2 K))
+
+building/zone_03/surface_08/HCi:
+
+     Internal side convective coefficient (W/(m2 K))
+
+building/zone_03/surface_08/ext_surf_temperature:
+
+     Temperature on exterior face (oC)
+
+building/zone_03/surface_08/heat_flux/above_grade/net:
+
+     Heat transfer through building envelope (above-grade) (W)
+
+building/zone_03/surface_08/heat_flux/radiation/shortwave:
+
+     Short-wave solar radiation (W)
+
+building/zone_03/surface_08/heat_flux/radiation/shortwave/unit_area:
+
+     Short-wave solar radiation per unit area (W/m2)
+
+building/zone_03/surface_08/plant_containment_flux:
+
+     Plant containment radiant heat flux at surface (W)
+
+building/zone_03/surface_08/temperature:
+
+     Temperature on zone inside face (oC)
+
+building/zone_03/surface_09/AmbRT:
+
+     Ambient radiant temperature for exterior surface (oC)
+
+building/zone_03/surface_09/HCe:
+
+     External side convective coefficient (W/(m2 K))
+
+building/zone_03/surface_09/HCi:
+
+     Internal side convective coefficient (W/(m2 K))
+
+building/zone_03/surface_09/ext_surf_temperature:
+
+     Temperature on exterior face (oC)
+
+building/zone_03/surface_09/heat_flux/above_grade/net:
+
+     Heat transfer through building envelope (above-grade) (W)
+
+building/zone_03/surface_09/heat_flux/radiation/shortwave:
+
+     Short-wave solar radiation (W)
+
+building/zone_03/surface_09/heat_flux/radiation/shortwave/unit_area:
+
+     Short-wave solar radiation per unit area (W/m2)
+
+building/zone_03/surface_09/plant_containment_flux:
+
+     Plant containment radiant heat flux at surface (W)
+
+building/zone_03/surface_09/temperature:
+
+     Temperature on zone inside face (oC)
+
+building/zone_03/surface_10/AmbRT:
+
+     Ambient radiant temperature for exterior surface (oC)
+
+building/zone_03/surface_10/HCe:
+
+     External side convective coefficient (W/(m2 K))
+
+building/zone_03/surface_10/HCi:
+
+     Internal side convective coefficient (W/(m2 K))
+
+building/zone_03/surface_10/ext_surf_temperature:
+
+     Temperature on exterior face (oC)
+
+building/zone_03/surface_10/heat_flux/above_grade/net:
+
+     Heat transfer through building envelope (above-grade) (W)
+
+building/zone_03/surface_10/heat_flux/radiation/shortwave:
+
+     Short-wave solar radiation (W)
+
+building/zone_03/surface_10/heat_flux/radiation/shortwave/unit_area:
+
+     Short-wave solar radiation per unit area (W/m2)
+
+building/zone_03/surface_10/plant_containment_flux:
+
+     Plant containment radiant heat flux at surface (W)
+
+building/zone_03/surface_10/temperature:
+
+     Temperature on zone inside face (oC)
+
+building/zone_03/thermal_loads/cooling/total:
+
+     Total cooling load ( heat gain trough envelope +  ventilation and infiltration loads ) (W)
+
+building/zone_03/thermal_loads/cooling/total_Perm2:
+
+     Total cooling load ( heat gain trough envelope +  ventilation and infiltration loads ) (W/m2)
+
+building/zone_03/thermal_loads/heating/total:
+
+     Total heating load ( heat loss trough envelope +  ventilation and infiltration loads ) (W)
+
+building/zone_03/thermal_loads/heating/total_Perm2:
+
+     Total heating load ( heat loss trough envelope +  ventilation and infiltration loads ) (W/m2)
+
+building/zone_03/thermal_loads/net_load:
+
+     Net load ( heat gain/loss trough envelope +  ventilation and infiltration loads ) (W)
+
+building/zone_03/thermal_loads/net_load_Perm2:
+
+     Net load ( heat gain/loss trough envelope +  ventilation and infiltration loads ) (W/m2)
+
+building/zone_03/windows/position:
+
+     Window position as per BCL25 controller (0->1) (-)
+
+building/zone_04/air_flow_model:
+
+     Air-flow-model (0->3) (-)
+
+building/zone_04/air_point/relative_humidity:
+
+     Zone relative humidity (%)
+
+building/zone_04/air_point/temperature:
+
+     Zone air-point temperature (oC)
+
+building/zone_04/envelope/all_components/heat_gain:
+
+     Heat gained through all components of envelope (W)
+
+building/zone_04/envelope/all_components/heat_loss:
+
+     Heat lost through all components of envelope (W)
+
+building/zone_04/envelope/all_components/net_flux:
+
+     Net flux through all components of envelope (W)
+
+building/zone_04/envelope/ceilings/heat_gain:
+
+     Contribution of ceilings to cooling load (W)
+
+building/zone_04/envelope/ceilings/heat_loss:
+
+     Contribution of Ceilings to heating load (W)
+
+building/zone_04/envelope/ceilings/net_flux:
+
+     Contribution of ceilings to net heat flux (W)
+
+building/zone_04/envelope/floors/heat_gain:
+
+     Contribution of overhanging floors to cooling load (W)
+
+building/zone_04/envelope/floors/heat_loss:
+
+     Contribution of overhanging floors to heating load (W)
+
+building/zone_04/envelope/floors/net_flux:
+
+     Contribution of overhanging floors to net heat flux (W)
+
+building/zone_04/envelope/foundation/heat_gain:
+
+     Contribution of foundation to cooling load (W)
+
+building/zone_04/envelope/foundation/heat_loss:
+
+     Contribution of foundation to heating load (W)
+
+building/zone_04/envelope/foundation/net_flux:
+
+     Contribution of foundation to net heat flux (W)
+
+building/zone_04/envelope/infiltration/air_changes_per_hour:
+
+     Zone infiltration (air changes per hour) (ACH)
+
+building/zone_04/envelope/infiltration/balance/air:
+
+     Air movement into zone (kg/s?)
+
+building/zone_04/envelope/infiltration/balance/air_exchange:
+
+     Air movement into zone (ACH)
+
+building/zone_04/envelope/infiltration/heat_gain:
+
+     Contribution of infiltration to cooling load (W)
+
+building/zone_04/envelope/infiltration/heat_loss:
+
+     Contribution of infiltration to heating load (W)
+
+building/zone_04/envelope/infiltration/net_flux:
+
+     Contribution of infiltration to heating load (W)
+
+building/zone_04/envelope/walls/heat_gain:
+
+     Contribution of walls to cooling load (W)
+
+building/zone_04/envelope/walls/heat_loss:
+
+     Contribution of walls to heating load (W)
+
+building/zone_04/envelope/walls/net_flux:
+
+     Contribution of walls to net heat flux (W)
+
+building/zone_04/envelope/windows/heat_gain:
+
+     Contribution of windows to cooling load (W)
+
+building/zone_04/envelope/windows/heat_loss:
+
+     Contribution of windows to heating load (W)
+
+building/zone_04/envelope/windows/net_flux:
+
+     Contribution of windows to net heat flux (W)
+
+building/zone_04/insolation/adverse:
+
+     Solar gains admitted through glazing that increase cooling loads (W)
+
+building/zone_04/insolation/total:
+
+     Solar gains admitted through glazing  (W)
+
+building/zone_04/insolation/useful:
+
+     Solar gains admitted through glazing that supplant heating loads (W)
+
+building/zone_04/internal_gains/adverse:
+
+     Internal heat gains(convective + radiant) that increase cooling loads (W)
+
+building/zone_04/internal_gains/total:
+
+     Internal heat gains(convective + radiant) (W)
+
+building/zone_04/internal_gains/useful:
+
+     Internal heat gains(convective + radiant) that supplant heating loads (W)
+
+building/zone_04/supplied_energy/cooling:
+
+     Zone net heat extraction  (W)
+
+building/zone_04/supplied_energy/cooling_Perm2:
+
+     Zone net heat extraction  (W/m2)
+
+building/zone_04/supplied_energy/heating:
+
+     Zone net heat injection  (W)
+
+building/zone_04/supplied_energy/heating_Perm2:
+
+     Zone net heat injection  (W/m2)
+
+building/zone_04/supplied_energy/net:
+
+     Zone net heat injection/extraction  (W)
+
+building/zone_04/supplied_energy/net_Perm2:
+
+     Zone net heat injection/extraction  (W/m2)
+
+building/zone_04/surface_01/AmbRT:
+
+     Ambient radiant temperature for exterior surface (oC)
+
+building/zone_04/surface_01/HCe:
+
+     External side convective coefficient (W/(m2 K))
+
+building/zone_04/surface_01/HCi:
+
+     Internal side convective coefficient (W/(m2 K))
+
+building/zone_04/surface_01/ext_surf_temperature:
+
+     Temperature on exterior face (oC)
+
+building/zone_04/surface_01/heat_flux/above_grade/net:
+
+     Heat transfer through building envelope (above-grade) (W)
+
+building/zone_04/surface_01/heat_flux/radiation/shortwave:
+
+     Short-wave solar radiation (W)
+
+building/zone_04/surface_01/heat_flux/radiation/shortwave/unit_area:
+
+     Short-wave solar radiation per unit area (W/m2)
+
+building/zone_04/surface_01/plant_containment_flux:
+
+     Plant containment radiant heat flux at surface (W)
+
+building/zone_04/surface_01/temperature:
+
+     Temperature on zone inside face (oC)
+
+building/zone_04/surface_02/AmbRT:
+
+     Ambient radiant temperature for exterior surface (oC)
+
+building/zone_04/surface_02/HCe:
+
+     External side convective coefficient (W/(m2 K))
+
+building/zone_04/surface_02/HCi:
+
+     Internal side convective coefficient (W/(m2 K))
+
+building/zone_04/surface_02/ext_surf_temperature:
+
+     Temperature on exterior face (oC)
+
+building/zone_04/surface_02/heat_flux/above_grade/net:
+
+     Heat transfer through building envelope (above-grade) (W)
+
+building/zone_04/surface_02/heat_flux/radiation/shortwave:
+
+     Short-wave solar radiation (W)
+
+building/zone_04/surface_02/heat_flux/radiation/shortwave/unit_area:
+
+     Short-wave solar radiation per unit area (W/m2)
+
+building/zone_04/surface_02/plant_containment_flux:
+
+     Plant containment radiant heat flux at surface (W)
+
+building/zone_04/surface_02/temperature:
+
+     Temperature on zone inside face (oC)
+
+building/zone_04/surface_03/AmbRT:
+
+     Ambient radiant temperature for exterior surface (oC)
+
+building/zone_04/surface_03/HCe:
+
+     External side convective coefficient (W/(m2 K))
+
+building/zone_04/surface_03/HCi:
+
+     Internal side convective coefficient (W/(m2 K))
+
+building/zone_04/surface_03/ext_surf_temperature:
+
+     Temperature on exterior face (oC)
+
+building/zone_04/surface_03/heat_flux/above_grade/net:
+
+     Heat transfer through building envelope (above-grade) (W)
+
+building/zone_04/surface_03/heat_flux/radiation/shortwave:
+
+     Short-wave solar radiation (W)
+
+building/zone_04/surface_03/heat_flux/radiation/shortwave/unit_area:
+
+     Short-wave solar radiation per unit area (W/m2)
+
+building/zone_04/surface_03/plant_containment_flux:
+
+     Plant containment radiant heat flux at surface (W)
+
+building/zone_04/surface_03/temperature:
+
+     Temperature on zone inside face (oC)
+
+building/zone_04/surface_04/AmbRT:
+
+     Ambient radiant temperature for exterior surface (oC)
+
+building/zone_04/surface_04/HCe:
+
+     External side convective coefficient (W/(m2 K))
+
+building/zone_04/surface_04/HCi:
+
+     Internal side convective coefficient (W/(m2 K))
+
+building/zone_04/surface_04/ext_surf_temperature:
+
+     Temperature on exterior face (oC)
+
+building/zone_04/surface_04/heat_flux/above_grade/net:
+
+     Heat transfer through building envelope (above-grade) (W)
+
+building/zone_04/surface_04/heat_flux/radiation/shortwave:
+
+     Short-wave solar radiation (W)
+
+building/zone_04/surface_04/heat_flux/radiation/shortwave/unit_area:
+
+     Short-wave solar radiation per unit area (W/m2)
+
+building/zone_04/surface_04/plant_containment_flux:
+
+     Plant containment radiant heat flux at surface (W)
+
+building/zone_04/surface_04/temperature:
+
+     Temperature on zone inside face (oC)
+
+building/zone_04/surface_05/AmbRT:
+
+     Ambient radiant temperature for exterior surface (oC)
+
+building/zone_04/surface_05/HCe:
+
+     External side convective coefficient (W/(m2 K))
+
+building/zone_04/surface_05/HCi:
+
+     Internal side convective coefficient (W/(m2 K))
+
+building/zone_04/surface_05/ext_surf_temperature:
+
+     Temperature on exterior face (oC)
+
+building/zone_04/surface_05/heat_flux/above_grade/net:
+
+     Heat transfer through building envelope (above-grade) (W)
+
+building/zone_04/surface_05/heat_flux/radiation/shortwave:
+
+     Short-wave solar radiation (W)
+
+building/zone_04/surface_05/heat_flux/radiation/shortwave/unit_area:
+
+     Short-wave solar radiation per unit area (W/m2)
+
+building/zone_04/surface_05/plant_containment_flux:
+
+     Plant containment radiant heat flux at surface (W)
+
+building/zone_04/surface_05/temperature:
+
+     Temperature on zone inside face (oC)
+
+building/zone_04/surface_06/AmbRT:
+
+     Ambient radiant temperature for exterior surface (oC)
+
+building/zone_04/surface_06/HCe:
+
+     External side convective coefficient (W/(m2 K))
+
+building/zone_04/surface_06/HCi:
+
+     Internal side convective coefficient (W/(m2 K))
+
+building/zone_04/surface_06/ext_surf_temperature:
+
+     Temperature on exterior face (oC)
+
+building/zone_04/surface_06/heat_flux/above_grade/net:
+
+     Heat transfer through building envelope (above-grade) (W)
+
+building/zone_04/surface_06/heat_flux/radiation/shortwave:
+
+     Short-wave solar radiation (W)
+
+building/zone_04/surface_06/heat_flux/radiation/shortwave/unit_area:
+
+     Short-wave solar radiation per unit area (W/m2)
+
+building/zone_04/surface_06/plant_containment_flux:
+
+     Plant containment radiant heat flux at surface (W)
+
+building/zone_04/surface_06/temperature:
+
+     Temperature on zone inside face (oC)
+
+building/zone_04/surface_07/AmbRT:
+
+     Ambient radiant temperature for exterior surface (oC)
+
+building/zone_04/surface_07/HCe:
+
+     External side convective coefficient (W/(m2 K))
+
+building/zone_04/surface_07/HCi:
+
+     Internal side convective coefficient (W/(m2 K))
+
+building/zone_04/surface_07/ext_surf_temperature:
+
+     Temperature on exterior face (oC)
+
+building/zone_04/surface_07/heat_flux/above_grade/net:
+
+     Heat transfer through building envelope (above-grade) (W)
+
+building/zone_04/surface_07/heat_flux/radiation/shortwave:
+
+     Short-wave solar radiation (W)
+
+building/zone_04/surface_07/heat_flux/radiation/shortwave/unit_area:
+
+     Short-wave solar radiation per unit area (W/m2)
+
+building/zone_04/surface_07/plant_containment_flux:
+
+     Plant containment radiant heat flux at surface (W)
+
+building/zone_04/surface_07/temperature:
+
+     Temperature on zone inside face (oC)
+
+building/zone_04/surface_08/AmbRT:
+
+     Ambient radiant temperature for exterior surface (oC)
+
+building/zone_04/surface_08/HCe:
+
+     External side convective coefficient (W/(m2 K))
+
+building/zone_04/surface_08/HCi:
+
+     Internal side convective coefficient (W/(m2 K))
+
+building/zone_04/surface_08/ext_surf_temperature:
+
+     Temperature on exterior face (oC)
+
+building/zone_04/surface_08/heat_flux/above_grade/net:
+
+     Heat transfer through building envelope (above-grade) (W)
+
+building/zone_04/surface_08/heat_flux/radiation/shortwave:
+
+     Short-wave solar radiation (W)
+
+building/zone_04/surface_08/heat_flux/radiation/shortwave/unit_area:
+
+     Short-wave solar radiation per unit area (W/m2)
+
+building/zone_04/surface_08/plant_containment_flux:
+
+     Plant containment radiant heat flux at surface (W)
+
+building/zone_04/surface_08/temperature:
+
+     Temperature on zone inside face (oC)
+
+building/zone_04/surface_09/AmbRT:
+
+     Ambient radiant temperature for exterior surface (oC)
+
+building/zone_04/surface_09/HCe:
+
+     External side convective coefficient (W/(m2 K))
+
+building/zone_04/surface_09/HCi:
+
+     Internal side convective coefficient (W/(m2 K))
+
+building/zone_04/surface_09/ext_surf_temperature:
+
+     Temperature on exterior face (oC)
+
+building/zone_04/surface_09/heat_flux/above_grade/net:
+
+     Heat transfer through building envelope (above-grade) (W)
+
+building/zone_04/surface_09/heat_flux/radiation/shortwave:
+
+     Short-wave solar radiation (W)
+
+building/zone_04/surface_09/heat_flux/radiation/shortwave/unit_area:
+
+     Short-wave solar radiation per unit area (W/m2)
+
+building/zone_04/surface_09/plant_containment_flux:
+
+     Plant containment radiant heat flux at surface (W)
+
+building/zone_04/surface_09/temperature:
+
+     Temperature on zone inside face (oC)
+
+building/zone_04/surface_10/AmbRT:
+
+     Ambient radiant temperature for exterior surface (oC)
+
+building/zone_04/surface_10/HCe:
+
+     External side convective coefficient (W/(m2 K))
+
+building/zone_04/surface_10/HCi:
+
+     Internal side convective coefficient (W/(m2 K))
+
+building/zone_04/surface_10/ext_surf_temperature:
+
+     Temperature on exterior face (oC)
+
+building/zone_04/surface_10/heat_flux/above_grade/net:
+
+     Heat transfer through building envelope (above-grade) (W)
+
+building/zone_04/surface_10/heat_flux/radiation/shortwave:
+
+     Short-wave solar radiation (W)
+
+building/zone_04/surface_10/heat_flux/radiation/shortwave/unit_area:
+
+     Short-wave solar radiation per unit area (W/m2)
+
+building/zone_04/surface_10/plant_containment_flux:
+
+     Plant containment radiant heat flux at surface (W)
+
+building/zone_04/surface_10/temperature:
+
+     Temperature on zone inside face (oC)
+
+building/zone_04/thermal_loads/cooling/total:
+
+     Total cooling load ( heat gain trough envelope +  ventilation and infiltration loads ) (W)
+
+building/zone_04/thermal_loads/cooling/total_Perm2:
+
+     Total cooling load ( heat gain trough envelope +  ventilation and infiltration loads ) (W/m2)
+
+building/zone_04/thermal_loads/heating/total:
+
+     Total heating load ( heat loss trough envelope +  ventilation and infiltration loads ) (W)
+
+building/zone_04/thermal_loads/heating/total_Perm2:
+
+     Total heating load ( heat loss trough envelope +  ventilation and infiltration loads ) (W/m2)
+
+building/zone_04/thermal_loads/net_load:
+
+     Net load ( heat gain/loss trough envelope +  ventilation and infiltration loads ) (W)
+
+building/zone_04/thermal_loads/net_load_Perm2:
+
+     Net load ( heat gain/loss trough envelope +  ventilation and infiltration loads ) (W/m2)
+
+building/zone_04/windows/position:
+
+     Window position as per BCL25 controller (0->1) (-)
+
+building/zone_05/air_flow_model:
+
+     Air-flow-model (0->3) (-)
+
+building/zone_05/air_point/relative_humidity:
+
+     Zone relative humidity (%)
+
+building/zone_05/air_point/temperature:
+
+     Zone air-point temperature (oC)
+
+building/zone_05/envelope/all_components/heat_gain:
+
+     Heat gained through all components of envelope (W)
+
+building/zone_05/envelope/all_components/heat_loss:
+
+     Heat lost through all components of envelope (W)
+
+building/zone_05/envelope/all_components/net_flux:
+
+     Net flux through all components of envelope (W)
+
+building/zone_05/envelope/ceilings/heat_gain:
+
+     Contribution of ceilings to cooling load (W)
+
+building/zone_05/envelope/ceilings/heat_loss:
+
+     Contribution of Ceilings to heating load (W)
+
+building/zone_05/envelope/ceilings/net_flux:
+
+     Contribution of ceilings to net heat flux (W)
+
+building/zone_05/envelope/floors/heat_gain:
+
+     Contribution of overhanging floors to cooling load (W)
+
+building/zone_05/envelope/floors/heat_loss:
+
+     Contribution of overhanging floors to heating load (W)
+
+building/zone_05/envelope/floors/net_flux:
+
+     Contribution of overhanging floors to net heat flux (W)
+
+building/zone_05/envelope/foundation/heat_gain:
+
+     Contribution of foundation to cooling load (W)
+
+building/zone_05/envelope/foundation/heat_loss:
+
+     Contribution of foundation to heating load (W)
+
+building/zone_05/envelope/foundation/net_flux:
+
+     Contribution of foundation to net heat flux (W)
+
+building/zone_05/envelope/infiltration/air_changes_per_hour:
+
+     Zone infiltration (air changes per hour) (ACH)
+
+building/zone_05/envelope/infiltration/balance/air:
+
+     Air movement into zone (kg/s?)
+
+building/zone_05/envelope/infiltration/balance/air_exchange:
+
+     Air movement into zone (ACH)
+
+building/zone_05/envelope/infiltration/heat_gain:
+
+     Contribution of infiltration to cooling load (W)
+
+building/zone_05/envelope/infiltration/heat_loss:
+
+     Contribution of infiltration to heating load (W)
+
+building/zone_05/envelope/infiltration/net_flux:
+
+     Contribution of infiltration to heating load (W)
+
+building/zone_05/envelope/walls/heat_gain:
+
+     Contribution of walls to cooling load (W)
+
+building/zone_05/envelope/walls/heat_loss:
+
+     Contribution of walls to heating load (W)
+
+building/zone_05/envelope/walls/net_flux:
+
+     Contribution of walls to net heat flux (W)
+
+building/zone_05/envelope/windows/heat_gain:
+
+     Contribution of windows to cooling load (W)
+
+building/zone_05/envelope/windows/heat_loss:
+
+     Contribution of windows to heating load (W)
+
+building/zone_05/envelope/windows/net_flux:
+
+     Contribution of windows to net heat flux (W)
+
+building/zone_05/insolation/adverse:
+
+     Solar gains admitted through glazing that increase cooling loads (W)
+
+building/zone_05/insolation/total:
+
+     Solar gains admitted through glazing  (W)
+
+building/zone_05/insolation/useful:
+
+     Solar gains admitted through glazing that supplant heating loads (W)
+
+building/zone_05/internal_gains/adverse:
+
+     Internal heat gains(convective + radiant) that increase cooling loads (W)
+
+building/zone_05/internal_gains/total:
+
+     Internal heat gains(convective + radiant) (W)
+
+building/zone_05/internal_gains/useful:
+
+     Internal heat gains(convective + radiant) that supplant heating loads (W)
+
+building/zone_05/supplied_energy/cooling:
+
+     Zone net heat extraction  (W)
+
+building/zone_05/supplied_energy/cooling_Perm2:
+
+     Zone net heat extraction  (W/m2)
+
+building/zone_05/supplied_energy/heating:
+
+     Zone net heat injection  (W)
+
+building/zone_05/supplied_energy/heating_Perm2:
+
+     Zone net heat injection  (W/m2)
+
+building/zone_05/supplied_energy/net:
+
+     Zone net heat injection/extraction  (W)
+
+building/zone_05/supplied_energy/net_Perm2:
+
+     Zone net heat injection/extraction  (W/m2)
+
+building/zone_05/surface_01/AmbRT:
+
+     Ambient radiant temperature for exterior surface (oC)
+
+building/zone_05/surface_01/HCe:
+
+     External side convective coefficient (W/(m2 K))
+
+building/zone_05/surface_01/HCi:
+
+     Internal side convective coefficient (W/(m2 K))
+
+building/zone_05/surface_01/ext_surf_temperature:
+
+     Temperature on exterior face (oC)
+
+building/zone_05/surface_01/heat_flux/above_grade/net:
+
+     Heat transfer through building envelope (above-grade) (W)
+
+building/zone_05/surface_01/heat_flux/radiation/shortwave:
+
+     Short-wave solar radiation (W)
+
+building/zone_05/surface_01/heat_flux/radiation/shortwave/unit_area:
+
+     Short-wave solar radiation per unit area (W/m2)
+
+building/zone_05/surface_01/plant_containment_flux:
+
+     Plant containment radiant heat flux at surface (W)
+
+building/zone_05/surface_01/temperature:
+
+     Temperature on zone inside face (oC)
+
+building/zone_05/surface_02/AmbRT:
+
+     Ambient radiant temperature for exterior surface (oC)
+
+building/zone_05/surface_02/HCe:
+
+     External side convective coefficient (W/(m2 K))
+
+building/zone_05/surface_02/HCi:
+
+     Internal side convective coefficient (W/(m2 K))
+
+building/zone_05/surface_02/ext_surf_temperature:
+
+     Temperature on exterior face (oC)
+
+building/zone_05/surface_02/heat_flux/above_grade/net:
+
+     Heat transfer through building envelope (above-grade) (W)
+
+building/zone_05/surface_02/heat_flux/radiation/shortwave:
+
+     Short-wave solar radiation (W)
+
+building/zone_05/surface_02/heat_flux/radiation/shortwave/unit_area:
+
+     Short-wave solar radiation per unit area (W/m2)
+
+building/zone_05/surface_02/plant_containment_flux:
+
+     Plant containment radiant heat flux at surface (W)
+
+building/zone_05/surface_02/temperature:
+
+     Temperature on zone inside face (oC)
+
+building/zone_05/surface_03/AmbRT:
+
+     Ambient radiant temperature for exterior surface (oC)
+
+building/zone_05/surface_03/HCe:
+
+     External side convective coefficient (W/(m2 K))
+
+building/zone_05/surface_03/HCi:
+
+     Internal side convective coefficient (W/(m2 K))
+
+building/zone_05/surface_03/ext_surf_temperature:
+
+     Temperature on exterior face (oC)
+
+building/zone_05/surface_03/heat_flux/above_grade/net:
+
+     Heat transfer through building envelope (above-grade) (W)
+
+building/zone_05/surface_03/heat_flux/radiation/shortwave:
+
+     Short-wave solar radiation (W)
+
+building/zone_05/surface_03/heat_flux/radiation/shortwave/unit_area:
+
+     Short-wave solar radiation per unit area (W/m2)
+
+building/zone_05/surface_03/plant_containment_flux:
+
+     Plant containment radiant heat flux at surface (W)
+
+building/zone_05/surface_03/temperature:
+
+     Temperature on zone inside face (oC)
+
+building/zone_05/surface_04/AmbRT:
+
+     Ambient radiant temperature for exterior surface (oC)
+
+building/zone_05/surface_04/HCe:
+
+     External side convective coefficient (W/(m2 K))
+
+building/zone_05/surface_04/HCi:
+
+     Internal side convective coefficient (W/(m2 K))
+
+building/zone_05/surface_04/ext_surf_temperature:
+
+     Temperature on exterior face (oC)
+
+building/zone_05/surface_04/heat_flux/above_grade/net:
+
+     Heat transfer through building envelope (above-grade) (W)
+
+building/zone_05/surface_04/heat_flux/radiation/shortwave:
+
+     Short-wave solar radiation (W)
+
+building/zone_05/surface_04/heat_flux/radiation/shortwave/unit_area:
+
+     Short-wave solar radiation per unit area (W/m2)
+
+building/zone_05/surface_04/plant_containment_flux:
+
+     Plant containment radiant heat flux at surface (W)
+
+building/zone_05/surface_04/temperature:
+
+     Temperature on zone inside face (oC)
+
+building/zone_05/surface_05/AmbRT:
+
+     Ambient radiant temperature for exterior surface (oC)
+
+building/zone_05/surface_05/HCe:
+
+     External side convective coefficient (W/(m2 K))
+
+building/zone_05/surface_05/HCi:
+
+     Internal side convective coefficient (W/(m2 K))
+
+building/zone_05/surface_05/ext_surf_temperature:
+
+     Temperature on exterior face (oC)
+
+building/zone_05/surface_05/heat_flux/above_grade/net:
+
+     Heat transfer through building envelope (above-grade) (W)
+
+building/zone_05/surface_05/heat_flux/radiation/shortwave:
+
+     Short-wave solar radiation (W)
+
+building/zone_05/surface_05/heat_flux/radiation/shortwave/unit_area:
+
+     Short-wave solar radiation per unit area (W/m2)
+
+building/zone_05/surface_05/plant_containment_flux:
+
+     Plant containment radiant heat flux at surface (W)
+
+building/zone_05/surface_05/temperature:
+
+     Temperature on zone inside face (oC)
+
+building/zone_05/surface_06/AmbRT:
+
+     Ambient radiant temperature for exterior surface (oC)
+
+building/zone_05/surface_06/HCe:
+
+     External side convective coefficient (W/(m2 K))
+
+building/zone_05/surface_06/HCi:
+
+     Internal side convective coefficient (W/(m2 K))
+
+building/zone_05/surface_06/ext_surf_temperature:
+
+     Temperature on exterior face (oC)
+
+building/zone_05/surface_06/heat_flux/above_grade/net:
+
+     Heat transfer through building envelope (above-grade) (W)
+
+building/zone_05/surface_06/heat_flux/radiation/shortwave:
+
+     Short-wave solar radiation (W)
+
+building/zone_05/surface_06/heat_flux/radiation/shortwave/unit_area:
+
+     Short-wave solar radiation per unit area (W/m2)
+
+building/zone_05/surface_06/plant_containment_flux:
+
+     Plant containment radiant heat flux at surface (W)
+
+building/zone_05/surface_06/temperature:
+
+     Temperature on zone inside face (oC)
+
+building/zone_05/surface_07/AmbRT:
+
+     Ambient radiant temperature for exterior surface (oC)
+
+building/zone_05/surface_07/HCe:
+
+     External side convective coefficient (W/(m2 K))
+
+building/zone_05/surface_07/HCi:
+
+     Internal side convective coefficient (W/(m2 K))
+
+building/zone_05/surface_07/ext_surf_temperature:
+
+     Temperature on exterior face (oC)
+
+building/zone_05/surface_07/heat_flux/above_grade/net:
+
+     Heat transfer through building envelope (above-grade) (W)
+
+building/zone_05/surface_07/heat_flux/radiation/shortwave:
+
+     Short-wave solar radiation (W)
+
+building/zone_05/surface_07/heat_flux/radiation/shortwave/unit_area:
+
+     Short-wave solar radiation per unit area (W/m2)
+
+building/zone_05/surface_07/plant_containment_flux:
+
+     Plant containment radiant heat flux at surface (W)
+
+building/zone_05/surface_07/temperature:
+
+     Temperature on zone inside face (oC)
+
+building/zone_05/surface_08/AmbRT:
+
+     Ambient radiant temperature for exterior surface (oC)
+
+building/zone_05/surface_08/HCe:
+
+     External side convective coefficient (W/(m2 K))
+
+building/zone_05/surface_08/HCi:
+
+     Internal side convective coefficient (W/(m2 K))
+
+building/zone_05/surface_08/ext_surf_temperature:
+
+     Temperature on exterior face (oC)
+
+building/zone_05/surface_08/heat_flux/above_grade/net:
+
+     Heat transfer through building envelope (above-grade) (W)
+
+building/zone_05/surface_08/heat_flux/radiation/shortwave:
+
+     Short-wave solar radiation (W)
+
+building/zone_05/surface_08/heat_flux/radiation/shortwave/unit_area:
+
+     Short-wave solar radiation per unit area (W/m2)
+
+building/zone_05/surface_08/plant_containment_flux:
+
+     Plant containment radiant heat flux at surface (W)
+
+building/zone_05/surface_08/temperature:
+
+     Temperature on zone inside face (oC)
+
+building/zone_05/surface_09/AmbRT:
+
+     Ambient radiant temperature for exterior surface (oC)
+
+building/zone_05/surface_09/HCe:
+
+     External side convective coefficient (W/(m2 K))
+
+building/zone_05/surface_09/HCi:
+
+     Internal side convective coefficient (W/(m2 K))
+
+building/zone_05/surface_09/ext_surf_temperature:
+
+     Temperature on exterior face (oC)
+
+building/zone_05/surface_09/heat_flux/above_grade/net:
+
+     Heat transfer through building envelope (above-grade) (W)
+
+building/zone_05/surface_09/heat_flux/radiation/shortwave:
+
+     Short-wave solar radiation (W)
+
+building/zone_05/surface_09/heat_flux/radiation/shortwave/unit_area:
+
+     Short-wave solar radiation per unit area (W/m2)
+
+building/zone_05/surface_09/plant_containment_flux:
+
+     Plant containment radiant heat flux at surface (W)
+
+building/zone_05/surface_09/temperature:
+
+     Temperature on zone inside face (oC)
+
+building/zone_05/surface_10/AmbRT:
+
+     Ambient radiant temperature for exterior surface (oC)
+
+building/zone_05/surface_10/HCe:
+
+     External side convective coefficient (W/(m2 K))
+
+building/zone_05/surface_10/HCi:
+
+     Internal side convective coefficient (W/(m2 K))
+
+building/zone_05/surface_10/ext_surf_temperature:
+
+     Temperature on exterior face (oC)
+
+building/zone_05/surface_10/heat_flux/above_grade/net:
+
+     Heat transfer through building envelope (above-grade) (W)
+
+building/zone_05/surface_10/heat_flux/radiation/shortwave:
+
+     Short-wave solar radiation (W)
+
+building/zone_05/surface_10/heat_flux/radiation/shortwave/unit_area:
+
+     Short-wave solar radiation per unit area (W/m2)
+
+building/zone_05/surface_10/plant_containment_flux:
+
+     Plant containment radiant heat flux at surface (W)
+
+building/zone_05/surface_10/temperature:
+
+     Temperature on zone inside face (oC)
+
+building/zone_05/thermal_loads/cooling/total:
+
+     Total cooling load ( heat gain trough envelope +  ventilation and infiltration loads ) (W)
+
+building/zone_05/thermal_loads/cooling/total_Perm2:
+
+     Total cooling load ( heat gain trough envelope +  ventilation and infiltration loads ) (W/m2)
+
+building/zone_05/thermal_loads/heating/total:
+
+     Total heating load ( heat loss trough envelope +  ventilation and infiltration loads ) (W)
+
+building/zone_05/thermal_loads/heating/total_Perm2:
+
+     Total heating load ( heat loss trough envelope +  ventilation and infiltration loads ) (W/m2)
+
+building/zone_05/thermal_loads/net_load:
+
+     Net load ( heat gain/loss trough envelope +  ventilation and infiltration loads ) (W)
+
+building/zone_05/thermal_loads/net_load_Perm2:
+
+     Net load ( heat gain/loss trough envelope +  ventilation and infiltration loads ) (W/m2)
+
+building/zone_05/windows/position:
+
+     Window position as per BCL25 controller (0->1) (-)
+
+climate/ambient_air_tsat:
+
+     ambient air saturation temperature (oC)
+
+climate/cloud_cover:
+
+     Climate cloud cover (fraction)
+
+climate/dry_bulb_temperature:
+
+     Climate dry-bulb temperature (oC)
+
+climate/relative_humidity:
+
+     Climate relative humidity (%)
+
+climate/sky_temperature:
+
+     Climate sky temperature (oC)
+
+climate/sky_temperature_depression:
+
+     Climate sky temperature depression (K)
+
+climate/solar/diffuse_horizontal_radiation:
+
+     Climate diffuse horizontal solar radiation (W/m2)
+
+climate/solar/direct_normal_radiation:
+
+     Climate direct normal solar radiation (W/m2)
+
+climate/wind/direction:
+
+     Climate wind direction (degrees)
+
+climate/wind/velocity:
+
+     Climate wind velocity (m/s)
+
+mfn/air/afn-zone->north-wall (via window)/Dp:
+
+     mfn connection pressure drop (Pa)
+
+mfn/air/afn-zone->north-wall (via window)/flow:
+
+     mfn connection flow rate (kg/s)
+
+mfn/air/afn-zone->north-wall (via window)/veloc:
+
+     mfn connection flow velocity (m/s)
+
+mfn/air/afn-zone->south-node (via window)/Dp:
+
+     mfn connection pressure drop (Pa)
+
+mfn/air/afn-zone->south-node (via window)/flow:
+
+     mfn connection flow rate (kg/s)
+
+mfn/air/afn-zone->south-node (via window)/veloc:
+
+     mfn connection flow velocity (m/s)
+
+mfn/air/afn-zone/flowrate:
+
+     mfn total node flow rate (kg/s)
+
+mfn/air/afn-zone/temp:
+
+     mfn node temperature (oC)
+
+mfn/air/afn-zone/volflowrate:
+
+     mfn total node volume flow rate (m3/h)
+
+mfn/air/ctl-zone->north-wall (via window5)/Dp:
+
+     mfn connection pressure drop (Pa)
+
+mfn/air/ctl-zone->north-wall (via window5)/flow:
+
+     mfn connection flow rate (kg/s)
+
+mfn/air/ctl-zone->north-wall (via window5)/veloc:
+
+     mfn connection flow velocity (m/s)
+
+mfn/air/ctl-zone->south-node (via window5)/Dp:
+
+     mfn connection pressure drop (Pa)
+
+mfn/air/ctl-zone->south-node (via window5)/flow:
+
+     mfn connection flow rate (kg/s)
+
+mfn/air/ctl-zone->south-node (via window5)/veloc:
+
+     mfn connection flow velocity (m/s)
+
+mfn/air/ctl-zone/flowrate:
+
+     mfn total node flow rate (kg/s)
+
+mfn/air/ctl-zone/temp:
+
+     mfn node temperature (oC)
+
+mfn/air/ctl-zone/volflowrate:
+
+     mfn total node volume flow rate (m3/h)
+
+mfn/air/north-wall/flowrate:
+
+     mfn total node flow rate (kg/s)
+
+mfn/air/north-wall/temp:
+
+     mfn node temperature (oC)
+
+mfn/air/north-wall/volflowrate:
+
+     mfn total node volume flow rate (m3/h)
+
+mfn/air/south-node/flowrate:
+
+     mfn total node flow rate (kg/s)
+
+mfn/air/south-node/temp:
+
+     mfn node temperature (oC)
+
+mfn/air/south-node/volflowrate:
+
+     mfn total node volume flow rate (m3/h)
+
+total_fuel_use/electricity/all_end_uses/quantity:
+
+     Total amount of electricity used on site. (kWh/s)
+
+total_fuel_use/hard_wood/all_end_uses/quantity:
+
+     Total amount of hard wood used on site. (tonne/s)
+
+total_fuel_use/mixed_wood/all_end_uses/quantity:
+
+     Total amount of mixed wood used on site. (tonne/s)
+
+total_fuel_use/natural_gas/all_end_uses/quantity:
+
+     Total amount of natural gas used on site. (m3/s)
+
+total_fuel_use/oil/all_end_uses/quantity:
+
+     Total amount of oil used on site. (l/s)
+
+total_fuel_use/propane/all_end_uses/quantity:
+
+     Total amount of propane used on site. (m3/s)
+
+total_fuel_use/soft_wood/all_end_uses/quantity:
+
+     Total amount of soft wood used on site. (tonne/s)
+
+total_fuel_use/wood_pellets/all_end_uses/quantity:
+
+     Total amount of wood pellets used on site. (tonne/s)
+
