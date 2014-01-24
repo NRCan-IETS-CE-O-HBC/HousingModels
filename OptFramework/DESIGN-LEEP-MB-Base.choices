@@ -1,4 +1,8 @@
 
+! Set of database files to be used
+
+Opt-DBFiles           : CEF 
+
 ! Run a one day test (debug) or a full year (calc)
 
 Opt-calcmode          : calc
@@ -10,7 +14,7 @@ Opt-calcmode          : calc
 ! and compute an average result)
 GOconfig_rotate      : S
 
-Opt-Location : Ottawa
+Opt-Location : Winnipeg
 
 ! Assumptions about HRV operation . Not intended to be optimized!
 ! Recognized values: 
@@ -30,7 +34,8 @@ Opt-BaseWindows      : MinWindows
 Opt-FrontWindows     : NoExtraWin 
 Opt-BackWindows      : NoExtraWin
 
-Opt-ExtLeftSideWindow : Yes            ! First floor - back side
+Opt-ExtLeftSideWindow : Yes            ! First floor - back side (Default is yes as per 
+                                       ! original Archetype 2)
 
 
 Opt-ExtBasementWindow : No             ! Basement (back)
@@ -42,8 +47,9 @@ Opt-ExtBasementWindow : No             ! Basement (back)
 !     R2000
 !     Cdn1ACH
 !     PassiveHouse (unconfirmed cost data)
-                 
-Opt-AirTightness     : R2000
+
+! Patric confirmed base case ach: 2.3
+Opt-AirTightness     : Typical23 
 
 ! Main wall insulation 
 !  BaseR21
@@ -56,14 +62,14 @@ Opt-AirTightness     : R2000
 !  DblStud-R44-Wall
 !  Truss-R40-Wall
 
-Opt-MainWall         : BaseR21
+Opt-MainWall         : BaseR21  ! (Need R-20 nominal system) 
 
 
 ! Add extra drywall to wall constructions 
 ! Options: 
 !   OneSheet
 !   TwoSheets
-Opt-ExtraDrywall     : OneSheet
+Opt-ExtraDrywall     : OneSheet ! (OK for LEEP)
 
 ! Add concrete to floors (internal partitions only)
 ! Options:  
@@ -73,7 +79,7 @@ Opt-ExtraDrywall     : OneSheet
 Opt-FloorSurface     : wood
 
 
-Opt-Ceilings         : CeilR50
+Opt-Ceilings         : CeilR50    ! (OK for LEEP)
 
 ! Basement slab insulation 
 ! Choices: 
@@ -82,7 +88,7 @@ Opt-Ceilings         : CeilR50
 !   R10UnderSlab+edge
 !   R12UnderSlab+edge
 !   R24UnderSlab+edge
-Opt-BasementSlabInsulation  : NoInsulation
+Opt-BasementSlabInsulation  : NoInsulation ! (OK for LEEP)
 
 ! Foundation walls. 
 ! Choices 
@@ -96,7 +102,7 @@ Opt-BasementSlabInsulation  : NoInsulation
 !  ICF-base-R51     
 !  ICF-base-R51r    
 
-Opt-BasementWallInsulation  : OBC-min-R12
+Opt-BasementWallInsulation  : OBC-min-R12    ! LEEP: Need R-20 in 2x4 specification
 
 
 ! Optical and themral characteristics of casement windows (currently 
@@ -109,7 +115,7 @@ Opt-BasementWallInsulation  : OBC-min-R12
 !    TripleLowESoftCoatKryFill
 !    DoubleLowESoftCoatArgFill
 
-Opt-CasementWindows  : DoubleLowEHardCoatArgFill
+Opt-CasementWindows  : DoubleLowEHardCoatArgFill   ! Patric to confirm with Gary on window type
 
 
 ! Exposed floor over garage (affects floor
@@ -119,23 +125,23 @@ Opt-CasementWindows  : DoubleLowEHardCoatArgFill
 !  ExpFloorFlash&Batt-R36
 !  ExpFloorFoamed-R52
 
-Opt-ExposedFloor     : BaseExpFloor-R31
+Opt-ExposedFloor     : BaseExpFloor-R31    ! This isn't in the spec. Look up in MB code? or ignore??
 
-Opt-StandoffPV       : NoPV
+Opt-StandoffPV       : NoPV                ! OK for LEEP base case
 
-Opt-SolarDHW         : none
+Opt-SolarDHW         : none                ! OK for LEEP base case
 
 ! NoReduction
 ! BasicReduction
 ! EfficientLiving
 
-Opt-ElecLoadScale    : NoReduction
+Opt-ElecLoadScale    : NGERSNoReduction19     ! Need to review loads under new ERS 
 
 ! Load scales 
 
-Opt-DHWLoadScale     : NoReduction
+Opt-DHWLoadScale     : NoReduction            ! Need to review loads under new ERS
 
-Opt-RoofPitch : 8-12
+Opt-RoofPitch : 8-12                          ! OK for LEEP base case
 
 ! Hot water system. Choices:
 !  BaseDHW
@@ -143,7 +149,7 @@ Opt-RoofPitch : 8-12
 !  GasInstant
 !  ElectricHP
 
-Opt-DHWSystem        : ElectricStorage
+Opt-DHWSystem        : ElectricStorage    ! OK for LEEP base case
 
 ! HVAC system 
 !  oilfurnace
@@ -151,4 +157,4 @@ Opt-DHWSystem        : ElectricStorage
 !  CCASHP
 ! elec-baseboard
 
-Opt-HVACSystem       :  basefurnace
+Opt-HVACSystem       :  basefurnace       ! OK for LEEP base case 

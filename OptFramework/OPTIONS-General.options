@@ -23,6 +23,28 @@
 
 *attribute:end
 
+
+!-----------------------------------------------------------------------
+! This option can be used to point a file to either the 
+*attribute:start
+*attribute:name     = Opt-DBFiles
+*attribute:tag:1    = <OPT-ConstDBFile>
+*attribute:tag:2    = <OPT-OptDBFile>
+
+*option:CEF:value:1  = NZEH-CEF.constrdb
+*option:CEF:value:2  = optics-CEF.db2
+
+*option:CEF:cost:total = 0
+
+*option:WHITEHORSE:value:1  = NZEH-WH.constrdb
+*option:WHITEHORSE:value:2  = optics-WH.db2
+*option:WHITEHORSE:cost:total = 0
+
+*attribute:end
+
+
+
+
 !-----------------------------------------------------------------------
 ! This option can be used to turn the model's minumum
 ! number of windows opaque. It's not intended for optimization,
@@ -529,7 +551,7 @@
 
 *option:CeilR70:value:1 =   CeilR70
 !*option:CeilR70:value:2 =   CeilR70R
-*option:CeilR70:cost    =   912.20
+*option:CeilR70:cost:total  =   912.20
 
 *option:CeilR80:value:1 =   CeilR80
 !*option:CeilR80:value:2 =   CeilR80R
@@ -816,6 +838,30 @@ Whitehorse Foundation Options (Code is R28)
 *option[else                                                  ]:NoInsulation:value:2 = 68
 *option:NoInsulation:cost:total    = 0
 
+*option:R24UnderSlab+edge:value:1 = BsmFlrR24
+*option[Opt-BasementWallInsulation>OBC-min-R12|Rigid+Blown-R43]:R24UnderSlab+edge:value:2 = 22 
+*option[else                                                  ]:R24UnderSlab+edge:value:2 = 69
+*option:R24UnderSlab+edge:cost:total    = 4865      
+
+! Perimeter, sub-slab 0.6m skirt insulation
+
+*option:R12EdgeP6:value:1 = BsmFlrR0
+*option[Opt-BasementWallInsulation>OBC-min-R12|Rigid+Blown-R43]:R12EdgeP6:value:2 = 23 
+*option[else                                                  ]:R12EdgeP6:value:2 = 69
+*option:R12EdgeP6:cost:total    = 735        
+
+! Perimeter, sub-slab 1.0m skirt insulation
+
+*option:R12EdgeP10:value:1 = BsmFlrR0
+*option[Opt-BasementWallInsulation>OBC-min-R12|Rigid+Blown-R43]:R12EdgeP10:value:2 = 24
+*option[else                                                  ]:R12EdgeP10:value:2 = 69
+*option:R12EdgeP10:cost:total    = 1210 
+       
+
+
+# Whitehorse data
+
+
 *option:Slab_5_R10:value:1 = Slab_5_R10
 *option:Slab_5_R10:value:2 = 69
 *option:Slab_5_R10:cost:total   = 2645
@@ -995,6 +1041,16 @@ Reflects southern Ontario costs
 
 *option:EfficientLiving:value:1 = 0.711
 *option:EfficientLiving:cost:total    = 0
+
+*option:NGERSNoReduction19:value:1    = 0.832279
+*option:NGERSNoReduction19:cost:total = 0
+
+*option:NGERSReducedA16:value:1    = 0.700
+*option:NGERSReducedA16:cost:total = 0
+
+*option:NGERSBestInClass14p8:value:1    = 0.648301
+*option:NGERSBestInClass14p8:cost:total = 0
+
 
 *attribute:end 
 
