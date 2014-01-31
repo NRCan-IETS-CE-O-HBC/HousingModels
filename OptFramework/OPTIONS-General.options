@@ -586,6 +586,11 @@
 *attribute:tag:2  = <Opt-MainWall-Vin>
 *attribute:tag:3  = <Opt-MainWall-Dry>
 
+*option:BaseR20:value:1 =   BaseR20Bri   ! Added by JTB for MB base wall
+*option:BaseR20:value:2 =   BaseR20Vin
+*option:BaseR20:value:3 =   BaseR20Dry 
+!*option:BaseR20:value:4 =   BaseR20DryR
+*option:BaseR20:cost:total    =   0
 
 *option:BaseR21:value:1 =   BaseR21Bri
 *option:BaseR21:value:2 =   BaseR21Vin
@@ -652,6 +657,18 @@
 *option:Truss-R52-Wall:value:3 =   TruR52Dry 
 !*option:Truss-R52-Wall:value:4 =   TruR52DryR
 *option:Truss-R52-Wall:cost:total    =   12755
+
+*option:Stud-R275-Wall:value:1 =   StudR275Bri  ! Use for MB 1.5" Ext XPS
+*option:Stud-R275-Wall:value:2 =   StudR275Vin
+*option:Stud-R275-Wall:value:3 =   StudR275Dry 
+!*option:Stud-R275-Wall:value:4 =   StudR275DryR
+*option:Stud-R275-Wall:cost:total    =   2550	! From PL 30/Jan/2014
+
+*option:Stud-R325-Wall:value:1 =   StudR325Bri  ! Use for MB 2.5" Ext XPS
+*option:Stud-R325-Wall:value:2 =   StudR325Vin
+*option:Stud-R325-Wall:value:3 =   StudR325Dry 
+!*option:Stud-R325-Wall:value:4 =   StudR325DryR
+*option:Stud-R325-Wall:cost:total    =   2550	! From PL 30/Jan/2014
 
 !-------------------------------------------------------------------------------
 Whitehorse Wall Options (Code is R28)
