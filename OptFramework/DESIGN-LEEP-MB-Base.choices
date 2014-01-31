@@ -52,6 +52,7 @@ Opt-ExtBasementWindow : No             ! Basement (back)
 Opt-AirTightness     : Typical23 
 
 ! Main wall insulation 
+!  BaseR20
 !  BaseR21
 !  ICFR22
 !  SIPS-R29-Wall
@@ -61,8 +62,10 @@ Opt-AirTightness     : Typical23
 !  Stud-R50-Wall
 !  DblStud-R44-Wall
 !  Truss-R40-Wall
+!  Stud-R275-Wall
+!  Stud-R325-Wall
 
-Opt-MainWall         : BaseR21  ! (Need R-20 nominal system) 
+Opt-MainWall         : BaseR20  ! (R-20 nominal wall system) 
 
 
 ! Add extra drywall to wall constructions 
