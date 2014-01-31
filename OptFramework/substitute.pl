@@ -68,6 +68,7 @@ my $gRotationAngle;
 my $gSkipPRJ = 0; 
 my $gEnergyElec = 0;
 my $gEnergyGas = 0;
+my $gEnergyOil = 0; 
 
 # Data from Hanscomb 2011 NBC analysis
 my %RegionalCostFactors  = (  "Halifax"      =>  0.95 ,
@@ -1036,21 +1037,26 @@ my $gAvgCost_Electr    = 0 ;
 my $gAvgEnergy_Total   = 0 ; 
 my $gAvgCost_Propane   = 0 ;
 my $gAvgCost_Oil       = 0 ;
- 
- 
+
+my $gAvgElecCons_KWh    = 0; 
+my $gAvgNGasCons_m3     = 0; 
+my $gAvgOilCons_l       = 0; 
+my $gAvgPropCons_l      = 0; 
+
 UpdateCon();  
  
 for my $Direction  ( @Orientations ){
 
-    if ( ! $gSkipSims ) { runsims( $angles{$Direction} ); }
+   if ( ! $gSkipSims ) { runsims( $angles{$Direction} ); }
+
+    
     postprocess($ScaleResults);
 
 }
 
 my $gAvgCost_Total   = $gAvgCost_Electr + $gAvgCost_NatGas + $gAvgCost_Propane + $gAvgCost_Oil ;
 
-$gEnergyElec = $gEnergyElec*3600*8760;
-$gEnergyGas = $gEnergyGas*3600*8760;
+
 
 open (SUMMARY, ">$gMasterPath/SubstitutePL-output.txt") or fatalerror ("Could not open $gMasterPath/SubstitutePL-output.txt");
 
@@ -1068,8 +1074,9 @@ print SUMMARY "Energy-Cooling  =  $gEnergyCooling \n";
 print SUMMARY "Energy-Vent     =  $gEnergyVentilation \n";
 print SUMMARY "Energy-DHW      =  $gEnergyWaterHeating \n";
 print SUMMARY "Energy-Plug     =  $gEnergyEquipment \n";  
-print SUMMARY "EnergyElec      =  $gEnergyElec \n";
-print SUMMARY "EnergyGas       =  $gEnergyGas \n";
+print SUMMARY "EnergyElec      =  $gAvgElecCons_KWh \n";
+print SUMMARY "EnergyGas       =  $gAvgNGasCons_m3  \n";
+print SUMMARY "EnergyOil       =  $gAvgOilCons_l    \n";
 print SUMMARY "Upgrade-cost    =  ".eval($gTotalCost-$gIncBaseCosts)."\n"; 
 
 my $PVcapacity = $gChoices{"Opt-StandoffPV"}; 
@@ -1279,7 +1286,8 @@ sub runsims($){
   
 sub postprocess($){
   
-  my $ScaleData  = @_; 
+  my ($ScaleData) = @_; 
+
   
   my $TSLength            = 3600. ;  # Seconds
 #  my $gBaseModelFolder    = "NZEH-base";
@@ -2051,11 +2059,16 @@ sub postprocess($){
   $gEnergyEquipment = defined( $gSimResults{"total_fuel_use/test/all_fuels/equipment/energy_content::AnnualTotal"} ) ? 
                          $gSimResults{"total_fuel_use/test/all_fuels/equipment/energy_content::AnnualTotal"} : 0 ;  
 
-  $gEnergyElec   = defined($gSimResults{"total_fuel_use/electricity/all_end_uses/quantity::Total_Average"} ) ? 
+  $gEnergyElec  =  defined($gSimResults{"total_fuel_use/electricity/all_end_uses/quantity::Total_Average"} ) ? 
                          $gSimResults{"total_fuel_use/electricity/all_end_uses/quantity::Total_Average"} : 0 ;  
   
   $gEnergyGas   = defined($gSimResults{"total_fuel_use/natural_gas/all_end_uses/quantity::Total_Average"} ) ? 
                          $gSimResults{"total_fuel_use/natural_gas/all_end_uses/quantity::Total_Average"} : 0 ;  
+  
+  $gEnergyOil   = defined($gSimResults{"total_fuel_use/oil/all_end_uses/quantity::Total_Average"} ) ? 
+                         $gSimResults{"total_fuel_use/oil/all_end_uses/quantity::Total_Average"} : 0 ;  
+  
+  
   
   stream_out("\n\n Energy Cost (not including credit for PV, direction $gRotationAngle ): \n\n") ; 
   
@@ -2067,14 +2080,27 @@ sub postprocess($){
   stream_out ( " --------------------------------------------------------\n");
   stream_out ( "    \$ ".round($TotalElecBill+$TotalGasBill+$TotalOilBill+$TotalPropaneBill) ." (All utilities).\n"); 
 
-  # Update global params for use in summary 
-  $gAvgCost_NatGas    = $TotalGasBill  * $ScaleData; 
-  $gAvgCost_Electr    = $TotalElecBill * $ScaleData;  
-  $gAvgCost_Propane   = $TotalPropaneBill * $ScaleData; 
-  $gAvgCost_Oil       = $TotalOilBill * $ScaleData; 
-  $gAvgEnergy_Total   = $gTotalEnergy  * $ScaleData; 
-  
 
+
+  
+  # Update global params for use in summary 
+  $gAvgCost_NatGas    += $TotalGasBill  * $ScaleData; 
+  $gAvgCost_Electr    += $TotalElecBill * $ScaleData;  
+  $gAvgCost_Propane   += $TotalPropaneBill * $ScaleData; 
+  $gAvgCost_Oil       += $TotalOilBill * $ScaleData; 
+  $gAvgEnergy_Total   += $gTotalEnergy  * $ScaleData; 
+  $gAvgNGasCons_m3    += $gEnergyGas * 8760. * 60. * 60.  * $ScaleData ; 
+  $gAvgOilCons_l      += $gEnergyOil * 8760. * 60. * 60.  * $ScaleData ; 
+  $gAvgElecCons_KWh   += $gEnergyElec * 8760. * 60. * 60. * $ScaleData ; 
+  
+  stream_out("\n\n Energy Use (not including credit for PV, direction $gRotationAngle ): \n\n") ; 
+  
+  stream_out("  - ".round($gEnergyElec* 8760. * 60. * 60.)." (Electricity, kWh)\n");
+  stream_out("  - ".round($gEnergyGas* 8760. * 60. * 60.)." (Natural Gas, m3)\n");
+  stream_out("  - ".round($gEnergyOil* 8760. * 60. * 60.)." (Oil, l)\n");
+  
+  stream_out ("> SCALE $ScaleData \n"); 
+  
   
   # Estimate total cost of upgrades
 
@@ -2098,32 +2124,7 @@ sub postprocess($){
 
   chdir($gMasterPath);
   my $fileexists; 
-if ( ! -r "RobinsGraph.csv") { 
-  $fileexists = 0;
-  open (RSGRAPH, '>RobinsGraph.csv') or die ("Could not create graph file for writing");
-  
-}else {
-  $fileexists = 1;
-  open (RSGRAPH, '>>RobinsGraph.csv') or die ("Could not open graph file for writing");
-}  
-my $RS1stline = "";
-my $RS2ndline = "";
-foreach my  $attribute ( sort keys %gChoices ){
 
-	my $choice = $gChoices{$attribute};
-    $RS1stline .= ",$attribute" ;
-    $RS2ndline .= ",$choice";
-
-}
-
-$RS1stline .= ",ENERGY_GJ,COST_\$";
-$RS2ndline .= ",".$gTotalEnergy.",".round($gTotalCost-$gIncBaseCosts* $RegionalCostFactors{$Locale})."";
-
-if (  ! $fileexists ) { print RSGRAPH "$RS1stline" };
-print RSGRAPH "\n $RS2ndline ";
-
-close (RSGRAPH); 
-  
   
   
 }
