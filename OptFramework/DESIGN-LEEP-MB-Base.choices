@@ -12,7 +12,7 @@ Opt-calcmode          : calc
 ! Optimization substututions 
 ! Set the orientation for the model (N,S,E,W, or AVG to run all four directions
 ! and compute an average result)
-GOconfig_rotate      : S
+GOconfig_rotate      : AVG
 
 Opt-Location : Winnipeg
 
@@ -127,21 +127,41 @@ Opt-CasementWindows  : DoubleLowEHardCoatArgFill   ! Patric to confirm with Gary
 
 Opt-ExposedFloor     : BaseExpFloor-R31    ! This isn't in the spec. Look up in MB code? or ignore??
 
+Opt-RoofPitch : 8-12                          ! OK for LEEP base case
+
 Opt-StandoffPV       : NoPV                ! OK for LEEP base case
 
-Opt-SolarDHW         : none                ! OK for LEEP base case
+! DHW LOAD SCALES 
+! CEF project
+!   - NoReduction
+!   - BasicReduction
+!   - EfficientLiving
+! NG-ERS numbers  (Also used in MB LEEP) 
+!   - NGERSNoReduction19          
+!   - NGERSReducedA16
+!   - NGERSBestInClass14p8
 
-! NoReduction
-! BasicReduction
-! EfficientLiving
+Opt-ElecLoadScale    : NGERSNoReduction19     ! OK for LEEP base case
 
-Opt-ElecLoadScale    : NGERSNoReduction19     ! Need to review loads under new ERS 
+! Hot water numbers - These have changed! 
+!   - No-Reduction ( 190 L/day ) 
+!   - Low-Flow     ( 141 L/day ) 
 
-! Load scales 
+Opt-DHWLoadScale     : No-Reduction            ! OK for LEEP base case 
 
-Opt-DHWLoadScale     : NoReduction            ! Need to review loads under new ERS
 
-Opt-RoofPitch : 8-12                          ! OK for LEEP base case
+! Hot water reduction technologies (SDHW, DHWR) 
+! 
+! - DWHR-4-36
+! - DWHR-4-60
+! - 1-plate 
+! - 2-plate 
+! - 1-plate-DWHR-4-36
+! - 2-plate-DWHR-4-36
+! - 1-plate-DWHR-4-60
+! - 2-plate-DWHR-4-60
+
+Opt-DWHRandSDHW         : none                ! OK for LEEP base case
 
 ! Hot water system. Choices:
 !  BaseDHW
