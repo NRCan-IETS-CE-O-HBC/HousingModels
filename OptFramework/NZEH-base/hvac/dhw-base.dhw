@@ -2,7 +2,7 @@
 #Number of Tanks
 1
 #fNumOfOccupants		
-<Opt-DHWEquivOccupants>
+*LoadData 3 <Opt-DHWDailyDrawLperDay>
 #fHotSupplyTemp		 
 55.0
 #
