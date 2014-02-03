@@ -670,6 +670,11 @@
 !*option:Stud-R325-Wall:value:4 =   StudR325DryR
 *option:Stud-R325-Wall:cost:total    =   2550	! From PL 30/Jan/2014
 
+*option:AdvFrm-R20-Wall:value:1 =   AdvFrmR20  ! Use for MB Advanced Framing 
+*option:AdvFrm-R20-Wall:value:2 =   AdvFrmR20
+*option:AdvFrm-R20-Wall:value:3 =   AdvFrmR20
+*option:AdvFrm-R20-Wall:cost:total    =   -265	! From PL 30/Jan/2014
+
 !-------------------------------------------------------------------------------
 Whitehorse Wall Options (Code is R28)
 !-------------------------------------------------------------------------------
@@ -776,6 +781,10 @@ Whitehorse Wall Options (Code is R28)
 *option:OBC-min-R12:value:1 = BsmWllR12
 *option:OBC-min-R12:meta    = Int
 *option:OBC-min-R12:cost:total    = 0
+
+*option:MB-IntBatt-R20:value:1 = BsmW2x4R20		! JTB 31-Jan-14 for MB Base
+*option:MB-IntBatt-R20:meta    = Int
+*option:MB-IntBatt-R20:cost:total    = 0
 
 *option:Rigid+Batt-R20:value:1 = BsmWllR20
 *option:Rigid+Batt-R20:meta    = Comb
