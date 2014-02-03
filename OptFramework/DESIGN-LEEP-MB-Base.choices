@@ -9,7 +9,7 @@ Opt-calcmode          : calc
 
 
 
-! Optimization substututions 
+! Optimization substitutions 
 ! Set the orientation for the model (N,S,E,W, or AVG to run all four directions
 ! and compute an average result)
 GOconfig_rotate      : AVG
@@ -18,14 +18,14 @@ Opt-Location : Winnipeg
 
 ! Assumptions about HRV operation . Not intended to be optimized!
 ! Recognized values: 
-!  - Continuious: HRV runs continious
+!  - Continuous: HRV runs continuous
 !  - ERSp3ACH: Existing ERS assumptions of 0.3 ACH from 
 !              natural and mechanical vent. 
 !  - EightHRpDay: HRV operates 33% of each hour, for 8hr/day total.
 
 OPT-HRV_ctl          : EightHRpDay
 
-! Turn orignial design windows opaque ( NoWindows!)
+! Turn original design windows opaque ( NoWindows!)
 ! or transparent (MinWindows). NoWindows doesn't presently work!
 
 Opt-BaseWindows      : MinWindows
@@ -91,11 +91,12 @@ Opt-Ceilings         : CeilR50    ! (OK for LEEP)
 !   R10UnderSlab+edge
 !   R12UnderSlab+edge
 !   R24UnderSlab+edge
-Opt-BasementSlabInsulation  : NoInsulation ! (OK for LEEP)
+Opt-BasementSlabInsulation  : NoInsulation ! (OK for MB LEEP)
 
 ! Foundation walls. 
 ! Choices 
 !  OBC-min-R12
+!  MB-IntBatt-R20
 !  Rigid+Batt-R30
 !  Rigid+Blown-R43
 !  ICF-base-R22
@@ -105,10 +106,10 @@ Opt-BasementSlabInsulation  : NoInsulation ! (OK for LEEP)
 !  ICF-base-R51     
 !  ICF-base-R51r    
 
-Opt-BasementWallInsulation  : OBC-min-R12    ! LEEP: Need R-20 in 2x4 specification
+Opt-BasementWallInsulation  : MB-IntBatt-R20    ! MB LEEP: R-20 in 2x4 int frame
 
 
-! Optical and themral characteristics of casement windows (currently 
+! Optical and thermal characteristics of casement windows (currently 
 ! all windows in model. 
 ! Choices: 
 !   "OriginalGlassParam" - Neil's original dbl-low-e spec
