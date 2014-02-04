@@ -786,6 +786,10 @@ Whitehorse Wall Options (Code is R28)
 *option:MB-IntBatt-R20:meta    = Int
 *option:MB-IntBatt-R20:cost:total    = 0
 
+*option:MB-Comb-R20:value:1 = MBR20Comb		    ! JTB 31-Jan-14 for MB Upgrade
+*option:MB-Comb-R20:meta    = Comb
+*option:MB-Comb-R20:cost:total    = 2110 
+
 *option:Rigid+Batt-R20:value:1 = BsmWllR20
 *option:Rigid+Batt-R20:meta    = Comb
 *option:Rigid+Batt-R20:cost:total    = 1909
@@ -883,7 +887,9 @@ Whitehorse Foundation Options (Code is R28)
 *option[else                                                  ]:R12EdgeP10:value:2 = 69
 *option:R12EdgeP10:cost:total    = 1210 
        
-
+*option:MB-Comb-Insulation:value:1 = BsmFlrR0
+*option:MB-Comb-Insulation:value:2 = 68
+*option:MB-Comb-Insulation:cost:total    = 0
 
 # Whitehorse data
 

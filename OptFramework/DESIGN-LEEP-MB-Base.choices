@@ -109,7 +109,7 @@ Opt-BasementSlabInsulation  : NoInsulation   ! (MB LEEP)
 !  ICF-base-R51r    
 !  MB-Comb-R20
 
-Opt-BasementWallInsulation  : MB-Comb-R20    ! MB LEEP: Up R-12 in 2x4 int frame + 2" Ext XTPS
+Opt-BasementWallInsulation  : MB-IntBatt-R20    ! MB LEEP Base: R-20 in 2x4 int frame
 
 
 ! Optical and thermal characteristics of casement windows (currently 
