@@ -668,7 +668,7 @@
 *option:Stud-R305-Wall:value:2 =   StudR305Vin
 *option:Stud-R305-Wall:value:3 =   StudR305Dry 
 !*option:Stud-R305-Wall:value:4 =   StudR305DryR
-*option:Stud-R305-Wall:cost:total    =   2550	! From PL 30/Jan/2014
+*option:Stud-R305-Wall:cost:total    =   5255	! From PL 30-Jan-2014 - Updated by JTB 04-Feb-2014
 
 *option:Stud-R325-Wall:value:1 =   StudR325Bri  ! Use for MB 2.5" Ext XPS
 *option:Stud-R325-Wall:value:2 =   StudR325Vin
