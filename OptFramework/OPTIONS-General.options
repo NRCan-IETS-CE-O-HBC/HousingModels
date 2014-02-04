@@ -662,13 +662,19 @@
 *option:Stud-R275-Wall:value:2 =   StudR275Vin
 *option:Stud-R275-Wall:value:3 =   StudR275Dry 
 !*option:Stud-R275-Wall:value:4 =   StudR275DryR
-*option:Stud-R275-Wall:cost:total    =   2550	! From PL 30/Jan/2014
+*option:Stud-R275-Wall:cost:total    =   0	    ! Unknown cost
+
+*option:Stud-R305-Wall:value:1 =   StudR305Bri  ! Use for MB 2.0" Ext XPS
+*option:Stud-R305-Wall:value:2 =   StudR305Vin
+*option:Stud-R305-Wall:value:3 =   StudR305Dry 
+!*option:Stud-R305-Wall:value:4 =   StudR305DryR
+*option:Stud-R305-Wall:cost:total    =   2550	! From PL 30/Jan/2014
 
 *option:Stud-R325-Wall:value:1 =   StudR325Bri  ! Use for MB 2.5" Ext XPS
 *option:Stud-R325-Wall:value:2 =   StudR325Vin
 *option:Stud-R325-Wall:value:3 =   StudR325Dry 
 !*option:Stud-R325-Wall:value:4 =   StudR325DryR
-*option:Stud-R325-Wall:cost:total    =   2550	! From PL 30/Jan/2014
+*option:Stud-R325-Wall:cost:total    =   0	    ! Unknown cost
 
 *option:AdvFrm-R20-Wall:value:1 =   AdvFrmR20  ! Use for MB Advanced Framing 
 *option:AdvFrm-R20-Wall:value:2 =   AdvFrmR20
@@ -864,7 +870,7 @@ Whitehorse Foundation Options (Code is R28)
 *attribute:tag:2   = <OPT-BsmCnnIndex>
 
 *option:NoInsulation:value:1 = BsmFlrR0
-*option[Opt-BasementWallInsulation>OBC-min-R12|Rigid+Blown-R43|MB-IntBatt-R20]:NoInsulation:value:2 = 1 
+*option[Opt-BasementWallInsulation>OBC-min-R12|Rigid+Blown-R43|MB-IntBatt-R20|AdvFrm-R20-Wall]:NoInsulation:value:2 = 1 
 *option[else                                                  ]:NoInsulation:value:2 = 68
 *option:NoInsulation:cost:total    = 0
 
