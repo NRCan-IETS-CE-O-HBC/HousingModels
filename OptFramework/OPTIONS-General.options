@@ -864,7 +864,7 @@ Whitehorse Foundation Options (Code is R28)
 *attribute:tag:2   = <OPT-BsmCnnIndex>
 
 *option:NoInsulation:value:1 = BsmFlrR0
-*option[Opt-BasementWallInsulation>OBC-min-R12|Rigid+Blown-R43|MB-Comb-R20]:NoInsulation:value:2 = 1 
+*option[Opt-BasementWallInsulation>OBC-min-R12|Rigid+Blown-R43|MB-IntBatt-R20]:NoInsulation:value:2 = 1 
 *option[else                                                  ]:NoInsulation:value:2 = 68
 *option:NoInsulation:cost:total    = 0
 
