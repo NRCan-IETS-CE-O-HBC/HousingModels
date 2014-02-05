@@ -9,7 +9,7 @@ Opt-calcmode          : calc
 
 
 
-! Optimization substututions 
+! Optimization substitutions 
 ! Set the orientation for the model (N,S,E,W, or AVG to run all four directions
 ! and compute an average result)
 GOconfig_rotate      : AVG
@@ -18,14 +18,14 @@ Opt-Location : Winnipeg
 
 ! Assumptions about HRV operation . Not intended to be optimized!
 ! Recognized values: 
-!  - Continuious: HRV runs continious
+!  - Continuous: HRV runs continuous
 !  - ERSp3ACH: Existing ERS assumptions of 0.3 ACH from 
 !              natural and mechanical vent. 
 !  - EightHRpDay: HRV operates 33% of each hour, for 8hr/day total.
 
 OPT-HRV_ctl          : EightHRpDay
 
-! Turn orignial design windows opaque ( NoWindows!)
+! Turn original design windows opaque ( NoWindows!)
 ! or transparent (MinWindows). NoWindows doesn't presently work!
 
 Opt-BaseWindows      : MinWindows
@@ -52,6 +52,7 @@ Opt-ExtBasementWindow : No             ! Basement (back)
 Opt-AirTightness     : Typical23 
 
 ! Main wall insulation 
+!  BaseR20
 !  BaseR21
 !  ICFR22
 !  SIPS-R29-Wall
@@ -61,8 +62,10 @@ Opt-AirTightness     : Typical23
 !  Stud-R50-Wall
 !  DblStud-R44-Wall
 !  Truss-R40-Wall
+!  Stud-R275-Wall
+!  Stud-R325-Wall
 
-Opt-MainWall         : BaseR21  ! (Need R-20 nominal system) 
+Opt-MainWall         : BaseR20  ! (R-20 nominal wall system) 
 
 
 ! Add extra drywall to wall constructions 
@@ -88,11 +91,14 @@ Opt-Ceilings         : CeilR50    ! (OK for LEEP)
 !   R10UnderSlab+edge
 !   R12UnderSlab+edge
 !   R24UnderSlab+edge
-Opt-BasementSlabInsulation  : NoInsulation ! (OK for LEEP)
+!   MB-Comb-R20
+
+Opt-BasementSlabInsulation  : NoInsulation   ! (MB LEEP)
 
 ! Foundation walls. 
 ! Choices 
 !  OBC-min-R12
+!  MB-IntBatt-R20
 !  Rigid+Batt-R30
 !  Rigid+Blown-R43
 !  ICF-base-R22
@@ -101,11 +107,12 @@ Opt-BasementSlabInsulation  : NoInsulation ! (OK for LEEP)
 !  ICF-base-R41
 !  ICF-base-R51     
 !  ICF-base-R51r    
+!  MB-Comb-R20
 
-Opt-BasementWallInsulation  : OBC-min-R12    ! LEEP: Need R-20 in 2x4 specification
+Opt-BasementWallInsulation  : MB-IntBatt-R20    ! MB LEEP Base: R-20 in 2x4 int frame
 
 
-! Optical and themral characteristics of casement windows (currently 
+! Optical and thermal characteristics of casement windows (currently 
 ! all windows in model. 
 ! Choices: 
 !   "OriginalGlassParam" - Neil's original dbl-low-e spec
@@ -150,6 +157,10 @@ Opt-ElecLoadScale    : NGERSNoReduction19     ! OK for LEEP base case
 Opt-DHWLoadScale     : No-Reduction            ! OK for LEEP base case 
 
 
+Opt-OverhangWidth: BaseOverhang 
+! HRV spec 
+Opt-HRVspec : CEF_SPEC
+
 ! Hot water reduction technologies (SDHW, DHWR) 
 ! 
 ! - DWHR-4-36
@@ -161,7 +172,7 @@ Opt-DHWLoadScale     : No-Reduction            ! OK for LEEP base case
 ! - 1-plate-DWHR-4-60
 ! - 2-plate-DWHR-4-60
 
-Opt-DWHRandSDHW         : DWHR-4-36             ! OK for LEEP base case
+Opt-DWHRandSDHW         : DWHR-4-36                ! OK for LEEP base case
 
 ! Hot water system. Choices:
 !  BaseDHW

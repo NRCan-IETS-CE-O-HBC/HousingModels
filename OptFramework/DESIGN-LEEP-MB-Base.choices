@@ -16,6 +16,9 @@ GOconfig_rotate      : AVG
 
 Opt-Location : Winnipeg
 
+
+
+
 ! Assumptions about HRV operation . Not intended to be optimized!
 ! Recognized values: 
 !  - Continuous: HRV runs continuous
@@ -40,6 +43,7 @@ Opt-ExtLeftSideWindow : Yes            ! First floor - back side (Default is yes
 
 Opt-ExtBasementWindow : No             ! Basement (back)
 
+Opt-OverhangWidth : BaseOverhang
 
 ! Air-Tightness: 
 !     TypicalGTA
@@ -185,3 +189,7 @@ Opt-DHWSystem        : ElectricStorage    ! OK for LEEP base case
 ! elec-baseboard
 
 Opt-HVACSystem       :  basefurnace       ! OK for LEEP base case 
+
+! HRV spec 
+
+Opt-HRVspec : CEF_SPEC

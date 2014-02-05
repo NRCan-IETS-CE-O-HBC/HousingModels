@@ -38,6 +38,8 @@ Opt-ExtLeftSideWindow : Yes            ! First floor - back side (Default is yes
 
 Opt-ExtBasementWindow : No             ! Basement (back)
 
+Opt-OverhangWidth: BaseOverhang
+
 
 ! Air-Tightness: 
 !     TypicalGTA
@@ -153,6 +155,7 @@ Opt-ElecLoadScale    : NGERSNoReduction19     ! OK for LEEP base case
 Opt-DHWLoadScale     : No-Reduction            ! OK for LEEP base case 
 
 
+
 ! Hot water reduction technologies (SDHW, DHWR) 
 ! 
 ! - DWHR-4-36
@@ -181,3 +184,7 @@ Opt-DHWSystem        : ElectricStorage    ! OK for LEEP base case
 ! elec-baseboard
 
 Opt-HVACSystem       :  basefurnace       ! OK for LEEP base case 
+
+! HRV spec 
+
+Opt-HRVspec : CEF_SPEC
