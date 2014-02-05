@@ -52,5 +52,5 @@ ensuite describes a the bathroom
 # block entities:
 #  *obs = obstructions
 *block_start, 20 20 # geometric blocks
-*obs,5.300,-10.632,8.251,0.457,2.000,0.100,-90.000,1.00,new_blk,NONE  # block   1
+*obs,5.300,-10.632,8.251,<Opt-OverhangW_secondfloor>,2.000,0.100,-90.000,1.00,new_blk,NONE  # block   1
 *end_block

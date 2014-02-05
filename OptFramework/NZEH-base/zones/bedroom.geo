@@ -60,6 +60,6 @@ bedroom describes the bedroom
 # block entities:
 #  *obs = obstructions
 *block_start, 20 20 # geometric blocks
-*obs,7.300,-10.636,8.251,0.457,5.133,0.100,-90.000,1.00,new_blk,NONE  # block   1
-*obs,12.433,-8.593,8.251,2.500,0.457,0.100,-90.000,1.00,new_blk1,NONE  # block   2
+*obs,7.300,-10.636,8.251,<Opt-OverhangW_secondfloor>,5.133,0.100,-90.000,1.00,new_blk,NONE  # block   1
+*obs,12.433,-8.593,8.251,2.500,<Opt-OverhangW_secondfloor>,0.100,-90.000,1.00,new_blk1,NONE  # block   2
 *end_block

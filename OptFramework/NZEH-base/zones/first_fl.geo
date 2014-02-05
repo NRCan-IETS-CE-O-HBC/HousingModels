@@ -157,9 +157,14 @@ first_fl describes the first floor
 *insol,3,0,0,0  # default insolation distribution
 # 
 # shading directives
-*shad_calc,none  # no temporal shading requested
+*shad_calc,all_applicable  11 # no temporal shading requested
+ 20 21 22 23 24 25 26 28 29 30 31
 # 
 *insol_calc,all_applicable   11 # insolation sources
  20 21 22 23 24 25 26 28 29 30 31
 # 
 *base_list,0,104.90,0  # zone base
+#  *obs = obstructions
+*block_start, 20 20 # geometric blocks
+*obs,0,-10.636,5.78100,<Opt-OverhangW_mainfloor>,12.4330,0.100,-90.000,1.00,new_blk,NONE  # block   1
+*end_block

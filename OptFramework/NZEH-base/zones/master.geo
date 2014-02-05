@@ -68,6 +68,6 @@ master describes the master bedroom
 # block entities:
 #  *obs = obstructions
 *block_start, 20 20 # geometric blocks
-*obs3,-0.000,-10.632,8.251,0.457,5.300,0.100,-90.000,0.000,0.000,1.00,new_blk,NONE  # block   1
-*obs,-0.457,-8.589,8.251,2.500,0.457,0.100,-90.000,1.00,new_blk2,NONE  # block   2
+*obs3,-0.000,-10.632,8.251,<Opt-OverhangW_secondfloor>,5.300,0.100,-90.000,0.000,0.000,1.00,new_blk,NONE  # block   1
+*obs,-0.457,-8.589,8.251,2.500,<Opt-OverhangW_secondfloor>,0.100,-90.000,1.00,new_blk2,NONE  # block   2
 *end_block
