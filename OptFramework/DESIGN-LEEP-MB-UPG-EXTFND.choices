@@ -184,3 +184,8 @@ Opt-DHWSystem        : ElectricStorage    ! OK for LEEP base case
 ! elec-baseboard
 
 Opt-HVACSystem       :  basefurnace       ! OK for LEEP base case 
+
+Opt-OverhangWidth: BaseOverhang 
+! HRV spec 
+Opt-HRVspec : CEF_SPEC
+
