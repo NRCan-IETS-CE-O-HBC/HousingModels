@@ -397,6 +397,37 @@
 
 *attribute:end 
 
+!------------------------------------------------------------------------
+! This option sets the overhang witdhs 
+!------------------------------------------------------------------------
+*attribute:start 
+*attribute:name = Opt-OverhangWidth
+
+*attribute:tag:1 = <Opt-OverhangW_mainfloor>
+*attribute:tag:2 = <Opt-OverhangW_secondfloor>
+
+*option:BaseOverhang:value:1 = 0.001
+*option:BaseOverhang:value:2 = 0.457
+*option:BaseOverhang:cost:total = 0 
+
+*option:OnepFiveFootOverhang:value:1 = 0.457
+*option:OnepFiveFootOverhang:value:2 = 0.457
+*option:OnepFiveFootOverhang:cost:total = 0 
+
+*option:TwoFootOverhang:value:1 = 0.6096
+*option:TwoFootOverhang:value:2 = 0.6096
+*option:TwoFootOverhang:cost:total = 0 
+
+*option:ThreeFootOverhang:value:1 = 0.9144
+*option:ThreeFootOverhang:value:2 = 0.6096
+*option:ThreeFootOverhang:cost:total = 0 
+
+*option:FourFootOverhang:value:1 = 1.2192
+*option:FourFootOverhang:value:2 = 1.2192
+*option:FourFootOverhang:cost:total = 0 
+
+
+*attribute:end
 
 !-----------------------------------------------------------------------
 ! This option sets the optical and thermal characteristics of 
@@ -1062,6 +1093,25 @@ Reflects southern Ontario costs
 
 
 *attribute:end
+
+
+!-----------------------------------------------------------------------
+! HRV spec
+!-----------------------------------------------------------------------
+*attribute:start 
+*attribute:name    = Opt-HRVspec 
+*attribute:tag:1   = <Opt-HRVInputFile>
+
+*option:CEF_SPEC:value:1         = HRV.vnt
+*option:CEF_SPEC:cost:total = 0
+
+*option:BaseHRV_SRE70:value:1    = HRV-base.vnt
+*option:BaseHRV_SRE70:cost:total = 0
+
+*option:UpgHRV_SRE78:value:1    = HRV-upg.vnt
+*option:UpgHRV_SRE78:cost:total = 920
+
+<Opt-HRVInputFile>
 
 
 !-----------------------------------------------------------------------
