@@ -122,7 +122,7 @@ top_fl describes the top floor
 *obs,8.668,1.673,8.251,<Opt-OverhangW_secondfloor>,1.000,0.100,-90.000,1.00,new_blk,NONE  # block   1
 *obs,0.000,0.454,8.251,<Opt-OverhangW_secondfloor>,8.668,0.100,-90.000,1.00,new_blk1,NONE  # block   2
 *obs,11.433,1.673,8.251,<Opt-OverhangW_secondfloor>,1.000,0.100,-90.000,1.00,new_blk2,NONE  # block   3
-*obs,8.211,1.673,8.251,1.216,0.<Opt-OverhangW_secondfloor>,0.100,-90.000,1.00,new_blk3,NONE  # block   4
+*obs,8.211,1.673,8.251,1.216,<Opt-OverhangW_secondfloor>,0.100,-90.000,1.00,new_blk3,NONE  # block   4
 *obs,12.433,1.673,8.251,2.500,<Opt-OverhangW_secondfloor>,0.100,-90.000,1.00,new_blk4,NONE  # block   5
 *obs,-0.457,0.457,8.251,2.500,<Opt-OverhangW_secondfloor>,0.100,-90.000,1.00,new_blk5,NONE  # block   6
 *end_block
