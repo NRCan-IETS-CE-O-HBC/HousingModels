@@ -9,12 +9,17 @@
 Opt-calcmode          :calc
 
 
+! Set of database files to be used
+
+Opt-DBFiles           : CEF 
+
+
 ! Optimization substitutions 
 ! Set the orientation for the model (N,S,E,W, or AVG to run all four directions
 ! and compute an average result)
 GOconfig_rotate      : S
 
-Opt-Location : Whitehorse
+Opt-Location : Ottawa
 
 ! Assumptions about HRV operation . Not intended to be optimized!
 ! Recognized values: 
@@ -34,6 +39,11 @@ Opt-BaseWindows      : MinWindows
 Opt-FrontWindows     : NoExtraWin 
 Opt-BackWindows      : NoExtraWin
 
+
+
+Opt-OverhangWidth : BaseOverhang
+
+
 Opt-ExtLeftSideWindow : No            ! First floor - back side
 
 
@@ -49,7 +59,7 @@ Opt-ExtBasementWindow : No          ! Basement (back)
 !     WH_1.0
 !     WH_0.5
                  
-Opt-AirTightness     : WH_0.5
+Opt-AirTightness     : Typical23
 
 ! Main wall insulation 
 !  BaseR21
@@ -63,7 +73,7 @@ Opt-AirTightness     : WH_0.5
 !  Truss-R40-Wall
 !  W15_R25
 
-Opt-MainWall         : W21_R59
+Opt-MainWall         : BaseR21
 
 
 ! Add extra drywall to wall constructions 
@@ -80,7 +90,7 @@ Opt-ExtraDrywall     : OneSheet
 Opt-FloorSurface     : wood
 
 
-Opt-Ceilings         : CeilR120
+Opt-Ceilings         : CeilR50
 
 ! Basement slab insulation 
 ! Choices: 
@@ -89,7 +99,7 @@ Opt-Ceilings         : CeilR120
 !   R10UnderSlab+edge
 !   R12UnderSlab+edge
 !   R24UnderSlab+edge
-Opt-BasementSlabInsulation  : Slab_8_R40
+Opt-BasementSlabInsulation  : NoInsulation
 
 ! Foundation walls. 
 ! Choices 
@@ -104,7 +114,7 @@ Opt-BasementSlabInsulation  : Slab_8_R40
 !  ICF-base-R51r
 !  Fnd0PWF_R28   
 
-Opt-BasementWallInsulation  : Fnd3PWF_R76
+Opt-BasementWallInsulation  : OBC-min-R12
 
 
 ! Optical and thermal characteristics of casement windows (currently 
@@ -119,7 +129,7 @@ Opt-BasementWallInsulation  : Fnd3PWF_R76
 ! Whitehorse Windows
 !    Wind1_trp_CL	
 
-Opt-CasementWindows  :  Win10hcle2_q
+Opt-CasementWindows  :  DoubleLowEHardCoatAirFill
 
 
 ! Exposed floor over garage (affects floor
@@ -129,28 +139,42 @@ Opt-CasementWindows  :  Win10hcle2_q
 !  ExpFloorFlash&Batt-R36
 !  ExpFloorFoamed-R52
 
-Opt-ExposedFloor     : ExpFloorFoamed-R52
+Opt-ExposedFloor     : BaseExpFloor-R31
 
-Opt-StandoffPV       : SizedPV
+Opt-StandoffPV       : NoPV
 
-! Solar DHW
-!   DWHR
-!   1-flat-plate
-!   2-flat-plate
-!   1-flat-plate+DWHR
-!   2-flat-plate+DWHR
+! Hot water reduction technologies (SDHW, DHWR) 
+! 
+! - DWHR-4-36
+! - DWHR-4-60
+! - 1-plate 
+! - 2-plate 
+! - 1-plate-DWHR-4-36
+! - 2-plate-DWHR-4-36
+! - 1-plate-DWHR-4-60
+! - 2-plate-DWHR-4-60
 !   
-Opt-SolarDHW         : 2-flat-plate+DWHR
+Opt-DWHRandSDHW         : none                ! OK for LEEP base case
 
-! NoReduction
-! BasicReduction
-! EfficientLiving
+! DHW LOAD SCALES 
+! CEF project
+!   - NoReduction
+!   - BasicReduction
+!   - EfficientLiving
+! NG-ERS numbers  (Also used in MB LEEP) 
+!   - NGERSNoReduction19          
+!   - NGERSReducedA16
+!   - NGERSBestInClass14p8
 
-Opt-ElecLoadScale    : EfficientLiving
+Opt-ElecLoadScale    : NGERSNoReduction19     ! OK for LEEP base case
 
-! Load scales 
 
-Opt-DHWLoadScale     : EfficientLiving
+! Hot water numbers - These have changed! 
+!   - No-Reduction ( 190 L/day ) 
+!   - Low-Flow     ( 141 L/day ) 
+
+Opt-DHWLoadScale     : No-Reduction            ! OK for LEEP base case 
+
 Opt-RoofPitch : 8-12
 
 ! Hot water system. Choices:
@@ -177,6 +201,9 @@ Opt-DHWSystem        : ElectricStorage
 !  GSHP
 !  CCASHP
 
-Opt-HVACSystem       : CCASHP
+Opt-HVACSystem       : CCASHP ! GSHP
 
+! HRV spec 
+
+Opt-HRVspec : CEF_SPEC
 
