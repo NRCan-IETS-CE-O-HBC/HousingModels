@@ -5,29 +5,72 @@
 */
 Vary{
 
-
-   // Location 
-   Parameter{ // One of:
-              //    Ottawa     
-              //    Toronto    
-              //    Vancouver  
-              //    Calgary    
-              //    Edmonton   
-              //    Regina     
-              //    Winnipeg    
-              //    Montreal   
-              //    Quebec     
-              //    Fredricton 
-              //    Halifax    
-              //    Whitehorse 
-   
-     Name = GOtag:Opt-Location; 
-     Ini  = 1;
-     Values = "Ottawa,Toronto,Vancouver,Calgary,Edmonton,Regina,Winnipeg,Montreal,Quebec,Fredricton,Halifax"; 
+  // ==========================================
+  // Parameters that configure the simulation 
+  // ==========================================
+  
+  // Calculation mode: Debug or calc ? 
+  Parameter { 
+  
+    Name = GOtag:CalcMode; 
+    Ini    = 1; 
+    Values = "debug"; 
+ 
    }
 
+  // Database files: CEF OR WH?
+  Parameter { 
+  
+    Name = GOtag:DBFiles; 
+    Ini    = 1; 
+    Values = "CEF"; 
+ 
+   }
+   
+  // HRV control scheme (Continuious, ERSp3ACH, EightHRpDay ) 
+  Parameter{ 
+    Name = GOtag:HRVcontrol; 
+    Ini  = 1; 
+    Values = EightHRpDay;
+     
+  }
+   
+  // Location  
+  Parameter{ // One of:
+             //    Ottawa     
+             //    Toronto    
+             //    Vancouver  
+             //    Calgary    
+             //    Edmonton   
+             //    Regina     
+             //    Winnipeg    
+             //    Montreal   
+             //    Quebec     
+             //    Fredricton 
+             //    Halifax    
+             //    Whitehorse 
+  
+    Name = GOtag:Opt-Location; 
+    Ini  = 1;
+    Values = "Ottawa"; //,Toronto,Vancouver,Calgary,Edmonton,Regina,Winnipeg,Montreal,Quebec,Fredricton,Halifax"; 
+  }
 
-   // Air tightness: Typical23, TypicalGTA, R2000, Cdn1ACH, PassiveHouse, Base_WH_1.5, WH_1.0, WH_0.5
+
+  
+  // =============================================
+  // Parameters that configure the building design
+  // =============================================
+  
+  
+   // Air tightness: 
+   //   - Typical23
+   //   - TypicalGTA, 
+   //   - R2000, 
+   //   - Cdn1ACH, 
+   //   - PassiveHouse, 
+   //   - Base_WH_1.5, 
+   //   - WH_1.0, 
+   //   - WH_0.5
    Parameter{   // 
      Name    =  GOtag:Opt-AirTightness;
      Ini     =  1;
@@ -180,10 +223,7 @@ Vary{
      Values  =  "wood";    
    }       
  
-   
-   
-  
-  
+     
   // SolarDHW: none, 
   //           DWHR, 
   //           1-flat-plate, 
@@ -192,7 +232,7 @@ Vary{
   //           2-flat-plate+DWHR
   
   Parameter{   // 
-     Name    = GOtag:Opt-SolarDHW; 
+     Name    = GOtag:Opt-DWHRandSDHW; 
      Ini     = 1; 
      Values  = "none"; 
   } 
@@ -205,14 +245,13 @@ Vary{
   Parameter{ //
      Name    = GOtag:Opt-DHWSystem;
      Ini     = 1; 
-     Values  = "BaseDHW,ElectricStorage"; 
+     Values  = "BaseDHW"; //,ElectricStorage"; 
   }
 
   
   // Heating/cooling: basefurnace, 
   //                  elec-baseboard, 
   //                  CCASHP
-  //                  
   //                  baseoilfurnace
   //                  oil95furnace
   //                  propanefurnace
@@ -222,8 +261,16 @@ Vary{
   Parameter {// 
       Name   = GOtag:Opt-HVACSystem; 
       Ini    = 1; 
-      Values = "basefurnace,elec-baseboard,CCASHP,GSHP"; 
+      Values = "basefurnace"; //,elec-baseboard,CCASHP,GSHP"; 
   }
+  
+  // HRV specification
+  Parameter { 
+     Name = GOtag:Opt-HRVSpec; 
+     Ini  = 1; 
+     Values = "CEF_SPEC"; 
+  }
+  
   
   // PV: Set to autosize to ensure each run actually achieves NZEH. 
   // NoPV
@@ -266,6 +313,12 @@ Vary{
      Values  =  "No";
    }            
    
+  Parameter{   // overhang width 
+     Name    =  GOtag:Opt-OverhangWidth;
+     Ini     =  1;
+     Values  =  "BaseOverhang";
+   }            
+   
     
   
   // ===================================================================
@@ -288,22 +341,18 @@ Vary{
       Name   = GOtag:ElecLoadScale; 
       Ini    = 1;
       // Value may be one of  NoReduction, BasicReduction, EfficientLiving      
-      Values = "BasicReduction"; 
+      Values = "NGERSNoReduction19"; 
   }
   Parameter { // 
       Name   = GOtag:DHWLoadScale; 
       Ini    = 1;
       // Value may be one of  NoReduction, BasicReduction, EfficientLiving      
-      Values = "BasicReduction"; 
+      Values = "No-Reduction"; 
   }
   
-  Parameter { // 
-      Name   = GOtag:HRVcontrol; 
-      Ini    = 1;
-      // Value may be one of Continuious, ERSp3ACH, EightHRpDay       
-      Values = "EightHRpDay"; 
-  }  
   
+  
+
     
    // Orientation: for parametric study. Set to one of 
    // "S, N, E, W, or AVG", "AVG" causes substitute.pl 
