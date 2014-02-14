@@ -51,19 +51,19 @@
 #
 #        performance 4
         capacity 9960.0
-        COP 3.
+        COP 3.8
         
         circ-fan-flow 1
         circ-fan-rated-flow 1
         circ-fan-mode 1
         circ-fan-position 1
         circ-fan-power 140.0
-        outdoor-fan-power 140.0
+        outdoor-fan-power 0.0
         fan-power-in-auto 0.0
+        gshp-circ-pump-power 200.
         circ-fan-rated-position 1
-
         temp-control-mode 1
-        cut-off-temperature -25.1
+        cut-off-temperature -40.1
 
     *sys-data-end
 
@@ -94,16 +94,18 @@
     *sys-data-start
 
         
-        capacity 11720.
-        COP 3.
+        capacity 8000.
+        COP 5.2
         circ-fan-mode 1
         circ-fan-position 1
-        circ-fan-power 140.
-        outdoor-fan-power 0.
+        circ-fan-power 0.
+        outdoor-fan-power 0.0
         fan-power-in-auto 0.
         circ-fan-rated-position 1
-        SHR 0.75
+        gshp-circ-pump-power 200.
+        SHR 0.76
         cooling-control-mode 1
+        gshp-circ-pump-power 200.
         ctl-file-function-num 1
         sys-num-for-heating-mode 2
 
