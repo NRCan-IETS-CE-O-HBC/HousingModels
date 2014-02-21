@@ -1,0 +1,28 @@
+# transparent properties of L1Z1CoreBasement defined in user/MB-LEEP/zones/L1Z1CoreBasement.tmc
+  11    # surfaces
+# tmc index for each surface
+  0  0  0  0  0  0  0  0  1  2  3
+   3  wi02C0101     # layers in tmc type  1
+# Transmission @ 5 angles & visible tr.
+0.255 0.241 0.201 0.149 0.071 0.475
+# For each layer absorption @ 5 angles
+0.0765 0.0837 0.0916 0.0956 0.0949 
+0.0066 0.0066 0.0066 0.0066 0.0066 
+0.1022 0.1087 0.1101 0.1048 0.0685 
+0   # blind/shutter control flag
+   3  wi06C0101     # layers in tmc type  2
+# Transmission @ 5 angles & visible tr.
+0.255 0.241 0.201 0.149 0.071 0.475
+# For each layer absorption @ 5 angles
+0.0765 0.0837 0.0916 0.0956 0.0949 
+0.0066 0.0066 0.0066 0.0066 0.0066 
+0.1022 0.1087 0.1101 0.1048 0.0685 
+0   # blind/shutter control flag
+   3  wi03C0101     # layers in tmc type  3
+# Transmission @ 5 angles & visible tr.
+0.255 0.241 0.201 0.149 0.071 0.475
+# For each layer absorption @ 5 angles
+0.0765 0.0837 0.0916 0.0956 0.0949 
+0.0066 0.0066 0.0066 0.0066 0.0066 
+0.1022 0.1087 0.1101 0.1048 0.0685 
+0   # blind/shutter control flag

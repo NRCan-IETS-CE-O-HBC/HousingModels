@@ -1,0 +1,12 @@
+# transparent properties of L2Z4FrontGarage defined in user/MB-LEEP/zones/L2Z4FrontGarage.tmc
+   8    # surfaces
+# tmc index for each surface
+  0  0  0  0  0  0  1  0
+   3  wi01F0204     # layers in tmc type  1
+# Transmission @ 5 angles & visible tr.
+0.224 0.212 0.176 0.131 0.062 0.416
+# For each layer absorption @ 5 angles
+0.0671 0.0734 0.0803 0.0838 0.0832 
+0.0058 0.0058 0.0058 0.0058 0.0058 
+0.0896 0.0954 0.0965 0.0919 0.0601 
+0   # blind/shutter control flag

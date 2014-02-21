@@ -1,0 +1,84 @@
+# transparent properties of L2Z2CoreMain defined in user/MB-LEEP/zones/L2Z2CoreMain.tmc
+  21    # surfaces
+# tmc index for each surface
+  0  0  0  0  0  0  0  0  0  0  1  2  3  0  4  5  6  7  8  9 10
+   3  wi01C0202     # layers in tmc type  1
+# Transmission @ 5 angles & visible tr.
+0.292 0.276 0.230 0.170 0.081 0.543
+# For each layer absorption @ 5 angles
+0.0875 0.0958 0.1048 0.1093 0.1086 
+0.0075 0.0075 0.0075 0.0075 0.0075 
+0.1169 0.1244 0.1259 0.1199 0.0784 
+0   # blind/shutter control flag
+   3  wi02C0202     # layers in tmc type  2
+# Transmission @ 5 angles & visible tr.
+0.218 0.206 0.172 0.127 0.060 0.405
+# For each layer absorption @ 5 angles
+0.0653 0.0715 0.0782 0.0816 0.0810 
+0.0056 0.0056 0.0056 0.0056 0.0056 
+0.0872 0.0929 0.0940 0.0895 0.0585 
+0   # blind/shutter control flag
+   3  wi09C0202     # layers in tmc type  3
+# Transmission @ 5 angles & visible tr.
+0.308 0.291 0.243 0.180 0.085 0.572
+# For each layer absorption @ 5 angles
+0.0922 0.1010 0.1105 0.1153 0.1145 
+0.0080 0.0080 0.0080 0.0080 0.0080 
+0.1232 0.1312 0.1328 0.1264 0.0827 
+0   # blind/shutter control flag
+   3  wi08C0202     # layers in tmc type  4
+# Transmission @ 5 angles & visible tr.
+0.308 0.291 0.243 0.180 0.085 0.572
+# For each layer absorption @ 5 angles
+0.0922 0.1010 0.1105 0.1153 0.1145 
+0.0080 0.0080 0.0080 0.0080 0.0080 
+0.1232 0.1312 0.1328 0.1264 0.0827 
+0   # blind/shutter control flag
+   3  wi07C0202     # layers in tmc type  5
+# Transmission @ 5 angles & visible tr.
+0.308 0.291 0.243 0.180 0.085 0.572
+# For each layer absorption @ 5 angles
+0.0922 0.1010 0.1105 0.1153 0.1145 
+0.0080 0.0080 0.0080 0.0080 0.0080 
+0.1232 0.1312 0.1328 0.1264 0.0827 
+0   # blind/shutter control flag
+   3  wi03C0202     # layers in tmc type  6
+# Transmission @ 5 angles & visible tr.
+0.308 0.291 0.243 0.180 0.085 0.572
+# For each layer absorption @ 5 angles
+0.0922 0.1010 0.1105 0.1153 0.1145 
+0.0080 0.0080 0.0080 0.0080 0.0080 
+0.1232 0.1312 0.1328 0.1264 0.0827 
+0   # blind/shutter control flag
+   3  wi05C0202     # layers in tmc type  7
+# Transmission @ 5 angles & visible tr.
+0.285 0.269 0.224 0.166 0.079 0.530
+# For each layer absorption @ 5 angles
+0.0853 0.0934 0.1023 0.1067 0.1059 
+0.0074 0.0074 0.0074 0.0074 0.0074 
+0.1140 0.1214 0.1229 0.1170 0.0765 
+0   # blind/shutter control flag
+   3  wi06C0202     # layers in tmc type  8
+# Transmission @ 5 angles & visible tr.
+0.258 0.244 0.204 0.151 0.071 0.481
+# For each layer absorption @ 5 angles
+0.0775 0.0848 0.0928 0.0968 0.0961 
+0.0067 0.0067 0.0067 0.0067 0.0067 
+0.1035 0.1102 0.1115 0.1062 0.0694 
+0   # blind/shutter control flag
+   3  wi04C0202     # layers in tmc type  9
+# Transmission @ 5 angles & visible tr.
+0.258 0.244 0.204 0.151 0.071 0.481
+# For each layer absorption @ 5 angles
+0.0775 0.0848 0.0928 0.0968 0.0961 
+0.0067 0.0067 0.0067 0.0067 0.0067 
+0.1035 0.1102 0.1115 0.1062 0.0694 
+0   # blind/shutter control flag
+   3  wi10C0202     # layers in tmc type 10
+# Transmission @ 5 angles & visible tr.
+0.258 0.244 0.204 0.151 0.071 0.481
+# For each layer absorption @ 5 angles
+0.0775 0.0848 0.0928 0.0968 0.0961 
+0.0067 0.0067 0.0067 0.0067 0.0067 
+0.1035 0.1102 0.1115 0.1062 0.0694 
+0   # blind/shutter control flag

@@ -1,0 +1,11 @@
+1.00      # height
+0.05      # depth
+7.6      # length
+6.7      # width
+0.00        # overlap (only important for BCCN__1 and BCCN__2)
+0.00      # basement insulation resistance
+0.85      # soil conductivity
+8.00      # depth of water table
+6.30      # annually-averaged soil temp.
+15.04      # amplitude of grnd-temp's annual sine wave
+0.38      # phase lag of ground temp's annual sine wave
