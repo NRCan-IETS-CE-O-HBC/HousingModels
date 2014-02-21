@@ -19,7 +19,11 @@ SET UP THE ENIVIRONMENT
     Previous versions of the platform required you to copy the climate database 
     directories (climate_linux or climate_cygwin). These operations are now 
     automated by substitute.pl. 
-          
+
+    Replace --debug with --extra-debug to rebuild all libraries:
+	
+	  ./Install -d ~/ --xml --no_training --no_dbs --silent --force --extra-debug --noX -v bps ish prj
+	
       
 RUN A SIMULATION FOR A SINGLE DESIGN
 ------------------------------------      

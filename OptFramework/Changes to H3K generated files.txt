@@ -1,0 +1,167 @@
+Steps to run an H3K generated model in ~/esp-r/bin/bps:
+
+1. Create an H3K model that runs successfully under Windows version of BPS
+   
+2. Go to the Windows folder named after the H3K house file (under the "user" folder). Copy all of the ESP-r generated folders and paste them in a new folder under "OptFramework".  In this case, I used MB-LEEP-Base.
+  - Create a "databases" folder under "MB-LEEP-Base" and copy the content from the H3K "databases" 
+    folder into this new folder.
+  - Open MB-LEEP.cfg and change the references like "../../databases/" to "../databases/"
+  - Also add the line "*dbspth  ../databases                    # path to local databases"
+    to the top of the file with the other default paths
+  - Note that the first line at the top of the H3K generated cfg file is "* CONFIGURATION3.0" 
+    and the Cygwin cfg files have "* CONFIGURATION4.0". This may be an issue but haven' changed.
+	
+3. Run Cygwin version of bps from the cfg folder using:
+~/esp-r/bin/bps -h3k -file MB-LEEP.cfg -mode text -p fullyear silent
+
+--------------------------------------------------------------------------------------------
+4. Warnings/Errors:
+ Warning: Not enough parameter information for automatic use of simulator (missing periods or timesteps or save-level).
+
+-->This is the line from a valid ESP-r cfg file (NZEH-work\cfg\NZEH.cfg):
+# sim setup: no. sets startup zone_ts plant_ts save_lv @ each ts
+*sps    4   1   1   1   5   0
+   1   1  31  12  fullyear # period & name
+*sblr NZEH.res
+*sflr NZEH.fes
+*selr NZEH.ees
+*end_set
+   1   1   1   1  jan      # period & name
+*sblr NZEH.res
+*sflr NZEH.fes
+*selr NZEH.ees
+*end_set
+   1   7  31   7  july     # period & name
+*sblr NZEH.res
+*sflr NZEH.fes
+*selr NZEH.ees
+*end_set
+   1   1  31  12  optrun   # period & name
+*sblr NZEH.res
+*sflr NZEH.fes
+*selr NZEH.ees
+*end_set
+*end_sps
+   
+-->This is the equivalent H3K generated data:
+# sim setup: no. sets startup zone_ts plant_ts save_lv
+*sps     1     7     1    12     5
+    1    1   31   12 def     # period & name
+*sblr MB-LEEP_def.res
+*sipv silent
+*selr MB-LEEP.eres
+*end_set
+*end_sps 
+ 
+--> Copy lines from NZEH.cfg into MB-LEEP.cf
+
+----------------------------------------------------------------------------------------------
+5. Warnings/Errors:
+ Checking zone descriptions...
+
+WARNING: in ../zones/L2Z2CoreMain.opr:   23,    4,   0.50,    0,   24,     1.00,     0.00,
+
+    0.50,     0.50,
+ the gain rad fr value (24.000) > normal  maximum 1.0000!
+ daytype weekday      gains start-end mismatch in...  23,    4,   0.50,    0,   24,     1.00,
+    0.00 of operation file ../zones/L2Z2CoreMain.opr
+ day type weekday      rad & conv fractions > 1.0 in...  23,    4,   0.50,    0,   24,     1.00,
+    0.00 of operation file ../zones/L2Z2CoreMain.opr
+EROPER: conversion error in...  23,    4,   0.50,    0,   24,     1.00,     0.00...
+in: ../zones/L2Z2CoreMain.opr
+ Warning:
+ Unable to free error channel!
+Error reading operation file for zone  1.
+
+Problem: H3K uses the Boundary Conditions Data or .bcd file approach to define internal gains and the NZEH model uses standard ESP-r "casual gain" settings.
+
+Solution: Replace H3K .opr files for each zone with .opr files similar to NZEH.opr!
+
+----------------------------------------------------------------------------------------------
+6. Warnings/Errors:
+
+WARNING: in ../zones/L2Z2CoreMain.tmc:   0  0  0  0  0  0  0  0  0  0  1  2  3  0  4  5  6  7  8
+ 9 10
+ the tmc list value (8) > normal maximum 7!
+
+FAILURE: in ../zones/L2Z4FrontGarage.geo: 8 2 1 0.792 2 0.208 22000 0.96 1 200451 0 0 1
+ the hvac input: fan_power value (0.20045E+06) > allowable maximum 10000.!
+Failed in ../hvac/MB-LEEP.Dhw: conversion of  DHW Zone Location value in 55.000000
+
+  Notes: - Not sure why reference to L2Z4FrontGarage.geo in FAILURE in HVAC data line!
+         - 200451 is actually fan power: H3K generated 200451 Watts!! Replace with 200 W.
+		 
+----------------------------------------------------------------------------------------------
+7. Warnings/Errors:
+
+Failed in ../hvac/MB-LEEP.Dhw: conversion of  DHW Zone Location value in 55.000000
+ Cannot read DHW Zone Location.
+ 
+ Problem likely: 
+ 0    # Column num in BCD file for annual draw schedule. 0 if 24hr schedule included here.
+ --> Remove this line.
+ 
+----------------------------------------------------------------------------------------------
+8. Warnings/Errors:
+
+ FAILURE: in ../hvac/MB-LEEP.Dhw: 4
+ the  central ventilation system type value (4) > allowable maximum 3!
+ Cannot read  central ventilation system type.
+
+ --> This is actually referring to the .vnt file where ventilation system type is set to 4!
+ ---> Change to 2 (HRV) 
+ 
+----------------------------------------------------------------------------------------------
+9. Warnings/Errors:
+
+ Warning: Materials database data probably corrupt.  
+Please fix this first.
+ Warning: Problem during reading of construction database.
+
+ ---> Copy ..\dbs from NZEH
+
+Warning: specified climate file (../climate/winnipeg.cwec) could not be found.
+ ---> Fix name in .cfg! Should be can_winnipeg.cwec not winnipeg.cwec
+
+----------------------------------------------------------------------------------------------
+10. Warnings/Errors:
+
+  Warning: Could not find
+../databases/constr.db1
+ Fatal error: Materials database could not be found
+
+ ---> Match dbs names in cfg with actual fil names copied above (use NZEH.cfg to match)
+ 
+----------------------------------------------------------------------------------------------
+11. Warnings/Errors:
+ 
+  Warning: Could not find
+../dbs/material.db3.a
+ Fatal error: Materials database could not be found
+
+ ---> Rename "databases" to "dbs"
+ 
+----------------------------------------------------------------------------------------------
+12. Warnings/Errors:
+
+A systems and building simulation start-up period of   1 days has been specified.
+Warning: specified climate file (../climate/can_winnipeg.cwec) could not be found.
+ 
+ --->Copy climate "system file" from NZEH-work to MB-LEEP-Base
+ 
+----------------------------------------------------------------------------------------------
+13. Warnings/Errors:
+
+Floating point error!
+
+ ---> Copy al hvac, dhw, vnt from NZEH
+ 
+----------------------------------------------------------------------------------------------
+14. Warnings/Errors:
+ 
+  Simulation has now commenced.
+At line 535 of file hvacsim.F
+Fortran runtime error: Index '0' of dimension 1 of array 'iban' below lower bound of 1
+
+
+ 

@@ -34,10 +34,10 @@ my $gBPSpath            = "~/esp-r/bin/bps";
 my $gPRJpath            = "~/esp-r/bin/prj"; 
 
 # $gBaseModelFolder initialized here but can be over-ridden by command line value with -b option
-my $gBaseModelFolder    = "NZEH-base";
-my $gWorkingModelFolder = "NZEH-work"; 
+my $gBaseModelFolder    = "MB-LEEP-Base";
+my $gWorkingModelFolder = "MB-LEEP-work"; 
 my $gWorkingCfgPath     = "$gWorkingModelFolder/cfg";
-my $gModelCfgFile       = "NZEH.cfg";
+my $gModelCfgFile       = "MB-LEEP.cfg";
 
 my $gTotalCost          = 0; 
 my $gIncBaseCosts       = 11727; 
