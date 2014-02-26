@@ -35,9 +35,9 @@ my $gPRJpath            = "~/esp-r/bin/prj";
 
 # $gBaseModelFolder initialized here but can be over-ridden by command line value with -b option
 my $gBaseModelFolder    = "MB-LEEP-Base";
-my $gWorkingModelFolder = "MB-LEEP-work"; 
+my $gWorkingModelFolder = "MODEL-work"; 
 my $gWorkingCfgPath     = "$gWorkingModelFolder/cfg";
-my $gModelCfgFile       = "MB-LEEP.cfg";
+my $gModelCfgFile       = "MB-LEEP-Base.cfg";
 
 my $gTotalCost          = 0; 
 my $gIncBaseCosts       = 11727; 
@@ -178,6 +178,9 @@ $cmd_arguements =~ s/;$//g;
 # split processed arguments back into array
 @processed_args = split /;/, $cmd_arguements;
 
+print @processed_args; 
+
+
 
 # Interpret arguments
 foreach $arg (@processed_args){
@@ -311,6 +314,8 @@ if (! -r "$gOptionFile" && -r "../$gOptionFile" ){
 stream_out (" > substitute.pl path: $master_path \n");
 stream_out (" >               ChoiceFile: $gChoiceFile \n");
 stream_out (" >               OptionFile: $gOptionFile \n");
+stream_out (" >               base model: $gBaseModelFolder \n"); 
+
 
 
 
