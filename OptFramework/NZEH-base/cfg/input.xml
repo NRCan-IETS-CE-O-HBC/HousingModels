@@ -6,7 +6,7 @@
   <hierarchy>tree</hierarchy>
   <link_style_sheet>false</link_style_sheet>
   <log_output_format>xml</log_output_format>
-  <output_dictionary>none</output_dictionary>
+  <output_dictionary>all</output_dictionary>
   <report_startup_period_data>false</report_startup_period_data>
   <save_to_disk>false</save_to_disk>
   <step_output_format>all</step_output_format>
@@ -14,6 +14,8 @@
   <style_sheet>monthly_tables.xsl</style_sheet>
   <transform_destination_file>monthly_results.csv</transform_destination_file>
   <log_variable>*month*</log_variable>
+  <log_variable>building/zone_*/surface_*/heat_flux/radiation/shortwave/unit_area</log_variable>
+  <log_variable>building/zone_*/surface_*/heat_flux/radiation/shortwave/unit_area</log_variable>
   <log_variable>building/all_zones/supplied_energy/cooling</log_variable>
   <log_variable>building/all_zones/supplied_energy/heating</log_variable>
    <log_variable>climate/dry_bulb_temperature</log_variable>
@@ -53,12 +55,11 @@
   
   
   <step_variable>plant*</step_variable>
-  
-  
+  <step_variable>building/zone_*/surface_*/heat_flux/radiation/shortwave/unit_area</step_variable>
+  <step_variable>building/zone_*/surface_*/heat_flux/radiation/shortwave/unit_area</step_variable>
   <!-- -->
+  
   <summary_variable>total_fuel_use*</summary_variable>
-  
-  
-  
+  <summary_variable>building/zone_*/surface_*/heat_flux/radiation/shortwave/unit_area</summary_variable>
   
 </configuration>
