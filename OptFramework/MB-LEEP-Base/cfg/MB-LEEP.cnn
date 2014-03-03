@@ -1,6 +1,6 @@
 *connections for MB-LEEP
-*Date Thursday, 13 of February 2014 0:0:0
-    52   # number of connections
+*Date Monday, 3 of March 2014 0:0:0
+    53   # number of connections
 #IC1 |IE1|ICT|IC2|IE2|iConn
 #zone|sur|con|zon|   |con |con
 # no.|no.|typ|no.|no.| no.|inf
@@ -22,16 +22,16 @@
    1  16   0   0   0  # 16 wi07C0202 EXTERIOR
    1  17   0   0   0  # 17 wi03C0202 EXTERIOR
    1  18   0   0   0  # 18 wi05C0202 EXTERIOR
-   1  19   0   0   0  # 19 wi06C0202 EXTERIOR
+   1  19   0   0   0  # 19 wi10C0202 EXTERIOR
    1  20   0   0   0  # 20 wi04C0202 EXTERIOR
-   1  21   0   0   0  # 21 wi10C0202 EXTERIOR
-   2   1   6   <OPT-BsmCnnIndex>  10  # 22 wa01C0101 BASESIMP
+   1  21   0   0   0  # 21 wi06C0202 EXTERIOR
+   2   1   6   <OPT-BsmCnnIndex>  11  # 22 wa01C0101 BASESIMP
    2   2   6   <OPT-BsmCnnIndex>   9  # 23 wa02C0101 BASESIMP
    2   3   6   <OPT-BsmCnnIndex>   6  # 24 wa03C0101 BASESIMP
    2   4   6   <OPT-BsmCnnIndex>   2  # 25 wa04C0101 BASESIMP
    2   5   6   <OPT-BsmCnnIndex>   4  # 26 wa05C0101 BASESIMP
-   2   6   6   <OPT-BsmCnnIndex>  11  # 27 wa06C0101 BASESIMP
-   2   7   6   <OPT-BsmCnnIndex>  58  # 28 fl01C0101 BASESIMP
+   2   6   6   <OPT-BsmCnnIndex>  12  # 27 wa06C0101 BASESIMP
+   2   7   6   <OPT-BsmCnnIndex>  56  # 28 fl01C0101 BASESIMP
    2   8   3   1   8  # 29 ce01C0101 L2Z2CoreMain
    2   9   0   0   0  # 30 wi02C0101 EXTERIOR
    2  10   0   0   0  # 31 wi06C0101 EXTERIOR
@@ -48,11 +48,12 @@
    3  10   0   0   0  # 42 ce04C0203 EXTERIOR
    3  11   0   0   0  # 43 ce05C0203 EXTERIOR
    3  12   0   0   0  # 44 ce06C0203 EXTERIOR
-   4   1   0   0   0  # 45 wa01F0204 EXTERIOR
-   4   2   3   1   7  # 46 wa02F0204 L2Z2CoreMain
-   4   3   0   0   0  # 47 wa03F0204 EXTERIOR
-   4   4   0   0   0  # 48 wa04F0204 EXTERIOR
-   4   5   6  <OPT-BsmCnnIndex> 100  # 49 fl01F0204 BASESIMP
-   4   6   3   3   5  # 50 ce01F0204 L2Z3CoreAttic
-   4   7   0   0   0  # 51 wi01F0204 EXTERIOR
-   4   8   0   0   0  # 52 do02F0204 EXTERIOR
+   3  13   0   0   0  # 45 ce07C0203 EXTERIOR
+   4   1   0   0   0  # 46 wa01F0204 EXTERIOR
+   4   2   3   1   7  # 47 wa02F0204 L2Z2CoreMain
+   4   3   0   0   0  # 48 wa03F0204 EXTERIOR
+   4   4   0   0   0  # 49 wa04F0204 EXTERIOR
+   4   5   6   <OPT-BsmCnnIndex> 100  # 50 fl01F0204 BASESIMP
+   4   6   3   3   5  # 51 ce01F0204 L2Z3CoreAttic
+   4   7   0   0   0  # 52 wi02F0204 EXTERIOR
+   4   8   0   0   0  # 53 do02F0204 EXTERIOR
