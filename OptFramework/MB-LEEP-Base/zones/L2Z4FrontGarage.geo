@@ -2,22 +2,22 @@
 GEN  L2Z4FrontGarage  HOT3000 generated zone  # type, name, descr
       16        8 0.000    # vertices, surfaces, rotation angle
 #   X co-ord, Y co-ord, Z co-ord
-    0.00000  7.60000  100.66000   # vert 1  
-    0.00000  0.00000  100.66000   # vert 2  
-    0.00000  0.00000  103.11000   # vert 3  
-    0.00000  7.60000  103.11000   # vert 4  
-    6.70000  7.60000  100.66000   # vert 5  
-    6.70000  7.60000  103.11000   # vert 6  
-    6.70000  0.00000  100.66000   # vert 7  
-    6.70000  0.00000  103.11000   # vert 8  
-    6.70000  1.50000  101.66000   # vert 9  
-    6.70000  1.50000  102.16000   # vert 10 
-    6.70000  2.52000  102.16000   # vert 11 
-    6.70000  2.52000  101.66000   # vert 12 
-    0.30000  0.00000  100.66000   # vert 13 
-    0.30000  0.00000  102.75999   # vert 14 
-    6.40000  0.00000  102.75999   # vert 15 
-    6.40000  0.00000  100.66000   # vert 16 
+    0.00000  7.60000  100.90000   # vert 1  
+    0.00000  0.00000  100.90000   # vert 2  
+    0.00000  0.00000  103.67000   # vert 3  
+    0.00000  7.60000  103.67000   # vert 4  
+    6.70000  7.60000  100.90000   # vert 5  
+    6.70000  7.60000  103.67000   # vert 6  
+    6.70000  0.00000  100.90000   # vert 7  
+    6.70000  0.00000  103.67000   # vert 8  
+    6.70000  1.00000  101.80000   # vert 9  
+    6.70000  1.00000  102.71999   # vert 10 
+    6.70000  2.02000  102.71999   # vert 11 
+    6.70000  2.02000  101.80000   # vert 12 
+    0.30000  0.00000  100.90000   # vert 13 
+    0.30000  0.00000  103.00000   # vert 14 
+    6.40000  0.00000  103.00000   # vert 15 
+    6.40000  0.00000  100.90000   # vert 16 
 # no of vertices followed by list of associated vert
    4,   1,   2,   3,   4,
    4,   5,   1,   4,   6,
@@ -41,7 +41,7 @@ GEN  L2Z4FrontGarage  HOT3000 generated zone  # type, name, descr
   4, wa04F0204     OPAQ  VERT  ex_brk     EXTERIOR       
   5, fl01F0204     OPAQ  FLOR  grg_slab   BASESIMP       
   6, ce01F0204     OPAQ  CEIL  <Opt-ExposedFloor-r>     L2Z3CoreAttic  
-  7, wi01F0204     TRAN  VERT  <OptBW-Construction>       EXTERIOR       
+  7, wi02F0204     TRAN  VERT  <OptBW-Construction>       EXTERIOR       
   8, do02F0204     OPAQ  VERT  ex_brk     EXTERIOR       
 # base
 5   0   0   0   0   0   50.92    
