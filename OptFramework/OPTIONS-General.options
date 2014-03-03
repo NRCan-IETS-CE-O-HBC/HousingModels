@@ -209,6 +209,8 @@
 
 !-----------------------------------------------------------------------
 ! Add up to 6 extra windows to the back of the house 
+! CEF archetype supports NoExtraWin->SevenExtraWin
+! MB LEEP archetype only supports NoExtraWin->FourExtraWin
 !-----------------------------------------------------------------------
 *attribute:start 
 

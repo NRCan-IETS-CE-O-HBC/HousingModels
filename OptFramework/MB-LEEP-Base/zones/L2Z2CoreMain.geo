@@ -109,11 +109,11 @@ GEN  L2Z2CoreMain  HOT3000 generated zone  # type, name, descr
  10, do01C0202     OPAQ  VERT  Door     EXTERIOR       
  11, wi01C0202     TRAN  VERT  <OptBW-Construction>       EXTERIOR       
  12, wi02C0202     TRAN  VERT  <OptBW-Construction>       EXTERIOR       
- 13, wi09C0202     TRAN  VERT  <OptBW-Construction>       EXTERIOR       
+ 13, wi09C0202     <OptFirstFlExWin1Opt> VERT  <OptFirstFlExWin1Con>       EXTERIOR  #    
  14, do02C0202     OPAQ  VERT  Door     EXTERIOR       
- 15, wi08C0202     TRAN  VERT  <OptBW-Construction>       EXTERIOR       
- 16, wi07C0202     TRAN  VERT  <OptBW-Construction>       EXTERIOR       
- 17, wi03C0202     TRAN  VERT  <OptBW-Construction>       EXTERIOR       
+ 15, wi08C0202     <OptFirstFlExWin3Opt>  VERT  <OptFirstFlExWin3Con>       EXTERIOR  #     
+ 16, wi07C0202     <OptFirstFlExWin4Opt>  VERT  <OptFirstFlExWin4Con>       EXTERIOR  #     
+ 17, wi03C0202     <OptFirstFlExWin5Opt>  VERT  <OptFirstFlExWin5Con>       EXTERIOR  #     
  18, wi05C0202     TRAN  VERT  <OptBW-Construction>       EXTERIOR       
  19, wi10C0202     TRAN  VERT  <OptBW-Construction>       EXTERIOR       
  20, wi04C0202     TRAN  VERT  <OptBW-Construction>       EXTERIOR       
