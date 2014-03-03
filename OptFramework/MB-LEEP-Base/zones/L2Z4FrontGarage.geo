@@ -21,9 +21,9 @@ GEN  L2Z4FrontGarage  HOT3000 generated zone  # type, name, descr
 # no of vertices followed by list of associated vert
    4,   1,   2,   3,   4,
    4,   5,   1,   4,   6,
-  11,   7,   5,   6,   8,   7,   9,  10,  11,  12,   9,   7,
+  10,   7,   5,   6,   8,   7,   9,  10,  11,  12,   9, 
    8,   2,  13,  14,  15,  16,   7,   8,   3,
-   4,   2,   1,   5,   7,
+   6,   2,   1,   5,   7,  16, 13
    4,   3,   8,   6,   4,
    4,   9,  12,  11,  10,
    4,  13,  16,  15,  14,

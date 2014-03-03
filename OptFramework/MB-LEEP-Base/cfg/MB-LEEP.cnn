@@ -46,8 +46,8 @@
    3   8   0   0   0  # 40 ce02C0203 EXTERIOR
    3   9   0   0   0  # 41 ce03C0203 EXTERIOR
    3  10   0   0   0  # 42 ce04C0203 EXTERIOR
-   3  11   0   0   0  # 43 ce05C0203 EXTERIOR
-   3  12   0   0   0  # 44 ce06C0203 EXTERIOR
+   3  11   0   0   0  # 44 ce06C0203 EXTERIOR
+   3  12   0   0   0  # 45 ce07C0203 EXTERIOR
    4   1   0   0   0  # 45 wa01F0204 EXTERIOR
    4   2   3   1   7  # 46 wa02F0204 L2Z2CoreMain
    4   3   0   0   0  # 47 wa03F0204 EXTERIOR

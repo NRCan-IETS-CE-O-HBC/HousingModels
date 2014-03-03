@@ -1,6 +1,6 @@
 # geometry of L2Z3CoreAttic defined in: user/MB-LEEP/zones/L2Z3CoreAttic.geo
 GEN  L2Z3CoreAttic  HOT3000 generated zone  # type, name, descr
-      16       13 0.000    # vertices, surfaces, rotation angle
+      16      12  0.000    # vertices, surfaces, rotation angle
 #   X co-ord, Y co-ord, Z co-ord
     12.10000  7.60000  103.67000   # vert 1  
     12.10000  18.40000  103.67000   # vert 2  
@@ -29,9 +29,8 @@ GEN  L2Z3CoreAttic  HOT3000 generated zone  # type, name, descr
    6,   2,  16,  14,   4,   6,   3,
    4,   8,  13,  15,   9,
    4,   5,   7,   9,  15,
-   3,  14,   2,  16,
-   4,   2,  10,  12,  16,
-   4,  11,  14,  16,  12,
+   4,   2,  10,  12,  16,   
+   4,  11,  14,  16,  12,   
 # unused index
  0   0   0   0   0   0   0   0   0   0   0   0   0  
 # surfaces indentation (m)
@@ -49,9 +48,8 @@ GEN  L2Z3CoreAttic  HOT3000 generated zone  # type, name, descr
   7, ce01C0203     OPAQ  SLOP  roof      EXTERIOR       
   8, ce02C0203     OPAQ  SLOP  roof      EXTERIOR       
   9, ce03C0203     OPAQ  SLOP  roof      EXTERIOR       
- 10, ce04C0203     OPAQ  SLOP  roof      EXTERIOR       
- 11, ce05C0203     OPAQ  SLOP  roof      EXTERIOR       
- 12, ce06C0203     OPAQ  SLOP  roof      EXTERIOR       
- 13, ce07C0203     OPAQ  SLOP  roof      EXTERIOR       
+ 10, ce04C0203     OPAQ  SLOP  roof      EXTERIOR
+ 11, ce06C0203     OPAQ  SLOP  roof      EXTERIOR       
+ 12, ce07C0203     OPAQ  SLOP  roof      EXTERIOR       
 # base
 5   6   0   0   0   0   192.85   
