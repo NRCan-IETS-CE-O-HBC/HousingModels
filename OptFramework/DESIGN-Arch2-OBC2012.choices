@@ -3,7 +3,7 @@
 
 Opt-calcmode          : calc
 
-
+Opt-DBFiles           : CEF 
 
 ! Optimization substututions 
 ! Set the orientation for the model (N,S,E,W, or AVG to run all four directions
@@ -24,6 +24,8 @@ OPT-HRV_ctl          : EightHRpDay
 ! Turn orignial design windows opaque ( NoWindows!)
 ! or transparent (MinWindows). NoWindows doesn't presently work!
 
+Opt-OverhangWidth : BaseOverhang
+
 Opt-BaseWindows      : MinWindows
 
 ! Add one, two or three windows to front of the house 
@@ -43,7 +45,7 @@ Opt-ExtBasementWindow : No             ! Basement (back)
 !     Cdn1ACH
 !     PassiveHouse (unconfirmed cost data)
                  
-Opt-AirTightness     : R2000
+Opt-AirTightness     : Typical23
 
 ! Main wall insulation 
 !  BaseR21
@@ -123,17 +125,17 @@ Opt-ExposedFloor     : BaseExpFloor-R31
 
 Opt-StandoffPV       : NoPV
 
-Opt-SolarDHW         : none
+Opt-DWHRandSDHW         : none   
 
 ! NoReduction
 ! BasicReduction
 ! EfficientLiving
 
-Opt-ElecLoadScale    : NoReduction
+Opt-ElecLoadScale    : NGERSNoReduction19
 
 ! Load scales 
 
-Opt-DHWLoadScale     : NoReduction
+Opt-DHWLoadScale     : No-Reduction 
 
 Opt-RoofPitch : 8-12
 
@@ -152,3 +154,5 @@ Opt-DHWSystem        : ElectricStorage
 ! elec-baseboard
 
 Opt-HVACSystem       :  basefurnace
+
+Opt-HRVspec : CEF_SPEC
