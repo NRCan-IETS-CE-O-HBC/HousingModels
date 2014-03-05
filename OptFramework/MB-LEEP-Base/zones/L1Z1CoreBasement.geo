@@ -57,8 +57,8 @@ GEN  L1Z1CoreBasement  HOT3000 generated zone  # type, name, descr
   6, wa06C0101     OPAQ  VERT  <OPT-BsmWall>   BASESIMP       
   7, fl01C0101     OPAQ  FLOR  <OPT-BsmFloor>    BASESIMP       
   8, ce01C0101     OPAQ  CEIL  <Opt-IntFloorInv>     L2Z2CoreMain   
-  9, wi02C0101     TRAN  VERT  <OptBW-Construction>       EXTERIOR       
- 10, wi06C0101     TRAN  VERT  <OptBW-Construction>       EXTERIOR       
- 11, wi03C0101     TRAN  VERT  <OptBW-Construction>       EXTERIOR       
+  9, wi02C0101     <OptBW-Optics>  VERT  <OptBW-Construction>       EXTERIOR       
+ 10, wi06C0101     <OptBW-Optics>  VERT  <OptBW-Construction>       EXTERIOR       
+ 11, wi03C0101     <OptBW-Optics>  VERT  <OptBW-Construction>       EXTERIOR       
 # base
 7   0   0   0   0   0   141.93   
