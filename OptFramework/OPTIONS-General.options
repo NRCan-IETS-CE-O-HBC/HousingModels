@@ -25,7 +25,9 @@
 
 
 !-----------------------------------------------------------------------
-! This option can be used to point a file to either the 
+! This option can be used to load construction databases from the CEF or
+! Whitehorse definitions. 
+!-----------------------------------------------------------------------
 *attribute:start
 *attribute:name     = Opt-DBFiles
 *attribute:tag:1    = <OPT-ConstDBFile>
@@ -55,9 +57,9 @@
 *attribute:tag:1 = <OptBW-Construction>
 *attribute:tag:2 = <OptBW-Optics>
 
-!*option:NoWindows!:value:1 = <Opt-MainWall-Bri>
-!*option:NoWindows!:value:2 = OPAQUE
-!*option:NoWindows!:cost:total    = 0
+*option:NoWindows:value:1 = <Opt-MainWall-Bri>
+*option:NoWindows:value:2 = OPAQUE
+*option:NoWindows:cost:total    = 0
 
 *option:MinWindows:value:1 = <Opt-CasWinConstruction>
 *option:MinWindows:value:2 = <Opt-CasWinOptics>
