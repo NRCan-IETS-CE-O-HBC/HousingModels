@@ -105,10 +105,10 @@ GEN  L2Z2CoreMain  HOT3000 generated zone  # type, name, descr
   6, wa06C0202     OPAQ  VERT  <Opt-MainWall-Bri>     EXTERIOR       
   7, wa07C0202     OPAQ  VERT  <Opt-MainWall-Dry>  L2Z4FrontGarage
   8, fl01C0202     OPAQ  FLOR  <Opt-IntFloor>       L1Z1CoreBasement
-  9, ce01C0202     OPAQ  CEIL  <Opt-IntFloorInv>     L2Z3CoreAttic  
+  9, ce01C0202     OPAQ  CEIL  <Opt-Ceiling>     L2Z3CoreAttic  
  10, do01C0202     OPAQ  VERT  Door     EXTERIOR       
  11, wi01C0202     <OptBW-Optics>   VERT  <OptBW-Construction>       EXTERIOR       
- 12, wi02C0202     TRAN  VERT  <OptBW-Construction>       EXTERIOR       
+ 12, wi02C0202     <OptBW-Optics>  VERT  <OptBW-Construction>       EXTERIOR       
  13, wi09C0202     <OptFirstFlExWin1Opt> VERT  <OptFirstFlExWin1Con>       EXTERIOR  #    
  14, do02C0202     OPAQ  VERT  Door     EXTERIOR       
  15, wi08C0202     <OptFirstFlExWin3Opt>  VERT  <OptFirstFlExWin3Con>       EXTERIOR  #     

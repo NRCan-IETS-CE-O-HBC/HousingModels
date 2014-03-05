@@ -40,8 +40,8 @@ GEN  L2Z4FrontGarage  HOT3000 generated zone  # type, name, descr
   3, wa03F0204     OPAQ  VERT  ex_brk     EXTERIOR       
   4, wa04F0204     OPAQ  VERT  ex_brk     EXTERIOR       
   5, fl01F0204     OPAQ  FLOR  grg_slab   BASESIMP       
-  6, ce01F0204     OPAQ  CEIL  <Opt-ExposedFloor-r>     L2Z3CoreAttic  
-  7, wi02F0204     TRAN  VERT  <OptBW-Construction>       EXTERIOR       
+  6, ce01F0204     OPAQ  CEIL  <Opt-Ceiling>R     L2Z3CoreAttic  
+  7, wi02F0204     <OptBW-Optics>  VERT  <OptBW-Construction>       EXTERIOR       
   8, do02F0204     OPAQ  VERT  ex_brk     EXTERIOR       
 # base
 5   0   0   0   0   0   50.92    
