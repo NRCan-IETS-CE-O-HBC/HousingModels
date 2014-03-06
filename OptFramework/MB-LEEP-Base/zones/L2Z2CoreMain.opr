@@ -10,15 +10,15 @@ no operations notes (yet)
      0   # number of flow periods in day type: sunday      
      2   # number of casual gains in day type: weekdays    
 # type, start, stop, sens, latent, rad_frac, conv_frac
-    1,   0,  24,     93.0,     59.0, 0.500, 0.500
-    5,   0,  24,      0.7,      0.0, 0.000, 0.833  
+    1,   0,  24,     115.5,     59.0, 0.500, 0.500
+    5,   0,  24,      0.6,      0.0, 0.000, 1.0  
      2   # number of casual gains in day type: saturday    
 # type, start, stop, sens, latent, rad_frac, conv_frac
-    1,   0,  24,     93.0,     59.0, 0.500, 0.500
-    5,   0,  24,      0.7,      0.0, 0.000, 0.833   
+    1,   0,  24,     115.5,     59.0, 0.500, 0.500
+    5,   0,  24,      0.6,      0.0, 0.000, 1.0   
      2   # number of casual gains in day type: sunday      
 # type, start, stop, sens, latent, rad_frac, conv_frac
-    1,   0,  24,     93.0,     59.0, 0.500, 0.500
-    5,   0,  24,      0.7,      0.0, 0.000, 0.833   
+    1,   0,  24,     115.5,     59.0, 0.500, 0.500
+    5,   0,  24,      0.6,      0.0, 0.000, 1.0  
 # Labels for gain types 
  Occupt Equipt
