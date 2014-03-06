@@ -2,7 +2,7 @@
 # AIM-2 input file
 #
 #---Blower Door Test--------------------------------------
-1  2.30 10 1 491.7        # blower door input; 3 ac/h @50Pa; ELA dP=10Pa; ELA not given.
+1  2.30 10 1 700.7        # blower door input; 3 ac/h @50Pa; ELA dP=10Pa; ELA not given.
 #                           # Set first number to 6 (and no other data) for energy tight house
 #---Leakage distribution----------------------------------
 1 0.20  0.65  0.15                 # leakage distribution.
