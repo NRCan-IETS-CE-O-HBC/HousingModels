@@ -329,32 +329,35 @@
 *attribute:tag:1 = <Opt-CasWinConstruction>
 *attribute:tag:2 = <Opt-CasWinOptics>
 
-!*option:OriginalGlassParam:value:1 = DblArLowe
-!*option:OriginalGlassParam:value:2 = DBLLowE
-!*option:OriginalGlassParam:cost:total    = 0
-
 
 ! Base option for windows has cost b/c we multiply this amount 
 ! by optional window areas.
-*option:DoubleLowEHardCoatAirFill:value:1 = DblLeHcAir
-*option:DoubleLowEHardCoatAirFill:value:2 = DblLeHcAir
-*option:DoubleLowEHardCoatAirFill:cost:total    = -2315
 
-*option:DoubleLowEHardCoatArgFill:value:1 = DblLeHcArg 
-*option:DoubleLowEHardCoatArgFill:value:2 = DblLeHcArg 
-*option:DoubleLowEHardCoatArgFill:cost:total    = -1435
+! Not used for MB LEEP. Would be Window A on spreadsheet. 
+!*option:DoubleLowEHardCoatAirFill:value:1 = DblLeHcAir
+!*option:DoubleLowEHardCoatAirFill:value:2 = DblLeHcAir
+!*option:DoubleLowEHardCoatAirFill:cost:total    = -2315
 
-*option:TripleLowEHardCoatKryFill:value:1 = TplLeHcKry
-*option:TripleLowEHardCoatKryFill:value:2 = TplLeHcKry
-*option:TripleLowEHardCoatKryFill:cost:total    = 2760
-
-*option:TripleLowESoftCoatKryFill:value:1 = TplLeScKry
-*option:TripleLowESoftCoatKryFill:value:2 = TplLeScKry
-*option:TripleLowESoftCoatKryFill:cost:total    = 2585
-
+! Base case: Window D from Patric's spreadsheet
 *option:DoubleLowESoftCoatArgFill:value:1 = DblLeScArg
 *option:DoubleLowESoftCoatArgFill:value:2 = DblLeScArg
-*option:DoubleLowESoftCoatArgFill:cost:total    = -1785  ! Should this be zero?
+*option:DoubleLowESoftCoatArgFill:cost:total    = 0    ! Should this be zero?
+
+! Window B grom Patric's spreadsheet
+*option:DoubleLowEHardCoatArgFill:value:1 = DblLeHcArg 
+*option:DoubleLowEHardCoatArgFill:value:2 = DblLeHcArg 
+*option:DoubleLowEHardCoatArgFill:cost:total    = 350 
+
+! Window C
+*option:TripleLowEHardCoatKryFill:value:1 = TplLeHcKry
+*option:TripleLowEHardCoatKryFill:value:2 = TplLeHcKry
+*option:TripleLowEHardCoatKryFill:cost:total    = 4545
+
+! Window E 
+*option:TripleLowESoftCoatKryFill:value:1 = TplLeScKry
+*option:TripleLowESoftCoatKryFill:value:2 = TplLeScKry
+*option:TripleLowESoftCoatKryFill:cost:total    = 4370
+
 
 !-----------------------------------------------------------------------
 ! This option sets the airtightness by spec'ing the 
@@ -878,13 +881,13 @@ Reflects southern Ontario costs
 *attribute:tag:1    = <Opt-DHWInputFile>
 
 *option:BaseDHW:value:1     = BaseDHW.dhw
-*option:BaseDHW:cost:total        = 0
+*option:BaseDHW:cost:total        = 680.0
 
 *option:ElecInstantaneous:value:1 = ElecInstant.dhw
 *option:ElecInstantaneous:cost:total    = 405.0	! DHW4 tab in PL spreadsheet
 
-!*option:ElectricStorage:value:1 = ElecStorage.dhw
-!*option:ElectricStorage:cost:total    = ?
+*option:ElectricStorage:value:1 = ElecStorage.dhw
+*option:ElectricStorage:cost:total    = 0
 
 *option:GasInstantaneous:value:1 = GasInstantaneous.dhw
 *option:GasInstantaneous:cost:total    = 1760	! DHW3 tab in PL spreadsheet
@@ -1216,9 +1219,9 @@ Reflects southern Ontario costs
 
 *ext-parameters:start
 
-*param:BaseUpgradeCost = 14216.602
-*param:BaseUtilitiesCost = 1447
-*param:PVTarrifDollarsPerkWh = 0.08
+*param:BaseUpgradeCost = 0
+*param:BaseUtilitiesCost = 1468
+*param:PVTarrifDollarsPerkWh = 0.070
 
 ext-parameters:end 
  
