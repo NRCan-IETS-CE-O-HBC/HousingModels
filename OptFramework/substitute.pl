@@ -63,6 +63,9 @@ my $gEnergyVentilation;
 my $gEnergyWaterHeating; 
 my $gEnergyEquipment; 
 
+
+my $gRegionalCostAdj;   
+
 my $gRotationAngle; 
 
 my $gSkipPRJ = 0; 
@@ -674,11 +677,20 @@ debug_out("-----------------------------------\n");
 debug_out("-----------------------------------\n");
 debug_out("Parsing parameters ...\n");
 
+my $gCustomCostAdjustment=0; 
+my $gCostAdjustmentFactor; 
+
 # Possibly overwrite internal parameters with user-specified parameters
 while ( my ( $parameter, $value) = each %gParameters ){
 
   #stream_out (">>>> PARAM: $parameter | $value \n"); 
 
+  if ( $parameter =~ /CostAdjustmentFactor/  ){
+  
+    $gCostAdjustmentFactor = $value;
+    $gCustomCostAdjustment = 1; 
+  }
+  
   if ( $parameter =~ /PVTarrifDollarsPerkWh/ ) {
   
      $PVTarrifDollarsPerkWh = $value; 
@@ -745,7 +757,7 @@ while ( my ( $attribute, $choice) = each %gChoices ){
 	  for my $ValueIndex (keys %ValHash){
 	  
 		# for each value, check if corresponding conditions are valid
-		
+		 
 		 my $CondRef = $gOptions{$attribute}{"options"}{$choice}{"values"}{$ValueIndex}{"conditions"}; 
 		 my %CondHash = %$CondRef; 
 	  
@@ -760,15 +772,14 @@ while ( my ( $attribute, $choice) = each %gChoices ){
 		  }else{
 			
 			# Loop through hash 
-			
 			for my $conditions ( keys %CondHash ) {
-			
-				#debug_out ( " >>>>> Testing $conditions \n" ) ; 
+			  if ($conditions !~ /else/ ){ 
+				debug_out ( " >>>>> Testing |$conditions| <<<\n" ) ; 
 				
 				my $valid_condition = 1; 
 				foreach my $condition (split /;/, $conditions ){
 
-				  #debug_out ("      $condition \n"); 
+				  debug_out ("      $condition \n"); 
 				  my ($TestAttribute, $TestValueList) = split /=/, $condition; 
 				  if ( ! $TestValueList ) {$TestValueList = "XXXX";}
 				  my @TestValueArray = split /\|/, $TestValueList;
@@ -776,7 +787,7 @@ while ( my ( $attribute, $choice) = each %gChoices ){
 				  foreach my $TestValue (@TestValueArray){
 				    if ( $gChoices{$TestAttribute} eq $TestValue ) { $thesevalsmatch = 1; }
 					 
-				   # debug_out ("      \$gChoices{".$TestAttribute."} = ".$gChoices{$TestAttribute}." / $TestValue / -> $thesevalsmatch \n"); 
+				   debug_out ("      \$gChoices{".$TestAttribute."} = ".$gChoices{$TestAttribute}." / $TestValue / -> $thesevalsmatch \n"); 
 				  }
 				  if ( ! $thesevalsmatch ){$valid_condition = 0;}
 				  
@@ -786,16 +797,17 @@ while ( my ( $attribute, $choice) = each %gChoices ){
 				  $ValidConditionFound = 1; 
 				  debug_out ("   - VALINDEX: $ValueIndex : found valid condition: \"$conditions\" !\n");
 				}
-
+              }
 			}
 			
 		  }
 		  # Check if else condition exists. 
 		  if ( ! $ValidConditionFound ) {
+            debug_out ("Looking for else!: ".$CondHash{"else"}."<\n" ); 
 		    if ( defined( $CondHash{"else"} ) ){
 			  $gOptions{$attribute}{"options"}{$choice}{"result"}{$ValueIndex} = $CondHash{"else"};
 			  $ValidConditionFound = 1;
-			  #debug_out ("   - VALINDEX: $ValueIndex : found valid condition: \"else\" !\n");
+			  debug_out ("   - VALINDEX: $ValueIndex : found valid condition: \"else\" !\n");
 			}
 		  
 		  }
@@ -1733,6 +1745,17 @@ sub postprocess($){
 
   my $Locale = $gChoices{"Opt-Location"}; 
   
+  
+  if ( $gCustomCostAdjustment ) { 
+  
+    $gRegionalCostAdj = $gCostAdjustmentFactor; 
+  
+  }else{
+  
+    $gRegionalCostAdj = $RegionalCostFactors{$Locale};
+    
+  }
+  
   my $NumberOfRows = scalar(@{$data{$headers[0]}});
 
   stream_out("done (parsed $NumberOfRows rows)\n"); 
@@ -2262,25 +2285,25 @@ sub postprocess($){
   # Estimate total cost of upgrades
 
   $gTotalCost = 0;         
-  my $RegionalCostAdj = $RegionalCostFactors{$Locale}; 
-  stream_out ("\n\n Estimated costs in $Locale (x$RegionalCostAdj Ottawa costs) : \n\n");
+  
+  stream_out ("\n\n Estimated costs in $Locale (x$gRegionalCostAdj Ottawa costs) : \n\n");
 
   foreach my  $attribute ( sort keys %gChoices ){
     
     my $choice = $gChoices{$attribute}; 
     my $cost; 
-    $cost  = $gOptions{$attribute}{"options"}{$choice}{"cost"} * $RegionalCostAdj;
+    $cost  = $gOptions{$attribute}{"options"}{$choice}{"cost"} * $gRegionalCostAdj;
     $gTotalCost += $cost ;
 
     stream_out( " +  ".round($cost)." ( $attribute : $choice ) \n");
     
   }
-  stream_out ( " - ".round($gIncBaseCosts * $RegionalCostAdj)." (Base costs for windows)  \n"); 
+  stream_out ( " - ".round($gIncBaseCosts * $gRegionalCostAdj)." (Base costs for windows)  \n"); 
   stream_out ( " --------------------------------------------------------\n");
-  stream_out ( " =   ".round($gTotalCost-$gIncBaseCosts* $RegionalCostAdj )." ( Total incremental cost ) \n\n");
+  stream_out ( " =   ".round($gTotalCost-$gIncBaseCosts* $gRegionalCostAdj )." ( Total incremental cost ) \n\n");
 
   
-  stream_out ( " ( Unadjusted upgrade costs: \$".eval( $gTotalCost  /  $RegionalCostAdj )." )\n\n");
+  stream_out ( " ( Unadjusted upgrade costs: \$".eval( $gTotalCost  /  $gRegionalCostAdj )." )\n\n");
   
   
   chdir($gMasterPath);
