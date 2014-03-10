@@ -354,7 +354,7 @@
 
 *option:DoubleLowESoftCoatArgFill:value:1 = DblLeScArg
 *option:DoubleLowESoftCoatArgFill:value:2 = DblLeScArg
-*option:DoubleLowESoftCoatArgFill:cost:total    = -1785
+*option:DoubleLowESoftCoatArgFill:cost:total    = -1785  ! Should this be zero?
 
 !-----------------------------------------------------------------------
 ! This option sets the airtightness by spec'ing the 
