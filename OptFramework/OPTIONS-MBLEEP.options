@@ -384,19 +384,6 @@
 *option:PassiveHouse:value:1  =   PassiveHouse.aim
 *option:PassiveHouse:cost:total     =   3787.0
 
-!-----------------------------------------------------------------------
-! Whitehorse airtightness options - spec's the appropriate aim2 input file
-! (cost estimates from James Wigmore) - WH Code - 1.5ACH
-!-----------------------------------------------------------------------
-
-*option:Base_WH_1.5:value:1    =   Base_WH_1.5.aim  
-*option:Base_WH_1.5:cost:total      =   0
-
-*option:WH_1.0:value:1         =   WH_1.0.aim
-*option:WH_1.0:cost:total           =   1797
-
-*option:WH_0.5:value:1       =   WH_0.5.aim
-*option:WH_0.5:cost:total         =   2469
 
 *attribute:end
 
@@ -463,17 +450,12 @@
 !*option:BaseR20:value:4 =   BaseR20DryR
 *option:BaseR20:cost:total    =   0
 
-*option:BaseR21:value:1 =   BaseR21Bri
-*option:BaseR21:value:2 =   BaseR21Vin
-*option:BaseR21:value:3 =   BaseR21Dry 
-!*option:BaseR21:value:4 =   BaseR21DryR
-*option:BaseR21:cost:total    =   0
-
-!*option:ICFR22:value:1 =   IcfR22Bri
-!*option:ICFR22:value:2 =   IcfR22Vin
-!*option:ICFR22:value:3 =   IcfR22Dry 
-!!*option:ICFR22:value:4 =   IcfR22DryR
-!*option:ICFR22:cost:total    =   16950	! ICFW tab in PL spreadsheet
+! Not used for MB LEEP. 
+!*option:BaseR21:value:1 =   BaseR21Bri
+!*option:BaseR21:value:2 =   BaseR21Vin
+!*option:BaseR21:value:3 =   BaseR21Dry 
+!!*option:BaseR21:value:4 =   BaseR21DryR
+!*option:BaseR21:cost:total    =   0
 
 *option:SIPS-R22-Wall:value:1 =   SipR22Bri
 *option:SIPS-R22-Wall:value:2 =   SipR22Vin
@@ -499,58 +481,66 @@
 !*option:Stud-R35-Wall:value:4 =   StudR35DryR
 !*option:Stud-R35-Wall:cost:total    =   ?		! Not Used
 
-*option:Stud-R40-Wall:value:1 =   StudR40Bri
-*option:Stud-R40-Wall:value:2 =   StudR40Vin
-*option:Stud-R40-Wall:value:3 =   StudR40Dry 
-!*option:Stud-R40-Wall:value:4 =   StudR40DryR
-*option:Stud-R40-Wall:cost:total    =   3925	! DbWall1 tab in PL spreadsheet
+!*option:Stud-R40-Wall:value:1 =   StudR40Bri
+!*option:Stud-R40-Wall:value:2 =   StudR40Vin
+!*option:Stud-R40-Wall:value:3 =   StudR40Dry 
+!!*option:Stud-R40-Wall:value:4 =   StudR40DryR
+!*option:Stud-R40-Wall:cost:total    =   3925	! DbWall1 tab in PL spreadsheet
 
-!*option:DblStud-R37-Wall:value:1 =   DblSR37Bri
-!*option:DblStud-R37-Wall:value:2 =   DblSR37Vin
-!*option:DblStud-R37-Wall:value:3 =   DblSR37Dry 
+*option:DblStud-R37-Wall:value:1 =   DblSR37Bri
+*option:DblStud-R37-Wall:value:2 =   DblSR37Vin
+*option:DblStud-R37-Wall:value:3 =   DblSR37Dry 
 !*option:DblStud-R37-Wall:value:4 =   DblSR37DryR
-!*option:DblStud-R37-Wall:cost:total    =   ?		! Not Used
+*option:DblStud-R37-Wall:cost:total    =   4210		! Not Used (DBL wall 1
 
 *option:DblStud-R52-Wall:value:1 =   DblSR52Bri
 *option:DblStud-R52-Wall:value:2 =   DblSR52Vin
 *option:DblStud-R52-Wall:value:3 =   DblSR52Dry 
 !*option:DblStud-R52-Wall:value:4 =   DblSR52DryR
-*option:DblStud-R52-Wall:cost:total    =   5985	! DbWall3 tab in PL spreadsheet
+*option:DblStud-R52-Wall:cost:total    =   6235	! DbWall3 tab in PL spreadsheet
 
-*option:Truss-R40-Wall:value:1 =   TruR40Bri
-*option:Truss-R40-Wall:value:2 =   TruR40Vin
-*option:Truss-R40-Wall:value:3 =   TruR40Dry 
-!*option:Truss-R40-Wall:value:4 =   TruR40DryR
-*option:Truss-R40-Wall:cost:total    =   5000	! TrsWall1 tab in PL spreadsheet
+!*option:Truss-R40-Wall:value:1 =   TruR40Bri
+!*option:Truss-R40-Wall:value:2 =   TruR40Vin
+!*option:Truss-R40-Wall:value:3 =   TruR40Dry 
+!!*option:Truss-R40-Wall:value:4 =   TruR40DryR
+!*option:Truss-R40-Wall:cost:total    =   5000	! TrsWall1 tab in PL spreadsheet
 
-*option:Truss-R52-Wall:value:1 =   TruR52Bri
-*option:Truss-R52-Wall:value:2 =   TruR52Vin
-*option:Truss-R52-Wall:value:3 =   TruR52Dry 
-!*option:Truss-R52-Wall:value:4 =   TruR52DryR
-*option:Truss-R52-Wall:cost:total    =   8950	! TrsWall2 tab in PL spreadsheet
+! Not used in MB LEEP. 
+!*option:Truss-R52-Wall:value:1 =   TruR52Bri
+!*option:Truss-R52-Wall:value:2 =   TruR52Vin
+!*option:Truss-R52-Wall:value:3 =   TruR52Dry 
+!!*option:Truss-R52-Wall:value:4 =   TruR52DryR
+!*option:Truss-R52-Wall:cost:total    =   8950	! TrsWall2 tab in PL spreadsheet
 
-!*option:Stud-R275-Wall:value:1 =   StudR275Bri  ! Use for MB 1.5" Ext XPS
-!*option:Stud-R275-Wall:value:2 =   StudR275Vin
-!*option:Stud-R275-Wall:value:3 =   StudR275Dry 
+*option:Stud-R275-Wall:value:1 =   StudR275Bri  ! Use for MB 1.5" Ext XPS
+*option:Stud-R275-Wall:value:2 =   StudR275Vin
+*option:Stud-R275-Wall:value:3 =   StudR275Dry 
 !*option:Stud-R275-Wall:value:4 =   StudR275DryR
-!*option:Stud-R275-Wall:cost:total    =   ?		! Not Used
+*option:Stud-R275-Wall:cost:total    =   1965		! Not Used
+
+*option:Stud-R275MW-Wall:value:1 =   StudR275Bri  ! Use for MB 1.5" Ext XPS
+*option:Stud-R275MW-Wall:value:2 =   StudR275Vin
+*option:Stud-R275MW-Wall:value:3 =   StudR275Dry 
+!*option:Stud-R275MW-Wall:value:4 =   StudR275DryR
+*option:Stud-R275MW-Wall:cost:total    =   2230		! Not Used
+
 
 *option:Stud-R305-Wall:value:1 =   StudR305Bri  ! Use for MB 2.0" Ext XPS
 *option:Stud-R305-Wall:value:2 =   StudR305Vin
 *option:Stud-R305-Wall:value:3 =   StudR305Dry 
 !*option:Stud-R305-Wall:value:4 =   StudR305DryR
-*option:Stud-R305-Wall:cost:total    =   3265	! EXT1 tab in PL spreadsheet
+*option:Stud-R305-Wall:cost:total    =   3270	! EXT1 tab in PL spreadsheet
 
 *option:Stud-R325-Wall:value:1 =   StudR325Bri  ! Use for MB 2.5" Ext XPS
 *option:Stud-R325-Wall:value:2 =   StudR325Vin
 *option:Stud-R325-Wall:value:3 =   StudR325Dry 
 !*option:Stud-R325-Wall:value:4 =   StudR325DryR
-*option:Stud-R325-Wall:cost:total    =   4900   ! EXT2 tab in PL spreadsheet
+*option:Stud-R325-Wall:cost:total    =   4905   ! EXT2 tab in PL spreadsheet
 
-!*option:AdvFrm-R20-Wall:value:1 =   AdvFrmR20  ! Use for MB Advanced Framing 
-!*option:AdvFrm-R20-Wall:value:2 =   AdvFrmR20
-!*option:AdvFrm-R20-Wall:value:3 =   AdvFrmR20
-!*option:AdvFrm-R20-Wall:cost:total    =   ?		! Not Used
+*option:AdvFrm-R20-Wall:value:1 =   AdvFrmR20  ! Use for MB Advanced Framing 
+*option:AdvFrm-R20-Wall:value:2 =   AdvFrmR20
+*option:AdvFrm-R20-Wall:value:3 =   AdvFrmR20
+*option:AdvFrm-R20-Wall:cost:total    =   -145		! Costs from NZEH_CostDataWinnArchFS_costs.
 
 *attribute:end
 
@@ -561,25 +551,26 @@
 *attribute:name    = Opt-BasementWallInsulation
 *attribute:tag:1   = <OPT-BsmWall>
 
-*option:OBC-min-R12:value:1 = BsmWllR12
-*option:OBC-min-R12:meta    = Int
-*option:OBC-min-R12:cost:total    = 0
+! Not used fro LEEP. 
+!*option:OBC-min-R12:value:1 = BsmWllR12
+!*option:OBC-min-R12:meta    = Int
+!*option:OBC-min-R12:cost:total    = 0
 
 *option:MB-IntBatt-R20:value:1 = BsmW2x4R20		! JTB 31-Jan-14 for MB Base
 *option:MB-IntBatt-R20:meta    = Int
 *option:MB-IntBatt-R20:cost:total    = 0
 
-!*option:MB-Comb-R20:value:1 = MBR20Comb		   
-!*option:MB-Comb-R20:meta    = Comb
-!*option:MB-Comb-R20:cost:total    = 2110 
+*option:MB-Comb-R20:value:1 = MBR20Comb		   
+*option:MB-Comb-R20:meta    = Comb
+*option:MB-Comb-R20:cost:total    = 2235 
 
 !*option:Rigid+Batt-R20:value:1 = BsmWllR20
 !*option:Rigid+Batt-R20:meta    = Comb
 !*option:Rigid+Batt-R20:cost:total    = 1909
 
-!*option:Rigid+Batt-R30:value:1 = BsmWllR30
-!*option:Rigid+Batt-R30:meta    = Comb
-!*option:Rigid+Batt-R30:cost:total    = 4642
+*option:Rigid+Batt-R30:value:1 = BsmWllR30
+*option:Rigid+Batt-R30:meta    = Comb
+*option:Rigid+Batt-R30:cost:total    = 3270   ! EXT1 from spreadsheet
 
 !*option:Rigid+Batt-R37:value:1 = BsmWllR37
 !*option:Rigid+Batt-R37:meta    = Comb
@@ -613,28 +604,6 @@
 !*option:ICF-base-R51r:meta    = Comb
 !*option:ICF-base-R51r:cost:total    = 12000
 
-!-------------------------------------------------------------------------------
-Winnipeg Foundation Options (Code is R28)
-!-------------------------------------------------------------------------------
-!*option:Fnd0PWF_R28:value:1 = Fnd0PWF_R28
-!*option:Fnd0PWF_R28:meta    = Int
-!*option:Fnd0PWF_R28:cost:total   = 0
-
-!*option:Fnd1PWF_R36:value:1 = Fnd1PWF_R36
-!*option:Fnd1PWF_R36:meta    = Int
-!*option:Fnd1PWF_R36:cost:total   = 1362
-
-!*option:Fnd2PWF_R56:value:1 = Fnd2PWF_R56
-!*option:Fnd2PWF_R56:meta    = Int
-!*option:Fnd2PWF_R56:cost:total   = 5103
-
-!*option:Fnd3PWF_R76:value:1 = Fnd3PWF_R76
-!*option:Fnd3PWF_R76:meta    = Int
-!*option:Fnd3PWF_R76:cost:total   = 8843
-
-!*option:Fnd8ICF_R28:value:1 = Fnd8ICF_R28
-!*option:Fnd8ICF_R28:meta    = Comb
-!*option:Fnd8ICF_R28:cost:total   = 19782
 
 *attribute:end
 
@@ -647,55 +616,34 @@ Winnipeg Foundation Options (Code is R28)
 *attribute:tag:2   = <OPT-BsmCnnIndex>
 
 *option:NoInsulation:value:1 = BsmFlrR0
-*option[Opt-BasementWallInsulation>OBC-min-R12|Rigid+Blown-R43|MB-IntBatt-R20|AdvFrm-R20-Wall]:NoInsulation:value:2 = 1 
+*option[Opt-BasementWallInsulation>MB-IntBatt-R20|MB-Comb-R20|Rigid+Batt-R30]:NoInsulation:value:2 = 1 
 *option[else                                                  ]:NoInsulation:value:2 = 68
 *option:NoInsulation:cost:total    = 0
 
 *option:R24UnderSlab+edge:value:1 = BsmFlrR24
-*option[Opt-BasementWallInsulation>OBC-min-R12|Rigid+Blown-R43]:R24UnderSlab+edge:value:2 = 22 
+*option[Opt-BasementWallInsulation>MB-IntBatt-R20|MB-Comb-R20|Rigid+Batt-R30]:R24UnderSlab+edge:value:2 = 22 
 *option[else                                                  ]:R24UnderSlab+edge:value:2 = 69
 *option:R24UnderSlab+edge:cost:total    = 8325   ! USI4 tab in PL spreadsheet
 
 ! Perimeter, sub-slab 0.6m skirt insulation
 
 *option:R12EdgeP6:value:1 = BsmFlrR0
-*option[Opt-BasementWallInsulation>OBC-min-R12|Rigid+Blown-R43]:R12EdgeP6:value:2 = 23 
+*option[Opt-BasementWallInsulation>MB-IntBatt-R20|MB-Comb-R20|Rigid+Batt-R30]:R12EdgeP6:value:2 = 23 
 *option[else                                                  ]:R12EdgeP6:value:2 = 69
 *option:R12EdgeP6:cost:total    = 800         ! USI5 tab in PL spreadsheet  
 
 ! Perimeter, sub-slab 1.0m skirt insulation
 
 *option:R12EdgeP10:value:1 = BsmFlrR0
-*option[Opt-BasementWallInsulation>OBC-min-R12|Rigid+Blown-R43]:R12EdgeP10:value:2 = 24
+*option[Opt-BasementWallInsulation>MB-IntBatt-R20|MB-Comb-R20|Rigid+Batt-R30]:R12EdgeP10:value:2 = 24
 *option[else                                                  ]:R12EdgeP10:value:2 = 69
 *option:R12EdgeP10:cost:total    = 1320       ! USI6 tab in PL spreadsheet
        
-*option:MB-Comb-Insulation:value:1 = BsmFlrR0
-*option:MB-Comb-Insulation:value:2 = 96
-*option:MB-Comb-Insulation:cost:total    = 0
-
-# Whitehorse data
-
-!*option:Slab_5_R10:value:1 = Slab_5_R10
-!*option:Slab_5_R10:value:2 = 69
-!*option:Slab_5_R10:cost:total   = 2645
-
-!*option:Slab_6_R20:value:1 = Slab_6_R20
-!*option:Slab_6_R20:value:2 = 69
-!*option:Slab_6_R20:cost:total   = 1330         
-
-!*option:Slab_7_R30:value:1 = Slab_7_R30
-!*option:Slab_7_R30:value:2 = 69
-!*option:Slab_7_R30:cost:total   = 2804     
-
-!*option:Slab_8_R40:value:1 = Slab_8_R40
-!*option:Slab_8_R40:value:2 = 69
-!*option:Slab_8_R40:cost:total   = 4269  
        
 *attribute:end
 
 !-----------------------------------------------------------------------
-! Exposed Floor insulation 
+! Exposed Floor insulation : Not used for LEEP. 
 !-----------------------------------------------------------------------
 *attribute:start
 
@@ -769,14 +717,6 @@ Winnipeg Foundation Options (Code is R28)
 *option:basefurnace:value:2 = #-no-GSHP-file
 *option:basefurnace:cost:total    = 0
 
-*option:propanefurnaceAC:value:1 = propane_furnace_ACv2.hvac
-*option:propanefurnaceAC:value:2 = #-no-GSHP-file
-*option:propanefurnaceAC:cost:total    = 0
-
-
-*option:oilfurnace:value:1 = basefurnace_ACv2_oil.hvac
-*option:oilfurnace:value:2 = #-no-GSHP-file
-*option:oilfurnace:cost:total    = 0
 
 *option:elec-baseboard:value:1 = Baseboardv2.hvac
 *option:elec-baseboard:value:2 = #-no-GSHP-file
@@ -784,10 +724,9 @@ Winnipeg Foundation Options (Code is R28)
 
 *option:CCASHP:value:1      = CCASHPv2.hvac
 *option:CCASHP:value:2      = #-no-GSHP-file
-*option:CCASHP:cost:total   = 3255		! CCHP tab in PL spreadsheet
+*option:CCASHP:cost:total   = 5605	! CCAHP tab in PL WinnArchFS_Costs sheet. 
 
 
-Reflects southern Ontario costs
 *option:GSHP:value:1      = GSHPv2.hvac
 *option:GSHP:value:2      = *gshp~../hvac/heatx_v1.gshp
 *option:GSHP:cost:total    = 19490		! GSHP tab in PL spreadsheet
@@ -809,9 +748,9 @@ Reflects southern Ontario costs
 *option:BaseHRV_SRE70:cost:total = 0
 
 *option:UpgHRV_SRE78:value:1    = HRV-upg.vnt
-*option:UpgHRV_SRE78:cost:total = 1000		! EHRV tab in PL spreadsheet
+*option:UpgHRV_SRE78:cost:total = 920	! HRV tab in WinnArchFS_Costs spreadsheet
 
-<Opt-HRVInputFile>
+*attribute:end 
 
 
 !-----------------------------------------------------------------------
@@ -1151,7 +1090,7 @@ Reflects southern Ontario costs
 
 
 !-----------------------------------------------------------------------
-! Roof pitch. Used for PV calculation. 
+! Roof pitch. Used for PV calculation. Has no effect on simulaiton. 
 !-----------------------------------------------------------------------
 
 *attribute:start
@@ -1209,7 +1148,7 @@ Reflects southern Ontario costs
 *option[Opt-Location>Whitehorse ;Opt-RoofPitch>6-12  ]:SizedPV:production-elec-perKW  = 3.36888! GH/kW Installed
 *option[Opt-Location>Whitehorse ;Opt-RoofPitch>8-12  ]:SizedPV:production-elec-perKW  = 3.47472! GH/kW Installed
 *option[Opt-Location>Whitehorse ;Opt-RoofPitch>12-12 ]:SizedPV:production-elec-perKW  = 3.55536! GH/kW Installed
-*option:SizedPV:cost:PerKW = 4696 ! $/kW installed
+*option:SizedPV:cost:PerKW = 4687 ! $/kW installed
 
 *option:NoPV:production-elec-perKW  = 0! GH/kW Installed
 *option:NoPV:cost:PerKW = 0 
@@ -1219,6 +1158,7 @@ Reflects southern Ontario costs
 
 *ext-parameters:start
 
+*param:CostAdjustmentFactor = 1.0
 *param:BaseUpgradeCost = 0
 *param:BaseUtilitiesCost = 1468
 *param:PVTarrifDollarsPerkWh = 0.070
