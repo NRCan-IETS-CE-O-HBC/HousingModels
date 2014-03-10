@@ -1,7 +1,6 @@
 #!/usr/bin/perl    
 
 # This script parses through the files
-
  
 use warnings;
 use strict;
@@ -51,6 +50,7 @@ my $gArchGOChoiceFile   = 0;
 
 my %gChoices; 
 my %gOptions;
+my %gExtraDataSpecd; 
 
 my $ThisError   = ""; 
 my $ErrorBuffer = ""; 
@@ -69,6 +69,11 @@ my $gSkipPRJ = 0;
 my $gEnergyElec = 0;
 my $gEnergyGas = 0;
 my $gEnergyOil = 0; 
+
+my $gTotalBaseCost = 0;
+my $gUtilityBaseCost = 0; 
+my $PVTarrifDollarsPerkWh = 0.10;
+
 
 # Data from Hanscomb 2011 NBC analysis
 my %RegionalCostFactors  = (  "Halifax"      =>  0.95 ,
@@ -328,7 +333,9 @@ my $linecount = 0;
 my $currentAttributeName ="";
 my $AttributeOpen = 0;
 my $ExternalAttributeOpen = 0;
+my $ParametersOpen = 0; 
 
+my %gParameters;
 
 # Parse the option file. 
 while ( my $line = <OPTIONS> ){
@@ -366,7 +373,25 @@ while ( my $line = <OPTIONS> ){
     
     }
 
-
+    # Open up parameter block
+    if ( $token =~ /^\*ext-parameters:start/ ){
+    
+        $ParametersOpen = 1; 
+    
+    }
+    
+    # Parse parameters. 
+    if ( $ParametersOpen ) {
+    
+        # Read parameters. Format: 
+        #  *param:NAME = VALUE 
+        if ( $token =~ /^\*param/ ){
+           $token =~ s/\*param://g; 
+           #stream_out (">>>> TEST: $token => $value \n") ;
+           $gParameters{"$token"} = $value; 
+        } 
+    }
+    
     
     # Parse attribute contents Name/Tag/Option(s)
     if ( $AttributeOpen || $ExternalAttributeOpen ) {
@@ -532,24 +557,28 @@ while ( my $line = <OPTIONS> ){
 		my $ExtEnergyHash = $gOptions{$currentAttributeName}{"options"}{$optionIndex}; 
 		for my $ExtEnergyType ( keys (%$ExtEnergyHash ) ){
 			if ( $ExtEnergyType =~ /production/ ) {
-			my $CondHash = $gOptions{$currentAttributeName}{"options"}{$optionIndex}{$ExtEnergyType}{"conditions"}; 
-			for my $conditions( keys (%$CondHash) ) {
-				my $ExtEnergyCredit = $gOptions{$currentAttributeName}{"options"}{$optionIndex}{$ExtEnergyType}{"conditions"}{$conditions}; 
-				debug_out ("              - credit:($ExtEnergyType) $ExtEnergyCredit [valid: $conditions ] \n");	
+                my $CondHash = $gOptions{$currentAttributeName}{"options"}{$optionIndex}{$ExtEnergyType}{"conditions"}; 
+                for my $conditions( keys (%$CondHash) ) {
+                    my $ExtEnergyCredit = $gOptions{$currentAttributeName}{"options"}{$optionIndex}{$ExtEnergyType}{"conditions"}{$conditions}; 
+                    debug_out ("              - credit:($ExtEnergyType) $ExtEnergyCredit [valid: $conditions ] \n");	
 			
-			}
+                }
 			}
 		}
 	  }
        
-      }     
+    }     
       
-
+    if ( $token =~ /\*ext-parameters:end/ ){
+        
+        $ParametersOpen = 0; 
+        
     }
-  
-  
-  #else{debug_out (" skipped...\n");}
+      
+  }
 }
+    
+
 
 
 close (OPTIONS);
@@ -596,15 +625,26 @@ while ( my $line = <CHOICES> ){
       if ( $attribute =~ /step/ ) { $gGOStep = $value; 
                                       $gArchGOChoiceFile = 1;  } 
     }else{
+      my $extradata = $value; 
+      if ( $value =~ /\|/ ){
+        $value =~ s/\|.*$//g; 
+        $extradata =~ s/^.*\|//g; 
+      }else{
+        $extradata = ""; 
+      }
+      
+            
       $gChoices{"$attribute"}=$value ;
-    
+      
+      # Additional data that may be used to attribute the choices. 
+      $gExtraDataSpecd{"$attribute"} = $extradata ; 
+      
       # Save order of choices to make sure we apply them correctly. 
       push @gChoiceOrder, $attribute;
     }
   }
 
 }
-
 
 close( CHOICES );
 stream_out ("...done.\n") ; 
@@ -629,8 +669,39 @@ my %gExtOptions;
 # Report 
 my $allok = 1;
 
+
 debug_out("-----------------------------------\n");
 debug_out("-----------------------------------\n");
+debug_out("Parsing parameters ...\n");
+
+# Possibly overwrite internal parameters with user-specified parameters
+while ( my ( $parameter, $value) = each %gParameters ){
+
+  #stream_out (">>>> PARAM: $parameter | $value \n"); 
+
+  if ( $parameter =~ /PVTarrifDollarsPerkWh/ ) {
+  
+     $PVTarrifDollarsPerkWh = $value; 
+  
+  }
+  
+  if ( $parameter =~ /BaseUpgradeCost/ ) {
+  
+      $gIncBaseCosts = $value; 
+  
+  }
+  
+  if ( $parameter =~ /BaseUtilitiesCost/ ) {
+  
+      $gUtilityBaseCost = $value; 
+  
+  }
+  
+
+}
+
+
+
 stream_out(" Validating choices and options...\n");  
 
 while ( my ( $attribute, $choice) = each %gChoices ){
@@ -827,8 +898,7 @@ while ( my ( $attribute, $choice) = each %gChoices ){
 	 }
    
    }
-  
-  
+    
   #debug_out (" >>>>> ".$gOptions{$attribute}{"options"}{$choice}{"result"}{"production-elec-perKW"}."\n"); 
   
   
@@ -848,10 +918,6 @@ while ( my ( $attribute, $choice) = each %gChoices ){
      
 	debug_out ("   - found cost: \$$cost ($cost_type) \n"); 
     
-	# NOW, 
-	
-	
-	
 	
     my $ScaleCost = 0; 
     
@@ -1043,7 +1109,29 @@ my $gAvgEnergy_Total   = 0 ;
 my $gAvgCost_Propane   = 0 ;
 my $gAvgCost_Oil       = 0 ;
 
+my $gAvgPVRevenue      = 0; 
+
 my $gAvgElecCons_KWh    = 0; 
+my $gAvgPVOutput_kWh    = 0; 
+
+my $gAvgCost_Total            = 0; 
+
+my $gAvgEnergyHeatingGJ      = 0; 
+my $gAvgEnergyCoolingGJ      = 0; 
+my $gAvgEnergyVentilationGJ  = 0; 
+my $gAvgEnergyWaterHeatingGJ = 0; 
+my $gAvgEnergyEquipmentGJ    = 0; 
+
+
+my $EnergyCooling        ; 
+my $EnergyVentilation    ; 
+my $EnergyWaterHeating   ; 
+my $EnergyEquipment      ; 
+
+
+
+
+
 my $gAvgNGasCons_m3     = 0; 
 my $gAvgOilCons_l       = 0; 
 my $gAvgPropCons_l      = 0; 
@@ -1059,33 +1147,51 @@ for my $Direction  ( @Orientations ){
 
 }
 
-my $gAvgCost_Total   = $gAvgCost_Electr + $gAvgCost_NatGas + $gAvgCost_Propane + $gAvgCost_Oil ;
+$gAvgCost_Total   = $gAvgCost_Electr + $gAvgCost_NatGas + $gAvgCost_Propane + $gAvgCost_Oil ;
 
+$gAvgPVRevenue =  $gAvgPVOutput_kWh * $PVTarrifDollarsPerkWh ;  
+
+my $payback ; 
+
+
+if ( abs( $gUtilityBaseCost-($gAvgCost_Total-$gAvgPVRevenue) ) < 1.00 ) {
+ 
+  $payback = 1000.
+  
+} else { 
+  $payback = ($gTotalCost-$gIncBaseCosts)/($gUtilityBaseCost-($gAvgCost_Total-$gAvgPVRevenue)) ; 
+  
+}
 
 
 open (SUMMARY, ">$gMasterPath/SubstitutePL-output.txt") or fatalerror ("Could not open $gMasterPath/SubstitutePL-output.txt");
 
-print SUMMARY "Energy-Total-GJ =  $gAvgEnergy_Total \n"; 
-print SUMMARY "Util-Bill-Total =  $gAvgCost_Total   \n";
-print SUMMARY "Util-Bill-Elec  =  $gAvgCost_Electr  \n";
-print SUMMARY "Util-Bill-Gas   =  $gAvgCost_NatGas  \n";
-print SUMMARY "Util-Bill-Prop  =  $gAvgCost_Propane \n";
-print SUMMARY "Util-Bill-Oil   =  $gAvgCost_Oil \n";
+print SUMMARY "Energy-Total-GJ   =  $gAvgEnergy_Total \n"; 
+print SUMMARY "Util-Bill-gross   =  $gAvgCost_Total   \n";
+print SUMMARY "Util-PV-revenue   =  $gAvgPVRevenue    \n"; 
+print SUMMARY "Util-Bill-Net     =  ".eval($gAvgCost_Total-$gAvgPVRevenue). "\n"; 
+print SUMMARY "Util-Bill-Elec    =  $gAvgCost_Electr  \n";
+print SUMMARY "Util-Bill-Gas     =  $gAvgCost_NatGas  \n";
+print SUMMARY "Util-Bill-Prop    =  $gAvgCost_Propane \n";
+print SUMMARY "Util-Bill-Oil     =  $gAvgCost_Oil \n";
 
-print SUMMARY "Energy-PV       =  $gEnergyPV \n";
-print SUMMARY "Energy-SDHW     =  $gEnergySDHW \n";
-print SUMMARY "Energy-Heating  =  $gEnergyHeating \n";
-print SUMMARY "Energy-Cooling  =  $gEnergyCooling \n";
-print SUMMARY "Energy-Vent     =  $gEnergyVentilation \n";
-print SUMMARY "Energy-DHW      =  $gEnergyWaterHeating \n";
-print SUMMARY "Energy-Plug     =  $gEnergyEquipment \n";  
-print SUMMARY "EnergyElec      =  $gAvgElecCons_KWh \n";
-print SUMMARY "EnergyGas       =  $gAvgNGasCons_m3  \n";
-print SUMMARY "EnergyOil       =  $gAvgOilCons_l    \n";
-print SUMMARY "Upgrade-cost    =  ".eval($gTotalCost-$gIncBaseCosts)."\n"; 
+print SUMMARY "Energy-PV-kWh     =  $gAvgPVOutput_kWh \n";
+#print SUMMARY "Energy-SDHW      =  $gEnergySDHW \n";
+print SUMMARY "Energy-HeatingGJ  =  $gAvgEnergyHeatingGJ \n";
+print SUMMARY "Energy-CoolingGJ  =  $gAvgEnergyCoolingGJ \n";
+print SUMMARY "Energy-VentGJ     =  $gAvgEnergyVentilationGJ \n";
+print SUMMARY "Energy-DHWGJ      =  $gAvgEnergyWaterHeatingGJ \n";
+print SUMMARY "Energy-PlugGJ     =  $gAvgEnergyEquipmentGJ \n";  
+print SUMMARY "EnergyEleckWh     =  $gAvgElecCons_KWh \n";
+print SUMMARY "EnergyGasM3       =  $gAvgNGasCons_m3  \n";
+print SUMMARY "EnergyOil_l       =  $gAvgOilCons_l    \n";
+print SUMMARY "Upgrade-cost      =  ".eval($gTotalCost-$gIncBaseCosts)."\n"; 
+print SUMMARY "SimplePaybackYrs  =  ". $payback ."\n"; 
+
 
 my $PVcapacity = $gChoices{"Opt-StandoffPV"}; 
-$PVcapacity =~ s/[a-zA-Z:\s]//g;
+stream_out ">>> PVCapacity =  $PVcapacity \n";
+$PVcapacity =~ s/[a-zA-Z:\s'\|]//g;
 if (! $PVcapacity ) { $PVcapacity = 0. ; }
 
 print SUMMARY "PV-size-kW      =  ".$PVcapacity."\n"; 
@@ -1184,7 +1290,7 @@ sub runsims($){
 
   # Save rotation angle for reporting
   $gRotationAngle = $RotationAngle; 
-
+  
   chdir $gWorkingCfgPath; 
  
   
@@ -1949,17 +2055,17 @@ sub postprocess($){
 	
   #my $TotalPelletsBill  = $PelletsFixedCharge * 12. + $PelletsConsumptionCost  ; 
   
-  # Add data from externally computed SDHW (presently not accounting for pump energy...)
-  my $sizeSDHW = $gChoices{"Opt-SolarDHW"}; 
-  $gSimResults{"SDHW production::AnnualTotal"} = -1.0 * $gOptions{"Opt-SolarDHW"}{"options"}{$sizeSDHW}{"ext-result"}{"production-DHW"};
+  # Add data from externally computed SDHW (Legacy code)
+  #my $sizeSDHW = $gChoices{"Opt-SolarDHW"}; 
+  #$gSimResults{"SDHW production::AnnualTotal"} = -1.0 * $gOptions{"Opt-SolarDHW"}{"options"}{$sizeSDHW}{"ext-result"}{"production-DHW"};
   
     
   # Adjust solar DHW energy credit to reflect actual consumption. Assume 
   # SDHW credit cannot be more than 60% of total water load. 
   
-  $gSimResults{"SDHW production::AnnualTotal"} = min( $gSimResults{"SDHW production::AnnualTotal"}*-1.,
-                                         0.6 * $gSimResults{"total_fuel_use/test/all_fuels/water_heating/energy_content::AnnualTotal"} 
-                                       ) * (-1.) ; 
+  #$gSimResults{"SDHW production::AnnualTotal"} = min( $gSimResults{"SDHW production::AnnualTotal"}*-1.,
+  #                                       0.6 * $gSimResults{"total_fuel_use/test/all_fuels/water_heating/energy_content::AnnualTotal"} 
+  #                                     ) * (-1.) ; 
   
   
   
@@ -1969,55 +2075,83 @@ sub postprocess($){
   
   
   my $PVsize = $gChoices{"Opt-StandoffPV"}; 
+  
   my $PVArrayCost;
   my $PVArraySized; 
+  
   if ( $PVsize !~ /SizedPV/ ){
     
-    # Use spec'd PV sizes 
+    # Use spec'd PV sizes. This only works for NoPV. 
     $gSimResults{"PV production::AnnualTotal"}=-1.0*$gExtOptions{"Opt-StandoffPV"}{"options"}{$PVsize}{"ext-result"}{"production-elec-perKW"}; 
   
   }else{
-    # Size pv to max, or to size required to reach Net-Zero. 
-    my $prePVEnergy = 0;
-
-    # gSimResults contains all sorts of data. Filter by annual energy consumption (rows containing AnnualTotal).
-    foreach my $token ( sort keys %gSimResults ){
-      if ( $token =~ /AnnualTotal/ ){ 
-        my $value = $gSimResults{$token};
-        $prePVEnergy += $value; 
-      }    
-    }
-
-    if ( $prePVEnergy > 0 ){
+    # Size pv according to user specification,  to max, or to size required to reach Net-Zero. 
     
-      # This should always be the case!
+    
+    # User-ceified PV size (format is 'SizedPV|XkW', pv will be sized to X kW'.
+    if ( $gExtraDataSpecd{"Opt-StandoffPV"} =~ /kW/ ){
+    
       
-	  my $PVUnitOutput = $gOptions{"Opt-StandoffPV"}{"options"}{$PVsize}{"ext-result"}{"production-elec-perKW"};
-	  my $PVUnitCost   = $gOptions{"Opt-StandoffPV"}{"options"}{$PVsize}{"cost"};
-	 
-     debug_out (" >>> UNOT OUT: $PVsize | $PVUnitOutput | $PVUnitCost\n"); 
-	 $PVArraySized = $prePVEnergy / $PVUnitOutput ; # KW Capacity
-	  my $PVmultiplier = 1. ; 
-      if ( $PVArraySized > 14. ) { $PVmultiplier = 2. ; }
-	  
-	  $PVArrayCost  = $PVArraySized * $PVUnitCost * $PVmultiplier;
-	
+      $PVArraySized = $gExtraDataSpecd{"Opt-StandoffPV"};     
+      $PVArraySized =~ s/kW//g; 
+      
+      my $PVUnitOutput = $gOptions{"Opt-StandoffPV"}{"options"}{"SizedPV"}{"ext-result"}{"production-elec-perKW"};
+      my $PVUnitCost   = $gOptions{"Opt-StandoffPV"}{"options"}{"SizedPV"}{"cost"};
+      
+      $PVArrayCost = $PVUnitCost * $PVArraySized ; 
+      
+      $gSimResults{"PV production::AnnualTotal"} = -1.0 * $PVUnitOutput * $PVArraySized; 
+            
+      $PVsize="spec'd $PVsize | $PVArraySized kW";
+           
+            
+    
+    }else{ 
         
-      $PVsize = " scaled: ".eval(round1d($PVArraySized))." kW" ;
+        # USER Hasn't specified PV size, Size PV to attempt to get to net-zero. 
+        # First, compute the home's total energy requiremrnt. 
+    
+        my $prePVEnergy = 0;
 
-      $gSimResults{"PV production::AnnualTotal"}=-1.0*$PVUnitOutput*$PVArraySized; 
-    
-    }else{
-      # House is already energy positive, no PV needed. Shouldn't happen!
-      $PVsize = "0.0 kW" ;
-	  $PVArrayCost  = 0. ;
-      
+        # gSimResults contains all sorts of data. Filter by annual energy consumption (rows containing AnnualTotal).
+        foreach my $token ( sort keys %gSimResults ){
+          if ( $token =~ /AnnualTotal/ ){ 
+            my $value = $gSimResults{$token};
+            $prePVEnergy += $value; 
+          }    
+        }
+
+        if ( $prePVEnergy > 0 ){
+        
+          # This should always be the case!
+          
+          my $PVUnitOutput = $gOptions{"Opt-StandoffPV"}{"options"}{$PVsize}{"ext-result"}{"production-elec-perKW"};
+          my $PVUnitCost   = $gOptions{"Opt-StandoffPV"}{"options"}{$PVsize}{"cost"};
+         
+          
+        
+         
+         $PVArraySized = $prePVEnergy / $PVUnitOutput ; # KW Capacity
+          my $PVmultiplier = 1. ; 
+          if ( $PVArraySized > 14. ) { $PVmultiplier = 2. ; }
+          
+          $PVArrayCost  = $PVArraySized * $PVUnitCost * $PVmultiplier;
+                    
+          $PVsize = " scaled: ".eval(round1d($PVArraySized))." kW" ;
+
+          $gSimResults{"PV production::AnnualTotal"}=-1.0*$PVUnitOutput*$PVArraySized; 
+        
+        }else{
+          # House is already energy positive, no PV needed. Shouldn't happen!
+          $PVsize = "0.0 kW" ;
+          $PVArrayCost  = 0. ;
+          
+        }
+        # Degbug: How big is the sized array?
+        debug_out (" PV array is $PVsize  ...\n"); 
+        
+      }  
     }
-    # Degbug: How big is the sized array?
-    print ">$PVsize ...\n"; 
-    
-  }  
-  
   $gChoices{"Opt-StandoffPV"}=$PVsize;
   $gOptions{"Opt-StandoffPV"}{"options"}{$PVsize}{"cost"} = $PVArrayCost;
 
@@ -2039,11 +2173,12 @@ sub postprocess($){
 
 
   # Save Energy consumption for later
-  $gEnergyPV = defined( $gSimResults{"PV production"} ) ? 
-                         $gSimResults{"PV production"} : 0 ;  
+   
+  $gEnergyPV = defined( $gSimResults{"PV production::AnnualTotal"} ) ? 
+                         $gSimResults{"PV production::AnnualTotal"} : 0 ;  
 
-  $gEnergySDHW = defined( $gSimResults{"SDHW production"} ) ? 
-                         $gSimResults{"SDHW production"} : 0 ;  
+  #$gEnergySDHW = defined( $gSimResults{"SDHW production"} ) ? 
+  #                       $gSimResults{"SDHW production"} : 0 ;  
 
 
   $gEnergyHeating = defined( $gSimResults{"total_fuel_use/test/all_fuels/space_heating/energy_content::AnnualTotal"} ) ? 
@@ -2074,6 +2209,10 @@ sub postprocess($){
                          $gSimResults{"total_fuel_use/oil/all_end_uses/quantity::Total_Average"} : 0 ;  
   
   
+  my $PVRevenue = $gEnergyPV * 1e06 / 3600. *$PVTarrifDollarsPerkWh; 
+  
+  my $TotalBill = $TotalElecBill+$TotalGasBill+$TotalOilBill+$TotalPropaneBill; 
+  my $NetBill   = $TotalBill-$PVRevenue ;
   
   stream_out("\n\n Energy Cost (not including credit for PV, direction $gRotationAngle ): \n\n") ; 
   
@@ -2083,11 +2222,15 @@ sub postprocess($){
   stream_out("  + \$ ".round($TotalPropaneBill)." (Propane)\n");
 
   stream_out ( " --------------------------------------------------------\n");
-  stream_out ( "    \$ ".round($TotalElecBill+$TotalGasBill+$TotalOilBill+$TotalPropaneBill) ." (All utilities).\n"); 
+  stream_out ( "    \$ ".round($TotalBill) ." (All utilities).\n"); 
 
+  stream_out ( "\n") ;
 
-
+  stream_out ( "  - \$ ".round($PVRevenue )." (PV revenue, ". eval($gEnergyPV * 1e06 / 3600.). " kWh at \$ $PVTarrifDollarsPerkWh / kWh)\n"); 
+  stream_out ( " --------------------------------------------------------\n");
+  stream_out ( "    \$ ".round($NetBill) ." (Net utility costs).\n"); 
   
+  stream_out ( "\n\n") ; 
   # Update global params for use in summary 
   $gAvgCost_NatGas    += $TotalGasBill  * $ScaleData; 
   $gAvgCost_Electr    += $TotalElecBill * $ScaleData;  
@@ -2097,6 +2240,15 @@ sub postprocess($){
   $gAvgNGasCons_m3    += $gEnergyGas * 8760. * 60. * 60.  * $ScaleData ; 
   $gAvgOilCons_l      += $gEnergyOil * 8760. * 60. * 60.  * $ScaleData ; 
   $gAvgElecCons_KWh   += $gEnergyElec * 8760. * 60. * 60. * $ScaleData ; 
+  
+  $gAvgPVOutput_kWh   += -1.0 * $gEnergyPV * 1e06 / 3600. * $ScaleData;  
+  
+  $gAvgEnergyHeatingGJ      += $gEnergyHeating         * $ScaleData; 
+  $gAvgEnergyCoolingGJ      += $gEnergyCooling         * $ScaleData; 
+  $gAvgEnergyVentilationGJ  += $gEnergyVentilation     * $ScaleData; 
+  $gAvgEnergyWaterHeatingGJ += $gEnergyWaterHeating    * $ScaleData; 
+  $gAvgEnergyEquipmentGJ    += $gEnergyEquipment       * $ScaleData; 
+  
   
   stream_out("\n\n Energy Use (not including credit for PV, direction $gRotationAngle ): \n\n") ; 
   
@@ -2125,8 +2277,12 @@ sub postprocess($){
   }
   stream_out ( " - ".round($gIncBaseCosts * $RegionalCostAdj)." (Base costs for windows)  \n"); 
   stream_out ( " --------------------------------------------------------\n");
-  stream_out ( " =   ".round($gTotalCost-$gIncBaseCosts* $RegionalCostAdj )." ( Total incremental cost ) \n");
+  stream_out ( " =   ".round($gTotalCost-$gIncBaseCosts* $RegionalCostAdj )." ( Total incremental cost ) \n\n");
 
+  
+  stream_out ( "Unadjusted upgrade costs: ".eval( $gTotalCost  /  $RegionalCostAdj )."\n\n");
+  
+  
   chdir($gMasterPath);
   my $fileexists; 
 
