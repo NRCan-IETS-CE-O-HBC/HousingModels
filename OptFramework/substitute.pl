@@ -2280,7 +2280,7 @@ sub postprocess($){
   stream_out ( " =   ".round($gTotalCost-$gIncBaseCosts* $RegionalCostAdj )." ( Total incremental cost ) \n\n");
 
   
-  stream_out ( " ( Unadjusted upgrade costs: $".eval( $gTotalCost  /  $RegionalCostAdj )." )\n\n");
+  stream_out ( " ( Unadjusted upgrade costs: \$".eval( $gTotalCost  /  $RegionalCostAdj )." )\n\n");
   
   
   chdir($gMasterPath);
