@@ -1519,7 +1519,16 @@ Reflects southern Ontario costs
 *option:NoPV:cost:PerKW = 0 
 
 *ext-attribute:end
- 
+
+
+  
+*ext-parameters:start
+
+*param:BaseUpgradeCost = 14216.602
+*param:BaseUtilitiesCost = 1447
+*param:PVTarrifDollarsPerkWh = 0.08
+
+ext-parameters:end 
 
 
 
