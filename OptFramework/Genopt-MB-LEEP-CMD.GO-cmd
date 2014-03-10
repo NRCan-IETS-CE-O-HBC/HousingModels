@@ -56,7 +56,7 @@ Vary{
    Parameter{   // 
      Name    =  GOtag:Opt-MainWall;
      Ini     =  1;
-     Values  =  "BaseR20, AdvFrm-R20-Wall, Stud-R275-Wall, Stud-R305-Wall, Stud-R325-Wall, SIPS-R28-Wall, Stud-R35-Wall, Stud-R40-Wall, DblStud-R52-Wall  "; 
+     Values  =  "BaseR20, AdvFrm-R20-Wall, Stud-R275-Wall, Stud-R275MW-Wall,DblStud-R37-Wall,Stud-R305-Wall,Stud-R305-Wall,DblStud-R52-Wall "; 
    }    
   
    // Foundation walls: OBC-min-R12
@@ -80,7 +80,7 @@ Vary{
    Parameter{   // 
      Name    =  GOtag:Opt-BasementWallInsulation;
      Ini     =  1;
-   Values  =  "MB-IntBatt-R20, MB-Comb-R20, Rigid+Batt-R30,  Rigid+Batt-R37 ";
+   Values  =  "MB-IntBatt-R20, MB-Comb-R20, Rigid+Batt-R30";
 
    } 
 
@@ -99,7 +99,7 @@ Vary{
    Parameter{   // 
      Name    =  GOtag:Opt-BasementSlabInsulation;
      Ini     =  1;
-     Values  =  "NoInsulation,R24UnderSlab+edge,R12EdgeP6,R12EdgeP10, MB-Comb-Insulation"; 
+     Values  =  "NoInsulation,R24UnderSlab+edge,R12EdgeP6,R12EdgeP10"; 
    } 
 
    // Exposed floor: There are no exposed floors in MB LEEP archetype
@@ -329,19 +329,37 @@ Vary{
 
 OptimizationSettings{
   
-  MaxIte = 12; 
-  //#MaxIte = 100000;
+  //MaxIte = 12; 
+  MaxIte = 100000;
   MaxEqualResults = 1000;
   WriteStepNumber = true;
 }
+
+
+//Algorithm{
+// Main                       = PSOIW;
+//  NeighborhoodTopology      = vonNeumann;
+//  NeighborhoodSize          = 8; // Disregarded for vonNeumann topology
+//  NumberOfParticle          = 2;
+//  NumberOfGeneration        = 3;
+//  Seed                      = 628;
+//  CognitiveAcceleration     = 2; // 0 < CognitiveAcceleration
+//  SocialAcceleration        = 3; // 0 < SocialAcceleration
+//  MaxVelocityGainContinuous = 1.0;
+//  MaxVelocityDiscrete       = 1.0; // 0 < MaxVelocityDiscrete
+//  InitialInertiaWeight      = 1.2;    // 0 < InitialInertiaWeight
+//  FinalInertiaWeight        = 0;      // 0 < FinalInertiaWeight
+//}
+
+
 
 
 Algorithm{
  Main                       = PSOIW;
   NeighborhoodTopology      = vonNeumann;
   NeighborhoodSize          = 8; // Disregarded for vonNeumann topology
-  NumberOfParticle          = 3;
-  NumberOfGeneration        = 3;
+  NumberOfParticle          = 32;
+  NumberOfGeneration        = 3000;
   Seed                      = 628;
   CognitiveAcceleration     = 2; // 0 < CognitiveAcceleration
   SocialAcceleration        = 3; // 0 < SocialAcceleration
