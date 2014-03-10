@@ -1190,7 +1190,7 @@ print SUMMARY "SimplePaybackYrs  =  ". $payback ."\n";
 
 
 my $PVcapacity = $gChoices{"Opt-StandoffPV"}; 
-stream_out ">>> PVCapacity =  $PVcapacity \n";
+
 $PVcapacity =~ s/[a-zA-Z:\s'\|]//g;
 if (! $PVcapacity ) { $PVcapacity = 0. ; }
 
@@ -2280,7 +2280,7 @@ sub postprocess($){
   stream_out ( " =   ".round($gTotalCost-$gIncBaseCosts* $RegionalCostAdj )." ( Total incremental cost ) \n\n");
 
   
-  stream_out ( "Unadjusted upgrade costs: ".eval( $gTotalCost  /  $RegionalCostAdj )."\n\n");
+  stream_out ( " ( Unadjusted upgrade costs: $".eval( $gTotalCost  /  $RegionalCostAdj )." )\n\n");
   
   
   chdir($gMasterPath);
