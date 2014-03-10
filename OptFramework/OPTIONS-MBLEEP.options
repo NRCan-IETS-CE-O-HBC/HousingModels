@@ -351,12 +351,12 @@
 ! Window C
 *option:TripleLowEHardCoatKryFill:value:1 = TplLeHcKry
 *option:TripleLowEHardCoatKryFill:value:2 = TplLeHcKry
-*option:TripleLowEHardCoatKryFill:cost:total    = 4545
+*option:TripleLowEHardCoatKryFill:cost:total    = 1315
 
 ! Window E 
 *option:TripleLowESoftCoatKryFill:value:1 = TplLeScKry
 *option:TripleLowESoftCoatKryFill:value:2 = TplLeScKry
-*option:TripleLowESoftCoatKryFill:cost:total    = 4370
+*option:TripleLowESoftCoatKryFill:cost:total    = 900
 
 
 !-----------------------------------------------------------------------
