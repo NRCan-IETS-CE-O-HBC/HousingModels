@@ -777,62 +777,17 @@ Winnipeg Foundation Options (Code is R28)
 
 *option:elec-baseboard:value:1 = Baseboardv2.hvac
 *option:elec-baseboard:value:2 = #-no-GSHP-file
-*option:elec-baseboard:cost:total       = -3870
+*option:elec-baseboard:cost:total       = -4950	! ElecHeat tab in PL spreadsheet
 
 *option:CCASHP:value:1      = CCASHPv2.hvac
 *option:CCASHP:value:2      = #-no-GSHP-file
-*option:CCASHP:cost:total   = 9595          ! Does this reflect AC system savings?
+*option:CCASHP:cost:total   = 3255		! CCHP tab in PL spreadsheet
 
 
 Reflects southern Ontario costs
 *option:GSHP:value:1      = GSHPv2.hvac
 *option:GSHP:value:2      = *gshp~../hvac/heatx_v1.gshp
-*option:GSHP:cost:total    = 18560          ! Does this reflect AC syste$
-
-!-----------------------------------------------------------------------
-! HVAC - WH Data - Basecase = Oil, forced-air furnace 85% AFUE, oil tank, ducting, HRV
-!-----------------------------------------------------------------------
-
-!*option:baseoilfurnace:value:1 = baseoil85furnace.hvac
-!*option:baseoilfurnace:value:2 = #-no-GSHP-file
-!*option:baseoilfurnace:cost:total   = 0
-!
-!*option:oil95furnace:value:1 = oil95furnace.hvac
-!*option:oil95furnace:value:2 = #-no-GSHP-file
-!*option:oil95furnace:cost:total      = 1100
-!
-!*option:propanefurnace:value:1      = propanefurnace.hvac
-!*option:propanefurnace:value:2      = #-no-GSHP-file
-!*option:propanefurnace:cost:total        = -4500         
-!
-!*option:elecfurnace:value:1      = elecfurnace.hvac
-!*option:elecfurnace:value:2      = #-no-GSHP-file
-!*option:elecfurnace:cost:total        = -8400 
-!
-!*option:woodstove65:value:1      = woodstove65.hvac
-!*option:woodstove65:value:2      = #-no-GSHP-file
-!*option:woodstove65:cost:total        = -8400
-!
-!*option:pelletstove75:value:1      = pelletstove75.hvac
-!*option:pelletstove75:value:2      = #-no-GSHP-file
-!*option:pelletstove75:cost:total        = -9400
-!
-!*option:elec-baseboard:value:1 = Baseboardv2.hvac
-!*option:elec-baseboard:value:2 = #-no-GSHP-file
-!*option:elec-baseboard:cost:total      = -12900
-!
-!*option:GSHP:value:1      = GSHPv2.hvac
-!*option:GSHP:value:2      = *gshp~../hvac/heatx_v1.gshp
-!*option:GSHP:cost:total        = 24100         
-!
-!*option:CCASHP:value:1      = CCASHPv2.hvac
-!*option:CCASHP:value:2      = #-no-GSHP-file
-!*option:CCASHP:cost:total        = 3100   
-!
-!*option:ASHP:value:1      = ASHPv2.hvac
-!*option:ASHP:value:2      = #-no-GSHP-file
-!*option:ASHP:cost:total        = 3100   
-
+*option:GSHP:cost:total    = 19490		! GSHP tab in PL spreadsheet
 
 *attribute:end
 
@@ -851,7 +806,7 @@ Reflects southern Ontario costs
 *option:BaseHRV_SRE70:cost:total = 0
 
 *option:UpgHRV_SRE78:value:1    = HRV-upg.vnt
-*option:UpgHRV_SRE78:cost:total = 920
+*option:UpgHRV_SRE78:cost:total = 1000		! EHRV tab in PL spreadsheet
 
 <Opt-HRVInputFile>
 
@@ -926,16 +881,16 @@ Reflects southern Ontario costs
 *option:BaseDHW:cost:total        = 0
 
 *option:ElecInstantaneous:value:1 = ElecInstant.dhw
-*option:ElecInstantaneous:cost:total    = -245.0
+*option:ElecInstantaneous:cost:total    = 405.0	! DHW4 tab in PL spreadsheet
 
-*option:ElectricStorage:value:1 = ElecStorage.dhw
-*option:ElectricStorage:cost:total    = -605.0
+!*option:ElectricStorage:value:1 = ElecStorage.dhw
+!*option:ElectricStorage:cost:total    = ?
 
 *option:GasInstantaneous:value:1 = GasInstantaneous.dhw
-*option:GasInstantaneous:cost:total    = 995
+*option:GasInstantaneous:cost:total    = 1760	! DHW3 tab in PL spreadsheet
 
 *option:ElectricHP:value:1 = ElecHP.dhw
-*option:ElectricHP:cost:total    = 1495
+*option:ElectricHP:cost:total    = 2305	! DHW2 tab in PL spreadsheet
 
 *attribute:end
 
