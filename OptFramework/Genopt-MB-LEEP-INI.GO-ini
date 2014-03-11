@@ -39,12 +39,12 @@ Simulation{
    CallParameter {
       
       // Windows only: 
-      Prefix = "C:\\cygwin\\bin\\perl.exe ";
+      //Prefix = "C:\\cygwin\\bin\\perl.exe ";
       
       // LINUX 
-      //Prefix = "" 
+      Prefix = "" ; 
       
-      Suffix = " -c GenOpt-picked-these-choices.GO-tmp -o OPTIONS-MBLEEP.options"; 
+      Suffix = " -vv -c GenOpt-picked-these-choices.GO-tmp -o OPTIONS-MBLEEP.options"; 
  
  
    }
