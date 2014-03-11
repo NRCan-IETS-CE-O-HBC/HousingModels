@@ -358,7 +358,7 @@ Algorithm{
  Main                       = PSOIW;
   NeighborhoodTopology      = vonNeumann;
   NeighborhoodSize          = 8; // Disregarded for vonNeumann topology
-  NumberOfParticle          = 32;
+  NumberOfParticle          = 30;
   NumberOfGeneration        = 3000;
   Seed                      = 628;
   CognitiveAcceleration     = 2; // 0 < CognitiveAcceleration
