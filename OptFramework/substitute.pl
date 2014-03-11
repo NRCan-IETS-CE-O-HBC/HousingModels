@@ -1206,6 +1206,8 @@ if ( abs( $gUpgSavings ) < 1.00 ) {
   
 }
 
+# Proxy for cost of ownership 
+$payback = $gAvgUtilCostNet + ($gTotalCost-$gIncBaseCosts)/25.; 
 
 open (SUMMARY, ">$gMasterPath/SubstitutePL-output.txt") or fatalerror ("Could not open $gMasterPath/SubstitutePL-output.txt");
 
