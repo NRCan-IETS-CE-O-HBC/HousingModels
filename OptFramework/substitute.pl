@@ -1163,15 +1163,46 @@ $gAvgCost_Total   = $gAvgCost_Electr + $gAvgCost_NatGas + $gAvgCost_Propane + $g
 
 $gAvgPVRevenue =  $gAvgPVOutput_kWh * $PVTarrifDollarsPerkWh ;  
 
+
+
 my $payback ; 
+my $gAvgUtilCostNet = $gAvgCost_Total - $gAvgPVRevenue; 
+
+my $gUpgCost    = $gTotalCost - $gIncBaseCosts; 
+my $gUpgSavings = $gUtilityBaseCost - $gAvgUtilCostNet ; 
 
 
-if ( abs( $gUtilityBaseCost-($gAvgCost_Total-$gAvgPVRevenue) ) < 1.00 ) {
- 
-  $payback = 1000.
-  
+
+if ( abs( $gUpgSavings ) < 1.00 ) {
+  # Savings are practically zero. Set payback to a very large number. 
+  $payback = 10000.;
+
+# Case when upgrade is cheaper than base cost
+}elsif ( $gTotalCost< $gIncBaseCosts) { 
+
+    # Does it also save on bills? 
+    if ( $gUpgSavings > 0. ) { 
+    
+        # No-brainer. Payback should be zero.
+     
+        $payback = 0 ;
+     
+    }else{
+    
+        # it may be cheap, but it costs in the long run. set 
+        # payback to a very large #.
+        
+        $payback = 100000.; 
+        
+    }
+
 } else { 
+
+  # Compute payback. 
   $payback = ($gTotalCost-$gIncBaseCosts)/($gUtilityBaseCost-($gAvgCost_Total-$gAvgPVRevenue)) ; 
+  
+  # Paybacks can be less than zero if design costs more in utility bills. Set negative paybacks to very large numbers.
+  if ( $payback < 0 ){$payback = 100000.;}
   
 }
 
