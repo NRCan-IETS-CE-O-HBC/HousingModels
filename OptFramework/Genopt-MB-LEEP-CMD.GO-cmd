@@ -56,7 +56,7 @@ Vary{
    Parameter{   // 
      Name    =  GOtag:Opt-MainWall;
      Ini     =  1;
-     Values  =  "BaseR20, AdvFrm-R20-Wall, Stud-R275-Wall, Stud-R275MW-Wall,DblStud-R37-Wall,Stud-R305-Wall,Stud-R305-Wall,DblStud-R52-Wall "; 
+     Values  =  "BaseR20, AdvFrm-R20-Wall, Stud-R275-Wall, Stud-R275MW-Wall, DblStud-R37-Wall, Stud-R305-Wall"; 
    }    
   
    // Foundation walls: OBC-min-R12
@@ -80,7 +80,7 @@ Vary{
    Parameter{   // 
      Name    =  GOtag:Opt-BasementWallInsulation;
      Ini     =  1;
-   Values  =  "MB-IntBatt-R20, MB-Comb-R20, Rigid+Batt-R30";
+   Values  =  "MB-IntBatt-R20, MB-Comb-R20";
 
    } 
 
@@ -99,7 +99,7 @@ Vary{
    Parameter{   // 
      Name    =  GOtag:Opt-BasementSlabInsulation;
      Ini     =  1;
-     Values  =  "NoInsulation,R24UnderSlab+edge,R12EdgeP6,R12EdgeP10"; 
+     Values  =  "NoInsulation,R12EdgeP6,R12EdgeP10"; 
    } 
 
    // Exposed floor: There are no exposed floors in MB LEEP archetype
@@ -145,7 +145,7 @@ Vary{
   Parameter{   // 
      Name    =  GOtag:Opt-CasementWindows;
      Ini     =  1;
-     Values  =  "DoubleLowESoftCoatArgFill,DoubleLowEHardCoatArgFill,TripleLowEHardCoatKryFill,TripleLowESoftCoatKryFill";    
+     Values  =  "DoubleLowESoftCoatArgFill,DoubleLowEHardCoatArgFill,TripleLowEHardCoatKryFill, TripleLowESoftCoatKryFill";    
      
    }    
    
@@ -166,7 +166,7 @@ Vary{
   Parameter{   // 
      Name    =  GOtag:Opt-FloorSurface;
      Ini     =  1;
-     Values  =  "wood,1-in-concrete,2-in-concrete";    
+     Values  =  "wood";    
    }       
  
    
@@ -183,7 +183,7 @@ Vary{
   Parameter{   // 
      Name    = GOtag:Opt-DWHRandSDHW; 
      Ini     = 1; 
-     Values  = "none,DWHR-4-36,DWHR-4-60,2-plate,2-plate-DWHR-4-36,2-plate-DWHR-4-60"; 
+     Values  = "none,DWHR-4-36,DWHR-4-60"; 
   } 
   
   // Conventional DHW:  BaseDHW, 
@@ -211,7 +211,7 @@ Vary{
   Parameter {// 
       Name   = GOtag:Opt-HVACSystem; 
       Ini    = 1; 
-      Values = "basefurnace,CCASHP,GSHP"; 
+      Values = "basefurnace, CCASHP, GSHP"; 
   }
   
   // HRV spec: 
@@ -227,7 +227,7 @@ Vary{
   Parameter{   // 
      Name    =  GOtag:Opt-StandoffPV;
      Ini     =  1;
-     Values  = "NoPV,SizedPV|5kW";
+     Values  = "NoPV";
   } 
   
   
@@ -293,13 +293,13 @@ Vary{
       Name   = GOtag:ElecLoadScale; 
       Ini    = 1;
       // Value may be one of  NoReduction, BasicReduction, EfficientLiving      
-      Values = "NGERSNoReduction19"; 
+      Values = "NGERSNoReduction19, NGERSReducedA16"; 
   }
   Parameter { // 
       Name   = GOtag:DHWLoadScale; 
       Ini    = 1;
       // Value may be one of  NoReduction, BasicReduction, EfficientLiving      
-      Values = "Low-Flow"; 
+      Values = "No-Reduction, Low-Flow"; 
   }
   
   Parameter { // 
@@ -358,15 +358,15 @@ Algorithm{
  Main                       = PSOIW;
   NeighborhoodTopology      = vonNeumann;
   NeighborhoodSize          = 8; // Disregarded for vonNeumann topology
-  NumberOfParticle          = 30;
+  NumberOfParticle          = 25;
   NumberOfGeneration        = 3000;
-  Seed                      = 628;
-  CognitiveAcceleration     = 2; // 0 < CognitiveAcceleration
+  Seed                      = 84;
+  CognitiveAcceleration     = 3; // 0 < CognitiveAcceleration
   SocialAcceleration        = 3; // 0 < SocialAcceleration
-  MaxVelocityGainContinuous = 1.0;
-  MaxVelocityDiscrete       = 1.0; // 0 < MaxVelocityDiscrete
+  MaxVelocityGainContinuous = 0.8;
+  MaxVelocityDiscrete       = 0.8; // 0 < MaxVelocityDiscrete
   InitialInertiaWeight      = 1.2;    // 0 < InitialInertiaWeight
-  FinalInertiaWeight        = 0;      // 0 < FinalInertiaWeight
+  FinalInertiaWeight        = 0.5;      // 0 < FinalInertiaWeight
 }
 
 
