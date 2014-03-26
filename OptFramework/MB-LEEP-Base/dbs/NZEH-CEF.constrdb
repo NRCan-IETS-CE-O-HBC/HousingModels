@@ -1,6 +1,6 @@
 # composite construction db defined in ../dbs/NZEH.constrdb
 # based on materials db ../dbs/material.db3.a
-  140  # no of composites 
+  144  # no of composites 
 # layers  description   optics name   symmetry tag
     2    bsm_flr       OPAQ  OPAQUE        NONSYMMETRIC  
 # mat ref thickness (m) mat descr & air gap R
@@ -1119,4 +1119,37 @@
    79    0.0120  OSB   
     0    0.0250  air  0.170 0.170 0.170
     1    0.0809  Paviour brick 
-	
+#--------------------
+# MAIN WALLS: R21 2x4 stick-framed, 2.0" XPS Ext:
+# 141: layers  description   optics name   symmetry tag
+    5    StudR212x4B   OPAQ  OPAQUE        NONSYMMETRIC 
+# mat ref thickness (m) mat descr & air gap R
+    1    0.0809  Paviour brick 
+    0    0.0250  air  0.170 0.170 0.170
+  220    0.0508  XPS CO2 foamed
+  283    0.0823  fiberglass batt 
+  301    <Opt-ExtraDrywall>  gypsum board 
+# 142: layers  description   optics name   symmetry tag
+    5    StudR212x4V   OPAQ  OPAQUE        NONSYMMETRIC 
+# mat ref thickness (m) mat descr & air gap R
+  144    0.0064  plastic tile : Plastic tile  
+    0    0.0250  air  0.170 0.170 0.170
+  220    0.0508  XPS CO2 foamed
+  283    0.0823  fiberglass batt 
+  301    <Opt-ExtraDrywall>  gypsum board 
+# 143: layers  description   optics name   symmetry tag
+    5    StudR212x4D  OPAQ  OPAQUE        StudR275DryR
+# mat ref thickness (m) mat descr & air gap R
+  301    0.0125  gypsum board  
+    0    0.0250  air  0.170 0.170 0.170
+  220    0.0508  XPS CO2 foamed
+  283    0.0823  fiberglass batt 
+  301    <Opt-ExtraDrywall>  gypsum board 
+# 144: layers  description   optics name   symmetry tag
+    5    StudR212x4DR OPAQ  OPAQUE        StudR275Dry
+# mat ref thickness (m) mat descr & air gap R
+  301    <Opt-ExtraDrywall>  gypsum board  
+  283    0.0823  fiberglass batt  
+  220    0.0508  XPS CO2 foamed
+    0    0.0250  air  0.170 0.170 0.170
+  301    0.0125  gypsum board  	
