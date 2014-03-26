@@ -450,6 +450,15 @@
 !*option:BaseR20:value:4 =   BaseR20DryR
 *option:BaseR20:cost:total    =   0
 
+*option:Stud-R21-2x4:value:1 =   StudR212x4B   ! Added by AF: New wall system 
+*option:Stud-R21-2x4:value:2 =   StudR212x4V
+*option:Stud-R21-2x4:value:3 =   StudR212x4D
+!*option:BaseR20:value:4 =   BaseR20DryR
+*option:Stud-R21-2x4:cost:total    =   980
+
+
+
+
 ! Not used for MB LEEP. 
 !*option:BaseR21:value:1 =   BaseR21Bri
 !*option:BaseR21:value:2 =   BaseR21Vin
