@@ -56,7 +56,7 @@ Vary{
    Parameter{   // 
      Name    =  GOtag:Opt-MainWall;
      Ini     =  1;
-     Values  =  "BaseR20, AdvFrm-R20-Wall, Stud-R275-Wall, Stud-R275MW-Wall, DblStud-R37-Wall, Stud-R305-Wall"; 
+     Values  =  "Stud-R21-2x4"; 
    }    
   
    // Foundation walls: OBC-min-R12
@@ -183,7 +183,7 @@ Vary{
   Parameter{   // 
      Name    = GOtag:Opt-DWHRandSDHW; 
      Ini     = 1; 
-     Values  = "none,DWHR-4-36,DWHR-4-60"; 
+     Values  = "none,DWHR-4-36,DWHR-4-60,2-flat-plate,2-flat-plate+DWHR"; 
   } 
   
   // Conventional DHW:  BaseDHW, 
@@ -211,7 +211,7 @@ Vary{
   Parameter {// 
       Name   = GOtag:Opt-HVACSystem; 
       Ini    = 1; 
-      Values = "basefurnace, CCASHP, GSHP"; 
+      Values = "basefurnace, elec-baseboard, CCASHP, GSHP"; 
   }
   
   // HRV spec: 
@@ -227,7 +227,7 @@ Vary{
   Parameter{   // 
      Name    =  GOtag:Opt-StandoffPV;
      Ini     =  1;
-     Values  = "NoPV";
+     Values  = "NoPV,SizedPV|5kW";
   } 
   
   
