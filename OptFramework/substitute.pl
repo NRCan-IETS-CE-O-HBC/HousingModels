@@ -1814,13 +1814,13 @@ sub postprocess($){
   my $Locale = $gChoices{"Opt-Location"}; 
   my $Rotate = $RotationAngle;  
   
-  fcopy ( "out.csv","/home/aferguso/VP-sim-output/$Locale-$RotationAngle-out.csv" );  
+  fcopy ( "out.csv","../VP-sim-output/$Locale-$RotationAngle-out.csv" );  
   
   if ( $gCustomCostAdjustment ) { 
   
     $gRegionalCostAdj = $gCostAdjustmentFactor; 
   
-  }else{
+  }else{ 
   
     $gRegionalCostAdj = $RegionalCostFactors{$Locale};
     
