@@ -338,12 +338,12 @@ if ( ! -d "./$gBaseModelFolderName" ){ stream_out ("Can't find 1 $gBaseModelFold
 
 if (! -d "$gBaseModelFolderName" ){ 
   
-  
-  
-  
+  my $prefix = ""; 
+  if ( ! -d $gBaseModelFolder ) { $prefix = "../"; } 
+  my $target = "$prefix"."$gBaseModelFolder"; 
   my $dir = getcwd();  
-  stream_out ("> Copying $gBaseModelFolder to $gBaseModelFolderName .\ \n"); 
-  dircopy( $gBaseModelFolder, "$dir/$gBaseModelFolderName") or die (" Could not copy $gBaseModelFolder -> $dir/") ; 
+  stream_out ("> Copying $target to $gBaseModelFolderName .\ \n"); 
+  dircopy( $target, "$dir/$gBaseModelFolderName") or die (" Could not copy $gBaseModelFolder -> $dir/$gBaseModelFolderName\n") ; 
   #execute ("cp -fr $gBaseModelFolder ./");
 }
 
@@ -1185,9 +1185,11 @@ my $gAvgPropCons_l      = 0;
 
 UpdateCon();  
 
-my $Direction; 
+my $gDirection; 
 
-for $Direction  ( @Orientations ){
+for my $Direction  ( @Orientations ){
+
+   $gDirection = $Direction; 
    
    debug_out ("> Orientation: $Direction\n"); 
    debug_out ("> Invoking runsims with Angle ".$angles{$Direction}."\n"); 
@@ -1196,8 +1198,7 @@ for $Direction  ( @Orientations ){
    postprocess($ScaleResults);
 
 }
-
-die(); 
+ 
 
 $gAvgCost_Total   = $gAvgCost_Electr + $gAvgCost_NatGas + $gAvgCost_Propane + $gAvgCost_Oil ;
 
@@ -1819,9 +1820,9 @@ sub postprocess($){
   close (TSRESULTS);
 
   my $Locale = $gChoices{"Opt-Location"}; 
-  #my $Rotate = $RotationAngle;  
+ 
   
-  #fcopy ( "out.csv","<PATH>/VP-sim-output/$Locale-$Direction-out.csv" );  
+  fcopy ( "out.csv","$gMasterPath/../VP-sim-output/$Locale-$gDirection-out.csv" );  
   
   if ( $gCustomCostAdjustment ) { 
   
