@@ -31,7 +31,7 @@ my %gTest_params;          # test parameters
 my $gChoiceFile  = ""; 
 my $gOptionFile  = "" ; 
 
-my $RotationAngle; 
+
 
 my $gBPSpath            = "~/esp-r/bin/bps"; 
 my $gPRJpath            = "~/esp-r/bin/prj"; 
@@ -660,7 +660,7 @@ while ( my $line = <CHOICES> ){
     if ( $attribute =~ /^GOconfig_/ ){
       $attribute =~ s/^GOconfig_//g; 
       if ( $attribute =~ /rotate/ ) { $gRotate = $value; } 
-      if ( $attribute =~ /step/ ) { $gGOStep = $value; 
+      if ( $attribute =~ /step/ )   { $gGOStep = $value; 
                                       $gArchGOChoiceFile = 1;  } 
     }else{
       my $extradata = $value; 
@@ -1184,15 +1184,20 @@ my $gAvgOilCons_l       = 0;
 my $gAvgPropCons_l      = 0; 
 
 UpdateCon();  
- 
-for my $Direction  ( @Orientations ){
 
+my $Direction; 
+
+for $Direction  ( @Orientations ){
+   
+   debug_out ("> Orientation: $Direction\n"); 
+   debug_out ("> Invoking runsims with Angle ".$angles{$Direction}."\n"); 
    if ( ! $gSkipSims ) { runsims( $angles{$Direction} ); }
-
-    
-    postprocess($ScaleResults);
+   
+   postprocess($ScaleResults);
 
 }
+
+die(); 
 
 $gAvgCost_Total   = $gAvgCost_Electr + $gAvgCost_NatGas + $gAvgCost_Propane + $gAvgCost_Oil ;
 
@@ -1366,8 +1371,10 @@ sub UpdateCon(){
 
 sub runsims($){
 
-  $RotationAngle = @_;
+  my ( $RotationAngle ) = @_;
 
+  debug_out ("RUNSIMS called with angle $RotationAngle \n"); 
+  
   # Save rotation angle for reporting
   $gRotationAngle = $RotationAngle; 
   
@@ -1812,9 +1819,9 @@ sub postprocess($){
   close (TSRESULTS);
 
   my $Locale = $gChoices{"Opt-Location"}; 
-  my $Rotate = $RotationAngle;  
+  #my $Rotate = $RotationAngle;  
   
-  fcopy ( "out.csv","../VP-sim-output/$Locale-$RotationAngle-out.csv" );  
+  #fcopy ( "out.csv","<PATH>/VP-sim-output/$Locale-$Direction-out.csv" );  
   
   if ( $gCustomCostAdjustment ) { 
   
