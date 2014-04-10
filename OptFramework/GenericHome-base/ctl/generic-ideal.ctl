@@ -12,7 +12,7 @@ no zone control description supplied
      1  # No. of periods in day: weekdays    
     0    1   0.000  # ctl type, law (basic control), start @
       7.  # No. of data items
-    <OPT-heat-cool-cap>. 0.000  <OPT-heat-cool-cap>.000 0.000 20.000 25.000 0.000
+    <OPT-heat-cool-cap> 0.000  <OPT-heat-cool-cap>000 0.000 20.000 25.000 0.000
 * Control function    2    
 # senses dry bulb temperature in first_fl.
     0    0    0    2  # sensor data

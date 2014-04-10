@@ -12,27 +12,27 @@ no zone control description supplied
      1  # No. of periods in day: sunday      
     0    27   0.000  # ctl type, law (basic control), start @
       7.  # No. of data items
-   <Opt-heat-cool-cap>. 0.000 0.000 0.000 21.000 26.000 5.000
+   <OPT-heat-cool-cap> 0.000 0.000 0.000 21.000 26.000 5.000
   106  166  # valid April 16 - June 15th Shoulder
      1  # No. of periods in day: sunday      
     0    27  0.000  # ctl type, law (basic control), start @
       7.  # No. of data items
-   <Opt-heat-cool-cap>. 0.000 <Opt-heat-cool-cap>. 0.000 18.000 26.000 5.000 
+   <OPT-heat-cool-cap> 0.000 <OPT-heat-cool-cap> 0.000 18.000 26.000 5.000 
   167  243  # valid June 16th to Aug 31st Cooling
      1  # No. of periods in day: saturday    
     0    27   0.000  # ctl type, law (basic control), start @
       7.  # No. of data items
-  0.000 0.000 <Opt-heat-cool-cap>. 0.000 -20.000 25.000 5.000
+  0.000 0.000 <OPT-heat-cool-cap> 0.000 -20.000 25.000 5.000
   244  288  # valid Sept 1st to Oct 15th Shoulder
      1  # No. of periods in day: saturday    
     0    27   0.000  # ctl type, law (basic control), start @
       7.  # No. of data items
-   <Opt-heat-cool-cap>. 0.000 <Opt-heat-cool-cap>. 0.000 18.000 26.000 5.000  
+   <OPT-heat-cool-cap> 0.000 <OPT-heat-cool-cap> 0.000 18.000 26.000 5.000  
   289  365  # valid October 16th to December 31st
      1  # No. of periods in day: weekdays    
     0    27   0.000  # ctl type, law (basic control), start @
       7.  # No. of data items
-   <Opt-heat-cool-cap>. 0.000 0.000 0.000 21.000 26.000 5.000
+   <OPT-heat-cool-cap> 0.000 0.000 0.000 21.000 26.000 5.000
 * Control function    2
 # senses dry bulb temperature in first_fl.
     0    0    0    2  # sensor data
@@ -43,26 +43,26 @@ no zone control description supplied
      1  # No. of periods in day: sunday      
     0    27   0.000  # ctl type, law (basic control), start @
       7.  # No. of data items
-   <Opt-heat-cool-cap>. 0.000 0.000 0.000 18.000 26.000 5.000
+   <OPT-heat-cool-cap> 0.000 0.000 0.000 18.000 26.000 5.000
   106  166  # valid April 16 - June 15th Shoulder
      1  # No. of periods in day: sunday      
     0    27  0.000  # ctl type, law (basic control), start @
       7.  # No. of data items
-   <Opt-heat-cool-cap>. 0.000 <Opt-heat-cool-cap>. 0.000 18.000 26.000 5.000 
+   <OPT-heat-cool-cap> 0.000 <OPT-heat-cool-cap> 0.000 18.000 26.000 5.000 
   167  243  # valid June 16th to Aug 31st Cooling
      1  # No. of periods in day: saturday    
     0    27   0.000  # ctl type, law (basic control), start @
       7.  # No. of data items
-  0.000 0.000 <Opt-heat-cool-cap>. 0.000 -20.000 25.000 5.000
+  0.000 0.000 <OPT-heat-cool-cap> 0.000 -20.000 25.000 5.000
   244  288  # valid Sept 1st to Oct 15th Shoulder
      1  # No. of periods in day: saturday    
     0    27   0.000  # ctl type, law (basic control), start @
       7.  # No. of data items
-   <Opt-heat-cool-cap>. 0.000 <Opt-heat-cool-cap>. 0.000 18.000 26.000 5.000  
+   <OPT-heat-cool-cap> 0.000 <OPT-heat-cool-cap> 0.000 18.000 26.000 5.000  
   289  365  # valid October 16th to December 31st
      1  # No. of periods in day: weekdays    
     0    27   0.000  # ctl type, law (basic control), start @
       7.  # No. of data items
-   <Opt-heat-cool-cap>. 0.000 0.000 0.000 18.000 26.000 5.000
+   <OPT-heat-cool-cap> 0.000 0.000 0.000 18.000 26.000 5.000
 # Function:Zone links
  2,1,0
