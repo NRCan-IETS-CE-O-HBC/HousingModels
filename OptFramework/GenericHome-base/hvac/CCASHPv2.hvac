@@ -1,0 +1,122 @@
+*idealized-hvac
+*version 2
+#------------------------
+# Site altitude
+#------------------------
+*site-altitude 0.0
+# ----------- Back-up -------------------
+*system-start
+
+    *name backup-sys
+    *type baseboard
+    *priority backup
+    *fuel electricity
+    *function heating
+    *zone-links-start
+    *zone-link 1 0.2 # Served zones and fraction
+    *zone-link 3 0.4 #
+    *zone-link 4 0.1
+    *zone-link 5 0.1
+    *zone-link 6 0.1
+    *zone-link 7 0.2 
+    *zone-links-end
+    *sys-data-start
+
+        capacity 15000
+        efficiency 1.0
+        circ-fan-mode 1
+        circ-fan-power 140.0
+
+    *sys-data-end
+    *fan-ctl-loop 1
+
+*system-end
+# -------- Heat pump (heating) ----------
+*system-start
+#
+    *name ASHP-heating
+    *type ASHP
+    *priority primary
+    *fuel electricity
+    *function heating
+    *zone-links-start
+    *zone-link 1 0.2 # Served zones and fraction
+    *zone-link 3 0.4 #
+    *zone-link 4 0.1
+    *zone-link 5 0.1
+    *zone-link 6 0.1
+    *zone-link 7 0.2 
+    *zone-links-end
+    *sys-data-start
+
+        capacity 11720.
+        COP 3.              # COP is irrelevant: Performance determined by CCHT data.
+        circ-fan-flow 1
+        circ-fan-rated-flow 1
+        circ-fan-mode 1
+        circ-fan-position 1
+        circ-fan-power 140.0
+        outdoor-fan-power 0.0   # This info captured by ccht performance data. 
+        fan-power-in-auto 0.0
+        circ-fan-rated-position 1
+
+        temp-control-mode 2
+        cut-off-temperature -25.1
+
+    *sys-data-end
+    *misc-param-start
+        performance CCASHP-CCHT
+    *misc-param-end     
+    *backup backup-sys
+    *fan-ctl-loop 1
+
+*system-end
+## -------- Heat pump (cooling) ----------
+*system-start
+
+    *name ASHP-AC
+    *type ASHP
+    *priority primary
+    *fuel electricity
+    *function cooling
+    *zone-links-start
+    *zone-link 1 0.2 # Served zones and fraction
+    *zone-link 3 0.4 #
+    *zone-link 4 0.1
+    *zone-link 5 0.1
+    *zone-link 6 0.1
+    *zone-link 7 0.2 
+    *zone-links-end
+    *sys-data-start
+
+        
+        capacity 11720.
+        COP 3.
+        circ-fan-mode 1
+        circ-fan-position 1
+        circ-fan-power 140.
+        outdoor-fan-power 140.
+        fan-power-in-auto 0.
+        circ-fan-rated-position 1
+        SHR 0.76
+        cooling-control-mode 1
+        ctl-file-function-num 1
+        sys-num-for-heating-mode 2
+
+    *sys-data-end
+    *misc-param-start
+        performance good
+    *misc-param-end 
+    *OA-schedule-start
+
+        *day-type-start
+
+            *end-hour 8760
+            *period 24 0.0
+
+        *day-type-end
+
+    *OA-schedule-end
+    *fan-ctl-loop 1
+
+*system-end
