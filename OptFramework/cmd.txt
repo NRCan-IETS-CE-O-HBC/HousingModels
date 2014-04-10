@@ -1,0 +1,2 @@
+
+rm -fr sim-output/ NZEH-base-out.csv;  ./substitute.pl -vv -o OPTIONS-General.options -c DESIGN-LEEP-MB-Base.choices --base_folder NZEH-base ;  cp sim-output/out.csv ./NZEH-base-out.csv;  rm -fr sim-output/ MB-base-out.csv;  ./substitute.pl -vv -o OPTIONS-General.options -c DESIGN-LEEP-MB-Base.choices ;  cp sim-output/out.csv ./MB-base-out.csv
