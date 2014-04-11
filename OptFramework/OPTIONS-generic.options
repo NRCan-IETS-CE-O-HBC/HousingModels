@@ -345,6 +345,24 @@
 ! <Opt-Main-Height> the height at the top of the main floor walls
 ! <Opt-Roof-Peak-W> is the width at the peak of the roof = 1/2 of the building width
 ! <Opt-Roof-Height> the height at the top of the roof peak
+! <OPT-heat-cool-cap> is the heating and cooling capacity used in the control (*.ctl) file
+!
+! The following 10 variables need to be calculated in the accompanying spreadsheet
+! GenericModel Window size calculation.xlsx
+! <win-bottom> is the bottom surface height of the windows. All windows are offset by .5m from the first floor level
+! <win-top> is the calculated top surface height of the window. The window height is calculated
+!           based on a 15% window to wall ratio
+! <win-wall-1-right> is the placement of the right-hand side of window 1. All values of left and right are 
+!           based on the perspective of looking directly at the window from the outside of the house.  
+! <win-wall-1-left> is the placement of the left-hand side of window 1.
+is the placement of the right-hand side of window 1.
+! <win-wall-2-right> is the placement of the right-hand side of window 2.
+! <win-wall-2-left> is the placement of the left-hand side of window 2.
+! <win-wall-3-right> is the placement of the right-hand side of window 3.
+! <win-wall-3-left> is the placement of the left-hand side of window 3.
+! <win-wall-4-right> is the placement of the right-hand side of window 4.
+! <win-wall-4-left> is the placement of the left-hand side of window 4.
+
 !-----------------------------------------------------------------------  
 *attribute:start
 *attribute:name     = Opt-geometry
@@ -357,28 +375,57 @@
 *attribute:tag:7    = <Opt-Roof-Peak-W>
 *attribute:tag:8    = <Opt-Roof-Height>
 *attribute:tag:9    = <OPT-heat-cool-cap>
+*attribute:tag:10   = <win-bottom>
+*attribute:tag:11   = <win-top>
+*attribute:tag:12   = <win-wall-1-right>
+*attribute:tag:13   = <win-wall-1-left>
+*attribute:tag:14   = <win-wall-2-right>
+*attribute:tag:15   = <win-wall-2-left>
+*attribute:tag:16   = <win-wall-3-right>
+*attribute:tag:17   = <win-wall-3-left>
+*attribute:tag:18   = <win-wall-4-right>
+*attribute:tag:19   = <win-wall-4-left>
 
-*option:small:value:1    = 6.6
-*option:small:value:2    = 4.4
-*option:small:value:3    = 2.7
-*option:small:value:4    = 2.0
-*option:small:value:5    = 5.4
-*option:small:value:6    = 29.04
-*option:small:value:7    = 3.3
-*option:small:value:8    = 8.0
-*option:small:value:9    = 2000.
 
+*option:123m2:value:1    = 12
+*option:123m2:value:2    = 10.25
+*option:123m2:value:3    = 2.5
+*option:123m2:value:4    = 2.0
+*option:123m2:value:5    = 5.6
+*option:123m2:value:6    = 123
+*option:123m2:value:7    = 6.0
+*option:123m2:value:8    = 6.8
+*option:123m2:value:9    = 2000.
+*option:123m2:value:10    = 3.
+*option:123m2:value:11    = 4.55
+*option:123m2:value:12    = 0.5
+*option:123m2:value:13    = 3.575
+*option:123m2:value:14    = 0.5
+*option:123m2:value:15    = 4.10
+*option:123m2:value:16    = 9.750
+*option:123m2:value:17    = 6.675
+*option:123m2:value:18    = 11.5
+*option:123m2:value:19    = 7.900
 
-*option:square:value:1    = 10
-*option:square:value:2    = 10
-*option:square:value:3    = 2.5
-*option:square:value:4    = 2.0
-*option:square:value:5    = 5.4
-*option:square:value:6    = 100.0
-*option:square:value:7    = 5
-*option:square:value:8    = 5
-*option:square:value:9    = 8.0
-*option:square:value:10   = 2000.
+*option:200m2:value:1     = 15
+*option:200m2:value:2     = 13.33
+*option:200m2:value:3     = 2.0
+*option:200m2:value:4     = 1.8
+*option:200m2:value:5     = 5.6
+*option:200m2:value:6     = 200.0
+*option:200m2:value:7     = 7.5
+*option:200m2:value:8     = 6.8
+*option:200m2:value:9     = 2000.
+*option:200m2:value:10    = 2.5
+*option:200m2:value:11    = 4.3
+*option:200m2:value:12    = 0.5
+*option:200m2:value:13    = 4.5
+*option:200m2:value:14    = 0.5
+*option:200m2:value:15    = 5.00
+*option:200m2:value:16    = 12.833
+*option:200m2:value:17    = 8.833
+*option:200m2:value:18    = 14.5
+*option:200m2:value:19    = 10.0
 
 
 *attribute:end

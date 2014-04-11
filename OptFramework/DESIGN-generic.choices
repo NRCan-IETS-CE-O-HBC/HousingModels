@@ -39,8 +39,10 @@ Opt-BaseWindows      : MinWindows
 Opt-FrontWindows     : NoExtraWin 
 Opt-BackWindows      : NoExtraWin
 
-! Geometry substitutions 
-Opt-geometry      : small
+! Geometry substitutions
+! 123m2
+! 200m2
+Opt-geometry      : 123m2
 
 Opt-OverhangWidth : BaseOverhang
 
