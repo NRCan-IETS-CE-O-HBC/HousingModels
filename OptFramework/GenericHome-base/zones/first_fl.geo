@@ -63,4 +63,4 @@ first_fl describes the first floor
 # 
 *insol_calc,none # insolation sources
 # 
-*base_list,0,<Opt-Area>,1  # zone base list
+*base_list,1,6,<Opt-Area>,0  # zone base list

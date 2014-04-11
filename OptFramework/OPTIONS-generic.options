@@ -356,7 +356,7 @@
 *attribute:tag:6    = <Opt-Area>
 *attribute:tag:7    = <Opt-Roof-Peak-W>
 *attribute:tag:8    = <Opt-Roof-Height>
-*attribute:tag:9    = <Opt-heat-cool-cap>
+*attribute:tag:9    = <OPT-heat-cool-cap>
 
 *option:small:value:1    = 6.6
 *option:small:value:2    = 4.4
