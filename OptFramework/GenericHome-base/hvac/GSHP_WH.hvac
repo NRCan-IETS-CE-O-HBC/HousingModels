@@ -14,7 +14,7 @@
     *function heating
     *zone-links-start
     *zone-link 1 0.3 # Served zones and fraction
-    *zone-link 3 0.7 #
+    *zone-link 2 0.7 #
     *zone-links-end
     *sys-data-start
 
@@ -37,7 +37,7 @@
     *function heating
     *zone-links-start
     *zone-link 1 0.3 # Served zones and fraction
-    *zone-link 3 0.7 #
+    *zone-link 2 0.7 #
     *zone-links-end
     *sys-data-start
 #
@@ -72,8 +72,7 @@
     *function cooling
     *zone-links-start
     *zone-link 1 0.3 # Served zones and fraction
-    *zone-link 3 0.7 #
-
+    *zone-link 2 0.7 #
     *zone-links-end
     *sys-data-start
 

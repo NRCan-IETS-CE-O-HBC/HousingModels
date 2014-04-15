@@ -1,8 +1,8 @@
 2 0. # number of HVAC systems; altitude
 1 1 6 # furnace; primary system; # zones served
 #  type   Fuel   Zone/ratio  Zone/ratio  Zone/ratio  Zone/ratio   Zone/ratio  Zone/ratio     SSCAP  AFUE  Fan op  CircFanP   Draft Fan P    Pilot P,   Unk.
-   8        2    1 0.3       3 0.7                13000. 0.94  2       140.       75             0.         1    
+   8        2    1 0.2       3 0.3       4 0.1       5 0.1        6 0.1       7 0.2          13000. 0.94  2       140.       75             0.         1    
 7 1 6 # HVAC system type; priority; zones served
 #  type   Fuel   Zone/ratio  Zone/ratio  Zone/ratio  Zone/ratio   Zone/ratio  Zone/ratio     SSCAP    COP   FLOW  Rated FLOW   Fan OP    ODunit-Power    UNK.
-     2      1    1 0.3       3 0.7          10555.    3.    -1     -1          2         300.            1
+     2      1    1 0.2       3 0.3       4 0.1       5 0.1        6 0.1       7 0.2          10555.    3.    -1     -1          2         300.            1
 0.75 1 1.5 1 1 1 # sensible heat ratio; cooling type; flow rate, open window area, control function
