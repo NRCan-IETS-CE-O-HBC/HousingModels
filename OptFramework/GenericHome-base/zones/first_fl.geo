@@ -1,7 +1,6 @@
 *Geometry 1.1,GEN,first_fl # tag version, format, zone name
 *date Fri Apr  8 16:41:55 2011  # latest file modification 
 first_fl describes the first floor
-*previous_rotate 0.00,   0.000,   0.000  # prior rotation angle X Y
 # tag, X co-ord, Y co-ord, Z co-ord
 *vertex,0.00000,0.00000,<Opt-Bsm-Height>  #   1
 *vertex,<Opt-Width>,0.0000,<Opt-Bsm-Height>  #   2
@@ -51,10 +50,10 @@ first_fl describes the first floor
 *surf,Wall-4,VERT,-,-,-,<Opt-MainWall-Bri>,OPAQUE,EXTERIOR,0,0  #   4 ||< external
 *surf,Top-5,CEIL,-,-,-,<Opt-Ceiling>,OPAQUE,ANOTHER,03,05       #   5 ||< Top-5:roof-base
 *surf,Base-6,FLOR,-,-,-,<Opt-IntFloor>,OPAQUE,ANOTHER,01,05     #   6 ||< Base-6:Top_bsm
-*surf,win-wall-1,VERT,Wall-1,<OptBW-Construction>,<OptBW-Optics>,EXTERIOR,0,0  #   7 ||< not yet defined
-*surf,win-wall-2,VERT,Wall-2,<OptBW-Construction>,<OptBW-Optics>,EXTERIOR,0,0  #   8 ||< not yet defined
-*surf,win-wall-3,VERT,Wall-3,<OptBW-Construction>,<OptBW-Optics>,EXTERIOR,0,0  #   9 ||< not yet defined
-*surf,win-wall-4,VERT,Wall-4,<OptBW-Construction>,<OptBW-Optics>,EXTERIOR,0,0  #  10 ||< not yet defined
+*surf,win-wall-1,VERT,Wall-1,-,-,<OptBW-Construction>,<OptBW-Optics>,EXTERIOR,0,0  #   7 ||< external
+*surf,win-wall-2,VERT,Wall-2,-,-,<OptBW-Construction>,<OptBW-Optics>,EXTERIOR,0,0  #   8 ||< external
+*surf,win-wall-3,VERT,Wall-3,-,-,<OptBW-Construction>,<OptBW-Optics>,EXTERIOR,0,0  #   9 ||< external
+*surf,win-wall-4,VERT,Wall-4,-,-,<OptBW-Construction>,<OptBW-Optics>,EXTERIOR,0,0  #  10 ||< external
 # 
 *insol,3,0,0,0  # default insolation distribution
 # 
@@ -63,4 +62,4 @@ first_fl describes the first floor
 # 
 *insol_calc,none # insolation sources
 # 
-*base_list,1,6,<Opt-Area>,0  # zone base list
+*base_list,0,<Opt-Area>, 0  # zone base list

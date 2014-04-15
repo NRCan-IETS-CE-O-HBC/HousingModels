@@ -10,27 +10,27 @@ no zone control description supplied
     5 # No. day types
     1  105  # valid Tue-01-Jan - April 15 Heating
      1  # No. of periods in day: sunday      
-    0    27   0.000  # ctl type, law (basic control), start @
+    0    1   0.000  # ctl type, law (basic control), start @
       7.  # No. of data items
    <OPT-heat-cool-cap> 0.000 <OPT-heat-cool-cap> 0.000 21.000 26.000 5.000
   106  166  # valid April 16 - June 15th Shoulder
      1  # No. of periods in day: sunday      
-    0    27   0.000  # ctl type, law (basic control), start @
+    0    1   0.000  # ctl type, law (basic control), start @
       7.  # No. of data items
    <OPT-heat-cool-cap> 0.000 <OPT-heat-cool-cap> 0.000 19.000 26.000 5.000 
   167  243  # valid June 16th to Aug 31st Cooling
      1  # No. of periods in day: saturday    
-    0    27   0.000  # ctl type, law (basic control), start @
+    0    1   0.000  # ctl type, law (basic control), start @
       7.  # No. of data items
   <OPT-heat-cool-cap>. 0.00 <OPT-heat-cool-cap> 0.000 15.000 25.600 5.000
   244  288  # valid Sept 1st to Oct 15th Shoulder
      1  # No. of periods in day: saturday    
-    0    27   0.000  # ctl type, law (basic control), start @
+    0    1   0.000  # ctl type, law (basic control), start @
       7.  # No. of data items
    <OPT-heat-cool-cap> 0.000 <OPT-heat-cool-cap> 0.000 19.000 26.000 5.000  
   289  365  # valid October 16th to December 31st
      1  # No. of periods in day: weekdays    
-    0    27   0.000  # ctl type, law (basic control), start @
+    0    1   0.000  # ctl type, law (basic control), start @
       7.  # No. of data items
    <OPT-heat-cool-cap> 0.000 <OPT-heat-cool-cap> 0.000 21.000 100.000 5.000
 * Control function    2

@@ -1,7 +1,6 @@
 *Geometry 1.1,GEN,bsmt # tag version, format, zone name
 *date Mon Mar  7 16:17:58 2011  # latest file modification 
 bsmt describes the NZEH basement
-*previous_rotate 0.00,   0.000,   0.000  # prior rotation angle X Y
 # tag, X co-ord, Y co-ord, Z co-ord
 *vertex,0.00000,0.00000,0.00000  #   1
 *vertex,<Opt-Width>,0.0000,0.00000  #   2
@@ -39,4 +38,4 @@ bsmt describes the NZEH basement
 # 
 *insol_calc,none # insolation sources
 # 
-*base_list,1,6,<Opt-Area>,0  # zone base
+*base_list,0,<Opt-Area>, 0  # zone base
