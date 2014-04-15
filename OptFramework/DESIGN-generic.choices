@@ -17,7 +17,7 @@ Opt-DBFiles           : CEF
 ! Optimization substitutions 
 ! Set the orientation for the model (N,S,E,W, or AVG to run all four directions
 ! and compute an average result)
-GOconfig_rotate      : S
+GOconfig_rotate      : AVG
 
 Opt-Location : Ottawa
 
@@ -204,7 +204,7 @@ Opt-DHWSystem        : ElectricStorage
 !  GSHP
 !  CCASHP
 
-Opt-HVACSystem       : CCASHP ! GSHP
+Opt-HVACSystem       : basefurnace 
 
 ! HRV spec 
 

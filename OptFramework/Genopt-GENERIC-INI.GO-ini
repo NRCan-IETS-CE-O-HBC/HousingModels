@@ -1,0 +1,108 @@
+/* GenOpt initialization file for housing optimization work. 
+
+*/
+
+Simulation{
+   // Files used during optimization
+   Files{
+      // Name and path to file containing input template
+      Template{
+         File1 = "Genopt-GENERIC-Template.GO-choices";
+         Path1 = "./";
+      }
+      // Name and path to target file 
+      Input{
+         File1 = "GenOpt-picked-these-choices.GO-tmp";
+         Path1 = "./";
+         SavePath1 = "./ArchGOChoiceFiles/"; 
+
+      }
+      
+      
+      // Log file containing ESP-r messages
+      Log{
+         File1 = "SubstitutePL-log.txt";
+      }
+      
+      // File containing ESP-r results
+      Output{
+         File1 = "SubstitutePL-output.txt";
+      }
+      // File explaining how to start ESP-r.
+      Configuration{
+         File1 = "Genopt-GENERIC-CONFIG.GO-config";
+      }
+
+   } // end Simulation.Files
+   
+   // ESP-r options - Depends on windows / linux spec. .
+   CallParameter {
+      
+      // Windows only: 
+      Prefix = "C:\\cygwin\\bin\\perl.exe ";
+      
+      // LINUX 
+      //Prefix = "" 
+      
+      Suffix = " -c GenOpt-picked-these-choices.GO-tmp -o OPTIONS-generic.options -vv "; 
+ 
+ 
+   }
+
+   ObjectiveFunctionLocation {
+      // Rules for decoding ESP-r output. Genopt will read the text
+      // immediately after the last occurance of the given delimiter
+
+      // Note to editor: Ensure column spacing is maintained.
+
+      // Cost function to be optimized
+      Name1 = UpgradeCost ;
+      Delimiter1 = "Upgrade-cost    = ";       
+      
+      // other values to report. 
+      Name2 = UtilCostElec;
+      Delimiter2 =  "Util-Bill-Elec  = ";
+      Name3 = UtilCostGas;
+      Delimiter3 =  "Util-Bill-Gas   = ";
+      Name4 = EnergyTotal; 
+      Delimiter4 =  "Energy-Total-GJ = "; 
+      Name5 = UtilCostTotal;
+      Delimiter5 =  "Util-Bill-Total = ";
+      Name6 = PVSizekW; 
+      Delimiter6 =  "PV-size-kW      = "; 
+      Name7 = EnergyPV; 
+      Delimiter7 =  "Energy-PV       = "; 
+      Name8 = EnergySDHW; 
+      Delimiter8 =  "Energy-SDHW     = "; 
+      Name9 = EnergyHeating; 
+      Delimiter9 =  "Energy-Heating  = "; 
+      Name10 = EnergyCooling; 
+      Delimiter10 = "Energy-Cooling  = "; 
+      Name11 = EnergyVent; 
+      Delimiter11 = "Energy-Vent     = "; 
+      Name12 = EnergyDHW; 
+      Delimiter12 = "Energy-DHW      = "; 
+      Name13 = EnergyPlug; 
+      Delimiter13 = "Energy-Plug     = "; 
+      Name14 = UtilCostOil; 
+      Delimiter14 = "Util-Bill-Oil   = ";
+      Name15 = UtilCostProp; 
+      Delimiter15 = "Util-Bill-Prop  = ";
+      Name16 = EnergyElec;
+	  Delimiter16 = "EnergyElec      = ";
+      Name17 = EnergyGas;
+	  Delimiter17 = "EnergyGas       = ";
+
+   } // end Simulation.ObjectiveFunctionLocation
+   
+} // end Simulation
+
+// Optimization configuration.
+Optimization{
+   Files{
+      Command {
+         File1 = "Genopt-GENERIC-CMD.GO-cmd";
+         
+      }
+   }
+}
