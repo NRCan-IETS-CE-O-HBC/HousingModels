@@ -82,7 +82,7 @@ Vary{
    Parameter{   // 
      Name    =  GOtag:Opt-AirTightness;
      Ini     =  1;
-     Values  =  "Typical23,R2000";
+     Values  =  "R2000";
      
    }    
    
@@ -251,7 +251,7 @@ Vary{
   Parameter{ //
      Name    = GOtag:Opt-DHWSystem;
      Ini     = 1; 
-     Values  = "BaseDHW"; //,ElectricStorage"; 
+     Values  = "ElectricStorage"; 
   }
 
   
@@ -310,7 +310,7 @@ Vary{
    Parameter{   // First Floor -- left side (as viewed from front)  
      Name    =  GOtag:Opt-ExtLeftSideWindow;
      Ini     =  1;
-     Values  =  "Yes";
+     Values  =  "No";
    } 
       
   Parameter{   // Basement -- back 

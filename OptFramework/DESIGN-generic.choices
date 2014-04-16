@@ -77,7 +77,7 @@ Opt-AirTightness     : R2000
 !  Truss-R40-Wall
 !  W15_R25
 
-Opt-MainWall         : BaseR20
+Opt-MainWall         : BaseR21
 
 
 ! Add extra drywall to wall constructions 
@@ -133,7 +133,7 @@ Opt-BasementWallInsulation  : OBC-min-R12
 ! Whitehorse Windows
 !    Wind1_trp_CL	
 
-Opt-CasementWindows  :  DoubleLowEHardCoatAirFill
+Opt-CasementWindows  :  DoubleLowEHardCoatArgFill
 
 
 ! Exposed floor over garage (affects floor
