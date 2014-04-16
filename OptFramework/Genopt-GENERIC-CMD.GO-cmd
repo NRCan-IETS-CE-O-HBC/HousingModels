@@ -65,10 +65,11 @@ Vary{
   Parameter{ //One of:
              // 123m2
              // 200m2
+			 // 206m2
 			 
   Name   = GOtag:Opt-geometry;
   Ini    = 1;
-  Values = "123m2";
+  Values = "206m2";
   }
   
   
@@ -78,13 +79,10 @@ Vary{
    //   - R2000, 
    //   - Cdn1ACH, 
    //   - PassiveHouse, 
-   //   - Base_WH_1.5, 
-   //   - WH_1.0, 
-   //   - WH_0.5
    Parameter{   // 
      Name    =  GOtag:Opt-AirTightness;
      Ini     =  1;
-     Values  =  "Typical23";
+     Values  =  "Typical23,R2000";
      
    }    
    
@@ -135,8 +133,6 @@ Vary{
    //                   Fnd2PWF_R56
    //                   Fnd3PWF_R76
    //                   Fnd8ICF_R28
-
-   
    Parameter{   // 
      Name    =  GOtag:Opt-BasementWallInsulation;
      Ini     =  1;

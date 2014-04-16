@@ -17,7 +17,7 @@ Opt-DBFiles           : CEF
 ! Optimization substitutions 
 ! Set the orientation for the model (N,S,E,W, or AVG to run all four directions
 ! and compute an average result)
-GOconfig_rotate      : AVG
+GOconfig_rotate      : S
 
 Opt-Location : Ottawa
 
@@ -42,7 +42,8 @@ Opt-BackWindows      : NoExtraWin
 ! Geometry substitutions
 ! 123m2
 ! 200m2
-Opt-geometry      : 123m2
+! 206m2
+Opt-geometry      : 206m2
 
 Opt-OverhangWidth : BaseOverhang
 
@@ -62,7 +63,7 @@ Opt-ExtBasementWindow : No          ! Basement (back)
 !     WH_1.0
 !     WH_0.5
                  
-Opt-AirTightness     : Typical23
+Opt-AirTightness     : R2000
 
 ! Main wall insulation 
 !  BaseR20

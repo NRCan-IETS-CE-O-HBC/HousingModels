@@ -361,6 +361,7 @@
 ! <win-wall-3-left> is the placement of the left-hand side of window 3.
 ! <win-wall-4-right> is the placement of the right-hand side of window 4.
 ! <win-wall-4-left> is the placement of the left-hand side of window 4.
+! <Opt-Eave-Height> is the height of the eaves = <Opt-Main-Height> - <Opt-Bsm-Depth>
 
 !-----------------------------------------------------------------------  
 *attribute:start
@@ -384,7 +385,7 @@
 *attribute:tag:17   = <win-wall-3-left>
 *attribute:tag:18   = <win-wall-4-right>
 *attribute:tag:19   = <win-wall-4-left>
-
+*attribute:tag:20   = <Opt-Eave-Height>
 
 *option:123m2:value:1    = 12
 *option:123m2:value:2    = 10.25
@@ -405,7 +406,8 @@
 *option:123m2:value:17    = 6.675
 *option:123m2:value:18    = 11.5
 *option:123m2:value:19    = 7.900
-*option:123m2:cost:total  = 0.0
+*option:123m2:value:20    = 3.600
+*option:123m2:cost:total  = 0
 
 *option:200m2:value:1     = 15
 *option:200m2:value:2     = 13.33
@@ -426,7 +428,32 @@
 *option:200m2:value:17    = 8.833
 *option:200m2:value:18    = 14.5
 *option:200m2:value:19    = 10.0
-*option:200m2:cost:total  =  0.0
+*option:200m2:value:20    = 3.600
+*option:200m2:cost:total  =  0
+
+*option:206m2:value:1     = 14.5
+*option:206m2:value:2     = 14.21
+*option:206m2:value:3     = 2.5
+*option:206m2:value:4     = 2.0
+*option:206m2:value:5     = 5.75
+*option:206m2:value:6     = 206.0
+*option:206m2:value:7     = 7.0
+*option:206m2:value:8     = 7.25
+*option:206m2:value:9     = 25000.
+*option:206m2:value:10    = 3.0
+*option:206m2:value:11    = 4.625
+*option:206m2:value:12    = 0.5
+*option:206m2:value:13    = 4.762
+*option:206m2:value:14    = 0.5
+*option:206m2:value:15    = 4.850
+*option:206m2:value:16    = 13.707
+*option:206m2:value:17    = 9.445
+*option:206m2:value:18    = 14.0
+*option:206m2:value:19    = 9.650
+*option:206m2:value:20    = 3.75
+*option:206m2:cost:total  =  0
+
+
 
 *attribute:end
 
@@ -572,15 +599,11 @@
 !*option:BaseR20:value:4 =   BaseR20DryR
 *option:Stud-R21-2x4:cost:total    =   980
 
-
-
-
-! Not used for MB LEEP. 
-!*option:BaseR21:value:1 =   BaseR21Bri
-!*option:BaseR21:value:2 =   BaseR21Vin
-!*option:BaseR21:value:3 =   BaseR21Dry 
-!!*option:BaseR21:value:4 =   BaseR21DryR
-!*option:BaseR21:cost:total    =   0
+*option:BaseR21:value:1 =   BaseR21Bri
+*option:BaseR21:value:2 =   BaseR21Vin
+*option:BaseR21:value:3 =   BaseR21Dry 
+!*option:BaseR21:value:4 =   BaseR21DryR
+*option:BaseR21:cost:total    =   0
 
 *option:SIPS-R22-Wall:value:1 =   SipR22Bri
 *option:SIPS-R22-Wall:value:2 =   SipR22Vin

@@ -51,13 +51,13 @@ Simulation{
 
    ObjectiveFunctionLocation {
       // Rules for decoding ESP-r output. Genopt will read the text
-      // immediately after the last occurance of the given delimiter
+      // immediately after the last occurrence of the given delimiter
 
       // Note to editor: Ensure column spacing is maintained.
 
       // Cost function to be optimized
       Name1 = UpgradeCost ;
-      Delimiter1 = "Upgrade-cost    = ";       
+      Delimiter1 =  "Upgrade-cost    = ";       
       
       // other values to report. 
       Name2 = UtilCostElec;

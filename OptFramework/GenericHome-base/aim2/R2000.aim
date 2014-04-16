@@ -3,7 +3,7 @@
 #
 #
 #---Leakage description--------------------ex-----------------------------------------------------
-2 1.5 10. 0 1258.4          # Air leakage typical of current construction
+2 1.5 10. 0  0              # Air leakage typical of current construction
 #---Leakage distribution------------------------------------------------------------------------
 0              # Default leakage distribution(0 for not given).
 #---Shielding and terrain data------------------------------------------------------------------
@@ -13,7 +13,7 @@
 #                           # Light local shielding on flue.
 #                           # Height of anemometer at weather station. (assumed)
 #---Height of building eaves (m)----------------------------------------------------------------
-6.277
+<Opt-Eave-Height>
 #---Flue diameters (mm)-------------------------------------------------------------------------
 0  0. 0. 0. 0.              # furnace, fire#1, fire#2, dhw#1, dhw#2.
 #---Zone indices--------------------------------------------------------------------------------
