@@ -345,7 +345,7 @@
 ! <Opt-Main-Height> the height at the top of the main floor walls
 ! <Opt-Roof-Peak-W> is the width at the peak of the roof = 1/2 of the building width
 ! <Opt-Roof-Height> the height at the top of the roof peak
-! <OPT-heat-cool-cap> is the heating and cooling capacity used in the control (*.ctl) file
+! <Opt-Eave-Height> is the height of the eaves = <Opt-Main-Height> - <Opt-Bsm-Depth>
 !
 ! The following 10 variables need to be calculated in the accompanying spreadsheet
 ! GenericModel Window size calculation.xlsx
@@ -361,20 +361,20 @@
 ! <win-wall-3-left> is the placement of the left-hand side of window 3.
 ! <win-wall-4-right> is the placement of the right-hand side of window 4.
 ! <win-wall-4-left> is the placement of the left-hand side of window 4.
-! <Opt-Eave-Height> is the height of the eaves = <Opt-Main-Height> - <Opt-Bsm-Depth>
-
+!
+! <OPT-heat-cool-cap> is the heating and cooling capacity used in the control (*.ctl) file
 !-----------------------------------------------------------------------  
 *attribute:start
 *attribute:name     = Opt-geometry
-*attribute:tag:1    = <Opt-Width>
-*attribute:tag:2    = <Opt-Length>
-*attribute:tag:3    = <Opt-Bsm-Height>
-*attribute:tag:4    = <Opt-Bsm-Depth>
-*attribute:tag:5    = <Opt-Main-Height>
-*attribute:tag:6    = <Opt-Area>
+*attribute:tag:1    = <Opt-Area>
+*attribute:tag:2    = <Opt-Width>
+*attribute:tag:3    = <Opt-Length>
+*attribute:tag:4    = <Opt-Bsm-Height>
+*attribute:tag:5    = <Opt-Bsm-Depth>
+*attribute:tag:6    = <Opt-Main-Height>
 *attribute:tag:7    = <Opt-Roof-Peak-W>
 *attribute:tag:8    = <Opt-Roof-Height>
-*attribute:tag:9    = <OPT-heat-cool-cap>
+*attribute:tag:9    = <Opt-Eave-Height>
 *attribute:tag:10   = <win-bottom>
 *attribute:tag:11   = <win-top>
 *attribute:tag:12   = <win-wall-1-right>
@@ -385,73 +385,139 @@
 *attribute:tag:17   = <win-wall-3-left>
 *attribute:tag:18   = <win-wall-4-right>
 *attribute:tag:19   = <win-wall-4-left>
-*attribute:tag:20   = <Opt-Eave-Height>
+*attribute:tag:20   = <OPT-heat-cool-cap>
 
-*option:123m2:value:1    = 12
-*option:123m2:value:2    = 10.25
-*option:123m2:value:3    = 2.5
-*option:123m2:value:4    = 2.0
-*option:123m2:value:5    = 5.6
-*option:123m2:value:6    = 123
-*option:123m2:value:7    = 6.0
-*option:123m2:value:8    = 6.8
-*option:123m2:value:9    = 2000.
-*option:123m2:value:10    = 3.0
-*option:123m2:value:11    = 4.55
-*option:123m2:value:12    = 0.5
-*option:123m2:value:13    = 3.575
-*option:123m2:value:14    = 0.5
-*option:123m2:value:15    = 4.10
-*option:123m2:value:16    = 9.750
-*option:123m2:value:17    = 6.675
-*option:123m2:value:18    = 11.5
-*option:123m2:value:19    = 7.900
-*option:123m2:value:20    = 3.600
-*option:123m2:cost:total  = 0
+*option:ON80-89:value:1    = 275.5
+*option:ON80-89:value:2    = 18
+*option:ON80-89:value:3    = 15.31
+*option:ON80-89:value:4    = 2.5
+*option:ON80-89:value:5    = 2.0
+*option:ON80-89:value:6    = 5.75
+*option:ON80-89:value:7    = 9
+*option:ON80-89:value:8    = 7.85
+*option:ON80-89:value:9    = 5.75
+*option:ON80-89:value:10    = 3
+*option:ON80-89:value:11    = 4.625
+*option:ON80-89:value:12    = 0.5
+*option:ON80-89:value:13    = 5.092
+*option:ON80-89:value:14    = 0.5
+*option:ON80-89:value:15    = 5.90
+*option:ON80-89:value:16    = 14.806
+*option:ON80-89:value:17    = 10.214
+*option:ON80-89:value:18    = 17.5
+*option:ON80-89:value:19    = 12.10
+*option:ON80-89:value:20    = 14000
+*option:ON80-89:cost:total  = 0
 
-*option:200m2:value:1     = 15
-*option:200m2:value:2     = 13.33
-*option:200m2:value:3     = 2.0
-*option:200m2:value:4     = 1.8
-*option:200m2:value:5     = 5.6
-*option:200m2:value:6     = 200.0
-*option:200m2:value:7     = 7.5
-*option:200m2:value:8     = 6.8
-*option:200m2:value:9     = 2000.
-*option:200m2:value:10    = 2.5
-*option:200m2:value:11    = 4.3
-*option:200m2:value:12    = 0.5
-*option:200m2:value:13    = 4.5
-*option:200m2:value:14    = 0.5
-*option:200m2:value:15    = 5.00
-*option:200m2:value:16    = 12.833
-*option:200m2:value:17    = 8.833
-*option:200m2:value:18    = 14.5
-*option:200m2:value:19    = 10.0
-*option:200m2:value:20    = 3.600
-*option:200m2:cost:total  =  0
+*option:ON70-79:value:1     = 216.21
+*option:ON70-79:value:2     = 15.
+*option:ON70-79:value:3     = 14.41
+*option:ON70-79:value:4     = 2.5
+*option:ON70-79:value:5     = 2.0
+*option:ON70-79:value:6     = 5.75
+*option:ON70-79:value:7     = 7.5
+*option:ON70-79:value:8     = 7.85
+*option:ON70-79:value:9     = 5.75
+*option:ON70-79:value:10    = 3.0
+*option:ON70-79:value:11    = 4.625
+*option:ON70-79:value:12    = 0.5
+*option:ON70-79:value:13    = 4.824
+*option:ON70-79:value:14    = 0.5
+*option:ON70-79:value:15    = 5.00
+*option:ON70-79:value:16    = 13.914
+*option:ON70-79:value:17    = 9.590
+*option:ON70-79:value:18    = 14.5
+*option:ON70-79:value:19    = 10.0
+*option:ON70-79:value:20    = 14100
+*option:ON70-79:cost:total  =  0
 
-*option:206m2:value:1     = 14.5
-*option:206m2:value:2     = 14.21
-*option:206m2:value:3     = 2.5
-*option:206m2:value:4     = 2.0
-*option:206m2:value:5     = 5.75
-*option:206m2:value:6     = 206.0
-*option:206m2:value:7     = 7.0
-*option:206m2:value:8     = 7.25
-*option:206m2:value:9     = 25000.
-*option:206m2:value:10    = 3.0
-*option:206m2:value:11    = 4.625
-*option:206m2:value:12    = 0.5
-*option:206m2:value:13    = 4.762
-*option:206m2:value:14    = 0.5
-*option:206m2:value:15    = 4.850
-*option:206m2:value:16    = 13.707
-*option:206m2:value:17    = 9.445
-*option:206m2:value:18    = 14.0
-*option:206m2:value:19    = 9.650
-*option:206m2:value:20    = 3.75
-*option:206m2:cost:total  =  0
+*option:PQ80-89:value:1     = 213.25
+*option:PQ80-89:value:2     = 15.0
+*option:PQ80-89:value:3     = 14.22
+*option:PQ80-89:value:4     = 2.5
+*option:PQ80-89:value:5     = 2.0
+*option:PQ80-89:value:6     = 5.75
+*option:PQ80-89:value:7     = 7.5
+*option:PQ80-89:value:8     = 7.85
+*option:PQ80-89:value:9     = 5.75
+*option:PQ80-89:value:10    = 3.0
+*option:PQ80-89:value:11    = 4.625
+*option:PQ80-89:value:12    = 0.5
+*option:PQ80-89:value:13    = 4.765
+*option:PQ80-89:value:14    = 0.5
+*option:PQ80-89:value:15    = 5.0
+*option:PQ80-89:value:16    = 13.717
+*option:PQ80-89:value:17    = 9.452
+*option:PQ80-89:value:18    = 14.5
+*option:PQ80-89:value:19    = 10.0
+*option:PQ80-89:value:20    = 13600
+*option:PQ80-89:cost:total  =  0
+
+*option:PQ70-79:value:1     = 191.58
+*option:PQ70-79:value:2     = 14.0
+*option:PQ70-79:value:3     = 13.68
+*option:PQ70-79:value:4     = 2.5
+*option:PQ70-79:value:5     = 2.0
+*option:PQ70-79:value:6     = 5.75
+*option:PQ70-79:value:7     = 7.5
+*option:PQ70-79:value:8     = 7.85
+*option:PQ70-79:value:9     = 5.75
+*option:PQ70-79:value:10    = 3.0
+*option:PQ70-79:value:11    = 4.625
+*option:PQ70-79:value:12    = 0.5
+*option:PQ70-79:value:13    = 4.605
+*option:PQ70-79:value:14    = 0.5
+*option:PQ70-79:value:15    = 4.7
+*option:PQ70-79:value:16    = 13.184
+*option:PQ70-79:value:17    = 9.079
+*option:PQ70-79:value:18    = 13.5
+*option:PQ70-79:value:19    = 9.3
+*option:PQ70-79:value:20    = 13900
+*option:PQ70-79:cost:total  =  0
+
+*option:BC80-89:value:1     = 235.5
+*option:BC80-89:value:2     = 15.45
+*option:BC80-89:value:3     = 15.24
+*option:BC80-89:value:4     = 2.5
+*option:BC80-89:value:5     = 2.0
+*option:BC80-89:value:6     = 5.75
+*option:BC80-89:value:7     = 7.5
+*option:BC80-89:value:8     = 7.85
+*option:BC80-89:value:9     = 5.75
+*option:BC80-89:value:10    = 3.0
+*option:BC80-89:value:11    = 4.625
+*option:BC80-89:value:12    = 0.5
+*option:BC80-89:value:13    = 5.073
+*option:BC80-89:value:14    = 0.5
+*option:BC80-89:value:15    = 5.135
+*option:BC80-89:value:16    = 14.743
+*option:BC80-89:value:17    = 10.170
+*option:BC80-89:value:18    = 14.95
+*option:BC80-89:value:19    = 10.315
+*option:BC80-89:value:20    = 13000
+*option:BC80-89:cost:total  =  0
+
+*option:BC70-79:value:1     = 212.12
+*option:BC70-79:value:2     = 15.0
+*option:BC70-79:value:3     = 14.14
+*option:BC70-79:value:4     = 2.5
+*option:BC70-79:value:5     = 2.0
+*option:BC70-79:value:6     = 5.75
+*option:BC70-79:value:7     = 7.5
+*option:BC70-79:value:8     = 7.85
+*option:BC70-79:value:9     = 5.75
+*option:BC70-79:value:10    = 3.0
+*option:BC70-79:value:11    = 4.625
+*option:BC70-79:value:12    = 0.5
+*option:BC70-79:value:13    = 4.742
+*option:BC70-79:value:14    = 0.5
+*option:BC70-79:value:15    = 5.0
+*option:BC70-79:value:16    = 13.641
+*option:BC70-79:value:17    = 9.399
+*option:BC70-79:value:18    = 14.5
+*option:BC70-79:value:19    = 10.0
+*option:BC70-79:value:20    = 13700
+*option:BC70-79:cost:total  =  0
 
 
 
@@ -486,7 +552,7 @@
 *option:DoubleLowESoftCoatArgFill:value:2 = DblLeScArg
 *option:DoubleLowESoftCoatArgFill:cost:total    = 0    ! Should this be zero?
 
-! Window B grom Patric's spreadsheet
+! Window B from Patric's spreadsheet
 *option:DoubleLowEHardCoatArgFill:value:1 = DblLeHcArg 
 *option:DoubleLowEHardCoatArgFill:value:2 = DblLeHcArg 
 *option:DoubleLowEHardCoatArgFill:cost:total    = 350 
@@ -527,6 +593,23 @@
 *option:PassiveHouse:value:1  =   PassiveHouse.aim
 *option:PassiveHouse:cost:total     =   3787.0
 
+*option:ON80-89:value:1       =   on80-89.aim
+*option:ON80-89:cost:total          =   0.0
+
+*option:ON70-79:value:1       =   on70-79.aim
+*option:ON70-79:cost:total          =   0.0
+
+*option:PQ80-89:value:1       =   pq80-89.aim
+*option:PQ80-89:cost:total          =   0.0
+
+*option:PQ70-79:value:1       =   pq70-79.aim
+*option:PQ70-79:cost:total          =   0.0
+
+*option:BC80-89:value:1       =   bc80-89.aim
+*option:BC80-89:cost:total          =   0.0
+
+*option:BC70-79:value:1       =   bc70-79.aim
+*option:BC70-79:cost:total          =   0.0
 
 *attribute:end
 

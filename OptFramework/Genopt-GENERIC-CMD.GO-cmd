@@ -63,13 +63,13 @@ Vary{
   
   //  Building Size
   Parameter{ //One of:
-             // 123m2
-             // 200m2
-			 // 206m2
+             // ON80-89
+             // ON70-79
+			 // PQ70-79
 			 
   Name   = GOtag:Opt-geometry;
   Ini    = 1;
-  Values = "206m2";
+  Values = "ON80-89";
   }
   
   
@@ -78,11 +78,14 @@ Vary{
    //   - TypicalGTA, 
    //   - R2000, 
    //   - Cdn1ACH, 
-   //   - PassiveHouse, 
+   //   - PassiveHouse,
+   //   - ON80-89,
+   //   - ON70-79,
+   //   - PQ70-79,   
    Parameter{   // 
      Name    =  GOtag:Opt-AirTightness;
      Ini     =  1;
-     Values  =  "R2000";
+     Values  =  "ON80-89";
      
    }    
    
