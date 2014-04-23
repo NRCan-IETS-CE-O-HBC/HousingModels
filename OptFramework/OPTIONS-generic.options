@@ -519,7 +519,138 @@
 *option:BC70-79:value:20    = 13700
 *option:BC70-79:cost:total  =  0
 
+*option:AB80-89:value:1     = 252.52
+*option:AB80-89:value:2     = 16
+*option:AB80-89:value:3     = 15.78
+*option:AB80-89:value:4     = 2.5
+*option:AB80-89:value:5     = 2.0
+*option:AB80-89:value:6     = 5.75
+*option:AB80-89:value:7     = 7.5
+*option:AB80-89:value:8     = 7.85
+*option:AB80-89:value:9     = 5.75
+*option:AB80-89:value:10    = 3.0
+*option:AB80-89:value:11    = 4.625
+*option:AB80-89:value:12    = 0.5
+*option:AB80-89:value:13    = 5.235
+*option:AB80-89:value:14    = 0.5
+*option:AB80-89:value:15    = 5.30
+*option:AB80-89:value:16    = 15.283
+*option:AB80-89:value:17    = 10.548
+*option:AB80-89:value:18    = 15.5
+*option:AB80-89:value:19    = 10.7
+*option:AB80-89:value:20    = 17300
+*option:AB80-89:cost:total  =  0
 
+*option:AB70-79:value:1     = 217.61
+*option:AB70-79:value:2     = 15.0
+*option:AB70-79:value:3     = 14.51
+*option:AB70-79:value:4     = 2.5
+*option:AB70-79:value:5     = 2.0
+*option:AB70-79:value:6     = 5.75
+*option:AB70-79:value:7     = 7.5
+*option:AB70-79:value:8     = 7.85
+*option:AB70-79:value:9     = 5.75
+*option:AB70-79:value:10    = 3.0
+*option:AB70-79:value:11    = 4.625
+*option:AB70-79:value:12    = 0.5
+*option:AB70-79:value:13    = 4.852
+*option:AB70-79:value:14    = 0.5
+*option:AB70-79:value:15    = 5.0
+*option:AB70-79:value:16    = 14.007
+*option:AB70-79:value:17    = 9.655
+*option:AB70-79:value:18    = 14.5
+*option:AB70-79:value:19    = 10.0
+*option:AB70-79:value:20    = 16500
+*option:AB70-79:cost:total  =  0
+
+*option:ATL80-89:value:1     = 206.94
+*option:ATL80-89:value:2     = 15
+*option:ATL80-89:value:3     = 13.8
+*option:ATL80-89:value:4     = 2.5
+*option:ATL80-89:value:5     = 2.0
+*option:ATL80-89:value:6     = 5.75
+*option:ATL80-89:value:7     = 7.5
+*option:ATL80-89:value:8     = 7.85
+*option:ATL80-89:value:9     = 5.75
+*option:ATL80-89:value:10    = 3.0
+*option:ATL80-89:value:11    = 4.625
+*option:ATL80-89:value:12    = 0.5
+*option:ATL80-89:value:13    = 4.639
+*option:ATL80-89:value:14    = 0.5
+*option:ATL80-89:value:15    = 5.00
+*option:ATL80-89:value:16    = 13.296
+*option:ATL80-89:value:17    = 9.157
+*option:ATL80-89:value:18    = 14.5
+*option:ATL80-89:value:19    = 10.0
+*option:ATL80-89:value:20    = 12000
+*option:ATL80-89:cost:total  =  0
+
+*option:ATL70-79:value:1     = 193.07
+*option:ATL70-79:value:2     = 14.0
+*option:ATL70-79:value:3     = 13.79
+*option:ATL70-79:value:4     = 2.5
+*option:ATL70-79:value:5     = 2.0
+*option:ATL70-79:value:6     = 5.75
+*option:ATL70-79:value:7     = 7.5
+*option:ATL70-79:value:8     = 7.85
+*option:ATL70-79:value:9     = 5.75
+*option:ATL70-79:value:10    = 3.0
+*option:ATL70-79:value:11    = 4.625
+*option:ATL70-79:value:12    = 0.5
+*option:ATL70-79:value:13    = 4.637
+*option:ATL70-79:value:14    = 0.5
+*option:ATL70-79:value:15    = 4.7
+*option:ATL70-79:value:16    = 13.291
+*option:ATL70-79:value:17    = 9.154
+*option:ATL70-79:value:18    = 13.5
+*option:ATL70-79:value:19    = 9.3
+*option:ATL70-79:value:20    = 12900
+*option:ATL70-79:cost:total  =  0
+
+
+*option:MBSK80-89:value:1     = 224.18
+*option:MBSK80-89:value:2     = 15
+*option:MBSK80-89:value:3     = 14.95
+*option:MBSK80-89:value:4     = 2.5
+*option:MBSK80-89:value:5     = 2.0
+*option:MBSK80-89:value:6     = 5.75
+*option:MBSK80-89:value:7     = 7.5
+*option:MBSK80-89:value:8     = 7.85
+*option:MBSK80-89:value:9     = 5.75
+*option:MBSK80-89:value:10    = 3.0
+*option:MBSK80-89:value:11    = 4.625
+*option:MBSK80-89:value:12    = 0.5
+*option:MBSK80-89:value:13    = 4.984
+*option:MBSK80-89:value:14    = 0.5
+*option:MBSK80-89:value:15    = 5.00
+*option:MBSK80-89:value:16    = 14.445
+*option:MBSK80-89:value:17    = 9.962
+*option:MBSK80-89:value:18    = 14.5
+*option:MBSK80-89:value:19    = 10.0
+*option:MBSK80-89:value:20    = 13600
+*option:MBSK80-89:cost:total  =  0
+
+*option:MBSK70-79:value:1     = 193.31
+*option:MBSK70-79:value:2     = 14.0
+*option:MBSK70-79:value:3     = 13.81
+*option:MBSK70-79:value:4     = 2.5
+*option:MBSK70-79:value:5     = 2.0
+*option:MBSK70-79:value:6     = 5.75
+*option:MBSK70-79:value:7     = 7.5
+*option:MBSK70-79:value:8     = 7.85
+*option:MBSK70-79:value:9     = 5.75
+*option:MBSK70-79:value:10    = 3.0
+*option:MBSK70-79:value:11    = 4.625
+*option:MBSK70-79:value:12    = 0.5
+*option:MBSK70-79:value:13    = 4.642
+*option:MBSK70-79:value:14    = 0.5
+*option:MBSK70-79:value:15    = 4.7
+*option:MBSK70-79:value:16    = 13.308
+*option:MBSK70-79:value:17    = 9.166
+*option:MBSK70-79:value:18    = 13.5
+*option:MBSK70-79:value:19    = 9.3
+*option:MBSK70-79:value:20    = 14100
+*option:MBSK70-79:cost:total  =  0
 
 *attribute:end
 
@@ -610,6 +741,24 @@
 
 *option:BC70-79:value:1       =   bc70-79.aim
 *option:BC70-79:cost:total          =   0.0
+
+*option:AB80-89:value:1       =   ab80-89.aim
+*option:AB80-89:cost:total          =   0.0
+
+*option:AB70-79:value:1       =   ab70-79.aim
+*option:AB70-79:cost:total          =   0.0
+
+*option:ATL80-89:value:1      =   atl80-89.aim
+*option:ATL80-89:cost:total         =   0.0
+
+*option:ATL70-79:value:1      =   atl70-79.aim
+*option:ATL70-79:cost:total         =   0.0
+
+*option:MBSK80-89:value:1     =   mbsk80-89.aim
+*option:MBSK80-89:cost:total         =   0.0
+
+*option:MBSK70-79:value:1     =   mbsk70-79.aim
+*option:MBSK70-79:cost:total         =   0.0
 
 *attribute:end
 

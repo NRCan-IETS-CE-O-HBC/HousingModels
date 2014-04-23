@@ -19,7 +19,7 @@ Opt-DBFiles           : CEF
 ! and compute an average result)
 GOconfig_rotate      : S
 
-Opt-Location : Vancouver
+Opt-Location : Montreal
 
 ! Assumptions about HRV operation . Not intended to be optimized!
 ! Recognized values: 
@@ -45,8 +45,14 @@ Opt-BackWindows      : NoExtraWin
 ! PQ80-89
 ! PQ70-79
 ! BC80-89
-! BC70-79   
-Opt-geometry      : BC80-89
+! BC70-79
+! AB80-89
+! AB70-79
+! ATL80-89
+! ATL70-79    
+! MBSK80-89
+! MBSK70-79  
+Opt-geometry      : PQ70-79
 
 Opt-OverhangWidth : BaseOverhang
 
@@ -66,8 +72,15 @@ Opt-ExtBasementWindow : No          ! Basement (back)
 !     PQ80-89
 !     PQ70-79
 !     BC80-89
-!     BC70-79                 
-Opt-AirTightness     :BC80-89
+!     BC70-79  
+!     AB80-89
+!     AB70-79  
+!     ATL80-89
+!     ATL70-79      
+!     MBSK80-89
+!     MBSK70-79  
+           
+Opt-AirTightness     :PQ70-79
 
 ! Main wall insulation 
 !  BaseR20
@@ -198,7 +211,7 @@ Opt-DHWSystem        : ElectricStorage
 !  CCASHP
 !  elec-baseboard
 
-Opt-HVACSystem       : basefurnace
+Opt-HVACSystem       : elec-baseboard
 
 ! HRV spec 
 
