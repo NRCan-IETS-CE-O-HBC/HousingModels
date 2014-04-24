@@ -10,7 +10,7 @@
     *name furnace
     *type furnace
     *priority primary
-    *fuel oil
+    *fuel gas
     *function heating
     *zone-links-start
     *zone-link 1 0.3 # Served zones and fraction
@@ -18,11 +18,11 @@
     *zone-links-end
     *sys-data-start
     
-        furnace-type 9
-        capacity 23153
-        efficiency 0.85
+        furnace-type 8
+        capacity 15000
+        efficiency 0.86
         circ-fan-mode 1
-        circ-fan-power 271.
+        circ-fan-power 140.0
         draft-fan-power 75. 
         pilot-power 0.
 
