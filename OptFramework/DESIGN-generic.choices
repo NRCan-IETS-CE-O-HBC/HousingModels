@@ -19,7 +19,7 @@ Opt-DBFiles           : CEF
 ! and compute an average result)
 GOconfig_rotate      : S
 
-Opt-Location : Montreal
+Opt-Location : Winnipeg
 
 ! Assumptions about HRV operation . Not intended to be optimized!
 ! Recognized values: 
@@ -40,19 +40,35 @@ Opt-FrontWindows     : NoExtraWin
 Opt-BackWindows      : NoExtraWin
 
 ! Geometry substitutions
-! ON80-89
-! ON70-79
-! PQ80-89
-! PQ70-79
-! BC80-89
-! BC70-79
-! AB80-89
-! AB70-79
-! ATL80-89
-! ATL70-79    
-! MBSK80-89
-! MBSK70-79  
-Opt-geometry      : PQ70-79
+! Toronto
+! Montreal
+! Vancouver
+! Alberta
+! Halifax
+! Prairie
+Opt-geometry      : Prairie
+
+
+! ACH substitutions
+! Calgary-gas
+! Edmonton-gas
+! Halifax-elec
+! Halifax-oil
+! Montreal-gas
+! Montreal-elec
+! Montreal-oil
+! Regina-gas
+! Toronto-elec
+! Toronto-oil
+! Toronto-gas
+! Vancouver-elec
+! Vancouver-gas
+! Winnipeg-elec
+! Winnipeg-gas
+
+Opt-ACH       : Winnipeg-gas
+
+
 
 Opt-OverhangWidth : BaseOverhang
 
@@ -67,20 +83,9 @@ Opt-ExtBasementWindow : No          ! Basement (back)
 !     TypicalGTA
 !     R2000
 !     Cdn1ACH
-!     ON80-89
-!     ON70-79
-!     PQ80-89
-!     PQ70-79
-!     BC80-89
-!     BC70-79  
-!     AB80-89
-!     AB70-79  
-!     ATL80-89
-!     ATL70-79      
-!     MBSK80-89
-!     MBSK70-79  
-           
-Opt-AirTightness     :PQ70-79
+!     Generic
+!
+Opt-AirTightness   : Generic
 
 ! Main wall insulation 
 !  BaseR20
@@ -207,11 +212,13 @@ Opt-RoofPitch : 8-12
 Opt-DHWSystem        : ElectricStorage
 
 ! HVAC system 
-!  basefurnace
-!  CCASHP
-!  elec-baseboard
+!  gas-furnace-low
+!  gas-furnace-mid
+!  baseboard-heating
+!  oil-furnace-low
+!  oil-furnace-mid
 
-Opt-HVACSystem       : elec-baseboard
+Opt-HVACSystem       : gas-furnace-mid
 
 ! HRV spec 
 
