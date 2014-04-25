@@ -362,7 +362,6 @@
 ! <win-wall-4-right> is the placement of the right-hand side of window 4.
 ! <win-wall-4-left> is the placement of the left-hand side of window 4.
 !
-! <OPT-heat-cool-cap> is the heating and cooling capacity used in the control (*.ctl) file
 !-----------------------------------------------------------------------  
 *attribute:start
 *attribute:name     = Opt-geometry
@@ -385,278 +384,190 @@
 *attribute:tag:17   = <win-wall-3-left>
 *attribute:tag:18   = <win-wall-4-right>
 *attribute:tag:19   = <win-wall-4-left>
-*attribute:tag:20   = <OPT-heat-cool-cap>
-
-*option:ON80-89:value:1    = 275.5
-*option:ON80-89:value:2    = 18
-*option:ON80-89:value:3    = 15.31
-*option:ON80-89:value:4    = 2.5
-*option:ON80-89:value:5    = 2.0
-*option:ON80-89:value:6    = 5.75
-*option:ON80-89:value:7    = 9
-*option:ON80-89:value:8    = 7.85
-*option:ON80-89:value:9    = 5.75
-*option:ON80-89:value:10    = 3
-*option:ON80-89:value:11    = 4.625
-*option:ON80-89:value:12    = 0.5
-*option:ON80-89:value:13    = 5.092
-*option:ON80-89:value:14    = 0.5
-*option:ON80-89:value:15    = 5.90
-*option:ON80-89:value:16    = 14.806
-*option:ON80-89:value:17    = 10.214
-*option:ON80-89:value:18    = 17.5
-*option:ON80-89:value:19    = 12.10
-*option:ON80-89:value:20    = 14000
-*option:ON80-89:cost:total  = 0
-
-*option:ON70-79:value:1     = 216.21
-*option:ON70-79:value:2     = 15.
-*option:ON70-79:value:3     = 14.41
-*option:ON70-79:value:4     = 2.5
-*option:ON70-79:value:5     = 2.0
-*option:ON70-79:value:6     = 5.75
-*option:ON70-79:value:7     = 7.5
-*option:ON70-79:value:8     = 7.85
-*option:ON70-79:value:9     = 5.75
-*option:ON70-79:value:10    = 3.0
-*option:ON70-79:value:11    = 4.625
-*option:ON70-79:value:12    = 0.5
-*option:ON70-79:value:13    = 4.824
-*option:ON70-79:value:14    = 0.5
-*option:ON70-79:value:15    = 5.00
-*option:ON70-79:value:16    = 13.914
-*option:ON70-79:value:17    = 9.590
-*option:ON70-79:value:18    = 14.5
-*option:ON70-79:value:19    = 10.0
-*option:ON70-79:value:20    = 14100
-*option:ON70-79:cost:total  =  0
-
-*option:PQ80-89:value:1     = 213.25
-*option:PQ80-89:value:2     = 15.0
-*option:PQ80-89:value:3     = 14.22
-*option:PQ80-89:value:4     = 2.5
-*option:PQ80-89:value:5     = 2.0
-*option:PQ80-89:value:6     = 5.75
-*option:PQ80-89:value:7     = 7.5
-*option:PQ80-89:value:8     = 7.85
-*option:PQ80-89:value:9     = 5.75
-*option:PQ80-89:value:10    = 3.0
-*option:PQ80-89:value:11    = 4.625
-*option:PQ80-89:value:12    = 0.5
-*option:PQ80-89:value:13    = 4.765
-*option:PQ80-89:value:14    = 0.5
-*option:PQ80-89:value:15    = 5.0
-*option:PQ80-89:value:16    = 13.717
-*option:PQ80-89:value:17    = 9.452
-*option:PQ80-89:value:18    = 14.5
-*option:PQ80-89:value:19    = 10.0
-*option:PQ80-89:value:20    = 13600
-*option:PQ80-89:cost:total  =  0
-
-*option:PQ70-79:value:1     = 191.58
-*option:PQ70-79:value:2     = 14.0
-*option:PQ70-79:value:3     = 13.68
-*option:PQ70-79:value:4     = 2.5
-*option:PQ70-79:value:5     = 2.0
-*option:PQ70-79:value:6     = 5.75
-*option:PQ70-79:value:7     = 7.5
-*option:PQ70-79:value:8     = 7.85
-*option:PQ70-79:value:9     = 5.75
-*option:PQ70-79:value:10    = 3.0
-*option:PQ70-79:value:11    = 4.625
-*option:PQ70-79:value:12    = 0.5
-*option:PQ70-79:value:13    = 4.605
-*option:PQ70-79:value:14    = 0.5
-*option:PQ70-79:value:15    = 4.7
-*option:PQ70-79:value:16    = 13.184
-*option:PQ70-79:value:17    = 9.079
-*option:PQ70-79:value:18    = 13.5
-*option:PQ70-79:value:19    = 9.3
-*option:PQ70-79:value:20    = 13900
-*option:PQ70-79:cost:total  =  0
-
-*option:BC80-89:value:1     = 235.5
-*option:BC80-89:value:2     = 15.45
-*option:BC80-89:value:3     = 15.24
-*option:BC80-89:value:4     = 2.5
-*option:BC80-89:value:5     = 2.0
-*option:BC80-89:value:6     = 5.75
-*option:BC80-89:value:7     = 7.5
-*option:BC80-89:value:8     = 7.85
-*option:BC80-89:value:9     = 5.75
-*option:BC80-89:value:10    = 3.0
-*option:BC80-89:value:11    = 4.625
-*option:BC80-89:value:12    = 0.5
-*option:BC80-89:value:13    = 5.073
-*option:BC80-89:value:14    = 0.5
-*option:BC80-89:value:15    = 5.135
-*option:BC80-89:value:16    = 14.743
-*option:BC80-89:value:17    = 10.170
-*option:BC80-89:value:18    = 14.95
-*option:BC80-89:value:19    = 10.315
-*option:BC80-89:value:20    = 13000
-*option:BC80-89:cost:total  =  0
-
-*option:BC70-79:value:1     = 212.12
-*option:BC70-79:value:2     = 15.0
-*option:BC70-79:value:3     = 14.14
-*option:BC70-79:value:4     = 2.5
-*option:BC70-79:value:5     = 2.0
-*option:BC70-79:value:6     = 5.75
-*option:BC70-79:value:7     = 7.5
-*option:BC70-79:value:8     = 7.85
-*option:BC70-79:value:9     = 5.75
-*option:BC70-79:value:10    = 3.0
-*option:BC70-79:value:11    = 4.625
-*option:BC70-79:value:12    = 0.5
-*option:BC70-79:value:13    = 4.742
-*option:BC70-79:value:14    = 0.5
-*option:BC70-79:value:15    = 5.0
-*option:BC70-79:value:16    = 13.641
-*option:BC70-79:value:17    = 9.399
-*option:BC70-79:value:18    = 14.5
-*option:BC70-79:value:19    = 10.0
-*option:BC70-79:value:20    = 13700
-*option:BC70-79:cost:total  =  0
-
-*option:AB80-89:value:1     = 252.52
-*option:AB80-89:value:2     = 16
-*option:AB80-89:value:3     = 15.78
-*option:AB80-89:value:4     = 2.5
-*option:AB80-89:value:5     = 2.0
-*option:AB80-89:value:6     = 5.75
-*option:AB80-89:value:7     = 7.5
-*option:AB80-89:value:8     = 7.85
-*option:AB80-89:value:9     = 5.75
-*option:AB80-89:value:10    = 3.0
-*option:AB80-89:value:11    = 4.625
-*option:AB80-89:value:12    = 0.5
-*option:AB80-89:value:13    = 5.235
-*option:AB80-89:value:14    = 0.5
-*option:AB80-89:value:15    = 5.30
-*option:AB80-89:value:16    = 15.283
-*option:AB80-89:value:17    = 10.548
-*option:AB80-89:value:18    = 15.5
-*option:AB80-89:value:19    = 10.7
-*option:AB80-89:value:20    = 17300
-*option:AB80-89:cost:total  =  0
-
-*option:AB70-79:value:1     = 217.61
-*option:AB70-79:value:2     = 15.0
-*option:AB70-79:value:3     = 14.51
-*option:AB70-79:value:4     = 2.5
-*option:AB70-79:value:5     = 2.0
-*option:AB70-79:value:6     = 5.75
-*option:AB70-79:value:7     = 7.5
-*option:AB70-79:value:8     = 7.85
-*option:AB70-79:value:9     = 5.75
-*option:AB70-79:value:10    = 3.0
-*option:AB70-79:value:11    = 4.625
-*option:AB70-79:value:12    = 0.5
-*option:AB70-79:value:13    = 4.852
-*option:AB70-79:value:14    = 0.5
-*option:AB70-79:value:15    = 5.0
-*option:AB70-79:value:16    = 14.007
-*option:AB70-79:value:17    = 9.655
-*option:AB70-79:value:18    = 14.5
-*option:AB70-79:value:19    = 10.0
-*option:AB70-79:value:20    = 16500
-*option:AB70-79:cost:total  =  0
-
-*option:ATL80-89:value:1     = 206.94
-*option:ATL80-89:value:2     = 15
-*option:ATL80-89:value:3     = 13.8
-*option:ATL80-89:value:4     = 2.5
-*option:ATL80-89:value:5     = 2.0
-*option:ATL80-89:value:6     = 5.75
-*option:ATL80-89:value:7     = 7.5
-*option:ATL80-89:value:8     = 7.85
-*option:ATL80-89:value:9     = 5.75
-*option:ATL80-89:value:10    = 3.0
-*option:ATL80-89:value:11    = 4.625
-*option:ATL80-89:value:12    = 0.5
-*option:ATL80-89:value:13    = 4.639
-*option:ATL80-89:value:14    = 0.5
-*option:ATL80-89:value:15    = 5.00
-*option:ATL80-89:value:16    = 13.296
-*option:ATL80-89:value:17    = 9.157
-*option:ATL80-89:value:18    = 14.5
-*option:ATL80-89:value:19    = 10.0
-*option:ATL80-89:value:20    = 12000
-*option:ATL80-89:cost:total  =  0
-
-*option:ATL70-79:value:1     = 193.07
-*option:ATL70-79:value:2     = 14.0
-*option:ATL70-79:value:3     = 13.79
-*option:ATL70-79:value:4     = 2.5
-*option:ATL70-79:value:5     = 2.0
-*option:ATL70-79:value:6     = 5.75
-*option:ATL70-79:value:7     = 7.5
-*option:ATL70-79:value:8     = 7.85
-*option:ATL70-79:value:9     = 5.75
-*option:ATL70-79:value:10    = 3.0
-*option:ATL70-79:value:11    = 4.625
-*option:ATL70-79:value:12    = 0.5
-*option:ATL70-79:value:13    = 4.637
-*option:ATL70-79:value:14    = 0.5
-*option:ATL70-79:value:15    = 4.7
-*option:ATL70-79:value:16    = 13.291
-*option:ATL70-79:value:17    = 9.154
-*option:ATL70-79:value:18    = 13.5
-*option:ATL70-79:value:19    = 9.3
-*option:ATL70-79:value:20    = 12900
-*option:ATL70-79:cost:total  =  0
 
 
-*option:MBSK80-89:value:1     = 224.18
-*option:MBSK80-89:value:2     = 15
-*option:MBSK80-89:value:3     = 14.95
-*option:MBSK80-89:value:4     = 2.5
-*option:MBSK80-89:value:5     = 2.0
-*option:MBSK80-89:value:6     = 5.75
-*option:MBSK80-89:value:7     = 7.5
-*option:MBSK80-89:value:8     = 7.85
-*option:MBSK80-89:value:9     = 5.75
-*option:MBSK80-89:value:10    = 3.0
-*option:MBSK80-89:value:11    = 4.625
-*option:MBSK80-89:value:12    = 0.5
-*option:MBSK80-89:value:13    = 4.984
-*option:MBSK80-89:value:14    = 0.5
-*option:MBSK80-89:value:15    = 5.00
-*option:MBSK80-89:value:16    = 14.445
-*option:MBSK80-89:value:17    = 9.962
-*option:MBSK80-89:value:18    = 14.5
-*option:MBSK80-89:value:19    = 10.0
-*option:MBSK80-89:value:20    = 13600
-*option:MBSK80-89:cost:total  =  0
+*option:Toronto:value:1    = 235.07
+*option:Toronto:value:2    = 15.5
+*option:Toronto:value:3    = 15.17
+*option:Toronto:value:4    = 2.5
+*option:Toronto:value:5    = 2.0
+*option:Toronto:value:6    = 5.75
+*option:Toronto:value:7    = 7.75
+*option:Toronto:value:8    = 7.85
+*option:Toronto:value:9    = 5.75
+*option:Toronto:value:10   = 3
+*option:Toronto:value:11   = 4.625
+*option:Toronto:value:12   = 0.5
+*option:Toronto:value:13   = 5.050
+*option:Toronto:value:14   = 0.5
+*option:Toronto:value:15   = 5.150
+*option:Toronto:value:16   = 14.665
+*option:Toronto:value:17   = 10.116
+*option:Toronto:value:18   = 15.0
+*option:Toronto:value:19   = 10.35
+*option:Toronto:cost:total = 0
 
-*option:MBSK70-79:value:1     = 193.31
-*option:MBSK70-79:value:2     = 14.0
-*option:MBSK70-79:value:3     = 13.81
-*option:MBSK70-79:value:4     = 2.5
-*option:MBSK70-79:value:5     = 2.0
-*option:MBSK70-79:value:6     = 5.75
-*option:MBSK70-79:value:7     = 7.5
-*option:MBSK70-79:value:8     = 7.85
-*option:MBSK70-79:value:9     = 5.75
-*option:MBSK70-79:value:10    = 3.0
-*option:MBSK70-79:value:11    = 4.625
-*option:MBSK70-79:value:12    = 0.5
-*option:MBSK70-79:value:13    = 4.642
-*option:MBSK70-79:value:14    = 0.5
-*option:MBSK70-79:value:15    = 4.7
-*option:MBSK70-79:value:16    = 13.308
-*option:MBSK70-79:value:17    = 9.166
-*option:MBSK70-79:value:18    = 13.5
-*option:MBSK70-79:value:19    = 9.3
-*option:MBSK70-79:value:20    = 14100
-*option:MBSK70-79:cost:total  =  0
+*option:Montreal:value:1   = 202.42
+*option:Montreal:value:2   = 14.5
+*option:Montreal:value:3   = 13.96
+*option:Montreal:value:4   = 2.5
+*option:Montreal:value:5   = 2.0
+*option:Montreal:value:6   = 5.75
+*option:Montreal:value:7   = 7.25
+*option:Montreal:value:8   = 7.85
+*option:Montreal:value:9   = 5.75
+*option:Montreal:value:10  = 3.0
+*option:Montreal:value:11  = 4.625
+*option:Montreal:value:12  = 0.5
+*option:Montreal:value:13  = 4.688
+*option:Montreal:value:14  = 0.5
+*option:Montreal:value:15  = 4.850
+*option:Montreal:value:16  = 13.460
+*option:Montreal:value:17  = 9.272
+*option:Montreal:value:18  = 14.0
+*option:Montreal:value:19  = 9.650
+*option:Montreal:cost:total = 0
+
+*option:Vancouver:value:1   = 223.81
+*option:Vancouver:value:2   = 15.0
+*option:Vancouver:value:3   = 14.92
+*option:Vancouver:value:4   = 2.5
+*option:Vancouver:value:5   = 2.0
+*option:Vancouver:value:6   = 5.75
+*option:Vancouver:value:7   = 7.5
+*option:Vancouver:value:8   = 7.85
+*option:Vancouver:value:9   = 5.75
+*option:Vancouver:value:10  = 3.0
+*option:Vancouver:value:11  = 4.625
+*option:Vancouver:value:12  = 0.5
+*option:Vancouver:value:13  = 4.976
+*option:Vancouver:value:14  = 0.5
+*option:Vancouver:value:15  = 5.000
+*option:Vancouver:value:16  = 14.421
+*option:Vancouver:value:17  = 9.944
+*option:Vancouver:value:18  = 14.5
+*option:Vancouver:value:19  = 10.0
+*option:Vancouver:cost:total = 0
+
+*option:Alberta:value:1     = 235.07
+*option:Alberta:value:2     = 15.5
+*option:Alberta:value:3     = 15.17
+*option:Alberta:value:4     = 2.5
+*option:Alberta:value:5     = 2.0
+*option:Alberta:value:6     = 5.75
+*option:Alberta:value:7     = 7.75
+*option:Alberta:value:8     = 7.85
+*option:Alberta:value:9     = 5.75
+*option:Alberta:value:10    = 3.0
+*option:Alberta:value:11    = 4.625
+*option:Alberta:value:12    = 0.5
+*option:Alberta:value:13    = 5.050
+*option:Alberta:value:14    = 0.5
+*option:Alberta:value:15    = 5.150
+*option:Alberta:value:16    = 14.665
+*option:Alberta:value:17    = 10.116
+*option:Alberta:value:18    = 15
+*option:Alberta:value:19    = 10.35
+*option:Alberta:cost:total  =  0
+
+*option:Halifax:value:1     = 200
+*option:Halifax:value:2     = 15.0
+*option:Halifax:value:3     = 13.33
+*option:Halifax:value:4     = 2.5
+*option:Halifax:value:5     = 2.0
+*option:Halifax:value:6     = 5.75
+*option:Halifax:value:7     = 7.5
+*option:Halifax:value:8     = 7.85
+*option:Halifax:value:9     = 5.75
+*option:Halifax:value:10    = 3.0
+*option:Halifax:value:11    = 4.625
+*option:Halifax:value:12    = 0.5
+*option:Halifax:value:13    = 4.5
+*option:Halifax:value:14    = 0.5
+*option:Halifax:value:15    = 5.00
+*option:Halifax:value:16    = 12.833
+*option:Halifax:value:17    = 8.833
+*option:Halifax:value:18    = 14.5
+*option:Halifax:value:19    = 10.00
+*option:Halifax:cost:total  =  0
+
+*option:Prairie:value:1     = 208.75
+*option:Prairie:value:2     = 14.5
+*option:Prairie:value:3     = 14.40
+*option:Prairie:value:4     = 2.5
+*option:Prairie:value:5     = 2.0
+*option:Prairie:value:6     = 5.75
+*option:Prairie:value:7     = 7.25
+*option:Prairie:value:8     = 7.85
+*option:Prairie:value:9     = 5.75
+*option:Prairie:value:10    = 3.0
+*option:Prairie:value:11    = 4.625
+*option:Prairie:value:12    = 0.5
+*option:Prairie:value:13    = 4.819
+*option:Prairie:value:14    = 0.5
+*option:Prairie:value:15    = 4.85
+*option:Prairie:value:16    = 13.896
+*option:Prairie:value:17    = 9.577
+*option:Prairie:value:18    = 14.0
+*option:Prairie:value:19    = 9.65
+*option:Prairie:cost:total  =  0
 
 *attribute:end
 
+!-----------------------------------------------------------------------
+! This option sets the ACH in the AIM-2 input file for the case 
+! being considered.
+!-----------------------------------------------------------------------
+*attribute:start
+*attribute:name     = Opt-ACH
+*attribute:tag:1    = <Opt-ACH>
 
+*option:Calgary-gas:value:1   = 5.0275
+*option:Calgary-gas:cost:total  =  0
 
+*option:Edmonton-gas:value:1  = 4.91
+*option:Edmonton-gas:cost:total  =  0
 
+*option:Halifax-elec:value:1  = 4.39250
+*option:Halifax-elec:cost:total  =  0
+
+*option:Halifax-oil:value:1   = 7.853
+*option:Halifax-oil:cost:total   =  0
+
+*option:Montreal-gas:value:1   = 4.525
+*option:Montreal-gas:cost:total  =  0
+
+*option:Montreal-elec:value:1   = 3.25
+*option:Montreal-elec:cost:total  =  0
+
+*option:Montreal-oil:value:1   = 3.325
+*option:Montreal-oil:cost:total  =  0
+
+*option:Regina-gas:value:1  =  3.018
+*option:Regina-gas:cost:total  =  0
+
+*option:Toronto-elec:value:1  = 3.4075
+*option:Toronto-elec:cost:total  =  0
+
+*option:Toronto-gas:value:1   = 5.6975
+*option:Toronto-gas:cost:total   =  0
+
+*option:Toronto-oil:value:1   = 7.895
+*option:Toronto-oil:cost:total   =  0
+
+*option:Vancouver-elec:value:1  = 3.915
+*option:Vancouver-elec:cost:total  =  0
+
+*option:Vancouver-gas:value:1  = 13.050
+*option:Vancouver-gas:cost:total  =  0
+
+*option:Winnipeg-elec:value:1  = 1.38
+*option:Winnipeg-elec:cost:total  =  0
+
+*option:Winnipeg-gas:value:1  = 2.895
+*option:Winnipeg-gas:cost:total  =  0
+
+*attribute:end
 
 !-----------------------------------------------------------------------
 ! This option sets the optical and thermal characteristics of 
@@ -724,41 +635,8 @@
 *option:PassiveHouse:value:1  =   PassiveHouse.aim
 *option:PassiveHouse:cost:total     =   3787.0
 
-*option:ON80-89:value:1       =   on80-89.aim
-*option:ON80-89:cost:total          =   0.0
-
-*option:ON70-79:value:1       =   on70-79.aim
-*option:ON70-79:cost:total          =   0.0
-
-*option:PQ80-89:value:1       =   pq80-89.aim
-*option:PQ80-89:cost:total          =   0.0
-
-*option:PQ70-79:value:1       =   pq70-79.aim
-*option:PQ70-79:cost:total          =   0.0
-
-*option:BC80-89:value:1       =   bc80-89.aim
-*option:BC80-89:cost:total          =   0.0
-
-*option:BC70-79:value:1       =   bc70-79.aim
-*option:BC70-79:cost:total          =   0.0
-
-*option:AB80-89:value:1       =   ab80-89.aim
-*option:AB80-89:cost:total          =   0.0
-
-*option:AB70-79:value:1       =   ab70-79.aim
-*option:AB70-79:cost:total          =   0.0
-
-*option:ATL80-89:value:1      =   atl80-89.aim
-*option:ATL80-89:cost:total         =   0.0
-
-*option:ATL70-79:value:1      =   atl70-79.aim
-*option:ATL70-79:cost:total         =   0.0
-
-*option:MBSK80-89:value:1     =   mbsk80-89.aim
-*option:MBSK80-89:cost:total         =   0.0
-
-*option:MBSK70-79:value:1     =   mbsk70-79.aim
-*option:MBSK70-79:cost:total         =   0.0
+*option:Generic:value:1       =   generic.aim
+*option:Generic:cost:total          =   0
 
 *attribute:end
 
@@ -1097,7 +975,6 @@
 *option:basefurnace:value:2 = #-no-GSHP-file
 *option:basefurnace:cost:total    = 0
 
-
 *option:elec-baseboard:value:1 = Baseboardv2.hvac
 *option:elec-baseboard:value:2 = #-no-GSHP-file
 *option:elec-baseboard:cost:total       = -4950	! ElecHeat tab in PL spreadsheet
@@ -1106,10 +983,31 @@
 *option:CCASHP:value:2      = #-no-GSHP-file
 *option:CCASHP:cost:total   = 5605	! CCAHP tab in PL WinnArchFS_Costs sheet. 
 
-
 *option:GSHP:value:1      = GSHPv2.hvac
 *option:GSHP:value:2      = *gshp~../hvac/heatx_v1.gshp
 *option:GSHP:cost:total    = 19490		! GSHP tab in PL spreadsheet
+
+! Options for VP retrofit options
+*option:gas-furnace-low:value:1 = gas-furnace-low-eff.hvac
+*option:gas-furnace-low:value:2 = #-no-GSHP-file
+*option:gas-furnace-low:cost:total    = 0
+
+*option:gas-furnace-mid:value:1 = gas-furnace-mid-eff.hvac
+*option:gas-furnace-mid:value:2 = #-no-GSHP-file
+*option:gas-furnace-mid:cost:total    = 0
+
+*option:baseboard-heating:value:1 = baseboard-heating.hvac
+*option:baseboard-heating:value:2 = #-no-GSHP-file
+*option:baseboard-heating:cost:total    = 0
+
+*option:oil-furnace-mid:value:1 = oil-furnace-mid-eff.hvac
+*option:oil-furnace-mid:value:2 = #-no-GSHP-file
+*option:oil-furnace-mid:cost:total    = 0
+
+*option:oil-furnace-low:value:1 = oil-furnace-low-eff.hvac
+*option:oil-furnace-low:value:2 = #-no-GSHP-file
+*option:oil-furnace-low:cost:total    = 0
+
 
 *attribute:end
 
