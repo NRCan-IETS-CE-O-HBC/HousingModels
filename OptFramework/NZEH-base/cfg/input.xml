@@ -58,6 +58,12 @@
   <step_variable>climate*</step_variable>
   
   <step_variable>building/zone_*/surface_*/heat_flux/radiation/shortwave/unit_area</step_variable>
+  <step_variable>building/zone_*/air_point/relative_humidity</step_variable>
+  <step_variable>building/zone_*/air_point/relative_humidity</step_variable>
+  <step_variable>plant/ideal_hvac_models/component_*/coil_load/cooling/*</step_variable>
+  
+  
+  
   <!-- -->
   
   <step_variable>plant/ideal_DHW_model/delivery_temperature</step_variable> 
