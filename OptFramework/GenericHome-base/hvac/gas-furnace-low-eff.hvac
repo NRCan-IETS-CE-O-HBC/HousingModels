@@ -1,0 +1,31 @@
+*idealized-hvac
+*version 2
+#------------------------
+# Site altitude
+#------------------------
+*site-altitude 0.0
+# ----------- Back-up -------------------
+*system-start
+
+    *name furnace
+    *type furnace
+    *priority primary
+    *fuel gas
+    *function heating
+    *zone-links-start
+    *zone-link 1 0.3 # Served zones and fraction
+    *zone-link 2 0.7 #
+    *zone-links-end
+    *sys-data-start
+    
+        furnace-type 8
+        capacity 15000
+        efficiency 0.83
+        circ-fan-mode 1
+        circ-fan-power 140.0
+        draft-fan-power 75. 
+        pilot-power 0.
+
+    *sys-data-end
+    *fan-ctl-loop 1
+*system-end

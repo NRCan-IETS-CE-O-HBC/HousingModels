@@ -9,8 +9,6 @@ use Cwd;
 use Cwd 'chdir';
 use File::Find;
 use Math::Trig;
-use File::Copy::Recursive qw(fcopy rcopy dircopy fmove rmove dirmove); 
-
 
 sub UpdateCon();
 sub runsims($);
@@ -31,17 +29,14 @@ my %gTest_params;          # test parameters
 my $gChoiceFile  = ""; 
 my $gOptionFile  = "" ; 
 
-
-
 my $gBPSpath            = "~/esp-r/bin/bps"; 
 my $gPRJpath            = "~/esp-r/bin/prj"; 
 
 # $gBaseModelFolder initialized here but can be over-ridden by command line value with -b option
-my $gBaseModelFolder     = "MB-LEEP-Base";
-my $gBaseModelFolderName = "MB-LEEP-Base";
+my $gBaseModelFolder    = "GenericHome-base";
 my $gWorkingModelFolder = "MODEL-work"; 
 my $gWorkingCfgPath     = "$gWorkingModelFolder/cfg";
-my $gModelCfgFile       = "MB-LEEP-Base.cfg";
+my $gModelCfgFile       = "generic-base.cfg";
 
 my $gTotalCost          = 0; 
 my $gIncBaseCosts       = 11727; 
@@ -118,6 +113,7 @@ my @search_these_exts=( "cfg",
                         "constrdb",
                         "cnn",
                         "enf",
+						"bsm",
                         "dhw"
                       );
                        
@@ -197,7 +193,6 @@ print @processed_args;
 
 # Interpret arguments
 foreach $arg (@processed_args){
-  debug_out ("> processing : $arg\n"); 
   SWITCH:
   {
     if ( $arg =~/^--help/ ){
@@ -278,36 +273,20 @@ foreach $arg (@processed_args){
       # Base folder name overrides initialized value (at top)
       $gBaseModelFolder = $arg;
       $gBaseModelFolder =~ s/--base_folder://g;
+      $gModelCfgFile = "$gBaseModelFolder.cfg"; 
       
-      if ( $gBaseModelFolder =~ /\:/ ) {
-        
-        debug_out ("conv. 2 unix :> $gBaseModelFolder ->\n" ); 
-        $gBaseModelFolder =~ s/^.\://g; 
-        $gBaseModelFolder =~ s/\\/\//g; 
-        $gBaseModelFolder =~ s/\/cygwin//g; 
-        debug_out (" -> $gBaseModelFolder \n; " ); 
-      }
-      
-      
-      $gBaseModelFolderName = $gBaseModelFolder; 
-      $gBaseModelFolderName =~ s/^(.*)\///g; 
-      $gBaseModelFolderName =~ s/^(.*)\\//g; 
-      
-      $gModelCfgFile = "$gBaseModelFolderName.cfg"; 
-       
-      stream_out (" >2> BASE FOLDER: $gBaseModelFolder  / $gBaseModelFolderName \n"); 
 
       if ( ! $gBaseModelFolder ){
-         fatalerror("Base folder name missing after --base_folder (or -b) option!");
+        fatalerror("Base folder name missing after --base_folder (or -b) option!");
       }
       if (! -d "$gBaseModelFolder"){ 
 		fatalerror("Base folder does not exist - create and populate folder first!");
 	  }
-      stream_out(" done\n"); 
+
 	  last SWITCH;
     }
     
- 
+    
     
     
     
@@ -328,28 +307,13 @@ my $gPRJZoneConCmd      = "$gPRJpath -mode text -file $gModelCfgFile -act update
 my $gPRJZoneRotCmd      = "$gPRJpath -mode text -file $gModelCfgFile -act rotate ";
 my $gBPScmd             = "$gBPSpath -h3k -file $gModelCfgFile -mode text -p fullyear silent";
    
-stream_out ( "Looking for $gBaseModelFolderName\n");   
-
-
-
-if ( ! -d "./$gBaseModelFolderName" ){ stream_out ("Can't find 1 $gBaseModelFolderName ($gBaseModelFolder)\n"); }
    
 # Create base folder for working model
-
-if (! -d "$gBaseModelFolderName" ){ 
-  
-  my $prefix = ""; 
-  if ( ! -d $gBaseModelFolder ) { $prefix = "../"; } 
-  my $target = "$prefix"."$gBaseModelFolder"; 
-  my $dir = getcwd();  
-  stream_out ("> Copying $target to $gBaseModelFolderName .\ \n"); 
-  dircopy( $target, "$dir/$gBaseModelFolderName") or die (" Could not copy $gBaseModelFolder -> $dir/$gBaseModelFolderName\n") ; 
-  #execute ("cp -fr $gBaseModelFolder ./");
+if (! -d "$gBaseModelFolder" && -d "../$gBaseModelFolder" ){ 
+  execute ("cp -fr ../$gBaseModelFolder ./");
 }
 
-   
-if ( ! -d "$gBaseModelFolderName" ){ stream_out ("Can't find 2 $gBaseModelFolderName\n"); }
-   
+
 
 if (! -r "$gOptionFile" && -r "../$gOptionFile" ){ 
   execute ("cp ../$gOptionFile ./");
@@ -360,6 +324,8 @@ stream_out (" > substitute.pl path: $master_path \n");
 stream_out (" >               ChoiceFile: $gChoiceFile \n");
 stream_out (" >               OptionFile: $gOptionFile \n");
 stream_out (" >               base model: $gBaseModelFolder \n"); 
+
+
 
 
 # Parse option file. This file defines the available choices and costs
@@ -660,7 +626,7 @@ while ( my $line = <CHOICES> ){
     if ( $attribute =~ /^GOconfig_/ ){
       $attribute =~ s/^GOconfig_//g; 
       if ( $attribute =~ /rotate/ ) { $gRotate = $value; } 
-      if ( $attribute =~ /step/ )   { $gGOStep = $value; 
+      if ( $attribute =~ /step/ ) { $gGOStep = $value; 
                                       $gArchGOChoiceFile = 1;  } 
     }else{
       my $extradata = $value; 
@@ -1184,21 +1150,15 @@ my $gAvgOilCons_l       = 0;
 my $gAvgPropCons_l      = 0; 
 
 UpdateCon();  
-
-my $gDirection; 
-
+ 
 for my $Direction  ( @Orientations ){
 
-   $gDirection = $Direction; 
-   
-   debug_out ("> Orientation: $Direction\n"); 
-   debug_out ("> Invoking runsims with Angle ".$angles{$Direction}."\n"); 
    if ( ! $gSkipSims ) { runsims( $angles{$Direction} ); }
-   
-   postprocess($ScaleResults);
+
+    
+    postprocess($ScaleResults);
 
 }
- 
 
 $gAvgCost_Total   = $gAvgCost_Electr + $gAvgCost_NatGas + $gAvgCost_Propane + $gAvgCost_Oil ;
 
@@ -1372,10 +1332,8 @@ sub UpdateCon(){
 
 sub runsims($){
 
-  my ( $RotationAngle ) = @_;
+  my ($RotationAngle) = @_;
 
-  debug_out ("RUNSIMS called with angle $RotationAngle \n"); 
-  
   # Save rotation angle for reporting
   $gRotationAngle = $RotationAngle; 
   
@@ -1820,15 +1778,13 @@ sub postprocess($){
   close (TSRESULTS);
 
   my $Locale = $gChoices{"Opt-Location"}; 
- 
   
-  fcopy ( "out.csv","$gMasterPath/../VP-sim-output/$Locale-$gDirection-out.csv" );  
   
   if ( $gCustomCostAdjustment ) { 
   
     $gRegionalCostAdj = $gCostAdjustmentFactor; 
   
-  }else{ 
+  }else{
   
     $gRegionalCostAdj = $RegionalCostFactors{$Locale};
     
