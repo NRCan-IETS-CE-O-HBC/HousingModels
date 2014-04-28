@@ -19,7 +19,7 @@ Opt-DBFiles           : CEF
 ! and compute an average result)
 GOconfig_rotate      : S
 
-Opt-Location : Winnipeg
+Opt-Location : Montreal
 
 ! Assumptions about HRV operation . Not intended to be optimized!
 ! Recognized values: 
@@ -46,7 +46,7 @@ Opt-BackWindows      : NoExtraWin
 ! Alberta
 ! Halifax
 ! Prairie
-Opt-geometry      : Prairie
+Opt-geometry      : Montreal
 
 
 ! ACH substitutions
@@ -66,7 +66,7 @@ Opt-geometry      : Prairie
 ! Winnipeg-elec
 ! Winnipeg-gas
 
-Opt-ACH       : Winnipeg-gas
+Opt-ACH       : Montreal-gas
 
 
 
@@ -218,7 +218,7 @@ Opt-DHWSystem        : ElectricStorage
 !  oil-furnace-low
 !  oil-furnace-mid
 
-Opt-HVACSystem       : gas-furnace-mid
+Opt-HVACSystem       : gas-furnace-low
 
 ! HRV spec 
 

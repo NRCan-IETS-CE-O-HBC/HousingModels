@@ -345,47 +345,229 @@
 ! <Opt-Main-Height> the height at the top of the main floor walls
 ! <Opt-Roof-Peak-W> is the width at the peak of the roof = 1/2 of the building width
 ! <Opt-Roof-Height> the height at the top of the roof peak
+! <Opt-Eave-Height> is the height of the eaves = <Opt-Main-Height> - <Opt-Bsm-Depth>
+!
+! The following 10 variables need to be calculated in the accompanying spreadsheet
+! GenericModel Window size calculation.xlsx
+! <win-bottom> is the bottom surface height of the windows. All windows are offset by .5m from the first floor level
+! <win-top> is the calculated top surface height of the window. The window height is calculated
+!           based on a 15% window to wall ratio
+! <win-wall-1-right> is the placement of the right-hand side of window 1. All values of left and right are 
+!           based on the perspective of looking directly at the window from the outside of the house.  
+! <win-wall-1-left> is the placement of the left-hand side of window 1.
+! <win-wall-2-right> is the placement of the right-hand side of window 2.
+! <win-wall-2-left> is the placement of the left-hand side of window 2.
+! <win-wall-3-right> is the placement of the right-hand side of window 3.
+! <win-wall-3-left> is the placement of the left-hand side of window 3.
+! <win-wall-4-right> is the placement of the right-hand side of window 4.
+! <win-wall-4-left> is the placement of the left-hand side of window 4.
+!
 !-----------------------------------------------------------------------  
 *attribute:start
 *attribute:name     = Opt-geometry
-*attribute:tag:1    = <Opt-Width>
-*attribute:tag:2    = <Opt-Length>
-*attribute:tag:3    = <Opt-Bsm-Height>
-*attribute:tag:4    = <Opt-Bsm-Depth>
-*attribute:tag:5    = <Opt-Main-Height>
-*attribute:tag:6    = <Opt-Area>
+*attribute:tag:1    = <Opt-Area>
+*attribute:tag:2    = <Opt-Width>
+*attribute:tag:3    = <Opt-Length>
+*attribute:tag:4    = <Opt-Bsm-Height>
+*attribute:tag:5    = <Opt-Bsm-Depth>
+*attribute:tag:6    = <Opt-Main-Height>
 *attribute:tag:7    = <Opt-Roof-Peak-W>
 *attribute:tag:8    = <Opt-Roof-Height>
-*attribute:tag:9    = <Opt-heat-cool-cap>
+*attribute:tag:9    = <Opt-Eave-Height>
+*attribute:tag:10   = <win-bottom>
+*attribute:tag:11   = <win-top>
+*attribute:tag:12   = <win-wall-1-right>
+*attribute:tag:13   = <win-wall-1-left>
+*attribute:tag:14   = <win-wall-2-right>
+*attribute:tag:15   = <win-wall-2-left>
+*attribute:tag:16   = <win-wall-3-right>
+*attribute:tag:17   = <win-wall-3-left>
+*attribute:tag:18   = <win-wall-4-right>
+*attribute:tag:19   = <win-wall-4-left>
 
-*option:small:value:1    = 6.6
-*option:small:value:2    = 4.4
-*option:small:value:3    = 2.7
-*option:small:value:4    = 2.0
-*option:small:value:5    = 5.4
-*option:small:value:6    = 29.04
-*option:small:value:7    = 3.3
-*option:small:value:8    = 8.0
-*option:small:value:9    = 2000.
 
+*option:Toronto:value:1    = 235.07
+*option:Toronto:value:2    = 15.5
+*option:Toronto:value:3    = 15.17
+*option:Toronto:value:4    = 2.5
+*option:Toronto:value:5    = 2.0
+*option:Toronto:value:6    = 5.75
+*option:Toronto:value:7    = 7.75
+*option:Toronto:value:8    = 7.85
+*option:Toronto:value:9    = 5.75
+*option:Toronto:value:10   = 3
+*option:Toronto:value:11   = 4.625
+*option:Toronto:value:12   = 0.5
+*option:Toronto:value:13   = 5.050
+*option:Toronto:value:14   = 0.5
+*option:Toronto:value:15   = 5.150
+*option:Toronto:value:16   = 14.665
+*option:Toronto:value:17   = 10.116
+*option:Toronto:value:18   = 15.0
+*option:Toronto:value:19   = 10.35
+*option:Toronto:cost:total = 0
 
-*option:square:value:1    = 10
-*option:square:value:2    = 10
-*option:square:value:3    = 2.5
-*option:square:value:4    = 2.0
-*option:square:value:5    = 5.4
-*option:square:value:6    = 100.0
-*option:square:value:7    = 5
-*option:square:value:8    = 5
-*option:square:value:9    = 8.0
-*option:square:value:10   = 2000.
+*option:Montreal:value:1   = 202.42
+*option:Montreal:value:2   = 14.5
+*option:Montreal:value:3   = 13.96
+*option:Montreal:value:4   = 2.5
+*option:Montreal:value:5   = 2.0
+*option:Montreal:value:6   = 5.75
+*option:Montreal:value:7   = 7.25
+*option:Montreal:value:8   = 7.85
+*option:Montreal:value:9   = 5.75
+*option:Montreal:value:10  = 3.0
+*option:Montreal:value:11  = 4.625
+*option:Montreal:value:12  = 0.5
+*option:Montreal:value:13  = 4.688
+*option:Montreal:value:14  = 0.5
+*option:Montreal:value:15  = 4.850
+*option:Montreal:value:16  = 13.460
+*option:Montreal:value:17  = 9.272
+*option:Montreal:value:18  = 14.0
+*option:Montreal:value:19  = 9.650
+*option:Montreal:cost:total = 0
 
+*option:Vancouver:value:1   = 223.81
+*option:Vancouver:value:2   = 15.0
+*option:Vancouver:value:3   = 14.92
+*option:Vancouver:value:4   = 2.5
+*option:Vancouver:value:5   = 2.0
+*option:Vancouver:value:6   = 5.75
+*option:Vancouver:value:7   = 7.5
+*option:Vancouver:value:8   = 7.85
+*option:Vancouver:value:9   = 5.75
+*option:Vancouver:value:10  = 3.0
+*option:Vancouver:value:11  = 4.625
+*option:Vancouver:value:12  = 0.5
+*option:Vancouver:value:13  = 4.976
+*option:Vancouver:value:14  = 0.5
+*option:Vancouver:value:15  = 5.000
+*option:Vancouver:value:16  = 14.421
+*option:Vancouver:value:17  = 9.944
+*option:Vancouver:value:18  = 14.5
+*option:Vancouver:value:19  = 10.0
+*option:Vancouver:cost:total = 0
+
+*option:Alberta:value:1     = 235.07
+*option:Alberta:value:2     = 15.5
+*option:Alberta:value:3     = 15.17
+*option:Alberta:value:4     = 2.5
+*option:Alberta:value:5     = 2.0
+*option:Alberta:value:6     = 5.75
+*option:Alberta:value:7     = 7.75
+*option:Alberta:value:8     = 7.85
+*option:Alberta:value:9     = 5.75
+*option:Alberta:value:10    = 3.0
+*option:Alberta:value:11    = 4.625
+*option:Alberta:value:12    = 0.5
+*option:Alberta:value:13    = 5.050
+*option:Alberta:value:14    = 0.5
+*option:Alberta:value:15    = 5.150
+*option:Alberta:value:16    = 14.665
+*option:Alberta:value:17    = 10.116
+*option:Alberta:value:18    = 15
+*option:Alberta:value:19    = 10.35
+*option:Alberta:cost:total  =  0
+
+*option:Halifax:value:1     = 200
+*option:Halifax:value:2     = 15.0
+*option:Halifax:value:3     = 13.33
+*option:Halifax:value:4     = 2.5
+*option:Halifax:value:5     = 2.0
+*option:Halifax:value:6     = 5.75
+*option:Halifax:value:7     = 7.5
+*option:Halifax:value:8     = 7.85
+*option:Halifax:value:9     = 5.75
+*option:Halifax:value:10    = 3.0
+*option:Halifax:value:11    = 4.625
+*option:Halifax:value:12    = 0.5
+*option:Halifax:value:13    = 4.5
+*option:Halifax:value:14    = 0.5
+*option:Halifax:value:15    = 5.00
+*option:Halifax:value:16    = 12.833
+*option:Halifax:value:17    = 8.833
+*option:Halifax:value:18    = 14.5
+*option:Halifax:value:19    = 10.00
+*option:Halifax:cost:total  =  0
+
+*option:Prairie:value:1     = 208.75
+*option:Prairie:value:2     = 14.5
+*option:Prairie:value:3     = 14.40
+*option:Prairie:value:4     = 2.5
+*option:Prairie:value:5     = 2.0
+*option:Prairie:value:6     = 5.75
+*option:Prairie:value:7     = 7.25
+*option:Prairie:value:8     = 7.85
+*option:Prairie:value:9     = 5.75
+*option:Prairie:value:10    = 3.0
+*option:Prairie:value:11    = 4.625
+*option:Prairie:value:12    = 0.5
+*option:Prairie:value:13    = 4.819
+*option:Prairie:value:14    = 0.5
+*option:Prairie:value:15    = 4.85
+*option:Prairie:value:16    = 13.896
+*option:Prairie:value:17    = 9.577
+*option:Prairie:value:18    = 14.0
+*option:Prairie:value:19    = 9.65
+*option:Prairie:cost:total  =  0
 
 *attribute:end
 
+!-----------------------------------------------------------------------
+! This option sets the ACH in the AIM-2 input file for the case 
+! being considered.
+!-----------------------------------------------------------------------
+*attribute:start
+*attribute:name     = Opt-ACH
+*attribute:tag:1    = <Opt-ACH>
 
+*option:Calgary-gas:value:1   = 5.0275
+*option:Calgary-gas:cost:total  =  0
 
+*option:Edmonton-gas:value:1  = 4.91
+*option:Edmonton-gas:cost:total  =  0
 
+*option:Halifax-elec:value:1  = 4.39250
+*option:Halifax-elec:cost:total  =  0
+
+*option:Halifax-oil:value:1   = 7.853
+*option:Halifax-oil:cost:total   =  0
+
+*option:Montreal-gas:value:1   = 4.525
+*option:Montreal-gas:cost:total  =  0
+
+*option:Montreal-elec:value:1   = 3.25
+*option:Montreal-elec:cost:total  =  0
+
+*option:Montreal-oil:value:1   = 3.325
+*option:Montreal-oil:cost:total  =  0
+
+*option:Regina-gas:value:1  =  3.018
+*option:Regina-gas:cost:total  =  0
+
+*option:Toronto-elec:value:1  = 3.4075
+*option:Toronto-elec:cost:total  =  0
+
+*option:Toronto-gas:value:1   = 5.6975
+*option:Toronto-gas:cost:total   =  0
+
+*option:Toronto-oil:value:1   = 7.895
+*option:Toronto-oil:cost:total   =  0
+
+*option:Vancouver-elec:value:1  = 3.915
+*option:Vancouver-elec:cost:total  =  0
+
+*option:Vancouver-gas:value:1  = 13.050
+*option:Vancouver-gas:cost:total  =  0
+
+*option:Winnipeg-elec:value:1  = 1.38
+*option:Winnipeg-elec:cost:total  =  0
+
+*option:Winnipeg-gas:value:1  = 2.895
+*option:Winnipeg-gas:cost:total  =  0
+
+*attribute:end
 
 !-----------------------------------------------------------------------
 ! This option sets the optical and thermal characteristics of 
@@ -412,7 +594,7 @@
 *option:DoubleLowESoftCoatArgFill:value:2 = DblLeScArg
 *option:DoubleLowESoftCoatArgFill:cost:total    = 0    ! Should this be zero?
 
-! Window B grom Patric's spreadsheet
+! Window B from Patric's spreadsheet
 *option:DoubleLowEHardCoatArgFill:value:1 = DblLeHcArg 
 *option:DoubleLowEHardCoatArgFill:value:2 = DblLeHcArg 
 *option:DoubleLowEHardCoatArgFill:cost:total    = 350 
@@ -453,6 +635,8 @@
 *option:PassiveHouse:value:1  =   PassiveHouse.aim
 *option:PassiveHouse:cost:total     =   3787.0
 
+*option:Generic:value:1       =   generic.aim
+*option:Generic:cost:total          =   0
 
 *attribute:end
 
@@ -525,15 +709,11 @@
 !*option:BaseR20:value:4 =   BaseR20DryR
 *option:Stud-R21-2x4:cost:total    =   980
 
-
-
-
-! Not used for MB LEEP. 
-!*option:BaseR21:value:1 =   BaseR21Bri
-!*option:BaseR21:value:2 =   BaseR21Vin
-!*option:BaseR21:value:3 =   BaseR21Dry 
-!!*option:BaseR21:value:4 =   BaseR21DryR
-!*option:BaseR21:cost:total    =   0
+*option:BaseR21:value:1 =   BaseR21Bri
+*option:BaseR21:value:2 =   BaseR21Vin
+*option:BaseR21:value:3 =   BaseR21Dry 
+!*option:BaseR21:value:4 =   BaseR21DryR
+*option:BaseR21:cost:total    =   0
 
 *option:SIPS-R22-Wall:value:1 =   SipR22Bri
 *option:SIPS-R22-Wall:value:2 =   SipR22Vin
@@ -795,7 +975,6 @@
 *option:basefurnace:value:2 = #-no-GSHP-file
 *option:basefurnace:cost:total    = 0
 
-
 *option:elec-baseboard:value:1 = Baseboardv2.hvac
 *option:elec-baseboard:value:2 = #-no-GSHP-file
 *option:elec-baseboard:cost:total       = -4950	! ElecHeat tab in PL spreadsheet
@@ -804,10 +983,31 @@
 *option:CCASHP:value:2      = #-no-GSHP-file
 *option:CCASHP:cost:total   = 5605	! CCAHP tab in PL WinnArchFS_Costs sheet. 
 
-
 *option:GSHP:value:1      = GSHPv2.hvac
 *option:GSHP:value:2      = *gshp~../hvac/heatx_v1.gshp
 *option:GSHP:cost:total    = 19490		! GSHP tab in PL spreadsheet
+
+! Options for VP retrofit options
+*option:gas-furnace-low:value:1 = gas-furnace-low-eff.hvac
+*option:gas-furnace-low:value:2 = #-no-GSHP-file
+*option:gas-furnace-low:cost:total    = 0
+
+*option:gas-furnace-mid:value:1 = gas-furnace-mid-eff.hvac
+*option:gas-furnace-mid:value:2 = #-no-GSHP-file
+*option:gas-furnace-mid:cost:total    = 0
+
+*option:baseboard-heating:value:1 = baseboard-heating.hvac
+*option:baseboard-heating:value:2 = #-no-GSHP-file
+*option:baseboard-heating:cost:total    = 0
+
+*option:oil-furnace-mid:value:1 = oil-furnace-mid-eff.hvac
+*option:oil-furnace-mid:value:2 = #-no-GSHP-file
+*option:oil-furnace-mid:cost:total    = 0
+
+*option:oil-furnace-low:value:1 = oil-furnace-low-eff.hvac
+*option:oil-furnace-low:value:2 = #-no-GSHP-file
+*option:oil-furnace-low:cost:total    = 0
+
 
 *attribute:end
 

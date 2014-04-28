@@ -1,7 +1,6 @@
 *Geometry 1.1,GEN,roof # tag version, format, zone name
 *date Mon Mar  7 16:18:31 2011  # latest file modification 
 roof describes the roof
-*previous_rotate  0.00,   0.000,   0.000  # prior rotation angle X Y
 # tag, X co-ord, Y co-ord, Z co-ord
 *vertex,0.00000,0.00000,<Opt-Main-Height>  #   1
 *vertex,<Opt-Width>,0.00000,<Opt-Main-Height>  #   2
@@ -26,7 +25,7 @@ roof describes the roof
 *surf,Surf-2,SLOP,-,-,-,roof,OPAQUE,EXTERIOR,0,0  #   2 ||< not yet defined
 *surf,Wall-3,VERT,-,-,-,roof,OPAQUE,EXTERIOR,0,0  #   3 ||< not yet defined
 *surf,Surf-4,SLOP,-,-,-,roof,OPAQUE,EXTERIOR,0,0  #   4 ||< not yet defined
-*surf,roof-base,FLOR,-,-,-,<Opt-CeilingR>,OPAQUE,ANOTHER,02,05  #   5 ||< roof-base:Top-5
+*surf,roof-base,FLOR,-,-,-,<Opt-Ceiling>R,OPAQUE,ANOTHER,02,05  #   5 ||< roof-base:Top-5
 # 
 *insol,3,0,0,0  # default insolation distribution
 # 
@@ -35,4 +34,4 @@ roof describes the roof
 # 
 *insol_calc,none  # no insolation requested
 # 
-*base_list,0,<Opt-Area>,1  # zone base list
+*base_list,0,<Opt-Area>, 0  # zone base list
