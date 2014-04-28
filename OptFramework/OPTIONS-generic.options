@@ -86,6 +86,23 @@
 
 *attribute:end
 
+
+!-----------------------------------------------------------------------
+! Thermostat set-points and HVAC control.
+! Presently only supported for generic archetype. 
+!-----------------------------------------------------------------------
+*attribute:start 
+*attribute:name  = Opt-CTL-Strategy
+*attribute:tag:1 = <Opt-CTL-Strategy> 
+
+*option:ApproximateERS:value:1 = generic.ctl
+*option:ApproximateERS:cost:total = 0 
+
+*option:ecoEIIFramework:value:1 = generic-shoulder-ideal.ctl
+*option:ecoEIIFramework:cost:total = 0
+
+*attribute:end
+
 !-----------------------------------------------------------------------
 ! Climate file manipulation
 !-----------------------------------------------------------------------

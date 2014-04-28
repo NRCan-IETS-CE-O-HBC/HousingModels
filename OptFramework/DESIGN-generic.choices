@@ -28,7 +28,10 @@ Opt-Location : Winnipeg
 !              natural and mechanical vent. 
 !  - EightHRpDay: HRV operates 33% of each hour, for 8hr/day total.
 
-OPT-HRV_ctl          : EightHRpDay
+OPT-HRV_ctl          : ERSp3ACH !EightHRpDay
+
+Opt-CTL-Strategy     : ApproximateERS  
+
 
 ! Turn original design windows opaque ( NoWindows!)
 ! or transparent (MinWindows). NoWindows doesn't presently work!
