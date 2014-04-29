@@ -24,19 +24,23 @@ cat head.txt | grep "electrical net:loads:occupant load" >> keep.txt
 cat head.txt | grep "ideal DHW model" >> keep.txt
 cat head.txt | grep "coil load" >> keep.txt
 #cat head.txt | grep "" >> keep.txt
+
+echo "========== Keeping these columns ======"
 cat keep.txt
 
-cp keep.txt index.txt
+
 
 columns=`cat keep.txt | sed s/\-\>.*$//g | tr '\n' ','`
 columns2=`echo $columns | sed s/\ //g | sed s/,$//g`
 
+echo "========== Column Indicies are: ======"
+echo "$columns2"
 
-echo ">>>$columns2<<<"
+echo "========== Progress: ================="
 rm TRIM*.csv
 ls -1 *.csv | while read File ; do echo "Triming $File"; cat $File | cut -d, -f$columns2 > TRIM-$File ; done 
 
-
+echo "========== Done ==---================="
 
 
 #cat head.txt | \ 
