@@ -30,7 +30,7 @@ Opt-Location : Winnipeg
 
 OPT-HRV_ctl          : ERSp3ACH !EightHRpDay
 
-Opt-CTL-Strategy     : ApproximateERS  
+Opt-CTL-Strategy     : ecoEIIFramework  
 
 
 ! Turn original design windows opaque ( NoWindows!)
