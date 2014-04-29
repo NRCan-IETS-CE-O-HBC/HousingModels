@@ -274,6 +274,8 @@ foreach $arg (@processed_args){
       # Base folder name overrides initialized value (at top)
       $gBaseModelFolder = $arg;
       $gBaseModelFolder =~ s/--base_folder://g;
+      $gBaseModelFolder =~ s/^.*\///g; 
+      $gBaseModelFolder =~ s/^.*\\//g; 
       $gModelCfgFile = "$gBaseModelFolder.cfg"; 
       
 
