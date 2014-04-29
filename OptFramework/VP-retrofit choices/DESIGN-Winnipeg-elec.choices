@@ -19,7 +19,7 @@ Opt-DBFiles           : CEF
 ! and compute an average result)
 GOconfig_rotate      : S
 
-Opt-Location : Halifax
+Opt-Location : Winnipeg
 
 ! Assumptions about HRV operation . Not intended to be optimized!
 ! Recognized values: 
@@ -48,7 +48,7 @@ Opt-BackWindows      : NoExtraWin
 ! Alberta
 ! Halifax
 ! Prairie
-Opt-geometry      : Halifax
+Opt-geometry      : Prairie
 
 
 ! ACH substitutions
@@ -68,7 +68,7 @@ Opt-geometry      : Halifax
 ! Winnipeg-elec
 ! Winnipeg-gas
 
-Opt-ACH       : Halifax-elec 
+Opt-ACH       : Winnipeg-elec
 
 
 

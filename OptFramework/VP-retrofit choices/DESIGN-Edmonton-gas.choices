@@ -30,6 +30,8 @@ Opt-Location : Edmonton
 
 OPT-HRV_ctl          : EightHRpDay
 
+Opt-CTL-Strategy     : ecoEIIFramework  
+
 ! Turn original design windows opaque ( NoWindows!)
 ! or transparent (MinWindows). NoWindows doesn't presently work!
 

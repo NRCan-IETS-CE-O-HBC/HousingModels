@@ -14,6 +14,7 @@ Opt-calcmode          :calc
 Opt-DBFiles           : CEF 
 
 
+
 ! Optimization substitutions 
 ! Set the orientation for the model (N,S,E,W, or AVG to run all four directions
 ! and compute an average result)
@@ -29,6 +30,9 @@ Opt-Location : Montreal
 !  - EightHRpDay: HRV operates 33% of each hour, for 8hr/day total.
 
 OPT-HRV_ctl          : EightHRpDay
+
+Opt-CTL-Strategy     : ecoEIIFramework  
+
 
 ! Turn original design windows opaque ( NoWindows!)
 ! or transparent (MinWindows). NoWindows doesn't presently work!
