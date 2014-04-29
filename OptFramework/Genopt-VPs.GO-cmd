@@ -261,7 +261,7 @@ Vary{
   Parameter {// 
       Name   = GOtag:Opt-HVACSystem; 
       Ini    = 1; 
-      Values = "elec-baseboard"; #,CCASHP,GSHP"; 
+      Values = "elec-baseboard"; //,CCASHP,GSHP"; 
   }
   
   // HRV specification
@@ -362,7 +362,7 @@ Vary{
    Parameter{   // 
      Name    =  GOtag:GOconfig_rotate;
      Ini     =  1;
-     Values  =  "AVG";
+     Values  =  "N,S,E,W";
    }      
     
      

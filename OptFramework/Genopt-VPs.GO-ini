@@ -39,10 +39,10 @@ Simulation{
    CallParameter {
       
       // Windows only: 
-      Prefix = "C:\\cygwin\\bin\\perl.exe ";
+      //Prefix = "C:\\cygwin\\bin\\perl.exe ";
       
       // LINUX 
-      //Prefix = "" ; 
+      Prefix = "" ; 
       
       Suffix = " -c GenOpt-picked-these-choices.GO-tmp -o OPTIONS-General.options -b NZEH-base -vv "; 
  
@@ -132,7 +132,7 @@ Simulation{
 Optimization{
    Files{
       Command {
-         File1 = "Genopt-BASE-CMD.GO-cmd";
+         File1 = "Genopt-VPs.GO-cmd";
          
       }
    }
