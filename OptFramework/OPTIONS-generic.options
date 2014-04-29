@@ -539,49 +539,49 @@
 *attribute:name     = Opt-ACH
 *attribute:tag:1    = <Opt-ACH>
 
-*option:Calgary-gas:value:1   = 5.0275
+*option:Calgary-gas:value:1   = 4.56
 *option:Calgary-gas:cost:total  =  0
 
-*option:Edmonton-gas:value:1  = 4.91
+*option:Edmonton-gas:value:1  = 4.495
 *option:Edmonton-gas:cost:total  =  0
 
-*option:Halifax-elec:value:1  = 4.39250
+*option:Halifax-elec:value:1  = 3.975
 *option:Halifax-elec:cost:total  =  0
 
-*option:Halifax-oil:value:1   = 7.853
+*option:Halifax-oil:value:1   = 7.02
 *option:Halifax-oil:cost:total   =  0
 
-*option:Montreal-gas:value:1   = 4.525
+*option:Montreal-gas:value:1   = 4.31
 *option:Montreal-gas:cost:total  =  0
 
-*option:Montreal-elec:value:1   = 3.25
+*option:Montreal-elec:value:1   = 3.113
 *option:Montreal-elec:cost:total  =  0
 
-*option:Montreal-oil:value:1   = 3.325
+*option:Montreal-oil:value:1   = 3.185
 *option:Montreal-oil:cost:total  =  0
 
-*option:Regina-gas:value:1  =  3.018
+*option:Regina-gas:value:1  =  2.89
 *option:Regina-gas:cost:total  =  0
 
-*option:Toronto-elec:value:1  = 3.4075
+*option:Toronto-elec:value:1  = 3.225
 *option:Toronto-elec:cost:total  =  0
 
-*option:Toronto-gas:value:1   = 5.6975
+*option:Toronto-gas:value:1   = 5.35
 *option:Toronto-gas:cost:total   =  0
 
-*option:Toronto-oil:value:1   = 7.895
+*option:Toronto-oil:value:1   = 7.25
 *option:Toronto-oil:cost:total   =  0
 
-*option:Vancouver-elec:value:1  = 3.915
+*option:Vancouver-elec:value:1  = 4.077
 *option:Vancouver-elec:cost:total  =  0
 
-*option:Vancouver-gas:value:1  = 13.050
+*option:Vancouver-gas:value:1  = 12.44
 *option:Vancouver-gas:cost:total  =  0
 
-*option:Winnipeg-elec:value:1  = 1.38
+*option:Winnipeg-elec:value:1  = 1.364
 *option:Winnipeg-elec:cost:total  =  0
 
-*option:Winnipeg-gas:value:1  = 2.895
+*option:Winnipeg-gas:value:1  = 2.78
 *option:Winnipeg-gas:cost:total  =  0
 
 *attribute:end
