@@ -10,6 +10,11 @@ use Cwd 'chdir';
 use File::Find;
 use Math::Trig;
 
+use File::Copy::Recursive qw(fcopy rcopy dircopy fmove rmove dirmove); 
+
+
+
+
 sub UpdateCon();
 sub runsims($);
 sub postprocess($);
@@ -32,6 +37,8 @@ my $gOptionFile  = "" ;
 my $gBPSpath            = "~/esp-r/bin/bps"; 
 my $gPRJpath            = "~/esp-r/bin/prj"; 
 
+
+#### Please Don't change these --- use the -b option instead! ###
 # $gBaseModelFolder initialized here but can be over-ridden by command line value with -b option
 my $gBaseModelFolder    = "GenericHome-base";
 my $gWorkingModelFolder = "MODEL-work"; 
@@ -54,6 +61,8 @@ my %gExtraDataSpecd;
 
 my $ThisError   = ""; 
 my $ErrorBuffer = ""; 
+
+my $SaveVPOutput = 0; 
 
 my $gEnergyPV; 
 my $gEnergySDHW;
@@ -139,7 +148,7 @@ my $Help_msg = "
   ./substitute.pl -c optimization-choices.opt \
                   -o optimization-options.opt \
                   -b BaseFolderName           \
-                  -v(v);
+                  -v(v) ;
 				  
 ";
 # dump help text, if no argument given
@@ -170,6 +179,7 @@ $cmd_arguements =~ s/-v;/--verbose;/g;
 $cmd_arguements =~ s/-vv;/--very_verbose;/g;
 $cmd_arguements =~ s/-vvv;/--very_very_verbose;/g;
 $cmd_arguements =~ s/-b;/--base_folder;/g;
+$cmd_arguements =~ s/-svp;/--save-vp-output;/g;
 
 # Collate options expecting arguments
 $cmd_arguements =~ s/--options;/--options:/g;
@@ -269,6 +279,14 @@ foreach $arg (@processed_args){
       $gDebug = 1; 
       last SWITCH;
     }    
+    
+    if ( $arg =~ /^--save-vp-output/ ){ 
+    
+        $SaveVPOutput = 1; 
+        last SWITCH; 
+    
+    }
+    
     
     if ( $arg =~ /^--base_folder/ ){
       # Base folder name overrides initialized value (at top)
@@ -1151,10 +1169,13 @@ my $EnergyEquipment      ;
 my $gAvgNGasCons_m3     = 0; 
 my $gAvgOilCons_l       = 0; 
 my $gAvgPropCons_l      = 0; 
+my $gDirection;
 
 UpdateCon();  
  
 for my $Direction  ( @Orientations ){
+
+   $gDirection = $Direction; 
 
    if ( ! $gSkipSims ) { runsims( $angles{$Direction} ); }
 
@@ -1782,6 +1803,10 @@ sub postprocess($){
 
   my $Locale = $gChoices{"Opt-Location"}; 
   
+  
+  if ( $SaveVPOutput ) {
+    fcopy ( "out.csv","$gMasterPath/../VP-sim-output/$Locale-$gDirection-out.csv" );  
+  }
   
   if ( $gCustomCostAdjustment ) { 
   
