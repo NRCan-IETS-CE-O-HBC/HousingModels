@@ -114,6 +114,7 @@ my @search_these_exts=( "cfg",
                         "cnn",
                         "enf",
 						"bsm",
+						"ctl",
                         "dhw"
                       );
                        
@@ -279,7 +280,7 @@ foreach $arg (@processed_args){
       if ( ! $gBaseModelFolder ){
         fatalerror("Base folder name missing after --base_folder (or -b) option!");
       }
-      if (! -d "$gBaseModelFolder"){ 
+      if (! -d "$gBaseModelFolder" && ! -d "../$gBaseModelFolder" ){ 
 		fatalerror("Base folder does not exist - create and populate folder first!");
 	  }
 
