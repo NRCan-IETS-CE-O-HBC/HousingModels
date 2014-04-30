@@ -2,7 +2,7 @@
 #
 line=0
 rm head.txt keep.txt
-head -n 1 Calgary-E-out.csv | \
+head -n 1 out-DESIGN-Calgary-gas.choices-out.csv | \
 sed s/,/\\n/g | \
 while read a;  do let line+=1; echo "$line -> $a" >> head.txt  \ 
 done;  
@@ -17,8 +17,8 @@ cat head.txt | grep -E "zone 0[0-9]:supplied energy:cooling" >> keep.txt
 cat head.txt | grep -E "zone 0[0-9]:supplied energy:heating" >> keep.txt
 cat head.txt | grep -E "zone 0[0-9]:air point:relative humidity" >> keep.txt
 cat head.txt | grep -E "zone 0[0-9]:air point:temperature" >> keep.txt
-cat head.txt | grep "building:zone 08:surface 04:heat flux:radiation:shortwave:unit area" >> keep.txt
-cat head.txt | grep "building:zone 08:surface 03:heat flux:radiation:shortwave:unit area" >> keep.txt
+cat head.txt | grep "building:zone 03:surface 04:heat flux:radiation:shortwave:unit area" >> keep.txt
+cat head.txt | grep "building:zone 03:surface 03:heat flux:radiation:shortwave:unit area" >> keep.txt
 cat head.txt | grep "climate" >> keep.txt
 cat head.txt | grep "electrical net:loads:occupant load" >> keep.txt
 cat head.txt | grep "ideal DHW model" >> keep.txt
