@@ -1680,10 +1680,10 @@ sub postprocess($){
                              "Regina"     => 0.1113 ,
                              "Winnipeg"   => 0.0694 ,
                              "Fredricton" => 0.0985   ); 
-    # TOU for ottawa, toronto.                        
-    $EffElectricRates{"Ottawa"}{"off-peak"} =  0.1025 ;                        
-    $EffElectricRates{"Ottawa"}{"mid-peak"} =  0.1385 ;
-    $EffElectricRates{"Ottawa"}{"on-peak"}  =  0.1575 ;
+    # TOU for Ottawa (As of May 2014), Toronto (Feb 2013).                        
+    $EffElectricRates{"Ottawa"}{"off-peak"} =  0.1243 ;                        
+    $EffElectricRates{"Ottawa"}{"mid-peak"} =  0.1626 ;
+    $EffElectricRates{"Ottawa"}{"on-peak"}  =  0.1865 ;
         
     $EffElectricRates{"Toronto"}{"off-peak"} =  0.0967 ;  
     $EffElectricRates{"Toronto"}{"mid-peak"} =  0.1327 ;
