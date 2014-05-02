@@ -1714,11 +1714,11 @@ sub postprocess($){
                           "Fredricton"   =>  0.6458 ,
                           "Whitehorse"   =>  99999.9   ); 
    
-    # Tiers for ottawa, toronto
-    $EffGasRates{"Ottawa"}{"30"}     = 0.2669; 
-    $EffGasRates{"Ottawa"}{"85"}     = 0.2622; 
-    $EffGasRates{"Ottawa"}{"790"}    = 0.2586; 
-    $EffGasRates{"Ottawa"}{"9.9E99"} = 0.2564;
+    # Tiers for Ottawa (Apr. 1, 2014), Toronto
+    $EffGasRates{"Ottawa"}{"30"}     = 0.3090; 
+    $EffGasRates{"Ottawa"}{"85"}     = 0.3043; 
+    $EffGasRates{"Ottawa"}{"790"}    = 0.3006; 
+    $EffGasRates{"Ottawa"}{"9.9E99"} = 0.2978;
     $EffGasRates{"Toronto"} = $EffGasRates{"Ottawa"} ; 
   
     # Tiers for Montreal, Quebec 
