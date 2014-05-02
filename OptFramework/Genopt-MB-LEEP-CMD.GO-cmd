@@ -56,7 +56,7 @@ Vary{
    Parameter{   // 
      Name    =  GOtag:Opt-MainWall;
      Ini     =  1;
-     Values  =  "Stud-R21-2x4"; 
+     Values  =  "BaseR20"; 
    }    
   
    // Foundation walls: OBC-min-R12
@@ -80,7 +80,7 @@ Vary{
    Parameter{   // 
      Name    =  GOtag:Opt-BasementWallInsulation;
      Ini     =  1;
-   Values  =  "MB-IntBatt-R20, MB-Comb-R20";
+   Values  =  "MB-IntBatt-R20,Rigid+Batt-R30";
 
    } 
 
@@ -99,7 +99,7 @@ Vary{
    Parameter{   // 
      Name    =  GOtag:Opt-BasementSlabInsulation;
      Ini     =  1;
-     Values  =  "NoInsulation,R12EdgeP6,R12EdgeP10"; 
+     Values  =  "NoInsulation,R24UnderSlab+edge,R12EdgeP6,R12EdgeP10"; 
    } 
 
    // Exposed floor: There are no exposed floors in MB LEEP archetype
@@ -122,7 +122,7 @@ Vary{
    Parameter{   // 
      Name    =  GOtag:Opt-Ceilings;
      Ini     =  1;
-     Values  =  "CeilR50,CeilR60,CeilR70,CeilR80";
+     Values  =  "CeilR90,CeilR100";
    }    
   
   // Windows:  DoubleLowEHardCoatAirFill 
@@ -145,7 +145,7 @@ Vary{
   Parameter{   // 
      Name    =  GOtag:Opt-CasementWindows;
      Ini     =  1;
-     Values  =  "DoubleLowESoftCoatArgFill,DoubleLowEHardCoatArgFill,TripleLowEHardCoatKryFill, TripleLowESoftCoatKryFill";    
+     Values  =  "DoubleLowESoftCoatArgFill,DoubleLowEHardCoatArgFill,TripleLowEHardCoatKryFill,TripleLowEHardCoatKryFill";    
      
    }    
    
@@ -155,7 +155,7 @@ Vary{
   Parameter{   // 
      Name    =  GOtag:Ext-DryWall;
      Ini     =  1;
-     Values  =  "OneSheet,TwoSheets";    
+     Values  =  "OneSheet";    
      
    }    
    
@@ -172,18 +172,20 @@ Vary{
    
    
   
-  
   // SolarDHW: none, 
-  //           DWHR, 
-  //           1-flat-plate, 
-  //           1-flat-plate+DWHR, 
-  //           2-flat-plate, 
-  //           2-flat-plate+DWHR
+  //           DWHR-4-36, 
+  //           DWHR-4-60,
+  //           1-plate,
+  //           2-plate,
+  //           1-plate-DWHR-4-36,
+  //           2-plate-DWHR-4-36,
+  //           1-plate-DWHR-4-60,
+  //           2-plate-DWHR-4-60
   
   Parameter{   // 
      Name    = GOtag:Opt-DWHRandSDHW; 
      Ini     = 1; 
-     Values  = "none,DWHR-4-36,DWHR-4-60,2-flat-plate,2-flat-plate+DWHR"; 
+     Values  = "none,DWHR-4-36,DWHR-4-60,1-plate,2-plate,1-plate-DWHR-4-36,2-plate-DWHR-4-36,1-plate-DWHR-4-60,2-plate-DWHR-4-60"; 
   } 
   
   // Conventional DHW:  BaseDHW, 
@@ -194,7 +196,7 @@ Vary{
   Parameter{ //
      Name    = GOtag:Opt-DHWSystem;
      Ini     = 1; 
-     Values  = "ElectricStorage,ElectricHP,GasInstantaneous,BaseDHW" ;
+     Values  = "BaseDHW,ElectricStorage,ElecInstantaneous,ElectricHP,GasInstantaneous" ;
   }
 
   
@@ -211,7 +213,7 @@ Vary{
   Parameter {// 
       Name   = GOtag:Opt-HVACSystem; 
       Ini    = 1; 
-      Values = "basefurnace, elec-baseboard, CCASHP, GSHP"; 
+      Values = "basefurnace,elec-baseboard,CCASHP,GSHP"; 
   }
   
   // HRV spec: 
@@ -227,7 +229,7 @@ Vary{
   Parameter{   // 
      Name    =  GOtag:Opt-StandoffPV;
      Ini     =  1;
-     Values  = "NoPV,SizedPV|5kW";
+     Values  = "NoPV";
   } 
   
   
@@ -293,13 +295,13 @@ Vary{
       Name   = GOtag:ElecLoadScale; 
       Ini    = 1;
       // Value may be one of  NoReduction, BasicReduction, EfficientLiving      
-      Values = "NGERSNoReduction19, NGERSReducedA16"; 
+      Values = "NGERSReducedA16"; 
   }
   Parameter { // 
       Name   = GOtag:DHWLoadScale; 
       Ini    = 1;
       // Value may be one of  NoReduction, BasicReduction, EfficientLiving      
-      Values = "No-Reduction, Low-Flow"; 
+      Values = "No-Reduction,Low-Flow"; 
   }
   
   Parameter { // 
@@ -360,7 +362,7 @@ Algorithm{
   NeighborhoodSize          = 8; // Disregarded for vonNeumann topology
   NumberOfParticle          = 25;
   NumberOfGeneration        = 3000;
-  Seed                      = 84;
+  Seed                      = 65;
   CognitiveAcceleration     = 3; // 0 < CognitiveAcceleration
   SocialAcceleration        = 3; // 0 < SocialAcceleration
   MaxVelocityGainContinuous = 0.8;
@@ -369,7 +371,10 @@ Algorithm{
   FinalInertiaWeight        = 0.5;      // 0 < FinalInertiaWeight
 }
 
-
+//Algorithm{
+//   Main = Parametric;
+//   StopAtError = true;
+//}
 
 //Algorithm{
 
