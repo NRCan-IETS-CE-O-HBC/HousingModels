@@ -10,6 +10,11 @@ use Cwd 'chdir';
 use File::Find;
 use Math::Trig;
 
+use File::Copy::Recursive qw(fcopy rcopy dircopy fmove rmove dirmove); 
+
+
+
+
 sub UpdateCon();
 sub runsims($);
 sub postprocess($);
@@ -32,11 +37,13 @@ my $gOptionFile  = "" ;
 my $gBPSpath            = "~/esp-r/bin/bps"; 
 my $gPRJpath            = "~/esp-r/bin/prj"; 
 
+
+#### Please Don't change these --- use the -b option instead! ###
 # $gBaseModelFolder initialized here but can be over-ridden by command line value with -b option
-my $gBaseModelFolder    = "MB-LEEP-Base";
+my $gBaseModelFolder    = "GenericHome-base";
 my $gWorkingModelFolder = "MODEL-work"; 
 my $gWorkingCfgPath     = "$gWorkingModelFolder/cfg";
-my $gModelCfgFile       = "MB-LEEP-Base.cfg";
+my $gModelCfgFile       = "generic-base.cfg";
 
 my $gTotalCost          = 0; 
 my $gIncBaseCosts       = 11727; 
@@ -54,6 +61,8 @@ my %gExtraDataSpecd;
 
 my $ThisError   = ""; 
 my $ErrorBuffer = ""; 
+
+my $SaveVPOutput = 0; 
 
 my $gEnergyPV; 
 my $gEnergySDHW;
@@ -113,6 +122,8 @@ my @search_these_exts=( "cfg",
                         "constrdb",
                         "cnn",
                         "enf",
+						"bsm",
+						"ctl",
                         "dhw"
                       );
                        
@@ -137,7 +148,7 @@ my $Help_msg = "
   ./substitute.pl -c optimization-choices.opt \
                   -o optimization-options.opt \
                   -b BaseFolderName           \
-                  -v(v);
+                  -v(v) ;
 				  
 ";
 # dump help text, if no argument given
@@ -168,6 +179,7 @@ $cmd_arguements =~ s/-v;/--verbose;/g;
 $cmd_arguements =~ s/-vv;/--very_verbose;/g;
 $cmd_arguements =~ s/-vvv;/--very_very_verbose;/g;
 $cmd_arguements =~ s/-b;/--base_folder;/g;
+$cmd_arguements =~ s/-svp;/--save-vp-output;/g;
 
 # Collate options expecting arguments
 $cmd_arguements =~ s/--options;/--options:/g;
@@ -268,17 +280,27 @@ foreach $arg (@processed_args){
       last SWITCH;
     }    
     
+    if ( $arg =~ /^--save-vp-output/ ){ 
+    
+        $SaveVPOutput = 1; 
+        last SWITCH; 
+    
+    }
+    
+    
     if ( $arg =~ /^--base_folder/ ){
       # Base folder name overrides initialized value (at top)
       $gBaseModelFolder = $arg;
       $gBaseModelFolder =~ s/--base_folder://g;
+      $gBaseModelFolder =~ s/^.*\///g; 
+      $gBaseModelFolder =~ s/^.*\\//g; 
       $gModelCfgFile = "$gBaseModelFolder.cfg"; 
       
 
       if ( ! $gBaseModelFolder ){
         fatalerror("Base folder name missing after --base_folder (or -b) option!");
       }
-      if (! -d "$gBaseModelFolder"){ 
+      if (! -d "$gBaseModelFolder" && ! -d "../$gBaseModelFolder" ){ 
 		fatalerror("Base folder does not exist - create and populate folder first!");
 	  }
 
@@ -1147,10 +1169,13 @@ my $EnergyEquipment      ;
 my $gAvgNGasCons_m3     = 0; 
 my $gAvgOilCons_l       = 0; 
 my $gAvgPropCons_l      = 0; 
+my $gDirection;
 
 UpdateCon();  
  
 for my $Direction  ( @Orientations ){
+
+   $gDirection = $Direction; 
 
    if ( ! $gSkipSims ) { runsims( $angles{$Direction} ); }
 
@@ -1655,10 +1680,10 @@ sub postprocess($){
                              "Regina"     => 0.1113 ,
                              "Winnipeg"   => 0.0694 ,
                              "Fredricton" => 0.0985   ); 
-    # TOU for ottawa, toronto.                        
-    $EffElectricRates{"Ottawa"}{"off-peak"} =  0.1025 ;                        
-    $EffElectricRates{"Ottawa"}{"mid-peak"} =  0.1385 ;
-    $EffElectricRates{"Ottawa"}{"on-peak"}  =  0.1575 ;
+    # TOU for Ottawa (As of May 2014), Toronto (Feb 2013).                        
+    $EffElectricRates{"Ottawa"}{"off-peak"} =  0.1243 ;                        
+    $EffElectricRates{"Ottawa"}{"mid-peak"} =  0.1626 ;
+    $EffElectricRates{"Ottawa"}{"on-peak"}  =  0.1865 ;
         
     $EffElectricRates{"Toronto"}{"off-peak"} =  0.0967 ;  
     $EffElectricRates{"Toronto"}{"mid-peak"} =  0.1327 ;
@@ -1689,11 +1714,11 @@ sub postprocess($){
                           "Fredricton"   =>  0.6458 ,
                           "Whitehorse"   =>  99999.9   ); 
    
-    # Tiers for ottawa, toronto
-    $EffGasRates{"Ottawa"}{"30"}     = 0.2669; 
-    $EffGasRates{"Ottawa"}{"85"}     = 0.2622; 
-    $EffGasRates{"Ottawa"}{"790"}    = 0.2586; 
-    $EffGasRates{"Ottawa"}{"9.9E99"} = 0.2564;
+    # Tiers for Ottawa (Apr. 1, 2014), Toronto
+    $EffGasRates{"Ottawa"}{"30"}     = 0.3090; 
+    $EffGasRates{"Ottawa"}{"85"}     = 0.3043; 
+    $EffGasRates{"Ottawa"}{"790"}    = 0.3006; 
+    $EffGasRates{"Ottawa"}{"9.9E99"} = 0.2978;
     $EffGasRates{"Toronto"} = $EffGasRates{"Ottawa"} ; 
   
     # Tiers for Montreal, Quebec 
@@ -1778,6 +1803,10 @@ sub postprocess($){
 
   my $Locale = $gChoices{"Opt-Location"}; 
   
+  
+  if ( $SaveVPOutput ) {
+    fcopy ( "out.csv","$gMasterPath/../VP-sim-output/$Locale-$gDirection-out.csv" );  
+  }
   
   if ( $gCustomCostAdjustment ) { 
   

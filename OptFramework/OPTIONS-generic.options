@@ -1,0 +1,1464 @@
+! Optimization substitutions 
+
+!-----------------------------------------------------------------------------
+! Change Mode Option - this options switches between a 'debug' mode in which
+! the timestep is defined as one day and the shading calculator (ish) is disabled 
+! AND a full simulation mode in which the timestep is a full year and ish is enabled
+!-----------------------------------------------------------------------  
+*attribute:start
+*attribute:name     = Opt-calcmode
+*attribute:tag:1    = <Opt-endday>
+*attribute:tag:2    = <Opt-endmonth>
+*attribute:tag:3    = <Opt-disable_isi>
+
+*option:debug:value:1    = 1
+*option:debug:value:2    = 1
+*option:debug:value:3 = #
+*option:debug:cost:total = 0
+
+*option:calc:value:1   = 31
+*option:calc:value:2   = 12
+*option:calc:value:3 = *isi
+*option:calc:cost:total = 0
+
+*attribute:end
+
+
+!-----------------------------------------------------------------------
+! This option can be used to load construction databases from the CEF or
+! Whitehorse definitions. 
+!-----------------------------------------------------------------------
+*attribute:start
+*attribute:name     = Opt-DBFiles
+*attribute:tag:1    = <OPT-ConstDBFile>
+*attribute:tag:2    = <OPT-OptDBFile>
+
+*option:CEF:value:1  = NZEH-CEF.constrdb
+*option:CEF:value:2  = optics-CEF.db2
+
+*option:CEF:cost:total = 0
+
+*option:WHITEHORSE:value:1  = NZEH-WH.constrdb
+*option:WHITEHORSE:value:2  = optics-WH.db2
+*option:WHITEHORSE:cost:total = 0
+
+*attribute:end
+
+
+!-----------------------------------------------------------------------
+! This option can be used to turn the model's minimum
+! number of windows opaque. It's not intended for optimization,
+! but might be useful in testing & debugging the model.
+!-----------------------------------------------------------------------
+*attribute:start 
+*attribute:name  = Opt-BaseWindows
+*attribute:tag:1 = <OptBW-Construction>
+*attribute:tag:2 = <OptBW-Optics>
+
+*option:NoWindows:value:1 = <Opt-MainWall-Bri>
+*option:NoWindows:value:2 = OPAQUE
+*option:NoWindows:cost:total    = 0
+
+*option:MinWindows:value:1 = <Opt-CasWinConstruction>
+*option:MinWindows:value:2 = <Opt-CasWinOptics>
+*option:MinWindows:cost:total    = 0
+
+*attribute:end
+                       
+!-----------------------------------------------------------------------
+! HRV control flag: flag defining assumptions associated with HRV control
+! (this relates to the NZEH performance definition, and isn't intended 
+! to be optimized. 
+!-----------------------------------------------------------------------
+
+*attribute:start 
+*attribute:name  = OPT-HRV_ctl
+*attribute:tag:1 = <OPT-HRV_ctl>
+
+*option:Continuious:value:1 = 7
+*option:Continuious:cost:total    = 0
+  
+*option:ERSp3ACH:value:1 = 8
+*option:ERSp3ACH:cost:total    = 0
+  
+*option:EightHRpDay:value:1 = 9
+*option:EightHRpDay:cost:total    = 0  
+
+*attribute:end
+
+
+!-----------------------------------------------------------------------
+! Thermostat set-points and HVAC control.
+! Presently only supported for generic archetype. 
+!-----------------------------------------------------------------------
+*attribute:start 
+*attribute:name  = Opt-CTL-Strategy
+*attribute:tag:1 = <Opt-CTL-Strategy> 
+
+*option:ApproximateERS:value:1 = generic.ctl
+*option:ApproximateERS:cost:total = 0 
+
+*option:ecoEIIFramework:value:1 = generic-shoulder-ideal.ctl
+*option:ecoEIIFramework:cost:total = 0
+
+*attribute:end
+
+!-----------------------------------------------------------------------
+! Climate file manipulation
+!-----------------------------------------------------------------------
+
+*attribute:start 
+*attribute:name  = Opt-Location
+*attribute:tag:1 = <OPT-WEATHER-FILE>
+*attribute:tag:2 = <OPT-Latitude>
+*attribute:tag:3 = <OPT-Longitude>
+
+*option:Whitehorse:value:1 = can_whitehorse.cwec
+*option:Whitehorse:value:2 = 60.7161
+*option:Whitehorse:value:3 = -0.05
+*option:Whitehorse:cost:total    = 0
+  
+*option:Toronto:value:1 = can_toronto.cwec
+*option:Toronto:value:2 = 43.6481
+*option:Toronto:value:3 = -4.40
+*option:Toronto:cost:total    = 0
+
+*option:Ottawa:value:1 = can_ottawa.cwec
+*option:Ottawa:value:2 = 43.6481
+*option:Ottawa:value:3 = -4.40
+*option:Ottawa:cost:total    = 0
+
+*option:Edmonton:value:1 = can_edmonton.cwec
+*option:Edmonton:value:2 = 53.5
+*option:Edmonton:value:3 = -8.50
+*option:Edmonton:cost:total    = 0
+
+*option:Calgary:value:1 = can_calgary.cwec
+*option:Calgary:value:2 = 51.5
+*option:Calgary:value:3 = -9.2
+*option:Calgary:cost:total    = 0
+
+*option:Montreal:value:1 = can_montreal.cwec
+*option:Montreal:value:2 = 45.5
+*option:Montreal:value:3 = 1.5
+*option:Montreal:cost:total    = 0
+
+*option:Quebec:value:1 = can_quebec.cwec
+*option:Quebec:value:2 = 46.9
+*option:Quebec:value:3 = 3.8
+*option:Quebec:cost:total    = 0
+  
+*option:Halifax:value:1 = can_halifax.cwec
+*option:Halifax:value:2 = 44.6
+*option:Halifax:value:3 = -3.5
+*option:Halifax:cost:total    = 0  
+
+*option:Fredricton:value:1 = can_fredericton.cwec
+*option:Fredricton:value:2 = 45.96
+*option:Fredricton:value:3 = -6.6
+*option:Fredricton:cost:total    = 0  
+  
+*option:Winnipeg:value:1 = can_winnipeg.cwec
+*option:Winnipeg:value:2 = 49.8
+*option:Winnipeg:value:3 = -7.1
+*option:Winnipeg:cost:total    = 0    
+  
+*option:Regina:value:1 = can_regina.cwec
+*option:Regina:value:2 = 50.4
+*option:Regina:value:3 = -14.6
+*option:Regina:cost:total    = 0    
+
+*option:Vancouver:value:1 = can_vancouver.cwec
+*option:Vancouver:value:2 = 49.25
+*option:Vancouver:value:3 = -3.1
+*option:Vancouver:cost:total    = 0  
+  
+*attribute:end
+
+!-----------------------------------------------------------------------
+! The next three options add extra windows to the front of the house 
+! on the second story. (Zone top_fl) Costs are computed by scaling 
+! option Opt-CasementWindows option by the amount of increased glass area. 
+!-----------------------------------------------------------------------
+
+*attribute:start 
+*attribute:name  = Opt-FrontWindows
+*attribute:tag:1 = <OptTopFlExWin1Con>
+*attribute:tag:2 = <OptTopFlExWin1Opt>
+*attribute:tag:3 = <OptTopFlExWin2Con>
+*attribute:tag:4 = <OptTopFlExWin2Opt>
+*attribute:tag:5 = <OptTopFlExWin3Con>
+*attribute:tag:6 = <OptTopFlExWin3Opt>
+
+*option:NoExtraWin:value:1 = <Opt-MainWall-Bri>
+*option:NoExtraWin:value:2 = OPAQUE
+*option:NoExtraWin:value:3 = <Opt-MainWall-Bri>
+*option:NoExtraWin:value:4 = OPAQUE
+*option:NoExtraWin:value:5 = <Opt-MainWall-Bri>
+*option:NoExtraWin:value:6 = OPAQUE
+*option:NoExtraWin:cost:total    = 0
+
+*option:OneExtraWin:value:1 = <Opt-CasWinConstruction>
+*option:OneExtraWin:value:2 = <Opt-CasWinOptics>
+*option:OneExtraWin:value:3 = <Opt-MainWall-Bri>
+*option:OneExtraWin:value:4 = OPAQUE
+*option:OneExtraWin:value:5 = <Opt-MainWall-Bri>
+*option:OneExtraWin:value:6 = OPAQUE
+*option:OneExtraWin:cost:total    = <MULTIPLY-COST:Opt-CasementWindows*0.051917>
+
+*option:TwoExtraWin:value:1 = <Opt-CasWinConstruction>
+*option:TwoExtraWin:value:2 = <Opt-CasWinOptics>
+*option:TwoExtraWin:value:3 = <Opt-CasWinConstruction>
+*option:TwoExtraWin:value:4 = <Opt-CasWinOptics>
+*option:TwoExtraWin:value:5 = <Opt-MainWall-Bri>
+*option:TwoExtraWin:value:6 = OPAQUE
+*option:TwoExtraWin:cost:total    = <MULTIPLY-COST:Opt-CasementWindows*0.103834>
+
+*option:ThreeExtraWin:value:1 = <Opt-CasWinConstruction>
+*option:ThreeExtraWin:value:2 = <Opt-CasWinOptics>
+*option:ThreeExtraWin:value:3 = <Opt-CasWinConstruction>
+*option:ThreeExtraWin:value:4 = <Opt-CasWinOptics>
+*option:ThreeExtraWin:value:5 = <Opt-CasWinConstruction>
+*option:ThreeExtraWin:value:6 = <Opt-CasWinOptics>
+*option:ThreeExtraWin:cost:total    = <MULTIPLY-COST:Opt-CasementWindows*0.155751>
+
+*attribute:end 
+
+!-----------------------------------------------------------------------
+! Add up to 6 extra windows to the back of the house 
+! CEF archetype supports NoExtraWin->SevenExtraWin
+! MB LEEP archetype only supports NoExtraWin->FourExtraWin
+!-----------------------------------------------------------------------
+*attribute:start 
+
+*attribute:name   = Opt-BackWindows
+
+*attribute:tag:1  = <OptFirstFlExWin1Con>
+*attribute:tag:2  = <OptFirstFlExWin1Opt>
+*attribute:tag:3  = <OptFirstFlExWin3Con>
+*attribute:tag:4  = <OptFirstFlExWin3Opt>
+*attribute:tag:5  = <OptFirstFlExWin4Con>
+*attribute:tag:6  = <OptFirstFlExWin4Opt>
+*attribute:tag:7  = <OptFirstFlExWin5Con>
+*attribute:tag:8  = <OptFirstFlExWin5Opt>
+*attribute:tag:9  = <OptFirstFlExWin6Con>
+*attribute:tag:10 = <OptFirstFlExWin6Opt>
+*attribute:tag:11 = <OptBedroomExWin1Con>
+*attribute:tag:12 = <OptBedroomExWin1Opt>
+*attribute:tag:13 = <OptMasterExWin1Con>
+*attribute:tag:14 = <OptMasterExWin1Opt>
+
+*option:NoExtraWin:value:1  = <Opt-MainWall-Bri>
+*option:NoExtraWin:value:2  = OPAQUE
+*option:NoExtraWin:value:3  = <Opt-MainWall-Bri>
+*option:NoExtraWin:value:4  = OPAQUE
+*option:NoExtraWin:value:5  = <Opt-MainWall-Bri>
+*option:NoExtraWin:value:6  = OPAQUE
+*option:NoExtraWin:value:7  = <Opt-MainWall-Bri>
+*option:NoExtraWin:value:8  = OPAQUE
+*option:NoExtraWin:value:9  = <Opt-MainWall-Bri>
+*option:NoExtraWin:value:10 = OPAQUE
+*option:NoExtraWin:value:11 = <Opt-MainWall-Bri>
+*option:NoExtraWin:value:12 = OPAQUE
+*option:NoExtraWin:value:13 = <Opt-MainWall-Bri>
+*option:NoExtraWin:value:14 = OPAQUE
+*option:NoExtraWin:cost:total     = 0
+
+
+*option:FourExtraWin:value:1  = <Opt-CasWinConstruction>
+*option:FourExtraWin:value:2  = <Opt-CasWinOptics>
+*option:FourExtraWin:value:3  = <Opt-CasWinConstruction>
+*option:FourExtraWin:value:4  = <Opt-CasWinOptics>
+*option:FourExtraWin:value:5  = <Opt-CasWinConstruction>
+*option:FourExtraWin:value:6  = <Opt-CasWinOptics>
+*option:FourExtraWin:value:7  = <Opt-CasWinConstruction>
+*option:FourExtraWin:value:8  = <Opt-CasWinOptics>
+*option:FourExtraWin:value:9  = <Opt-MainWall-Bri>
+*option:FourExtraWin:value:10 = OPAQUE
+*option:FourExtraWin:value:11 = <Opt-MainWall-Bri>
+*option:FourExtraWin:value:12 = OPAQUE
+*option:FourExtraWin:value:13 = <Opt-MainWall-Bri>
+*option:FourExtraWin:value:14 = OPAQUE
+*option:FourExtraWin:cost:total     = 0
+
+*attribute:end 
+
+!!!!!!!! (Left-side window)
+*attribute:start 
+*attribute:name  = Opt-ExtLeftSideWindow 
+*attribute:tag:1 = <OptFirstFlExWin2Con>
+*attribute:tag:2 = <OptFirstFlExWin2Opt>
+
+*option:No:value:1 = <Opt-MainWall-Bri>
+*option:No:value:2 = OPAQUE
+*option:No:cost:total    = 0
+
+*option:Yes:value:1 = <Opt-CasWinConstruction>
+*option:Yes:value:2 = <Opt-CasWinOptics>
+*option:Yes:cost:total    = <MULTIPLY-COST:Opt-CasementWindows*0.051917>
+
+*attribute:end 
+
+
+
+!-----------------------------------------------------------------------
+! Add an extra window to the basement 
+!-----------------------------------------------------------------------
+
+*attribute:start 
+*attribute:name  = Opt-ExtBasementWindow
+*attribute:tag:1 = <OptBsmtExWin1Con>
+*attribute:tag:2 = <OptBsmtExWin1Opt>
+
+*option:No:value:1 = <OPT-BsmWall>
+*option:No:value:2 = OPAQUE
+*option:No:cost:total    = 0
+
+*option:Yes:value:1 = <Opt-CasWinConstruction>
+*option:Yes:value:2 = <Opt-CasWinOptics>
+*option:Yes:cost:total    = <MULTIPLY-COST:Opt-CasementWindows*0.03538>
+
+*attribute:end 
+
+!------------------------------------------------------------------------
+! This option sets the overhang widths 
+!------------------------------------------------------------------------
+*attribute:start 
+*attribute:name = Opt-OverhangWidth
+
+*attribute:tag:1 = <Opt-OverhangW_mainfloor>
+*attribute:tag:2 = <Opt-OverhangW_secondfloor>
+
+*option:BaseOverhang:value:1 = 0.001
+*option:BaseOverhang:value:2 = 0.457
+*option:BaseOverhang:cost:total = 0 
+
+*option:OnepFiveFootOverhang:value:1 = 0.457
+*option:OnepFiveFootOverhang:value:2 = 0.457
+*option:OnepFiveFootOverhang:cost:total = 0 
+
+*option:TwoFootOverhang:value:1 = 0.6096
+*option:TwoFootOverhang:value:2 = 0.6096
+*option:TwoFootOverhang:cost:total = 0 
+
+*option:ThreeFootOverhang:value:1 = 0.9144
+*option:ThreeFootOverhang:value:2 = 0.6096
+*option:ThreeFootOverhang:cost:total = 0 
+
+*option:FourFootOverhang:value:1 = 1.2192
+*option:FourFootOverhang:value:2 = 1.2192
+*option:FourFootOverhang:cost:total = 0 
+
+
+*attribute:end
+
+! Geometry substitutions 
+!-----------------------------------------------------------------------------
+! This option changes the size of the generic house model.
+! <Opt-Width> the width of the house
+! <Opt-Length> the length of the house
+! <Opt-Bsm-Height> the height of the basement walls
+! <Opt-Bsm-Depth> depth below grade of the basement
+! <Opt-Main-Height> the height at the top of the main floor walls
+! <Opt-Roof-Peak-W> is the width at the peak of the roof = 1/2 of the building width
+! <Opt-Roof-Height> the height at the top of the roof peak
+! <Opt-Eave-Height> is the height of the eaves = <Opt-Main-Height> - <Opt-Bsm-Depth>
+!
+! The following 10 variables need to be calculated in the accompanying spreadsheet
+! GenericModel Window size calculation.xlsx
+! <win-bottom> is the bottom surface height of the windows. All windows are offset by .5m from the first floor level
+! <win-top> is the calculated top surface height of the window. The window height is calculated
+!           based on a 15% window to wall ratio
+! <win-wall-1-right> is the placement of the right-hand side of window 1. All values of left and right are 
+!           based on the perspective of looking directly at the window from the outside of the house.  
+! <win-wall-1-left> is the placement of the left-hand side of window 1.
+! <win-wall-2-right> is the placement of the right-hand side of window 2.
+! <win-wall-2-left> is the placement of the left-hand side of window 2.
+! <win-wall-3-right> is the placement of the right-hand side of window 3.
+! <win-wall-3-left> is the placement of the left-hand side of window 3.
+! <win-wall-4-right> is the placement of the right-hand side of window 4.
+! <win-wall-4-left> is the placement of the left-hand side of window 4.
+!
+!-----------------------------------------------------------------------  
+*attribute:start
+*attribute:name     = Opt-geometry
+*attribute:tag:1    = <Opt-Area>
+*attribute:tag:2    = <Opt-Width>
+*attribute:tag:3    = <Opt-Length>
+*attribute:tag:4    = <Opt-Bsm-Height>
+*attribute:tag:5    = <Opt-Bsm-Depth>
+*attribute:tag:6    = <Opt-Main-Height>
+*attribute:tag:7    = <Opt-Roof-Peak-W>
+*attribute:tag:8    = <Opt-Roof-Height>
+*attribute:tag:9    = <Opt-Eave-Height>
+*attribute:tag:10   = <win-bottom>
+*attribute:tag:11   = <win-top>
+*attribute:tag:12   = <win-wall-1-right>
+*attribute:tag:13   = <win-wall-1-left>
+*attribute:tag:14   = <win-wall-2-right>
+*attribute:tag:15   = <win-wall-2-left>
+*attribute:tag:16   = <win-wall-3-right>
+*attribute:tag:17   = <win-wall-3-left>
+*attribute:tag:18   = <win-wall-4-right>
+*attribute:tag:19   = <win-wall-4-left>
+
+
+*option:Toronto:value:1    = 235.07
+*option:Toronto:value:2    = 15.5
+*option:Toronto:value:3    = 15.17
+*option:Toronto:value:4    = 2.5
+*option:Toronto:value:5    = 2.0
+*option:Toronto:value:6    = 5.75
+*option:Toronto:value:7    = 7.75
+*option:Toronto:value:8    = 7.85
+*option:Toronto:value:9    = 5.75
+*option:Toronto:value:10   = 3
+*option:Toronto:value:11   = 4.625
+*option:Toronto:value:12   = 0.5
+*option:Toronto:value:13   = 5.050
+*option:Toronto:value:14   = 0.5
+*option:Toronto:value:15   = 5.150
+*option:Toronto:value:16   = 14.665
+*option:Toronto:value:17   = 10.116
+*option:Toronto:value:18   = 15.0
+*option:Toronto:value:19   = 10.35
+*option:Toronto:cost:total = 0
+
+*option:Montreal:value:1   = 202.42
+*option:Montreal:value:2   = 14.5
+*option:Montreal:value:3   = 13.96
+*option:Montreal:value:4   = 2.5
+*option:Montreal:value:5   = 2.0
+*option:Montreal:value:6   = 5.75
+*option:Montreal:value:7   = 7.25
+*option:Montreal:value:8   = 7.85
+*option:Montreal:value:9   = 5.75
+*option:Montreal:value:10  = 3.0
+*option:Montreal:value:11  = 4.625
+*option:Montreal:value:12  = 0.5
+*option:Montreal:value:13  = 4.688
+*option:Montreal:value:14  = 0.5
+*option:Montreal:value:15  = 4.850
+*option:Montreal:value:16  = 13.460
+*option:Montreal:value:17  = 9.272
+*option:Montreal:value:18  = 14.0
+*option:Montreal:value:19  = 9.650
+*option:Montreal:cost:total = 0
+
+*option:Vancouver:value:1   = 223.81
+*option:Vancouver:value:2   = 15.0
+*option:Vancouver:value:3   = 14.92
+*option:Vancouver:value:4   = 2.5
+*option:Vancouver:value:5   = 2.0
+*option:Vancouver:value:6   = 5.75
+*option:Vancouver:value:7   = 7.5
+*option:Vancouver:value:8   = 7.85
+*option:Vancouver:value:9   = 5.75
+*option:Vancouver:value:10  = 3.0
+*option:Vancouver:value:11  = 4.625
+*option:Vancouver:value:12  = 0.5
+*option:Vancouver:value:13  = 4.976
+*option:Vancouver:value:14  = 0.5
+*option:Vancouver:value:15  = 5.000
+*option:Vancouver:value:16  = 14.421
+*option:Vancouver:value:17  = 9.944
+*option:Vancouver:value:18  = 14.5
+*option:Vancouver:value:19  = 10.0
+*option:Vancouver:cost:total = 0
+
+*option:Alberta:value:1     = 235.07
+*option:Alberta:value:2     = 15.5
+*option:Alberta:value:3     = 15.17
+*option:Alberta:value:4     = 2.5
+*option:Alberta:value:5     = 2.0
+*option:Alberta:value:6     = 5.75
+*option:Alberta:value:7     = 7.75
+*option:Alberta:value:8     = 7.85
+*option:Alberta:value:9     = 5.75
+*option:Alberta:value:10    = 3.0
+*option:Alberta:value:11    = 4.625
+*option:Alberta:value:12    = 0.5
+*option:Alberta:value:13    = 5.050
+*option:Alberta:value:14    = 0.5
+*option:Alberta:value:15    = 5.150
+*option:Alberta:value:16    = 14.665
+*option:Alberta:value:17    = 10.116
+*option:Alberta:value:18    = 15
+*option:Alberta:value:19    = 10.35
+*option:Alberta:cost:total  =  0
+
+*option:Halifax:value:1     = 200
+*option:Halifax:value:2     = 15.0
+*option:Halifax:value:3     = 13.33
+*option:Halifax:value:4     = 2.5
+*option:Halifax:value:5     = 2.0
+*option:Halifax:value:6     = 5.75
+*option:Halifax:value:7     = 7.5
+*option:Halifax:value:8     = 7.85
+*option:Halifax:value:9     = 5.75
+*option:Halifax:value:10    = 3.0
+*option:Halifax:value:11    = 4.625
+*option:Halifax:value:12    = 0.5
+*option:Halifax:value:13    = 4.5
+*option:Halifax:value:14    = 0.5
+*option:Halifax:value:15    = 5.00
+*option:Halifax:value:16    = 12.833
+*option:Halifax:value:17    = 8.833
+*option:Halifax:value:18    = 14.5
+*option:Halifax:value:19    = 10.00
+*option:Halifax:cost:total  =  0
+
+*option:Prairie:value:1     = 208.75
+*option:Prairie:value:2     = 14.5
+*option:Prairie:value:3     = 14.40
+*option:Prairie:value:4     = 2.5
+*option:Prairie:value:5     = 2.0
+*option:Prairie:value:6     = 5.75
+*option:Prairie:value:7     = 7.25
+*option:Prairie:value:8     = 7.85
+*option:Prairie:value:9     = 5.75
+*option:Prairie:value:10    = 3.0
+*option:Prairie:value:11    = 4.625
+*option:Prairie:value:12    = 0.5
+*option:Prairie:value:13    = 4.819
+*option:Prairie:value:14    = 0.5
+*option:Prairie:value:15    = 4.85
+*option:Prairie:value:16    = 13.896
+*option:Prairie:value:17    = 9.577
+*option:Prairie:value:18    = 14.0
+*option:Prairie:value:19    = 9.65
+*option:Prairie:cost:total  =  0
+
+*attribute:end
+
+!-----------------------------------------------------------------------
+! This option sets the ACH in the AIM-2 input file for the case 
+! being considered.
+!-----------------------------------------------------------------------
+*attribute:start
+*attribute:name     = Opt-ACH
+*attribute:tag:1    = <Opt-ACH>
+
+*option:Calgary-gas:value:1   = 4.56
+*option:Calgary-gas:cost:total  =  0
+
+*option:Edmonton-gas:value:1  = 4.495
+*option:Edmonton-gas:cost:total  =  0
+
+*option:Halifax-elec:value:1  = 3.975
+*option:Halifax-elec:cost:total  =  0
+
+*option:Halifax-oil:value:1   = 7.02
+*option:Halifax-oil:cost:total   =  0
+
+*option:Montreal-gas:value:1   = 4.31
+*option:Montreal-gas:cost:total  =  0
+
+*option:Montreal-elec:value:1   = 3.113
+*option:Montreal-elec:cost:total  =  0
+
+*option:Montreal-oil:value:1   = 3.185
+*option:Montreal-oil:cost:total  =  0
+
+*option:Regina-gas:value:1  =  2.89
+*option:Regina-gas:cost:total  =  0
+
+*option:Toronto-elec:value:1  = 3.225
+*option:Toronto-elec:cost:total  =  0
+
+*option:Toronto-gas:value:1   = 5.35
+*option:Toronto-gas:cost:total   =  0
+
+*option:Toronto-oil:value:1   = 7.25
+*option:Toronto-oil:cost:total   =  0
+
+*option:Vancouver-elec:value:1  = 4.077
+*option:Vancouver-elec:cost:total  =  0
+
+*option:Vancouver-gas:value:1  = 12.44
+*option:Vancouver-gas:cost:total  =  0
+
+*option:Winnipeg-elec:value:1  = 1.364
+*option:Winnipeg-elec:cost:total  =  0
+
+*option:Winnipeg-gas:value:1  = 2.78
+*option:Winnipeg-gas:cost:total  =  0
+
+*attribute:end
+
+!-----------------------------------------------------------------------
+! This option sets the optical and thermal characteristics of 
+! the casement windows used in the model (currently all windows are 
+! considered casements)
+!-----------------------------------------------------------------------
+
+*attribute:start 
+*attribute:name  = Opt-CasementWindows
+*attribute:tag:1 = <Opt-CasWinConstruction>
+*attribute:tag:2 = <Opt-CasWinOptics>
+
+
+! Base option for windows has cost b/c we multiply this amount 
+! by optional window areas.
+
+! Not used for MB LEEP. Would be Window A on spreadsheet. 
+*option:DoubleLowEHardCoatAirFill:value:1 = DblLeHcAir
+*option:DoubleLowEHardCoatAirFill:value:2 = DblLeHcAir
+*option:DoubleLowEHardCoatAirFill:cost:total    = -2315
+
+! Base case: Window D from Patric's spreadsheet
+*option:DoubleLowESoftCoatArgFill:value:1 = DblLeScArg
+*option:DoubleLowESoftCoatArgFill:value:2 = DblLeScArg
+*option:DoubleLowESoftCoatArgFill:cost:total    = 0    ! Should this be zero?
+
+! Window B from Patric's spreadsheet
+*option:DoubleLowEHardCoatArgFill:value:1 = DblLeHcArg 
+*option:DoubleLowEHardCoatArgFill:value:2 = DblLeHcArg 
+*option:DoubleLowEHardCoatArgFill:cost:total    = 350 
+
+! Window C
+*option:TripleLowEHardCoatKryFill:value:1 = TplLeHcKry
+*option:TripleLowEHardCoatKryFill:value:2 = TplLeHcKry
+*option:TripleLowEHardCoatKryFill:cost:total    = 1315
+
+! Window E 
+*option:TripleLowESoftCoatKryFill:value:1 = TplLeScKry
+*option:TripleLowESoftCoatKryFill:value:2 = TplLeScKry
+*option:TripleLowESoftCoatKryFill:cost:total    = 900
+
+
+!-----------------------------------------------------------------------
+! This option sets the airtightness by spec'ing the 
+! appropriate aim2 input file. (cost estimates from 
+! Stirling-homes parameters)
+!-----------------------------------------------------------------------
+*attribute:start    
+*attribute:name = Opt-AirTightness
+*attribute:tag:1 = <Opt-AirTightness>
+
+*option:TypicalGTA:value:1    =   base.aim  
+*option:TypicalGTA:cost:total       =   0
+
+*option:Typical23:value:1    =   typical-2.3.aim  
+*option:Typical23:cost:total       =   0
+
+*option:R2000:value:1         =   R2000.aim
+*option:R2000:cost:total            =   2133
+
+*option:Cdn1ACH:value:1       =   Cdn1ACH.aim
+*option:Cdn1ACH:cost:total          =   3049
+                              
+! Data is unreliable.                               
+*option:PassiveHouse:value:1  =   PassiveHouse.aim
+*option:PassiveHouse:cost:total     =   3787.0
+
+*option:Generic:value:1       =   generic.aim
+*option:Generic:cost:total          =   0
+
+*attribute:end
+
+
+
+!-----------------------------------------------------------------------
+!   Ceils-Option2 - Manitoba code R50
+!-----------------------------------------------------------------------
+*attribute:start 
+   
+*attribute:name = Opt-Ceilings
+
+*attribute:tag:1  = <Opt-Ceiling>
+!*attribute:tag:2  = <Opt-CeilingR>
+
+*option:CeilR50:value:1 =   CeilR50
+!*option:CeilR50:value:2 =   CeilR50R
+*option:CeilR50:cost:total    =   0
+
+*option:CeilR60:value:1 =   CeilR60
+!*option:CeilR60:value:2 =   CeilR60R
+*option:CeilR60:cost:total    =   430	! CEIL1 tab in spreadsheet
+
+*option:CeilR70:value:1 =   CeilR70
+!*option:CeilR70:value:2 =   CeilR70R
+*option:CeilR70:cost:total  =   1095	! CEIL2 tab in spreadsheet
+
+*option:CeilR80:value:1 =   CeilR80
+!*option:CeilR80:value:2 =   CeilR80R
+*option:CeilR80:cost:total    =   1680	! CEIL3 tab in spreadsheet
+
+*option:CeilR90:value:1 =   CeilR90
+!*option:CeilR90:value:2 =   CeilR90R
+*option:CeilR90:cost:total    =   2265	! CEIL4 tab in spreadsheet
+
+*option:CeilR100:value:1 =  CeilR100
+!*option:CeilR100:value:2 =  CeilR100R
+*option:CeilR100:cost:total    =  2845	! CEIL5 tab in spreadsheet
+
+!*option:CeilR110:value:1 =  CeilR110
+!*option:CeilR110:value:2 =  CeilR110R
+!*option:CeilR110:cost:total    =  ?
+
+!*option:CeilR120:value:1 =  CeilR120
+!*option:CeilR120:value:2 =  CeilR120R
+!*option:CeilR120:cost:total    =  ?
+
+*attribute:end
+
+!-----------------------------------------------------------------------
+!   Main walls
+!-----------------------------------------------------------------------
+*attribute:start 
+   
+*attribute:name = Opt-MainWall
+
+*attribute:tag:1  = <Opt-MainWall-Bri>
+*attribute:tag:2  = <Opt-MainWall-Vin>
+*attribute:tag:3  = <Opt-MainWall-Dry>
+
+*option:BaseR20:value:1 =   BaseR20Bri   ! Added by JTB for MB base wall
+*option:BaseR20:value:2 =   BaseR20Vin
+*option:BaseR20:value:3 =   BaseR20Dry 
+!*option:BaseR20:value:4 =   BaseR20DryR
+*option:BaseR20:cost:total    =   0
+
+*option:Stud-R21-2x4:value:1 =   StudR212x4B   ! Added by AF: New wall system 
+*option:Stud-R21-2x4:value:2 =   StudR212x4V
+*option:Stud-R21-2x4:value:3 =   StudR212x4D
+!*option:BaseR20:value:4 =   BaseR20DryR
+*option:Stud-R21-2x4:cost:total    =   980
+
+*option:BaseR21:value:1 =   BaseR21Bri
+*option:BaseR21:value:2 =   BaseR21Vin
+*option:BaseR21:value:3 =   BaseR21Dry 
+!*option:BaseR21:value:4 =   BaseR21DryR
+*option:BaseR21:cost:total    =   0
+
+*option:SIPS-R22-Wall:value:1 =   SipR22Bri
+*option:SIPS-R22-Wall:value:2 =   SipR22Vin
+*option:SIPS-R22-Wall:value:3 =   SipR22Dry 
+!*option:SIPS-R22-Wall:value:4 =   SipR22DryR
+*option:SIPS-R22-Wall:cost:total    =   760	! SIP1 tab in PL spreadsheet
+
+*option:SIPS-R28-Wall:value:1 =   SipR28Bri
+*option:SIPS-R28-Wall:value:2 =   SipR28Vin
+*option:SIPS-R28-Wall:value:3 =   SipR28Dry 
+!*option:SIPS-R28-Wall:value:4 =   SipR28DryR
+*option:SIPS-R28-Wall:cost:total    =   1615	! SIP2 tab in PL spreadsheet
+
+!*option:SIPS-R36-Wall:value:1 =   SipR36Bri
+!*option:SIPS-R36-Wall:value:2 =   SipR36Vin
+!*option:SIPS-R36-Wall:value:3 =   SipR36Dry 
+!!*option:SIPS-R36-Wall:value:4 =   SipR36DryR
+!*option:SIPS-R36-Wall:cost:total    =   2475	! SIP3 tab in PL spreadsheet
+
+!*option:Stud-R35-Wall:value:1 =   StudR35Bri
+!*option:Stud-R35-Wall:value:2 =   StudR35Vin
+!*option:Stud-R35-Wall:value:3 =   StudR35Dry 
+!*option:Stud-R35-Wall:value:4 =   StudR35DryR
+!*option:Stud-R35-Wall:cost:total    =   ?		! Not Used
+
+!*option:Stud-R40-Wall:value:1 =   StudR40Bri
+!*option:Stud-R40-Wall:value:2 =   StudR40Vin
+!*option:Stud-R40-Wall:value:3 =   StudR40Dry 
+!!*option:Stud-R40-Wall:value:4 =   StudR40DryR
+!*option:Stud-R40-Wall:cost:total    =   3925	! DbWall1 tab in PL spreadsheet
+
+*option:DblStud-R37-Wall:value:1 =   DblSR37Bri
+*option:DblStud-R37-Wall:value:2 =   DblSR37Vin
+*option:DblStud-R37-Wall:value:3 =   DblSR37Dry 
+!*option:DblStud-R37-Wall:value:4 =   DblSR37DryR
+*option:DblStud-R37-Wall:cost:total    =   4210		! Not Used (DBL wall 1
+
+*option:DblStud-R52-Wall:value:1 =   DblSR52Bri
+*option:DblStud-R52-Wall:value:2 =   DblSR52Vin
+*option:DblStud-R52-Wall:value:3 =   DblSR52Dry 
+!*option:DblStud-R52-Wall:value:4 =   DblSR52DryR
+*option:DblStud-R52-Wall:cost:total    =   6235	! DbWall3 tab in PL spreadsheet
+
+!*option:Truss-R40-Wall:value:1 =   TruR40Bri
+!*option:Truss-R40-Wall:value:2 =   TruR40Vin
+!*option:Truss-R40-Wall:value:3 =   TruR40Dry 
+!!*option:Truss-R40-Wall:value:4 =   TruR40DryR
+!*option:Truss-R40-Wall:cost:total    =   5000	! TrsWall1 tab in PL spreadsheet
+
+! Not used in MB LEEP. 
+!*option:Truss-R52-Wall:value:1 =   TruR52Bri
+!*option:Truss-R52-Wall:value:2 =   TruR52Vin
+!*option:Truss-R52-Wall:value:3 =   TruR52Dry 
+!!*option:Truss-R52-Wall:value:4 =   TruR52DryR
+!*option:Truss-R52-Wall:cost:total    =   8950	! TrsWall2 tab in PL spreadsheet
+
+*option:Stud-R275-Wall:value:1 =   StudR275Bri  ! Use for MB 1.5" Ext XPS
+*option:Stud-R275-Wall:value:2 =   StudR275Vin
+*option:Stud-R275-Wall:value:3 =   StudR275Dry 
+!*option:Stud-R275-Wall:value:4 =   StudR275DryR
+*option:Stud-R275-Wall:cost:total    =   1965		! Not Used
+
+*option:Stud-R275MW-Wall:value:1 =   StudR275Bri  ! Use for MB 1.5" Ext XPS
+*option:Stud-R275MW-Wall:value:2 =   StudR275Vin
+*option:Stud-R275MW-Wall:value:3 =   StudR275Dry 
+!*option:Stud-R275MW-Wall:value:4 =   StudR275DryR
+*option:Stud-R275MW-Wall:cost:total    =   2230		! Not Used
+
+
+*option:Stud-R305-Wall:value:1 =   StudR305Bri  ! Use for MB 2.0" Ext XPS
+*option:Stud-R305-Wall:value:2 =   StudR305Vin
+*option:Stud-R305-Wall:value:3 =   StudR305Dry 
+!*option:Stud-R305-Wall:value:4 =   StudR305DryR
+*option:Stud-R305-Wall:cost:total    =   3270	! EXT1 tab in PL spreadsheet
+
+*option:Stud-R325-Wall:value:1 =   StudR325Bri  ! Use for MB 2.5" Ext XPS
+*option:Stud-R325-Wall:value:2 =   StudR325Vin
+*option:Stud-R325-Wall:value:3 =   StudR325Dry 
+!*option:Stud-R325-Wall:value:4 =   StudR325DryR
+*option:Stud-R325-Wall:cost:total    =   4905   ! EXT2 tab in PL spreadsheet
+
+*option:AdvFrm-R20-Wall:value:1 =   AdvFrmR20  ! Use for MB Advanced Framing 
+*option:AdvFrm-R20-Wall:value:2 =   AdvFrmR20
+*option:AdvFrm-R20-Wall:value:3 =   AdvFrmR20
+*option:AdvFrm-R20-Wall:cost:total    =   -145		! Costs from NZEH_CostDataWinnArchFS_costs.
+
+*attribute:end
+
+!-----------------------------------------------------------------------
+! Foundation Wall start
+!-----------------------------------------------------------------------
+*attribute:start
+*attribute:name    = Opt-BasementWallInsulation
+*attribute:tag:1   = <OPT-BsmWall>
+
+! Not used for LEEP. 
+*option:OBC-min-R12:value:1 = BsmWllR12
+*option:OBC-min-R12:meta    = Int
+*option:OBC-min-R12:cost:total    = 0
+
+*option:MB-IntBatt-R20:value:1 = BsmW2x4R20		! JTB 31-Jan-14 for MB Base
+*option:MB-IntBatt-R20:meta    = Int
+*option:MB-IntBatt-R20:cost:total    = 0
+
+*option:MB-Comb-R20:value:1 = MBR20Comb		   
+*option:MB-Comb-R20:meta    = Comb
+*option:MB-Comb-R20:cost:total    = 2235 
+
+!*option:Rigid+Batt-R20:value:1 = BsmWllR20
+!*option:Rigid+Batt-R20:meta    = Comb
+!*option:Rigid+Batt-R20:cost:total    = 1909
+
+*option:Rigid+Batt-R30:value:1 = BsmWllR30
+*option:Rigid+Batt-R30:meta    = Comb
+*option:Rigid+Batt-R30:cost:total    = 3270   ! EXT1 from spreadsheet
+
+!*option:Rigid+Batt-R37:value:1 = BsmWllR37
+!*option:Rigid+Batt-R37:meta    = Comb
+!*option:Rigid+Batt-R37:cost:total    = 5689
+
+!*option:Rigid+Blown-R43:value:1 = BsmWllR43
+!*option:Rigid+Blown-R43:meta    = Int
+!*option:Rigid+Blown-R43:cost:total    = 7790
+
+*option:ICF-base-R22:value:1 = BsmIcfR22
+*option:ICF-base-R22:meta    = Comb
+*option:ICF-base-R22:cost:total    = 12270 	! ICFF tab in PL spreadsheet ??????
+
+!*option:ICF-base-R26:value:1 = BsmIcfR26
+!*option:ICF-base-R26:meta    = Comb
+!*option:ICF-base-R26:cost:total    = 5894
+
+!*option:ICF-base-R32:value:1 = BsmIcfR32
+!*option:ICF-base-R32:meta    = Comb
+!*option:ICF-base-R32:cost:total    = 8844
+
+!*option:ICF-base-R41:value:1 = BsmIcfR41
+!*option:ICF-base-R41:meta    = Comb
+!*option:ICF-base-R41:cost:total    = 10011
+
+!*option:ICF-base-R51:value:1 = BsmIcfR51
+!*option:ICF-base-R51:meta    = Comb
+!*option:ICF-base-R51:cost:total    = 12000
+
+!*option:ICF-base-R51r:value:1 = BsmIcfR51r
+!*option:ICF-base-R51r:meta    = Comb
+!*option:ICF-base-R51r:cost:total    = 12000
+
+
+*attribute:end
+
+!-----------------------------------------------------------------------
+! SubSlab insulation
+!-----------------------------------------------------------------------
+*attribute:start
+*attribute:name    = Opt-BasementSlabInsulation
+*attribute:tag:1   = <OPT-BsmFloor>
+*attribute:tag:2   = <OPT-BsmCnnIndex>
+
+*option:NoInsulation:value:1 = BsmFlrR0
+*option[Opt-BasementWallInsulation>MB-IntBatt-R20|MB-Comb-R20|Rigid+Batt-R30]:NoInsulation:value:2 = 1 
+*option[else                                                  ]:NoInsulation:value:2 = 68
+*option:NoInsulation:cost:total    = 0
+
+*option:R24UnderSlab+edge:value:1 = BsmFlrR24
+*option[Opt-BasementWallInsulation>MB-IntBatt-R20|MB-Comb-R20|Rigid+Batt-R30]:R24UnderSlab+edge:value:2 = 22 
+*option[else                                                  ]:R24UnderSlab+edge:value:2 = 69
+*option:R24UnderSlab+edge:cost:total    = 8325   ! USI4 tab in PL spreadsheet
+
+! Perimeter, sub-slab 0.6m skirt insulation
+
+*option:R12EdgeP6:value:1 = BsmFlrR0
+*option[Opt-BasementWallInsulation>MB-IntBatt-R20|MB-Comb-R20|Rigid+Batt-R30]:R12EdgeP6:value:2 = 23 
+*option[else                                                  ]:R12EdgeP6:value:2 = 69
+*option:R12EdgeP6:cost:total    = 800         ! USI5 tab in PL spreadsheet  
+
+! Perimeter, sub-slab 1.0m skirt insulation
+
+*option:R12EdgeP10:value:1 = BsmFlrR0
+*option[Opt-BasementWallInsulation>MB-IntBatt-R20|MB-Comb-R20|Rigid+Batt-R30]:R12EdgeP10:value:2 = 24
+*option[else                                                  ]:R12EdgeP10:value:2 = 69
+*option:R12EdgeP10:cost:total    = 1320       ! USI6 tab in PL spreadsheet
+       
+       
+*attribute:end
+
+!-----------------------------------------------------------------------
+! Exposed Floor insulation : Not used for LEEP. 
+!-----------------------------------------------------------------------
+*attribute:start
+
+*attribute:name   =Opt-ExposedFloor 
+*attribute:tag:1  =<Opt-ExposedFloor>
+*attribute:tag:2  =<Opt-ExposedFloor-r>
+
+
+*option:BaseExpFloor-R31:value:1 = ExpFlR31
+*option:BaseExpFloor-R31:value:2 = ExpFlR31r
+*option:BaseExpFloor-R31:cost:total    = 0
+
+!*option:ExpFloorFlash&Batt-R36:value:1 = ExpFlR36
+!*option:ExpFloorFlash&Batt-R36:value:2 = ExpFlR36r
+!*option:ExpFloorFlash&Batt-R36:cost:total    = 659.86
+
+!*option:ExpFloorFoamed-R52:value:1 = ExpFlR52
+!*option:ExpFloorFoamed-R52:value:2 = ExpFlR52r
+!*option:ExpFloorFoamed-R52:cost:total    = 1720.82
+
+*attribute:end
+!-----------------------------------------------------------------------
+! Thickness of applied drywall.
+!-----------------------------------------------------------------------
+*attribute:start 
+  
+*attribute:name   = Opt-ExtraDrywall
+*attribute:tag:1  = <Opt-ExtraDrywall>
+
+*option:OneSheet:value:1 =   0.0125
+*option:OneSheet:cost:total    =   0 
+
+*option:TwoSheets:value:1 =   0.0250
+*option:TwoSheets:cost:total    =   1000
+
+*attribute:end
+
+
+!-----------------------------------------------------------------------
+! Concrete on floors  ( Costs need to be checked!)
+!-----------------------------------------------------------------------
+*attribute:start 
+  
+*attribute:name   = Opt-FloorSurface
+*attribute:tag:1  = <Opt-IntFloor>
+*attribute:tag:2  = <Opt-IntFloorInv>
+
+*option:wood:value:1 = floor 
+*option:wood:value:2 = floor_inv 
+*option:wood:cost:total    = 0
+
+*option:1-in-concrete:value:1 = floor1in 
+*option:1-in-concrete:value:2 = floorInv1in
+*option:1-in-concrete:cost:total    = 1800
+
+*option:2-in-concrete:value:1 = floor2in 
+*option:2-in-concrete:value:2 = floorInv2in
+*option:2-in-concrete:cost:total    = 3600
+
+*attribute:end 
+
+!-----------------------------------------------------------------------
+! HVAC
+!-----------------------------------------------------------------------
+*attribute:start
+*attribute:name    = Opt-HVACSystem
+*attribute:tag:1   = <Opt-HVACSystem>
+*attribute:tag:2   = <Opt-HideGSHPfile>
+
+*option:basefurnace:value:1 = basefurnace_ACv2.hvac
+*option:basefurnace:value:2 = #-no-GSHP-file
+*option:basefurnace:cost:total    = 0
+
+*option:elec-baseboard:value:1 = Baseboardv2.hvac
+*option:elec-baseboard:value:2 = #-no-GSHP-file
+*option:elec-baseboard:cost:total       = -4950	! ElecHeat tab in PL spreadsheet
+
+*option:CCASHP:value:1      = CCASHPv2.hvac
+*option:CCASHP:value:2      = #-no-GSHP-file
+*option:CCASHP:cost:total   = 5605	! CCAHP tab in PL WinnArchFS_Costs sheet. 
+
+*option:GSHP:value:1      = GSHPv2.hvac
+*option:GSHP:value:2      = *gshp~../hvac/heatx_v1.gshp
+*option:GSHP:cost:total    = 19490		! GSHP tab in PL spreadsheet
+
+! Options for VP retrofit options
+*option:gas-furnace-low:value:1 = gas-furnace-low-eff.hvac
+*option:gas-furnace-low:value:2 = #-no-GSHP-file
+*option:gas-furnace-low:cost:total    = 0
+
+*option:gas-furnace-mid:value:1 = gas-furnace-mid-eff.hvac
+*option:gas-furnace-mid:value:2 = #-no-GSHP-file
+*option:gas-furnace-mid:cost:total    = 0
+
+*option:baseboard-heating:value:1 = baseboard-heating.hvac
+*option:baseboard-heating:value:2 = #-no-GSHP-file
+*option:baseboard-heating:cost:total    = 0
+
+*option:oil-furnace-mid:value:1 = oil-furnace-mid-eff.hvac
+*option:oil-furnace-mid:value:2 = #-no-GSHP-file
+*option:oil-furnace-mid:cost:total    = 0
+
+*option:oil-furnace-low:value:1 = oil-furnace-low-eff.hvac
+*option:oil-furnace-low:value:2 = #-no-GSHP-file
+*option:oil-furnace-low:cost:total    = 0
+
+
+*attribute:end
+
+
+!-----------------------------------------------------------------------
+! HRV spec
+!-----------------------------------------------------------------------
+*attribute:start 
+*attribute:name    = Opt-HRVspec 
+*attribute:tag:1   = <Opt-HRVInputFile>
+
+*option:CEF_SPEC:value:1         = HRV.vnt
+*option:CEF_SPEC:cost:total = 0
+
+*option:BaseHRV_SRE70:value:1    = HRV-base.vnt
+*option:BaseHRV_SRE70:cost:total = 0
+
+*option:UpgHRV_SRE78:value:1    = HRV-upg.vnt
+*option:UpgHRV_SRE78:cost:total = 920	! HRV tab in WinnArchFS_Costs spreadsheet
+
+*attribute:end 
+
+
+!-----------------------------------------------------------------------
+! Electric Loads
+!-----------------------------------------------------------------------
+*attribute:start 
+*attribute:name    = Opt-ElecLoadScale
+*attribute:tag:1   = <Opt-ElecLoadScale>
+
+*option:NoReduction:value:1  = 1.066
+*option:NoReduction:cost:total     = 0
+
+*option:BasicReduction:value:1 = 0.843
+*option:BasicReduction:cost:total    = 0
+
+*option:EfficientLiving:value:1 = 0.711
+*option:EfficientLiving:cost:total    = 0
+
+*option:NGERSNoReduction19:value:1    = 0.832279
+*option:NGERSNoReduction19:cost:total = 0
+
+*option:NGERSReducedA16:value:1    = 0.700
+*option:NGERSReducedA16:cost:total = 0
+
+*option:NGERSBestInClass14p8:value:1    = 0.648301
+*option:NGERSBestInClass14p8:cost:total = 0
+
+
+*attribute:end 
+
+!-----------------------------------------------------------------------
+! Hot water loads
+!-----------------------------------------------------------------------
+
+*attribute:start 
+*attribute:name    = Opt-DHWLoadScale 
+*attribute:tag:1   = <DUMMY-TAG-Not-USED>
+
+!!220 L/day 
+!*option:NoReduction:value:1  = 4.0
+!*option:NoReduction:cost:total     = 0
+!
+!!190 L/day
+!*option:BasicReduction:value:1 = 3.0
+!*option:BasicReduction:cost:total    = 0
+!
+!!135 L/day
+!*option:EfficientLiving:value:1 = 1.429
+!*option:EfficientLiving:cost:total    = 0
+!
+
+! DHW load scale: new volume method.
+
+*option:No-Reduction:value:1        = 0
+*option:No-Reduction:cost:total     = 0
+
+*option:Low-Flow:value:1        = 0
+*option:Low-Flow:cost:total     = 0
+
+*attribute:end 
+
+!-----------------------------------------------------------------------
+! DHW System
+!-----------------------------------------------------------------------
+*attribute:start
+*attribute:name     = Opt-DHWSystem
+*attribute:tag:1    = <Opt-DHWInputFile>
+
+*option:BaseDHW:value:1     = BaseDHW.dhw
+*option:BaseDHW:cost:total        = 680.0
+
+*option:ElecInstantaneous:value:1 = ElecInstant.dhw
+*option:ElecInstantaneous:cost:total    = 405.0	! DHW4 tab in PL spreadsheet
+
+*option:ElectricStorage:value:1 = ElecStorage.dhw
+*option:ElectricStorage:cost:total    = 0
+
+*option:GasInstantaneous:value:1 = GasInstantaneous.dhw
+*option:GasInstantaneous:cost:total    = 1760	! DHW3 tab in PL spreadsheet
+
+*option:ElectricHP:value:1 = ElecHP.dhw
+*option:ElectricHP:cost:total    = 2305	! DHW2 tab in PL spreadsheet
+
+*attribute:end
+
+
+!-----------------------------------------------------------------------
+! Water Loads 
+!-----------------------------------------------------------------------
+
+*attribute:start 
+*attribute:name     = Opt-DWHRandSDHW
+*attribute:tag:1    = <Opt-DHWDailyDrawLperDay>
+
+! No DWHR or SDHW
+*option[ Opt-DHWLoadScale>No-Reduction ]:none:value:1 =190
+*option[ Opt-DHWLoadScale>Low-Flow     ]:none:value:1 =141
+*option:none:cost:total = 0
+
+! 36 in DWHR unit 
+
+*option[   Opt-Location>Ottawa     ;   Opt-DHWLoadScale>No-Reduction ]:DWHR-4-36:value:1 =160.1
+*option[   Opt-Location>Ottawa     ;   Opt-DHWLoadScale>Low-Flow ]:DWHR-4-36:value:1 =115.2
+*option[   Opt-Location>Toronto    ;   Opt-DHWLoadScale>No-Reduction ]:DWHR-4-36:value:1 =162.1
+*option[   Opt-Location>Toronto    ;   Opt-DHWLoadScale>Low-Flow ]:DWHR-4-36:value:1 =116.9
+*option[   Opt-Location>Vancouver  ;   Opt-DHWLoadScale>No-Reduction ]:DWHR-4-36:value:1 =162.2
+*option[   Opt-Location>Vancouver  ;   Opt-DHWLoadScale>Low-Flow ]:DWHR-4-36:value:1 =117
+*option[   Opt-Location>Calgary    ;   Opt-DHWLoadScale>No-Reduction ]:DWHR-4-36:value:1 =158.1
+*option[   Opt-Location>Calgary    ;   Opt-DHWLoadScale>Low-Flow ]:DWHR-4-36:value:1 =113.4
+*option[   Opt-Location>Edmonton   ;   Opt-DHWLoadScale>No-Reduction ]:DWHR-4-36:value:1 =157.1
+*option[   Opt-Location>Edmonton   ;   Opt-DHWLoadScale>Low-Flow ]:DWHR-4-36:value:1 =112.6
+*option[   Opt-Location>Regina     ;   Opt-DHWLoadScale>No-Reduction ]:DWHR-4-36:value:1 =156.8
+*option[   Opt-Location>Regina     ;   Opt-DHWLoadScale>Low-Flow ]:DWHR-4-36:value:1 =112.3
+*option[   Opt-Location>Winnipeg   ;   Opt-DHWLoadScale>No-Reduction ]:DWHR-4-36:value:1 =161.3
+*option[   Opt-Location>Winnipeg   ;   Opt-DHWLoadScale>Low-Flow ]:DWHR-4-36:value:1 =116.2
+*option[   Opt-Location>Montreal   ;   Opt-DHWLoadScale>No-Reduction ]:DWHR-4-36:value:1 =158.1
+*option[   Opt-Location>Montreal   ;   Opt-DHWLoadScale>Low-Flow ]:DWHR-4-36:value:1 =113.4
+*option[   Opt-Location>Quebec     ;   Opt-DHWLoadScale>No-Reduction ]:DWHR-4-36:value:1 =158.9
+*option[   Opt-Location>Quebec     ;   Opt-DHWLoadScale>Low-Flow ]:DWHR-4-36:value:1 =114.1
+*option[   Opt-Location>Fredricton ;   Opt-DHWLoadScale>No-Reduction ]:DWHR-4-36:value:1 =159.1
+*option[   Opt-Location>Fredricton ;   Opt-DHWLoadScale>Low-Flow ]:DWHR-4-36:value:1 =114.3
+*option[   Opt-Location>Halifax    ;   Opt-DHWLoadScale>No-Reduction ]:DWHR-4-36:value:1 =159.8
+*option[   Opt-Location>Halifax    ;   Opt-DHWLoadScale>Low-Flow ]:DWHR-4-36:value:1 =114.9
+*option[   Opt-Location>Whitehorse ;   Opt-DHWLoadScale>No-Reduction ]:DWHR-4-36:value:1 =154.8
+*option[   Opt-Location>Whitehorse ;   Opt-DHWLoadScale>Low-Flow ]:DWHR-4-36:value:1 =110.6
+
+*option:DWHR-4-36:cost:total = 890
+
+
+! 60 in unit 
+*option[   Opt-Location>Ottawa     ;   Opt-DHWLoadScale>No-Reduction ]:DWHR-4-60:value:1 =148.8
+*option[   Opt-Location>Ottawa     ;   Opt-DHWLoadScale>Low-Flow ]:DWHR-4-60:value:1 =106.2
+*option[   Opt-Location>Toronto    ;   Opt-DHWLoadScale>No-Reduction ]:DWHR-4-60:value:1 =151.5
+*option[   Opt-Location>Toronto    ;   Opt-DHWLoadScale>Low-Flow ]:DWHR-4-60:value:1 =108.5
+*option[   Opt-Location>Vancouver  ;   Opt-DHWLoadScale>No-Reduction ]:DWHR-4-60:value:1 =151.8
+*option[   Opt-Location>Vancouver  ;   Opt-DHWLoadScale>Low-Flow ]:DWHR-4-60:value:1 =108.7
+*option[   Opt-Location>Calgary    ;   Opt-DHWLoadScale>No-Reduction ]:DWHR-4-60:value:1 =146
+*option[   Opt-Location>Calgary    ;   Opt-DHWLoadScale>Low-Flow ]:DWHR-4-60:value:1 =103.8
+*option[   Opt-Location>Edmonton   ;   Opt-DHWLoadScale>No-Reduction ]:DWHR-4-60:value:1 =144.7
+*option[   Opt-Location>Edmonton   ;   Opt-DHWLoadScale>Low-Flow ]:DWHR-4-60:value:1 =102.7
+*option[   Opt-Location>Regina     ;   Opt-DHWLoadScale>No-Reduction ]:DWHR-4-60:value:1 =144.3
+*option[   Opt-Location>Regina     ;   Opt-DHWLoadScale>Low-Flow ]:DWHR-4-60:value:1 =102.4
+*option[   Opt-Location>Winnipeg   ;   Opt-DHWLoadScale>No-Reduction ]:DWHR-4-60:value:1 =150.5
+*option[   Opt-Location>Winnipeg   ;   Opt-DHWLoadScale>Low-Flow ]:DWHR-4-60:value:1 =107.6
+*option[   Opt-Location>Montreal   ;   Opt-DHWLoadScale>No-Reduction ]:DWHR-4-60:value:1 =146
+*option[   Opt-Location>Montreal   ;   Opt-DHWLoadScale>Low-Flow ]:DWHR-4-60:value:1 =103.8
+*option[   Opt-Location>Quebec     ;   Opt-DHWLoadScale>No-Reduction ]:DWHR-4-60:value:1 =147.1
+*option[   Opt-Location>Quebec     ;   Opt-DHWLoadScale>Low-Flow ]:DWHR-4-60:value:1 =104.7
+*option[   Opt-Location>Fredricton ;   Opt-DHWLoadScale>No-Reduction ]:DWHR-4-60:value:1 =147.5
+*option[   Opt-Location>Fredricton ;   Opt-DHWLoadScale>Low-Flow ]:DWHR-4-60:value:1 =105
+*option[   Opt-Location>Halifax    ;   Opt-DHWLoadScale>No-Reduction ]:DWHR-4-60:value:1 =148.4
+*option[   Opt-Location>Halifax    ;   Opt-DHWLoadScale>Low-Flow ]:DWHR-4-60:value:1 =105.8
+*option[   Opt-Location>Whitehorse ;   Opt-DHWLoadScale>No-Reduction ]:DWHR-4-60:value:1 =141.5
+*option[   Opt-Location>Whitehorse ;   Opt-DHWLoadScale>Low-Flow ]:DWHR-4-60:value:1 =100
+
+*option:DWHR-4-60:cost:total = 1500 ! Check?
+
+
+! Stand alone 1-plate 
+
+*option[   Opt-Location>Ottawa     ;   Opt-DHWLoadScale>No-Reduction ]:1-plate:value:1 =125
+*option[   Opt-Location>Ottawa     ;   Opt-DHWLoadScale>Low-Flow ]:1-plate:value:1 =86.1
+*option[   Opt-Location>Toronto    ;   Opt-DHWLoadScale>No-Reduction ]:1-plate:value:1 =123.4
+*option[   Opt-Location>Toronto    ;   Opt-DHWLoadScale>Low-Flow ]:1-plate:value:1 =84.9
+*option[   Opt-Location>Vancouver  ;   Opt-DHWLoadScale>No-Reduction ]:1-plate:value:1 =126.5
+*option[   Opt-Location>Vancouver  ;   Opt-DHWLoadScale>Low-Flow ]:1-plate:value:1 =87.1
+*option[   Opt-Location>Calgary    ;   Opt-DHWLoadScale>No-Reduction ]:1-plate:value:1 =126.2
+*option[   Opt-Location>Calgary    ;   Opt-DHWLoadScale>Low-Flow ]:1-plate:value:1 =87
+*option[   Opt-Location>Edmonton   ;   Opt-DHWLoadScale>No-Reduction ]:1-plate:value:1 =128.8
+*option[   Opt-Location>Edmonton   ;   Opt-DHWLoadScale>Low-Flow ]:1-plate:value:1 =88.8
+*option[   Opt-Location>Regina     ;   Opt-DHWLoadScale>No-Reduction ]:1-plate:value:1 =126.1
+*option[   Opt-Location>Regina     ;   Opt-DHWLoadScale>Low-Flow ]:1-plate:value:1 =86.9
+*option[   Opt-Location>Winnipeg   ;   Opt-DHWLoadScale>No-Reduction ]:1-plate:value:1 =120.5
+*option[   Opt-Location>Winnipeg   ;   Opt-DHWLoadScale>Low-Flow ]:1-plate:value:1 =82
+*option[   Opt-Location>Montreal   ;   Opt-DHWLoadScale>No-Reduction ]:1-plate:value:1 =126.5
+*option[   Opt-Location>Montreal   ;   Opt-DHWLoadScale>Low-Flow ]:1-plate:value:1 =87.4
+*option[   Opt-Location>Quebec     ;   Opt-DHWLoadScale>No-Reduction ]:1-plate:value:1 =126.9
+*option[   Opt-Location>Quebec     ;   Opt-DHWLoadScale>Low-Flow ]:1-plate:value:1 =87.4
+*option[   Opt-Location>Fredricton ;   Opt-DHWLoadScale>No-Reduction ]:1-plate:value:1 =127.6
+*option[   Opt-Location>Fredricton ;   Opt-DHWLoadScale>Low-Flow ]:1-plate:value:1 =87.9
+*option[   Opt-Location>Halifax    ;   Opt-DHWLoadScale>No-Reduction ]:1-plate:value:1 =127.4
+*option[   Opt-Location>Halifax    ;   Opt-DHWLoadScale>Low-Flow ]:1-plate:value:1 =87.8
+*option[   Opt-Location>Whitehorse ;   Opt-DHWLoadScale>No-Reduction ]:1-plate:value:1 =138.2
+*option[   Opt-Location>Whitehorse ;   Opt-DHWLoadScale>Low-Flow ]:1-plate:value:1 =95.3
+
+*option:1-plate:cost:total = 5225
+
+
+! 2 plate 
+
+*option[   Opt-Location>Ottawa     ;   Opt-DHWLoadScale>No-Reduction ]:2-plate:value:1 =83.2
+*option[   Opt-Location>Ottawa     ;   Opt-DHWLoadScale>Low-Flow ]:2-plate:value:1 =51.4
+*option[   Opt-Location>Toronto    ;   Opt-DHWLoadScale>No-Reduction ]:2-plate:value:1 =81.3
+*option[   Opt-Location>Toronto    ;   Opt-DHWLoadScale>Low-Flow ]:2-plate:value:1 =51.3
+*option[   Opt-Location>Vancouver  ;   Opt-DHWLoadScale>No-Reduction ]:2-plate:value:1 =86.4
+*option[   Opt-Location>Vancouver  ;   Opt-DHWLoadScale>Low-Flow ]:2-plate:value:1 =54.8
+*option[   Opt-Location>Calgary    ;   Opt-DHWLoadScale>No-Reduction ]:2-plate:value:1 =85.1
+*option[   Opt-Location>Calgary    ;   Opt-DHWLoadScale>Low-Flow ]:2-plate:value:1 =52.6
+*option[   Opt-Location>Edmonton   ;   Opt-DHWLoadScale>No-Reduction ]:2-plate:value:1 =89.2
+*option[   Opt-Location>Edmonton   ;   Opt-DHWLoadScale>Low-Flow ]:2-plate:value:1 =55.1
+*option[   Opt-Location>Regina     ;   Opt-DHWLoadScale>No-Reduction ]:2-plate:value:1 =84.7
+*option[   Opt-Location>Regina     ;   Opt-DHWLoadScale>Low-Flow ]:2-plate:value:1 =52
+*option[   Opt-Location>Winnipeg   ;   Opt-DHWLoadScale>No-Reduction ]:2-plate:value:1 =75.9
+*option[   Opt-Location>Winnipeg   ;   Opt-DHWLoadScale>Low-Flow ]:2-plate:value:1 =44.7
+*option[   Opt-Location>Montreal   ;   Opt-DHWLoadScale>No-Reduction ]:2-plate:value:1 =85.1
+*option[   Opt-Location>Montreal   ;   Opt-DHWLoadScale>Low-Flow ]:2-plate:value:1 =52.4
+*option[   Opt-Location>Quebec     ;   Opt-DHWLoadScale>No-Reduction ]:2-plate:value:1 =85.9
+*option[   Opt-Location>Quebec     ;   Opt-DHWLoadScale>Low-Flow ]:2-plate:value:1 =52.7
+*option[   Opt-Location>Fredricton ;   Opt-DHWLoadScale>No-Reduction ]:2-plate:value:1 =87.2
+*option[   Opt-Location>Fredricton ;   Opt-DHWLoadScale>Low-Flow ]:2-plate:value:1 =53.5
+*option[   Opt-Location>Halifax    ;   Opt-DHWLoadScale>No-Reduction ]:2-plate:value:1 =86.8
+*option[   Opt-Location>Halifax    ;   Opt-DHWLoadScale>Low-Flow ]:2-plate:value:1 =53.2
+*option[   Opt-Location>Whitehorse ;   Opt-DHWLoadScale>No-Reduction ]:2-plate:value:1 =105.1
+*option[   Opt-Location>Whitehorse ;   Opt-DHWLoadScale>Low-Flow ]:2-plate:value:1 =66.6
+
+*option:2-plate:cost:total = 6510
+
+! - 1 plate - 36 in dhw 
+
+*option[   Opt-Location>Ottawa     ;   Opt-DHWLoadScale>No-Reduction ]:1-plate-DWHR-4-36:value:1 =101.2
+*option[   Opt-Location>Ottawa     ;   Opt-DHWLoadScale>Low-Flow ]:1-plate-DWHR-4-36:value:1 =65.6
+*option[   Opt-Location>Toronto    ;   Opt-DHWLoadScale>No-Reduction ]:1-plate-DWHR-4-36:value:1 =101.4
+*option[   Opt-Location>Toronto    ;   Opt-DHWLoadScale>Low-Flow ]:1-plate-DWHR-4-36:value:1 =65.9
+*option[   Opt-Location>Vancouver  ;   Opt-DHWLoadScale>No-Reduction ]:1-plate-DWHR-4-36:value:1 =104.1
+*option[   Opt-Location>Vancouver  ;   Opt-DHWLoadScale>Low-Flow ]:1-plate-DWHR-4-36:value:1 =67.8
+*option[   Opt-Location>Calgary    ;   Opt-DHWLoadScale>No-Reduction ]:1-plate-DWHR-4-36:value:1 =100.6
+*option[   Opt-Location>Calgary    ;   Opt-DHWLoadScale>Low-Flow ]:1-plate-DWHR-4-36:value:1 =64.9
+*option[   Opt-Location>Edmonton   ;   Opt-DHWLoadScale>No-Reduction ]:1-plate-DWHR-4-36:value:1 =102
+*option[   Opt-Location>Edmonton   ;   Opt-DHWLoadScale>Low-Flow ]:1-plate-DWHR-4-36:value:1 =65.6
+*option[   Opt-Location>Regina     ;   Opt-DHWLoadScale>No-Reduction ]:1-plate-DWHR-4-36:value:1 =99.6
+*option[   Opt-Location>Regina     ;   Opt-DHWLoadScale>Low-Flow ]:1-plate-DWHR-4-36:value:1 =64
+*option[   Opt-Location>Winnipeg   ;   Opt-DHWLoadScale>No-Reduction ]:1-plate-DWHR-4-36:value:1 =98
+*option[   Opt-Location>Winnipeg   ;   Opt-DHWLoadScale>Low-Flow ]:1-plate-DWHR-4-36:value:1 =62.6
+*option[   Opt-Location>Montreal   ;   Opt-DHWLoadScale>No-Reduction ]:1-plate-DWHR-4-36:value:1 =101
+*option[   Opt-Location>Montreal   ;   Opt-DHWLoadScale>Low-Flow ]:1-plate-DWHR-4-36:value:1 =65.4
+*option[   Opt-Location>Quebec     ;   Opt-DHWLoadScale>No-Reduction ]:1-plate-DWHR-4-36:value:1 =101.8
+*option[   Opt-Location>Quebec     ;   Opt-DHWLoadScale>Low-Flow ]:1-plate-DWHR-4-36:value:1 =65.7
+*option[   Opt-Location>Fredricton ;   Opt-DHWLoadScale>No-Reduction ]:1-plate-DWHR-4-36:value:1 =102.6
+*option[   Opt-Location>Fredricton ;   Opt-DHWLoadScale>Low-Flow ]:1-plate-DWHR-4-36:value:1 =66.3
+*option[   Opt-Location>Halifax    ;   Opt-DHWLoadScale>No-Reduction ]:1-plate-DWHR-4-36:value:1 =103
+*option[   Opt-Location>Halifax    ;   Opt-DHWLoadScale>Low-Flow ]:1-plate-DWHR-4-36:value:1 =66.6
+*option[   Opt-Location>Whitehorse ;   Opt-DHWLoadScale>No-Reduction ]:1-plate-DWHR-4-36:value:1 =107.4
+*option[   Opt-Location>Whitehorse ;   Opt-DHWLoadScale>Low-Flow ]:1-plate-DWHR-4-36:value:1 =68.6
+
+*option:1-plate-DWHR-4-36:cost:total = 6115
+
+! - 2 plate - 36 in dhw 
+
+
+*option[   Opt-Location>Ottawa     ;   Opt-DHWLoadScale>No-Reduction ]:2-plate-DWHR-4-36:value:1 =63.8
+*option[   Opt-Location>Ottawa     ;   Opt-DHWLoadScale>Low-Flow ]:2-plate-DWHR-4-36:value:1 =34.6
+*option[   Opt-Location>Toronto    ;   Opt-DHWLoadScale>No-Reduction ]:2-plate-DWHR-4-36:value:1 =64.2
+*option[   Opt-Location>Toronto    ;   Opt-DHWLoadScale>Low-Flow ]:2-plate-DWHR-4-36:value:1 =36.6
+*option[   Opt-Location>Vancouver  ;   Opt-DHWLoadScale>No-Reduction ]:2-plate-DWHR-4-36:value:1 =68.5
+*option[   Opt-Location>Vancouver  ;   Opt-DHWLoadScale>Low-Flow ]:2-plate-DWHR-4-36:value:1 =39.4
+*option[   Opt-Location>Calgary    ;   Opt-DHWLoadScale>No-Reduction ]:2-plate-DWHR-4-36:value:1 =63.9
+*option[   Opt-Location>Calgary    ;   Opt-DHWLoadScale>Low-Flow ]:2-plate-DWHR-4-36:value:1 =34.3
+*option[   Opt-Location>Edmonton   ;   Opt-DHWLoadScale>No-Reduction ]:2-plate-DWHR-4-36:value:1 =66.3
+*option[   Opt-Location>Edmonton   ;   Opt-DHWLoadScale>Low-Flow ]:2-plate-DWHR-4-36:value:1 =35.3
+*option[   Opt-Location>Regina     ;   Opt-DHWLoadScale>No-Reduction ]:2-plate-DWHR-4-36:value:1 =62.6
+*option[   Opt-Location>Regina     ;   Opt-DHWLoadScale>Low-Flow ]:2-plate-DWHR-4-36:value:1 =32.9
+*option[   Opt-Location>Winnipeg   ;   Opt-DHWLoadScale>No-Reduction ]:2-plate-DWHR-4-36:value:1 =57.7
+*option[   Opt-Location>Winnipeg   ;   Opt-DHWLoadScale>Low-Flow ]:2-plate-DWHR-4-36:value:1 =29
+*option[   Opt-Location>Montreal   ;   Opt-DHWLoadScale>No-Reduction ]:2-plate-DWHR-4-36:value:1 =63.8
+*option[   Opt-Location>Montreal   ;   Opt-DHWLoadScale>Low-Flow ]:2-plate-DWHR-4-36:value:1 =33.9
+*option[   Opt-Location>Quebec     ;   Opt-DHWLoadScale>No-Reduction ]:2-plate-DWHR-4-36:value:1 =64.8
+*option[   Opt-Location>Quebec     ;   Opt-DHWLoadScale>Low-Flow ]:2-plate-DWHR-4-36:value:1 =34.4
+*option[   Opt-Location>Fredricton ;   Opt-DHWLoadScale>No-Reduction ]:2-plate-DWHR-4-36:value:1 =65.9
+*option[   Opt-Location>Fredricton ;   Opt-DHWLoadScale>Low-Flow ]:2-plate-DWHR-4-36:value:1 =35.1
+*option[   Opt-Location>Halifax    ;   Opt-DHWLoadScale>No-Reduction ]:2-plate-DWHR-4-36:value:1 =66.1
+*option[   Opt-Location>Halifax    ;   Opt-DHWLoadScale>Low-Flow ]:2-plate-DWHR-4-36:value:1 =35.3
+*option[   Opt-Location>Whitehorse ;   Opt-DHWLoadScale>No-Reduction ]:2-plate-DWHR-4-36:value:1 =77.5
+*option[   Opt-Location>Whitehorse ;   Opt-DHWLoadScale>Low-Flow ]:2-plate-DWHR-4-36:value:1 =42.8
+
+*option:2-plate-DWHR-4-36:cost:total = 7400
+
+
+! 1 plate - 60 in DWHR 
+
+*option[   Opt-Location>Ottawa     ;   Opt-DHWLoadScale>No-Reduction ]:1-plate-DWHR-4-60:value:1 =92.3
+*option[   Opt-Location>Ottawa     ;   Opt-DHWLoadScale>Low-Flow ]:1-plate-DWHR-4-60:value:1 =58.4
+*option[   Opt-Location>Toronto    ;   Opt-DHWLoadScale>No-Reduction ]:1-plate-DWHR-4-60:value:1 =93.2
+*option[   Opt-Location>Toronto    ;   Opt-DHWLoadScale>Low-Flow ]:1-plate-DWHR-4-60:value:1 =59.4
+*option[   Opt-Location>Vancouver  ;   Opt-DHWLoadScale>No-Reduction ]:1-plate-DWHR-4-60:value:1 =95.7
+*option[   Opt-Location>Vancouver  ;   Opt-DHWLoadScale>Low-Flow ]:1-plate-DWHR-4-60:value:1 =61
+*option[   Opt-Location>Calgary    ;   Opt-DHWLoadScale>No-Reduction ]:1-plate-DWHR-4-60:value:1 =91
+*option[   Opt-Location>Calgary    ;   Opt-DHWLoadScale>Low-Flow ]:1-plate-DWHR-4-60:value:1 =57.2
+*option[   Opt-Location>Edmonton   ;   Opt-DHWLoadScale>No-Reduction ]:1-plate-DWHR-4-60:value:1 =91.8
+*option[   Opt-Location>Edmonton   ;   Opt-DHWLoadScale>Low-Flow ]:1-plate-DWHR-4-60:value:1 =57.5
+*option[   Opt-Location>Regina     ;   Opt-DHWLoadScale>No-Reduction ]:1-plate-DWHR-4-60:value:1 =89.6
+*option[   Opt-Location>Regina     ;   Opt-DHWLoadScale>Low-Flow ]:1-plate-DWHR-4-60:value:1 =56
+*option[   Opt-Location>Winnipeg   ;   Opt-DHWLoadScale>No-Reduction ]:1-plate-DWHR-4-60:value:1 =89.5
+*option[   Opt-Location>Winnipeg   ;   Opt-DHWLoadScale>Low-Flow ]:1-plate-DWHR-4-60:value:1 =55.8
+*option[   Opt-Location>Montreal   ;   Opt-DHWLoadScale>No-Reduction ]:1-plate-DWHR-4-60:value:1 =91.4
+*option[   Opt-Location>Montreal   ;   Opt-DHWLoadScale>Low-Flow ]:1-plate-DWHR-4-60:value:1 =57.8
+*option[   Opt-Location>Quebec     ;   Opt-DHWLoadScale>No-Reduction ]:1-plate-DWHR-4-60:value:1 =92.3
+*option[   Opt-Location>Quebec     ;   Opt-DHWLoadScale>Low-Flow ]:1-plate-DWHR-4-60:value:1 =58.2
+*option[   Opt-Location>Fredricton ;   Opt-DHWLoadScale>No-Reduction ]:1-plate-DWHR-4-60:value:1 =93.1
+*option[   Opt-Location>Fredricton ;   Opt-DHWLoadScale>Low-Flow ]:1-plate-DWHR-4-60:value:1 =58.8
+*option[   Opt-Location>Halifax    ;   Opt-DHWLoadScale>No-Reduction ]:1-plate-DWHR-4-60:value:1 =93.7
+*option[   Opt-Location>Halifax    ;   Opt-DHWLoadScale>Low-Flow ]:1-plate-DWHR-4-60:value:1 =59.3
+*option[   Opt-Location>Whitehorse ;   Opt-DHWLoadScale>No-Reduction ]:1-plate-DWHR-4-60:value:1 =95.7
+*option[   Opt-Location>Whitehorse ;   Opt-DHWLoadScale>Low-Flow ]:1-plate-DWHR-4-60:value:1 =59.4
+
+*option:1-plate-DWHR-4-60:cost:total = 7615
+
+
+*option[   Opt-Location>Ottawa     ;   Opt-DHWLoadScale>No-Reduction ]:2-plate-DWHR-4-60:value:1 =56.5
+*option[   Opt-Location>Ottawa     ;   Opt-DHWLoadScale>Low-Flow ]:2-plate-DWHR-4-60:value:1 =28.8
+*option[   Opt-Location>Toronto    ;   Opt-DHWLoadScale>No-Reduction ]:2-plate-DWHR-4-60:value:1 =57.8
+*option[   Opt-Location>Toronto    ;   Opt-DHWLoadScale>Low-Flow ]:2-plate-DWHR-4-60:value:1 =31.4
+*option[   Opt-Location>Vancouver  ;   Opt-DHWLoadScale>No-Reduction ]:2-plate-DWHR-4-60:value:1 =61.8
+*option[   Opt-Location>Vancouver  ;   Opt-DHWLoadScale>Low-Flow ]:2-plate-DWHR-4-60:value:1 =34
+*option[   Opt-Location>Calgary    ;   Opt-DHWLoadScale>No-Reduction ]:2-plate-DWHR-4-60:value:1 =55.9
+*option[   Opt-Location>Calgary    ;   Opt-DHWLoadScale>Low-Flow ]:2-plate-DWHR-4-60:value:1 =27.9
+*option[   Opt-Location>Edmonton   ;   Opt-DHWLoadScale>No-Reduction ]:2-plate-DWHR-4-60:value:1 =57.7
+*option[   Opt-Location>Edmonton   ;   Opt-DHWLoadScale>Low-Flow ]:2-plate-DWHR-4-60:value:1 =28.4
+*option[   Opt-Location>Regina     ;   Opt-DHWLoadScale>No-Reduction ]:2-plate-DWHR-4-60:value:1 =54.2
+*option[   Opt-Location>Regina     ;   Opt-DHWLoadScale>Low-Flow ]:2-plate-DWHR-4-60:value:1 =26.2
+*option[   Opt-Location>Winnipeg   ;   Opt-DHWLoadScale>No-Reduction ]:2-plate-DWHR-4-60:value:1 =50.8
+*option[   Opt-Location>Winnipeg   ;   Opt-DHWLoadScale>Low-Flow ]:2-plate-DWHR-4-60:value:1 =23.5
+*option[   Opt-Location>Montreal   ;   Opt-DHWLoadScale>No-Reduction ]:2-plate-DWHR-4-60:value:1 =55.7
+*option[   Opt-Location>Montreal   ;   Opt-DHWLoadScale>Low-Flow ]:2-plate-DWHR-4-60:value:1 =27.5
+*option[   Opt-Location>Quebec     ;   Opt-DHWLoadScale>No-Reduction ]:2-plate-DWHR-4-60:value:1 =56.8
+*option[   Opt-Location>Quebec     ;   Opt-DHWLoadScale>Low-Flow ]:2-plate-DWHR-4-60:value:1 =28.1
+*option[   Opt-Location>Fredricton ;   Opt-DHWLoadScale>No-Reduction ]:2-plate-DWHR-4-60:value:1 =57.9
+*option[   Opt-Location>Fredricton ;   Opt-DHWLoadScale>Low-Flow ]:2-plate-DWHR-4-60:value:1 =28.7
+*option[   Opt-Location>Halifax    ;   Opt-DHWLoadScale>No-Reduction ]:2-plate-DWHR-4-60:value:1 =58.3
+*option[   Opt-Location>Halifax    ;   Opt-DHWLoadScale>Low-Flow ]:2-plate-DWHR-4-60:value:1 =29.1
+*option[   Opt-Location>Whitehorse ;   Opt-DHWLoadScale>No-Reduction ]:2-plate-DWHR-4-60:value:1 =67
+*option[   Opt-Location>Whitehorse ;   Opt-DHWLoadScale>Low-Flow ]:2-plate-DWHR-4-60:value:1 =34.5
+
+*option:2-plate-DWHR-4-60:cost:total = 8900
+
+*attribute:end 
+
+
+
+!-----------------------------------------------------------------------
+! Roof pitch. Used for PV calculation. Has no effect on simulaiton. 
+!-----------------------------------------------------------------------
+
+*attribute:start
+*attribute:name     = Opt-RoofPitch
+*attribute:tag:1    = <zippo>
+*option:6-12:value:1 = nil
+*option:6-12:cost:total  = 0
+*option:8-12:value:1 = nil
+*option:8-12:cost:total  = 0
+*option:12-12:value:1 = nil
+*option:12-12:cost:total  = 0
+*attribute:end
+
+!-----------------------------------------------------------------------
+! External PV. Production data from PV Watts.
+!-----------------------------------------------------------------------
+
+
+*ext-attribute:start 
+*attribute:name      = Opt-StandoffPV
+
+*option[Opt-Location>Calgary    ;Opt-RoofPitch>6-12  ]:SizedPV:production-elec-perKW  = 4.630 ! GH/kW Installed
+*option[Opt-Location>Calgary    ;Opt-RoofPitch>8-12  ]:SizedPV:production-elec-perKW  = 4.733 ! GH/kW Installed
+*option[Opt-Location>Calgary    ;Opt-RoofPitch>12-12 ]:SizedPV:production-elec-perKW  = 4.814 ! GH/kW Installed
+*option[Opt-Location>Edmonton   ;Opt-RoofPitch>6-12  ]:SizedPV:production-elec-perKW  = 4.13208 ! GH/kW Installed
+*option[Opt-Location>Edmonton   ;Opt-RoofPitch>8-12  ]:SizedPV:production-elec-perKW  = 4.24764 ! GH/kW Installed
+*option[Opt-Location>Edmonton   ;Opt-RoofPitch>12-12 ]:SizedPV:production-elec-perKW  = 4.32324 ! GH/kW Installed
+*option[Opt-Location>Vancouver  ;Opt-RoofPitch>6-12  ]:SizedPV:production-elec-perKW  = 3.618	! GH/kW Installed
+*option[Opt-Location>Vancouver  ;Opt-RoofPitch>8-12  ]:SizedPV:production-elec-perKW  = 3.64716	! GH/kW Installed
+*option[Opt-Location>Vancouver  ;Opt-RoofPitch>12-12 ]:SizedPV:production-elec-perKW  = 3.60036	! GH/kW Installed
+*option[Opt-Location>Regina     ;Opt-RoofPitch>6-12  ]:SizedPV:production-elec-perKW  = 4.78764  ! GH/kW Installed
+*option[Opt-Location>Regina     ;Opt-RoofPitch>8-12  ]:SizedPV:production-elec-perKW  = 4.94604  ! GH/kW Installed
+*option[Opt-Location>Regina     ;Opt-RoofPitch>12-12 ]:SizedPV:production-elec-perKW  = 5.05584  ! GH/kW Installed
+*option[Opt-Location>Winnipeg   ;Opt-RoofPitch>6-12  ]:SizedPV:production-elec-perKW  = 4.49568	 ! GH/kW Installed
+*option[Opt-Location>Winnipeg   ;Opt-RoofPitch>8-12  ]:SizedPV:production-elec-perKW  = 4.60476	 ! GH/kW Installed
+*option[Opt-Location>Winnipeg   ;Opt-RoofPitch>12-12 ]:SizedPV:production-elec-perKW  = 4.66416	 ! GH/kW Installed
+*option[Opt-Location>Toronto    ;Opt-RoofPitch>6-12  ]:SizedPV:production-elec-perKW  = 3.9168	 ! GH/kW Installed
+*option[Opt-Location>Toronto    ;Opt-RoofPitch>8-12  ]:SizedPV:production-elec-perKW  = 3.942	 ! GH/kW Installed
+*option[Opt-Location>Toronto    ;Opt-RoofPitch>12-12 ]:SizedPV:production-elec-perKW  = 3.8844	 ! GH/kW Installed
+*option[Opt-Location>Ottawa     ;Opt-RoofPitch>6-12  ]:SizedPV:production-elec-perKW  = 4.16088	 ! GH/kW Installed
+*option[Opt-Location>Ottawa     ;Opt-RoofPitch>8-12  ]:SizedPV:production-elec-perKW  = 4.21956    ! GH/kW Installed
+*option[Opt-Location>Ottawa     ;Opt-RoofPitch>12-12 ]:SizedPV:production-elec-perKW  = 4.21164	 ! GH/kW Installed
+*option[Opt-Location>Montreal   ;Opt-RoofPitch>6-12  ]:SizedPV:production-elec-perKW  = 3.93192	 ! GH/kW Installed
+*option[Opt-Location>Montreal   ;Opt-RoofPitch>8-12  ]:SizedPV:production-elec-perKW  = 3.9852	   ! GH/kW Installed
+*option[Opt-Location>Montreal   ;Opt-RoofPitch>12-12 ]:SizedPV:production-elec-perKW  = 3.9654	 ! GH/kW Installed
+*option[Opt-Location>Quebec     ;Opt-RoofPitch>6-12  ]:SizedPV:production-elec-perKW  = 4.1526	 ! GH/kW Installed
+*option[Opt-Location>Quebec     ;Opt-RoofPitch>8-12  ]:SizedPV:production-elec-perKW  = 4.22496	 ! GH/kW Installed
+*option[Opt-Location>Quebec     ;Opt-RoofPitch>12-12 ]:SizedPV:production-elec-perKW  = 4.23216	 ! GH/kW Installed
+*option[Opt-Location>Fredricton ;Opt-RoofPitch>6-12  ]:SizedPV:production-elec-perKW  = 3.93732 ! GH/kW Installed
+*option[Opt-Location>Fredricton ;Opt-RoofPitch>8-12  ]:SizedPV:production-elec-perKW  = 4.00608 ! GH/kW Installed
+*option[Opt-Location>Fredricton ;Opt-RoofPitch>12-12 ]:SizedPV:production-elec-perKW  = 4.01544 ! GH/kW Installed
+*option[Opt-Location>Halifax    ;Opt-RoofPitch>6-12  ]:SizedPV:production-elec-perKW  = 3.85848! GH/kW Installed
+*option[Opt-Location>Halifax    ;Opt-RoofPitch>8-12  ]:SizedPV:production-elec-perKW  = 3.90168! GH/kW Installed
+*option[Opt-Location>Halifax    ;Opt-RoofPitch>12-12 ]:SizedPV:production-elec-perKW  = 3.86892! GH/kW Installed
+*option[Opt-Location>Whitehorse ;Opt-RoofPitch>6-12  ]:SizedPV:production-elec-perKW  = 3.36888! GH/kW Installed
+*option[Opt-Location>Whitehorse ;Opt-RoofPitch>8-12  ]:SizedPV:production-elec-perKW  = 3.47472! GH/kW Installed
+*option[Opt-Location>Whitehorse ;Opt-RoofPitch>12-12 ]:SizedPV:production-elec-perKW  = 3.55536! GH/kW Installed
+*option:SizedPV:cost:PerKW = 4687 ! $/kW installed
+
+*option:NoPV:production-elec-perKW  = 0! GH/kW Installed
+*option:NoPV:cost:PerKW = 0 
+
+*ext-attribute:end
+ 
+
+*ext-parameters:start
+
+*param:CostAdjustmentFactor = 1.0
+*param:BaseUpgradeCost = 0
+*param:BaseUtilitiesCost = 1468
+*param:PVTarrifDollarsPerkWh = 0.070
+
+ext-parameters:end 
+ 
+
+
