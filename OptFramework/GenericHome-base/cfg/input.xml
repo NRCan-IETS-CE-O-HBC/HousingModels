@@ -51,6 +51,8 @@
    
   <step_variable>building/zone_*/supplied_energy/heating</step_variable>
   <log_variable>building/zone_*/supplied_energy/heating</log_variable>
+  <step_variable>building/zone_*/supplied_energy/cooling</step_variable>
+  <log_variable>building/zone_*/supplied_energy/cooling</log_variable>
   <step_variable>total_fuel_use/*</step_variable>
   
   

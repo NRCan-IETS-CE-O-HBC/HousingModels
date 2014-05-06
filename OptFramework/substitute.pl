@@ -1680,10 +1680,10 @@ sub postprocess($){
                              "Regina"     => 0.1113 ,
                              "Winnipeg"   => 0.0694 ,
                              "Fredricton" => 0.0985   ); 
-    # TOU for ottawa, toronto.                        
-    $EffElectricRates{"Ottawa"}{"off-peak"} =  0.1025 ;                        
-    $EffElectricRates{"Ottawa"}{"mid-peak"} =  0.1385 ;
-    $EffElectricRates{"Ottawa"}{"on-peak"}  =  0.1575 ;
+    # TOU for Ottawa (As of May 2014), Toronto (Feb 2013).                        
+    $EffElectricRates{"Ottawa"}{"off-peak"} =  0.1243 ;                        
+    $EffElectricRates{"Ottawa"}{"mid-peak"} =  0.1626 ;
+    $EffElectricRates{"Ottawa"}{"on-peak"}  =  0.1865 ;
         
     $EffElectricRates{"Toronto"}{"off-peak"} =  0.0967 ;  
     $EffElectricRates{"Toronto"}{"mid-peak"} =  0.1327 ;
@@ -1714,11 +1714,11 @@ sub postprocess($){
                           "Fredricton"   =>  0.6458 ,
                           "Whitehorse"   =>  99999.9   ); 
    
-    # Tiers for ottawa, toronto
-    $EffGasRates{"Ottawa"}{"30"}     = 0.2669; 
-    $EffGasRates{"Ottawa"}{"85"}     = 0.2622; 
-    $EffGasRates{"Ottawa"}{"790"}    = 0.2586; 
-    $EffGasRates{"Ottawa"}{"9.9E99"} = 0.2564;
+    # Tiers for Ottawa (Apr. 1, 2014), Toronto
+    $EffGasRates{"Ottawa"}{"30"}     = 0.3090; 
+    $EffGasRates{"Ottawa"}{"85"}     = 0.3043; 
+    $EffGasRates{"Ottawa"}{"790"}    = 0.3006; 
+    $EffGasRates{"Ottawa"}{"9.9E99"} = 0.2978;
     $EffGasRates{"Toronto"} = $EffGasRates{"Ottawa"} ; 
   
     # Tiers for Montreal, Quebec 
