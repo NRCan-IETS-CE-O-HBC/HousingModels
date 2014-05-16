@@ -28,7 +28,7 @@ sub stream_out($);
 sub stream_out($);
 
 
-my $gDebug = 0; 
+my $gDebug = 1; 
 
 my %gTest_params;          # test parameters
 my $gChoiceFile  = ""; 
@@ -430,6 +430,10 @@ while ( my $line = <OPTIONS> ){
 		}else{
 			$gOptions{$currentAttributeName}{"type"} = "internal"; 
 		}
+        
+        $gOptions{$currentAttributeName}{"default"}{"defined"} = 0 ;
+        
+        
         #debug_out ("    ---> $currentAttributeName \n"); 
 		
       }
@@ -447,8 +451,15 @@ while ( my $line = <OPTIONS> ){
       
 	  # Standard form (no conditions) --- option:Name:MetaInfo:Index
 	  
+      # Possibly define default value. 
+      if ( $token =~ /^\*attribute:default/ ) {
 	  
-	  
+	    $gOptions{$currentAttributeName}{"default"}{"defined"} = 1 ;
+        $gOptions{$currentAttributeName}{"default"}{"value"} = $value ;
+        
+      
+      }
+      
 	  if ( $token =~ /^\*option/ ){
 	    # Format: 
 		
@@ -738,6 +749,49 @@ while ( my ( $parameter, $value) = each %gParameters ){
 
 stream_out(" Validating choices and options...\n");  
 
+
+while ( my ( $option, $null ) = each %gOptions ){
+    stream_out ("> option : $option ?\n"); 
+    if ( ! defined( $gChoices{$option} ) ) { 
+ 
+             $ThisError = "\nWARNING: Option $option found in in options file ($gOptionFile) \n";
+             $ThisError .=  "         was not specified in Choices file ($gChoiceFile) \n";       
+             $ErrorBuffer .= $ThisError; 
+             stream_out ( $ThisError ); 
+
+   
+        if ( ! $gOptions{$option}{"default"}{"defined"}  ) {
+             
+             $ThisError = "\nERROR: No default value for option $option defined in \n";
+             $ThisError .=  "       Options file ($gOptionFile)\n";       
+             $ErrorBuffer .= $ThisError; 
+             fatalerror ( $ThisError );              
+             
+        }else{    
+            # Add default value. 
+            $gChoices{$option} =   $gOptions{$option}{"default"}{"value"}; 
+            # Apply them at the end. 
+            push @gChoiceOrder, $option;
+            
+            $ThisError = "\n         Using default value (".$gChoices{$option}.") \n";
+            $ErrorBuffer .= $ThisError; 
+            stream_out ( $ThisError ); 
+         
+            
+        }    
+        
+        
+             
+
+    }
+    $ThisError = ""; 
+}
+
+  
+
+
+
+
 while ( my ( $attribute, $choice) = each %gChoices ){
   
   debug_out ( "\n ======================== $attribute ============================\n");
@@ -996,20 +1050,6 @@ while ( my ( $attribute, $choice) = each %gChoices ){
 
 }
 
-while ( my ( $option, $null ) = each %gOptions ){
-    #stream_out ("> option : $option ?\n"); 
-    if ( ! defined( $gChoices{$option} ) ) { 
-             $ThisError = "\nWARNING: Option $option found in in options file ($gOptionFile) \n";
-             $ThisError .=   "         was not specified in Choices file ($gChoiceFile) \n";       
-             $ErrorBuffer .= $ThisError; 
-             
-             stream_out ( $ThisError ); 
-
-    }
-    $ThisError = ""; 
-}
-
-  
 
 
 # Seems like we've found everything!
@@ -1027,10 +1067,6 @@ if ( ! $allok ) {
 }else{
     stream_out (" done.\n");
 } 
-
-
-
-
 
 
 # Now create a copy of our base ESP-r file for manipulation. 
@@ -1313,7 +1349,7 @@ sub process_file($){
       }
 	  
     }
-    #if ($matched ){debug_out("> $linecopy| $line");}
+    # if ($matched ){debug_out("> $linecopy| $line");}
     push @file_contents, $line;
   
  
