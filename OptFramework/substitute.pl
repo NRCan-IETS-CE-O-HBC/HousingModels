@@ -40,10 +40,10 @@ my $gPRJpath            = "~/esp-r/bin/prj";
 
 #### Please Don't change these --- use the -b option instead! ###
 # $gBaseModelFolder initialized here but can be over-ridden by command line value with -b option
-my $gBaseModelFolder    = "GenericHome-base";
+my $gBaseModelFolder    = "MB-LEEP-Base";
 my $gWorkingModelFolder = "MODEL-work"; 
 my $gWorkingCfgPath     = "$gWorkingModelFolder/cfg";
-my $gModelCfgFile       = "generic-base.cfg";
+my $gModelCfgFile       = "MB-LEEP-Base.cfg";
 
 my $gTotalCost          = 0; 
 my $gIncBaseCosts       = 11727; 
@@ -1998,7 +1998,9 @@ sub postprocess($){
     
     }elsif ( $Elec_TierType{$Locale} eq "OntTOU" ) {
       # Ontario TOU
-      $EffElecRate = $EffElectricRates{$Locale}{$CurrPeakPeriod} ; 
+      $EffElecRate = $EffElectricRates{$Locale}{$CurrPeakPeriod} ;
+#      system ("echo $EffElecRate >> fileYouWantToPrintTo.txt") ; 
+	  
       $ElecConsumptionCost += $ElecConsumption * $EffElecRate ; 
 #      stream_out ( " S Charging $ElecConsumption kwh to tiers: ( TOU Period: $CurrPeakPeriod ) -> $ElecConsumptionCost @  $EffElecRate \n"); 
     }else {

@@ -45,6 +45,86 @@
 *attribute:end
 
 
+!-------------------------------------------------------------------------
+! This option can be used to turn the detached house into an semi-detached
+! or a row house. If the attachment tag is set to:
+! 1. single: windows and walls are EXTERIOR.
+! 1. semi: the windows on one side of the house are set to opaque and the boundary condition to ADIABATIC
+! 2. row: windows on both sides are set to opaque and the wall boundary conditions to ADIABATIC.
+!-----------------------------------------------------------------------
+*attribute:start 
+*attribute:name  = Opt-Attachment
+*attribute:tag:1 = <OptAtt-Wall2Con>
+*attribute:tag:2 = <OptAtt-Wall2Opt>
+*attribute:tag:3 = <OptAtt-Wall2BC>
+*attribute:tag:4 = <OptAtt-Win2Con>
+*attribute:tag:5 = <OptAtt-Win2Opt>
+*attribute:tag:6 = <OptAtt-Win2BC>
+*attribute:tag:7 = <OptAtt-Wall4Con>
+*attribute:tag:8 = <OptAtt-Wall4Opt>
+*attribute:tag:9 = <OptAtt-Wall4BC>
+*attribute:tag:10= <OptAtt-Win4Con>
+*attribute:tag:11= <OptAtt-Win4Opt>
+*attribute:tag:12= <OptAtt-Win4BC>
+*attribute:tag:13= <OptAtt-bsm2Con>
+*attribute:tag:14= <OptAtt-bsm2BC>
+*attribute:tag:15= <OptAtt-bsm4Con>
+*attribute:tag:16= <OptAtt-bsm4BC>
+*attribute:tag:17= <OptAtt-bsm1BC>
+*attribute:tag:18= <OptAtt-bsm3BC>
+
+
+*option:single:value:1 = <Opt-MainWall-Bri>
+*option:single:value:2 = OPAQUE
+*option:single:value:3 = EXTERIOR
+*option:single:value:4 = <Opt-CasWinConstruction>
+*option:single:value:5 = <Opt-CasWinOptics>
+*option:single:value:6 = EXTERIOR
+*option:single:value:7 = <Opt-MainWall-Bri>
+*option:single:value:8 = OPAQUE
+*option:single:value:9 = EXTERIOR
+*option:single:value:10= <Opt-CasWinConstruction>
+*option:single:value:11= <Opt-CasWinOptics>
+*option:single:value:12= EXTERIOR
+*option:single:value:13= <OPT-BsmWall>
+*option:single:value:14= BASESIMP,01,15
+*option:single:value:15= <OPT-BsmWall>
+*option:single:value:16= BASESIMP,01,15
+*option:single:value:17= BASESIMP,01,15
+*option:single:value:18= BASESIMP,01,15
+*option:single:cost:total    = 0
+
+
+*option:semi:value:1 = int_wl
+*option:semi:value:2 = OPAQUE
+*option:semi:value:3 = ADIABATIC
+*option:semi:value:4 = int_wl
+*option:semi:value:5 = OPAQUE
+*option:semi:value:6 = ADIABATIC
+*option:semi:value:7 = <Opt-MainWall-Bri>
+*option:semi:value:8 = OPAQUE
+*option:semi:value:9 = EXTERIOR
+*option:semi:value:10= <Opt-CasWinConstruction>
+*option:semi:value:11= <Opt-CasWinOptics>
+*option:semi:value:12= EXTERIOR
+*option:semi:value:13= int_wl
+*option:semi:value:14= ADIABATIC,0,0
+*option:semi:value:15= <OPT-BsmWall>
+*option:semi:value:16= BASESIMP,01,20
+*option:semi:value:17= BASESIMP,01,20
+*option:semi:value:18= BASESIMP,01,20
+*option:semi:cost:total    = 0
+
+
+*attribute:end
+
+
+
+
+
+
+
+
 !-----------------------------------------------------------------------
 ! This option can be used to turn the model's minimum
 ! number of windows opaque. It's not intended for optimization,
@@ -357,18 +437,9 @@
 ! This option changes the size of the generic house model.
 ! <Opt-Width> the width of the house
 ! <Opt-Length> the length of the house
-! <Opt-Bsm-Height> the height of the basement walls
-! <Opt-Bsm-Depth> depth below grade of the basement
-! <Opt-Main-Height> the height at the top of the main floor walls
-! <Opt-Roof-Peak-W> is the width at the peak of the roof = 1/2 of the building width
-! <Opt-Roof-Height> the height at the top of the roof peak
-! <Opt-Eave-Height> is the height of the eaves = <Opt-Main-Height> - <Opt-Bsm-Depth>
 !
 ! The following 10 variables need to be calculated in the accompanying spreadsheet
 ! GenericModel Window size calculation.xlsx
-! <win-bottom> is the bottom surface height of the windows. All windows are offset by .5m from the first floor level
-! <win-top> is the calculated top surface height of the window. The window height is calculated
-!           based on a 15% window to wall ratio
 ! <win-wall-1-right> is the placement of the right-hand side of window 1. All values of left and right are 
 !           based on the perspective of looking directly at the window from the outside of the house.  
 ! <win-wall-1-left> is the placement of the left-hand side of window 1.
@@ -385,149 +456,44 @@
 *attribute:tag:1    = <Opt-Area>
 *attribute:tag:2    = <Opt-Width>
 *attribute:tag:3    = <Opt-Length>
-*attribute:tag:4    = <Opt-Bsm-Height>
-*attribute:tag:5    = <Opt-Bsm-Depth>
-*attribute:tag:6    = <Opt-Main-Height>
-*attribute:tag:7    = <Opt-Roof-Peak-W>
-*attribute:tag:8    = <Opt-Roof-Height>
-*attribute:tag:9    = <Opt-Eave-Height>
-*attribute:tag:10   = <win-bottom>
-*attribute:tag:11   = <win-top>
-*attribute:tag:12   = <win-wall-1-right>
-*attribute:tag:13   = <win-wall-1-left>
-*attribute:tag:14   = <win-wall-2-right>
-*attribute:tag:15   = <win-wall-2-left>
-*attribute:tag:16   = <win-wall-3-right>
-*attribute:tag:17   = <win-wall-3-left>
-*attribute:tag:18   = <win-wall-4-right>
-*attribute:tag:19   = <win-wall-4-left>
+*attribute:tag:4    = <Opt-Roof-Peak-W>
+*attribute:tag:5    = <win-wall-1-right>
+*attribute:tag:6    = <win-wall-1-left>
+*attribute:tag:7    = <win-wall-2-right>
+*attribute:tag:8    = <win-wall-2-left>
+*attribute:tag:9    = <win-wall-3-right>
+*attribute:tag:10    = <win-wall-3-left>
+*attribute:tag:11   = <win-wall-4-right>
+*attribute:tag:12   = <win-wall-4-left>
 
 
 *option:Toronto:value:1    = 235.07
 *option:Toronto:value:2    = 15.5
 *option:Toronto:value:3    = 15.17
-*option:Toronto:value:4    = 2.5
-*option:Toronto:value:5    = 2.0
-*option:Toronto:value:6    = 5.75
-*option:Toronto:value:7    = 7.75
-*option:Toronto:value:8    = 7.85
-*option:Toronto:value:9    = 5.75
-*option:Toronto:value:10   = 3
-*option:Toronto:value:11   = 4.625
-*option:Toronto:value:12   = 0.5
-*option:Toronto:value:13   = 5.050
-*option:Toronto:value:14   = 0.5
-*option:Toronto:value:15   = 5.150
-*option:Toronto:value:16   = 14.665
-*option:Toronto:value:17   = 10.116
-*option:Toronto:value:18   = 15.0
-*option:Toronto:value:19   = 10.35
+*option:Toronto:value:4    = 7.585
+*option:Toronto:value:5    = 0.5
+*option:Toronto:value:6    = 5.050
+*option:Toronto:value:7    = 0.5
+*option:Toronto:value:8    = 5.150
+*option:Toronto:value:9    = 14.666
+*option:Toronto:value:10    = 10.116
+*option:Toronto:value:11   = 15.0
+*option:Toronto:value:12   = 10.35
 *option:Toronto:cost:total = 0
 
 *option:Montreal:value:1   = 202.42
 *option:Montreal:value:2   = 14.5
 *option:Montreal:value:3   = 13.96
-*option:Montreal:value:4   = 2.5
-*option:Montreal:value:5   = 2.0
-*option:Montreal:value:6   = 5.75
-*option:Montreal:value:7   = 7.25
-*option:Montreal:value:8   = 7.85
-*option:Montreal:value:9   = 5.75
-*option:Montreal:value:10  = 3.0
-*option:Montreal:value:11  = 4.625
-*option:Montreal:value:12  = 0.5
-*option:Montreal:value:13  = 4.688
-*option:Montreal:value:14  = 0.5
-*option:Montreal:value:15  = 4.850
-*option:Montreal:value:16  = 13.460
-*option:Montreal:value:17  = 9.272
-*option:Montreal:value:18  = 14.0
-*option:Montreal:value:19  = 9.650
+*option:Montreal:value:4   = 6.98
+*option:Montreal:value:5  = 0.5
+*option:Montreal:value:6  = 4.688
+*option:Montreal:value:7  = 0.5
+*option:Montreal:value:8  = 4.850
+*option:Montreal:value:9  = 13.460
+*option:Montreal:value:10  = 9.272
+*option:Montreal:value:11  = 14.0
+*option:Montreal:value:12  = 9.650
 *option:Montreal:cost:total = 0
-
-*option:Vancouver:value:1   = 223.81
-*option:Vancouver:value:2   = 15.0
-*option:Vancouver:value:3   = 14.92
-*option:Vancouver:value:4   = 2.5
-*option:Vancouver:value:5   = 2.0
-*option:Vancouver:value:6   = 5.75
-*option:Vancouver:value:7   = 7.5
-*option:Vancouver:value:8   = 7.85
-*option:Vancouver:value:9   = 5.75
-*option:Vancouver:value:10  = 3.0
-*option:Vancouver:value:11  = 4.625
-*option:Vancouver:value:12  = 0.5
-*option:Vancouver:value:13  = 4.976
-*option:Vancouver:value:14  = 0.5
-*option:Vancouver:value:15  = 5.000
-*option:Vancouver:value:16  = 14.421
-*option:Vancouver:value:17  = 9.944
-*option:Vancouver:value:18  = 14.5
-*option:Vancouver:value:19  = 10.0
-*option:Vancouver:cost:total = 0
-
-*option:Alberta:value:1     = 235.07
-*option:Alberta:value:2     = 15.5
-*option:Alberta:value:3     = 15.17
-*option:Alberta:value:4     = 2.5
-*option:Alberta:value:5     = 2.0
-*option:Alberta:value:6     = 5.75
-*option:Alberta:value:7     = 7.75
-*option:Alberta:value:8     = 7.85
-*option:Alberta:value:9     = 5.75
-*option:Alberta:value:10    = 3.0
-*option:Alberta:value:11    = 4.625
-*option:Alberta:value:12    = 0.5
-*option:Alberta:value:13    = 5.050
-*option:Alberta:value:14    = 0.5
-*option:Alberta:value:15    = 5.150
-*option:Alberta:value:16    = 14.665
-*option:Alberta:value:17    = 10.116
-*option:Alberta:value:18    = 15
-*option:Alberta:value:19    = 10.35
-*option:Alberta:cost:total  =  0
-
-*option:Halifax:value:1     = 200
-*option:Halifax:value:2     = 15.0
-*option:Halifax:value:3     = 13.33
-*option:Halifax:value:4     = 2.5
-*option:Halifax:value:5     = 2.0
-*option:Halifax:value:6     = 5.75
-*option:Halifax:value:7     = 7.5
-*option:Halifax:value:8     = 7.85
-*option:Halifax:value:9     = 5.75
-*option:Halifax:value:10    = 3.0
-*option:Halifax:value:11    = 4.625
-*option:Halifax:value:12    = 0.5
-*option:Halifax:value:13    = 4.5
-*option:Halifax:value:14    = 0.5
-*option:Halifax:value:15    = 5.00
-*option:Halifax:value:16    = 12.833
-*option:Halifax:value:17    = 8.833
-*option:Halifax:value:18    = 14.5
-*option:Halifax:value:19    = 10.00
-*option:Halifax:cost:total  =  0
-
-*option:Prairie:value:1     = 208.75
-*option:Prairie:value:2     = 14.5
-*option:Prairie:value:3     = 14.40
-*option:Prairie:value:4     = 2.5
-*option:Prairie:value:5     = 2.0
-*option:Prairie:value:6     = 5.75
-*option:Prairie:value:7     = 7.25
-*option:Prairie:value:8     = 7.85
-*option:Prairie:value:9     = 5.75
-*option:Prairie:value:10    = 3.0
-*option:Prairie:value:11    = 4.625
-*option:Prairie:value:12    = 0.5
-*option:Prairie:value:13    = 4.819
-*option:Prairie:value:14    = 0.5
-*option:Prairie:value:15    = 4.85
-*option:Prairie:value:16    = 13.896
-*option:Prairie:value:17    = 9.577
-*option:Prairie:value:18    = 14.0
-*option:Prairie:value:19    = 9.65
-*option:Prairie:cost:total  =  0
 
 *attribute:end
 
