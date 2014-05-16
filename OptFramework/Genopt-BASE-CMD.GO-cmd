@@ -14,7 +14,7 @@ Vary{
   
     Name = GOtag:CalcMode; 
     Ini    = 1; 
-    Values = "debug"; 
+    Values = "calc"; 
  
    }
 
@@ -31,9 +31,17 @@ Vary{
   Parameter{ 
     Name = GOtag:HRVcontrol; 
     Ini  = 1; 
-    Values = EightHRpDay;
+    Values = "EightHRpDay";
+  }
+  
+    // Fan control scheme (Continuious, Auto ) 
+  Parameter{ 
+    Name = GOtag:FurnaceFanCtl; 
+    Ini  = 1; 
+    Values = "Auto";
      
   }
+  
    
   // Location  
   Parameter{ // One of:
@@ -352,6 +360,9 @@ Vary{
   
   
   
+  
+  
+  
 
     
    // Orientation: for parametric study. Set to one of 
@@ -362,7 +373,7 @@ Vary{
    Parameter{   // 
      Name    =  GOtag:GOconfig_rotate;
      Ini     =  1;
-     Values  =  "AVG";
+     Values  =  "N";
    }      
     
      

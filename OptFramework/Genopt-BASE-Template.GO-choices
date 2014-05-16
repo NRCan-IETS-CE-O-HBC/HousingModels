@@ -24,6 +24,8 @@ Opt-DBFiles   : %GOtag:DBFiles%
 ! HRV control scheme: ERS, continuious, 8-hours per day
 OPT-HRV_ctl   : %GOtag:HRVcontrol%
 
+OPT-Furnace-Fan-Ctl : %GOtag:FurnaceFanCtl%
+
 ! Select a geographic location
 Opt-Location  :  %GOtag:Opt-Location%
 

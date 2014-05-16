@@ -10,6 +10,7 @@
 *attribute:tag:1    = <Opt-endday>
 *attribute:tag:2    = <Opt-endmonth>
 *attribute:tag:3    = <Opt-disable_isi>
+*attribute:default  = calc
 
 *option:debug:value:1    = 1
 *option:debug:value:2    = 1
@@ -32,6 +33,7 @@
 *attribute:name     = Opt-DBFiles
 *attribute:tag:1    = <OPT-ConstDBFile>
 *attribute:tag:2    = <OPT-OptDBFile>
+*attribute:default  = CEF
 
 *option:CEF:value:1  = NZEH-CEF.constrdb
 *option:CEF:value:2  = optics-CEF.db2
@@ -56,6 +58,7 @@
 *attribute:name  = Opt-BaseWindows
 *attribute:tag:1 = <OptBW-Construction>
 *attribute:tag:2 = <OptBW-Optics>
+*attribute:default  =  = MinWindows
 
 *option:NoWindows:value:1 = <Opt-MainWall-Bri>
 *option:NoWindows:value:2 = OPAQUE
@@ -76,6 +79,7 @@
 *attribute:start 
 *attribute:name  = OPT-HRV_ctl
 *attribute:tag:1 = <OPT-HRV_ctl>
+*attribute:default  = EightHRpDay
 
 *option:Continuious:value:1 = 7
 *option:Continuious:cost:total    = 0
@@ -89,6 +93,27 @@
 *attribute:end
 
 !-----------------------------------------------------------------------
+! Furnace fan control flag: flag defining assumptions associated with HRV control
+! (this relates to the NZEH performance definition, and isn't intended 
+! to be optimized. 
+!-----------------------------------------------------------------------
+
+*attribute:start 
+*attribute:name  = OPT-Furnace-Fan-Ctl
+*attribute:tag:1 = <OPT-Furnace-Fan-Ctl>
+*attribute:default = Auto
+
+*option:Continuous:value:1 = 2
+*option:Continuous:cost:total    = 0
+  
+*option:Auto:value:1 = 1
+*option:Auto:cost:total    = 0
+  
+
+*attribute:end
+
+
+!-----------------------------------------------------------------------
 ! Climate file manipulation
 !-----------------------------------------------------------------------
 
@@ -97,6 +122,7 @@
 *attribute:tag:1 = <OPT-WEATHER-FILE>
 *attribute:tag:2 = <OPT-Latitude>
 *attribute:tag:3 = <OPT-Longitude>
+*attribute:default = Ottawa 
 
 *option:Whitehorse:value:1 = can_whitehorse.cwec
 *option:Whitehorse:value:2 = 60.7161
@@ -174,6 +200,7 @@
 *attribute:tag:4 = <OptTopFlExWin2Opt>
 *attribute:tag:5 = <OptTopFlExWin3Con>
 *attribute:tag:6 = <OptTopFlExWin3Opt>
+*attribute:default = NoExtraWin
 
 *option:NoExtraWin:value:1 = <Opt-MainWall-Bri>
 *option:NoExtraWin:value:2 = OPAQUE
@@ -232,6 +259,7 @@
 *attribute:tag:12 = <OptBedroomExWin1Opt>
 *attribute:tag:13 = <OptMasterExWin1Con>
 *attribute:tag:14 = <OptMasterExWin1Opt>
+*attribute:default = NoExtraWin
 
 *option:NoExtraWin:value:1  = <Opt-MainWall-Bri>
 
@@ -369,6 +397,7 @@
 *attribute:name  = Opt-ExtLeftSideWindow 
 *attribute:tag:1 = <OptFirstFlExWin2Con>
 *attribute:tag:2 = <OptFirstFlExWin2Opt>
+*attribute:default = No 
 
 *option:No:value:1 = <Opt-MainWall-Bri>
 *option:No:value:2 = OPAQUE
@@ -390,6 +419,7 @@
 *attribute:name  = Opt-ExtBasementWindow
 *attribute:tag:1 = <OptBsmtExWin1Con>
 *attribute:tag:2 = <OptBsmtExWin1Opt>
+*attribute:default = No
 
 *option:No:value:1 = <OPT-BsmWall>
 *option:No:value:2 = OPAQUE
@@ -409,6 +439,7 @@
 
 *attribute:tag:1 = <Opt-OverhangW_mainfloor>
 *attribute:tag:2 = <Opt-OverhangW_secondfloor>
+*attribute:default = BaseOverhang
 
 *option:BaseOverhang:value:1 = 0.001
 *option:BaseOverhang:value:2 = 0.457
@@ -443,6 +474,7 @@
 *attribute:name  = Opt-CasementWindows
 *attribute:tag:1 = <Opt-CasWinConstruction>
 *attribute:tag:2 = <Opt-CasWinOptics>
+*attribute:default = DoubleLowEHardCoatArgFill
 
 !*option:OriginalGlassParam:value:1 = DblArLowe
 !*option:OriginalGlassParam:value:2 = DBLLowE
@@ -531,6 +563,7 @@
 *attribute:start    
 *attribute:name = Opt-AirTightness
 *attribute:tag:1 = <Opt-AirTightness>
+*attribute:default = Typical23
 
 *option:TypicalGTA:value:1    =   base.aim  
 *option:TypicalGTA:cost:total       =   0
@@ -572,9 +605,9 @@
 *attribute:start 
    
 *attribute:name = Opt-Ceilings
-
 *attribute:tag:1  = <Opt-Ceiling>
 !*attribute:tag:2  = <Opt-CeilingR>
+*attribute:default = CeilR50
 
 *option:CeilR50:value:1 =   CeilR50
 !*option:CeilR50:value:2 =   CeilR50R
@@ -620,6 +653,8 @@
 *attribute:tag:1  = <Opt-MainWall-Bri>
 *attribute:tag:2  = <Opt-MainWall-Vin>
 *attribute:tag:3  = <Opt-MainWall-Dry>
+*attribute:default = BaseR21
+
 
 *option:BaseR20:value:1 =   BaseR20Bri   ! Added by JTB for MB base wall
 *option:BaseR20:value:2 =   BaseR20Vin
@@ -818,6 +853,8 @@ Whitehorse Wall Options (Code is R28)
 *attribute:start
 *attribute:name    = Opt-BasementWallInsulation
 *attribute:tag:1   = <OPT-BsmWall>
+*attribute:default = OBC-min-R12
+
 
 *option:OBC-min-R12:value:1 = BsmWllR12
 *option:OBC-min-R12:meta    = Int
@@ -903,6 +940,7 @@ Whitehorse Foundation Options (Code is R28)
 *attribute:name    = Opt-BasementSlabInsulation
 *attribute:tag:1   = <OPT-BsmFloor>
 *attribute:tag:2   = <OPT-BsmCnnIndex>
+*attribute:default = NoInsulation 
 
 *option:NoInsulation:value:1 = BsmFlrR0
 *option[Opt-BasementWallInsulation>OBC-min-R12|Rigid+Blown-R43|MB-IntBatt-R20|AdvFrm-R20-Wall]:NoInsulation:value:2 = 1 
@@ -913,6 +951,13 @@ Whitehorse Foundation Options (Code is R28)
 *option[Opt-BasementWallInsulation>OBC-min-R12|Rigid+Blown-R43]:R24UnderSlab+edge:value:2 = 22 
 *option[else                                                  ]:R24UnderSlab+edge:value:2 = 69
 *option:R24UnderSlab+edge:cost:total    = 4865      
+
+*option:R10UnderSlab+edge:value:1 = BsmFlrR10
+*option[Opt-BasementWallInsulation>OBC-min-R12|Rigid+Blown-R43]:R10UnderSlab+edge:value:2 = 22 
+*option[else                                                  ]:R10UnderSlab+edge:value:2 = 69
+*option:R10UnderSlab+edge:cost:total    = 4865      
+
+
 
 ! Perimeter, sub-slab 0.6m skirt insulation
 
@@ -961,6 +1006,7 @@ Whitehorse Foundation Options (Code is R28)
 *attribute:name   =Opt-ExposedFloor 
 *attribute:tag:1  =<Opt-ExposedFloor>
 *attribute:tag:2  =<Opt-ExposedFloor-r>
+*attribute:default = BaseExpFloor-R31
 
 
 *option:BaseExpFloor-R31:value:1 = ExpFlR31
@@ -983,6 +1029,7 @@ Whitehorse Foundation Options (Code is R28)
   
 *attribute:name   = Opt-ExtraDrywall
 *attribute:tag:1  = <Opt-ExtraDrywall>
+*attribute:default = OneSheet 
 
 *option:OneSheet:value:1 =   0.0125
 *option:OneSheet:cost:total    =   0 
@@ -1001,6 +1048,8 @@ Whitehorse Foundation Options (Code is R28)
 *attribute:name   = Opt-FloorSurface
 *attribute:tag:1  = <Opt-IntFloor>
 *attribute:tag:2  = <Opt-IntFloorInv>
+*attribute:default = wood 
+
 
 *option:wood:value:1 = floor 
 *option:wood:value:2 = floor_inv 
@@ -1023,77 +1072,135 @@ Whitehorse Foundation Options (Code is R28)
 *attribute:name    = Opt-HVACSystem
 *attribute:tag:1   = <Opt-HVACSystem>
 *attribute:tag:2   = <Opt-HideGSHPfile>
+*attribute:tag:3   = <OPT-VENTisIMS>
+*attribute:tag:4   = <OPT-VENTisHRV>
+*attribute:tag:5   = <OPT-WHisIMS>
+*attribute:tag:6   = <Opt-HVACCtlFile>
 
+
+
+
+!--- Consider using psc variety as base furnace from now on. 
 *option:basefurnace:value:1 = basefurnace_ACv2.hvac
 *option:basefurnace:value:2 = #-no-GSHP-file
+*option:basefurnace:value:3 = #No-IMS: 
+*option:basefurnace:value:4 = 
+*option:basefurnace:value:5 = 
+*option:basefurnace:value:6 = NZEH_shoulder_ideal.ctl
 *option:basefurnace:cost:total    = 0
+
+*option:gas-furnace-ecm:value:1 = basefurnace_AC-gas-ecm-motor.hvac
+*option:gas-furnace-ecm:value:2 = #-no-GSHP-file
+*option:gas-furnace-ecm:value:3 = #No-IMS: 
+*option:gas-furnace-ecm:value:4 = 
+*option:gas-furnace-ecm:value:5 = 
+*option:gas-furnace-ecm:value:6 = NZEH_shoulder_ideal.ctl
+*option:gas-furnace-ecm:cost:total    = 0
+
+*option:gas-furnace-psc:value:1 = basefurnace_AC-gas-psc-motor.hvac
+*option:gas-furnace-psc:value:2 = #-no-GSHP-file
+*option:gas-furnace-psc:value:3 = #No-IMS: 
+*option:gas-furnace-psc:value:4 = 
+*option:gas-furnace-psc:value:5 = 
+*option:gas-furnace-psc:value:6 = NZEH_shoulder_ideal.ctl
+*option:gas-furnace-psc:cost:total    = 0
+
+*option:13kW-furnace-ecm:value:1 = smallfurnace_AC-gas-ecm-motor.hvac
+*option:13kW-furnace-ecm:value:2 = #-no-GSHP-file
+*option:13kW-furnace-ecm:value:3 = #No-IMS: 
+*option:13kW-furnace-ecm:value:4 = 
+*option:13kW-furnace-ecm:value:5 = 
+*option:13kW-furnace-ecm:value:6 = NZEH_shoulder_ideal.ctl
+*option:13kW-furnace-ecm:cost:total    = 0
+
+*option:zoned-furnace-ecm:value:1 = smallfurnace_AC-gas-ecm-motor.hvac
+*option:zoned-furnace-ecm:value:2 = #-no-GSHP-file
+*option:zoned-furnace-ecm:value:3 = #No-IMS: 
+*option:zoned-furnace-ecm:value:4 = 
+*option:zoned-furnace-ecm:value:5 = 
+*option:zoned-furnace-ecm:value:6 = NZEH_shoulder_zoned.ctl
+*option:zoned-furnace-ecm:cost:total    = 0
+
+
+*option:IMS-P10:value:1 = IMS-P10.hvac
+*option:IMS-P10:value:2 = #-no-GSHP-file
+*option:IMS-P10:value:3 =  
+*option:IMS-P10:value:4 = # NO - HRV: IMS provides HRV. 
+*option:IMS-P10:value:5 = # NO DHW: IMS provides WH.  
+*option:IMS-P10:value:6 = NZEH_shoulder_ideal.ctl
+*option:IMS-P10:cost:total    = 9000
+ 
+ 
+! Not-so-good P9 system. PSC motor?
+*option:Combi-P9-a:value:1 = Combi-P9.hvac
+*option:Combi-P9-a:value:2 = #-no-GSHP-file
+*option:Combi-P9-a:value:3 = #No-IMS: 
+*option:Combi-P9-a:value:4 = 
+*option:Combi-P9-a:value:5 = # NO DHW: IMS provides WH.  
+*option:Combi-P9-a:value:6 = NZEH_shoulder_ideal.ctl
+*option:Combi-P9-a:cost:total    = 9000
+
+! Better P9 system. ECM motor?
+*option:Combi-P9-ecm:value:1 = Combi-P9-ecm.hvac
+*option:Combi-P9-ecm:value:2 = #-no-GSHP-file
+*option:Combi-P9-ecm:value:3 = #No-IMS: 
+*option:Combi-P9-ecm:value:4 = 
+*option:Combi-P9-ecm:value:5 = # NO DHW: IMS provides WH.  
+*option:Combi-P9-ecm:value:6 = NZEH_shoulder_ideal.ctl
+*option:Combi-P9-ecm:cost:total    = 9000
+
+! Best P9 system. ECM motor
+*option:Combi-P9-ecmV2:value:1 = Combi-P9-ecm-v2.hvac
+*option:Combi-P9-ecmV2:value:2 = #-no-GSHP-file
+*option:Combi-P9-ecmV2:value:3 = #No-IMS: 
+*option:Combi-P9-ecmV2:value:4 = 
+*option:Combi-P9-ecmV2:value:5 = # NO DHW: IMS provides WH.  
+*option:Combi-P9-ecmV2:value:6 = NZEH_shoulder_ideal.ctl
+*option:Combi-P9-ecmV2:cost:total    = 9000
+
 
 *option:propanefurnaceAC:value:1 = propane_furnace_ACv2.hvac
 *option:propanefurnaceAC:value:2 = #-no-GSHP-file
+*option:propanefurnaceAC:value:3 = #No-IMS: 
+*option:propanefurnaceAC:value:4 = 
+*option:propanefurnaceAC:value:5 = 
+*option:propanefurnaceAC:value:6 = NZEH_shoulder_ideal.ctl
 *option:propanefurnaceAC:cost:total    = 0
 
 
 *option:oilfurnace:value:1 = basefurnace_ACv2_oil.hvac
 *option:oilfurnace:value:2 = #-no-GSHP-file
+*option:oilfurnace:value:3 = #No-IMS: 
+*option:oilfurnace:value:4 = 
+*option:oilfurnace:value:5 = 
+*option:oilfurnace:value:6 = NZEH_shoulder_ideal.ctl
 *option:oilfurnace:cost:total    = 0
 
 *option:elec-baseboard:value:1 = Baseboardv2.hvac
 *option:elec-baseboard:value:2 = #-no-GSHP-file
+*option:elec-baseboard:value:3 = #No-IMS: 
+*option:elec-baseboard:value:4 = 
+*option:elec-baseboard:value:5 = 
+*option:elec-baseboard:value:6 = NZEH_shoulder_ideal.ctl
 *option:elec-baseboard:cost:total       = -3870
 
-*option:CCASHP:value:1      = CCASHPv2.hvac
-*option:CCASHP:value:2      = #-no-GSHP-file
+*option:CCASHP:value:1 = CCASHPv2.hvac
+*option:CCASHP:value:2 = #-no-GSHP-file
+*option:CCASHP:value:3 = #No-IMS: 
+*option:CCASHP:value:4 = 
+*option:CCASHP:value:5 = 
+*option:CCASHP:value:6 =  NZEH_shoulder_ideal.ctl
 *option:CCASHP:cost:total   = 9595          ! Does this reflect AC system savings?
 
 
 Reflects southern Ontario costs
-*option:GSHP:value:1      = GSHPv2.hvac
-*option:GSHP:value:2      = *gshp~../hvac/heatx_v1.gshp
+*option:GSHP:value:1 = GSHPv2.hvac
+*option:GSHP:value:2 = *gshp~../hvac/heatx_v1.gshp
+*option:GSHP:value:3 = #No-IMS: 
+*option:GSHP:value:4 = 
+*option:GSHP:value:5 = 
+*option:GSHP:value:5 = NZEH_shoulder_ideal.ctl 
 *option:GSHP:cost:total    = 18560          ! Does this reflect AC syste$
-
-!-----------------------------------------------------------------------
-! HVAC - WH Data - Basecase = Oil, forced-air furnace 85% AFUE, oil tank, ducting, HRV
-!-----------------------------------------------------------------------
-
-!*option:baseoilfurnace:value:1 = baseoil85furnace.hvac
-!*option:baseoilfurnace:value:2 = #-no-GSHP-file
-!*option:baseoilfurnace:cost:total   = 0
-!
-!*option:oil95furnace:value:1 = oil95furnace.hvac
-!*option:oil95furnace:value:2 = #-no-GSHP-file
-!*option:oil95furnace:cost:total      = 1100
-!
-!*option:propanefurnace:value:1      = propanefurnace.hvac
-!*option:propanefurnace:value:2      = #-no-GSHP-file
-!*option:propanefurnace:cost:total        = -4500         
-!
-!*option:elecfurnace:value:1      = elecfurnace.hvac
-!*option:elecfurnace:value:2      = #-no-GSHP-file
-!*option:elecfurnace:cost:total        = -8400 
-!
-!*option:woodstove65:value:1      = woodstove65.hvac
-!*option:woodstove65:value:2      = #-no-GSHP-file
-!*option:woodstove65:cost:total        = -8400
-!
-!*option:pelletstove75:value:1      = pelletstove75.hvac
-!*option:pelletstove75:value:2      = #-no-GSHP-file
-!*option:pelletstove75:cost:total        = -9400
-!
-!*option:elec-baseboard:value:1 = Baseboardv2.hvac
-!*option:elec-baseboard:value:2 = #-no-GSHP-file
-!*option:elec-baseboard:cost:total      = -12900
-!
-!*option:GSHP:value:1      = GSHPv2.hvac
-!*option:GSHP:value:2      = *gshp~../hvac/heatx_v1.gshp
-!*option:GSHP:cost:total        = 24100         
-!
-!*option:CCASHP:value:1      = CCASHPv2.hvac
-!*option:CCASHP:value:2      = #-no-GSHP-file
-!*option:CCASHP:cost:total        = 3100   
-!
-!*option:ASHP:value:1      = ASHPv2.hvac
-!*option:ASHP:value:2      = #-no-GSHP-file
-!*option:ASHP:cost:total        = 3100   
 
 
 *attribute:end
@@ -1105,6 +1212,7 @@ Reflects southern Ontario costs
 *attribute:start 
 *attribute:name    = Opt-HRVspec 
 *attribute:tag:1   = <Opt-HRVInputFile>
+*attribute:default = CEF_SPEC
 
 *option:CEF_SPEC:value:1         = HRV.vnt
 *option:CEF_SPEC:cost:total = 0
@@ -1124,6 +1232,7 @@ Reflects southern Ontario costs
 *attribute:start 
 *attribute:name    = Opt-ElecLoadScale
 *attribute:tag:1   = <Opt-ElecLoadScale>
+*attribute:default = NGERSNoReduction19
 
 *option:NoReduction:value:1  = 1.066
 *option:NoReduction:cost:total     = 0
@@ -1137,12 +1246,18 @@ Reflects southern Ontario costs
 *option:NGERSNoReduction19:value:1    = 0.832279
 *option:NGERSNoReduction19:cost:total = 0
 
+*option:NGERSNoReduction19:value:1    = 0.832279
+*option:NGERSNoReduction19:cost:total = 0
+
+
 *option:NGERSReducedA16:value:1    = 0.700
 *option:NGERSReducedA16:cost:total = 0
 
 *option:NGERSBestInClass14p8:value:1    = 0.648301
 *option:NGERSBestInClass14p8:cost:total = 0
 
+*option:TStrackLighting:value:1    = 0.7402
+*option:TStrackLighting:cost:total = 0
 
 *attribute:end 
 
@@ -1153,7 +1268,7 @@ Reflects southern Ontario costs
 *attribute:start 
 *attribute:name    = Opt-DHWLoadScale 
 *attribute:tag:1   = <DUMMY-TAG-Not-USED>
-
+*attribute:default = No-Reduction
 !!220 L/day 
 !*option:NoReduction:value:1  = 4.0
 !*option:NoReduction:cost:total     = 0
@@ -1186,6 +1301,7 @@ Reflects southern Ontario costs
 *attribute:start
 *attribute:name     = Opt-DHWSystem
 *attribute:tag:1    = <Opt-DHWInputFile>
+*attribute:default = BaseDHW 
 
 *option:BaseDHW:value:1     = BaseDHW.dhw
 *option:BaseDHW:cost:total        = 0
@@ -1212,6 +1328,7 @@ Reflects southern Ontario costs
 *attribute:start 
 *attribute:name     = Opt-DWHRandSDHW
 *attribute:tag:1    = <Opt-DHWDailyDrawLperDay>
+*attribute:default  = none
 
 ! No DWHR or SDHW
 *option[ Opt-DHWLoadScale>No-Reduction ]:none:value:1 =190
@@ -1459,12 +1576,14 @@ Reflects southern Ontario costs
 
 
 !-----------------------------------------------------------------------
-! Roof pitch. Used for PV calculation. 
+! Roof pitch. Used for PV calculation. Tag doesn't do anything!
 !-----------------------------------------------------------------------
 
 *attribute:start
 *attribute:name     = Opt-RoofPitch
 *attribute:tag:1    = <zippo>
+*attribute:default  = 8-12 
+
 *option:6-12:value:1 = nil
 *option:6-12:cost:total  = 0
 *option:8-12:value:1 = nil
@@ -1480,6 +1599,7 @@ Reflects southern Ontario costs
 
 *ext-attribute:start 
 *attribute:name      = Opt-StandoffPV
+*attribute:default   = NoPV 
 
 *option[Opt-Location>Calgary    ;Opt-RoofPitch>6-12  ]:SizedPV:production-elec-perKW  = 4.630 ! GH/kW Installed
 *option[Opt-Location>Calgary    ;Opt-RoofPitch>8-12  ]:SizedPV:production-elec-perKW  = 4.733 ! GH/kW Installed
@@ -1524,6 +1644,10 @@ Reflects southern Ontario costs
 
 *ext-attribute:end
 
+
+!---------------------------------------------------
+!  Pay attention to these !
+!---------------------------------------------------
 
   
 *ext-parameters:start
