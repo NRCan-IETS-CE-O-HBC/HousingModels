@@ -22,28 +22,28 @@
   *zone-link 7 0.2 
 *zone-links-end
 *sys-data-start
-  SH-capacity             27900.
-  nominal-burner-input    43950.
-  SH-net-eff-15           0.88
-  SH-net-eff-40           0.90
-  SH-net-eff-100          0.84
-  SH-power-15             180.0
-  SH-power-40             320.0
-  SH-power-100            475.0
-  heat-source-type        5
-  WHPF                    0.81
-  vent-FA-flow-C          34.0
-  vent-EA-flow-C          34.0
-  vent-FA-flow-H          58.0
-  vent-EA-flow-H          58.0
-  vent-FA-fan-power-C     27.0
-  vent-EA-fan-power-C     27.0
-  vent-FA-fan-power-H     50.0
-  vent-EA-fan-power-H     50.0
-  controls-power          13.0
-  circ-fan-power          103.0
-  vent-SRE                0.60
-  dhw-water-vol-lpday        <Opt-DHWDailyDrawLperDay>
+  SH-capacity           23.9
+  nominal-burner-input  58500 
+  SH-net-eff-15         0.91
+  SH-net-eff-40         0.96
+  SH-net-eff-100        0.91
+  SH-power-15           145.
+  SH-power-40           231.
+  SH-power-100          548.
+  heat-source-type      5
+  WHPF                  0.95
+  vent-FA-flow-C        0.001
+  vent-EA-flow-C        0.001
+  vent-FA-flow-H        0.001
+  vent-EA-flow-H        0.001
+  vent-FA-fan-power-C   0.001
+  vent-EA-fan-power-C   0.001
+  vent-FA-fan-power-H   0.001
+  vent-EA-fan-power-H   0.001
+  controls-power        7
+  circ-fan-power        74
+  vent-SRE              1.0
+  dhw-water-vol-lpday    <Opt-DHWDailyDrawLperDay>
 *sys-data-end
 *fan-ctl-loop 1
 #*misc-param-start

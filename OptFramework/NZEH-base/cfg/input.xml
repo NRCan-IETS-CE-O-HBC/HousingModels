@@ -43,6 +43,11 @@
   <step_variable>building/all_zones/supplied_energy/cooling</step_variable>
   <step_variable>building/all_zones/supplied_energy/heating</step_variable>
   
+     
+ <!-- <summary_variable>building/all_zones/supplied_energy/cooling</summary_variable>
+      <summary_variable>building/all_zones/supplied_energy/heating</summary_variable> -->
+  
+  
   <step_variable>building/day/future</step_variable>
   <step_variable>building/hour/future</step_variable>
   <step_variable>building/month</step_variable>
@@ -76,6 +81,6 @@
   <step_variable>plant/*/misc_data/water_temperature</step_variable> 
   
   <summary_variable>total_fuel_use*</summary_variable>
-  <summary_variable>building/zone_*/surface_*/heat_flux/radiation/shortwave/unit_area</summary_variable>
+  <!--<summary_variable>building/zone_*/surface_*/heat_flux/radiation/shortwave/unit_area</summary_variable>-->
   
 </configuration>
