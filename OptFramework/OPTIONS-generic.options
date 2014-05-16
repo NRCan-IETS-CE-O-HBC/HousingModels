@@ -54,6 +54,7 @@
 !-----------------------------------------------------------------------
 *attribute:start 
 *attribute:name  = Opt-Attachment
+! zone .geo changes
 *attribute:tag:1 = <OptAtt-Wall2Con>
 *attribute:tag:2 = <OptAtt-Wall2Opt>
 *attribute:tag:3 = <OptAtt-Wall2BC>
@@ -72,7 +73,11 @@
 *attribute:tag:16= <OptAtt-bsm4BC>
 *attribute:tag:17= <OptAtt-bsm1BC>
 *attribute:tag:18= <OptAtt-bsm3BC>
-
+! cnn changes
+*attribute:tag:19= <OptAtt-cnn8BC>	! surface 8
+*attribute:tag:20= <OptAtt-cnn8text>	! surface 8
+*attribute:tag:21= <OptAtt-cnn10BC>  ! surface 10
+*attribute:tag:22= <OptAtt-cnn10text>  ! surface 10
 
 *option:single:value:1 = <Opt-MainWall-Bri>
 *option:single:value:2 = OPAQUE
@@ -92,6 +97,10 @@
 *option:single:value:16= BASESIMP,01,15
 *option:single:value:17= BASESIMP,01,15
 *option:single:value:18= BASESIMP,01,15
+*option:single:value:19= 0
+*option:single:value:20= External
+*option:single:value:21= 0
+*option:single:value:22= External
 *option:single:cost:total    = 0
 
 
