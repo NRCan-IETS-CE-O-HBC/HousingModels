@@ -565,7 +565,7 @@
 *attribute:end 
 
 !------------------------------------------------------------------------
-! This option sets the overhang witdhs 
+! This option sets the overhang widths 
 !------------------------------------------------------------------------
 *attribute:start 
 *attribute:name = Opt-OverhangWidth
@@ -627,7 +627,7 @@
 *attribute:tag:7    = <win-wall-2-right>
 *attribute:tag:8    = <win-wall-2-left>
 *attribute:tag:9    = <win-wall-3-right>
-*attribute:tag:10    = <win-wall-3-left>
+*attribute:tag:10   = <win-wall-3-left>
 *attribute:tag:11   = <win-wall-4-right>
 *attribute:tag:12   = <win-wall-4-left>
 
@@ -659,6 +659,20 @@
 *option:Montreal:value:11  = 14.0
 *option:Montreal:value:12  = 9.650
 *option:Montreal:cost:total = 0
+
+*option:Whitehorse:value:1    = 98.844
+*option:Whitehorse:value:2    = 11.582
+*option:Whitehorse:value:3    = 8.53
+*option:Whitehorse:value:4    = 5.7912
+*option:Whitehorse:value:5    = 0.5
+*option:Whitehorse:value:6    = 2.816
+*option:Whitehorse:value:7    = 0.5
+*option:Whitehorse:value:8    = 2.207
+*option:Whitehorse:value:9    = 11.082
+*option:Whitehorse:value:10   = 8.766
+*option:Whitehorse:value:11   = 8.034
+*option:Whitehorse:value:12   = 6.327
+*option:Whitehorse:cost:total = 0
 
 *attribute:end
 

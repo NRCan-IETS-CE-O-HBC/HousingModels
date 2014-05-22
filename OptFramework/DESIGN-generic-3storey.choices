@@ -11,7 +11,7 @@ Opt-calcmode          :calc
 
 ! Set of database files to be used
 
-Opt-DBFiles           : CEF 
+Opt-DBFiles           : WHITEHORSE 
 
 
 ! Optimization substitutions 
@@ -19,7 +19,7 @@ Opt-DBFiles           : CEF
 ! and compute an average result)
 GOconfig_rotate      : S
 
-Opt-Location : Toronto
+Opt-Location : Whitehorse
 
 ! Assumptions about HRV operation . Not intended to be optimized!
 ! Recognized values: 
@@ -43,20 +43,14 @@ Opt-FrontWindows     : NoExtraWin
 Opt-BackWindows      : NoExtraWin
 
 ! Geometry substitutions
-! Toronto
-! Montreal
-! Vancouver
-! Alberta
-! Halifax
-! Prairie
-Opt-geometry      : Toronto
+Opt-geometry      : Whitehorse
 
 !Attachment options
 ! single
 ! semi
 ! row
 
-Opt-Attachment : row
+Opt-Attachment : single
 
 ! ACH substitutions
 ! Calgary-gas
@@ -75,7 +69,7 @@ Opt-Attachment : row
 ! Winnipeg-elec
 ! Winnipeg-gas
 
-Opt-ACH       : Toronto-gas
+Opt-ACH       : Toronto-elec
 
 
 
@@ -89,9 +83,6 @@ Opt-ExtBasementWindow : No          ! Basement (back)
 
 
 ! Air-Tightness: 
-!     TypicalGTA
-!     R2000
-!     Cdn1ACH
 !     Generic
 !
 Opt-AirTightness   : Generic
