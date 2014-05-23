@@ -46,13 +46,30 @@
 
 *attribute:end
 
+!-----------------------------------------------------------------------
+! This option defines an operations schedule for zoned systems, where all
+! occupant and internal gains follow:
+! main zone: occupied 8:00-21:00
+! upper zone: occupied 0:00-9:00 and 19:00-24:00
+!-----------------------------------------------------------------------!
+*attribute:start
+*attribute:name     = OPT-OPR-SCHED 
+*attribute:tag:1    = <OPT-OPR-SCHED>
+*attribute:default  = constant
+
+*option:constant:value:1  = -constant
+*option:constant:cost:total = 0
+
+*option:scheduled:value:1  = -scheduled
+*option:scheduled:cost:total = 0
+
 
 !-------------------------------------------------------------------------
 ! This option can be used to turn the detached house into an semi-detached
 ! or a row house. If the attachment tag is set to:
 ! 1. single: windows and walls are EXTERIOR.
-! 1. semi: the windows on one side of the house are set to opaque and the boundary condition to ADIABATIC
-! 2. row: windows on both sides are set to opaque and the wall boundary conditions to ADIABATIC.
+! 2. semi: the windows on one side of the house are set to opaque and the boundary condition to ADIABATIC
+! 3. row: windows on both sides are set to opaque and the wall boundary conditions to ADIABATIC.
 !-----------------------------------------------------------------------
 *attribute:start 
 *attribute:name  = Opt-Attachment
@@ -185,7 +202,8 @@
 *option:MinWindows:cost:total    = 0
 
 *attribute:end
-                       
+
+
 !-----------------------------------------------------------------------
 ! HRV control flag: flag defining assumptions associated with HRV control
 ! (this relates to the NZEH performance definition, and isn't intended 
@@ -632,18 +650,18 @@
 *attribute:tag:12   = <win-wall-4-left>
 
 
-*option:Toronto:value:1    = 235.07
-*option:Toronto:value:2    = 15.5
-*option:Toronto:value:3    = 15.17
-*option:Toronto:value:4    = 7.585
+*option:Toronto:value:1    = 98.4
+*option:Toronto:value:2    = 12.0
+*option:Toronto:value:3    = 8.2
+*option:Toronto:value:4    = 6.0
 *option:Toronto:value:5    = 0.5
-*option:Toronto:value:6    = 5.050
+*option:Toronto:value:6    = 4.1
 *option:Toronto:value:7    = 0.5
-*option:Toronto:value:8    = 5.150
-*option:Toronto:value:9    = 14.666
-*option:Toronto:value:10    = 10.116
-*option:Toronto:value:11   = 15.0
-*option:Toronto:value:12   = 10.35
+*option:Toronto:value:8    = 2.96
+*option:Toronto:value:9    = 11.5
+*option:Toronto:value:10   = 7.90
+*option:Toronto:value:11   = 7.7
+*option:Toronto:value:12   = 5.240
 *option:Toronto:cost:total = 0
 
 *option:Montreal:value:1   = 202.42

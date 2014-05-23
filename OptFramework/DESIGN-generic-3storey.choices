@@ -11,7 +11,7 @@ Opt-calcmode          :calc
 
 ! Set of database files to be used
 
-Opt-DBFiles           : WHITEHORSE 
+Opt-DBFiles           : CEF 
 
 
 ! Optimization substitutions 
@@ -19,7 +19,7 @@ Opt-DBFiles           : WHITEHORSE
 ! and compute an average result)
 GOconfig_rotate      : S
 
-Opt-Location : Whitehorse
+Opt-Location : Toronto
 
 ! Assumptions about HRV operation . Not intended to be optimized!
 ! Recognized values: 
@@ -32,6 +32,10 @@ OPT-HRV_ctl          : ERSp3ACH !EightHRpDay
 
 Opt-CTL-Strategy     : ecoEIIFramework  
 
+!Optional operations schedule for zoned systems
+! constant
+! scheduled
+OPT-OPR-SCHED        : scheduled
 
 ! Turn original design windows opaque ( NoWindows!)
 ! or transparent (MinWindows). NoWindows doesn't presently work!
@@ -43,14 +47,14 @@ Opt-FrontWindows     : NoExtraWin
 Opt-BackWindows      : NoExtraWin
 
 ! Geometry substitutions
-Opt-geometry      : Whitehorse
+Opt-geometry      : Toronto
 
 !Attachment options
 ! single
 ! semi
 ! row
 
-Opt-Attachment : single
+Opt-Attachment : semi
 
 ! ACH substitutions
 ! Calgary-gas
@@ -223,5 +227,5 @@ Opt-HVACSystem       : gas-furnace-mid
 
 ! HRV spec 
 
-Opt-HRVspec : CEF_SPEC
+Opt-HRVspec : BaseHRV_SRE70
 
