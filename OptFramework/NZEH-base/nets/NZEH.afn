@@ -10,11 +10,11 @@
  south           1    3   6.9110       0.0000       13.000       180.00      
  Component    Type C+ L+ Description
  air_exch_lo   610  2  0 Constant vol. flow rate component   m = rho.a               
-  1.00000000      1.00000000E-02
+  1.00000000      3.890E-02
  air_exch_mid  610  2  0 Constant vol. flow rate component   m = rho.a               
-  1.00000000      2.0000000E-02
+  1.00000000      7.780E-02
  air_exch_hi  610  2  0 Constant vol. flow rate component   m = rho.a               
-  1.00000000      3.0000000E-02
+  1.00000000      1.170E-01
  aim2-connect  600  2  0 AIM-2 infiltration component        m = rho.f(AIM2)
   1.0             1.0 
  +Node         dHght   -Node         dHght   via Component
