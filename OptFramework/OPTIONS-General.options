@@ -92,6 +92,19 @@
 
 *attribute:end
 
+*attribute:start 
+*attribute:name  = OPT-OPR-SCHED
+*attribute:tag:1 = <OPT-OPR-SCHED>
+*attribute:default = scheduled 
+
+*option:scheduled:value:1 = -scheduled 
+*option:scheduled:cost:total = 0 
+
+*option:constant:value:1 = -constant 
+*option:constant:cost:total = 0 
+
+*attrubute:end 
+
 !-----------------------------------------------------------------------
 ! Furnace fan control flag: flag defining assumptions associated with HRV control
 ! (this relates to the NZEH performance definition, and isn't intended 
@@ -101,7 +114,7 @@
 *attribute:start 
 *attribute:name  = OPT-Furnace-Fan-Ctl
 *attribute:tag:1 = <OPT-Furnace-Fan-Ctl>
-*attribute:default = Auto
+*attribute:default = Continuous
 
 *option:Continuous:value:1 = 2
 *option:Continuous:cost:total    = 0
@@ -1105,19 +1118,28 @@ Whitehorse Foundation Options (Code is R28)
 *option:gas-furnace-psc:value:6 = NZEH_shoulder_ideal.ctl
 *option:gas-furnace-psc:cost:total    = 0
 
-*option:13kW-furnace-ecm:value:1 = smallfurnace_AC-gas-ecm-motor.hvac
+*option:13kW-furnace-ecm:value:1 = Combi-P9-ecm-v2.hvac
 *option:13kW-furnace-ecm:value:2 = #-no-GSHP-file
 *option:13kW-furnace-ecm:value:3 = #No-IMS: 
 *option:13kW-furnace-ecm:value:4 = 
-*option:13kW-furnace-ecm:value:5 = 
+*option:13kW-furnace-ecm:value:5 = #
 *option:13kW-furnace-ecm:value:6 = NZEH_shoulder_ideal.ctl
 *option:13kW-furnace-ecm:cost:total    = 0
 
-*option:zoned-furnace-ecm:value:1 = smallfurnace_AC-gas-ecm-motor.hvac
+*option:no-zoned-furnace-ecm:value:1 = Combi-P9-ecm-v2.hvac
+*option:no-zoned-furnace-ecm:value:2 = #-no-GSHP-file
+*option:no-zoned-furnace-ecm:value:3 = #No-IMS: 
+*option:no-zoned-furnace-ecm:value:4 = 
+*option:no-zoned-furnace-ecm:value:5 = #
+*option:no-zoned-furnace-ecm:value:6 = NZEH_shoulder_non-zoned.ctl
+*option:no-zoned-furnace-ecm:cost:total    = 0
+
+
+*option:zoned-furnace-ecm:value:1 = Combi-P9-ecm-v2.hvac
 *option:zoned-furnace-ecm:value:2 = #-no-GSHP-file
 *option:zoned-furnace-ecm:value:3 = #No-IMS: 
 *option:zoned-furnace-ecm:value:4 = 
-*option:zoned-furnace-ecm:value:5 = 
+*option:zoned-furnace-ecm:value:5 = #
 *option:zoned-furnace-ecm:value:6 = NZEH_shoulder_zoned.ctl
 *option:zoned-furnace-ecm:cost:total    = 0
 
