@@ -12,29 +12,29 @@
      3  # No. of periods in day: sunday      
     0    27   0.000  # ctl type, law (basic control), start @
       7.  # No. of data items
-   3500. 0.000 0.000 0.000 18.000 26.000 5.000
+   3500. 0.000 0.000 0.000 21.000 26.000 5.000
     0    27   7.000  # ctl type, law (basic control), start @
       7.  # No. of data items
    3500. 0.000 0.000 0.000 21.000 26.000 5.000
     0    27   21.000  # ctl type, law (basic control), start @
       7.  # No. of data items
-   3500. 0.000 0.000 0.000 18.000 26.000 5.000      ############### SHOULDER #################################
+   3500. 0.000 0.000 0.000 21.000 26.000 5.000      ############### SHOULDER #################################
   106  166  # valid April 16 - June 15th Shoulder
      1  # No. of periods in day: sunday      
     0    27  0.000  # ctl type, law (basic control), start @
       7.  # No. of data items
    3500. 0.000 5000. 0.000 18.000 26.000 5.000   
-  167  243  # valid June 16th to Aug 31st Cooling
+  167  243  # valid June 16th to Aug 31st Cooling  
        3  # No. of periods in day: sunday      
     0    27   0.000  # ctl type, law (basic control), start @
       7.  # No. of data items
-   3500. 0.000 0.000 0.000 -20.000 40.000 5.000
+   3500. 0.000 0.000 0.000 -20.000 25.000 5.000
     0    27   7.000  # ctl type, law (basic control), start @
       7.  # No. of data items
    3500. 0.000 0.000 0.000 -20.000 25.000 5.000
     0    27   21.000  # ctl type, law (basic control), start @
       7.  # No. of data items
-   3500. 0.000 0.000 0.000 -20.000 40.000 5.000 
+   3500. 0.000 0.000 0.000 -20.000 25.000 5.000 
   244  288  # valid Sept 1st to Oct 15th Shoulder
      1  # No. of periods in day: saturday    
     0    27   0.000  # ctl type, law (basic control), start @
@@ -44,13 +44,13 @@
      3  # No. of periods in day: sunday      
     0    27   0.000  # ctl type, law (basic control), start @
       7.  # No. of data items
-   3500. 0.000 0.000 0.000 18.000 26.000 5.000
+   3500. 0.000 0.000 0.000 21.000 26.000 5.000
     0    27   7.000  # ctl type, law (basic control), start @
       7.  # No. of data items
    3500. 0.000 0.000 0.000 21.000 26.000 5.000
     0    27   21.000  # ctl type, law (basic control), start @
       7.  # No. of data items
-   3500. 0.000 0.000 0.000 18.000 26.000 5.000  
+   3500. 0.000 0.000 0.000 21.000 26.000 5.000  
 * Control function    2 ##### SECOND FLOOR  FLOOR  
 # senses dry bulb temperature in first_fl.
     0    0    0    0  # sensor data
@@ -64,7 +64,7 @@
    3500. 0.000 0.000 0.000 21.000 26.000 5.000
     0    27   9.000  # ctl type, law (basic control), start @
       7.  # No. of data items
-   3500. 0.000 0.000 0.000 18.000 26.000 5.000
+   3500. 0.000 0.000 0.000 21.000 26.000 5.000
     0    27   18.000  # ctl type, law (basic control), start @
       7.  # No. of data items
    3500. 0.000 0.000 0.000 21.000 26.000 5.000   
@@ -77,13 +77,13 @@
        3  # No. of periods in day: sunday      
     0    27   0.000  # ctl type, law (basic control), start @
       7.  # No. of data items
-   3500. 0.000 0.000 0.000 -20.000 25.000 5.000
+   3500. 0.000 0.000 0.000 -20.000 26.000 5.000
     0    27   9.000  # ctl type, law (basic control), start @
       7.  # No. of data items
-   3500. 0.000 0.000 0.000 -20.000 40.000 5.000
+   3500. 0.000 0.000 0.000 -20.000 26.000 5.000
     0    27   18.000  # ctl type, law (basic control), start @
       7.  # No. of data items
-   3500. 0.000 0.000 0.000 -20.000 25.000 5.000 
+   3500. 0.000 0.000 0.000 -20.000 26.000 5.000 
   244  288  # valid Sept 1st to Oct 15th Shoulder
      1  # No. of periods in day: saturday    
     0    27   0.000  # ctl type, law (basic control), start @
@@ -96,7 +96,7 @@
    3500. 0.000 0.000 0.000 21.000 26.000 5.000
     0    27   9.000  # ctl type, law (basic control), start @
       7.  # No. of data items
-   3500. 0.000 0.000 0.000 18.000 26.000 5.000
+   3500. 0.000 0.000 0.000 21.000 26.000 5.000
     0    27   18.000  # ctl type, law (basic control), start @
       7.  # No. of data items
    3500. 0.000 0.000 0.000 21.000 26.000 5.000      
@@ -120,7 +120,7 @@
      1  # No. of periods in day: saturday    
     0    27   0.000  # ctl type, law (basic control), start @
       7.  # No. of data items
-  0.000 0.000 3500. 0.000 -20.000 40.000 5.000
+  0.000 0.000 3500. 0.000 -20.000 22.000 5.000
   244  288  # valid Sept 1st to Oct 15th Shoulder
      1  # No. of periods in day: saturday    
     0    27   0.000  # ctl type, law (basic control), start @
