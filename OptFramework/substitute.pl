@@ -124,6 +124,7 @@ my @search_these_exts=( "cfg",
                         "enf",
 						"bsm",
 						"ctl",
+						"opr",
                         "dhw"
                       );
                        
