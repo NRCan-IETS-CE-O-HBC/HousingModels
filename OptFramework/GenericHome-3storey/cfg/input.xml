@@ -14,8 +14,8 @@
   <style_sheet>monthly_tables.xsl</style_sheet>
   <transform_destination_file>monthly_results.csv</transform_destination_file>
   <log_variable>*month*</log_variable>
-  <log_variable>building/zone_*/surface_*/heat_flux/radiation/shortwave/unit_area</log_variable>
-  <log_variable>building/zone_*/surface_*/heat_flux/radiation/shortwave/unit_area</log_variable>
+<!--  <log_variable>building/zone_*/surface_*/heat_flux/radiation/shortwave/unit_area</log_variable>-->
+<!--  <log_variable>building/zone_*/surface_*/heat_flux/radiation/shortwave/unit_area</log_variable>-->
   <log_variable>building/all_zones/supplied_energy/cooling</log_variable>
   <log_variable>building/all_zones/supplied_energy/heating</log_variable>
    <log_variable>climate/dry_bulb_temperature</log_variable>
@@ -37,11 +37,11 @@
   -->
   <step_variable>*time_step*</step_variable>
    <step_variable>electrical_net/loads/*</step_variable>
-  <step_variable>building/all_zones/internal_gains/*</step_variable>
+  <step_variable>building/zone_*/internal_gains/*</step_variable>
   <step_variable>building/all_zones/insolation/*</step_variable>
    
-  <step_variable>building/all_zones/supplied_energy/cooling</step_variable>
-  <step_variable>building/all_zones/supplied_energy/heating</step_variable>
+  <step_variable>building/zone_*/supplied_energy/cooling</step_variable>
+  <step_variable>building/zone_*/supplied_energy/heating</step_variable>
   
   <step_variable>building/day/future</step_variable>
   <step_variable>building/hour/future</step_variable>
