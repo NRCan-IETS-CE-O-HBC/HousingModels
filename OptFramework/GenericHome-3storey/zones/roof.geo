@@ -6,8 +6,8 @@ roof describes the roof
 *vertex,<Opt-Width>,0.00000,10.363  #   2
 *vertex,<Opt-Width>,<Opt-Length>,10.363  #   3
 *vertex,0.00000,<Opt-Length>,10.363  #   4
-*vertex,<Opt-Roof-Peak-W>,0.00000,12.1632  #   5
-*vertex,<Opt-Roof-Peak-W>,<Opt-Length>,12.1632  #   6
+*vertex,<Opt-Roof-Peak-W>,0.00000,<Opt-Roof-Height>  #   5
+*vertex,<Opt-Roof-Peak-W>,<Opt-Length>,<Opt-Roof-Height>  #   6
 # 
 # tag, number of vertices followed by list of associated vert
 *edges,3,1,2,5  #  1

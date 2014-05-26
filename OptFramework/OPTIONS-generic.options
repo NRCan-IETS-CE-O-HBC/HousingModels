@@ -618,11 +618,14 @@
 ! Geometry substitutions 
 !-----------------------------------------------------------------------------
 ! This option changes the size of the generic house model.
+! <Opt-Area> is the floor area of one storey
 ! <Opt-Width> the width of the house
 ! <Opt-Length> the length of the house
 !
-! The following 10 variables need to be calculated in the accompanying spreadsheet
+! The following variables need to be calculated in the accompanying spreadsheet
 ! GenericModel Window size calculation.xlsx
+! <Opt-Roof-Height> is the height of the roof peak; calculated based on the slope.
+! <Opt-Roof-Peak-W> is the placement of the roof peak; = 1/2 of the house width
 ! <win-wall-1-right> is the placement of the right-hand side of window 1. All values of left and right are 
 !           based on the perspective of looking directly at the window from the outside of the house.  
 ! <win-wall-1-left> is the placement of the left-hand side of window 1.
@@ -639,57 +642,61 @@
 *attribute:tag:1    = <Opt-Area>
 *attribute:tag:2    = <Opt-Width>
 *attribute:tag:3    = <Opt-Length>
-*attribute:tag:4    = <Opt-Roof-Peak-W>
-*attribute:tag:5    = <win-wall-1-right>
-*attribute:tag:6    = <win-wall-1-left>
-*attribute:tag:7    = <win-wall-2-right>
-*attribute:tag:8    = <win-wall-2-left>
-*attribute:tag:9    = <win-wall-3-right>
-*attribute:tag:10   = <win-wall-3-left>
-*attribute:tag:11   = <win-wall-4-right>
-*attribute:tag:12   = <win-wall-4-left>
+*attribute:tag:4    = <Opt-Roof-Height>
+*attribute:tag:5    = <Opt-Roof-Peak-W>
+*attribute:tag:6    = <win-wall-1-right>
+*attribute:tag:7    = <win-wall-1-left>
+*attribute:tag:8    = <win-wall-2-right>
+*attribute:tag:9    = <win-wall-2-left>
+*attribute:tag:10   = <win-wall-3-right>
+*attribute:tag:11   = <win-wall-3-left>
+*attribute:tag:12   = <win-wall-4-right>
+*attribute:tag:13   = <win-wall-4-left>
 
 
 *option:Toronto:value:1    = 98.4
 *option:Toronto:value:2    = 12.0
 *option:Toronto:value:3    = 8.2
-*option:Toronto:value:4    = 6.0
-*option:Toronto:value:5    = 0.5
-*option:Toronto:value:6    = 4.1
-*option:Toronto:value:7    = 0.5
-*option:Toronto:value:8    = 2.96
-*option:Toronto:value:9    = 11.5
-*option:Toronto:value:10   = 7.90
-*option:Toronto:value:11   = 7.7
-*option:Toronto:value:12   = 5.240
+*option:Toronto:value:4    = 14.488
+*option:Toronto:value:5    = 6.0
+*option:Toronto:value:6    = 0.5
+*option:Toronto:value:7    = 4.1
+*option:Toronto:value:8    = 0.5
+*option:Toronto:value:9    = 2.96
+*option:Toronto:value:10   = 11.5
+*option:Toronto:value:11   = 7.90
+*option:Toronto:value:12   = 7.7
+*option:Toronto:value:13   = 5.240
 *option:Toronto:cost:total = 0
 
 *option:Montreal:value:1   = 202.42
 *option:Montreal:value:2   = 14.5
 *option:Montreal:value:3   = 13.96
-*option:Montreal:value:4   = 6.98
-*option:Montreal:value:5  = 0.5
-*option:Montreal:value:6  = 4.688
-*option:Montreal:value:7  = 0.5
-*option:Montreal:value:8  = 4.850
-*option:Montreal:value:9  = 13.460
-*option:Montreal:value:10  = 9.272
-*option:Montreal:value:11  = 14.0
-*option:Montreal:value:12  = 9.650
+*option:Montreal:value:4   = 14.488
+*option:Montreal:value:5   = 6.98
+*option:Montreal:value:6   = 0.5
+*option:Montreal:value:7   = 4.688
+*option:Montreal:value:8   = 0.5
+*option:Montreal:value:9   = 4.850
+*option:Montreal:value:10  = 13.460
+*option:Montreal:value:11  = 9.272
+*option:Montreal:value:12  = 14.0
+*option:Montreal:value:13  = 9.650
 *option:Montreal:cost:total = 0
 
 *option:Whitehorse:value:1    = 98.844
 *option:Whitehorse:value:2    = 11.582
 *option:Whitehorse:value:3    = 8.53
-*option:Whitehorse:value:4    = 5.7912
-*option:Whitehorse:value:5    = 0.5
-*option:Whitehorse:value:6    = 2.816
-*option:Whitehorse:value:7    = 0.5
-*option:Whitehorse:value:8    = 2.207
-*option:Whitehorse:value:9    = 11.082
-*option:Whitehorse:value:10   = 8.766
-*option:Whitehorse:value:11   = 8.034
-*option:Whitehorse:value:12   = 6.327
+*option:Whitehorse:value:4    = 14.668
+*option:Whitehorse:value:5    = 5.7912
+*option:Whitehorse:value:6    = 0.5
+*option:Whitehorse:value:7    = 2.816
+*option:Whitehorse:value:8    = 0.5
+*option:Whitehorse:value:9    = 2.207
+*option:Whitehorse:value:10   = 11.082
+*option:Whitehorse:value:11   = 8.766
+*option:Whitehorse:value:12   = 8.034
+*option:Whitehorse:value:13   = 6.327
 *option:Whitehorse:cost:total = 0
 
 *attribute:end

@@ -223,7 +223,7 @@ Opt-DHWSystem        : ElectricStorage
 !  oil-furnace-low
 !  oil-furnace-mid
 
-Opt-HVACSystem       : gas-furnace-mid
+Opt-HVACSystem       : baseboard-heating
 
 ! HRV spec 
 
