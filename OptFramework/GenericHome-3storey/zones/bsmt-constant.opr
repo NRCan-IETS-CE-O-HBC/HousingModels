@@ -1,7 +1,7 @@
 *Operations 2.0
 *date Mon Jan 17 14:44:39 2011  # latest file modification 
-# operations of main_flr defined in: 
-# ../zones/main_flr.opr
+# operations of basement defined in: 
+# ../zones/bsmt-constant.opr
 no operations notes (yet)
 # control(no control of air flow  ), low mid & high setpoints 
    0     0.000     0.000     0.000
