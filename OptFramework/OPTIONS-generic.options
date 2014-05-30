@@ -226,22 +226,6 @@
 
 *attribute:end
 
-!-----------------------------------------------------------------------
-! Thermostat set-points and HVAC control.
-! Presently only supported for generic archetype. 
-!-----------------------------------------------------------------------
-*attribute:start 
-*attribute:name  = Opt-CTL-Strategy
-*attribute:tag:1 = <Opt-CTL-Strategy> 
-
-*option:ApproximateERS:value:1 = generic.ctl
-*option:ApproximateERS:cost:total = 0 
-
-*option:ecoEIIFramework:value:1 = generic-shoulder-ideal.ctl
-*option:ecoEIIFramework:cost:total = 0
-
-*attribute:end
-
 
 !-----------------------------------------------------------------------
 ! Furnace fan control flag: flag defining assumptions associated with HRV control
@@ -653,6 +637,7 @@
 *attribute:tag:12   = <win-wall-4-right>
 *attribute:tag:13   = <win-wall-4-left>
 
+*attribute:default = Toronto
 
 *option:Toronto:value:1    = 98.4
 *option:Toronto:value:2    = 12.0
@@ -1362,6 +1347,10 @@ Whitehorse Foundation Options (Code is R28)
 
 *attribute:end 
 
+
+
+
+
 !-----------------------------------------------------------------------
 ! HVAC
 !-----------------------------------------------------------------------
@@ -1383,7 +1372,7 @@ Whitehorse Foundation Options (Code is R28)
 *option:basefurnace:value:3 = #No-IMS: 
 *option:basefurnace:value:4 = 
 *option:basefurnace:value:5 = 
-*option:basefurnace:value:6 = generic-shoulder-ideal.ctl
+*option:basefurnace:value:6 = shoulder-ideal.ctl
 *option:basefurnace:cost:total    = 0
 
 *option:gas-furnace-ecm:value:1 = basefurnace_AC-gas-ecm-motor.hvac
@@ -1391,7 +1380,7 @@ Whitehorse Foundation Options (Code is R28)
 *option:gas-furnace-ecm:value:3 = #No-IMS: 
 *option:gas-furnace-ecm:value:4 = 
 *option:gas-furnace-ecm:value:5 = 
-*option:gas-furnace-ecm:value:6 = generic-shoulder-ideal.ctl
+*option:gas-furnace-ecm:value:6 = shoulder-ideal.ctl
 *option:gas-furnace-ecm:cost:total    = 0
 
 *option:gas-furnace-psc:value:1 = basefurnace_AC-gas-psc-motor.hvac
@@ -1399,7 +1388,7 @@ Whitehorse Foundation Options (Code is R28)
 *option:gas-furnace-psc:value:3 = #No-IMS: 
 *option:gas-furnace-psc:value:4 = 
 *option:gas-furnace-psc:value:5 = 
-*option:gas-furnace-psc:value:6 = generic-shoulder-ideal.ctl
+*option:gas-furnace-psc:value:6 = shoulder-ideal.ctl
 *option:gas-furnace-psc:cost:total    = 0
 
 *option:13kW-furnace-ecm:value:1 = smallfurnace_AC-gas-ecm-motor.hvac
@@ -1407,7 +1396,7 @@ Whitehorse Foundation Options (Code is R28)
 *option:13kW-furnace-ecm:value:3 = #No-IMS: 
 *option:13kW-furnace-ecm:value:4 = 
 *option:13kW-furnace-ecm:value:5 = 
-*option:13kW-furnace-ecm:value:6 = generic-shoulder-ideal.ctl
+*option:13kW-furnace-ecm:value:6 = shoulder-ideal.ctl
 *option:13kW-furnace-ecm:cost:total    = 0
 
 *option:zoned-furnace-ecm:value:1 = smallfurnace_AC-gas-ecm-motor.hvac
@@ -1415,7 +1404,7 @@ Whitehorse Foundation Options (Code is R28)
 *option:zoned-furnace-ecm:value:3 = #No-IMS: 
 *option:zoned-furnace-ecm:value:4 = 
 *option:zoned-furnace-ecm:value:5 = 
-*option:zoned-furnace-ecm:value:6 = NZEH_shoulder_zoned.ctl
+*option:zoned-furnace-ecm:value:6 = shoulder_zoned.ctl
 *option:zoned-furnace-ecm:cost:total    = 0
 
 
@@ -1424,7 +1413,7 @@ Whitehorse Foundation Options (Code is R28)
 *option:IMS-P10:value:3 =  
 *option:IMS-P10:value:4 = # NO - HRV: IMS provides HRV. 
 *option:IMS-P10:value:5 = # NO DHW: IMS provides WH.  
-*option:IMS-P10:value:6 = generic-shoulder-ideal.ctl
+*option:IMS-P10:value:6 = shoulder-ideal.ctl
 *option:IMS-P10:cost:total    = 9000
  
  
@@ -1434,7 +1423,7 @@ Whitehorse Foundation Options (Code is R28)
 *option:Combi-P9-a:value:3 = #No-IMS: 
 *option:Combi-P9-a:value:4 = 
 *option:Combi-P9-a:value:5 = # NO DHW: IMS provides WH.  
-*option:Combi-P9-a:value:6 = generic-shoulder-ideal.ctl
+*option:Combi-P9-a:value:6 = shoulder-ideal.ctl
 *option:Combi-P9-a:cost:total    = 9000
 
 ! Better P9 system. ECM motor?
@@ -1443,7 +1432,7 @@ Whitehorse Foundation Options (Code is R28)
 *option:Combi-P9-ecm:value:3 = #No-IMS: 
 *option:Combi-P9-ecm:value:4 = 
 *option:Combi-P9-ecm:value:5 = # NO DHW: IMS provides WH.  
-*option:Combi-P9-ecm:value:6 = generic-shoulder-ideal.ctl
+*option:Combi-P9-ecm:value:6 = shoulder-ideal.ctl
 *option:Combi-P9-ecm:cost:total    = 9000
 
 ! Best P9 system. ECM motor
@@ -1452,7 +1441,7 @@ Whitehorse Foundation Options (Code is R28)
 *option:Combi-P9-ecmV2:value:3 = #No-IMS: 
 *option:Combi-P9-ecmV2:value:4 = 
 *option:Combi-P9-ecmV2:value:5 = # NO DHW: IMS provides WH.  
-*option:Combi-P9-ecmV2:value:6 = generic-shoulder-ideal.ctl
+*option:Combi-P9-ecmV2:value:6 = shoulder-ideal.ctl
 *option:Combi-P9-ecmV2:cost:total    = 9000
 
 
@@ -1461,7 +1450,7 @@ Whitehorse Foundation Options (Code is R28)
 *option:propanefurnaceAC:value:3 = #No-IMS: 
 *option:propanefurnaceAC:value:4 = 
 *option:propanefurnaceAC:value:5 = 
-*option:propanefurnaceAC:value:6 = generic-shoulder-ideal.ctl
+*option:propanefurnaceAC:value:6 = shoulder-ideal.ctl
 *option:propanefurnaceAC:cost:total    = 0
 
 
@@ -1470,7 +1459,7 @@ Whitehorse Foundation Options (Code is R28)
 *option:oilfurnace:value:3 = #No-IMS: 
 *option:oilfurnace:value:4 = 
 *option:oilfurnace:value:5 = 
-*option:oilfurnace:value:6 = generic-shoulder-ideal.ctl
+*option:oilfurnace:value:6 = shoulder-ideal.ctl
 *option:oilfurnace:cost:total    = 0
 
 *option:elec-baseboard:value:1 = Baseboardv2.hvac
@@ -1478,7 +1467,7 @@ Whitehorse Foundation Options (Code is R28)
 *option:elec-baseboard:value:3 = #No-IMS: 
 *option:elec-baseboard:value:4 = 
 *option:elec-baseboard:value:5 = 
-*option:elec-baseboard:value:6 = generic-shoulder-ideal.ctl
+*option:elec-baseboard:value:6 = shoulder-ideal.ctl
 *option:elec-baseboard:cost:total       = -3870
 
 *option:CCASHP:value:1 = CCASHPv2.hvac
@@ -1486,7 +1475,7 @@ Whitehorse Foundation Options (Code is R28)
 *option:CCASHP:value:3 = #No-IMS: 
 *option:CCASHP:value:4 = 
 *option:CCASHP:value:5 = 
-*option:CCASHP:value:6 =  generic-shoulder-ideal.ctl
+*option:CCASHP:value:6 =  shoulder-ideal.ctl
 *option:CCASHP:cost:total   = 9595          ! Does this reflect AC system savings?
 
 
@@ -1496,7 +1485,7 @@ Reflects southern Ontario costs
 *option:GSHP:value:3 = #No-IMS: 
 *option:GSHP:value:4 = 
 *option:GSHP:value:5 = 
-*option:GSHP:value:5 = generic-shoulder-ideal.ctl 
+*option:GSHP:value:5 = shoulder-ideal.ctl 
 *option:GSHP:cost:total    = 18560          ! Does this reflect AC syste$
 
 ! Options for VP retrofit
@@ -1517,7 +1506,7 @@ Reflects southern Ontario costs
 *option:gas-furnace-low:value:3 = #No-IMS: 
 *option:gas-furnace-low:value:4 = 
 *option:gas-furnace-low:value:5 = 
-*option:gas-furnace-low:value:6 = generic-shoulder-ideal.ctl 
+*option:gas-furnace-low:value:6 = shoulder-ideal.ctl 
 *option:gas-furnace-low:cost:total    = 0
 
 *option:gas-furnace-mid:value:1 = gas-furnace-mid-eff.hvac
@@ -1525,7 +1514,7 @@ Reflects southern Ontario costs
 *option:gas-furnace-mid:value:3 = #No-IMS: 
 *option:gas-furnace-mid:value:4 = 
 *option:gas-furnace-mid:value:5 = 
-*option:gas-furnace-mid:value:6 = generic-shoulder-ideal.ctl 
+*option:gas-furnace-mid:value:6 = shoulder-ideal.ctl 
 *option:gas-furnace-mid:cost:total    = 0
 
 *option:baseboard-heating:value:1 = baseboard-heating.hvac
@@ -1533,7 +1522,7 @@ Reflects southern Ontario costs
 *option:baseboard-heating:value:3 = #No-IMS: 
 *option:baseboard-heating:value:4 = 
 *option:baseboard-heating:value:5 = 
-*option:baseboard-heating:value:6 = generic-shoulder-ideal.ctl 
+*option:baseboard-heating:value:6 = shoulder-ideal.ctl 
 *option:baseboard-heating:cost:total    = 0
 
 *option:oil-furnace-mid:value:1 = oil-furnace-mid-eff.hvac
@@ -1541,7 +1530,7 @@ Reflects southern Ontario costs
 *option:oil-furnace-mid:value:3 = #No-IMS: 
 *option:oil-furnace-mid:value:4 = 
 *option:oil-furnace-mid:value:5 = 
-*option:oil-furnace-mid:value:6 = generic-shoulder-ideal.ctl 
+*option:oil-furnace-mid:value:6 = shoulder-ideal.ctl 
 *option:oil-furnace-mid:cost:total    = 0
 
 *option:oil-furnace-low:value:1 = oil-furnace-low-eff.hvac
@@ -1549,7 +1538,7 @@ Reflects southern Ontario costs
 *option:oil-furnace-low:value:3 = #No-IMS: 
 *option:oil-furnace-low:value:4 = 
 *option:oil-furnace-low:value:5 = 
-*option:oil-furnace-low:value:6 = generic-shoulder-ideal.ctl 
+*option:oil-furnace-low:value:6 = shoulder-ideal.ctl 
 *option:oil-furnace-low:cost:total    = 0
 
 *attribute:end
