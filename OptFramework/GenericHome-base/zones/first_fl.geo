@@ -2,30 +2,30 @@
 *date Fri Apr  8 16:41:55 2011  # latest file modification 
 first_fl describes the first floor
 # tag, X co-ord, Y co-ord, Z co-ord
-*vertex,0.00000,0.00000,<Opt-Bsm-Height>  #   1
-*vertex,<Opt-Width>,0.0000,<Opt-Bsm-Height>  #   2
-*vertex,<Opt-Width>,<Opt-Length>,<Opt-Bsm-Height>  #   3
-*vertex,0.00000,<Opt-Length>,<Opt-Bsm-Height>  #   4
-*vertex,0.00000,0.00000,<Opt-Main-Height>  #   5
-*vertex,<Opt-Width>,0.0000,<Opt-Main-Height>  #   6
-*vertex,<Opt-Width>,<Opt-Length>,<Opt-Main-Height>  #   7
-*vertex,0.00000,<Opt-Length>,<Opt-Main-Height>  #   8
-*vertex,<win-wall-1-right>,0.00000,<win-bottom>  #   9
-*vertex,<win-wall-1-left>,0.00000,<win-bottom>  #  10
-*vertex,<win-wall-1-left>,0.00000,<win-top>  #  11
-*vertex,<win-wall-1-right>,0.00000,<win-top>  #  12
-*vertex,<Opt-Width>,<win-wall-2-right>,<win-bottom>  #  13
-*vertex,<Opt-Width>,<win-wall-2-left>,<win-bottom>  #  14
-*vertex,<Opt-Width>,<win-wall-2-left>,<win-top>  #  15
-*vertex,<Opt-Width>,<win-wall-2-right>,<win-top>  #  16
-*vertex,<win-wall-3-right>,<Opt-Length>,<win-bottom>  #  17
-*vertex,<win-wall-3-left>,<Opt-Length>,<win-bottom>  #  18
-*vertex,<win-wall-3-left>,<Opt-Length>,<win-top>  #  19
-*vertex,<win-wall-3-right>,<Opt-Length>,<win-top>  #  20
-*vertex,0.00000,<win-wall-4-right>,<win-bottom>  #  21
-*vertex,0.00000,<win-wall-4-left>,<win-bottom>  #  22
-*vertex,0.00000,<win-wall-4-left>,<win-top>  #  23
-*vertex,0.00000,<win-wall-4-right>,<win-top>  #  24
+*vertex,0.00000,0.00000,2.4384  #   1
+*vertex,<Opt-Width>,0.0000,2.4384  #   2
+*vertex,<Opt-Width>,<Opt-Length>,2.4384  #   3
+*vertex,0.00000,<Opt-Length>,2.4384  #   4
+*vertex,0.00000,0.00000,5.4864  #   5
+*vertex,<Opt-Width>,0.0000,5.4864  #   6
+*vertex,<Opt-Width>,<Opt-Length>,5.4864  #   7
+*vertex,0.00000,<Opt-Length>,5.4864  #   8
+*vertex,<win-wall-1-right>,0.00000,2.9384  #   9
+*vertex,<win-wall-1-left>,0.00000,2.9384  #  10
+*vertex,<win-wall-1-left>,0.00000,4.4624  #  11
+*vertex,<win-wall-1-right>,0.00000,4.4624  #  12
+*vertex,<Opt-Width>,<win-wall-2-right>,2.9384  #  13
+*vertex,<Opt-Width>,<win-wall-2-left>,2.9384  #  14
+*vertex,<Opt-Width>,<win-wall-2-left>,4.4624  #  15
+*vertex,<Opt-Width>,<win-wall-2-right>,4.4624  #  16
+*vertex,<win-wall-3-right>,<Opt-Length>,2.9384  #  17
+*vertex,<win-wall-3-left>,<Opt-Length>,2.9384  #  18
+*vertex,<win-wall-3-left>,<Opt-Length>,4.4624  #  19
+*vertex,<win-wall-3-right>,<Opt-Length>,4.4624  #  20
+*vertex,0.00000,<win-wall-4-right>,2.9384  #  21
+*vertex,0.00000,<win-wall-4-left>,2.9384  #  22
+*vertex,0.00000,<win-wall-4-left>,4.4624  #  23
+*vertex,0.00000,<win-wall-4-right>,4.4624  #  24
 # 
 # tag, number of vertices followed by list of associated vert
 *edges,10,1,2,6,5,1,9,12,11,10,9  #  1

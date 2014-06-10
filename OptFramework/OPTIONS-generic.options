@@ -654,19 +654,19 @@
 *option:Toronto:value:13   = 5.240
 *option:Toronto:cost:total = 0
 
-*option:Montreal:value:1   = 202.42
-*option:Montreal:value:2   = 14.5
-*option:Montreal:value:3   = 13.96
-*option:Montreal:value:4   = 14.488
-*option:Montreal:value:5   = 6.98
+*option:Montreal:value:1   = 198
+*option:Montreal:value:2   = 16.5
+*option:Montreal:value:3   = 12
+*option:Montreal:value:4   = 8.2364
+*option:Montreal:value:5   = 8.25
 *option:Montreal:value:6   = 0.5
-*option:Montreal:value:7   = 4.688
+*option:Montreal:value:7   = 5.450
 *option:Montreal:value:8   = 0.5
-*option:Montreal:value:9   = 4.850
-*option:Montreal:value:10  = 13.460
-*option:Montreal:value:11  = 9.272
-*option:Montreal:value:12  = 14.0
-*option:Montreal:value:13  = 9.650
+*option:Montreal:value:9   = 4.100
+*option:Montreal:value:10  = 16.00
+*option:Montreal:value:11  = 11.050
+*option:Montreal:value:12  = 11.5
+*option:Montreal:value:13  = 7.900
 *option:Montreal:cost:total = 0
 
 *option:Whitehorse:value:1    = 98.844

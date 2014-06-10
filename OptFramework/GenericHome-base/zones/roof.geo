@@ -2,10 +2,10 @@
 *date Mon Mar  7 16:18:31 2011  # latest file modification 
 roof describes the roof
 # tag, X co-ord, Y co-ord, Z co-ord
-*vertex,0.00000,0.00000,<Opt-Main-Height>  #   1
-*vertex,<Opt-Width>,0.00000,<Opt-Main-Height>  #   2
-*vertex,<Opt-Width>,<Opt-Length>,<Opt-Main-Height>  #   3
-*vertex,0.00000,<Opt-Length>,<Opt-Main-Height>  #   4
+*vertex,0.00000,0.00000,5.4864  #   1
+*vertex,<Opt-Width>,0.00000,5.4864  #   2
+*vertex,<Opt-Width>,<Opt-Length>,5.4864  #   3
+*vertex,0.00000,<Opt-Length>,5.4864  #   4
 *vertex,<Opt-Roof-Peak-W>,0.00000,<Opt-Roof-Height>  #   5
 *vertex,<Opt-Roof-Peak-W>,<Opt-Length>,<Opt-Roof-Height>  #   6
 # 
