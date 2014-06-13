@@ -6,12 +6,12 @@
 !  debug
 !  calc
 
-Opt-calcmode          :calc
+Opt-calcmode          : calc
 
 
 ! Set of database files to be used
 
-Opt-DBFiles           : CEF 
+Opt-DBFiles           : retrofit 
 
 
 ! Optimization substitutions 
@@ -30,12 +30,12 @@ Opt-Location : Montreal
 
 OPT-HRV_ctl          : ERSp3ACH !EightHRpDay
 
-!Opt-CTL-Strategy     : ecoEIIFramework  
+!Opt-CTL-Strategy    : ecoEIIFramework  
 
 !Optional operations schedule for zoned systems
 ! constant
 ! scheduled
-OPT-OPR-SCHED        : scheduled
+OPT-OPR-SCHED        : constant
 
 ! Turn original design windows opaque ( NoWindows!)
 ! or transparent (MinWindows). NoWindows doesn't presently work!
@@ -54,7 +54,7 @@ Opt-geometry      : Montreal
 ! semi
 ! row
 
-Opt-Attachment : semi
+Opt-Attachment : single
 
 ! ACH substitutions
 ! Calgary-gas
@@ -103,8 +103,10 @@ Opt-AirTightness   : Generic
 !  DblStud-R44-Wall
 !  Truss-R40-Wall
 !  W15_R25
+! Retrofit cases
+!  Retro-DblBr
 
-Opt-MainWall         : BaseR20
+Opt-MainWall         : Retro-DblBr
 
 
 ! Add extra drywall to wall constructions 
@@ -121,15 +123,11 @@ Opt-ExtraDrywall     : OneSheet
 Opt-FloorSurface     : wood
 
 
-Opt-Ceilings         : CeilR50
+Opt-Ceilings         : retro_roof
 
 ! Basement slab insulation 
 ! Choices: 
 !   NoInsulation
-!   R10UnderSlab
-!   R10UnderSlab+edge
-!   R12UnderSlab+edge
-!   R24UnderSlab+edge
 Opt-BasementSlabInsulation  : NoInsulation
 
 ! Foundation walls. 
@@ -144,8 +142,11 @@ Opt-BasementSlabInsulation  : NoInsulation
 !  ICF-base-R51     
 !  ICF-base-R51r
 !  Fnd0PWF_R28   
+! Retrofit foundation
+!    TripleBrick
 
-Opt-BasementWallInsulation  : OBC-min-R12
+Opt-BasementWallInsulation  : TripleBrick
+
 
 
 ! Optical and thermal characteristics of casement windows (currently 
@@ -159,8 +160,10 @@ Opt-BasementWallInsulation  : OBC-min-R12
 !    DoubleLowESoftCoatArgFill
 ! Whitehorse Windows
 !    Wind1_trp_CL	
+! Retrofit Windows
+!    DoubleClear 
 
-Opt-CasementWindows  :  DoubleLowEHardCoatAirFill
+Opt-CasementWindows  :  DoubleClear 
 
 
 ! Exposed floor over garage (affects floor

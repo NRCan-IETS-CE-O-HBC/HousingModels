@@ -26,8 +26,8 @@
 
 
 !-----------------------------------------------------------------------
-! This option can be used to load construction databases from the CEF or
-! Whitehorse definitions. 
+! This option can be used to load construction databases from the CEF,
+! Whitehorse or retrofit definitions. 
 !-----------------------------------------------------------------------
 *attribute:start
 *attribute:name     = Opt-DBFiles
@@ -37,12 +37,16 @@
 
 *option:CEF:value:1  = NZEH-CEF.constrdb
 *option:CEF:value:2  = optics-CEF.db2
-
 *option:CEF:cost:total = 0
 
 *option:WHITEHORSE:value:1  = NZEH-WH.constrdb
 *option:WHITEHORSE:value:2  = optics-WH.db2
 *option:WHITEHORSE:cost:total = 0
+
+*option:retrofit:value:1  = retrofit.constrdb
+*option:retrofit:value:2  = optics-retrofit.db2
+*option:retrofit:cost:total = 0
+
 
 *attribute:end
 
@@ -657,7 +661,7 @@
 *option:Montreal:value:1   = 198
 *option:Montreal:value:2   = 16.5
 *option:Montreal:value:3   = 12
-*option:Montreal:value:4   = 8.2364
+*option:Montreal:value:4   = 14.488
 *option:Montreal:value:5   = 8.25
 *option:Montreal:value:6   = 0.5
 *option:Montreal:value:7   = 5.450
@@ -668,21 +672,6 @@
 *option:Montreal:value:12  = 11.5
 *option:Montreal:value:13  = 7.900
 *option:Montreal:cost:total = 0
-
-*option:Whitehorse:value:1    = 98.844
-*option:Whitehorse:value:2    = 11.582
-*option:Whitehorse:value:3    = 8.53
-*option:Whitehorse:value:4    = 14.668
-*option:Whitehorse:value:5    = 5.7912
-*option:Whitehorse:value:6    = 0.5
-*option:Whitehorse:value:7    = 2.816
-*option:Whitehorse:value:8    = 0.5
-*option:Whitehorse:value:9    = 2.207
-*option:Whitehorse:value:10   = 11.082
-*option:Whitehorse:value:11   = 8.766
-*option:Whitehorse:value:12   = 8.034
-*option:Whitehorse:value:13   = 6.327
-*option:Whitehorse:cost:total = 0
 
 *attribute:end
 
@@ -830,9 +819,15 @@
 *option:Win10hcle2_q:value:2 = Win10hcle2_q
 *option:Win10hcle2_q:cost:total   = 29787
 
+!---------------------------------------------------------------------
+! Retrofit window models
+!---------------------------------------------------------------------
+*option:DoubleClear:value:1 = DblClr
+*option:DoubleClear:value:2 = DblClr_o
+*option:DoubleClear:cost:total   = 0
+
+
 *attribute:end
-
-
 
 !-----------------------------------------------------------------------
 ! This option sets the airtightness by spec'ing the 
@@ -922,6 +917,13 @@
 *option:CeilR120:value:1 =  CeilR120
 !*option:CeilR120:value:2 =  CeilR120R
 *option:CeilR120:cost:total    =  3257
+
+!-----------------------------------------------------------------------
+!   Retrofit Ceilings options
+!-----------------------------------------------------------------------
+*option:retro_roof:value:1 =   retro_roof
+!*option:retro_roof:value:2 =  retro_roof
+*option:retro_roof:cost:total    =  0
 
 *attribute:end
 
@@ -1127,6 +1129,15 @@ Whitehorse Wall Options (Code is R28)
 !*option:W31b_R55:value:4 =   W31b_R55ryR
 *option:W31b_R55:cost:total   =   25000
 
+!-----------------------------------------------------------------------
+!  Retrofit Wall Options
+!-----------------------------------------------------------------------
+
+*option:Retro-DblBr:value:1 =   RetroBaseBri   ! Added by JP for retrofit analysis
+*option:Retro-DblBr:value:2 =   RetroBaseVin
+*option:Retro-DblBr:value:3 =   RetroBaseDry 
+*option:Retro-DblBr:cost:total    =   0
+
 *attribute:end
 
 !-----------------------------------------------------------------------
@@ -1191,7 +1202,7 @@ Whitehorse Wall Options (Code is R28)
 *option:ICF-base-R51r:cost:total    = 12000            ! Check with Mark!
 
 !-------------------------------------------------------------------------------
-Whitehorse Foundation Options (Code is R28)
+!Whitehorse Foundation Options (Code is R28)
 !-------------------------------------------------------------------------------
 *option:Fnd0PWF_R28:value:1 = Fnd0PWF_R28
 *option:Fnd0PWF_R28:meta    = Int
@@ -1212,6 +1223,13 @@ Whitehorse Foundation Options (Code is R28)
 *option:Fnd8ICF_R28:value:1 = Fnd8ICF_R28
 *option:Fnd8ICF_R28:meta    = Comb
 *option:Fnd8ICF_R28:cost:total   = 19782
+
+!-------------------------------------------------------------------------------
+! Retrofit Foundation Options
+!-------------------------------------------------------------------------------
+*option:TripleBrick:value:1 = Fnd_trp_br
+*option:TripleBrick:meta    = Int
+*option:TripleBrick:cost:total   = 0
 
 *attribute:end
 
