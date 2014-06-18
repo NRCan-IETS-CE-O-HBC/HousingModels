@@ -11,7 +11,7 @@ Opt-calcmode          :calc
 
 ! Set of database files to be used
 
-Opt-DBFiles           : CEF 
+Opt-DBFiles           : retrofit 
 
 
 ! Optimization substitutions 
@@ -103,8 +103,9 @@ Opt-AirTightness   : Generic
 !  DblStud-R44-Wall
 !  Truss-R40-Wall
 !  W15_R25
+!  Retrofit-DlBr
 
-Opt-MainWall         : BaseR20
+Opt-MainWall         : Retrofit-DlBr
 
 
 ! Add extra drywall to wall constructions 
@@ -144,8 +145,10 @@ Opt-BasementSlabInsulation  : NoInsulation
 !  ICF-base-R51     
 !  ICF-base-R51r
 !  Fnd0PWF_R28   
+! Retrofit foundation
+!    TripleBrick
 
-Opt-BasementWallInsulation  : OBC-min-R12
+Opt-BasementWallInsulation  : TripleBrick
 
 
 ! Optical and thermal characteristics of casement windows (currently 
@@ -159,8 +162,10 @@ Opt-BasementWallInsulation  : OBC-min-R12
 !    DoubleLowESoftCoatArgFill
 ! Whitehorse Windows
 !    Wind1_trp_CL	
+! Retrofit Windows
+!    DoubleClear 
 
-Opt-CasementWindows  :  DoubleLowEHardCoatAirFill
+Opt-CasementWindows  :  DoubleClear 
 
 
 ! Exposed floor over garage (affects floor
