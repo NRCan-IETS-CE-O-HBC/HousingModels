@@ -1,6 +1,6 @@
 # composite construction db defined in ../dbs/NZEH.constrdb
 # based on materials db ../dbs/material.db3.a
-  149  # no of composites 
+  153  # no of composites 
 # layers  description   optics name   symmetry tag
     2    bsm_flr       OPAQ  OPAQUE        NONSYMMETRIC  
 # mat ref thickness (m) mat descr & air gap R
@@ -1123,7 +1123,7 @@
 #-----------------------
 # MAIN WALLS: double brick
 # 141: layers  description   optics name   symmetry tag
-    2    RetroBaseBri    OPAQ  OPAQUE        NONSYMMETRIC 
+    2    RetroBaseBri  OPAQ  OPAQUE        NONSYMMETRIC 
 # mat ref thickness (m) mat descr & air gap R
     1    0.2032  Paviour brick 
   101    0.2892  dense plaster 	 
@@ -1136,44 +1136,66 @@
    79    0.0254  OSB   
     0    0.0160  air  0.170 0.170 0.170
     1    0.0809  Paviour brick 
+# 143: layers  description   optics name   symmetry tag
+    5    Retro-R2_1    OPAQ  OPAQUE        NONSYMMETRIC 
+# mat ref thickness (m) mat descr & air gap R
+  301    0.0125  gypsum board 
+  283    0.0604  fiberglass batt   
+   79    0.0120  OSB   
+    0    0.0160  air  0.170 0.170 0.170
+    1    0.0809  Paviour brick 
 #---------------------------
 # Retrofit Foundation wall insulation options
-# 143. Triple Brick no insulation
-    3    Fnd_trp_br     OPAQ  OPAQUE        NONSYMMETRIC  
+# 144. Triple Brick no insulation
+    3    Fnd_trp_br    OPAQ  OPAQUE        NONSYMMETRIC  
 # mat ref thickness (m) mat descr & air gap R
     1    0.1016  paviour brick
     1    0.1016  paviour brick
     1    0.2386  paviour brick  
-# 144. Poured concrete - RSI 0.925
+# 145. Poured concrete - RSI 0.925
     2    Fnd_0_925     OPAQ  OPAQUE        NONSYMMETRIC  
 # mat ref thickness (m) mat descr & air gap R
    21    0.1840  light mix concrete
   214    0.0132  EPS
+# 146. Poured concrete - RSI 0.925
+    1    NoInsulation  OPAQ  OPAQUE        NONSYMMETRIC  
+# mat ref thickness (m) mat descr & air gap R
+   21    0.1840  light mix concrete
 #---------------------------
 # Retrofit Roof insulation options
-# 145. Attic-R5.94
-    2    retro_roof     OPAQ  OPAQUE        NONSYMMETRIC  
+# 147. Attic-R5.94
+    2    retro_roof    OPAQ  OPAQUE        NONSYMMETRIC  
 # mat ref thickness (m) mat descr & air gap R
   283    0.2125  fiberglass batt
   101    0.0190  dense plaster 	
-# 146. Attic-R5.94-reverse
-    2    retro_roofR    OPAQ  OPAQUE        NONSYMMETRIC  
+# 148. Attic-R5.94-reverse
+    2    retro_roofR   OPAQ  OPAQUE        NONSYMMETRIC  
 # mat ref thickness (m) mat descr & air gap R
   101    0.0190  dense plaster 	
   283    0.2125  fiberglass batt
-# 147. Attic-R2.962
-    2    retro-att-3    OPAQ  OPAQUE        NONSYMMETRIC  
+# 149. Attic-R2.962
+    2    retro-att-3   OPAQ  OPAQUE        NONSYMMETRIC  
 # mat ref thickness (m) mat descr & air gap R
   283    0.1024  fiberglass batt
   301    0.0190  gypsum 	
-# 148. Attic-R2.962-reverse
-    2    retro-att-3R    OPAQ  OPAQUE        NONSYMMETRIC  
+# 150. Attic-R2.962-reverse
+    2    retro-att-3R  OPAQ  OPAQUE        NONSYMMETRIC  
 # mat ref thickness (m) mat descr & air gap R
   301    0.0190  gypsum 	
   283    0.1024  fiberglass batt
+# 151. Attic-R4.152
+    2    retro-att-4   OPAQ  OPAQUE        NONSYMMETRIC  
+# mat ref thickness (m) mat descr & air gap R
+  283    0.1452  fiberglass batt
+  301    0.0190  gypsum 	
+# 152. Attic-R4.152-reverse
+    2    retro-att-4R  OPAQ  OPAQUE        NONSYMMETRIC  
+# mat ref thickness (m) mat descr & air gap R
+  301    0.0190  gypsum 	
+  283    0.1452  fiberglass batt
 #----------------------
 # Double clear glass, air fill (retrofit base case)
-# 149: layers  description   optics name   symmetry tag
+# 153: layers  description   optics name   symmetry tag
 # layers  description   optics name   symmetry tag
     3    DblClr        TRAN  DblClr        SYMMETRIC     
 # mat ref thickness (m) mat descr & air gap R

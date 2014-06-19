@@ -643,19 +643,19 @@
 
 *attribute:default = Toronto
 
-*option:Toronto:value:1    = 98.4
-*option:Toronto:value:2    = 12.0
-*option:Toronto:value:3    = 8.2
-*option:Toronto:value:4    = 14.488
-*option:Toronto:value:5    = 6.0
+*option:Toronto:value:1    = 102.33
+*option:Toronto:value:2    = 10.12
+*option:Toronto:value:3    = 10.12
+*option:Toronto:value:4    = 12.049
+*option:Toronto:value:5    = 5.058
 *option:Toronto:value:6    = 0.5
-*option:Toronto:value:7    = 4.1
+*option:Toronto:value:7    = 3.535
 *option:Toronto:value:8    = 0.5
-*option:Toronto:value:9    = 2.96
-*option:Toronto:value:10   = 11.5
-*option:Toronto:value:11   = 7.90
-*option:Toronto:value:12   = 7.7
-*option:Toronto:value:13   = 5.240
+*option:Toronto:value:9    = 3.535
+*option:Toronto:value:10   = 9.616
+*option:Toronto:value:11   = 6.581
+*option:Toronto:value:12   = 9.616
+*option:Toronto:value:13   = 6.581
 *option:Toronto:cost:total = 0
 
 *option:Montreal:value:1   = 198
@@ -672,6 +672,55 @@
 *option:Montreal:value:12  = 11.5
 *option:Montreal:value:13  = 7.900
 *option:Montreal:cost:total = 0
+
+*option:Cgy-3st-80:value:1   = 95.1
+*option:Cgy-3st-80:value:2   = 9.75
+*option:Cgy-3st-80:value:3   = 9.75
+*option:Cgy-3st-80:value:4   = 11.988
+*option:Cgy-3st-80:value:5   = 4.876
+*option:Cgy-3st-80:value:6   = 0.5
+*option:Cgy-3st-80:value:7   = 3.426
+*option:Cgy-3st-80:value:8   = 0.5
+*option:Cgy-3st-80:value:9   = 6.426
+*option:Cgy-3st-80:value:10  = 9.252
+*option:Cgy-3st-80:value:11  = 6.326
+*option:Cgy-3st-80:value:12  = 9.2516
+*option:Cgy-3st-80:value:13  = 6.326
+*option:Cgy-3st-80:cost:total = 0
+
+*option:Tor_2st_retro:value:1    = 115
+*option:Tor_2st_retro:value:2    = 10.72
+*option:Tor_2st_retro:value:3    = 10.72
+*option:Tor_2st_retro:value:4    = 9.712
+*option:Tor_2st_retro:value:5    = 5.362
+*option:Tor_2st_retro:value:6    = 0.5
+*option:Tor_2st_retro:value:7    = 3.717
+*option:Tor_2st_retro:value:8    = 0.5
+*option:Tor_2st_retro:value:9    = 3.717
+*option:Tor_2st_retro:value:10   = 10.224
+*option:Tor_2st_retro:value:11   = 7.007
+*option:Tor_2st_retro:value:12   = 10.224
+*option:Tor_2st_retro:value:13   = 7.007
+*option:Tor_2st_retro:cost:total = 0
+
+
+
+*option:Van_2st_80_retro:value:1    = 132.15
+*option:Van_2st_80_retro:value:2    = 11.5
+*option:Van_2st_80_retro:value:3    = 11.5
+*option:Van_2st_80_retro:value:4    = 9.841
+*option:Van_2st_80_retro:value:5    = 5.4864
+*option:Van_2st_80_retro:value:6    = 0.5
+*option:Van_2st_80_retro:value:7    = 3.949
+*option:Van_2st_80_retro:value:8    = 0.5
+*option:Van_2st_80_retro:value:9    = 3.949
+*option:Van_2st_80_retro:value:10   = 10.996
+*option:Van_2st_80_retro:value:11   = 7.547
+*option:Van_2st_80_retro:value:12   = 10.996
+*option:Van_2st_80_retro:value:13   = 7.547
+*option:Van_2st_80_retro:cost:total = 0
+
+
 
 *attribute:end
 
@@ -728,7 +777,16 @@
 *option:Winnipeg-gas:value:1  = 2.78
 *option:Winnipeg-gas:cost:total  =  0
 
-*attribute:end
+*option:Toronto-1950:value:1  = 8.409
+*option:Toronto-1950:cost:total  =  0
+
+*option:Toronto-retro:value:1  = 6.2
+*option:Toronto-retro:cost:total  =  0
+
+*option:Vancouver-retro:value:1  = 6.868
+*option:Vancouver-retro:cost:total  =  0
+
+attribute:end
 
 
 
@@ -823,7 +881,7 @@
 ! Retrofit window models
 !---------------------------------------------------------------------
 *option:DoubleClear:value:1 = DblClr
-*option:DoubleClear:value:2 = DblClr_o
+*option:DoubleClear:value:2 = DblClr
 *option:DoubleClear:cost:total   = 0
 
 
@@ -922,8 +980,18 @@
 !   Retrofit Ceilings options
 !-----------------------------------------------------------------------
 *option:retro_roof:value:1 =   retro_roof
-!*option:retro_roof:value:2 =  retro_roof
+!*option:retro_roof:value:2 =  retro_roofR
 *option:retro_roof:cost:total    =  0
+
+*option:retro_attic-2_962:value:1 =   retro-att-3
+!*option:retro_attic-2_962:value:2 =  retro-att-3R
+*option:retro_attic-2_962:cost:total    =  0
+
+*option:retro_attic-4_152:value:1 =   retro-att-4
+!*option:retro_attic-4_152:value:2 =  retro-att-4R
+*option:retro_attic-4_152:cost:total    =  0
+
+
 
 *attribute:end
 
@@ -1138,6 +1206,17 @@ Whitehorse Wall Options (Code is R28)
 *option:Retro-DblBr:value:3 =   RetroBaseDry 
 *option:Retro-DblBr:cost:total    =   0
 
+*option:Retro-R1_52:value:1 =   Retro-R1_52   ! Added by JP for retrofit analysis
+*option:Retro-R1_52:value:2 =   Retro-R1_52
+*option:Retro-R1_52:value:3 =   Retro-R1_52 
+*option:Retro-R1_52:cost:total    =   0
+
+*option:Retro-R2_1:value:1 =   Retro-R2_1   ! Added by JP for retrofit analysis
+*option:Retro-R2_1:value:2 =   Retro-R2_1
+*option:Retro-R2_1:value:3 =   Retro-R2_1 
+*option:Retro-R2_1:cost:total    =   0
+
+
 *attribute:end
 
 !-----------------------------------------------------------------------
@@ -1230,6 +1309,16 @@ Whitehorse Wall Options (Code is R28)
 *option:TripleBrick:value:1 = Fnd_trp_br
 *option:TripleBrick:meta    = Int
 *option:TripleBrick:cost:total   = 0
+
+*option:PouredConcrete_RSI0_925:value:1 = Fnd_0_925
+*option:PouredConcrete_RSI0_925:meta    = Int
+*option:PouredConcrete_RSI0_925:cost:total  = 0
+
+*option:PouredConcrete_NoIns:value:1 = NoInsulation
+*option:PouredConcrete_NoIns:meta    = Int
+*option:PouredConcrete_NoIns:cost:total  = 0
+
+
 
 *attribute:end
 
@@ -1558,6 +1647,17 @@ Reflects southern Ontario costs
 *option:oil-furnace-low:value:5 = 
 *option:oil-furnace-low:value:6 = shoulder-ideal.ctl 
 *option:oil-furnace-low:cost:total    = 0
+
+
+!---Options for retrofit-------------------------------
+!BC 1980
+*option:gas-furnace-84_3:value:1 = gas-furnace-84_3.hvac
+*option:gas-furnace-84_3:value:2 = #-no-GSHP-file
+*option:gas-furnace-84_3:value:3 = #No-IMS: 
+*option:gas-furnace-84_3:value:4 = 
+*option:gas-furnace-84_3:value:5 = 
+*option:gas-furnace-84_3:value:6 = shoulder-ideal.ctl 
+*option:gas-furnace-84_3:cost:total    = 0
 
 *attribute:end
 
@@ -1940,6 +2040,8 @@ Reflects southern Ontario costs
 *attribute:tag:1    = <zippo>
 *attribute:default  = 8-12 
 
+*option:3-12:value:1 = nil
+*option:3-12:cost:total  = 0
 *option:6-12:value:1 = nil
 *option:6-12:cost:total  = 0
 *option:8-12:value:1 = nil

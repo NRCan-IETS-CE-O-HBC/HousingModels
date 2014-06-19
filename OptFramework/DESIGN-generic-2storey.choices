@@ -19,7 +19,7 @@ Opt-DBFiles           : retrofit
 ! and compute an average result)
 GOconfig_rotate      : S
 
-Opt-Location : Toronto
+Opt-Location : Vancouver
 
 ! Assumptions about HRV operation . Not intended to be optimized!
 ! Recognized values: 
@@ -47,7 +47,7 @@ Opt-FrontWindows     : NoExtraWin
 Opt-BackWindows      : NoExtraWin
 
 ! Geometry substitutions
-Opt-geometry      : Cgy-3st-80
+Opt-geometry      : Van_2st_80_retro
 
 !Attachment options
 ! single
@@ -58,7 +58,7 @@ Opt-Attachment : single
 
 ! ACH substitutions
 
-Opt-ACH       : Toronto-1950
+Opt-ACH       : Vancouver-retro
 
 
 
@@ -91,8 +91,9 @@ Opt-AirTightness   : Generic
 ! Retrofit cases
 !  Retro-DblBr
 !  Retro-R1_52
+!  Retro-R2_1
 
-Opt-MainWall         : Retro-R1_52
+Opt-MainWall         : Retro-R2_1
 
 
 ! Add extra drywall to wall constructions 
@@ -109,7 +110,7 @@ Opt-ExtraDrywall     : OneSheet
 Opt-FloorSurface     : wood
 
 
-Opt-Ceilings         : retro_attic-2_962
+Opt-Ceilings         : retro_attic-4_152
 
 ! Basement slab insulation 
 ! Choices: 
@@ -131,8 +132,9 @@ Opt-BasementSlabInsulation  : NoInsulation
 ! Retrofit foundation
 !    TripleBrick
 !    PouredConcrete_RSI0_925
+!    PouredConcrete_NoIns
 
-Opt-BasementWallInsulation  : PouredConcrete_RSI0_925
+Opt-BasementWallInsulation  : PouredConcrete_NoIns
 
 
 
@@ -196,7 +198,7 @@ Opt-ElecLoadScale    : NoReduction
 
 Opt-DHWLoadScale     : No-Reduction       
 
-Opt-RoofPitch : 8-12
+Opt-RoofPitch : 3-12
 
 ! Hot water system. Choices:
 !  BaseDHW
@@ -204,7 +206,7 @@ Opt-RoofPitch : 8-12
 !  GasInstant
 !  ElectricHP
 
-Opt-DHWSystem        : ElectricStorage
+Opt-DHWSystem        : BaseDHW
 
 ! HVAC system 
 !  gas-furnace-low
@@ -213,8 +215,8 @@ Opt-DHWSystem        : ElectricStorage
 !  oil-furnace-low
 !  oil-furnace-mid
 
-Opt-HVACSystem       : gas-furnace-low
-
+Opt-HVACSystem       : gas-furnace-84_3
+OPT-Furnace-Fan-Ctl  : Auto
 ! HRV spec 
 
 Opt-HRVspec : BaseHRV_SRE70
