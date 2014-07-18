@@ -1,6 +1,6 @@
 # composite construction db defined in ../dbs/NZEH.constrdb
 # based on materials db ../dbs/material.db3.a
-  153  # no of composites 
+  162  # no of composites 
 # layers  description   optics name   symmetry tag
     2    bsm_flr       OPAQ  OPAQUE        NONSYMMETRIC  
 # mat ref thickness (m) mat descr & air gap R
@@ -1118,9 +1118,9 @@
    79    0.0120  OSB   
     0    0.0250  air  0.170 0.170 0.170
     1    0.0809  Paviour brick 
-#-----------------------
+#------------------------------------------------------
 # RETROFIT CONSTRUCTIONS
-#-----------------------
+#------------------------------------------------------
 # MAIN WALLS: double brick
 # 141: layers  description   optics name   symmetry tag
     2    RetroBaseBri  OPAQ  OPAQUE        NONSYMMETRIC 
@@ -1140,10 +1140,10 @@
     5    Retro-R2_1    OPAQ  OPAQUE        NONSYMMETRIC 
 # mat ref thickness (m) mat descr & air gap R
   301    0.0125  gypsum board 
-  283    0.0604  fiberglass batt   
+  283    0.0598  fiberglass batt   
    79    0.0120  OSB   
     0    0.0160  air  0.170 0.170 0.170
-    1    0.0809  Paviour brick 
+   77    0.0809  Hardboard siding 
 #---------------------------
 # Retrofit Foundation wall insulation options
 # 144. Triple Brick no insulation
@@ -1202,3 +1202,65 @@
   242    0.0060  plate glass : Plate glass with placeholder single layer optics
     0    0.0120  air  0.170 0.170 0.170
   242    0.0060  plate glass : Plate glass with placeholder single layer optics
+#-------------------------------
+# RETROFIT UPGRADE CONSTRUCTIONS
+#-------------------------------
+# 154: layers  description   optics name   symmetry tag
+    6    Retroext4EPS  OPAQ  OPAQUE        NONSYMMETRIC 
+# mat ref thickness (m) mat descr & air gap R
+  301    0.0125  gypsum board 
+  283    0.0598  fiberglass batt   
+   79    0.0120  OSB   
+    0    0.0160  air  0.170 0.170 0.170
+  214    0.1016  EPS    
+   77    0.0809  Hardboard siding 
+# 155: layers  description   optics name   symmetry tag
+    6    Retroint2XPS  OPAQ  OPAQUE        NONSYMMETRIC    
+  301    0.0125  gypsum board 
+  220    0.0508  XPS CO2 foamed
+  283    0.1104  fiberglass batt   
+   79    0.0120  OSB   
+    0    0.0160  air  0.170 0.170 0.170  
+   77    0.0809  Hardboard siding 
+# 156: layers  description   optics name   symmetry tag
+    5    Retrointspr   OPAQ  OPAQUE        NONSYMMETRIC    
+  301    0.0125  gypsum board 
+  214    0.1127  EPS
+   79    0.0120  OSB   
+    0    0.0160  air  0.170 0.170 0.170  
+   77    0.0809  Hardboard siding    
+# 157. Retrofit foundation added 2 layers of 2" XPS to exterior
+    2    Fnd-4XPS-ext  OPAQ  OPAQUE        NONSYMMETRIC  
+# mat ref thickness (m) mat descr & air gap R
+   21    0.1840  light mix concrete
+  214    0.1016  EPS   
+# 158. Retrofit foundation added 2" of spray foam
+    2    Fnd-2spr-int  OPAQ  OPAQUE        NONSYMMETRIC  
+# mat ref thickness (m) mat descr & air gap R
+  214    0.0508  EPS  
+   21    0.1840  light mix concrete
+# 159. Retro Attic-R4.152+6"cellulose
+    3    retroatt_6    OPAQ  OPAQUE        NONSYMMETRIC  
+# mat ref thickness (m) mat descr & air gap R
+  233    0.1524  cellulose
+  283    0.1452  fiberglass batt
+  301    0.0190  gypsum 	
+# 160. Attic-R4.152+6"cellulose-reverse
+    3    retroatt_6R   OPAQ  OPAQUE        NONSYMMETRIC  
+# mat ref thickness (m) mat descr & air gap R
+  301    0.0190  gypsum 	
+  283    0.1452  fiberglass batt
+  233    0.1524  cellulose 
+# 161. Retro Attic-R4.152+12"cellulose
+    3    retroatt_12    OPAQ  OPAQUE        NONSYMMETRIC  
+# mat ref thickness (m) mat descr & air gap R
+  233    0.3048  cellulose
+  283    0.1452  fiberglass batt
+  301    0.0190  gypsum 	
+# 162. Retro Attic-R4.152+12"cellulose-reverse
+    3    retroatt_12R  OPAQ  OPAQUE        NONSYMMETRIC  
+# mat ref thickness (m) mat descr & air gap R
+  301    0.0190  gypsum 	
+  283    0.1452  fiberglass batt
+  233    0.3048  cellulose   
+  
