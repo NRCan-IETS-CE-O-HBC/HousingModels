@@ -18,7 +18,7 @@ Vary{
  
    }
 
-  // Database files: CEF OR WH?
+  // Database files: CEF, WH or retrofit?
   Parameter { 
   
     Name = GOtag:DBFiles; 
@@ -52,24 +52,43 @@ Vary{
   
     Name = GOtag:Opt-Location; 
     Ini  = 1;
-    Values = "Vancouver";//,Toronto,Vancouver,Calgary,Edmonton,Regina,Winnipeg,Montreal,Quebec,Fredricton,Halifax"; 
+    Values = "Vancouver"; 
   }
 
+  // Geometry  
+  Parameter{ // Van_2st_80_retro 
+  
+    Name = GOtag:Opt-geometry; 
+    Ini  = 1;
+    Values = "Van_2st_80_retro"; 
+  }
+
+
+  // Defining the building attachment
+  Parameter{ // single
+             // semi
+			 // row
+			 
+    Name = GOtag:Opt-Attachment;  
+    Ini  = 1;
+    Values = "single"; 
+  }	
+  
+  // Setting the ACH in the AIM-2 input file
+  Parameter{ // Toronto-retro
+             // Vancouver-retro
+			 // Van_retro_after
+			 // retro_ACH_7 to 1
+  
+    Name = GOtag:Opt-ACH; 
+    Ini  = 1;
+    Values = "retro_ACH_6_5,retro_ACH_6,retro_ACH_5_5,retro_ACH_5,retro_ACH_4_5,retro_ACH_4,retro_ACH_3_5,retro_ACH_3,retro_ACH_2_5,retro_ACH_2retro_ACH_1_5,retro_ACH_1"; 
+  }
 
   
   // =============================================
   // Parameters that configure the building design
   // =============================================
-  
-  //  Building Size
-  Parameter{ //One of:
-             // Van_2st_80_retro
-
-			 
-  Name   = GOtag:Opt-geometry;
-  Ini    = 1;
-  Values = "Van_2st_80_retro";
-  }
   
   
    // Air tightness: 
@@ -77,7 +96,10 @@ Vary{
    //   - TypicalGTA, 
    //   - R2000, 
    //   - Cdn1ACH, 
-   //   - PassiveHouse,
+   //   - PassiveHouse, 
+   //   - Base_WH_1.5, 
+   //   - WH_1.0, 
+   //   - WH_0.5
    //   - Generic
    Parameter{   // 
      Name    =  GOtag:Opt-AirTightness;
@@ -111,12 +133,15 @@ Vary{
    //		 W21_R59
    //		 W23_R56
    //		 W26_R56
+   //        Retro: - Retro-DblBr
+   //               - Retro-R1_52
+   //               - Retro-R2_1
+   //               - Retro-ext_2EPS
    Parameter{   // 
      Name    =  GOtag:Opt-MainWall;
-     Ini     =  2;
+     Ini     =  1;
      Values  =  "Retro-R2_1,Retro-ext_4EPS,Retro-int_2XPS,Retro-int_spray"; 
    }    
-  
   
    // Foundation walls: OBC-min-R12
    //                   Rigid+Batt-R20
@@ -134,11 +159,16 @@ Vary{
    //                   Fnd2PWF_R56
    //                   Fnd3PWF_R76
    //                   Fnd8ICF_R28
+   //        Retro: - TripleBrick
+   //               - PouredConcrete_RSI0_925
+   //               - PouredConcrete_NoIns
+   //               - Retro_added_R20_ext
+   
+   
    Parameter{   // 
      Name    =  GOtag:Opt-BasementWallInsulation;
      Ini     =  1;
-   Values  =  "PouredConcrete_NoIns";
-
+     Values  =  "PouredConcrete_NoIns,Retro_added_R20_ext,Retro_added_spray_int";
    } 
 
    // Basement Slab: NoInsulation
@@ -178,12 +208,15 @@ Vary{
    //           CeilR100
    //           CeilR110, 
    //           CeilR120, 
-   
+   //    Retro: retro_attic-2_962
+   //           retro_attic-4_152
+   //           retro_attic-4_152_6cell
+   //           retro_attic-4_152_12cell
    
    Parameter{   // 
      Name    =  GOtag:Opt-Ceilings;
      Ini     =  1;
-     Values  =  "retro_attic-4_152";
+     Values  =  "retro_attic-4_152,retro_attic-4_152_6cell,retro_attic-4_152_12cell";
    }    
   
   // Windows:  DoubleLowEHardCoatAirFill 
@@ -202,11 +235,12 @@ Vary{
   //           Win8hcle1_qd
   //           Win9scle2_qd
   //           Win10hcle2_q
+  //      retrofit:  DoubleClear
   
   Parameter{   // 
      Name    =  GOtag:Opt-CasementWindows;
      Ini     =  1;
-     Values  =  "DoubleClear,retro_DoubleLowEHardCoatArgFill";    
+     Values  =  "DoubleClear,retro_DoubleLowEHardCoatArgFill,retro_DoubleLowESoftCoatArgFill";    
      
    }    
    
@@ -248,11 +282,13 @@ Vary{
   //                    ElecInstantaneous, 
   //                    ElectricStorage, 
   //                    ElectricHP
+  //   retrofit:    retro_GasInst
+  //                retro_ElectricHP
   //           
   Parameter{ //
      Name    = GOtag:Opt-DHWSystem;
      Ini     = 1; 
-     Values  = "ElectricStorage"; 
+     Values  = "BaseDHW,retro_GasInst,retro_ElectricHP"; 
   }
 
   
@@ -264,18 +300,22 @@ Vary{
   //                  propanefurnace
   //                  elecfurnace
   //                  GSHP
-  
+  //         retrofit:   gas-furnace-84_3
+  //                     retro_upgrade_furnace
+  //                     retro_CCASHP
+  //                     retro_GSHP
+ 
   Parameter {// 
       Name   = GOtag:Opt-HVACSystem; 
       Ini    = 1; 
-      Values = "gas-furnace-84_3"; //,elec-baseboard,CCASHP,GSHP"; 
+      Values = "gas-furnace-84_3,retro_upgrade_furnace,retro_CCASHP,retro_GSHP"; 
   }
   
   // HRV specification
   Parameter { 
      Name = GOtag:Opt-HRVSpec; 
      Ini  = 1; 
-     Values = "CEF_SPEC"; 
+     Values = "BaseHRV_SRE70"; 
   }
   
   
@@ -308,7 +348,7 @@ Vary{
      Values  = "NoExtraWin"; 
    }
    
-   Parameter{   // First Floor -- left side (as viewed from front)  
+   Parameter{   // First Floor -- left side (as viewed from front, default is 'Yes" 
      Name    =  GOtag:Opt-ExtLeftSideWindow;
      Ini     =  1;
      Values  =  "No";
@@ -334,7 +374,7 @@ Vary{
   Parameter {  
     Name = GOtag:RoofPitch;
     Ini  = 1; 
-    Values = "8-12"; 
+    Values = "3-12"; 
   }
   
   
@@ -348,12 +388,12 @@ Vary{
       Name   = GOtag:ElecLoadScale; 
       Ini    = 1;
       // Value may be one of  NoReduction, BasicReduction, EfficientLiving      
-      Values = "NGERSNoReduction19"; 
+      Values = "NoReduction,BasicReduction"; 
   }
   Parameter { // 
       Name   = GOtag:DHWLoadScale; 
       Ini    = 1;
-      // Value may be one of  NoReduction, BasicReduction, EfficientLiving      
+      // Value may be one of  No-Reduction, BasicReduction, EfficientLiving      
       Values = "No-Reduction"; 
   }
   

@@ -195,7 +195,7 @@
 *attribute:name  = Opt-BaseWindows
 *attribute:tag:1 = <OptBW-Construction>
 *attribute:tag:2 = <OptBW-Optics>
-*attribute:default  =  = MinWindows
+*attribute:default  = MinWindows
 
 *option:NoWindows:value:1 = <Opt-MainWall-Bri>
 *option:NoWindows:value:2 = OPAQUE
@@ -640,70 +640,7 @@
 *attribute:tag:11   = <win-wall-3-left>
 *attribute:tag:12   = <win-wall-4-right>
 *attribute:tag:13   = <win-wall-4-left>
-
 *attribute:default = Toronto
-
-*option:Toronto:value:1    = 102.33
-*option:Toronto:value:2    = 10.12
-*option:Toronto:value:3    = 10.12
-*option:Toronto:value:4    = 12.049
-*option:Toronto:value:5    = 5.058
-*option:Toronto:value:6    = 0.5
-*option:Toronto:value:7    = 3.535
-*option:Toronto:value:8    = 0.5
-*option:Toronto:value:9    = 3.535
-*option:Toronto:value:10   = 9.616
-*option:Toronto:value:11   = 6.581
-*option:Toronto:value:12   = 9.616
-*option:Toronto:value:13   = 6.581
-*option:Toronto:cost:total = 0
-
-*option:Montreal:value:1   = 198
-*option:Montreal:value:2   = 16.5
-*option:Montreal:value:3   = 12
-*option:Montreal:value:4   = 14.488
-*option:Montreal:value:5   = 8.25
-*option:Montreal:value:6   = 0.5
-*option:Montreal:value:7   = 5.450
-*option:Montreal:value:8   = 0.5
-*option:Montreal:value:9   = 4.100
-*option:Montreal:value:10  = 16.00
-*option:Montreal:value:11  = 11.050
-*option:Montreal:value:12  = 11.5
-*option:Montreal:value:13  = 7.900
-*option:Montreal:cost:total = 0
-
-*option:Cgy-3st-80:value:1   = 95.1
-*option:Cgy-3st-80:value:2   = 9.75
-*option:Cgy-3st-80:value:3   = 9.75
-*option:Cgy-3st-80:value:4   = 11.988
-*option:Cgy-3st-80:value:5   = 4.876
-*option:Cgy-3st-80:value:6   = 0.5
-*option:Cgy-3st-80:value:7   = 3.426
-*option:Cgy-3st-80:value:8   = 0.5
-*option:Cgy-3st-80:value:9   = 6.426
-*option:Cgy-3st-80:value:10  = 9.252
-*option:Cgy-3st-80:value:11  = 6.326
-*option:Cgy-3st-80:value:12  = 9.2516
-*option:Cgy-3st-80:value:13  = 6.326
-*option:Cgy-3st-80:cost:total = 0
-
-*option:Tor_2st_retro:value:1    = 115
-*option:Tor_2st_retro:value:2    = 10.72
-*option:Tor_2st_retro:value:3    = 10.72
-*option:Tor_2st_retro:value:4    = 9.712
-*option:Tor_2st_retro:value:5    = 5.362
-*option:Tor_2st_retro:value:6    = 0.5
-*option:Tor_2st_retro:value:7    = 3.717
-*option:Tor_2st_retro:value:8    = 0.5
-*option:Tor_2st_retro:value:9    = 3.717
-*option:Tor_2st_retro:value:10   = 10.224
-*option:Tor_2st_retro:value:11   = 7.007
-*option:Tor_2st_retro:value:12   = 10.224
-*option:Tor_2st_retro:value:13   = 7.007
-*option:Tor_2st_retro:cost:total = 0
-
-
 
 *option:Van_2st_80_retro:value:1    = 132.15
 *option:Van_2st_80_retro:value:2    = 11.5
@@ -721,7 +658,6 @@
 *option:Van_2st_80_retro:cost:total = 0
 
 
-
 *attribute:end
 
 !-----------------------------------------------------------------------
@@ -732,59 +668,45 @@
 *attribute:name     = Opt-ACH
 *attribute:tag:1    = <Opt-ACH>
 
-*option:Calgary-gas:value:1   = 4.56
-*option:Calgary-gas:cost:total  =  0
+*option:retro_ACH_7:value:1  = 7.0
+*option:retro_ACH_7:cost:total  =  0
 
-*option:Edmonton-gas:value:1  = 4.495
-*option:Edmonton-gas:cost:total  =  0
+*option:retro_ACH_6_5:value:1  = 6.5
+*option:retro_ACH_6_5:cost:total  =  0
 
-*option:Halifax-elec:value:1  = 3.975
-*option:Halifax-elec:cost:total  =  0
+*option:retro_ACH_6:value:1  = 6.0
+*option:retro_ACH_6:cost:total  =  0
 
-*option:Halifax-oil:value:1   = 7.02
-*option:Halifax-oil:cost:total   =  0
+*option:retro_ACH_5_5:value:1  = 5.5
+*option:retro_ACH_5_5:cost:total  =  0
 
-*option:Montreal-gas:value:1   = 4.31
-*option:Montreal-gas:cost:total  =  0
+*option:retro_ACH_5:value:1  = 5.0
+*option:retro_ACH_5:cost:total  =  0
 
-*option:Montreal-elec:value:1   = 3.113
-*option:Montreal-elec:cost:total  =  0
+*option:retro_ACH_4_5:value:1  = 4.5
+*option:retro_ACH_4_5:cost:total  =  0
 
-*option:Montreal-oil:value:1   = 3.185
-*option:Montreal-oil:cost:total  =  0
+*option:retro_ACH_4:value:1  = 4.0
+*option:retro_ACH_4:cost:total  =  0
 
-*option:Regina-gas:value:1  =  2.89
-*option:Regina-gas:cost:total  =  0
+*option:retro_ACH_3_5:value:1  = 3.5
+*option:retro_ACH_3_5:cost:total  =  0
 
-*option:Toronto-elec:value:1  = 3.225
-*option:Toronto-elec:cost:total  =  0
+*option:retro_ACH_3:value:1  = 3.0
+*option:retro_ACH_3:cost:total  =  0
 
-*option:Toronto-gas:value:1   = 5.35
-*option:Toronto-gas:cost:total   =  0
+*option:retro_ACH_2_5:value:1  = 2.5
+*option:retro_ACH_2_5:cost:total  =  0
 
-*option:Toronto-oil:value:1   = 7.25
-*option:Toronto-oil:cost:total   =  0
+*option:retro_ACH_2:value:1  = 2.0
+*option:retro_ACH_2:cost:total  =  0
 
-*option:Vancouver-elec:value:1  = 4.077
-*option:Vancouver-elec:cost:total  =  0
+*option:retro_ACH_1_5:value:1  = 1.5
+*option:retro_ACH_1_5:cost:total  =  0
 
-*option:Vancouver-gas:value:1  = 12.44
-*option:Vancouver-gas:cost:total  =  0
+*option:retro_ACH_1:value:1  = 1.0
+*option:retro_ACH_1:cost:total  =  0
 
-*option:Winnipeg-elec:value:1  = 1.364
-*option:Winnipeg-elec:cost:total  =  0
-
-*option:Winnipeg-gas:value:1  = 2.78
-*option:Winnipeg-gas:cost:total  =  0
-
-*option:Toronto-1950:value:1  = 8.409
-*option:Toronto-1950:cost:total  =  0
-
-*option:Toronto-retro:value:1  = 6.2
-*option:Toronto-retro:cost:total  =  0
-
-*option:Vancouver-retro:value:1  = 6.868
-*option:Vancouver-retro:cost:total  =  0
 
 attribute:end
 
@@ -884,8 +806,24 @@ attribute:end
 *option:DoubleClear:value:2 = DblClr
 *option:DoubleClear:cost:total   = 0
 
+*option:retro_DoubleLowEHardCoatArgFill:value:1 = DblLeHcArg 
+*option:retro_DoubleLowEHardCoatArgFill:value:2 = DblLeHcArg 
+*option:retro_DoubleLowEHardCoatArgFill:cost:total    = 28790
+
+*option:retro_DoubleLowESoftCoatArgFill:value:1 = DblLeScArg
+*option:retro_DoubleLowESoftCoatArgFill:value:2 = DblLeScArg
+*option:retro_DoubleLowESoftCoatArgFill:cost:total    = 28790
+
+*option:retro_TripleLowEHardCoatArgFill:value:1 = TplLeHcKry
+*option:retro_TripleLowEHardCoatArgFill:value:2 = TplLeHcKry
+*option:retro_TripleLowEHardCoatArgFill:cost:total    = 32156
+
+*option:retro_TripleLowESoftCoatArgFill:value:1 = TplLeScKry
+*option:retro_TripleLowESoftCoatArgFill:value:2 = TplLeScKry
+*option:retro_TripleLowESoftCoatArgFill:cost:total    = 32156
 
 *attribute:end
+
 
 !-----------------------------------------------------------------------
 ! This option sets the airtightness by spec'ing the 
@@ -991,6 +929,13 @@ attribute:end
 !*option:retro_attic-4_152:value:2 =  retro-att-4R
 *option:retro_attic-4_152:cost:total    =  0
 
+*option:retro_attic-4_152_6cell:value:1 =   retroatt_6
+!*option:retro_attic-4_152_6cell:value:2 =  retroatt_6
+*option:retro_attic-4_152_6cell:cost:total    =  1308
+
+*option:retro_attic-4_152_12cell:value:1 =   retroatt_12
+!*option:retro_attic-4_152_12cell:value:2 =  retroatt_12
+*option:retro_attic-4_152_12cell:cost:total    =  1422
 
 
 *attribute:end
@@ -1216,6 +1161,21 @@ Whitehorse Wall Options (Code is R28)
 *option:Retro-R2_1:value:3 =   Retro-R2_1 
 *option:Retro-R2_1:cost:total    =   0
 
+*option:Retro-ext_4EPS:value:1 =   Retroext4EPS   ! Added by JP for retrofit analysis
+*option:Retro-ext_4EPS:value:2 =   Retroext4EPS
+*option:Retro-ext_4EPS:value:3 =   Retroext4EPS 
+*option:Retro-ext_4EPS:cost:total    =   25856
+
+*option:Retro-int_2XPS:value:1 =   Retroint2XPS   ! Added by JP for retrofit analysis
+*option:Retro-int_2XPS:value:2 =   Retroint2XPS
+*option:Retro-int_2XPS:value:3 =   Retroint2XPS 
+*option:Retro-int_2XPS:cost:total    =   25943
+
+*option:Retro-int_spray:value:1 =   Retrointspr   ! Added by JP for retrofit analysis
+*option:Retro-int_spray:value:2 =   Retrointspr
+*option:Retro-int_spray:value:3 =   Retrointspr 
+*option:Retro-int_spray:cost:total    =   28432
+
 
 *attribute:end
 
@@ -1317,6 +1277,15 @@ Whitehorse Wall Options (Code is R28)
 *option:PouredConcrete_NoIns:value:1 = NoInsulation
 *option:PouredConcrete_NoIns:meta    = Int
 *option:PouredConcrete_NoIns:cost:total  = 0
+
+*option:Retro_added_R20_ext:value:1 = Fnd-4XPS-ext
+*option:Retro_added_R20_ext:meta    = Int
+*option:Retro_added_R20_ext:cost:total  = 5267
+
+*option:Retro_added_spray_int:value:1 = Fnd-2spr-int
+*option:Retro_added_spray_int:meta    = Int
+*option:Retro_added_spray_int:cost:total  = 10751
+
 
 
 
@@ -1659,6 +1628,32 @@ Reflects southern Ontario costs
 *option:gas-furnace-84_3:value:6 = shoulder-ideal.ctl 
 *option:gas-furnace-84_3:cost:total    = 0
 
+*option:retro_upgrade_furnace:value:1 = retro_96furnace.hvac
+*option:retro_upgrade_furnace:value:2 = #-no-GSHP-file
+*option:retro_upgrade_furnace:value:3 = #No-IMS: 
+*option:retro_upgrade_furnace:value:4 = 
+*option:retro_upgrade_furnace:value:5 = 
+*option:retro_upgrade_furnace:value:6 = shoulder-ideal.ctl
+*option:retro_upgrade_furnace:cost:total    = 5900
+
+*option:retro_CCASHP:value:1 = CCASHPv2.hvac
+*option:retro_CCASHP:value:2 = #-no-GSHP-file
+*option:retro_CCASHP:value:3 = #No-IMS: 
+*option:retro_CCASHP:value:4 = 
+*option:retro_CCASHP:value:5 = 
+*option:retro_CCASHP:value:6 = shoulder-ideal.ctl 
+*option:retro_CCASHP:cost:total    = 11895.0
+
+Reflects southern Ontario costs
+*option:retro_GSHP:value:1 = GSHPv2.hvac
+*option:retro_GSHP:value:2 = *gshp~../hvac/heatx_v1.gshp
+*option:retro_GSHP:value:3 = #No-IMS: 
+*option:retro_GSHP:value:4 = 
+*option:retro_GSHP:value:5 = 
+*option:retro_GSHP:value:5 = shoulder-ideal.ctl 
+*option:retro_GSHP:cost:total    = 32500          ! Does this reflect AC
+
+
 *attribute:end
 
 
@@ -1773,6 +1768,15 @@ Reflects southern Ontario costs
 
 *option:ElectricHP:value:1 = ElecHP.dhw
 *option:ElectricHP:cost:total    = 1495
+
+
+! retrofit costs---------------------
+*option:retro_GasInst:value:1 = GasInstantaneous.dhw
+*option:retro_GasInst:cost:total    = 3500
+
+*option:retro_ElectricHP:value:1 = ElecHP.dhw
+*option:retro_ElectricHP:cost:total    = 3750
+
 
 *attribute:end
 
@@ -2110,7 +2114,7 @@ Reflects southern Ontario costs
   
 *ext-parameters:start
 
-*param:BaseUpgradeCost = 14216.602
+*param:BaseUpgradeCost = 0 !!14216.602
 *param:BaseUtilitiesCost = 1447
 *param:PVTarrifDollarsPerkWh = 0.08
 

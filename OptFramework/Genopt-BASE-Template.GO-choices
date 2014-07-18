@@ -41,7 +41,7 @@ Opt-DHWLoadScale     : %GOtag:DHWLoadScale%
 ! and compute an average result)
 GOconfig_rotate      : %GOtag:GOconfig_rotate%
 
-! Turn orignial design windows opaque ( NoWindows!)
+! Turn original design windows opaque ( NoWindows!)
 ! or transparent (MinWindows). NoWindows doesn't presently work!
 Opt-BaseWindows           : MinWindows  
 
@@ -51,7 +51,7 @@ Opt-BackWindows           : %GOtag:Opt-BackWindows%
 Opt-ExtLeftSideWindow     : %GOtag:Opt-ExtLeftSideWindow%
 Opt-ExtBasementWindow     : %GOtag:Opt-ExtBasementWindow%
 
-! Witdh of overhang       
+! Width of overhang       
 Opt-OverhangWidth         : %GOtag:Opt-OverhangWidth%
 
 ! Target Air tightness 
@@ -79,7 +79,7 @@ Opt-FloorSurface     : %GOtag:Opt-FloorSurface%
 Opt-StandoffPV       : %GOtag:Opt-StandoffPV%
 Opt-DWHRandSDHW      : %GOtag:Opt-DWHRandSDHW%
 
-! Roof picth affects PV output. 
+! Roof pitch affects PV output. 
 Opt-RoofPitch        : %GOtag:RoofPitch%   
 
 ! HVAC 
