@@ -30,21 +30,26 @@ my $TotalRows     = 0;
 
 system ("rm  RecoveredFromCloud.txt TempResultsBatch*.txt"); 
 
+if ($ARGV[0] =~/local/) {
 
-my $recovered=1;
-foreach ( @ARGV ){
-    $RemoteAddress = $_; 
+    system ("cp -fr $RemoteFile TempResultsBatch1.txt"); 
     
-    my $GetFileCmd = "scp -i ~/AFTrialMyKey.pem $RemoteAddress:~/$RemoteDir/$RemoteFile ./$LocalFileName "; 
-    print " Running: $GetFileCmd ... \n"; 
-    system ($GetFileCmd); 
-    
-    system ("cp RecoveredFromCloud.txt TempResultsBatch".$recovered.".txt"); 
-    print ("Saved file from $RemoteAddress as TempResultsBatch".$recovered.".txt\n"); 
-    print " ...done.\n"; 
-    $recovered++; 
+}else{
+
+    my $recovered=1;
+    foreach ( @ARGV ){
+        $RemoteAddress = $_; 
+        
+        my $GetFileCmd = "scp -i ~/AFTrialMyKey.pem $RemoteAddress:~/$RemoteDir/$RemoteFile ./$LocalFileName "; 
+        print " Running: $GetFileCmd ... \n"; 
+        system ($GetFileCmd); 
+        
+        system ("cp RecoveredFromCloud.txt TempResultsBatch".$recovered.".txt"); 
+        print ("Saved file from $RemoteAddress as TempResultsBatch".$recovered.".txt\n"); 
+        print " ...done.\n"; 
+        $recovered++; 
+    }
 }
-
 
 
 
