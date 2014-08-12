@@ -40,10 +40,10 @@ my $gPRJpath            = "~/esp-r/bin/prj";
 
 #### Please Don't change these --- use the -b option instead! ###
 # $gBaseModelFolder initialized here but can be over-ridden by command line value with -b option
-my $gBaseModelFolder    = "MB-LEEP-Base";
+my $gBaseModelFolder    = "GenericHome-2storey";
 my $gWorkingModelFolder = "MODEL-work"; 
 my $gWorkingCfgPath     = "$gWorkingModelFolder/cfg";
-my $gModelCfgFile       = "MB-LEEP-Base.cfg";
+my $gModelCfgFile       = "GenericHome-2storey.cfg";
 
 my $gTotalCost          = 0; 
 my $gIncBaseCosts       = 11727; 
@@ -122,9 +122,9 @@ my @search_these_exts=( "cfg",
                         "constrdb",
                         "cnn",
                         "enf",
-						"bsm",
-						"ctl",
-						"opr",
+                        "bsm",
+                        "ctl",
+                        "opr",
                         "dhw"
                       );
                        
@@ -1102,12 +1102,12 @@ debug_out ( " Creating link to $source_clm_dir \n ");
 # Find the approprate path. If substitute has been invoked directly, 
 # Cli
 if  ( -d "$gMasterPath/$source_clm_dir" ) {
-    debug_out ( "Found $gMasterPath/$source_clm_dir. Linking.\n");
+    debug_out ( "Found $gMasterPath/$source_clm_dir. Linking (a).\n");
     $clm_link_target = "$gMasterPath/$source_clm_dir"; 
 }
 # Fi
 elsif ( -d "$gMasterPath/../$source_clm_dir" ) {
-    debug_out ( "Found $gMasterPath/$source_clm_dir. Linking.\n");
+    debug_out ( "Found $gMasterPath/../$source_clm_dir. Linking (b).\n");
     $clm_link_target = "$gMasterPath/../$source_clm_dir"; 
 }
 else {
@@ -1124,8 +1124,13 @@ else {
 # Now create the link
 
 stream_out ("Linking  $clm_link_target $gWorkingModelFolder/climate -> $clm_link_target"); 
-execute ( "ln -s  $clm_link_target $gWorkingModelFolder/climate "); 
+if ( $system =~ /linux/i ) {
+  execute ( "cp -fr  $clm_link_target $gWorkingModelFolder/climate "); 
+}else{
+  execute ( "ln -s  $clm_link_target $gWorkingModelFolder/climate ");
+}
 
+ 
 
 # Search through all files in the working directory, and perform substitutions as needed 
  find( sub{
@@ -1143,6 +1148,8 @@ execute ( "ln -s  $clm_link_target $gWorkingModelFolder/climate ");
           
           process_file($File::Find::name);
         },  $gWorkingModelFolder );
+
+
 
 
 # Could allow SE/NE/SW/NW here, or even NNE, ENE, ESE, SSE. Note that our solar calculations will not reflect 
