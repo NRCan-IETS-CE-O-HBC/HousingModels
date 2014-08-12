@@ -13,7 +13,7 @@
 #                           # Light local shielding on flue.
 #                           # Height of anemometer at weather station. (assumed)
 #---Height of building eaves (m)----------------------------------------------------------------
-<Opt-Eave-Height>
+3.4864
 #---Flue diameters (mm)-------------------------------------------------------------------------
 0  0. 0. 0. 0.              # furnace, fire#1, fire#2, dhw#1, dhw#2.
 #---Zone indices--------------------------------------------------------------------------------

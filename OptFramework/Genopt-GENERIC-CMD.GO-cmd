@@ -23,7 +23,7 @@ Vary{
   
     Name = GOtag:DBFiles; 
     Ini    = 1; 
-    Values = "CEF"; 
+    Values = "retrofit"; 
  
    }
    
@@ -52,7 +52,7 @@ Vary{
   
     Name = GOtag:Opt-Location; 
     Ini  = 1;
-    Values = "Ottawa";//,Toronto,Vancouver,Calgary,Edmonton,Regina,Winnipeg,Montreal,Quebec,Fredricton,Halifax"; 
+    Values = "Vancouver";//,Toronto,Vancouver,Calgary,Edmonton,Regina,Winnipeg,Montreal,Quebec,Fredricton,Halifax"; 
   }
 
 
@@ -63,13 +63,12 @@ Vary{
   
   //  Building Size
   Parameter{ //One of:
-             // ON80-89
-             // ON70-79
-			 // PQ70-79
+             // Van_2st_80_retro
+
 			 
   Name   = GOtag:Opt-geometry;
   Ini    = 1;
-  Values = "ON80-89";
+  Values = "Van_2st_80_retro";
   }
   
   
@@ -79,13 +78,11 @@ Vary{
    //   - R2000, 
    //   - Cdn1ACH, 
    //   - PassiveHouse,
-   //   - ON80-89,
-   //   - ON70-79,
-   //   - PQ70-79,   
+   //   - Generic
    Parameter{   // 
      Name    =  GOtag:Opt-AirTightness;
      Ini     =  1;
-     Values  =  "ON80-89";
+     Values  =  "Generic";
      
    }    
    
@@ -116,9 +113,10 @@ Vary{
    //		 W26_R56
    Parameter{   // 
      Name    =  GOtag:Opt-MainWall;
-     Ini     =  1;
-     Values  =  "BaseR21"; 
+     Ini     =  2;
+     Values  =  "Retro-R2_1,Retro-ext_4EPS,Retro-int_2XPS,Retro-int_spray"; 
    }    
+  
   
    // Foundation walls: OBC-min-R12
    //                   Rigid+Batt-R20
@@ -139,7 +137,7 @@ Vary{
    Parameter{   // 
      Name    =  GOtag:Opt-BasementWallInsulation;
      Ini     =  1;
-   Values  =  "OBC-min-R12";
+   Values  =  "PouredConcrete_NoIns";
 
    } 
 
@@ -185,7 +183,7 @@ Vary{
    Parameter{   // 
      Name    =  GOtag:Opt-Ceilings;
      Ini     =  1;
-     Values  =  "CeilR50";
+     Values  =  "retro_attic-4_152";
    }    
   
   // Windows:  DoubleLowEHardCoatAirFill 
@@ -208,7 +206,7 @@ Vary{
   Parameter{   // 
      Name    =  GOtag:Opt-CasementWindows;
      Ini     =  1;
-     Values  =  "DoubleLowEHardCoatArgFill";    
+     Values  =  "DoubleClear,retro_DoubleLowEHardCoatArgFill";    
      
    }    
    
@@ -270,7 +268,7 @@ Vary{
   Parameter {// 
       Name   = GOtag:Opt-HVACSystem; 
       Ini    = 1; 
-      Values = "basefurnace"; //,elec-baseboard,CCASHP,GSHP"; 
+      Values = "gas-furnace-84_3"; //,elec-baseboard,CCASHP,GSHP"; 
   }
   
   // HRV specification

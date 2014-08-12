@@ -11,7 +11,7 @@ Opt-calcmode          :calc
 
 ! Set of database files to be used
 
-Opt-DBFiles           : CEF 
+Opt-DBFiles           : retrofit 
 
 
 ! Optimization substitutions 
@@ -30,7 +30,7 @@ Opt-Location : Winnipeg
 
 OPT-HRV_ctl          : ERSp3ACH !EightHRpDay
 
-Opt-CTL-Strategy     : ecoEIIFramework  
+!Opt-CTL-Strategy     : ecoEIIFramework  
 
 
 ! Turn original design windows opaque ( NoWindows!)
@@ -49,8 +49,14 @@ Opt-BackWindows      : NoExtraWin
 ! Alberta
 ! Halifax
 ! Prairie
-Opt-geometry      : Prairie
+Opt-geometry      : Montreal
 
+!Attachment options
+! single
+! semi
+! row
+
+Opt-Attachment : single
 
 ! ACH substitutions
 ! Calgary-gas
@@ -72,7 +78,6 @@ Opt-geometry      : Prairie
 Opt-ACH       : Winnipeg-gas
 
 
-
 Opt-OverhangWidth : BaseOverhang
 
 
@@ -83,9 +88,6 @@ Opt-ExtBasementWindow : No          ! Basement (back)
 
 
 ! Air-Tightness: 
-!     TypicalGTA
-!     R2000
-!     Cdn1ACH
 !     Generic
 !
 Opt-AirTightness   : Generic
@@ -101,8 +103,9 @@ Opt-AirTightness   : Generic
 !  DblStud-R44-Wall
 !  Truss-R40-Wall
 !  W15_R25
+!  Retrofit-DlBr
 
-Opt-MainWall         : BaseR20
+Opt-MainWall         : Retrofit-DlBr
 
 
 ! Add extra drywall to wall constructions 
@@ -142,8 +145,10 @@ Opt-BasementSlabInsulation  : NoInsulation
 !  ICF-base-R51     
 !  ICF-base-R51r
 !  Fnd0PWF_R28   
+! Retrofit foundation
+!    TripleBrick
 
-Opt-BasementWallInsulation  : OBC-min-R12
+Opt-BasementWallInsulation  : TripleBrick
 
 
 ! Optical and thermal characteristics of casement windows (currently 
@@ -157,8 +162,10 @@ Opt-BasementWallInsulation  : OBC-min-R12
 !    DoubleLowESoftCoatArgFill
 ! Whitehorse Windows
 !    Wind1_trp_CL	
+! Retrofit Windows
+!    DoubleClear 
 
-Opt-CasementWindows  :  DoubleLowEHardCoatAirFill
+Opt-CasementWindows  :  DoubleClear 
 
 
 ! Exposed floor over garage (affects floor
@@ -225,5 +232,5 @@ Opt-HVACSystem       : gas-furnace-mid
 
 ! HRV spec 
 
-Opt-HRVspec : CEF_SPEC
+Opt-HRVspec : BaseHRV_SRE70
 
