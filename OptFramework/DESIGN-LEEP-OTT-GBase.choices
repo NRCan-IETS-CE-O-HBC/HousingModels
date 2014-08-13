@@ -148,7 +148,7 @@ Opt-BasementWallInsulation  : OBC-min-R12
 ! Retrofit Windows
 !    DoubleClear 
 
-Opt-CasementWindows  :  DoubleLowEHardCoatArgFill 
+Opt-CasementWindows  :  DoubleLowESoftCoatArgFill 
 
 
 ! Exposed floor over garage (affects floor

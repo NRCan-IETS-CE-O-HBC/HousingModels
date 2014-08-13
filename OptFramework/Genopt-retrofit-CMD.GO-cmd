@@ -82,7 +82,7 @@ Vary{
   
     Name = GOtag:Opt-ACH; 
     Ini  = 1;
-    Values = "retro_ACH_6_5,retro_ACH_6,retro_ACH_5_5,retro_ACH_5,retro_ACH_4_5,retro_ACH_4,retro_ACH_3_5,retro_ACH_3,retro_ACH_2_5,retro_ACH_2retro_ACH_1_5,retro_ACH_1"; 
+    Values = "retro_ACH_6_5,retro_ACH_6,retro_ACH_5_5,retro_ACH_5,retro_ACH_4_5,retro_ACH_4,retro_ACH_3_5,retro_ACH_3,retro_ACH_2_5,retro_ACH_2,retro_ACH_1_5,retro_ACH_1"; 
   }
 
   
