@@ -1,0 +1,374 @@
+/*
+
+ GenOpt command file ANZEH Passive solar
+
+*/
+Vary{
+
+   // Calc mode : 'debug' or 'calc'
+   
+   Parameter{   // 
+     Name    =  GOtag:CalcMode;
+     Ini     =  1;
+     Values  =  "calc";
+     
+   }     
+
+   Parameter{   // CEF or WHITEHORSE
+     Name    =  GOtag:DBFiles;
+     Ini     =  1;
+     Values  =  "CEF";
+     
+   }     
+   
+
+   // Location 
+   Parameter{ // One of:
+              //    Ottawa     
+              //    Toronto    
+              //    Vancouver  
+              //    Calgary    
+              //    Edmonton   
+              //    Regina     
+              //    Winnipeg    
+              //    Montreal   
+              //    Quebec     
+              //    Fredricton 
+              //    Halifax    
+              //    Whitehorse 
+   
+     Name = GOtag:Opt-Location; 
+     Ini  = 1;
+     Values = "Ottawa"; 
+   }
+
+
+   // Air tightness: TypicalGTA, R2000, Cdn1ACH, PassiveHouse, Base_WH_1.5, WH_1.0, WH_0.5
+   Parameter{   // 
+     Name    =  GOtag:Opt-AirTightness;
+     Ini     =  1;
+     Values  =  "Typical23, R2000, Cdn1ACH, PassiveHouse";
+     
+   }    
+   
+   // Mainwalls. BaseR21
+
+   Parameter{   // 
+     Name    =  GOtag:Opt-MainWall;
+     Ini     =  1;
+     Values  =  "BaseR21, Stud-R275-Wall, Stud-R38-Wall, Stud-R50-Wall"; 
+   }    
+  
+   // Foundation walls: OBC-min-R12
+   //                   Rigid+Batt-R20
+   //                   Rigid+Batt-R30               
+   //                   Rigid+Batt-R37
+   //                   Rigid+Blown-R43
+   //                   ICF-base-R22
+   //                   ICF-base-R26
+   //                   ICF-base-R32
+   //                   ICF-base-R41
+   //                   ICF-base-R51
+   //                   ICF-base-R51r
+   //                   Fnd0PWF_R28
+   //                   Fnd1PWF_R36
+   //                   Fnd2PWF_R56
+   //                   Fnd3PWF_R76
+   //                   Fnd8ICF_R28
+
+   
+   Parameter{   // 
+     Name    =  GOtag:Opt-BasementWallInsulation;
+     Ini     =  1;
+   Values  =  "OBC-min-R12, Rigid+Batt-R20";
+
+   } 
+
+   // Basement Slab: 
+   //                
+  
+   Parameter{   // 
+     Name    =  GOtag:Opt-BasementSlabInsulation;
+     Ini     =  1;
+     Values  =  "NoInsulation,R24UnderSlab+edge,R12EdgeP6,R12EdgeP10"; 
+   } 
+
+   // Exposed floor: There are no exposed floors in MB LEEP archetype
+   Parameter{   // 
+     Name    =  GOtag:Opt-ExposedFloor;
+     Ini     =  1;
+     Values  =  "BaseExpFloor-R31"; 
+   }    
+   
+   
+   // Ceilings: CeilR50, 
+   //           CeilR60, 
+   //           CeilR70, 
+   //           CeilR80, 
+   //           CeilR90, 
+   //           CeilR100
+   //           CeilR110, 
+   //           CeilR120, 
+      
+   Parameter{   // 
+     Name    =  GOtag:Opt-Ceilings;
+     Ini     =  1;
+     Values  =  "CeilR50,CeilR90,CeilR100";
+   }    
+  
+  // Windows:  DoubleLowEHardCoatAirFill 
+  //           DoubleLowEHardCoatArgFill
+  //           DoubleLowESoftCoatArgFill 
+  //           TripleLowEHardCoatKryFill
+  //           TripleLowESoftCoatKryFill
+  //           
+  //           Wind1_trp_CL
+  //           Win2scLE1_tr
+  //           Win3hcLE1_tr
+  //           Win4scLE2_tr
+  //           Win5hcLE2_tr
+  //           Win6_qd_CL
+  //           Win7scle1_qd
+  //           Win8hcle1_qd
+  //           Win9scle2_qd
+  //           Win10hcle2_q
+  
+  Parameter{   // 
+     Name    =  GOtag:Opt-CasementWindows;
+     Ini     =  1;
+     Values  =  "DoubleLowEHardCoatArgFill,DoubleLowESoftCoatArgFill,TripleLowEHardCoatKryFill,TripleLowESoftCoatKryFill";    
+     
+   }    
+   
+  // Extra drywall:  OneSheet
+  //                 TwoSheets
+  
+  Parameter{   // 
+     Name    =  GOtag:Ext-DryWall;
+     Ini     =  1;
+     Values  =  "OneSheet";    
+     
+   }    
+   
+   
+  // Floor surface:  wood 
+  //                 1-in-concrete
+  //                 2-in-concrete
+  Parameter{   // 
+     Name    =  GOtag:Opt-FloorSurface;
+     Ini     =  1;
+     Values  =  "wood";    
+   }       
+   
+  
+  // SolarDHW: none, 
+  //           DWHR-4-36, 
+  //           DWHR-4-60,
+  //           1-plate,
+  //           2-plate,
+  //           1-plate-DWHR-4-36,
+  //           2-plate-DWHR-4-36,
+  //           1-plate-DWHR-4-60,
+  //           2-plate-DWHR-4-60
+  
+  Parameter{   // 
+     Name    = GOtag:Opt-DWHRandSDHW; 
+     Ini     = 1; 
+     Values  = "none,DWHR-4-36,DWHR-4-60,1-plate,2-plate,1-plate-DWHR-4-36,2-plate-DWHR-4-36,1-plate-DWHR-4-60,2-plate-DWHR-4-60"; 
+  } 
+  
+  // Conventional DHW:  BaseDHW, 
+  //                    ElecInstantaneous, 
+  //                    ElectricStorage, 
+  //                    ElectricHP
+  //           
+  Parameter{ //
+     Name    = GOtag:Opt-DHWSystem;
+     Ini     = 1; 
+     Values  = "BaseDHW,ElectricStorage,ElecInstantaneous,ElectricHP,GasInstantaneous" ;
+  }
+
+  
+  // Heating/cooling: basefurnace, 
+  //                  elec-baseboard, 
+  //                  CCASHP
+  //                  
+  //                  baseoilfurnace
+  //                  oil95furnace
+  //                  propanefurnace
+  //                  elecfurnace
+  //                  GSHP
+  
+  Parameter {// 
+      Name   = GOtag:Opt-HVACSystem; 
+      Ini    = 1; 
+      Values = "basefurnace,elec-baseboard,CCASHP,GSHP,IMS-P10";     !Wait on this: zoned-furnace-ecm
+  }
+  
+  // HRV spec: 
+  
+  Parameter {// 
+      Name   = GOtag:Opt-HRVSpec; 
+      Ini    = 1; 
+      Values = "CEF_SPEC,BaseHRV_SRE70,UpgHRV_SRE78"; 
+  }  
+  
+  
+  // PV: Set to autosize to ensure each run actually achieves NZEH.  
+  Parameter{   // 
+     Name    =  GOtag:Opt-StandoffPV;
+     Ini     =  1;
+     Values  = "NoPV, SizedPV|3kW, SizedPV|5kW, SizedPV|8kW";
+  } 
+  
+  
+   
+  
+   //===================================================================
+   // PASSIVE SOLAR: Include or exclude extra windows    
+   //===================================================================
+    
+   Parameter{  // Front windows 
+     Name    = GOtag:Opt-FrontWindows; 
+     Ini     = 1; 
+     Values  = "NoExtraWin"; 
+     // Can be : "NoExtraWin, OneExtraWin, TwoExtraWin, ThreeExtraWin"
+   }
+   
+   Parameter{  // Back windows 
+     Name    = GOtag:Opt-BackWindows; 
+     Ini     = 1; 
+     Values  = "NoExtraWin"; 		!FourExtraWin
+   }
+   
+   Parameter{   // First Floor -- left side (as viewed from front  
+     Name    =  GOtag:Opt-ExtLeftSideWindow;
+     Ini     =  1;
+     Values  =  "No";
+   } 
+   
+   
+  Parameter{   // Basement -- back 
+     Name    =  GOtag:Opt-ExtBasementWindow;
+     Ini     =  1;
+     Values  =  "No";
+   }            
+   
+   Parameter { // 
+      Name   = GOtag:Opt-OverhangWidth; 
+      Ini    = 1;
+      Values = "BaseOverhang"; 
+  }  
+
+  
+  
+  
+  // ===================================================================
+  // Roof pitch 
+  // ===================================================================
+  Parameter {  
+    Name = GOtag:RoofPitch;
+    Ini  = 1; 
+    Values = "8-12"; 
+  }
+  
+  
+  
+  // ===================================================================
+  // The following sections define assumptions about how a NZEH home 
+  // is operated, and are not intended to be optimized. A single value 
+  // should be provided in each case. 
+  // ===================================================================
+  Parameter { // 
+      Name   = GOtag:ElecLoadScale; 
+      Ini    = 1;
+      // Value may be one of  NoReduction, BasicReduction, EfficientLiving      
+      Values = "NGERSNoReduction19,NGERSReducedA16"; 
+  }
+  Parameter { // 
+      Name   = GOtag:DHWLoadScale; 
+      Ini    = 1;
+      // Value may be one of  NoReduction, BasicReduction, EfficientLiving, Low-Flow?
+      Values = "No-Reduction"; 
+  }
+  
+  Parameter { // 
+      Name   = GOtag:HRVcontrol; 
+      Ini    = 1;
+      // Value may be one of Continuious, ERSp3ACH, EightHRpDay       
+      Values = "EightHRpDay"; 
+  }  
+  
+    
+   // Orientation: for parametric study. Set to one of 
+   // "S, N, E, W, or avg", "AVG" causes substitute.pl 
+   // to run four simulations (in four different orientations) 
+   // for each set of parameters and average the results. 
+   
+   Parameter{   // 
+     Name    =  GOtag:GOconfig_rotate;
+     Ini     =  1;
+     Values  =  "S";
+   }      
+    
+     
+   
+}
+
+
+
+OptimizationSettings{
+  
+  //MaxIte = 12; 
+  MaxIte = 100000;
+  MaxEqualResults = 1000;
+  WriteStepNumber = true;
+}
+
+
+//Algorithm{
+// Main                       = PSOIW;
+//  NeighborhoodTopology      = vonNeumann;
+//  NeighborhoodSize          = 8; // Disregarded for vonNeumann topology
+//  NumberOfParticle          = 2;
+//  NumberOfGeneration        = 3;
+//  Seed                      = 628;
+//  CognitiveAcceleration     = 2; // 0 < CognitiveAcceleration
+//  SocialAcceleration        = 3; // 0 < SocialAcceleration
+//  MaxVelocityGainContinuous = 1.0;
+//  MaxVelocityDiscrete       = 1.0; // 0 < MaxVelocityDiscrete
+//  InitialInertiaWeight      = 1.2;    // 0 < InitialInertiaWeight
+//  FinalInertiaWeight        = 0;      // 0 < FinalInertiaWeight
+//}
+
+
+
+
+Algorithm{
+ Main                       = PSOIW;
+  NeighborhoodTopology      = vonNeumann;
+  NeighborhoodSize          = 8; // Disregarded for vonNeumann topology
+  NumberOfParticle          = 25;
+  NumberOfGeneration        = 3000;
+  Seed                      = 65;
+  CognitiveAcceleration     = 3; // 0 < CognitiveAcceleration
+  SocialAcceleration        = 3; // 0 < SocialAcceleration
+  MaxVelocityGainContinuous = 0.8;
+  MaxVelocityDiscrete       = 0.8; // 0 < MaxVelocityDiscrete
+  InitialInertiaWeight      = 1.2;    // 0 < InitialInertiaWeight
+  FinalInertiaWeight        = 0.5;      // 0 < FinalInertiaWeight
+}
+
+//Algorithm{
+//   Main = Parametric;
+//   StopAtError = true;
+//}
+
+//Algorithm{
+
+
+
+
+//  Main = Mesh;
+//  StopAtError = true; 
+//}
