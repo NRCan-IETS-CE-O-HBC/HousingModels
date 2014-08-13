@@ -111,7 +111,8 @@ Opt-Ceilings         : CeilR50
 ! Basement slab insulation 
 ! Choices: 
 !   NoInsulation
-Opt-BasementSlabInsulation  : NoInsulation
+!   R10UnderSlab+edge
+Opt-BasementSlabInsulation  : R10UnderSlab+edge
 
 ! Foundation walls. 
 ! Choices 

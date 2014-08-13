@@ -747,23 +747,23 @@ attribute:end
 ! by optional window areas.
 *option:DoubleLowESoftCoatArgFill:value:1 = DblLeScArg
 *option:DoubleLowESoftCoatArgFill:value:2 = DblLeScArg
-*option:DoubleLowESoftCoatArgFill:cost:total    = 10965
+*option:DoubleLowESoftCoatArgFill:cost:total    = 7905		!Base for Ottawa LEEP (JTB Aug 13, 2014)
 
 *option:DoubleLowEHardCoatAirFill:value:1 = DblLeHcAir
 *option:DoubleLowEHardCoatAirFill:value:2 = DblLeHcAir
-*option:DoubleLowEHardCoatAirFill:cost:total    = 10584		!Base for Ottawa LEEP (JTB Aug 2014)
+*option:DoubleLowEHardCoatAirFill:cost:total    = 7900		!?Not Updated for OTT - used DoubleLowESoftCoatArgFill
 
 *option:DoubleLowEHardCoatArgFill:value:1 = DblLeHcArg 
 *option:DoubleLowEHardCoatArgFill:value:2 = DblLeHcArg 
-*option:DoubleLowEHardCoatArgFill:cost:total    = 11727
+*option:DoubleLowEHardCoatArgFill:cost:total    = 7905		!?Not Updated for OTT - used DoubleLowESoftCoatArgFill
 
 *option:TripleLowEHardCoatKryFill:value:1 = TplLeHcKry
 *option:TripleLowEHardCoatKryFill:value:2 = TplLeHcKry
-*option:TripleLowEHardCoatKryFill:cost:total    = 20871
+*option:TripleLowEHardCoatKryFill:cost:total    = 9165		!JTB Aug 13, 2014
 
 *option:TripleLowESoftCoatKryFill:value:1 = TplLeScKry
 *option:TripleLowESoftCoatKryFill:value:2 = TplLeScKry
-*option:TripleLowESoftCoatKryFill:cost:total    = 19310
+*option:TripleLowESoftCoatKryFill:cost:total    = 8925		!JTB Aug 13, 2014
 
 
 !---------------------------------------------------------------------
