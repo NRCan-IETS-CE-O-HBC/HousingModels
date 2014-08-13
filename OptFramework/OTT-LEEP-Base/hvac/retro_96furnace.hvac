@@ -22,7 +22,7 @@
         furnace-type 8
         capacity 23000
         efficiency 0.96
-        circ-fan-mode 1
+        circ-fan-mode <OPT-Furnace-Fan-Ctl>
         circ-fan-power 140.0
         draft-fan-power 75. 
         pilot-power 0.
@@ -49,7 +49,7 @@
         COP 3.
         #circ-fan-flow -
         #circ-fan-rated-flow 1.5
-        circ-fan-mode 1
+        circ-fan-mode <OPT-Furnace-Fan-Ctl>
         circ-fan-position 1
         circ-fan-power 140.
         outdoor-fan-power 0.
