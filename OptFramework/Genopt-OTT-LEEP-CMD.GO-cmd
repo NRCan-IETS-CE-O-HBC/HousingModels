@@ -202,7 +202,7 @@ Vary{
   Parameter {// 
       Name   = GOtag:Opt-HVACSystem; 
       Ini    = 1; 
-      Values = "basefurnace,elec-baseboard,CCASHP,GSHP,IMS-P10,Combi-P9-a";     !Wait on this: zoned-furnace-ecm
+      Values = "basefurnace,elec-baseboard,CCASHP,GSHP,IMS-P10,Combi-P9-a";     // Wait on this: zoned-furnace-ecm
   }
   
   // HRV spec: 
