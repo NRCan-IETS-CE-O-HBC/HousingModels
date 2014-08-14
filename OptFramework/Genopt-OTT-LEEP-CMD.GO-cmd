@@ -56,7 +56,7 @@ Vary{
    Parameter{   // 
      Name    =  GOtag:Opt-MainWall;
      Ini     =  1;
-     Values  =  "BaseR21, Stud-R275-Wall, Stud-R38-Wall, Stud-R50-Wall"; 
+     Values  =  "BaseR20, Stud-R275-Wall, Stud-R305-Wall, Stud-R325-Wall"; 
    }    
   
    // Foundation walls: OBC-min-R12
@@ -80,7 +80,7 @@ Vary{
    Parameter{   // 
      Name    =  GOtag:Opt-BasementWallInsulation;
      Ini     =  1;
-   Values  =  "OBC-min-R12, Rigid+Batt-R20";
+     Values  =  "OBC-min-R12, Rigid+Batt-R20";
 
    } 
 
@@ -90,7 +90,7 @@ Vary{
    Parameter{   // 
      Name    =  GOtag:Opt-BasementSlabInsulation;
      Ini     =  1;
-     Values  =  "NoInsulation,R24UnderSlab+edge,R12EdgeP6,R12EdgeP10"; 
+     Values  =  "R10UnderSlab+edge,R24UnderSlab+edge,R12EdgeP6,R12EdgeP10"; 
    } 
 
    // Exposed floor: There are no exposed floors in MB LEEP archetype
@@ -202,7 +202,7 @@ Vary{
   Parameter {// 
       Name   = GOtag:Opt-HVACSystem; 
       Ini    = 1; 
-      Values = "basefurnace,elec-baseboard,CCASHP,GSHP,IMS-P10";     !Wait on this: zoned-furnace-ecm
+      Values = "basefurnace,elec-baseboard,CCASHP,GSHP,IMS-P10,Combi-P9-a";     !Wait on this: zoned-furnace-ecm
   }
   
   // HRV spec: 

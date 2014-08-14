@@ -89,7 +89,7 @@ Opt-ExtBasementWindow : No          ! Basement (back)
 !  Retro-R1_52
 !  Retro-R2_1
 
-Opt-MainWall         : BaseR21
+Opt-MainWall         : BaseR20
 
 
 ! Add extra drywall to wall constructions 

@@ -1042,19 +1042,19 @@ attribute:end
 *option:Stud-R275-Wall:value:2 =   StudR275Vin
 *option:Stud-R275-Wall:value:3 =   StudR275Dry 
 !*option:Stud-R275-Wall:value:4 =   StudR275DryR
-*option:Stud-R275-Wall:cost:total    =   0	    ! Unknown cost
+*option:Stud-R275-Wall:cost:total    =  965 	    ! JTB 13-Aug-2014 Ottawa LEEP
 
 *option:Stud-R305-Wall:value:1 =   StudR305Bri  ! Use for MB 2.0" Ext XPS
 *option:Stud-R305-Wall:value:2 =   StudR305Vin
 *option:Stud-R305-Wall:value:3 =   StudR305Dry 
 !*option:Stud-R305-Wall:value:4 =   StudR305DryR
-*option:Stud-R305-Wall:cost:total    =   5255	! From PL 30-Jan-2014 - Updated by JTB 04-Feb-2014
+*option:Stud-R305-Wall:cost:total    =   1685	! Estimated by JTB 13-Aug-2014
 
 *option:Stud-R325-Wall:value:1 =   StudR325Bri  ! Use for MB 2.5" Ext XPS
 *option:Stud-R325-Wall:value:2 =   StudR325Vin
 *option:Stud-R325-Wall:value:3 =   StudR325Dry 
 !*option:Stud-R325-Wall:value:4 =   StudR325DryR
-*option:Stud-R325-Wall:cost:total    =   0	    ! Unknown cost
+*option:Stud-R325-Wall:cost:total    =   2620	    ! Estimated JTB 13-Aug-2014
 
 *option:AdvFrm-R20-Wall:value:1 =   AdvFrmR20  ! Use for MB Advanced Framing 
 *option:AdvFrm-R20-Wall:value:2 =   AdvFrmR20
@@ -1215,7 +1215,7 @@ Whitehorse Wall Options (Code is R28)
 
 *option:Rigid+Batt-R20:value:1 = BsmWllR20
 *option:Rigid+Batt-R20:meta    = Comb
-*option:Rigid+Batt-R20:cost:total    = 1909
+*option:Rigid+Batt-R20:cost:total    = 2410		! JTB 31-Jan-14 for Ottawa LEEP
 
 *option:Rigid+Batt-R30:value:1 = BsmWllR30
 *option:Rigid+Batt-R30:meta    = Comb
@@ -1321,12 +1321,12 @@ Whitehorse Wall Options (Code is R28)
 *option:R24UnderSlab+edge:value:1 = BsmFlrR24
 *option[Opt-BasementWallInsulation>OBC-min-R12|Rigid+Blown-R43]:R24UnderSlab+edge:value:2 = 22 
 *option[else                                                  ]:R24UnderSlab+edge:value:2 = 69
-*option:R24UnderSlab+edge:cost:total    = 4865      
+*option:R24UnderSlab+edge:cost:total    = 2095		! JTB Aug 13, 2014 (no R12 under slab option!)     
 
 *option:R10UnderSlab+edge:value:1 = BsmFlrR10
 *option[Opt-BasementWallInsulation>OBC-min-R12|Rigid+Blown-R43]:R10UnderSlab+edge:value:2 = 22 
 *option[else                                                  ]:R10UnderSlab+edge:value:2 = 69
-*option:R10UnderSlab+edge:cost:total    = 4865      
+*option:R10UnderSlab+edge:cost:total    = 0 ! Base for Ottawa LEEP      
 
 
 
@@ -1438,8 +1438,6 @@ Whitehorse Wall Options (Code is R28)
 
 
 
-
-
 !-----------------------------------------------------------------------
 ! HVAC
 !-----------------------------------------------------------------------
@@ -1451,8 +1449,6 @@ Whitehorse Wall Options (Code is R28)
 *attribute:tag:4   = <OPT-VENTisHRV>
 *attribute:tag:5   = <OPT-WHisIMS>
 *attribute:tag:6   = <Opt-HVACCtlFile>
-
-
 
 
 !--- Consider using psc variety as base furnace from now on. 
@@ -1710,12 +1706,8 @@ Reflects southern Ontario costs
 *option:NGERSNoReduction19:value:1    = 0.832279
 *option:NGERSNoReduction19:cost:total = 0
 
-*option:NGERSNoReduction19:value:1    = 0.832279
-*option:NGERSNoReduction19:cost:total = 0
-
-
 *option:NGERSReducedA16:value:1    = 0.700
-*option:NGERSReducedA16:cost:total = 0
+*option:NGERSReducedA16:cost:total = 0		! JTB: This needs a cost (more than lights to do this)
 
 *option:NGERSBestInClass14p8:value:1    = 0.648301
 *option:NGERSBestInClass14p8:cost:total = 0
@@ -1925,7 +1917,7 @@ Reflects southern Ontario costs
 *option[   Opt-Location>Whitehorse ;   Opt-DHWLoadScale>No-Reduction ]:2-plate:value:1 =105.1
 *option[   Opt-Location>Whitehorse ;   Opt-DHWLoadScale>Low-Flow ]:2-plate:value:1 =66.6
 
-*option:2-plate:cost:total = 6510
+*option:2-plate:cost:total = 7500		! Last:6510	Updated JTB 13-Aug-2014 from Ottawa LEEP Costing XLS
 
 ! - 1 plate - 36 in dhw 
 
@@ -1984,7 +1976,7 @@ Reflects southern Ontario costs
 *option[   Opt-Location>Whitehorse ;   Opt-DHWLoadScale>No-Reduction ]:2-plate-DWHR-4-36:value:1 =77.5
 *option[   Opt-Location>Whitehorse ;   Opt-DHWLoadScale>Low-Flow ]:2-plate-DWHR-4-36:value:1 =42.8
 
-*option:2-plate-DWHR-4-36:cost:total = 7400
+*option:2-plate-DWHR-4-36:cost:total = 8390		!Last:7400 Updated JTB 13-Aug-2014
 
 
 ! 1 plate - 60 in DWHR 
