@@ -238,7 +238,7 @@ Vary{
    Parameter{  // Back windows 
      Name    = GOtag:Opt-BackWindows; 
      Ini     = 1; 
-     Values  = "NoExtraWin"; 		!FourExtraWin
+     Values  = "NoExtraWin"; 		// FourExtraWin
    }
    
    Parameter{   // First Floor -- left side (as viewed from front  
