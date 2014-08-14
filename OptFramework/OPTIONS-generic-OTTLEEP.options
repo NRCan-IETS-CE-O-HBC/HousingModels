@@ -1570,7 +1570,7 @@ Reflects southern Ontario costs
 *option:GSHP:value:3 = #No-IMS: 
 *option:GSHP:value:4 = 
 *option:GSHP:value:5 = 
-*option:GSHP:value:5 = shoulder-ideal.ctl 
+*option:GSHP:value:6 = shoulder-ideal.ctl 
 *option:GSHP:cost:total    = 18560          ! Does this reflect AC syste$
 
 ! Options for VP retrofit
@@ -1659,7 +1659,7 @@ Reflects southern Ontario costs
 *option:retro_GSHP:value:3 = #No-IMS: 
 *option:retro_GSHP:value:4 = 
 *option:retro_GSHP:value:5 = 
-*option:retro_GSHP:value:5 = shoulder-ideal.ctl 
+*option:retro_GSHP:value:6 = shoulder-ideal.ctl 
 *option:retro_GSHP:cost:total    = 32500          ! Does this reflect AC
 
 
