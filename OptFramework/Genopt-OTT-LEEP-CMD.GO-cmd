@@ -20,7 +20,6 @@ Vary{
      Values  =  "CEF";
      
    }     
-   
 
    // Location 
    Parameter{ // One of:
@@ -41,6 +40,36 @@ Vary{
      Ini  = 1;
      Values = "Ottawa"; 
    }
+
+  // Geometry  
+  Parameter{ // Ott_2st_LEEP
+  
+    Name = GOtag:Opt-geometry; 
+    Ini  = 1;
+    Values = "Ott_2st_LEEP"; 
+  }
+
+
+  // Defining the building attachment
+  Parameter{ // single
+             // semi
+			 // row
+			 
+    Name = GOtag:Opt-Attachment;  
+    Ini  = 1;
+    Values = "single"; 
+  }	
+  
+  // Setting the ACH in the AIM-2 input file
+  Parameter{ // Toronto-retro
+             // Vancouver-retro
+			 // Van_retro_after
+			 // retro_ACH_7 to 1
+  
+    Name = GOtag:Opt-ACH; 
+    Ini  = 1;
+    Values = "retro_ACH_2_5"; 
+  }
 
 
    // Air tightness: TypicalGTA, R2000, Cdn1ACH, PassiveHouse, Base_WH_1.5, WH_1.0, WH_0.5
