@@ -82,7 +82,7 @@ Vary{
   
     Name = GOtag:Opt-ACH; 
     Ini  = 1;
-    Values = "retro_ACH_6_5,retro_ACH_6,retro_ACH_5_5,retro_ACH_5,retro_ACH_4_5,retro_ACH_4,retro_ACH_3_5,retro_ACH_3,retro_ACH_2_5,retro_ACH_2retro_ACH_1_5,retro_ACH_1"; 
+    Values = "retro_ACH_6_5,retro_ACH_6,retro_ACH_5_5,retro_ACH_5,retro_ACH_4_5,retro_ACH_4,retro_ACH_3_5,retro_ACH_3,retro_ACH_2_5,retro_ACH_2,retro_ACH_1_5,retro_ACH_1"; 
   }
 
   
@@ -240,7 +240,7 @@ Vary{
   Parameter{   // 
      Name    =  GOtag:Opt-CasementWindows;
      Ini     =  1;
-     Values  =  "DoubleClear,retro_DoubleLowEHardCoatArgFill,retro_DoubleLowESoftCoatArgFill";    
+     Values  =  "DoubleClear,retro_DoubleLowEHardCoatArgFill,retro_DoubleLowESoftCoatArgFill,retro_TripleLowEHardCoatArgFill,retro_TripleLowESoftCoatArgFill";    
      
    }    
    
@@ -275,7 +275,7 @@ Vary{
   Parameter{   // 
      Name    = GOtag:Opt-DWHRandSDHW; 
      Ini     = 1; 
-     Values  = "none"; 
+     Values  = "none,DWHR-4-36,DWHR-4-60,1-plate,2-plate,1-plate-DWHR-4-36,2-plate-DWHR-4-36,2-plate-DWHR-4-60"; 
   } 
   
   // Conventional DHW:  BaseDHW, 
@@ -325,7 +325,7 @@ Vary{
   Parameter{   // 
      Name    =  GOtag:Opt-StandoffPV;
      Ini     =  1;
-     Values  = "NoPV";
+     Values  = "NoPV,SizedPV|3kW,SizedPV|5kW,SizedPV|8kW";
   } 
   
   
@@ -374,7 +374,7 @@ Vary{
   Parameter {  
     Name = GOtag:RoofPitch;
     Ini  = 1; 
-    Values = "3-12"; 
+    Values = "6-12"; 
   }
   
   
@@ -388,13 +388,13 @@ Vary{
       Name   = GOtag:ElecLoadScale; 
       Ini    = 1;
       // Value may be one of  NoReduction, BasicReduction, EfficientLiving      
-      Values = "NoReduction,BasicReduction"; 
+      Values = "NoReduction,NGERSNoReduction19,NGERSReducedA16"; 
   }
   Parameter { // 
       Name   = GOtag:DHWLoadScale; 
       Ini    = 1;
       // Value may be one of  No-Reduction, BasicReduction, EfficientLiving      
-      Values = "No-Reduction"; 
+      Values = "No-Reduction,Low-Flow"; 
   }
   
   
@@ -425,24 +425,24 @@ OptimizationSettings{
 }
 
 
-//Algorithm{
-// Main                       = PSOIW;
-//  NeighborhoodTopology      = vonNeumann;
-//  NeighborhoodSize          = 8; // Disregarded for vonNeumann topology
-//  NumberOfParticle          = 24;
-//  NumberOfGeneration        = 2000;
-//  Seed                      = 628;
-//  CognitiveAcceleration     = 2; // 0 < CognitiveAcceleration
-//  SocialAcceleration        = 3; // 0 < SocialAcceleration
-//  MaxVelocityGainContinuous = 1.0;
-//  MaxVelocityDiscrete       = 1.0; // 0 < MaxVelocityDiscrete
-//  InitialInertiaWeight      = 1.2;    // 0 < InitialInertiaWeight
-//  FinalInertiaWeight        = 0;      // 0 < FinalInertiaWeight
-//}
-
-
-
 Algorithm{
-  Main = Mesh;
-  StopAtError = true; 
+ Main                       = PSOIW;
+  NeighborhoodTopology      = vonNeumann;
+  NeighborhoodSize          = 24; // Disregarded for vonNeumann topology
+  NumberOfParticle          = 23;
+  NumberOfGeneration        = 2000;
+  Seed                      = 628;
+  CognitiveAcceleration     = 2; // 0 < CognitiveAcceleration
+  SocialAcceleration        = 3; // 0 < SocialAcceleration
+  MaxVelocityGainContinuous = 1.0;
+  MaxVelocityDiscrete       = 1.0; // 0 < MaxVelocityDiscrete
+  InitialInertiaWeight      = 1.2;    // 0 < InitialInertiaWeight
+  FinalInertiaWeight        = 0;      // 0 < FinalInertiaWeight
 }
+
+
+
+//Algorithm{
+//  Main = Mesh;
+///  StopAtError = true; 
+//}
