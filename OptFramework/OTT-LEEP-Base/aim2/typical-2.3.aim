@@ -2,8 +2,8 @@
 # AIM-2 input for CCHT_house
 #
 #
-#---Leakage description-------------------------------------------------------------------------
-2 <Opt-ACH> 10. 0  0        # Air leakage typical of current construction
+#---Leakage description--------------------ex-----------------------------------------------------
+2 2.3 10. 0  0              # Air leakage typical of current construction
 #---Leakage distribution------------------------------------------------------------------------
 0              # Default leakage distribution(0 for not given).
 #---Shielding and terrain data------------------------------------------------------------------
