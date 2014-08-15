@@ -29,7 +29,7 @@
     *fan-ctl-loop 1
 
 *system-end
-# -------- Heat pump (heating) ----------
+# -------- Heat pump (heating) ---------- 
 *system-start
 #
     *name GSHP-heating
@@ -47,7 +47,7 @@
 #
 #        performance 4
         capacity 9960.0
-        COP 3.8
+        COP 4.0
         
         circ-fan-flow 1
         circ-fan-rated-flow 1
@@ -58,7 +58,7 @@
         fan-power-in-auto 0.0
         gshp-circ-pump-power 200.
         circ-fan-rated-position 1
-        temp-control-mode 1
+        temp-control-mode 3
         cut-off-temperature -40.1
 
     *sys-data-end
