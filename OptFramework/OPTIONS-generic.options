@@ -1280,11 +1280,11 @@ Whitehorse Wall Options (Code is R28)
 
 *option:Retro_added_R20_ext:value:1 = Fnd-4XPS-ext
 *option:Retro_added_R20_ext:meta    = Int
-*option:Retro_added_R20_ext:cost:total  = 5267
+*option:Retro_added_R20_ext:cost:total  = 10751 
 
 *option:Retro_added_spray_int:value:1 = Fnd-2spr-int
 *option:Retro_added_spray_int:meta    = Int
-*option:Retro_added_spray_int:cost:total  = 10751
+*option:Retro_added_spray_int:cost:total  = 5263
 
 
 
@@ -1650,7 +1650,7 @@ Reflects southern Ontario costs
 *option:retro_GSHP:value:3 = #No-IMS: 
 *option:retro_GSHP:value:4 = 
 *option:retro_GSHP:value:5 = 
-*option:retro_GSHP:value:5 = shoulder-ideal.ctl 
+*option:retro_GSHP:value:6 = shoulder-ideal.ctl 
 *option:retro_GSHP:cost:total    = 32500          ! Does this reflect AC
 
 
@@ -1732,7 +1732,6 @@ Reflects southern Ontario costs
 !*option:EfficientLiving:value:1 = 1.429
 !*option:EfficientLiving:cost:total    = 0
 !
-
 ! DHW load scale: new volume method.
 
 *option:No-Reduction:value:1        = 0
@@ -2115,7 +2114,7 @@ Reflects southern Ontario costs
 *ext-parameters:start
 
 *param:BaseUpgradeCost = 0 !!14216.602
-*param:BaseUtilitiesCost = 1447
+*param:BaseUtilitiesCost = 1694
 *param:PVTarrifDollarsPerkWh = 0.08
 
 ext-parameters:end 
