@@ -60,19 +60,18 @@ Vary{
     Values = "single"; 
   }	
   
-  // Setting the ACH in the AIM-2 input file
+  // Setting the ACH in the AIM-2 input file -- NOT USING generic.aim FOR OTTAWA LEEP
   Parameter{ // Toronto-retro
              // Vancouver-retro
-			 // Van_retro_after
-			 // retro_ACH_7 to 1
+             // Van_retro_after
+             // retro_ACH_7 to 1
   
     Name = GOtag:Opt-ACH; 
     Ini  = 1;
     Values = "retro_ACH_2_5"; 
   }
 
-
-   // Air tightness: TypicalGTA, R2000, Cdn1ACH, PassiveHouse, Base_WH_1.5, WH_1.0, WH_0.5
+   // Air tightness: Generic, TypicalGTA, R2000, Cdn1ACH, PassiveHouse, Base_WH_1.5, WH_1.0, WH_0.5
    Parameter{   // 
      Name    =  GOtag:Opt-AirTightness;
      Ini     =  1;
@@ -85,7 +84,7 @@ Vary{
    Parameter{   // 
      Name    =  GOtag:Opt-MainWall;
      Ini     =  1;
-     Values  =  "BaseR20, Stud-R275-Wall, Stud-R305-Wall, Stud-R325-Wall"; 
+     Values  =  "BaseR20, Stud-R275-Wall, Stud-R305-Wall, Stud-R325-Wall, SIPS-R28-Wall, DblStud-R37-Wall, DblStud-R52-Wall"; 
    }    
   
    // Foundation walls: OBC-min-R12
@@ -203,7 +202,8 @@ Vary{
   Parameter{   // 
      Name    = GOtag:Opt-DWHRandSDHW; 
      Ini     = 1; 
-     Values  = "none,DWHR-4-36,DWHR-4-60,1-plate,2-plate,1-plate-DWHR-4-36,2-plate-DWHR-4-36,1-plate-DWHR-4-60,2-plate-DWHR-4-60"; 
+     Values  = "none" ;  // Other values that don't work with 'OldERS':
+	                     // ,DWHR-4-36,DWHR-4-60,1-plate,2-plate,1-plate-DWHR-4-36,2-plate-DWHR-4-36,1-plate-DWHR-4-60,2-plate-DWHR-4-60"
   } 
   
   // Conventional DHW:  BaseDHW, 
@@ -312,13 +312,13 @@ Vary{
       Name   = GOtag:ElecLoadScale; 
       Ini    = 1;
       // Value may be one of  NoReduction, BasicReduction, EfficientLiving      
-      Values = "NGERSNoReduction19,NGERSReducedA16"; 
+      Values = "NoReduction"; 
   }
   Parameter { // 
       Name   = GOtag:DHWLoadScale; 
       Ini    = 1;
       // Value may be one of  NoReduction, BasicReduction, EfficientLiving, Low-Flow?
-      Values = "No-Reduction"; 
+      Values = "OldERS"; 
   }
   
   Parameter { // 
