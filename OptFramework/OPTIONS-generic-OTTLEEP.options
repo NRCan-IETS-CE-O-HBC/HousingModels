@@ -676,7 +676,7 @@
 
 !-----------------------------------------------------------------------
 ! This option sets the ACH in the AIM-2 input file for the case 
-! being considered.
+! being considered.  NOT USING FOR OTTAWA LEEP
 !-----------------------------------------------------------------------
 *attribute:start
 *attribute:name     = Opt-ACH
@@ -721,8 +721,7 @@
 *option:retro_ACH_1:value:1  = 1.0
 *option:retro_ACH_1:cost:total  =  0
 
-
-attribute:end
+*attribute:end
 
 
 
@@ -1693,16 +1692,21 @@ Reflects southern Ontario costs
 *attribute:name    = Opt-ElecLoadScale
 *attribute:tag:1   = <Opt-ElecLoadScale>
 *attribute:default = NGERSNoReduction19
-
+! --- OLD ERS: 24kwh/day ---- 
 *option:NoReduction:value:1  = 1.066
 *option:NoReduction:cost:total     = 0
 
+
+! --- CEF assumptions (equilibrium)  ----
 *option:BasicReduction:value:1 = 0.843
 *option:BasicReduction:cost:total    = 0
 
+! --- CEF assumptions (equilibrium)  ----
 *option:EfficientLiving:value:1 = 0.711
 *option:EfficientLiving:cost:total    = 0
 
+
+! --- Next-gen ERS ---------
 *option:NGERSNoReduction19:value:1    = 0.832279
 *option:NGERSNoReduction19:cost:total = 0
 
@@ -1712,6 +1716,7 @@ Reflects southern Ontario costs
 *option:NGERSBestInClass14p8:value:1    = 0.648301
 *option:NGERSBestInClass14p8:cost:total = 0
 
+! --- Study that Tery Strack completed (talk to Mark)  ----
 *option:TStrackLighting:value:1    = 0.7402
 *option:TStrackLighting:cost:total = 0
 
@@ -1739,6 +1744,9 @@ Reflects southern Ontario costs
 !
 
 ! DHW load scale: new volume method.
+
+*option:OldERS:value:1        = 0
+*option:OldERS:cost:total     = 0
 
 *option:No-Reduction:value:1        = 0
 *option:No-Reduction:cost:total     = 0
@@ -1796,6 +1804,7 @@ Reflects southern Ontario costs
 *attribute:default  = none
 
 ! No DWHR or SDHW
+*option[ Opt-DHWLoadScale>OldERS       ]:none:value:1 =225
 *option[ Opt-DHWLoadScale>No-Reduction ]:none:value:1 =190
 *option[ Opt-DHWLoadScale>EStar        ]:none:value:1 =169
 *option[ Opt-DHWLoadScale>Low-Flow     ]:none:value:1 =141
