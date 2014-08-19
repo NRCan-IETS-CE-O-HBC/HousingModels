@@ -17,7 +17,7 @@ Opt-DBFiles           : CEF
 ! Optimization substitutions 
 ! Set the orientation for the model (N,S,E,W, or AVG to run all four directions
 ! and compute an average result)
-GOconfig_rotate      : AVG
+GOconfig_rotate      : S
 
 Opt-Location : Ottawa
 
