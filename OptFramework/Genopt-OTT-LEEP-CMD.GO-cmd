@@ -118,7 +118,7 @@ Vary{
    Parameter{   // 
      Name    =  GOtag:Opt-BasementSlabInsulation;
      Ini     =  1;
-     Values  =  "R10UnderSlab+edge,R24UnderSlab+edge,R12EdgeP6,R12EdgeP10"; 
+     Values  =  "R10UnderSlab+edge, NoInsulation, R24UnderSlab+edge, R12EdgeP6, R12EdgeP10"; 
    } 
 
    // Exposed floor: There are no exposed floors in MB LEEP archetype
@@ -164,7 +164,7 @@ Vary{
   Parameter{   // 
      Name    =  GOtag:Opt-CasementWindows;
      Ini     =  1;
-     Values  =  "DoubleLowEHardCoatArgFill,DoubleLowESoftCoatArgFill,TripleLowEHardCoatKryFill,TripleLowESoftCoatKryFill";    
+     Values  =  "DoubleLowEHardCoatArgFill, DoubleLowESoftCoatArgFill, TripleLowEHardCoatKryFill, TripleLowESoftCoatKryFill";    
      
    }    
    
@@ -203,7 +203,7 @@ Vary{
      Name    = GOtag:Opt-DWHRandSDHW; 
      Ini     = 1; 
      Values  = "none" ;  // Other values that don't work with 'OldERS':
-	                     // ,DWHR-4-36,DWHR-4-60,1-plate,2-plate,1-plate-DWHR-4-36,2-plate-DWHR-4-36,1-plate-DWHR-4-60,2-plate-DWHR-4-60"
+	 //,DWHR-4-36,DWHR-4-60,1-plate,2-plate,1-plate-DWHR-4-36,2-plate-DWHR-4-36,1-plate-DWHR-4-60,2-plate-DWHR-4-60"
   } 
   
   // Conventional DHW:  BaseDHW, 
@@ -214,7 +214,7 @@ Vary{
   Parameter{ //
      Name    = GOtag:Opt-DHWSystem;
      Ini     = 1; 
-     Values  = "BaseDHW,ElectricStorage,ElecInstantaneous,ElectricHP,GasInstantaneous" ;
+     Values  = "BaseDHW, ElectricStorage, ElecInstantaneous, ElectricHP, GasInstantaneous" ;
   }
 
   
@@ -231,7 +231,8 @@ Vary{
   Parameter {// 
       Name   = GOtag:Opt-HVACSystem; 
       Ini    = 1; 
-      Values = "basefurnace,elec-baseboard,CCASHP,GSHP,IMS-P10,Combi-P9-a";     // Wait on this: zoned-furnace-ecm
+      Values = "basefurnace, elec-baseboard, CCASHP, GSHP, Combi-P9-a, Combi-P9-ecmV2, IMS-P10";  // Wait: zoned-furnace-ecm
+	  
   }
   
   // HRV spec: 
@@ -239,7 +240,7 @@ Vary{
   Parameter {// 
       Name   = GOtag:Opt-HRVSpec; 
       Ini    = 1; 
-      Values = "CEF_SPEC,BaseHRV_SRE70,UpgHRV_SRE78"; 
+      Values = "CEF_SPEC, BaseHRV_SRE70, UpgHRV_SRE78"; 
   }  
   
   
