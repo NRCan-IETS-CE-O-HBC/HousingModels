@@ -60,6 +60,8 @@ second_fl describes the second floor
 # shading directives
 *shad_calc,none  # no temporal shading requested
 # 
-*insol_calc,none # insolation sources
 # 
+*insol_calc,all_applicable 4   # insolation sources
+7, 8, 9, 10
+#
 *base_list,0,<Opt-Area>, 0  # zone base list
