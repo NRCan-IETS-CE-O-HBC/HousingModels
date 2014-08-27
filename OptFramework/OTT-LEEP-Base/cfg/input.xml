@@ -39,7 +39,7 @@
    <step_variable>electrical_net/loads/*</step_variable>
   <step_variable>building/zone_*/internal_gains/*</step_variable>
   <step_variable>building/all_zones/insolation/*</step_variable>
-   
+  <step_variable>building/all_zones/*</step_variable> 
   <step_variable>building/zone_*/supplied_energy/cooling</step_variable>
   <step_variable>building/zone_*/supplied_energy/heating</step_variable>
   
@@ -67,6 +67,7 @@
   
   
   <!-- -->
+  <step_variable>*insolation*</step_variable>
   
   <step_variable>plant/ideal_DHW_model/delivery_temperature</step_variable> 
   <step_variable>plant/ideal_DHW_model/supply_temperature</step_variable>
