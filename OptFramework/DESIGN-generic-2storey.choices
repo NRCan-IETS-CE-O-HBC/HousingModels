@@ -58,7 +58,7 @@ Opt-Attachment : single
 
 ! ACH substitutions
 
-Opt-ACH       : retro_ACH_6_5
+Opt-ACH       : retro_ACH_1
 
 
 
@@ -110,7 +110,7 @@ Opt-ExtraDrywall     : OneSheet
 Opt-FloorSurface     : wood
 
 
-Opt-Ceilings         : retro_attic-4_152
+Opt-Ceilings         : retro_attic-4_152_6cell
 
 ! Basement slab insulation 
 ! Choices: 
@@ -134,7 +134,7 @@ Opt-BasementSlabInsulation  : NoInsulation
 !    PouredConcrete_RSI0_925
 !    PouredConcrete_NoIns
 
-Opt-BasementWallInsulation  : PouredConcrete_NoIns
+Opt-BasementWallInsulation  : Retro_added_R20_ext
 
 
 
@@ -152,7 +152,7 @@ Opt-BasementWallInsulation  : PouredConcrete_NoIns
 ! Retrofit Windows
 !    DoubleClear 
 
-Opt-CasementWindows  :  DoubleClear 
+Opt-CasementWindows  :  retro_TripleLowEHardCoatArgFill 
 
 
 ! Exposed floor over garage (affects floor
@@ -164,7 +164,7 @@ Opt-CasementWindows  :  DoubleClear
 
 Opt-ExposedFloor     : BaseExpFloor-R31
 
-Opt-StandoffPV       : NoPV
+Opt-StandoffPV       : NoPV !SizedPV|8kW
 
 ! Hot water reduction technologies (SDHW, DHWR) 
 ! 
@@ -177,7 +177,7 @@ Opt-StandoffPV       : NoPV
 ! - 1-plate-DWHR-4-60
 ! - 2-plate-DWHR-4-60
 !   
-Opt-DWHRandSDHW         : none          
+Opt-DWHRandSDHW         : 2-plate-DWHR-4-60          
 
 ! DHW LOAD SCALES 
 ! CEF project
@@ -189,16 +189,16 @@ Opt-DWHRandSDHW         : none
 !   - NGERSReducedA16
 !   - NGERSBestInClass14p8
 
-Opt-ElecLoadScale    : NoReduction      
+Opt-ElecLoadScale    : NGERSNoReduction19     
 
 
 ! Hot water numbers - These have changed! 
 !   - No-Reduction ( 190 L/day ) 
 !   - Low-Flow     ( 141 L/day ) 
 
-Opt-DHWLoadScale     : No-Reduction       
+Opt-DHWLoadScale     : No-Reduction !Low-Flow       
 
-Opt-RoofPitch : 3-12
+Opt-RoofPitch : 6-12
 
 ! Hot water system. Choices:
 !  BaseDHW
