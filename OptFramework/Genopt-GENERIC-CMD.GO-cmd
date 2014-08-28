@@ -18,7 +18,7 @@ Vary{
  
    }
 
-  // Database files: CEF OR WH?
+  // Database files: CEF, WH or retrofit?
   Parameter { 
   
     Name = GOtag:DBFiles; 
@@ -52,24 +52,43 @@ Vary{
   
     Name = GOtag:Opt-Location; 
     Ini  = 1;
-    Values = "Vancouver";//,Toronto,Vancouver,Calgary,Edmonton,Regina,Winnipeg,Montreal,Quebec,Fredricton,Halifax"; 
+    Values = "Vancouver"; 
   }
 
+  // Geometry  
+  Parameter{ // Van_2st_80_retro 
+  
+    Name = GOtag:Opt-geometry; 
+    Ini  = 1;
+    Values = "Van_2st_80_retro"; 
+  }
+
+
+  // Defining the building attachment
+  Parameter{ // single
+             // semi
+			 // row
+			 
+    Name = GOtag:Opt-Attachment;  
+    Ini  = 1;
+    Values = "single"; 
+  }	
+  
+  // Setting the ACH in the AIM-2 input file
+  Parameter{ // Toronto-retro
+             // Vancouver-retro
+			 // Van_retro_after
+			 // retro_ACH_7 to 1
+  
+    Name = GOtag:Opt-ACH; 
+    Ini  = 1;
+    Values = "retro_ACH_5"; 
+  }
 
   
   // =============================================
   // Parameters that configure the building design
   // =============================================
-  
-  //  Building Size
-  Parameter{ //One of:
-             // Van_2st_80_retro
-
-			 
-  Name   = GOtag:Opt-geometry;
-  Ini    = 1;
-  Values = "Van_2st_80_retro";
-  }
   
   
    // Air tightness: 
@@ -77,12 +96,15 @@ Vary{
    //   - TypicalGTA, 
    //   - R2000, 
    //   - Cdn1ACH, 
-   //   - PassiveHouse,
+   //   - PassiveHouse, 
+   //   - Base_WH_1.5, 
+   //   - WH_1.0, 
+   //   - WH_0.5
    //   - Generic
    Parameter{   // 
      Name    =  GOtag:Opt-AirTightness;
      Ini     =  1;
-     Values  =  "Generic";
+     Values  =  "Typical23,R2000,Cdn1ACH";
      
    }    
    
@@ -111,12 +133,16 @@ Vary{
    //		 W21_R59
    //		 W23_R56
    //		 W26_R56
+   //        Retro: - Retro-DblBr
+   //               - Retro-R1_52
+   //               - Retro-R2_1
+   //               - Retro-int_spray
+   //               - Retro-ext_4EPS
    Parameter{   // 
      Name    =  GOtag:Opt-MainWall;
-     Ini     =  2;
-     Values  =  "Retro-R2_1,Retro-ext_4EPS,Retro-int_2XPS,Retro-int_spray"; 
+     Ini     =  1;
+     Values  =  "BaseR21,SIPS-R22-Wall,SIPS-R28-Wall,Stud-R35-Wall,Stud-R40-Wall,DblStud-R37-Wall,DblStud-R52-Wall,Truss-R40-Wall,Truss-R52-Wall"; 
    }    
-  
   
    // Foundation walls: OBC-min-R12
    //                   Rigid+Batt-R20
@@ -134,11 +160,17 @@ Vary{
    //                   Fnd2PWF_R56
    //                   Fnd3PWF_R76
    //                   Fnd8ICF_R28
+   //        Retro: - TripleBrick
+   //               - PouredConcrete_RSI0_925
+   //               - PouredConcrete_NoIns
+   //               - Retro_added_R20_ext
+   //               - Retro_added_spray_int
+   
+   
    Parameter{   // 
      Name    =  GOtag:Opt-BasementWallInsulation;
      Ini     =  1;
-   Values  =  "PouredConcrete_NoIns";
-
+     Values  =  "OBC-min-R12,Rigid+Batt-R20,Rigid+Batt-R30,Rigid+Batt-R37,Rigid+Blown-R43,ICF-base-R22,ICF-base-R26,ICF-base-R32,ICF-base-R41";
    } 
 
    // Basement Slab: NoInsulation
@@ -156,7 +188,7 @@ Vary{
    Parameter{   // 
      Name    =  GOtag:Opt-BasementSlabInsulation;
      Ini     =  1;
-     Values  =  "NoInsulation"; 
+     Values  =  "NoInsulation,R24UnderSlab+edge,R10UnderSlab+edge,R12EdgeP6,R12EdgeP10"; 
    } 
 
    // Exposed floor: NoInsulation
@@ -178,12 +210,15 @@ Vary{
    //           CeilR100
    //           CeilR110, 
    //           CeilR120, 
-   
+   //    Retro: retro_attic-2_962
+   //           retro_attic-4_152
+   //           retro_attic-4_152_6cell
+   //           retro_attic-4_152_12cell
    
    Parameter{   // 
      Name    =  GOtag:Opt-Ceilings;
      Ini     =  1;
-     Values  =  "retro_attic-4_152";
+     Values  =  "CeilR50, CeilR60, CeilR70, CeilR80, CeilR90, CeilR100,CeilR110, CeilR120";
    }    
   
   // Windows:  DoubleLowEHardCoatAirFill 
@@ -202,12 +237,12 @@ Vary{
   //           Win8hcle1_qd
   //           Win9scle2_qd
   //           Win10hcle2_q
+  //      retrofit:  DoubleClear
   
   Parameter{   // 
      Name    =  GOtag:Opt-CasementWindows;
      Ini     =  1;
-     Values  =  "DoubleClear,retro_DoubleLowEHardCoatArgFill";    
-     
+     Values  =  "DoubleLowEHardCoatAirFill,DoubleLowEHardCoatArgFill,DoubleLowESoftCoatArgFill,TripleLowEHardCoatKryFill,TripleLowEHardCoatKryFill";         
    }    
    
   // Extra drywall:  OneSheet
@@ -231,28 +266,33 @@ Vary{
    }       
  
      
-  // SolarDHW: none, 
-  //           DWHR, 
-  //           1-flat-plate, 
-  //           1-flat-plate+DWHR, 
-  //           2-flat-plate, 
-  //           2-flat-plate+DWHR
-  
+  // SolarDHW: none,
+  //           DWHR-4-36,
+  //           DWHR-4-60,
+  //           1-plate,
+  //           2-plate,
+  //           1-plate-DWHR-4-36,
+  //           2-plate-DWHR-4-36,
+  //           1-plate-DWHR-4-60,
+  //           2-plate-DWHR-4-60
+
   Parameter{   // 
      Name    = GOtag:Opt-DWHRandSDHW; 
      Ini     = 1; 
-     Values  = "none"; 
+     Values  = "none, DWHR-4-36, DWHR-4-60, 1-plate, 2-plate, 1-plate-DWHR-4-36, 2-plate-DWHR-4-36,1-plate-DWHR-4-60,2-plate-DWHR-4-60"; 
   } 
   
   // Conventional DHW:  BaseDHW, 
   //                    ElecInstantaneous, 
   //                    ElectricStorage, 
   //                    ElectricHP
+  //   retrofit:    retro_GasInst
+  //                retro_ElectricHP
   //           
   Parameter{ //
      Name    = GOtag:Opt-DHWSystem;
      Ini     = 1; 
-     Values  = "ElectricStorage"; 
+     Values  = "BaseDHW,ElecInstantaneous,ElectricStorage,ElectricHP"; 
   }
 
   
@@ -264,18 +304,22 @@ Vary{
   //                  propanefurnace
   //                  elecfurnace
   //                  GSHP
-  
+  //         retrofit:   gas-furnace-84_3
+  //                     retro_upgrade_furnace
+  //                     retro_CCASHP
+  //                     retro_GSHP
+ 
   Parameter {// 
       Name   = GOtag:Opt-HVACSystem; 
       Ini    = 1; 
-      Values = "gas-furnace-84_3"; //,elec-baseboard,CCASHP,GSHP"; 
+      Values = "basefurnace,elec-baseboard,CCASHP,IMS-P10,Combi-P9-a,GSHP"; 
   }
   
   // HRV specification
   Parameter { 
      Name = GOtag:Opt-HRVSpec; 
      Ini  = 1; 
-     Values = "CEF_SPEC"; 
+     Values = "BaseHRV_SRE70"; 
   }
   
   
@@ -285,7 +329,7 @@ Vary{
   Parameter{   // 
      Name    =  GOtag:Opt-StandoffPV;
      Ini     =  1;
-     Values  = "NoPV";
+     Values  = "NoPV,SizedPV|3kW,SizedPV|5kW,SizedPV|8kW";
   } 
   
   
@@ -308,7 +352,7 @@ Vary{
      Values  = "NoExtraWin"; 
    }
    
-   Parameter{   // First Floor -- left side (as viewed from front)  
+   Parameter{   // First Floor -- left side (as viewed from front, default is 'Yes" 
      Name    =  GOtag:Opt-ExtLeftSideWindow;
      Ini     =  1;
      Values  =  "No";
@@ -334,7 +378,7 @@ Vary{
   Parameter {  
     Name = GOtag:RoofPitch;
     Ini  = 1; 
-    Values = "8-12"; 
+    Values = "6-12"; 
   }
   
   
@@ -346,15 +390,19 @@ Vary{
   // ===================================================================
   Parameter { // 
       Name   = GOtag:ElecLoadScale; 
+
+      // Value may be one of:
+      //	  (OLD ERS: 24kwh/day) NoReduction, 
+	  //      (CEF assumptions (equilibrium)) BasicReduction, EfficientLiving
+	  //      (Next-gen ERS) NGERSNoReduction19, NGERSReducedA16,NGERSBestInClass14p8
       Ini    = 1;
-      // Value may be one of  NoReduction, BasicReduction, EfficientLiving      
-      Values = "NGERSNoReduction19"; 
+      Values = "NoReduction,NGERSNoReduction19, NGERSReducedA16,NGERSBestInClass14p8"; 
   }
   Parameter { // 
       Name   = GOtag:DHWLoadScale; 
       Ini    = 1;
-      // Value may be one of  NoReduction, BasicReduction, EfficientLiving      
-      Values = "No-Reduction"; 
+      // Value may be one of  OldERS,No-Reduction,EStar,Low-Flow      
+      Values = "OldERS,No-Reduction,EStar,Low-Flow"; 
   }
   
   
@@ -385,24 +433,24 @@ OptimizationSettings{
 }
 
 
-//Algorithm{
-// Main                       = PSOIW;
-//  NeighborhoodTopology      = vonNeumann;
-//  NeighborhoodSize          = 8; // Disregarded for vonNeumann topology
-//  NumberOfParticle          = 24;
-//  NumberOfGeneration        = 2000;
-//  Seed                      = 628;
-//  CognitiveAcceleration     = 2; // 0 < CognitiveAcceleration
-//  SocialAcceleration        = 3; // 0 < SocialAcceleration
-//  MaxVelocityGainContinuous = 1.0;
-//  MaxVelocityDiscrete       = 1.0; // 0 < MaxVelocityDiscrete
-//  InitialInertiaWeight      = 1.2;    // 0 < InitialInertiaWeight
-//  FinalInertiaWeight        = 0;      // 0 < FinalInertiaWeight
-//}
-
-
-
 Algorithm{
-  Main = Mesh;
-  StopAtError = true; 
+ Main                       = PSOIW;
+  NeighborhoodTopology      = vonNeumann;
+  NeighborhoodSize          = 24; // Disregarded for vonNeumann topology
+  NumberOfParticle          = 23;
+  NumberOfGeneration        = 2000;
+  Seed                      = 628;
+  CognitiveAcceleration     = 2; // 0 < CognitiveAcceleration
+  SocialAcceleration        = 3; // 0 < SocialAcceleration
+  MaxVelocityGainContinuous = 1.0;
+  MaxVelocityDiscrete       = 1.0; // 0 < MaxVelocityDiscrete
+  InitialInertiaWeight      = 1.2;    // 0 < InitialInertiaWeight
+  FinalInertiaWeight        = 0;      // 0 < FinalInertiaWeight
 }
+
+
+
+//Algorithm{
+//  Main = Mesh;
+///  StopAtError = true; 
+//}
