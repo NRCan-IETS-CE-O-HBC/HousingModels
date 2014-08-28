@@ -82,7 +82,7 @@ Vary{
   
     Name = GOtag:Opt-ACH; 
     Ini  = 1;
-    Values = "retro_ACH_6_5,retro_ACH_6,retro_ACH_5_5,retro_ACH_5,retro_ACH_4_5,retro_ACH_4,retro_ACH_3_5,retro_ACH_3,retro_ACH_2_5,retro_ACH_2,retro_ACH_1_5,retro_ACH_1"; 
+    Values = "retro_ACH_5"; 
   }
 
   
@@ -136,11 +136,12 @@ Vary{
    //        Retro: - Retro-DblBr
    //               - Retro-R1_52
    //               - Retro-R2_1
-   //               - Retro-ext_2EPS
+   //               - Retro-int_spray
+   //               - Retro-ext_4EPS
    Parameter{   // 
      Name    =  GOtag:Opt-MainWall;
      Ini     =  1;
-     Values  =  "Retro-R2_1,Retro-ext_4EPS,Retro-int_2XPS,Retro-int_spray"; 
+     Values  =  "Retro-R2_1"; 
    }    
   
    // Foundation walls: OBC-min-R12
@@ -163,12 +164,13 @@ Vary{
    //               - PouredConcrete_RSI0_925
    //               - PouredConcrete_NoIns
    //               - Retro_added_R20_ext
+   //               - Retro_added_spray_int
    
    
    Parameter{   // 
      Name    =  GOtag:Opt-BasementWallInsulation;
      Ini     =  1;
-     Values  =  "PouredConcrete_NoIns,Retro_added_R20_ext,Retro_added_spray_int";
+     Values  =  "PouredConcrete_NoIns";
    } 
 
    // Basement Slab: NoInsulation
@@ -216,7 +218,7 @@ Vary{
    Parameter{   // 
      Name    =  GOtag:Opt-Ceilings;
      Ini     =  1;
-     Values  =  "retro_attic-4_152,retro_attic-4_152_6cell,retro_attic-4_152_12cell";
+     Values  =  "retro_attic-4_152_12cell";
    }    
   
   // Windows:  DoubleLowEHardCoatAirFill 
@@ -240,7 +242,7 @@ Vary{
   Parameter{   // 
      Name    =  GOtag:Opt-CasementWindows;
      Ini     =  1;
-     Values  =  "DoubleClear,retro_DoubleLowEHardCoatArgFill,retro_DoubleLowESoftCoatArgFill,retro_TripleLowEHardCoatArgFill,retro_TripleLowESoftCoatArgFill";    
+     Values  =  "retro_TripleLowEHardCoatArgFill";    
      
    }    
    
@@ -275,7 +277,7 @@ Vary{
   Parameter{   // 
      Name    = GOtag:Opt-DWHRandSDHW; 
      Ini     = 1; 
-     Values  = "none,DWHR-4-36,DWHR-4-60,1-plate,2-plate,1-plate-DWHR-4-36,2-plate-DWHR-4-36,2-plate-DWHR-4-60"; 
+     Values  = "1-plate"; 
   } 
   
   // Conventional DHW:  BaseDHW, 
@@ -288,7 +290,7 @@ Vary{
   Parameter{ //
      Name    = GOtag:Opt-DHWSystem;
      Ini     = 1; 
-     Values  = "BaseDHW,retro_GasInst,retro_ElectricHP"; 
+     Values  = "BaseDHW"; 
   }
 
   
@@ -308,7 +310,7 @@ Vary{
   Parameter {// 
       Name   = GOtag:Opt-HVACSystem; 
       Ini    = 1; 
-      Values = "gas-furnace-84_3,retro_upgrade_furnace,retro_CCASHP,retro_GSHP"; 
+      Values = "gas-furnace-84_3"; 
   }
   
   // HRV specification
@@ -325,7 +327,7 @@ Vary{
   Parameter{   // 
      Name    =  GOtag:Opt-StandoffPV;
      Ini     =  1;
-     Values  = "NoPV,SizedPV|3kW,SizedPV|5kW,SizedPV|8kW";
+     Values  = "SizedPV|3kW";
   } 
   
   
@@ -388,13 +390,13 @@ Vary{
       Name   = GOtag:ElecLoadScale; 
       Ini    = 1;
       // Value may be one of  NoReduction, BasicReduction, EfficientLiving      
-      Values = "NoReduction,NGERSNoReduction19,NGERSReducedA16"; 
+      Values = "NoReduction"; 
   }
   Parameter { // 
       Name   = GOtag:DHWLoadScale; 
       Ini    = 1;
       // Value may be one of  No-Reduction, BasicReduction, EfficientLiving      
-      Values = "No-Reduction,Low-Flow"; 
+      Values = "No-Reduction"; 
   }
   
   

@@ -752,7 +752,7 @@
     3    BsmFlrR10     OPAQ  OPAQUE        NONSYMMETRIC  
 # mat ref thickness (m) mat descr & air gap R
   262    0.1500  gravel based : Gravel based
-  220    0.7040  XPS underslab : XPS underslab
+  220    0.0740  XPS underslab : XPS underslab
    21    0.0890  light mix concrete : Light mix concrete
 # Underslab: R12 
 # 97: layers  description   optics name   symmetry tag
