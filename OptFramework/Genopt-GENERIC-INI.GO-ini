@@ -39,10 +39,10 @@ Simulation{
    CallParameter {
       
       // Windows only: 
-      Prefix = "C:\\cygwin\\bin\\perl.exe ";
+      //Prefix = "C:\\cygwin\\bin\\perl.exe ";
       
       // LINUX 
-      //Prefix = "" 
+      Prefix = "" ;
       
       Suffix = " -c GenOpt-picked-these-choices.GO-tmp -o OPTIONS-generic.options -vv "; 
  
@@ -56,42 +56,67 @@ Simulation{
       // Note to editor: Ensure column spacing is maintained.
 
       // Cost function to be optimized
-      Name1 = UpgradeCost ;
-      Delimiter1 =  "Upgrade-cost    = ";       
+      Name1 = SimplePaybackYrs ;
+      Delimiter1 = "SimplePaybackYrs  =  ";       
       
-      // other values to report. 
-      Name2 = UtilCostElec;
-      Delimiter2 =  "Util-Bill-Elec  = ";
-      Name3 = UtilCostGas;
-      Delimiter3 =  "Util-Bill-Gas   = ";
-      Name4 = EnergyTotal; 
-      Delimiter4 =  "Energy-Total-GJ = "; 
-      Name5 = UtilCostTotal;
-      Delimiter5 =  "Util-Bill-Total = ";
-      Name6 = PVSizekW; 
-      Delimiter6 =  "PV-size-kW      = "; 
-      Name7 = EnergyPV; 
-      Delimiter7 =  "Energy-PV       = "; 
-      Name8 = EnergySDHW; 
-      Delimiter8 =  "Energy-SDHW     = "; 
-      Name9 = EnergyHeating; 
-      Delimiter9 =  "Energy-Heating  = "; 
-      Name10 = EnergyCooling; 
-      Delimiter10 = "Energy-Cooling  = "; 
-      Name11 = EnergyVent; 
-      Delimiter11 = "Energy-Vent     = "; 
-      Name12 = EnergyDHW; 
-      Delimiter12 = "Energy-DHW      = "; 
-      Name13 = EnergyPlug; 
-      Delimiter13 = "Energy-Plug     = "; 
-      Name14 = UtilCostOil; 
-      Delimiter14 = "Util-Bill-Oil   = ";
-      Name15 = UtilCostProp; 
-      Delimiter15 = "Util-Bill-Prop  = ";
-      Name16 = EnergyElec;
-	  Delimiter16 = "EnergyElec      = ";
-      Name17 = EnergyGas;
-	  Delimiter17 = "EnergyGas       = ";
+      
+      Name2 = EnergyTotal ;
+      Delimiter2 = "Energy-Total-GJ   =  ";
+      
+      Name3 = UtilBillNoPVRevenueDoll;    
+      Delimiter3 = "Util-Bill-gross   =  ";
+      
+      
+      Name4 = UtilRevenuePVDoll;    
+      Delimiter4 = "Util-PV-revenue   =  ";
+      
+      Name5 = UtilBillNetDoll;    
+      Delimiter5 = "Util-Bill-Net     =  ";
+      
+      Name6 = UtilCostElecDoll;    
+      Delimiter6 = "Util-Bill-Elec    =  ";
+      
+      Name7 = UtilCostGasDoll;      
+      Delimiter7 = "Util-Bill-Gas     =  ";
+      
+      Name8 = UtilCostPropaneDoll;     
+      Delimiter8 = "Util-Bill-Prop    =  ";
+      
+      Name9 = UtilCostOilDoll;    
+      Delimiter9 = "Util-Bill-Oil     =  ";
+      
+      Name10 = EnergyPVkWh; 
+      Delimiter10 = "Energy-PV-kWh     =  ";
+      
+      Name11 = EnergyHeatingGJ; 
+      Delimiter11 = "Energy-HeatingGJ  =  ";
+      
+      Name12 = EnergyCoolingGJ; 
+      Delimiter12 = "Energy-CoolingGJ  =  ";
+      
+      Name13 = EnergyVentGJ; 
+      Delimiter13 = "Energy-VentGJ     =  ";
+      
+      Name14 = EnergyDHWGJ; 
+      Delimiter14 = "Energy-DHWGJ      =  ";
+      
+      Name15 = EnergyPlugGJ; 
+      Delimiter15 = "Energy-PlugGJ     =  ";
+      
+      Name16 = FuelEleckWh; 
+      Delimiter16 = "EnergyEleckWh     =  ";
+      
+      Name17 = FuelNaturalGasM3; 
+      Delimiter17 = "EnergyGasM3       =  ";
+      
+      Name18 = FuelOilL; 
+      Delimiter18 = "EnergyOil_l       =  ";
+            
+      Name19 = UpgradeCostDoll ;
+      Delimiter19 = "Upgrade-cost      =  ";
+
+      Name20 = PVSizekW;
+      Delimiter20 = "PV-size-kW      =  ";      
 
    } // end Simulation.ObjectiveFunctionLocation
    
