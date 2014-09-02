@@ -1513,23 +1513,34 @@ Whitehorse Wall Options (Code is R28)
 *option:Combi-P9-a:value:6 = shoulder-ideal.ctl
 *option:Combi-P9-a:cost:total    = 9000
 
-! Better P9 system. ECM motor?
-*option:Combi-P9-ecm:value:1 = Combi-P9-ecm.hvac
-*option:Combi-P9-ecm:value:2 = #-no-GSHP-file
-*option:Combi-P9-ecm:value:3 = #No-IMS: 
-*option:Combi-P9-ecm:value:4 = 
-*option:Combi-P9-ecm:value:5 = # NO DHW: IMS provides WH.  
-*option:Combi-P9-ecm:value:6 = shoulder-ideal.ctl
-*option:Combi-P9-ecm:cost:total    = 9000
-
 ! Best P9 system. ECM motor
 *option:Combi-P9-ecmV2:value:1 = Combi-P9-ecm-v2.hvac
 *option:Combi-P9-ecmV2:value:2 = #-no-GSHP-file
 *option:Combi-P9-ecmV2:value:3 = #No-IMS: 
 *option:Combi-P9-ecmV2:value:4 = 
 *option:Combi-P9-ecmV2:value:5 = # NO DHW: IMS provides WH.  
-*option:Combi-P9-ecmV2:value:6 = shoulder-ideal.ctl
+*option:Combi-P9-ecmV2:value:6 = shoulder_ideal.ctl
 *option:Combi-P9-ecmV2:cost:total    = 9000
+
+! P9 combo + zoning 
+
+! Best P9 system. ECM motor
+*option:Combi-P9-ecmV2-zoned:value:1 = Combi-P9-ecm-v2.hvac
+*option:Combi-P9-ecmV2-zoned:value:2 = #-no-GSHP-file
+*option:Combi-P9-ecmV2-zoned:value:3 = #No-IMS: 
+*option:Combi-P9-ecmV2-zoned:value:4 = 
+*option:Combi-P9-ecmV2-zoned:value:5 = # NO DHW: IMS provides WH.  
+*option:Combi-P9-ecmV2-zoned:value:6 = shoulder_zoned.ctl
+*option:Combi-P9-ecmV2-zoned:cost:total    = 9000
+
+! Not-so-good P9 system. PSC motor?
+*option:Combi-P9-a-zoned:value:1 = Combi-P9.hvac
+*option:Combi-P9-a-zoned:value:2 = #-no-GSHP-file
+*option:Combi-P9-a-zoned:value:3 = #No-IMS: 
+*option:Combi-P9-a-zoned:value:4 = 
+*option:Combi-P9-a-zoned:value:5 = # NO DHW: IMS provides WH.  
+*option:Combi-P9-a-zoned:value:6 = shoulder-zoned.ctl
+*option:Combi-P9-a-zoned:cost:total    = 9000
 
 
 *option:propanefurnaceAC:value:1 = propane_furnace_ACv2.hvac
