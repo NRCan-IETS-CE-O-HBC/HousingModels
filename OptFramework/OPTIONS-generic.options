@@ -2338,8 +2338,8 @@ Reflects southern Ontario costs
   
 *ext-parameters:start
 
-*param:BaseUpgradeCost = 0 !!14216.602
-*param:BaseUtilitiesCost = 1447
+*param:BaseUpgradeCost = 0  !14216.602
+*param:BaseUtilitiesCost = 0 !1447
 *param:PVTarrifDollarsPerkWh = 0.08
 
 ext-parameters:end 
