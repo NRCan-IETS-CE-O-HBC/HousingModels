@@ -21,7 +21,7 @@
 
         capacity 14000
         efficiency 1.0
-        circ-fan-mode 1
+        circ-fan-mode <OPT-Furnace-Fan-Ctl>
         circ-fan-power 140.0
 
     *sys-data-end
@@ -49,9 +49,10 @@
         
         circ-fan-flow 1
         circ-fan-rated-flow 1
-        circ-fan-mode 1
+        circ-fan-mode <OPT-Furnace-Fan-Ctl>
         circ-fan-position 1
-        circ-fan-power 140.0
+        circ-fan-power 400.0
+        circ-fan-power-low 150.0
         outdoor-fan-power 0.0
         fan-power-in-auto 0.0
         gshp-circ-pump-power 200.
@@ -87,9 +88,10 @@
         
         capacity 8000.
         COP 5.2
-        circ-fan-mode 1
+        circ-fan-mode <OPT-Furnace-Fan-Ctl>
         circ-fan-position 1
-        circ-fan-power 0.
+        circ-fan-power 400.0
+        circ-fan-power-low 0.
         outdoor-fan-power 0.0
         fan-power-in-auto 0.
         circ-fan-rated-position 1
