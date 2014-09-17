@@ -51,7 +51,7 @@
         COP 3.
         #circ-fan-flow -
         #circ-fan-rated-flow 1.5
-        circ-fan-mode 1
+        circ-fan-mode <OPT-Furnace-Fan-Ctl>
         circ-fan-position 1
         circ-fan-power 475.0
         circ-fan-power-low 0. 
