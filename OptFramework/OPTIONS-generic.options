@@ -1562,7 +1562,7 @@ Whitehorse Wall Options (Code is R28)
 *option:elec-baseboard:value:6 = shoulder-ideal.ctl
 *option:elec-baseboard:cost:total       = -3870
 
-*option:CCASHP:value:1 = CCASHPv2.hvac
+*option:CCASHP:value:1 = CCASHPv2-ecm-motor.hvac
 *option:CCASHP:value:2 = #-no-GSHP-file
 *option:CCASHP:value:3 = #No-IMS: 
 *option:CCASHP:value:4 = 
@@ -1571,7 +1571,7 @@ Whitehorse Wall Options (Code is R28)
 *option:CCASHP:cost:total   = 9595          ! Does this reflect AC system savings?
 
 
-Reflects southern Ontario costs
+!Reflects southern Ontario costs
 *option:GSHP:value:1 = GSHPv2.hvac
 *option:GSHP:value:2 = *gshp~../hvac/heatx_v1.gshp
 *option:GSHP:value:3 = #No-IMS: 
@@ -1641,7 +1641,7 @@ Reflects southern Ontario costs
 *option:retro_upgrade_furnace:value:6 = shoulder-ideal.ctl
 *option:retro_upgrade_furnace:cost:total    = 5900
 
-*option:retro_CCASHP:value:1 = CCASHPv2.hvac
+*option:retro_CCASHP:value:1 = CCASHPv2-ecm-motor.hvac
 *option:retro_CCASHP:value:2 = #-no-GSHP-file
 *option:retro_CCASHP:value:3 = #No-IMS: 
 *option:retro_CCASHP:value:4 = #No-HRV
@@ -1649,7 +1649,7 @@ Reflects southern Ontario costs
 *option:retro_CCASHP:value:6 = shoulder-ideal.ctl 
 *option:retro_CCASHP:cost:total    = 11895.0
 
-Reflects southern Ontario costs
+!Reflects southern Ontario costs
 *option:retro_GSHP:value:1 = GSHPv2.hvac
 *option:retro_GSHP:value:2 = *gshp~../hvac/heatx_v1.gshp
 *option:retro_GSHP:value:3 = #No-IMS: 
