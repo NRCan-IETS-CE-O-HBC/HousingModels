@@ -323,6 +323,16 @@
 *option:Vancouver:value:3 = -3.1
 *option:Vancouver:cost:total    = 0  
   
+*option:FortStJohn:value:1 = can_fort_st_john.cwec
+*option:FortStJohn:value:2 = 56.23
+*option:FortStJohn:value:3 = -0.73
+*option:FortStJohn:cost:total    = 0  
+
+*option:Kamloops:value:1 = can_kamloops.cwec
+*option:Kamloops:value:2 = 50.7
+*option:Kamloops:value:3 = -0.45
+*option:Kamloops:cost:total    = 0    
+  
 *attribute:end
 
 !-----------------------------------------------------------------------
@@ -1473,7 +1483,7 @@ Whitehorse Wall Options (Code is R28)
 *option:gas-furnace-ecm:value:4 = 
 *option:gas-furnace-ecm:value:5 = 
 *option:gas-furnace-ecm:value:6 = shoulder-ideal.ctl
-*option:gas-furnace-ecm:cost:total    = 0
+*option:gas-furnace-ecm:cost:total    = 500  ! based on quote from Patric
 
 *option:gas-furnace-psc:value:1 = basefurnace_AC-gas-psc-motor.hvac
 *option:gas-furnace-psc:value:2 = #-no-GSHP-file
@@ -1489,7 +1499,7 @@ Whitehorse Wall Options (Code is R28)
 *option:13kW-furnace-ecm:value:4 = 
 *option:13kW-furnace-ecm:value:5 = 
 *option:13kW-furnace-ecm:value:6 = shoulder-ideal.ctl
-*option:13kW-furnace-ecm:cost:total    = 0
+*option:13kW-furnace-ecm:cost:total    = 1230  ! based on quote from Patric
 
 *option:zoned-furnace-ecm:value:1 = smallfurnace_AC-gas-ecm-motor.hvac
 *option:zoned-furnace-ecm:value:2 = #-no-GSHP-file
@@ -1516,16 +1526,7 @@ Whitehorse Wall Options (Code is R28)
 *option:Combi-P9-a:value:4 = 
 *option:Combi-P9-a:value:5 = # NO DHW: IMS provides WH.  
 *option:Combi-P9-a:value:6 = shoulder-ideal.ctl
-*option:Combi-P9-a:cost:total    = 9000
-
-! Better P9 system. ECM motor?
-*option:Combi-P9-ecm:value:1 = Combi-P9-ecm.hvac
-*option:Combi-P9-ecm:value:2 = #-no-GSHP-file
-*option:Combi-P9-ecm:value:3 = #No-IMS: 
-*option:Combi-P9-ecm:value:4 = 
-*option:Combi-P9-ecm:value:5 = # NO DHW: IMS provides WH.  
-*option:Combi-P9-ecm:value:6 = shoulder-ideal.ctl
-*option:Combi-P9-ecm:cost:total    = 9000
+*option:Combi-P9-a:cost:total    = 1145      !based on quote from Patric
 
 ! Best P9 system. ECM motor
 *option:Combi-P9-ecmV2:value:1 = Combi-P9-ecm-v2.hvac
@@ -1534,7 +1535,7 @@ Whitehorse Wall Options (Code is R28)
 *option:Combi-P9-ecmV2:value:4 = 
 *option:Combi-P9-ecmV2:value:5 = # NO DHW: IMS provides WH.  
 *option:Combi-P9-ecmV2:value:6 = shoulder-ideal.ctl
-*option:Combi-P9-ecmV2:cost:total    = 9000
+*option:Combi-P9-ecmV2:cost:total    = 1445   !based on quote from Patric
 
 
 *option:propanefurnaceAC:value:1 = propane_furnace_ACv2.hvac
@@ -1562,7 +1563,7 @@ Whitehorse Wall Options (Code is R28)
 *option:elec-baseboard:value:6 = shoulder-ideal.ctl
 *option:elec-baseboard:cost:total       = -3870
 
-*option:CCASHP:value:1 = CCASHPv2-ecm-motor.hvac
+*option:CCASHP:value:1 = CCASHPv2.hvac
 *option:CCASHP:value:2 = #-no-GSHP-file
 *option:CCASHP:value:3 = #No-IMS: 
 *option:CCASHP:value:4 = 
@@ -1571,7 +1572,7 @@ Whitehorse Wall Options (Code is R28)
 *option:CCASHP:cost:total   = 9595          ! Does this reflect AC system savings?
 
 
-!Reflects southern Ontario costs
+Reflects southern Ontario costs
 *option:GSHP:value:1 = GSHPv2.hvac
 *option:GSHP:value:2 = *gshp~../hvac/heatx_v1.gshp
 *option:GSHP:value:3 = #No-IMS: 
@@ -1628,7 +1629,7 @@ Whitehorse Wall Options (Code is R28)
 *option:gas-furnace-84_3:value:1 = gas-furnace-84_3.hvac
 *option:gas-furnace-84_3:value:2 = #-no-GSHP-file
 *option:gas-furnace-84_3:value:3 = #No-IMS: 
-*option:gas-furnace-84_3:value:4 = #No-HRV
+*option:gas-furnace-84_3:value:4 = #No HRV
 *option:gas-furnace-84_3:value:5 = 
 *option:gas-furnace-84_3:value:6 = shoulder-ideal.ctl 
 *option:gas-furnace-84_3:cost:total    = 0
@@ -1636,24 +1637,24 @@ Whitehorse Wall Options (Code is R28)
 *option:retro_upgrade_furnace:value:1 = retro_96furnace.hvac
 *option:retro_upgrade_furnace:value:2 = #-no-GSHP-file
 *option:retro_upgrade_furnace:value:3 = #No-IMS: 
-*option:retro_upgrade_furnace:value:4 = #No-HRV
+*option:retro_upgrade_furnace:value:4 = #No HRV
 *option:retro_upgrade_furnace:value:5 = 
 *option:retro_upgrade_furnace:value:6 = shoulder-ideal.ctl
 *option:retro_upgrade_furnace:cost:total    = 5900
 
-*option:retro_CCASHP:value:1 = CCASHPv2-ecm-motor.hvac
+*option:retro_CCASHP:value:1 = CCASHPv2.hvac
 *option:retro_CCASHP:value:2 = #-no-GSHP-file
 *option:retro_CCASHP:value:3 = #No-IMS: 
-*option:retro_CCASHP:value:4 = #No-HRV
+*option:retro_CCASHP:value:4 = #No HRV
 *option:retro_CCASHP:value:5 = 
 *option:retro_CCASHP:value:6 = shoulder-ideal.ctl 
 *option:retro_CCASHP:cost:total    = 11895.0
 
-!Reflects southern Ontario costs
+Reflects southern Ontario costs
 *option:retro_GSHP:value:1 = GSHPv2.hvac
 *option:retro_GSHP:value:2 = *gshp~../hvac/heatx_v1.gshp
 *option:retro_GSHP:value:3 = #No-IMS: 
-*option:retro_GSHP:value:4 = #No-HRV
+*option:retro_GSHP:value:4 = #No HRV
 *option:retro_GSHP:value:5 = 
 *option:retro_GSHP:value:6 = shoulder-ideal.ctl 
 *option:retro_GSHP:cost:total    = 32500          ! Does this reflect AC
@@ -1832,6 +1833,14 @@ Whitehorse Wall Options (Code is R28)
 *option[   Opt-Location>Vancouver  ;   Opt-DHWLoadScale>No-Reduction ]:None:value:1 =141
 *option[   Opt-Location>Vancouver  ;   Opt-DHWLoadScale>EStar ]:None:value:1 =169
 *option[   Opt-Location>Vancouver  ;   Opt-DHWLoadScale>Low-Flow ]:None:value:1 =141
+*option[   Opt-Location>FortStJohn  ;   Opt-DHWLoadScale>OldERS ]:None:value:1 =225
+*option[   Opt-Location>FortStJohn  ;   Opt-DHWLoadScale>No-Reduction ]:None:value:1 =141
+*option[   Opt-Location>FortStJohn  ;   Opt-DHWLoadScale>EStar ]:None:value:1 =169
+*option[   Opt-Location>FortStJohn  ;   Opt-DHWLoadScale>Low-Flow ]:None:value:1 =141
+*option[   Opt-Location>Kamloops  ;   Opt-DHWLoadScale>OldERS ]:None:value:1 =225
+*option[   Opt-Location>Kamloops  ;   Opt-DHWLoadScale>No-Reduction ]:None:value:1 =141
+*option[   Opt-Location>Kamloops  ;   Opt-DHWLoadScale>EStar ]:None:value:1 =169
+*option[   Opt-Location>Kamloops  ;   Opt-DHWLoadScale>Low-Flow ]:None:value:1 =141
 *option[   Opt-Location>Calgary    ;   Opt-DHWLoadScale>OldERS ]:None:value:1 =225
 *option[   Opt-Location>Calgary    ;   Opt-DHWLoadScale>No-Reduction ]:None:value:1 =141
 *option[   Opt-Location>Calgary    ;   Opt-DHWLoadScale>EStar ]:None:value:1 =169
@@ -1880,6 +1889,14 @@ Whitehorse Wall Options (Code is R28)
 *option[   Opt-Location>Vancouver  ;   Opt-DHWLoadScale>No-Reduction ]:DWHR-4-36:value:1 =117
 *option[   Opt-Location>Vancouver  ;   Opt-DHWLoadScale>EStar ]:DWHR-4-36:value:1 =145
 *option[   Opt-Location>Vancouver  ;   Opt-DHWLoadScale>Low-Flow ]:DWHR-4-36:value:1 =117
+*option[   Opt-Location>FortStJohn  ;   Opt-DHWLoadScale>OldERS ]:DWHR-4-36:value:1 =201
+*option[   Opt-Location>FortStJohn  ;   Opt-DHWLoadScale>No-Reduction ]:DWHR-4-36:value:1 =117
+*option[   Opt-Location>FortStJohn  ;   Opt-DHWLoadScale>EStar ]:DWHR-4-36:value:1 =145
+*option[   Opt-Location>FortStJohn  ;   Opt-DHWLoadScale>Low-Flow ]:DWHR-4-36:value:1 =117
+*option[   Opt-Location>Kamloops  ;   Opt-DHWLoadScale>OldERS ]:DWHR-4-36:value:1 =201
+*option[   Opt-Location>Kamloops  ;   Opt-DHWLoadScale>No-Reduction ]:DWHR-4-36:value:1 =117
+*option[   Opt-Location>Kamloops  ;   Opt-DHWLoadScale>EStar ]:DWHR-4-36:value:1 =145
+*option[   Opt-Location>Kamloops  ;   Opt-DHWLoadScale>Low-Flow ]:DWHR-4-36:value:1 =117
 *option[   Opt-Location>Calgary    ;   Opt-DHWLoadScale>OldERS ]:DWHR-4-36:value:1 =197.4
 *option[   Opt-Location>Calgary    ;   Opt-DHWLoadScale>No-Reduction ]:DWHR-4-36:value:1 =113.4
 *option[   Opt-Location>Calgary    ;   Opt-DHWLoadScale>EStar ]:DWHR-4-36:value:1 =141.4
@@ -1928,6 +1945,14 @@ Whitehorse Wall Options (Code is R28)
 *option[   Opt-Location>Vancouver  ;   Opt-DHWLoadScale>No-Reduction ]:DWHR-4-60:value:1 =108.7
 *option[   Opt-Location>Vancouver  ;   Opt-DHWLoadScale>EStar ]:DWHR-4-60:value:1 =136.7
 *option[   Opt-Location>Vancouver  ;   Opt-DHWLoadScale>Low-Flow ]:DWHR-4-60:value:1 =108.7
+*option[   Opt-Location>Kamloops  ;   Opt-DHWLoadScale>OldERS ]:DWHR-4-60:value:1 =192.7
+*option[   Opt-Location>Kamloops  ;   Opt-DHWLoadScale>No-Reduction ]:DWHR-4-60:value:1 =108.7
+*option[   Opt-Location>Kamloops  ;   Opt-DHWLoadScale>EStar ]:DWHR-4-60:value:1 =136.7
+*option[   Opt-Location>Kamloops  ;   Opt-DHWLoadScale>Low-Flow ]:DWHR-4-60:value:1 =108.7
+*option[   Opt-Location>FortStJohn  ;   Opt-DHWLoadScale>OldERS ]:DWHR-4-60:value:1 =192.7
+*option[   Opt-Location>FortStJohn  ;   Opt-DHWLoadScale>No-Reduction ]:DWHR-4-60:value:1 =108.7
+*option[   Opt-Location>FortStJohn  ;   Opt-DHWLoadScale>EStar ]:DWHR-4-60:value:1 =136.7
+*option[   Opt-Location>FortStJohn  ;   Opt-DHWLoadScale>Low-Flow ]:DWHR-4-60:value:1 =108.7
 *option[   Opt-Location>Calgary    ;   Opt-DHWLoadScale>OldERS ]:DWHR-4-60:value:1 =187.8
 *option[   Opt-Location>Calgary    ;   Opt-DHWLoadScale>No-Reduction ]:DWHR-4-60:value:1 =103.8
 *option[   Opt-Location>Calgary    ;   Opt-DHWLoadScale>EStar ]:DWHR-4-60:value:1 =131.8
@@ -1976,6 +2001,14 @@ Whitehorse Wall Options (Code is R28)
 *option[   Opt-Location>Vancouver  ;   Opt-DHWLoadScale>No-Reduction ]:1-plate:value:1 =87.1
 *option[   Opt-Location>Vancouver  ;   Opt-DHWLoadScale>EStar ]:1-plate:value:1 =109.6
 *option[   Opt-Location>Vancouver  ;   Opt-DHWLoadScale>Low-Flow ]:1-plate:value:1 =87.1
+*option[   Opt-Location>Kamloops  ;   Opt-DHWLoadScale>OldERS ]:1-plate:value:1 =154.6
+*option[   Opt-Location>Kamloops  ;   Opt-DHWLoadScale>No-Reduction ]:1-plate:value:1 =87.1
+*option[   Opt-Location>Kamloops  ;   Opt-DHWLoadScale>EStar ]:1-plate:value:1 =109.6
+*option[   Opt-Location>Kamloops  ;   Opt-DHWLoadScale>Low-Flow ]:1-plate:value:1 =87.1
+*option[   Opt-Location>FortStJohn  ;   Opt-DHWLoadScale>OldERS ]:1-plate:value:1 =154.6
+*option[   Opt-Location>FortStJohn  ;   Opt-DHWLoadScale>No-Reduction ]:1-plate:value:1 =87.1
+*option[   Opt-Location>FortStJohn  ;   Opt-DHWLoadScale>EStar ]:1-plate:value:1 =109.6
+*option[   Opt-Location>FortStJohn  ;   Opt-DHWLoadScale>Low-Flow ]:1-plate:value:1 =87.1
 *option[   Opt-Location>Calgary    ;   Opt-DHWLoadScale>OldERS ]:1-plate:value:1 =154.2
 *option[   Opt-Location>Calgary    ;   Opt-DHWLoadScale>No-Reduction ]:1-plate:value:1 =87
 *option[   Opt-Location>Calgary    ;   Opt-DHWLoadScale>EStar ]:1-plate:value:1 =109.4
@@ -2024,6 +2057,14 @@ Whitehorse Wall Options (Code is R28)
 *option[   Opt-Location>Vancouver  ;   Opt-DHWLoadScale>No-Reduction ]:2-plate:value:1 =54.8
 *option[   Opt-Location>Vancouver  ;   Opt-DHWLoadScale>EStar ]:2-plate:value:1 =72.9
 *option[   Opt-Location>Vancouver  ;   Opt-DHWLoadScale>Low-Flow ]:2-plate:value:1 =54.8
+*option[   Opt-Location>Kamloops  ;   Opt-DHWLoadScale>OldERS ]:2-plate:value:1 =109
+*option[   Opt-Location>Kamloops  ;   Opt-DHWLoadScale>No-Reduction ]:2-plate:value:1 =54.8
+*option[   Opt-Location>Kamloops  ;   Opt-DHWLoadScale>EStar ]:2-plate:value:1 =72.9
+*option[   Opt-Location>Kamloops  ;   Opt-DHWLoadScale>Low-Flow ]:2-plate:value:1 =54.8
+*option[   Opt-Location>FortStJohn  ;   Opt-DHWLoadScale>OldERS ]:2-plate:value:1 =109
+*option[   Opt-Location>FortStJohn  ;   Opt-DHWLoadScale>No-Reduction ]:2-plate:value:1 =54.8
+*option[   Opt-Location>FortStJohn  ;   Opt-DHWLoadScale>EStar ]:2-plate:value:1 =72.9
+*option[   Opt-Location>FortStJohn  ;   Opt-DHWLoadScale>Low-Flow ]:2-plate:value:1 =54.8
 *option[   Opt-Location>Calgary    ;   Opt-DHWLoadScale>OldERS ]:2-plate:value:1 =108.3
 *option[   Opt-Location>Calgary    ;   Opt-DHWLoadScale>No-Reduction ]:2-plate:value:1 =52.6
 *option[   Opt-Location>Calgary    ;   Opt-DHWLoadScale>EStar ]:2-plate:value:1 =71.2
@@ -2072,6 +2113,14 @@ Whitehorse Wall Options (Code is R28)
 *option[   Opt-Location>Vancouver  ;   Opt-DHWLoadScale>No-Reduction ]:1-plate-DWHR-4-36:value:1 =67.8
 *option[   Opt-Location>Vancouver  ;   Opt-DHWLoadScale>EStar ]:1-plate-DWHR-4-36:value:1 =90.3
 *option[   Opt-Location>Vancouver  ;   Opt-DHWLoadScale>Low-Flow ]:1-plate-DWHR-4-36:value:1 =67.8
+*option[   Opt-Location>Kamloops  ;   Opt-DHWLoadScale>OldERS ]:1-plate-DWHR-4-36:value:1 =135.3
+*option[   Opt-Location>Kamloops  ;   Opt-DHWLoadScale>No-Reduction ]:1-plate-DWHR-4-36:value:1 =67.8
+*option[   Opt-Location>Kamloops  ;   Opt-DHWLoadScale>EStar ]:1-plate-DWHR-4-36:value:1 =90.3
+*option[   Opt-Location>Kamloops  ;   Opt-DHWLoadScale>Low-Flow ]:1-plate-DWHR-4-36:value:1 =67.8
+*option[   Opt-Location>FortStJohn  ;   Opt-DHWLoadScale>OldERS ]:1-plate-DWHR-4-36:value:1 =135.3
+*option[   Opt-Location>FortStJohn  ;   Opt-DHWLoadScale>No-Reduction ]:1-plate-DWHR-4-36:value:1 =67.8
+*option[   Opt-Location>FortStJohn  ;   Opt-DHWLoadScale>EStar ]:1-plate-DWHR-4-36:value:1 =90.3
+*option[   Opt-Location>FortStJohn  ;   Opt-DHWLoadScale>Low-Flow ]:1-plate-DWHR-4-36:value:1 =67.8
 *option[   Opt-Location>Calgary    ;   Opt-DHWLoadScale>OldERS ]:1-plate-DWHR-4-36:value:1 =132.1
 *option[   Opt-Location>Calgary    ;   Opt-DHWLoadScale>No-Reduction ]:1-plate-DWHR-4-36:value:1 =64.9
 *option[   Opt-Location>Calgary    ;   Opt-DHWLoadScale>EStar ]:1-plate-DWHR-4-36:value:1 =87.3
@@ -2120,6 +2169,14 @@ Whitehorse Wall Options (Code is R28)
 *option[   Opt-Location>Vancouver  ;   Opt-DHWLoadScale>No-Reduction ]:2-plate-DWHR-4-36:value:1 =39.4
 *option[   Opt-Location>Vancouver  ;   Opt-DHWLoadScale>EStar ]:2-plate-DWHR-4-36:value:1 =57.4
 *option[   Opt-Location>Vancouver  ;   Opt-DHWLoadScale>Low-Flow ]:2-plate-DWHR-4-36:value:1 =39.4
+*option[   Opt-Location>Kamloops  ;   Opt-DHWLoadScale>OldERS ]:2-plate-DWHR-4-36:value:1 =93.5
+*option[   Opt-Location>Kamloops  ;   Opt-DHWLoadScale>No-Reduction ]:2-plate-DWHR-4-36:value:1 =39.4
+*option[   Opt-Location>Kamloops  ;   Opt-DHWLoadScale>EStar ]:2-plate-DWHR-4-36:value:1 =57.4
+*option[   Opt-Location>Kamloops  ;   Opt-DHWLoadScale>Low-Flow ]:2-plate-DWHR-4-36:value:1 =39.4
+*option[   Opt-Location>FortStJohn  ;   Opt-DHWLoadScale>OldERS ]:2-plate-DWHR-4-36:value:1 =93.5
+*option[   Opt-Location>FortStJohn  ;   Opt-DHWLoadScale>No-Reduction ]:2-plate-DWHR-4-36:value:1 =39.4
+*option[   Opt-Location>FortStJohn  ;   Opt-DHWLoadScale>EStar ]:2-plate-DWHR-4-36:value:1 =57.4
+*option[   Opt-Location>FortStJohn  ;   Opt-DHWLoadScale>Low-Flow ]:2-plate-DWHR-4-36:value:1 =39.4
 *option[   Opt-Location>Calgary    ;   Opt-DHWLoadScale>OldERS ]:2-plate-DWHR-4-36:value:1 =90
 *option[   Opt-Location>Calgary    ;   Opt-DHWLoadScale>No-Reduction ]:2-plate-DWHR-4-36:value:1 =34.3
 *option[   Opt-Location>Calgary    ;   Opt-DHWLoadScale>EStar ]:2-plate-DWHR-4-36:value:1 =52.9
@@ -2168,6 +2225,14 @@ Whitehorse Wall Options (Code is R28)
 *option[   Opt-Location>Vancouver  ;   Opt-DHWLoadScale>No-Reduction ]:1-plate-DWHR-4-60:value:1 =61
 *option[   Opt-Location>Vancouver  ;   Opt-DHWLoadScale>EStar ]:1-plate-DWHR-4-60:value:1 =83.6
 *option[   Opt-Location>Vancouver  ;   Opt-DHWLoadScale>Low-Flow ]:1-plate-DWHR-4-60:value:1 =61
+*option[   Opt-Location>Kamloops  ;   Opt-DHWLoadScale>OldERS ]:1-plate-DWHR-4-60:value:1 =128.6
+*option[   Opt-Location>Kamloops  ;   Opt-DHWLoadScale>No-Reduction ]:1-plate-DWHR-4-60:value:1 =61
+*option[   Opt-Location>Kamloops  ;   Opt-DHWLoadScale>EStar ]:1-plate-DWHR-4-60:value:1 =83.6
+*option[   Opt-Location>Kamloops  ;   Opt-DHWLoadScale>Low-Flow ]:1-plate-DWHR-4-60:value:1 =61
+*option[   Opt-Location>FortStJohn  ;   Opt-DHWLoadScale>OldERS ]:1-plate-DWHR-4-60:value:1 =128.6
+*option[   Opt-Location>FortStJohn  ;   Opt-DHWLoadScale>No-Reduction ]:1-plate-DWHR-4-60:value:1 =61
+*option[   Opt-Location>FortStJohn  ;   Opt-DHWLoadScale>EStar ]:1-plate-DWHR-4-60:value:1 =83.6
+*option[   Opt-Location>FortStJohn  ;   Opt-DHWLoadScale>Low-Flow ]:1-plate-DWHR-4-60:value:1 =61
 *option[   Opt-Location>Calgary    ;   Opt-DHWLoadScale>OldERS ]:1-plate-DWHR-4-60:value:1 =124.4
 *option[   Opt-Location>Calgary    ;   Opt-DHWLoadScale>No-Reduction ]:1-plate-DWHR-4-60:value:1 =57.2
 *option[   Opt-Location>Calgary    ;   Opt-DHWLoadScale>EStar ]:1-plate-DWHR-4-60:value:1 =79.6
@@ -2216,6 +2281,14 @@ Whitehorse Wall Options (Code is R28)
 *option[   Opt-Location>Vancouver  ;   Opt-DHWLoadScale>No-Reduction ]:2-plate-DWHR-4-60:value:1 =34
 *option[   Opt-Location>Vancouver  ;   Opt-DHWLoadScale>EStar ]:2-plate-DWHR-4-60:value:1 =52.1
 *option[   Opt-Location>Vancouver  ;   Opt-DHWLoadScale>Low-Flow ]:2-plate-DWHR-4-60:value:1 =34
+*option[   Opt-Location>Kamloops  ;   Opt-DHWLoadScale>OldERS ]:2-plate-DWHR-4-60:value:1 =88.1
+*option[   Opt-Location>Kamloops  ;   Opt-DHWLoadScale>No-Reduction ]:2-plate-DWHR-4-60:value:1 =34
+*option[   Opt-Location>Kamloops  ;   Opt-DHWLoadScale>EStar ]:2-plate-DWHR-4-60:value:1 =52.1
+*option[   Opt-Location>Kamloops  ;   Opt-DHWLoadScale>Low-Flow ]:2-plate-DWHR-4-60:value:1 =34
+*option[   Opt-Location>FortStJohn  ;   Opt-DHWLoadScale>OldERS ]:2-plate-DWHR-4-60:value:1 =88.1
+*option[   Opt-Location>FortStJohn  ;   Opt-DHWLoadScale>No-Reduction ]:2-plate-DWHR-4-60:value:1 =34
+*option[   Opt-Location>FortStJohn  ;   Opt-DHWLoadScale>EStar ]:2-plate-DWHR-4-60:value:1 =52.1
+*option[   Opt-Location>FortStJohn  ;   Opt-DHWLoadScale>Low-Flow ]:2-plate-DWHR-4-60:value:1 =34
 *option[   Opt-Location>Calgary    ;   Opt-DHWLoadScale>OldERS ]:2-plate-DWHR-4-60:value:1 =83.6
 *option[   Opt-Location>Calgary    ;   Opt-DHWLoadScale>No-Reduction ]:2-plate-DWHR-4-60:value:1 =27.9
 *option[   Opt-Location>Calgary    ;   Opt-DHWLoadScale>EStar ]:2-plate-DWHR-4-60:value:1 =46.5
@@ -2296,6 +2369,12 @@ Whitehorse Wall Options (Code is R28)
 *option[Opt-Location>Vancouver  ;Opt-RoofPitch>6-12  ]:SizedPV:production-elec-perKW  = 3.618	! GH/kW Installed
 *option[Opt-Location>Vancouver  ;Opt-RoofPitch>8-12  ]:SizedPV:production-elec-perKW  = 3.64716	! GH/kW Installed
 *option[Opt-Location>Vancouver  ;Opt-RoofPitch>12-12 ]:SizedPV:production-elec-perKW  = 3.60036	! GH/kW Installed
+*option[Opt-Location>Kamloops  ;Opt-RoofPitch>6-12  ]:SizedPV:production-elec-perKW  = 3.618	! GH/kW Installed
+*option[Opt-Location>Kamloops  ;Opt-RoofPitch>8-12  ]:SizedPV:production-elec-perKW  = 3.64716	! GH/kW Installed
+*option[Opt-Location>Kamloops  ;Opt-RoofPitch>12-12 ]:SizedPV:production-elec-perKW  = 3.60036	! GH/kW Installed
+*option[Opt-Location>FortStJohn  ;Opt-RoofPitch>6-12  ]:SizedPV:production-elec-perKW  = 3.618	! GH/kW Installed
+*option[Opt-Location>FortStJohn  ;Opt-RoofPitch>8-12  ]:SizedPV:production-elec-perKW  = 3.64716	! GH/kW Installed
+*option[Opt-Location>FortStJohn  ;Opt-RoofPitch>12-12 ]:SizedPV:production-elec-perKW  = 3.60036	! GH/kW Installed
 *option[Opt-Location>Regina     ;Opt-RoofPitch>6-12  ]:SizedPV:production-elec-perKW  = 4.78764  ! GH/kW Installed
 *option[Opt-Location>Regina     ;Opt-RoofPitch>8-12  ]:SizedPV:production-elec-perKW  = 4.94604  ! GH/kW Installed
 *option[Opt-Location>Regina     ;Opt-RoofPitch>12-12 ]:SizedPV:production-elec-perKW  = 5.05584  ! GH/kW Installed
@@ -2338,7 +2417,7 @@ Whitehorse Wall Options (Code is R28)
   
 *ext-parameters:start
 
-*param:BaseUpgradeCost = 0  !14216.602
+*param:BaseUpgradeCost = 0 !!14216.602
 *param:BaseUtilitiesCost = 0 !1447
 *param:PVTarrifDollarsPerkWh = 0.08
 
