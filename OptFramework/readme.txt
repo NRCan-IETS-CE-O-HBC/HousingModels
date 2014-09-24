@@ -9,10 +9,19 @@ SET UP THE ENIVIRONMENT
 1. Checkout and install (or update to) Alex_Ferguson @ r9510 
 
    From your home directory: 
-      
+     
+	 USING SUBVERSION: 
       cd ~/ 
       svn co https://espr.svn.cvsdude.com/esp-r/branches/Alex_Ferguson@r9508
       cd Alex_Ferguson/src
+      ./Install -d ~/ --xml --no_training --no_dbs --silent --force --debug --noX bps ish prj
+      cd ~/    
+
+	  USING GIT:
+	  cd ~/
+	  git clone https://github.com/ESP-rCommunity/ESP-rSource.git ESP-rSource
+	  cd ESP-rSource/src  
+      git checkout Alex_Ferguson
       ./Install -d ~/ --xml --no_training --no_dbs --silent --force --debug --noX bps ish prj
       cd ~/    
 
