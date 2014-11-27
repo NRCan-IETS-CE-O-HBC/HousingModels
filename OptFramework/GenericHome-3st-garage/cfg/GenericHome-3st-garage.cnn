@@ -1,0 +1,54 @@
+*connections for NZEH
+*Date Mon Oct  3 21:25:36 2011
+    51   # number of connections 
+   1   1   <OptAtt-cnn-bsm1>  #    1 bsm-Wall-1 in bsmt is BASESIMP fndtn
+   1   2   <OptAtt-cnn-bsm2>  #    2 bsm-Wall-2 in bsmt is BASESIMP or adiabatic
+   1   3   <OptAtt-cnn-bsm3>  #    3 bsm-Wall-3 in bsmt is BASESIMP fndtn
+   1   4   <OptAtt-cnn-bsm4>  #    4 bsm-Wall-4 in bsmt is BASESIMP or adiabatic
+   1   5   3   2   6  #    5 Top_bsm in bsmt >|< Base-1st in first_fl
+   1   6   6   <OPT-BsmCnnIndex>  40  #    6 Base_bsm in bsmt is BASESIMP fndtn
+   1   7   <OptAtt-cnn-bsm5>  #    7 bsm-Wall-5 in bsmt is BASESIMP fndtn
+   1   8   <OptAtt-cnn-bsm6>  #    8 bsm-Wall-6 in bsmt is BASESIMP fndtn
+   2   1   0   0   0  #     9 Wall-1-1 in first_fl is External
+   2   2   <OptAtt-cnn-row>   0   0  #   10 Wall-1-2 in first_fl
+   2   3   0   0   0  #   11 Wall-1-3 in first_fl is External
+   2   4   <OptAtt-cnn-semi>   0   0  #   12 Wall-1-4 in first_fl
+   2   5   3   3   6  #   13 Top-1st in first_fl >|< Base-2nd
+   2   6   3   1   5  #   14 Base-1st in first_fl >|< Top_bsm in bsmt
+   2   7   3   6   3  #   15 back-gar-1 in first_fl >|< Wall-3-gar in garage
+   2   8   3   6   2  #   16 side-gar-1 in first_fl >|< Wall-2-gar in garage
+   2   9   <OptAtt-cnn-row>   0   0  #   17 win-wall-1-2 in first_fl is External
+   2  10   0   0   0  #   18 win-wall-1-3 in first_fl is External
+   2  11   <OptAtt-cnn-semi>   0   0  #   19 win-wall-1-4 in first_fl 
+   3   1   0   0   0  #   20 Wall-2-1 in second_fl is External
+   3   2   <OptAtt-cnn-row>   0   0  #   21 Wall-2-2 in second_fl
+   3   3   0   0   0  #   22 Wall-2-3 in second_fl is External
+   3   4   <OptAtt-cnn-semi>   0   0  #   23 Wall-2-4 in second_fl
+   3   5   3   4   6  #   24 Top-2nd  in second_fl >|< Base-3rd in roof
+   3   6   3   2   5  #   25 Base-2nd in second_fl >|< Top-1st
+   3   7   0   0   0  #   26 win-wall-2-1 in second_fl is External
+   3   8   <OptAtt-cnn-row>   0   0  #   27 win-wall-2-2 in second_fl 
+   3   9   0   0   0  #   28 win-wall-2-3 in second_fl is External
+   3  10   <OptAtt-cnn-semi>   0   0  #   29 win-wall-2-4 in second_fl
+   3  11   3   6   5  #   30 Top-9 in second_fl >|< top-gar in garage
+   4   1   0   0   0  #   31 Wall-3-1 in third_fl is External
+   4   2   <OptAtt-cnn-row>   0   0  #   32 Wall-3-2 in third_fl is External
+   4   3   0   0   0  #   33 Wall-3-3 in third_fl is External
+   4   4   <OptAtt-cnn-semi>   0   0  #   34 Wall-3-4 in third_fl is adiabatic
+   4   5   3   5   5  #   35 Top-3rd in third_fl >|< roof-base in roof
+   4   6   3   3   5  #   36 Base-3rd in third_fl >|< Top-2nd in second_fl
+   4   7   0   0   0  #   37 win-wall-3-1 in third_fl is External
+   4   8   <OptAtt-cnn-row>   0   0  #   38 win-wall-3-2 in third_fl is External
+   4   9   0   0   0  #   39 win-wall-3-3 in third_fl is External
+   4  10   <OptAtt-cnn-semi>   0   0  #   40 win-wall-3-4 in third_fl is adiabatic
+   5   1   0   0   0  #   41 Wall-1 in roof is External
+   5   2   0   0   0  #   42 Surf-2 in roof is External
+   5   3   0   0   0  #   43 Wall-3 in roof is External
+   5   4   0   0   0  #   44 Surf-4 in roof is External
+   5   5   3   4   5  #   45 roof-base in roof >|< Top-3rd
+   6   1   0   0   0  #   46 Wall-1-gar in garage is External
+   6   2   3   2   8  #   47 Wall-2-gar in garage >|< side-gar-1 in first_fl
+   6   3   3   2   7  #   48 Wall-3-gar in garage >|< back-gar-1 in first_fl
+   6   4   5   0   0  #   49 Wall-4-gar in garage is adiabatic
+   6   5   3   3  11  #   50 top-gar in garage >|< Top-9 in second_fl
+   6   6   6  28 100  #   51 slab-gar in garage is BASESIMP fndtn
