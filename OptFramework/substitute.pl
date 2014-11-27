@@ -96,7 +96,7 @@ my %RegionalCostFactors  = (  "Halifax"      =>  0.95 ,
                               "Quebec"       =>  1.00 ,  # Assume same as montreal?
                               "Montreal"     =>  1.00 ,
                               "Vancouver"    =>  1.10 ,
-							  "FortStJohn"   =>  1.10 ,
+							  "PrinceGeorge"   =>  1.10 ,
 							  "Kamloops"     =>  1.10 ,
                               "Regina"       =>  1.08 ,  # Same as Winnipeg?
                               "Winnipeg"     =>  1.08 ,
@@ -1674,7 +1674,7 @@ sub postprocess($){
                           "Quebec"       =>  12.36  ,
                           "Montreal"     =>  12.36  ,
                           "Vancouver"    =>  4.58   ,
-						  "FortStJohn"   =>  4.58   ,
+						  "PrinceGeorge"   =>  4.58   ,
 						  "Kamloops"     =>  4.58   ,
                           "Regina"       =>  20.22  ,
                           "Winnipeg"     =>  6.85   ,
@@ -1691,7 +1691,7 @@ sub postprocess($){
                         "Montreal"     =>  14.01 ,
                         "Vancouver"    =>  11.83 ,
 						"Kamloops"     =>  11.83 ,
-						"FortStJohn"   =>  11.83 ,
+						"PrinceGeorge"   =>  11.83 ,
                         "Regina"       =>  18.85 ,
                         "Winnipeg"     =>  14.00 ,
                         "Fredricton"   =>  16.00 ,
@@ -1705,7 +1705,7 @@ sub postprocess($){
                           "Quebec"       =>  "1-day" ,
                           "Montreal"     =>  "1-day" ,
                           "Vancouver"    =>  "2-month",
-						  "FortStJohn"   =>  "2-month",
+						  "PrinceGeorge"   =>  "2-month",
 						  "Kamloops"     =>  "2-month",
                           "Regina"       =>  "none" ,
                           "Winnipeg"     =>  "none" ,
@@ -1720,7 +1720,7 @@ sub postprocess($){
                           "Quebec"       =>  "1-month" ,
                           "Montreal"     =>  "1-month" ,
                           "Vancouver"    =>  "none",
-						  "FortStJohn"    =>  "none",
+						  "PrinceGeorge"    =>  "none",
 						  "Kamloops"     =>  "none",
                           "Regina"       =>  "none" ,
                           "Winnipeg"     =>  "none" ,
@@ -1748,13 +1748,13 @@ sub postprocess($){
     $EffElectricRates{"Montreal"}{"9.9E99"} = 0.0751 ; 
     $EffElectricRates{"Quebec"} = $EffElectricRates{"Montreal"}; 
     
-    # Tiers for Vancouver, FortStJohn and Kamloops
+    # Tiers for Vancouver, PrinceGeorge and Kamloops
     $EffElectricRates{"Vancouver"}{"1350"} = 0.0714 ; 
     $EffElectricRates{"Vancouver"}{"9.9E99"} = 0.1070 ; 
     $EffElectricRates{"Kamloops"}{"1350"} = 0.0714 ; 
     $EffElectricRates{"Kamloops"}{"9.9E99"} = 0.1070 ;  
-	$EffElectricRates{"FortStJohn"}{"1350"} = 0.0714 ; 
-    $EffElectricRates{"FortStJohn"}{"9.9E99"} = 0.1070 ; 
+	$EffElectricRates{"PrinceGeorge"}{"1350"} = 0.0714 ; 
+    $EffElectricRates{"PrinceGeorge"}{"9.9E99"} = 0.1070 ; 
  
     # Tiers for Whitehorse 
     $EffElectricRates{"Whitehorse"}{"1000"} =  0.0967 ; 
@@ -1767,7 +1767,7 @@ sub postprocess($){
                           "Edmonton"     =>  0.1482 ,
                           "Calgary"      =>  0.1363 ,
                           "Vancouver"    =>  0.2923 ,
-                          "FortStJohn"   =>  0.2923 ,
+                          "PrinceGeorge"   =>  0.2923 ,
                           "Kamloops"     =>  0.2923 ,
                           "Regina"       =>  0.2163 ,
                           "Winnipeg"     =>  0.2298 ,

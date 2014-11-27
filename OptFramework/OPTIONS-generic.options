@@ -1668,7 +1668,7 @@ Reflects southern Ontario costs
 *option:retro_upgrade_furnace:value:1 = retro_96furnace.hvac
 *option:retro_upgrade_furnace:value:2 = #-no-GSHP-file
 *option:retro_upgrade_furnace:value:3 = #No-IMS: 
-*option:retro_upgrade_furnace:value:4 = #No HRV
+*option:retro_upgrade_furnace:value:4 = 
 *option:retro_upgrade_furnace:value:5 = 
 *option:retro_upgrade_furnace:value:6 = shoulder-ideal.ctl
 *option:retro_upgrade_furnace:cost:total    = 5900
@@ -1676,7 +1676,7 @@ Reflects southern Ontario costs
 *option:retro_CCASHP:value:1 = CCASHPv2.hvac
 *option:retro_CCASHP:value:2 = #-no-GSHP-file
 *option:retro_CCASHP:value:3 = #No-IMS: 
-*option:retro_CCASHP:value:4 = #No HRV
+*option:retro_CCASHP:value:4 = 
 *option:retro_CCASHP:value:5 = 
 *option:retro_CCASHP:value:6 = shoulder-ideal.ctl 
 *option:retro_CCASHP:cost:total    = 11895.0
