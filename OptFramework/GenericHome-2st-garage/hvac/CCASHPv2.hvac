@@ -13,8 +13,8 @@
     *fuel electricity
     *function heating
     *zone-links-start
-    *zone-link 1 0.2 # Served zones and fraction
-    *zone-link 2 0.5 #
+    *zone-link 1 0.3 # Served zones and fraction
+    *zone-link 2 0.4 #
     *zone-link 3 0.3 #
     *zone-links-end
     *sys-data-start
@@ -37,8 +37,8 @@
     *fuel electricity
     *function heating
     *zone-links-start
-    *zone-link 1 0.2 # Served zones and fraction
-    *zone-link 2 0.5 #
+    *zone-link 1 0.3 # Served zones and fraction
+    *zone-link 2 0.4 #
     *zone-link 3 0.3 #
     *zone-links-end
     *sys-data-start
