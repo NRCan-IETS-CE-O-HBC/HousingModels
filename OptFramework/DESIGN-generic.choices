@@ -19,7 +19,7 @@ Opt-DBFiles           : retrofit
 ! and compute an average result)
 GOconfig_rotate      : S
 
-Opt-Location : Winnipeg
+Opt-Location : Vancouver
 
 ! Assumptions about HRV operation . Not intended to be optimized!
 ! Recognized values: 
@@ -43,39 +43,20 @@ Opt-FrontWindows     : NoExtraWin
 Opt-BackWindows      : NoExtraWin
 
 ! Geometry substitutions
-! Toronto
-! Montreal
-! Vancouver
-! Alberta
-! Halifax
-! Prairie
-Opt-geometry      : Montreal
+! Van_3st_garage
+! Van_2st_garage
+
+Opt-geometry      : Van_2st_garage
 
 !Attachment options
 ! single
 ! semi
 ! row
 
-Opt-Attachment : single
+Opt-Attachment : semi
 
 ! ACH substitutions
-! Calgary-gas
-! Edmonton-gas
-! Halifax-elec
-! Halifax-oil
-! Montreal-gas
-! Montreal-elec
-! Montreal-oil
-! Regina-gas
-! Toronto-elec
-! Toronto-oil
-! Toronto-gas
-! Vancouver-elec
-! Vancouver-gas
-! Winnipeg-elec
-! Winnipeg-gas
-
-Opt-ACH       : Winnipeg-gas
+Opt-ACH       : retro_ACH_4_5
 
 
 Opt-OverhangWidth : BaseOverhang
@@ -105,7 +86,7 @@ Opt-AirTightness   : Generic
 !  W15_R25
 !  Retrofit-DlBr
 
-Opt-MainWall         : Retrofit-DlBr
+Opt-MainWall         : BaseR20
 
 
 ! Add extra drywall to wall constructions 
@@ -148,7 +129,7 @@ Opt-BasementSlabInsulation  : NoInsulation
 ! Retrofit foundation
 !    TripleBrick
 
-Opt-BasementWallInsulation  : TripleBrick
+Opt-BasementWallInsulation  : OBC-min-R12
 
 
 ! Optical and thermal characteristics of casement windows (currently 
@@ -165,7 +146,7 @@ Opt-BasementWallInsulation  : TripleBrick
 ! Retrofit Windows
 !    DoubleClear 
 
-Opt-CasementWindows  :  DoubleClear 
+Opt-CasementWindows  :  DoubleLowEHardCoatAirFill 
 
 
 ! Exposed floor over garage (affects floor
@@ -222,13 +203,7 @@ Opt-RoofPitch : 8-12
 Opt-DHWSystem        : ElectricStorage
 
 ! HVAC system 
-!  gas-furnace-low
-!  gas-furnace-mid
-!  baseboard-heating
-!  oil-furnace-low
-!  oil-furnace-mid
-
-Opt-HVACSystem       : gas-furnace-mid
+Opt-HVACSystem       : basefurnace
 
 ! HRV spec 
 
