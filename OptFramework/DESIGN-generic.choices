@@ -19,7 +19,7 @@ Opt-DBFiles           : retrofit
 ! and compute an average result)
 GOconfig_rotate      : S
 
-Opt-Location : Vancouver
+Opt-Location : Yellowknife
 
 ! Assumptions about HRV operation . Not intended to be optimized!
 ! Recognized values: 
@@ -45,18 +45,19 @@ Opt-BackWindows      : NoExtraWin
 ! Geometry substitutions
 ! Van_3st_garage
 ! Van_2st_garage
+! NWT_Access
 
-Opt-geometry      : Van_2st_garage
+Opt-geometry      : NWT_Access
 
 !Attachment options
 ! single
 ! semi
 ! row
 
-Opt-Attachment : semi
+Opt-Attachment : single
 
 ! ACH substitutions
-Opt-ACH       : retro_ACH_4_5
+Opt-ACH       : retro_ACH_6_5
 
 
 Opt-OverhangWidth : BaseOverhang
@@ -203,7 +204,7 @@ Opt-RoofPitch : 8-12
 Opt-DHWSystem        : ElectricStorage
 
 ! HVAC system 
-Opt-HVACSystem       : basefurnace
+Opt-HVACSystem       : Olsen
 
 ! HRV spec 
 

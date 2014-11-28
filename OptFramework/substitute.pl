@@ -101,7 +101,8 @@ my %RegionalCostFactors  = (  "Halifax"      =>  0.95 ,
                               "Regina"       =>  1.08 ,  # Same as Winnipeg?
                               "Winnipeg"     =>  1.08 ,
                               "Fredricton"   =>  1.00 ,  # Same as Quebec?
-                              "Whitehorse"   =>  1.00    ); # Same as yellowknife, 1.38?
+                              "Whitehorse"   =>  1.00 ,
+                              "Yellowknife"  =>  1.38    ); 
 
 
 my @gChoiceOrder;
@@ -1674,12 +1675,13 @@ sub postprocess($){
                           "Quebec"       =>  12.36  ,
                           "Montreal"     =>  12.36  ,
                           "Vancouver"    =>  4.58   ,
-						  "PrinceGeorge"   =>  4.58   ,
+						  "PrinceGeorge" =>  4.58   ,
 						  "Kamloops"     =>  4.58   ,
                           "Regina"       =>  20.22  ,
                           "Winnipeg"     =>  6.85   ,
                           "Fredricton"   =>  19.73  ,
-                          "Whitehorse"   =>  16.25    ); 
+                          "Whitehorse"   =>  16.25  ,
+                          "Yellowknife"  =>  16.25    ); #???????
 	
   # Base charges for natural gas ($/month)
   my %NG_BaseCharge = ( "Halifax"      =>  21.87 ,
@@ -1691,11 +1693,12 @@ sub postprocess($){
                         "Montreal"     =>  14.01 ,
                         "Vancouver"    =>  11.83 ,
 						"Kamloops"     =>  11.83 ,
-						"PrinceGeorge"   =>  11.83 ,
+						"PrinceGeorge" =>  11.83 ,
                         "Regina"       =>  18.85 ,
                         "Winnipeg"     =>  14.00 ,
                         "Fredricton"   =>  16.00 ,
-                        "Whitehorse"   =>  "nil"  ); 	
+                        "Whitehorse"   =>  "nil" ,
+                        "Yellowknife"  =>  "nil"    ); 	
 
    my %Elec_TierType  = ( "Halifax"      =>  "none" ,
                           "Edmonton"     =>  "none" ,
@@ -1705,12 +1708,13 @@ sub postprocess($){
                           "Quebec"       =>  "1-day" ,
                           "Montreal"     =>  "1-day" ,
                           "Vancouver"    =>  "2-month",
-						  "PrinceGeorge"   =>  "2-month",
+						  "PrinceGeorge" =>  "2-month",
 						  "Kamloops"     =>  "2-month",
                           "Regina"       =>  "none" ,
                           "Winnipeg"     =>  "none" ,
                           "Fredricton"   =>  "none" ,
-                          "Whitehorse"   =>  "1-month"   ); 
+                          "Whitehorse"   =>  "1-month" ,
+                          "Yellowknife"  =>  "1-month"   );  
  
     my %NG_TierType  = (  "Halifax"      =>  "none" ,
                           "Edmonton"     =>  "none" ,
@@ -1720,12 +1724,13 @@ sub postprocess($){
                           "Quebec"       =>  "1-month" ,
                           "Montreal"     =>  "1-month" ,
                           "Vancouver"    =>  "none",
-						  "PrinceGeorge"    =>  "none",
+						  "PrinceGeorge" =>  "none",
 						  "Kamloops"     =>  "none",
                           "Regina"       =>  "none" ,
                           "Winnipeg"     =>  "none" ,
                           "Fredricton"   =>  "none" ,
-                          "Whitehorse"   =>  "NA"   ); 
+                          "Whitehorse"   =>  "NA"   ,
+						  "Yellowknife"  =>  "NA"   ); 
  
     
     my %EffElectricRates = ( "Halifax"    => 0.1436 ,
@@ -1761,18 +1766,23 @@ sub postprocess($){
     $EffElectricRates{"Whitehorse"}{"2500"} =  0.1327 ;
     $EffElectricRates{"Whitehorse"}{"9.9E99"} =  0.1517 ;
   
+    # Tiers for Yellowknife
+    $EffElectricRates{"Yellowknife"}{"1000"} =  0.0967 ; 
+    $EffElectricRates{"Yellowknife"}{"2500"} =  0.1327 ;
+    $EffElectricRates{"Yellowknife"}{"9.9E99"} =  0.1517 ;
   
   
     my %EffGasRates  = (  "Halifax"      =>  0.5124 ,
                           "Edmonton"     =>  0.1482 ,
                           "Calgary"      =>  0.1363 ,
                           "Vancouver"    =>  0.2923 ,
-                          "PrinceGeorge"   =>  0.2923 ,
+                          "PrinceGeorge" =>  0.2923 ,
                           "Kamloops"     =>  0.2923 ,
                           "Regina"       =>  0.2163 ,
                           "Winnipeg"     =>  0.2298 ,
                           "Fredricton"   =>  0.6458 ,
-                          "Whitehorse"   =>  99999.9   ); 
+                          "Whitehorse"   =>  99999.9,
+                          "Yellowknife"  =>  99999.9 ); 
    
     # Tiers for Ottawa (Apr. 1, 2014), Toronto
     $EffGasRates{"Ottawa"}{"30"}     = 0.3090; 

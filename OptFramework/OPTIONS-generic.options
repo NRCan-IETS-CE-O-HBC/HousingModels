@@ -348,6 +348,11 @@
 *option:Kamloops:value:2 = 50.7
 *option:Kamloops:value:3 = -0.45
 *option:Kamloops:cost:total    = 0    
+
+*option:Yellowknife:value:1 = can_yellowknife.cwec
+*option:Yellowknife:value:2 = 62.47
+*option:Yellowknife:value:3 = -0.55
+*option:Yellowknife:cost:total    = 0
   
 *attribute:end
 
@@ -694,7 +699,6 @@
 *option:Van_3st_garage:value:16   = 11.57382
 *option:Van_3st_garage:cost:total = 0
 
-
 *option:Van_2st_garage:value:1    = 62.5
 *option:Van_2st_garage:value:2    = 5
 *option:Van_2st_garage:value:3    = 12.5
@@ -712,6 +716,25 @@
 *option:Van_2st_garage:value:15   = 3.5052
 *option:Van_2st_garage:value:16   = 11.57382
 *option:Van_2st_garage:cost:total = 0
+
+*option:NWT_Access:value:1    = 98.849
+*option:NWT_Access:value:2    = 8.53
+*option:NWT_Access:value:3    = 11.58
+*option:NWT_Access:value:4    = 4.9924
+*option:NWT_Access:value:5    = 4.2672
+*option:NWT_Access:value:6    = 0.5
+*option:NWT_Access:value:7    = 3.103
+*option:NWT_Access:value:8    = 0.5
+*option:NWT_Access:value:9    = 2.724
+*option:NWT_Access:value:10   = 8.034
+*option:NWT_Access:value:11   = 6.328
+*option:NWT_Access:value:12   = 11.0824
+*option:NWT_Access:value:13   = 9.860
+*option:NWT_Access:value:14   = 3.3019
+*option:NWT_Access:value:15   = 3.5052
+*option:NWT_Access:value:16   = 11.57382
+*option:NWT_Access:cost:total = 0
+
 
 *attribute:end
 
@@ -1689,6 +1712,15 @@ Reflects southern Ontario costs
 *option:retro_GSHP:value:5 = 
 *option:retro_GSHP:value:6 = shoulder-ideal.ctl 
 *option:retro_GSHP:cost:total    = 32500          ! Does this reflect AC
+
+!---Options for Northern retrofit-------------------------------
+*option:Olsen:value:1 = oil-furnace-Olsen.hvac
+*option:Olsen:value:2 = #-no-GSHP-file
+*option:Olsen:value:3 = #No-IMS: 
+*option:Olsen:value:4 = 
+*option:Olsen:value:5 = 
+*option:Olsen:value:6 = shoulder-ideal.ctl 
+*option:Olsen:cost:total    = 0
 
 
 *attribute:end
