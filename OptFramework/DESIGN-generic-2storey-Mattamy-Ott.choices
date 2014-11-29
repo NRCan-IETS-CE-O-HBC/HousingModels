@@ -189,7 +189,7 @@ Opt-DWHRandSDHW         : none
 !   - NGERSReducedA16
 !   - NGERSBestInClass14p8
 
-Opt-ElecLoadScale    : NGERSNoReduction19     
+Opt-ElecLoadScale    : NoReduction		!NGERSNoReduction19     
 
 
 ! Hot water numbers - These have changed! 
