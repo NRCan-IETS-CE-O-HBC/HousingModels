@@ -164,7 +164,7 @@ Vary{
   Parameter{   // 
      Name    =  GOtag:Opt-CasementWindows;
      Ini     =  1;
-     Values  =  "DoubleLowEHardCoatAirFill, DoubleLowEHardCoatArgFill, DoubleLowESoftCoatArgFill, TripleLowEHardCoatKryFill, TripleLowESoftCoatKryFill";    
+     Values  =  "DoubleLowEHardCoatArgFill, TripleLowEHardCoatKryFill";  // Need Mix HC/SC coat options
      
    }    
    
@@ -231,8 +231,8 @@ Vary{
   Parameter {// 
       Name   = GOtag:Opt-HVACSystem; 
       Ini    = 1; 
-      Values = "basefurnace, zoned-furnace-ecm"
-	  
+      Values = "basefurnace, zoned-furnace-ecm";	
+	  // Mattamy Ottawa: Basefurnace = Lennox
   }
   
   // HRV spec: 
@@ -248,7 +248,7 @@ Vary{
   Parameter{   // 
      Name    =  GOtag:Opt-StandoffPV;
      Ini     =  1;
-     Values  = "NoPV, SizedPV|3kW, SizedPV|5kW, SizedPV|8kW";
+     Values  = "NoPV";		//, SizedPV|3kW, SizedPV|5kW, SizedPV|8kW";
   } 
   
   
