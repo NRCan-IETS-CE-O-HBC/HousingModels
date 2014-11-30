@@ -231,7 +231,7 @@ Vary{
   Parameter {// 
       Name   = GOtag:Opt-HVACSystem; 
       Ini    = 1; 
-      Values = "basefurnace, zoned-furnace-ecm
+      Values = "basefurnace, zoned-furnace-ecm"
 	  
   }
   
