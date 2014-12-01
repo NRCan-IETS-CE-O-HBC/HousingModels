@@ -87,7 +87,7 @@ Opt-AirTightness   : Generic
 !  W15_R25
 !  Retrofit-DlBr
 
-Opt-MainWall         : BaseR20
+Opt-MainWall         : NWTR20
 
 
 ! Add extra drywall to wall constructions 
@@ -104,7 +104,7 @@ Opt-ExtraDrywall     : OneSheet
 Opt-FloorSurface     : wood
 
 
-Opt-Ceilings         : CeilR50
+Opt-Ceilings         : NWTCeilR40
 
 ! Basement slab insulation 
 ! Choices: 
@@ -129,8 +129,9 @@ Opt-BasementSlabInsulation  : NoInsulation
 !  Fnd0PWF_R28   
 ! Retrofit foundation
 !    TripleBrick
+!    NWT-Crawl-Wall !NWT crawl space wall
 
-Opt-BasementWallInsulation  : OBC-min-R12
+Opt-BasementWallInsulation  : NWTCrawlWll
 
 
 ! Optical and thermal characteristics of casement windows (currently 
@@ -147,7 +148,7 @@ Opt-BasementWallInsulation  : OBC-min-R12
 ! Retrofit Windows
 !    DoubleClear 
 
-Opt-CasementWindows  :  DoubleLowEHardCoatAirFill 
+Opt-CasementWindows  :  Wind1_trp_CL 
 
 
 ! Exposed floor over garage (affects floor
@@ -156,8 +157,10 @@ Opt-CasementWindows  :  DoubleLowEHardCoatAirFill
 !  BaseExpFloor-R31
 !  ExpFloorFlash&Batt-R36
 !  ExpFloorFoamed-R52
+!NWT Crawl Space Floor
+!  NWTCrawlFloor
 
-Opt-ExposedFloor     : BaseExpFloor-R31
+Opt-ExposedFloor     : NWTCrawlFlr
 
 Opt-StandoffPV       : NoPV
 

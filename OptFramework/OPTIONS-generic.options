@@ -838,7 +838,7 @@
 ! by optional window areas.
 *option:Wind1_trp_CL :value:1 = Wind1_trp_CL   
 *option:Wind1_trp_CL :value:2 = Wind1_trp_CL   
-*option:Wind1_trp_CL :cost:total    = 20551
+*option:Wind1_trp_CL :cost:total    = 0   ! this is used as the base case for NWT, so no cost. origianlly $20551
 
 *option:Win2scLE1_tr:value:1 = Win2scLE1_tr
 *option:Win2scLE1_tr:value:2 = Win2scLE1_tr 
@@ -1016,6 +1016,13 @@
 *option:retro_attic-4_152_12cell:value:1 =   retroatt_12
 !*option:retro_attic-4_152_12cell:value:2 =  retroatt_12
 *option:retro_attic-4_152_12cell:cost:total    =  1422   !This value based on Vancouver geometry
+
+!-----------------------------------------------------------------------
+!   NWT Retrofit Ceilings options
+!-----------------------------------------------------------------------
+*option:NWTCeilR40:value:1 =   NWTCeilR40
+!*option:NWTCeilR40:value:2 =  NWTCeilR40R
+*option:NWTCeilR40:cost:total    =  0
 
 
 *attribute:end
@@ -1256,6 +1263,13 @@ Whitehorse Wall Options (Code is R28)
 *option:Retro-int_spray:value:3 =   Retrointspr 
 *option:Retro-int_spray:cost:total    =   24145    ! costing calculated for Vancouver retrofit
 
+!-------------------------------------------------------------------------------
+! NWT Retrofit Main Wall Options
+!-------------------------------------------------------------------------------
+*option:NWTR20:value:1 =   NWTR20   ! Added by JP for retrofit analysis
+*option:NWTR20:value:2 =   NWTR20
+*option:NWTR20:value:3 =   NWTR20 
+*option:NWTR20:cost:total    =   0
 
 *attribute:end
 
@@ -1366,6 +1380,13 @@ Whitehorse Wall Options (Code is R28)
 *option:Retro_added_spray_int:meta    = Int
 *option:Retro_added_spray_int:cost:total  = 5262
 
+!-------------------------------------------------------------------------------
+! NWT Retrofit Crawl Space Options
+!-------------------------------------------------------------------------------
+*option:NWTCrawlWll:value:1 = NWTCrawlWll
+*option:NWTCrawlWll:meta    = Int
+*option:NWTCrawlWll:cost:total   = 0
+
 
 
 
@@ -1459,7 +1480,14 @@ Whitehorse Wall Options (Code is R28)
 *option:ExpFloorFoamed-R52:value:2 = ExpFlR52r
 *option:ExpFloorFoamed-R52:cost:total    = 1720.82
 
+!-----------------------------------------------------------------------
+! NWT Crawl Space Floor is Exposed
+*option:NWTCrawlFlr:value:1 = NWTCrawlFlr
+*option:NWTCrawlFlr:value:2 = NWTCrawlFlrr
+*option:NWTCrawlFlr:cost:total    = 0
+
 *attribute:end
+
 !-----------------------------------------------------------------------
 ! Thickness of applied drywall.
 !-----------------------------------------------------------------------
