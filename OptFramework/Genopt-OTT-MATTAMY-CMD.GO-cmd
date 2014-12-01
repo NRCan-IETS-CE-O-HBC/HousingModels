@@ -141,7 +141,7 @@ Vary{
    Parameter{   // 
      Name    =  GOtag:Opt-Ceilings;
      Ini     =  1;
-     Values  =  "CeilR50,CeilR60,CeilR90";
+     Values  =  "CeilR50,CeilR60";
    }    
   
   // Windows:  DoubleLowEHardCoatAirFill 
@@ -214,7 +214,7 @@ Vary{
   Parameter{ //
      Name    = GOtag:Opt-DHWSystem;
      Ini     = 1; 
-     Values  = "BaseDHW, GasInstantaneous" ;
+     Values  = "BaseDHW" ;
   }
 
   
