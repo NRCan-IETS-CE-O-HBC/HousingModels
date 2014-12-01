@@ -20,10 +20,10 @@
     *sys-data-start
     
         furnace-type 8
-        capacity 23000
-        efficiency 0.96
+        capacity 43000
+        efficiency 0.95		# Mattamy Lennox Model ML195
         circ-fan-mode 1
-        circ-fan-power 140.0
+        circ-fan-power 248	# Watts for indoor circ fan
         draft-fan-power 75. 
         pilot-power 0.
 
@@ -45,13 +45,13 @@
     *zone-links-end
     *sys-data-start
 
-        capacity 10555.
+        capacity 23721.
         COP 3.
         #circ-fan-flow -
         #circ-fan-rated-flow 1.5
         circ-fan-mode 1
         circ-fan-position 1
-        circ-fan-power 140.
+        circ-fan-power 248.
         outdoor-fan-power 0.
         fan-power-in-auto 0.
         circ-fan-rated-position 1

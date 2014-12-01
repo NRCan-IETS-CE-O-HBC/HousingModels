@@ -806,24 +806,23 @@
 ! JP removed base case cost - no additional windows available for lighthouse work.
 *option:DoubleLowEHardCoatAirFill:value:1 = DblLeHcAir
 *option:DoubleLowEHardCoatAirFill:value:2 = DblLeHcAir
-*option:DoubleLowEHardCoatAirFill:cost:total    = 0.0 ! Value changed for Van_2st_80_retro geometry. Originally 10584
-
+*option:DoubleLowEHardCoatAirFill:cost:total    = 0.0 
 
 *option:DoubleLowEHardCoatArgFill:value:1 = DblLeHcArg 
 *option:DoubleLowEHardCoatArgFill:value:2 = DblLeHcArg 
-*option:DoubleLowEHardCoatArgFill:cost:total    = 2885! Value changed for Van_2st_80_retro geometry. Originally 11727
+*option:DoubleLowEHardCoatArgFill:cost:total    = 0.0	!Base for Mattamy Ottawa
 
 *option:TripleLowEHardCoatKryFill:value:1 = TplLeHcKry
 *option:TripleLowEHardCoatKryFill:value:2 = TplLeHcKry
-*option:TripleLowEHardCoatKryFill:cost:total    = 4570! Value changed for Van_2st_80_retro geometry. Originally 20871
+*option:TripleLowEHardCoatKryFill:cost:total    = 555	!Mattamy Ottawa
 
 *option:TripleLowESoftCoatKryFill:value:1 = TplLeScKry
 *option:TripleLowESoftCoatKryFill:value:2 = TplLeScKry
-*option:TripleLowESoftCoatKryFill:cost:total    = 4050 ! Value changed for Van_2st_80_retro geometry. Originally 19310
+*option:TripleLowESoftCoatKryFill:cost:total    = 4050
 
 *option:DoubleLowESoftCoatArgFill:value:1 = DblLeScArg
 *option:DoubleLowESoftCoatArgFill:value:2 = DblLeScArg
-*option:DoubleLowESoftCoatArgFill:cost:total    = 2440 ! Value changed for Van_2st_80_retro geometry. Originally 10965
+*option:DoubleLowESoftCoatArgFill:cost:total    = 2440
 
 
 !---------------------------------------------------------------------
@@ -964,7 +963,7 @@
 
 *option:CeilR60:value:1 =   CeilR60
 !*option:CeilR60:value:2 =   CeilR60R
-*option:CeilR60:cost:total    =   310
+*option:CeilR60:cost:total    =   210	!Mattamy Ottawa cost
 
 *option:CeilR70:value:1 =   CeilR70
 !*option:CeilR70:value:2 =   CeilR70R
@@ -1523,7 +1522,7 @@ Whitehorse Wall Options (Code is R28)
 *option:basefurnace:value:4 = 
 *option:basefurnace:value:5 = 
 *option:basefurnace:value:6 = shoulder-ideal.ctl
-*option:basefurnace:cost:total    = 0
+*option:basefurnace:cost:total    = 0	! Base for Mattamy Ottawa
 
 *option:gas-furnace-ecm:value:1 = basefurnace_AC-gas-ecm-motor.hvac
 *option:gas-furnace-ecm:value:2 = #-no-GSHP-file
