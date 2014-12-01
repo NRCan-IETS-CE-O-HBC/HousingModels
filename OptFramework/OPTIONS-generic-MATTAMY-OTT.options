@@ -963,7 +963,7 @@
 
 *option:CeilR60:value:1 =   CeilR60
 !*option:CeilR60:value:2 =   CeilR60R
-*option:CeilR60:cost:total    =   310
+*option:CeilR60:cost:total    =   210	!Mattamy Ottawa cost
 
 *option:CeilR70:value:1 =   CeilR70
 !*option:CeilR70:value:2 =   CeilR70R
