@@ -24,6 +24,26 @@
 
 *attribute:end
 
+!-----------------------------------------------------------------------
+! Placeholder for oreintation.  
+!-----------------------------------------------------------------------
+
+*attribute:start 
+*attribute:name    = GOconfig_rotate 
+*attribute:tag:1   = <NotARealTag>
+*attribute:default = S
+
+*option:S:value:1  = S
+*option:S:cost:    = 0
+*option:E:value:1  = S
+*option:E:cost:    = 0
+*option:N:value:1  = S
+*option:N:cost:    = 0
+*option:W:value:1  = S
+*option:W:cost:    = 0
+
+*attribute:end 
+
 
 !-----------------------------------------------------------------------
 ! This option can be used to load construction databases from the CEF,
@@ -78,139 +98,227 @@
 *attribute:start 
 *attribute:name  = Opt-Attachment
 ! zone .geo changes
-*attribute:tag:1 = <OptAtt-Wall2Con>
-*attribute:tag:2 = <OptAtt-Wall2Opt>
-*attribute:tag:3 = <OptAtt-Wall2BC>
-*attribute:tag:4 = <OptAtt-Win2Con>
-*attribute:tag:5 = <OptAtt-Win2Opt>
-*attribute:tag:6 = <OptAtt-Win2BC>
-*attribute:tag:7 = <OptAtt-Wall4Con>
-*attribute:tag:8 = <OptAtt-Wall4Opt>
-*attribute:tag:9 = <OptAtt-Wall4BC>
-*attribute:tag:10= <OptAtt-Win4Con>
-*attribute:tag:11= <OptAtt-Win4Opt>
-*attribute:tag:12= <OptAtt-Win4BC>
-*attribute:tag:13= <OptAtt-bsm2Con>
-*attribute:tag:14= <OptAtt-bsm2BC>
-*attribute:tag:15= <OptAtt-bsm4Con>
-*attribute:tag:16= <OptAtt-bsm4BC>
-*attribute:tag:17= <OptAtt-bsm1BC>
-*attribute:tag:18= <OptAtt-bsm3BC>
-*attribute:tag:19= <OptAtt-bsm5BC>
-*attribute:tag:20= <OptAtt-bsm6BC>
+                
+                 
+*attribute:tag:1 = <OptAtt-Win1Con>
+*attribute:tag:2 = <OptAtt-Win1Opt>
+*attribute:tag:3 = <OptAtt-Wall2Con>
+*attribute:tag:4 = <OptAtt-Wall2Opt>
+*attribute:tag:5 = <OptAtt-Wall2BC>
+*attribute:tag:6 = <OptAtt-Win2Con>
+*attribute:tag:7 = <OptAtt-Win2Opt>
+*attribute:tag:8 = <OptAtt-Win2BC>
+*attribute:tag:9 = <OptAtt-Win3Con>
+*attribute:tag:10= <OptAtt-Win3Opt>
+*attribute:tag:11= <OptAtt-Wall4Con>
+*attribute:tag:12= <OptAtt-Wall4Opt>
+*attribute:tag:13= <OptAtt-Wall4BC>
+*attribute:tag:14= <OptAtt-Win4Con>
+*attribute:tag:15= <OptAtt-Win4Opt>
+*attribute:tag:16= <OptAtt-Win4BC>
+*attribute:tag:17= <OptAtt-bsm2Con>
+*attribute:tag:18= <OptAtt-bsm2BC>
+*attribute:tag:19= <OptAtt-bsm4Con>
+*attribute:tag:20= <OptAtt-bsm4BC>
+*attribute:tag:21= <OptAtt-bsm1BC>
+*attribute:tag:22= <OptAtt-bsm3BC>
+*attribute:tag:23= <OptAtt-bsm5BC>
+*attribute:tag:24= <OptAtt-bsm6BC>
 ! .cnn changes
-*attribute:tag:21= <OptAtt-cnn-semi>	  ! above-grade boundary condition modified for semi
-*attribute:tag:22= <OptAtt-cnn-row>       ! above-grade boundary condition modified for row
-*attribute:tag:23= <OptAtt-cnn-bsm1>      ! connection for basement wall 1 - always basesimp, but % changes
-*attribute:tag:24= <OptAtt-cnn-bsm2>      ! connection for basement wall 2 - adiabatic (semi/row) or basesimp
-*attribute:tag:25= <OptAtt-cnn-bsm3>      ! connection for basement wall 3 - always basesimp, but % changes
-*attribute:tag:26= <OptAtt-cnn-bsm4>      ! connection for basement wall 4 - adiabatic (row) or basesimp
-*attribute:tag:27= <OptAtt-cnn-bsm5>      ! connection for basement wall 7 - always basesimp, but % changes
-*attribute:tag:28= <OptAtt-cnn-bsm6>      ! connection for basement wall 8 - always basesimp, but % changes
+*attribute:tag:25= <OptAtt-cnn-semi>	  ! above-grade boundary condition modified for semi
+*attribute:tag:26= <OptAtt-cnn-row>       ! above-grade boundary condition modified for row
+*attribute:tag:27= <OptAtt-cnn-bsm1>      ! connection for basement wall 1 - always basesimp, but % changes
+*attribute:tag:28= <OptAtt-cnn-bsm2>      ! connection for basement wall 2 - adiabatic (semi/row) or basesimp
+*attribute:tag:29= <OptAtt-cnn-bsm3>      ! connection for basement wall 3 - always basesimp, but % changes
+*attribute:tag:30= <OptAtt-cnn-bsm4>      ! connection for basement wall 4 - adiabatic (row) or basesimp
+*attribute:tag:31= <OptAtt-cnn-bsm5>      ! connection for basement wall 7 - always basesimp, but % changes
+*attribute:tag:32= <OptAtt-cnn-bsm6>      ! connection for basement wall 8 - always basesimp, but % changes
 
-*option:single:value:1 = <Opt-MainWall-Bri>
-*option:single:value:2 = OPAQUE
-*option:single:value:3 = EXTERIOR
-*option:single:value:4 = <Opt-CasWinConstruction>
-*option:single:value:5 = <Opt-CasWinOptics>
-*option:single:value:6 = EXTERIOR
-*option:single:value:7 = <Opt-MainWall-Bri>
-*option:single:value:8 = OPAQUE
-*option:single:value:9 = EXTERIOR
-*option:single:value:10= <Opt-CasWinConstruction>
-*option:single:value:11= <Opt-CasWinOptics>
-*option:single:value:12= EXTERIOR
-*option:single:value:13= <OPT-BsmWall>
-*option:single:value:14= BASESIMP,01,10
-*option:single:value:15= <OPT-BsmWall>
-*option:single:value:16= BASESIMP,01,15
-*option:single:value:17= BASESIMP,01,15
+
+*option:single:value:1 = <OptAtt-windows-1-FrontCON>
+*option:single:value:2 = <OptAtt-windows-1-FrontOPT>
+*option:single:value:3 = <Opt-MainWall-Bri>
+*option:single:value:4 = OPAQUE
+*option:single:value:5 = EXTERIOR
+*option:single:value:6 = <OptAtt-windows-2-LeftCON>
+*option:single:value:7 = <OptAtt-windows-2-LeftOPT>
+*option:single:value:8 = EXTERIOR
+*option:single:value:9 = <OptAtt-windows-3-BackCON>
+*option:single:value:10= <OptAtt-windows-3-BackOPT>
+*option:single:value:11= <Opt-MainWall-Bri>
+*option:single:value:12= OPAQUE
+*option:single:value:13= EXTERIOR
+*option:single:value:14= <OptAtt-windows-4-RightCON>
+*option:single:value:15= <OptAtt-windows-4-RightOPT>
+*option:single:value:16= EXTERIOR
+*option:single:value:17= <OPT-BsmWall>
 *option:single:value:18= BASESIMP,01,10
-*option:single:value:19= BASESIMP,01,5
-*option:single:value:20= BASESIMP,01,5
-*option:single:value:21= 0
-*option:single:value:22= 0
-*option:single:value:23= 6,   <OPT-BsmCnnIndex>,  10
-*option:single:value:24= 6,   <OPT-BsmCnnIndex>,  15
-*option:single:value:25= 6,   <OPT-BsmCnnIndex>,  15
-*option:single:value:26= 6,   <OPT-BsmCnnIndex>,  10
-*option:single:value:27= 6,   <OPT-BsmCnnIndex>,  5
-*option:single:value:28= 6,   <OPT-BsmCnnIndex>,  5
+*option:single:value:19= <OPT-BsmWall>
+*option:single:value:20= BASESIMP,01,15
+*option:single:value:21= BASESIMP,01,15
+*option:single:value:22= BASESIMP,01,10
+*option:single:value:23= BASESIMP,01,5
+*option:single:value:24= BASESIMP,01,5
+*option:single:value:25= 0
+*option:single:value:26= 0
+*option:single:value:27= 6,   <OPT-BsmCnnIndex>,  10
+*option:single:value:28= 6,   <OPT-BsmCnnIndex>,  15
+*option:single:value:29= 6,   <OPT-BsmCnnIndex>,  15
+*option:single:value:30= 6,   <OPT-BsmCnnIndex>,  10
+*option:single:value:31= 6,   <OPT-BsmCnnIndex>,  5
+*option:single:value:32= 6,   <OPT-BsmCnnIndex>,  5
 *option:single:cost:total    = 0
 
-*option:semi:value:1 = <Opt-MainWall-Bri>
-*option:semi:value:2 = OPAQUE
-*option:semi:value:3 = EXTERIOR
-*option:semi:value:4 = <Opt-CasWinConstruction>
-*option:semi:value:5 = <Opt-CasWinOptics>
-*option:semi:value:6 = EXTERIOR
-*option:semi:value:7 = int_wl
-*option:semi:value:8 = OPAQUE
-*option:semi:value:9 = ADIABATIC
-*option:semi:value:10= int_wl
-*option:semi:value:11= OPAQUE
-*option:semi:value:12= ADIABATIC
-*option:semi:value:13= <OPT-BsmWall>
-*option:semi:value:14= BASESIMP,01,10
-*option:semi:value:15= int_wl
-*option:semi:value:16= ADIABATIC,0,0
-*option:semi:value:17= BASESIMP,01,20
-*option:semi:value:18= BASESIMP,01,20
-*option:semi:value:19= BASESIMP,01,5
-*option:semi:value:20= BASESIMP,01,5
-*option:semi:value:21= 5
-*option:semi:value:22= 0
-*option:semi:value:23= 6,    <OPT-BsmCnnIndex>,	10
-*option:semi:value:24= 6,    <OPT-BsmCnnIndex>,	20
-*option:semi:value:25= 6,    <OPT-BsmCnnIndex>,	20
-*option:semi:value:26= 5,   0,   0
-*option:semi:value:27= 6,    <OPT-BsmCnnIndex>,	5
-*option:semi:value:28= 6,    <OPT-BsmCnnIndex>,	5
+
+*option:semi:value:1 = <OptAtt-windows-1-FrontCON>
+*option:semi:value:2 = <OptAtt-windows-1-FrontOPT>
+*option:semi:value:3 = <Opt-MainWall-Bri>
+*option:semi:value:4 = OPAQUE
+*option:semi:value:5 = EXTERIOR
+*option:semi:value:6 = <OptAtt-windows-2-LeftCON>
+*option:semi:value:7 = <OptAtt-windows-2-LeftOPT>
+*option:semi:value:8 = EXTERIOR
+*option:semi:value:9 = <OptAtt-windows-3-BackCON>
+*option:semi:value:10= <OptAtt-windows-3-BackOPT>
+*option:semi:value:11= int_wl
+*option:semi:value:12= OPAQUE
+*option:semi:value:13= ADIABATIC
+*option:semi:value:14= int_wl
+*option:semi:value:15= OPAQUE
+*option:semi:value:16= ADIABATIC
+*option:semi:value:17= <OPT-BsmWall>
+*option:semi:value:18= BASESIMP,01,10
+*option:semi:value:19= int_wl
+*option:semi:value:20= ADIABATIC,0,0
+*option:semi:value:21= BASESIMP,01,20
+*option:semi:value:22= BASESIMP,01,20
+*option:semi:value:23= BASESIMP,01,5
+*option:semi:value:24= BASESIMP,01,5
+*option:semi:value:25= 5
+*option:semi:value:26= 0
+*option:semi:value:27= 6,    <OPT-BsmCnnIndex>,	10
+*option:semi:value:28= 6,    <OPT-BsmCnnIndex>,	20
+*option:semi:value:29= 6,    <OPT-BsmCnnIndex>,	20
+*option:semi:value:30= 5,   0,   0
+*option:semi:value:31= 6,    <OPT-BsmCnnIndex>,	5
+*option:semi:value:32= 6,    <OPT-BsmCnnIndex>,	5
 *option:semi:cost:total    = 0
 
-
-*option:row:value:1 = int_wl
-*option:row:value:2 = OPAQUE
-*option:row:value:3 = ADIABATIC
-*option:row:value:4 = int_wl
-*option:row:value:5 = OPAQUE
-*option:row:value:6 = ADIABATIC
-*option:row:value:7 = int_wl
-*option:row:value:8 = OPAQUE
-*option:row:value:9 = ADIABATIC
-*option:row:value:10= int_wl
-*option:row:value:11= OPAQUE
-*option:row:value:12= ADIABATIC
-*option:row:value:13= int_wl
-*option:row:value:14= ADIABATIC,0,0
-*option:row:value:15= int_wl
-*option:row:value:16= ADIABATIC,0,0
-*option:row:value:17= BASESIMP,01,20
-*option:row:value:18= BASESIMP,01,20
-*option:row:value:19= BASESIMP,01,10
-*option:row:value:20= BASESIMP,01,10
-*option:row:value:21= 5
-*option:row:value:22= 5
-*option:row:value:23= 6,    <OPT-BsmCnnIndex>,	20
-*option:row:value:24= 5,   0,   0
-*option:row:value:25= 6,    <OPT-BsmCnnIndex>,	20
-*option:row:value:26= 5,   0,   0
-*option:row:value:27= 6,    <OPT-BsmCnnIndex>,	10
-*option:row:value:28= 6,    <OPT-BsmCnnIndex>,	10
+*option:row:value:1 = <OptAtt-windows-1-FrontCON>
+*option:row:value:2 = <OptAtt-windows-1-FrontOPT>
+*option:row:value:3 = int_wl
+*option:row:value:4 = OPAQUE
+*option:row:value:5 = ADIABATIC
+*option:row:value:6 = int_wl
+*option:row:value:7 = OPAQUE
+*option:row:value:8 = ADIABATIC
+*option:row:value:9 = <OptAtt-windows-3-BackCON>
+*option:row:value:10= <OptAtt-windows-3-BackOPT>
+*option:row:value:11= int_wl
+*option:row:value:12= OPAQUE
+*option:row:value:13= ADIABATIC
+*option:row:value:14= int_wl
+*option:row:value:15= OPAQUE
+*option:row:value:16= ADIABATIC
+*option:row:value:17= int_wl
+*option:row:value:18= ADIABATIC,0,0
+*option:row:value:19= int_wl
+*option:row:value:20= ADIABATIC,0,0
+*option:row:value:21= BASESIMP,01,20
+*option:row:value:22= BASESIMP,01,20
+*option:row:value:23= BASESIMP,01,10
+*option:row:value:24= BASESIMP,01,10
+*option:row:value:25= 5
+*option:row:value:26= 5
+*option:row:value:27= 6,    <OPT-BsmCnnIndex>,	20
+*option:row:value:28= 5,   0,   0
+*option:row:value:29= 6,    <OPT-BsmCnnIndex>,	20
+*option:row:value:30= 5,   0,   0
+*option:row:value:31= 6,    <OPT-BsmCnnIndex>,	10
+*option:row:value:32= 6,    <OPT-BsmCnnIndex>,	10
 *option:row:cost:total    = 0
 
 *attribute:end
 
-
 !-----------------------------------------------------------------------
+! This option renames the front/left/back/right window tags to 
+! N/S/E/W, according to the orientation .
+!-----------------------------------------------------------------------
+
+*attribute:start 
+*attribute:name  = Opt-WindowOrientation 
+*attribute:tag:1 = <OptAtt-windows-1-FrontCON>
+*attribute:tag:2 = <OptAtt-windows-1-FrontOPT>
+*attribute:tag:3 = <OptAtt-windows-2-LeftCON>
+*attribute:tag:4 = <OptAtt-windows-2-LeftOPT>
+*attribute:tag:5 = <OptAtt-windows-3-BackCON>
+*attribute:tag:6 = <OptAtt-windows-3-BackOPT>
+*attribute:tag:7 = <OptAtt-windows-4-RightCON>
+*attribute:tag:8 = <OptAtt-windows-4-RightOPT>
+*attribute:default  = all
+
+*option[GOconfig_rotate>S]:all:value:1 = <Opt-win-S-CON>
+*option[GOconfig_rotate>S]:all:value:2 = <Opt-win-S-OPT>
+*option[GOconfig_rotate>S]:all:value:3 = <Opt-win-E-CON>
+*option[GOconfig_rotate>S]:all:value:4 = <Opt-win-E-OPT>
+*option[GOconfig_rotate>S]:all:value:5 = <Opt-win-N-CON>
+*option[GOconfig_rotate>S]:all:value:6 = <Opt-win-N-OPT>
+*option[GOconfig_rotate>S]:all:value:7 = <Opt-win-W-CON>
+*option[GOconfig_rotate>S]:all:value:8 = <Opt-win-W-OPT>
+*option[GOconfig_rotate>S]:all:cost:total    = 0
+
+*option[GOconfig_rotate>E]:all:value:1 = <Opt-win-E-CON>
+*option[GOconfig_rotate>E]:all:value:2 = <Opt-win-E-OPT>
+*option[GOconfig_rotate>E]:all:value:3 = <Opt-win-N-CON>
+*option[GOconfig_rotate>E]:all:value:4 = <Opt-win-N-OPT>
+*option[GOconfig_rotate>E]:all:value:5 = <Opt-win-W-CON>
+*option[GOconfig_rotate>E]:all:value:6 = <Opt-win-W-OPT>
+*option[GOconfig_rotate>E]:all:value:7 = <Opt-win-S-CON>
+*option[GOconfig_rotate>E]:all:value:8 = <Opt-win-S-OPT>
+*option[GOconfig_rotate>E]:all:cost:total    = 0
+
+*option[GOconfig_rotate>N]:all:value:1 = <Opt-win-N-CON>
+*option[GOconfig_rotate>N]:all:value:2 = <Opt-win-N-OPT>
+*option[GOconfig_rotate>N]:all:value:3 = <Opt-win-W-CON>
+*option[GOconfig_rotate>N]:all:value:4 = <Opt-win-W-OPT>
+*option[GOconfig_rotate>N]:all:value:5 = <Opt-win-S-CON>
+*option[GOconfig_rotate>N]:all:value:6 = <Opt-win-S-OPT>
+*option[GOconfig_rotate>N]:all:value:7 = <Opt-win-E-CON>
+*option[GOconfig_rotate>N]:all:value:8 = <Opt-win-E-OPT>
+*option[GOconfig_rotate>N]:all:cost:total    = 0
+
+
+*option[GOconfig_rotate>W]:all:value:1 = <Opt-win-W-CON>
+*option[GOconfig_rotate>W]:all:value:2 = <Opt-win-W-OPT>
+*option[GOconfig_rotate>W]:all:value:3 = <Opt-win-S-CON>
+*option[GOconfig_rotate>W]:all:value:4 = <Opt-win-S-OPT>
+*option[GOconfig_rotate>W]:all:value:5 = <Opt-win-E-CON>
+*option[GOconfig_rotate>W]:all:value:6 = <Opt-win-E-OPT>
+*option[GOconfig_rotate>W]:all:value:7 = <Opt-win-N-CON>
+*option[GOconfig_rotate>W]:all:value:8 = <Opt-win-N-OPT>
+*option[GOconfig_rotate>W]:all:cost:total    = 0
+
+*attribute:end
+
+
+
+
+
+
+
+
+
+
+
+!-----------------DOESN't WORK-------------------------------------------
 ! This option can be used to turn the model's minimum
 ! number of windows opaque. It's not intended for optimization,
 ! but might be useful in testing & debugging the model.
 !-----------------------------------------------------------------------
 *attribute:start 
 *attribute:name  = Opt-BaseWindows
-*attribute:tag:1 = <OptBW-Construction>
-*attribute:tag:2 = <OptBW-Optics>
+*attribute:tag:1 = <No-Longer-A-Working-Tag>
+*attribute:tag:2 = <No-Longer-A-Working-Tag2>
 *attribute:default  = MinWindows
 
 *option:NoWindows:value:1 = <Opt-MainWall-Bri>
@@ -348,253 +456,14 @@
 *option:Kamloops:value:2 = 50.7
 *option:Kamloops:value:3 = -0.45
 *option:Kamloops:cost:total    = 0    
+
+*option:Yellowknife:value:1 = can_yellowknife.cwec
+*option:Yellowknife:value:2 = 62.47
+*option:Yellowknife:value:3 = -0.55
+*option:Yellowknife:cost:total    = 0
   
 *attribute:end
 
-!-----------------------------------------------------------------------
-! The next three options add extra windows to the front of the house 
-! on the second story. (Zone top_fl) Costs are computed by scaling 
-! option Opt-CasementWindows option by the amount of increased glass area. 
-!-----------------------------------------------------------------------
-
-*attribute:start 
-*attribute:name  = Opt-FrontWindows
-*attribute:tag:1 = <OptTopFlExWin1Con>
-*attribute:tag:2 = <OptTopFlExWin1Opt>
-*attribute:tag:3 = <OptTopFlExWin2Con>
-*attribute:tag:4 = <OptTopFlExWin2Opt>
-*attribute:tag:5 = <OptTopFlExWin3Con>
-*attribute:tag:6 = <OptTopFlExWin3Opt>
-*attribute:default = NoExtraWin
-
-*option:NoExtraWin:value:1 = <Opt-MainWall-Bri>
-*option:NoExtraWin:value:2 = OPAQUE
-*option:NoExtraWin:value:3 = <Opt-MainWall-Bri>
-*option:NoExtraWin:value:4 = OPAQUE
-*option:NoExtraWin:value:5 = <Opt-MainWall-Bri>
-*option:NoExtraWin:value:6 = OPAQUE
-*option:NoExtraWin:cost:total    = 0
-
-*option:OneExtraWin:value:1 = <Opt-CasWinConstruction>
-*option:OneExtraWin:value:2 = <Opt-CasWinOptics>
-*option:OneExtraWin:value:3 = <Opt-MainWall-Bri>
-*option:OneExtraWin:value:4 = OPAQUE
-*option:OneExtraWin:value:5 = <Opt-MainWall-Bri>
-*option:OneExtraWin:value:6 = OPAQUE
-*option:OneExtraWin:cost:total    = <MULTIPLY-COST:Opt-CasementWindows*0.051917>
-
-*option:TwoExtraWin:value:1 = <Opt-CasWinConstruction>
-*option:TwoExtraWin:value:2 = <Opt-CasWinOptics>
-*option:TwoExtraWin:value:3 = <Opt-CasWinConstruction>
-*option:TwoExtraWin:value:4 = <Opt-CasWinOptics>
-*option:TwoExtraWin:value:5 = <Opt-MainWall-Bri>
-*option:TwoExtraWin:value:6 = OPAQUE
-*option:TwoExtraWin:cost:total    = <MULTIPLY-COST:Opt-CasementWindows*0.103834>
-
-*option:ThreeExtraWin:value:1 = <Opt-CasWinConstruction>
-*option:ThreeExtraWin:value:2 = <Opt-CasWinOptics>
-*option:ThreeExtraWin:value:3 = <Opt-CasWinConstruction>
-*option:ThreeExtraWin:value:4 = <Opt-CasWinOptics>
-*option:ThreeExtraWin:value:5 = <Opt-CasWinConstruction>
-*option:ThreeExtraWin:value:6 = <Opt-CasWinOptics>
-*option:ThreeExtraWin:cost:total    = <MULTIPLY-COST:Opt-CasementWindows*0.155751>
-
-*attribute:end 
-
-!-----------------------------------------------------------------------
-! Add up to 6 extra windows to the back of the house 
-! CEF archetype supports NoExtraWin->SevenExtraWin
-! MB LEEP archetype only supports NoExtraWin->FourExtraWin
-!-----------------------------------------------------------------------
-*attribute:start 
-
-*attribute:name   = Opt-BackWindows
-
-*attribute:tag:1  = <OptFirstFlExWin1Con>
-*attribute:tag:2  = <OptFirstFlExWin1Opt>
-*attribute:tag:3  = <OptFirstFlExWin3Con>
-*attribute:tag:4  = <OptFirstFlExWin3Opt>
-*attribute:tag:5  = <OptFirstFlExWin4Con>
-*attribute:tag:6  = <OptFirstFlExWin4Opt>
-*attribute:tag:7  = <OptFirstFlExWin5Con>
-*attribute:tag:8  = <OptFirstFlExWin5Opt>
-*attribute:tag:9  = <OptFirstFlExWin6Con>
-*attribute:tag:10 = <OptFirstFlExWin6Opt>
-*attribute:tag:11 = <OptBedroomExWin1Con>
-*attribute:tag:12 = <OptBedroomExWin1Opt>
-*attribute:tag:13 = <OptMasterExWin1Con>
-*attribute:tag:14 = <OptMasterExWin1Opt>
-*attribute:default = NoExtraWin
-
-*option:NoExtraWin:value:1  = <Opt-MainWall-Bri>
-
-*option:NoExtraWin:value:2  = OPAQUE
-*option:NoExtraWin:value:3  = <Opt-MainWall-Bri>
-*option:NoExtraWin:value:4  = OPAQUE
-*option:NoExtraWin:value:5  = <Opt-MainWall-Bri>
-*option:NoExtraWin:value:6  = OPAQUE
-*option:NoExtraWin:value:7  = <Opt-MainWall-Bri>
-*option:NoExtraWin:value:8  = OPAQUE
-*option:NoExtraWin:value:9  = <Opt-MainWall-Bri>
-*option:NoExtraWin:value:10 = OPAQUE
-*option:NoExtraWin:value:11 = <Opt-MainWall-Bri>
-*option:NoExtraWin:value:12 = OPAQUE
-*option:NoExtraWin:value:13 = <Opt-MainWall-Bri>
-*option:NoExtraWin:value:14 = OPAQUE
-*option:NoExtraWin:cost:total     = 0
-
-*option:OneExtraWin:value:1  = <Opt-CasWinConstruction>
-*option:OneExtraWin:value:2  = <Opt-CasWinOptics>
-*option:OneExtraWin:value:3  = <Opt-MainWall-Bri>
-*option:OneExtraWin:value:4  = OPAQUE
-*option:OneExtraWin:value:5  = <Opt-MainWall-Bri>
-*option:OneExtraWin:value:6  = OPAQUE
-*option:OneExtraWin:value:7  = <Opt-MainWall-Bri>
-*option:OneExtraWin:value:8  = OPAQUE
-*option:OneExtraWin:value:9  = <Opt-MainWall-Bri>
-*option:OneExtraWin:value:10 = OPAQUE
-*option:OneExtraWin:value:11 = <Opt-MainWall-Bri>
-*option:OneExtraWin:value:12 = OPAQUE
-*option:OneExtraWin:value:13 = <Opt-MainWall-Bri>
-*option:OneExtraWin:value:14 = OPAQUE
-*option:OneExtraWin:cost:total     = <MULTIPLY-COST:Opt-CasementWindows*0.04138>
-
-*option:TwoExtraWin:value:1  = <Opt-CasWinConstruction>
-*option:TwoExtraWin:value:2  = <Opt-CasWinOptics>
-*option:TwoExtraWin:value:3  = <Opt-CasWinConstruction>
-*option:TwoExtraWin:value:4  = <Opt-CasWinOptics>
-*option:TwoExtraWin:value:5  = <Opt-MainWall-Bri>
-*option:TwoExtraWin:value:6  = OPAQUE
-*option:TwoExtraWin:value:7  = <Opt-MainWall-Bri>
-*option:TwoExtraWin:value:8  = OPAQUE
-*option:TwoExtraWin:value:9  = <Opt-MainWall-Bri>
-*option:TwoExtraWin:value:10 = OPAQUE
-*option:TwoExtraWin:value:11 = <Opt-MainWall-Bri>
-*option:TwoExtraWin:value:12 = OPAQUE
-*option:TwoExtraWin:value:13 = <Opt-MainWall-Bri>
-*option:TwoExtraWin:value:14 = OPAQUE
-*option:TwoExtraWin:cost:total     = <MULTIPLY-COST:Opt-CasementWindows*0.12921>
-
-*option:ThreeExtraWin:value:1  = <Opt-CasWinConstruction>
-*option:ThreeExtraWin:value:2  = <Opt-CasWinOptics>
-*option:ThreeExtraWin:value:3  = <Opt-CasWinConstruction>
-*option:ThreeExtraWin:value:4  = <Opt-CasWinOptics>
-*option:ThreeExtraWin:value:5  = <Opt-CasWinConstruction>
-*option:ThreeExtraWin:value:6  = <Opt-CasWinOptics>
-*option:ThreeExtraWin:value:7  = <Opt-MainWall-Bri>
-*option:ThreeExtraWin:value:8  = OPAQUE
-*option:ThreeExtraWin:value:9  = <Opt-MainWall-Bri>
-*option:ThreeExtraWin:value:10 = OPAQUE
-*option:ThreeExtraWin:value:11 = <Opt-MainWall-Bri>
-*option:ThreeExtraWin:value:12 = OPAQUE
-*option:ThreeExtraWin:value:13 = <Opt-MainWall-Bri>
-*option:ThreeExtraWin:value:14 = OPAQUE
-*option:ThreeExtraWin:cost:total     = <MULTIPLY-COST:Opt-CasementWindows*0.17059>
-
-*option:FourExtraWin:value:1  = <Opt-CasWinConstruction>
-*option:FourExtraWin:value:2  = <Opt-CasWinOptics>
-*option:FourExtraWin:value:3  = <Opt-CasWinConstruction>
-*option:FourExtraWin:value:4  = <Opt-CasWinOptics>
-*option:FourExtraWin:value:5  = <Opt-CasWinConstruction>
-*option:FourExtraWin:value:6  = <Opt-CasWinOptics>
-*option:FourExtraWin:value:7  = <Opt-CasWinConstruction>
-*option:FourExtraWin:value:8  = <Opt-CasWinOptics>
-*option:FourExtraWin:value:9  = <Opt-MainWall-Bri>
-*option:FourExtraWin:value:10 = OPAQUE
-*option:FourExtraWin:value:11 = <Opt-MainWall-Bri>
-*option:FourExtraWin:value:12 = OPAQUE
-*option:FourExtraWin:value:13 = <Opt-MainWall-Bri>
-*option:FourExtraWin:value:14 = OPAQUE
-*option:FourExtraWin:cost:total     = <MULTIPLY-COST:Opt-CasementWindows*0.21197>
-
-*option:FiveExtraWin:value:1  = <Opt-CasWinConstruction>
-*option:FiveExtraWin:value:2  = <Opt-CasWinOptics>
-*option:FiveExtraWin:value:3  = <Opt-CasWinConstruction>
-*option:FiveExtraWin:value:4  = <Opt-CasWinOptics>
-*option:FiveExtraWin:value:5  = <Opt-CasWinConstruction>
-*option:FiveExtraWin:value:6  = <Opt-CasWinOptics>
-*option:FiveExtraWin:value:7  = <Opt-CasWinConstruction>
-*option:FiveExtraWin:value:8  = <Opt-CasWinOptics>
-*option:FiveExtraWin:value:9  = <Opt-CasWinConstruction>
-*option:FiveExtraWin:value:10 = <Opt-CasWinOptics>
-*option:FiveExtraWin:value:11 = <Opt-MainWall-Bri>
-*option:FiveExtraWin:value:12 = OPAQUE
-*option:FiveExtraWin:value:13 = <Opt-MainWall-Bri>
-*option:FiveExtraWin:value:14 = OPAQUE
-*option:FiveExtraWin:cost:total     = <MULTIPLY-COST:Opt-CasementWindows*0.25335>
-
-*option:SixExtraWin:value:1  = <Opt-CasWinConstruction>
-*option:SixExtraWin:value:2  = <Opt-CasWinOptics>
-*option:SixExtraWin:value:3  = <Opt-CasWinConstruction>
-*option:SixExtraWin:value:4  = <Opt-CasWinOptics>
-*option:SixExtraWin:value:5  = <Opt-CasWinConstruction>
-*option:SixExtraWin:value:6  = <Opt-CasWinOptics>
-*option:SixExtraWin:value:7  = <Opt-CasWinConstruction>
-*option:SixExtraWin:value:8  = <Opt-CasWinOptics>
-*option:SixExtraWin:value:9  = <Opt-CasWinConstruction>
-*option:SixExtraWin:value:10 = <Opt-CasWinOptics>
-*option:SixExtraWin:value:11 = <Opt-CasWinConstruction>
-*option:SixExtraWin:value:12 = <Opt-CasWinOptics>
-*option:SixExtraWin:value:13 = <Opt-MainWall-Bri>
-*option:SixExtraWin:value:14 = OPAQUE
-*option:SixExtraWin:cost:total     = <MULTIPLY-COST:Opt-CasementWindows*0.34118>
-
-*option:SevenExtraWin:value:1  = <Opt-CasWinConstruction>
-*option:SevenExtraWin:value:2  = <Opt-CasWinOptics>
-*option:SevenExtraWin:value:3  = <Opt-CasWinConstruction>
-*option:SevenExtraWin:value:4  = <Opt-CasWinOptics>
-*option:SevenExtraWin:value:5  = <Opt-CasWinConstruction>
-*option:SevenExtraWin:value:6  = <Opt-CasWinOptics>
-*option:SevenExtraWin:value:7  = <Opt-CasWinConstruction>
-*option:SevenExtraWin:value:8  = <Opt-CasWinOptics>
-*option:SevenExtraWin:value:9  = <Opt-CasWinConstruction>
-*option:SevenExtraWin:value:10 = <Opt-CasWinOptics>
-*option:SevenExtraWin:value:11 = <Opt-CasWinConstruction>
-*option:SevenExtraWin:value:12 = <Opt-CasWinOptics>
-*option:SevenExtraWin:value:13 = <Opt-CasWinConstruction>
-*option:SevenExtraWin:value:14 = <Opt-CasWinOptics>
-*option:SevenExtraWin:cost:total     = <MULTIPLY-COST:Opt-CasementWindows*0.42901>
-
-*attribute:end 
-
-!!!!!!!! (Left-side window)
-*attribute:start 
-*attribute:name  = Opt-ExtLeftSideWindow 
-*attribute:tag:1 = <OptFirstFlExWin2Con>
-*attribute:tag:2 = <OptFirstFlExWin2Opt>
-*attribute:default = No 
-
-*option:No:value:1 = <Opt-MainWall-Bri>
-*option:No:value:2 = OPAQUE
-*option:No:cost:total    = 0
-
-*option:Yes:value:1 = <Opt-CasWinConstruction>
-*option:Yes:value:2 = <Opt-CasWinOptics>
-*option:Yes:cost:total    = <MULTIPLY-COST:Opt-CasementWindows*0.051917>
-
-*attribute:end 
-
-
-
-!-----------------------------------------------------------------------
-! Add an extra window to the basement 
-!-----------------------------------------------------------------------
-
-*attribute:start 
-*attribute:name  = Opt-ExtBasementWindow
-*attribute:tag:1 = <OptBsmtExWin1Con>
-*attribute:tag:2 = <OptBsmtExWin1Opt>
-*attribute:default = No
-
-*option:No:value:1 = <OPT-BsmWall>
-*option:No:value:2 = OPAQUE
-*option:No:cost:total    = 0
-
-*option:Yes:value:1 = <Opt-CasWinConstruction>
-*option:Yes:value:2 = <Opt-CasWinOptics>
-*option:Yes:cost:total    = <MULTIPLY-COST:Opt-CasementWindows*0.03538>
-
-*attribute:end 
 
 !------------------------------------------------------------------------
 ! This option sets the overhang widths 
@@ -794,35 +663,140 @@
 
 *attribute:start 
 *attribute:name  = Opt-CasementWindows
-*attribute:tag:1 = <Opt-CasWinConstruction>
-*attribute:tag:2 = <Opt-CasWinOptics>
+*attribute:tag:1 = <Opt-win-S-CON>
+*attribute:tag:2 = <Opt-win-S-OPT>
+*attribute:tag:3 = <Opt-win-E-CON>
+*attribute:tag:4 = <Opt-win-E-OPT>
+*attribute:tag:5 = <Opt-win-N-CON>
+*attribute:tag:6 = <Opt-win-N-OPT>
+*attribute:tag:7 = <Opt-win-W-CON>
+*attribute:tag:8 = <Opt-win-W-OPT>
 *attribute:default = DoubleLowEHardCoatArgFill
 
-!*option:OriginalGlassParam:value:1 = DblArLowe
-!*option:OriginalGlassParam:value:2 = DBLLowE
-!*option:OriginalGlassParam:cost:total    = 0
 
 
 ! JP removed base case cost - no additional windows available for lighthouse work.
 *option:DoubleLowEHardCoatAirFill:value:1 = DblLeHcAir
 *option:DoubleLowEHardCoatAirFill:value:2 = DblLeHcAir
-*option:DoubleLowEHardCoatAirFill:cost:total    = 0.0 
+*option:DoubleLowEHardCoatAirFill:value:3 = DblLeHcAir
+*option:DoubleLowEHardCoatAirFill:value:4 = DblLeHcAir
+*option:DoubleLowEHardCoatAirFill:value:5 = DblLeHcAir
+*option:DoubleLowEHardCoatAirFill:value:6 = DblLeHcAir
+*option:DoubleLowEHardCoatAirFill:value:7 = DblLeHcAir
+*option:DoubleLowEHardCoatAirFill:value:8 = DblLeHcAir
+*option:DoubleLowEHardCoatAirFill:cost:total    = 0.0 ! Clear windows 
+
 
 *option:DoubleLowEHardCoatArgFill:value:1 = DblLeHcArg 
 *option:DoubleLowEHardCoatArgFill:value:2 = DblLeHcArg 
-*option:DoubleLowEHardCoatArgFill:cost:total    = 0.0	!Base for Mattamy Ottawa
+*option:DoubleLowEHardCoatArgFill:value:3 = DblLeHcArg 
+*option:DoubleLowEHardCoatArgFill:value:4 = DblLeHcArg 
+*option:DoubleLowEHardCoatArgFill:value:5 = DblLeHcArg 
+*option:DoubleLowEHardCoatArgFill:value:6 = DblLeHcArg 
+*option:DoubleLowEHardCoatArgFill:value:7 = DblLeHcArg 
+*option:DoubleLowEHardCoatArgFill:value:8 = DblLeHcArg 
+*option:DoubleLowEHardCoatArgFill:cost:total    = 0! Base for mattamy
 
 *option:TripleLowEHardCoatKryFill:value:1 = TplLeHcKry
 *option:TripleLowEHardCoatKryFill:value:2 = TplLeHcKry
-*option:TripleLowEHardCoatKryFill:cost:total    = 555	!Mattamy Ottawa
+*option:TripleLowEHardCoatKryFill:value:3 = TplLeHcKry
+*option:TripleLowEHardCoatKryFill:value:4 = TplLeHcKry
+*option:TripleLowEHardCoatKryFill:value:5 = TplLeHcKry
+*option:TripleLowEHardCoatKryFill:value:6 = TplLeHcKry
+*option:TripleLowEHardCoatKryFill:value:7 = TplLeHcKry
+*option:TripleLowEHardCoatKryFill:value:8 = TplLeHcKry
+*option:TripleLowEHardCoatKryFill:cost:total    = 555! Mattamy upgrade
+
+
+
 
 *option:TripleLowESoftCoatKryFill:value:1 = TplLeScKry
 *option:TripleLowESoftCoatKryFill:value:2 = TplLeScKry
-*option:TripleLowESoftCoatKryFill:cost:total    = 4050
+*option:TripleLowESoftCoatKryFill:value:3 = TplLeScKry
+*option:TripleLowESoftCoatKryFill:value:4 = TplLeScKry
+*option:TripleLowESoftCoatKryFill:value:5 = TplLeScKry
+*option:TripleLowESoftCoatKryFill:value:6 = TplLeScKry
+*option:TripleLowESoftCoatKryFill:value:7 = TplLeScKry
+*option:TripleLowESoftCoatKryFill:value:8 = TplLeScKry
+*option:TripleLowESoftCoatKryFill:cost:total    = 4050 ! Value changed for Van_2st_80_retro geometry. Originally 19310
 
 *option:DoubleLowESoftCoatArgFill:value:1 = DblLeScArg
 *option:DoubleLowESoftCoatArgFill:value:2 = DblLeScArg
-*option:DoubleLowESoftCoatArgFill:cost:total    = 2440
+*option:DoubleLowESoftCoatArgFill:value:3 = DblLeScArg
+*option:DoubleLowESoftCoatArgFill:value:4 = DblLeScArg
+*option:DoubleLowESoftCoatArgFill:value:5 = DblLeScArg
+*option:DoubleLowESoftCoatArgFill:value:6 = DblLeScArg
+*option:DoubleLowESoftCoatArgFill:value:7 = DblLeScArg
+*option:DoubleLowESoftCoatArgFill:value:8 = DblLeScArg
+*option:DoubleLowESoftCoatArgFill:cost:total    = 2440 ! Value changed for Van_2st_80_retro geometry. Originally 10965
+
+!---------------------------------------------------------------------
+! Whitehorse window models
+!---------------------------------------------------------------------
+*option:DoubleArgon_HighGainOnSouth:value:1 = DblLeHcArg
+*option:DoubleArgon_HighGainOnSouth:value:2 = DblLeHcArg
+*option:DoubleArgon_HighGainOnSouth:value:3 = DblLeScArg
+*option:DoubleArgon_HighGainOnSouth:value:4 = DblLeScArg
+*option:DoubleArgon_HighGainOnSouth:value:5 = DblLeScArg
+*option:DoubleArgon_HighGainOnSouth:value:6 = DblLeScArg
+*option:DoubleArgon_HighGainOnSouth:value:7 = DblLeScArg
+*option:DoubleArgon_HighGainOnSouth:value:8 = DblLeScArg
+*option:DoubleArgon_HighGainOnSouth:cost:total    = 0 ! Value changed for Van_2st_80_retro geometry. Originally 10965
+
+
+! Base option for windows has cost b/c we multiply this amount 
+! by optional window areas.
+*option:Wind1_trp_CL :value:1 = Wind1_trp_CL   
+*option:Wind1_trp_CL :value:2 = Wind1_trp_CL   
+*option:Wind1_trp_CL :value:3 = Wind1_trp_CL   
+*option:Wind1_trp_CL :value:4 = Wind1_trp_CL
+*option:Wind1_trp_CL :value:5 = Wind1_trp_CL   
+*option:Wind1_trp_CL :value:6 = Wind1_trp_CL
+*option:Wind1_trp_CL :value:7 = Wind1_trp_CL   
+*option:Wind1_trp_CL :value:8 = Wind1_trp_CL
+*option:Wind1_trp_CL :cost:total    = 0   ! this is used as the base case for NWT, so no cost. origianlly $20551
+
+*option:Win2scLE1_tr:value:1 = Win2scLE1_tr
+*option:Win2scLE1_tr:value:2 = Win2scLE1_tr 
+*option:Win2scLE1_tr:value:3 = Win2scLE1_tr
+*option:Win2scLE1_tr:value:4 = Win2scLE1_tr 
+*option:Win2scLE1_tr:value:5 = Win2scLE1_tr
+*option:Win2scLE1_tr:value:6 = Win2scLE1_tr 
+*option:Win2scLE1_tr:value:7 = Win2scLE1_tr
+*option:Win2scLE1_tr:value:8 = Win2scLE1_tr 
+*option:Win2scLE1_tr:cost:total   = 22883
+
+*option:Win3hcLE1_tr:value:1 = Win3hcLE1_tr
+*option:Win3hcLE1_tr:value:2 = Win3hcLE1_tr
+*option:Win3hcLE1_tr:value:3 = Win3hcLE1_tr
+*option:Win3hcLE1_tr:value:4 = Win3hcLE1_tr
+*option:Win3hcLE1_tr:value:5 = Win3hcLE1_tr
+*option:Win3hcLE1_tr:value:6 = Win3hcLE1_tr
+*option:Win3hcLE1_tr:value:7 = Win3hcLE1_tr
+*option:Win3hcLE1_tr:value:8 = Win3hcLE1_tr
+*option:Win3hcLE1_tr:cost:total   = 23550
+
+*option:Win4scLE2_tr:value:1 = Win4scLE2_tr 
+*option:Win4scLE2_tr:value:2 = Win4scLE2_tr
+*option:Win4scLE2_tr:value:3 = Win4scLE2_tr 
+*option:Win4scLE2_tr:value:4 = Win4scLE2_tr
+*option:Win4scLE2_tr:value:5 = Win4scLE2_tr 
+*option:Win4scLE2_tr:value:6 = Win4scLE2_tr
+*option:Win4scLE2_tr:value:7 = Win4scLE2_tr 
+*option:Win4scLE2_tr:value:8 = Win4scLE2_tr
+*option:Win4scLE2_tr:cost:total   = 23824
+
+*option:Win5hcLE2_tr:value:1 = Win5hcLE2_tr
+*option:Win5hcLE2_tr:value:2 = Win5hcLE2_tr
+*option:Win5hcLE2_tr:value:3 = Win5hcLE2_tr
+*option:Win5hcLE2_tr:value:4 = Win5hcLE2_tr
+*option:Win5hcLE2_tr:value:5 = Win5hcLE2_tr
+*option:Win5hcLE2_tr:value:6 = Win5hcLE2_tr
+*option:Win5hcLE2_tr:value:7 = Win5hcLE2_tr
+*option:Win5hcLE2_tr:value:8 = Win5hcLE2_tr
+*option:Win5hcLE2_tr:cost:total   = 24491
+
+
 
 
 !---------------------------------------------------------------------
@@ -831,45 +805,45 @@
 
 ! Base option for windows has cost b/c we multiply this amount 
 ! by optional window areas.
-*option:Wind1_trp_CL :value:1 = Wind1_trp_CL   
-*option:Wind1_trp_CL :value:2 = Wind1_trp_CL   
-*option:Wind1_trp_CL :cost:total    = 20551
-
-*option:Win2scLE1_tr:value:1 = Win2scLE1_tr
-*option:Win2scLE1_tr:value:2 = Win2scLE1_tr 
-*option:Win2scLE1_tr:cost:total   = 22883
-
-*option:Win3hcLE1_tr:value:1 = Win3hcLE1_tr
-*option:Win3hcLE1_tr:value:2 = Win3hcLE1_tr
-*option:Win3hcLE1_tr:cost:total   = 23550
-
-*option:Win4scLE2_tr:value:1 = Win4scLE2_tr 
-*option:Win4scLE2_tr:value:2 = Win4scLE2_tr
-*option:Win4scLE2_tr:cost:total   = 23824
-
-*option:Win5hcLE2_tr:value:1 = Win5hcLE2_tr
-*option:Win5hcLE2_tr:value:2 = Win5hcLE2_tr
-*option:Win5hcLE2_tr:cost:total   = 24491
-
-*option:Win6_qd_CL:value:1 = Win6_qd_CL
-*option:Win6_qd_CL:value:2 = Win6_qd_CL
-*option:Win6_qd_CL:cost:total   = 25226
-
-*option:Win7scle1_qd:value:1 = Win7scle1_qd
-*option:Win7scle1_qd:value:2 = Win7scle1_qd
-*option:Win7scle1_qd:cost:total   = 28209
-
-*option:Win8hcle1_qd:value:1 = Win8hcle1_qd
-*option:Win8hcle1_qd:value:2 = Win8hcle1_qd
-*option:Win8hcle1_qd:cost:total   = 28876
-
-*option:Win9scle2_qd:value:1 = Win9scle2_qd
-*option:Win9scle2_qd:value:2 = Win9scle2_qd
-*option:Win9scle2_qd:cost:total   = 29120
-
-*option:Win10hcle2_q:value:1 = Win10hcle2_q
-*option:Win10hcle2_q:value:2 = Win10hcle2_q
-*option:Win10hcle2_q:cost:total   = 29787
+!*option:Wind1_trp_CL :value:1 = Wind1_trp_CL   
+!*option:Wind1_trp_CL :value:2 = Wind1_trp_CL   
+!*option:Wind1_trp_CL :cost:total    = 20551
+!
+!*option:Win2scLE1_tr:value:1 = Win2scLE1_tr
+!*option:Win2scLE1_tr:value:2 = Win2scLE1_tr 
+!*option:Win2scLE1_tr:cost:total   = 22883
+!
+!*option:Win3hcLE1_tr:value:1 = Win3hcLE1_tr
+!*option:Win3hcLE1_tr:value:2 = Win3hcLE1_tr
+!*option:Win3hcLE1_tr:cost:total   = 23550
+!
+!*option:Win4scLE2_tr:value:1 = Win4scLE2_tr 
+!*option:Win4scLE2_tr:value:2 = Win4scLE2_tr
+!*option:Win4scLE2_tr:cost:total   = 23824
+!
+!*option:Win5hcLE2_tr:value:1 = Win5hcLE2_tr
+!*option:Win5hcLE2_tr:value:2 = Win5hcLE2_tr
+!*option:Win5hcLE2_tr:cost:total   = 24491
+!
+!*option:Win6_qd_CL:value:1 = Win6_qd_CL
+!*option:Win6_qd_CL:value:2 = Win6_qd_CL
+!*option:Win6_qd_CL:cost:total   = 25226
+!
+!*option:Win7scle1_qd:value:1 = Win7scle1_qd
+!*option:Win7scle1_qd:value:2 = Win7scle1_qd
+!*option:Win7scle1_qd:cost:total   = 28209
+!
+!*option:Win8hcle1_qd:value:1 = Win8hcle1_qd
+!*option:Win8hcle1_qd:value:2 = Win8hcle1_qd
+!*option:Win8hcle1_qd:cost:total   = 28876
+!
+!*option:Win9scle2_qd:value:1 = Win9scle2_qd
+!*option:Win9scle2_qd:value:2 = Win9scle2_qd
+!*option:Win9scle2_qd:cost:total   = 29120
+!
+!*option:Win10hcle2_q:value:1 = Win10hcle2_q
+!*option:Win10hcle2_q:value:2 = Win10hcle2_q
+!*option:Win10hcle2_q:cost:total   = 29787
 
 !---------------------------------------------------------------------
 ! Retrofit window models
@@ -877,22 +851,52 @@
 !---------------------------------------------------------------------
 *option:DoubleClear:value:1 = DblClr
 *option:DoubleClear:value:2 = DblClr
+*option:DoubleClear:value:3 = DblClr
+*option:DoubleClear:value:4 = DblClr
+*option:DoubleClear:value:5 = DblClr
+*option:DoubleClear:value:6 = DblClr
+*option:DoubleClear:value:7 = DblClr
+*option:DoubleClear:value:8 = DblClr
 *option:DoubleClear:cost:total   = 0
 
 *option:retro_DoubleLowEHardCoatArgFill:value:1 = DblLeHcArg 
 *option:retro_DoubleLowEHardCoatArgFill:value:2 = DblLeHcArg 
+*option:retro_DoubleLowEHardCoatArgFill:value:3 = DblLeHcArg 
+*option:retro_DoubleLowEHardCoatArgFill:value:4 = DblLeHcArg 
+*option:retro_DoubleLowEHardCoatArgFill:value:5 = DblLeHcArg 
+*option:retro_DoubleLowEHardCoatArgFill:value:6 = DblLeHcArg 
+*option:retro_DoubleLowEHardCoatArgFill:value:7 = DblLeHcArg 
+*option:retro_DoubleLowEHardCoatArgFill:value:8 = DblLeHcArg 
 *option:retro_DoubleLowEHardCoatArgFill:cost:total    = 28790  
 
 *option:retro_DoubleLowESoftCoatArgFill:value:1 = DblLeScArg
 *option:retro_DoubleLowESoftCoatArgFill:value:2 = DblLeScArg
+*option:retro_DoubleLowESoftCoatArgFill:value:3 = DblLeScArg
+*option:retro_DoubleLowESoftCoatArgFill:value:4 = DblLeScArg
+*option:retro_DoubleLowESoftCoatArgFill:value:5 = DblLeScArg
+*option:retro_DoubleLowESoftCoatArgFill:value:6 = DblLeScArg
+*option:retro_DoubleLowESoftCoatArgFill:value:7 = DblLeScArg
+*option:retro_DoubleLowESoftCoatArgFill:value:8 = DblLeScArg
 *option:retro_DoubleLowESoftCoatArgFill:cost:total    = 28790
 
 *option:retro_TripleLowEHardCoatArgFill:value:1 = TplLeHcKry
 *option:retro_TripleLowEHardCoatArgFill:value:2 = TplLeHcKry
+*option:retro_TripleLowEHardCoatArgFill:value:3 = TplLeHcKry
+*option:retro_TripleLowEHardCoatArgFill:value:4 = TplLeHcKry
+*option:retro_TripleLowEHardCoatArgFill:value:5 = TplLeHcKry
+*option:retro_TripleLowEHardCoatArgFill:value:6 = TplLeHcKry
+*option:retro_TripleLowEHardCoatArgFill:value:7 = TplLeHcKry
+*option:retro_TripleLowEHardCoatArgFill:value:8 = TplLeHcKry
 *option:retro_TripleLowEHardCoatArgFill:cost:total    = 32156
 
 *option:retro_TripleLowESoftCoatArgFill:value:1 = TplLeScKry
 *option:retro_TripleLowESoftCoatArgFill:value:2 = TplLeScKry
+*option:retro_TripleLowESoftCoatArgFill:value:3 = TplLeScKry
+*option:retro_TripleLowESoftCoatArgFill:value:4 = TplLeScKry
+*option:retro_TripleLowESoftCoatArgFill:value:5 = TplLeScKry
+*option:retro_TripleLowESoftCoatArgFill:value:6 = TplLeScKry
+*option:retro_TripleLowESoftCoatArgFill:value:7 = TplLeScKry
+*option:retro_TripleLowESoftCoatArgFill:value:8 = TplLeScKry
 *option:retro_TripleLowESoftCoatArgFill:cost:total    = 32156
 
 *attribute:end
@@ -1699,7 +1703,18 @@ Reflects southern Ontario costs
 *option:retro_GSHP:value:6 = shoulder-ideal.ctl 
 *option:retro_GSHP:cost:total    = 32500          ! Does this reflect AC
 
+!---Options for Northern retrofit-------------------------------
+*option:Olsen:value:1 = oil-furnace-Olsen.hvac
+*option:Olsen:value:2 = #-no-GSHP-file
+*option:Olsen:value:3 = #No-IMS: 
+*option:Olsen:value:4 = 
+*option:Olsen:value:5 = 
+*option:Olsen:value:6 = shoulder-ideal.ctl 
+*option:Olsen:cost:total    = 0
+
+
 *attribute:end
+
 
 !-----------------------------------------------------------------------
 ! Cooling system spec in HVAC file (Added by JTB Dec 1, 2014)
@@ -1713,7 +1728,7 @@ Reflects southern Ontario costs
 
 *option:SmallCooling:value:1 = 10000.
 *option:SmallCooling:value:2 = 3.
-*option:SmallCooling:value:1 = 125.
+*option:SmallCooling:value:3 = 125.
 *option:SmallCooling:cost:total = 0
 
 *option:2TonStdCooling:value:1 = 24000.
@@ -1732,6 +1747,9 @@ Reflects southern Ontario costs
 *option:2TonGoodmanUnit:cost:total = 2930	! Mattamy Ottawa
   
 *attribute:end
+
+
+
 
 
 !-----------------------------------------------------------------------
@@ -2473,6 +2491,9 @@ Reflects southern Ontario costs
 *option[Opt-Location>Whitehorse ;Opt-RoofPitch>6-12  ]:SizedPV:production-elec-perKW  = 3.36888! GH/kW Installed
 *option[Opt-Location>Whitehorse ;Opt-RoofPitch>8-12  ]:SizedPV:production-elec-perKW  = 3.47472! GH/kW Installed
 *option[Opt-Location>Whitehorse ;Opt-RoofPitch>12-12 ]:SizedPV:production-elec-perKW  = 3.55536! GH/kW Installed
+*option[Opt-Location>Yellowknife ;Opt-RoofPitch>6-12  ]:SizedPV:production-elec-perKW  = 3.36888! GH/kW Installed
+*option[Opt-Location>Yellowknife ;Opt-RoofPitch>8-12  ]:SizedPV:production-elec-perKW  = 3.47472! GH/kW Installed
+*option[Opt-Location>Yellowknife ;Opt-RoofPitch>12-12 ]:SizedPV:production-elec-perKW  = 3.55536! GH/kW Installed
 *option:SizedPV:cost:PerKW = 4696 ! $/kW installed
 
 *option:NoPV:production-elec-perKW  = 0! GH/kW Installed
