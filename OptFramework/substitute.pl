@@ -660,9 +660,13 @@ while ( my $line = <CHOICES> ){
     # Parse config commands
     if ( $attribute =~ /^GOconfig_/ ){
       $attribute =~ s/^GOconfig_//g; 
-      if ( $attribute =~ /rotate/ ) { $gRotate = $value; } 
+      if ( $attribute =~ /rotate/ ) { 
+           $gRotate = $value; 
+           $gChoices{"GOconfig_rotate"}=$value; 
+           push @gChoiceOrder, "GOconfig_rotate";
+      } 
       if ( $attribute =~ /step/ ) { $gGOStep = $value; 
-                                      $gArchGOChoiceFile = 1;  } 
+                                    $gArchGOChoiceFile = 1;  } 
     }else{
       my $extradata = $value; 
       if ( $value =~ /\|/ ){
