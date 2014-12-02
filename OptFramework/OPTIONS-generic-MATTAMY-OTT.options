@@ -770,7 +770,7 @@
 *option:retro_ACH_3:cost:total  =  0
 
 *option:retro_ACH_2_5:value:1  = 2.5
-*option:retro_ACH_2_5:cost:total  =  0
+*option:retro_ACH_2_5:cost:total  =  0	!Base for Mattamy Ottawa
 
 *option:retro_ACH_2:value:1  = 2.0
 *option:retro_ACH_2:cost:total  =  0
@@ -1100,11 +1100,11 @@
 !*option:Truss-R52-Wall:value:4 =   TruR52DryR
 *option:Truss-R52-Wall:cost:total    = 9350 ! updated for Vancouver geometry. originally 12755
 
-*option:Stud-R275-Wall:value:1 =   StudR275Bri  ! Use for MB 1.5" Ext XPS
+*option:Stud-R275-Wall:value:1 =   StudR275Bri
 *option:Stud-R275-Wall:value:2 =   StudR275Vin
 *option:Stud-R275-Wall:value:3 =   StudR275Dry 
 !*option:Stud-R275-Wall:value:4 =   StudR275DryR
-*option:Stud-R275-Wall:cost:total    =  715 ! updated for Vancouver geometry. originally 965   JTB 13-Aug-2014 Ottawa LEEP
+*option:Stud-R275-Wall:cost:total    =  4000 ! Mattamy Ottawa cost Dec 1, 2014 (Codebord Air Barrier Sys)
 
 *option:Stud-R305-Wall:value:1 =   StudR305Bri  ! Use for MB 2.0" Ext XPS
 *option:Stud-R305-Wall:value:2 =   StudR305Vin
@@ -1514,7 +1514,6 @@ Whitehorse Wall Options (Code is R28)
 *attribute:tag:5   = <OPT-WHisIMS>
 *attribute:tag:6   = <Opt-HVACCtlFile>
 
-
 !--- Consider using psc variety as base furnace from now on. 
 *option:basefurnace:value:1 = basefurnace_ACv2.hvac
 *option:basefurnace:value:2 = #-no-GSHP-file
@@ -1522,7 +1521,7 @@ Whitehorse Wall Options (Code is R28)
 *option:basefurnace:value:4 = 
 *option:basefurnace:value:5 = 
 *option:basefurnace:value:6 = shoulder-ideal.ctl
-*option:basefurnace:cost:total    = 0	! Base for Mattamy Ottawa
+*option:basefurnace:cost:total    = 0
 
 *option:gas-furnace-ecm:value:1 = basefurnace_AC-gas-ecm-motor.hvac
 *option:gas-furnace-ecm:value:2 = #-no-GSHP-file
@@ -1530,7 +1529,7 @@ Whitehorse Wall Options (Code is R28)
 *option:gas-furnace-ecm:value:4 = 
 *option:gas-furnace-ecm:value:5 = 
 *option:gas-furnace-ecm:value:6 = shoulder-ideal.ctl
-*option:gas-furnace-ecm:cost:total    = 500  ! based on quote from Patric
+*option:gas-furnace-ecm:cost:total    = 0	! Base for Mattamy Ottawa
 
 *option:gas-furnace-psc:value:1 = basefurnace_AC-gas-psc-motor.hvac
 *option:gas-furnace-psc:value:2 = #-no-GSHP-file
@@ -1556,7 +1555,6 @@ Whitehorse Wall Options (Code is R28)
 *option:zoned-furnace-ecm:value:6 = shoulder_zoned.ctl
 *option:zoned-furnace-ecm:cost:total    = 0
 
-
 *option:IMS-P10:value:1 = IMS-P10.hvac
 *option:IMS-P10:value:2 = #-no-GSHP-file
 *option:IMS-P10:value:3 =  
@@ -1564,7 +1562,6 @@ Whitehorse Wall Options (Code is R28)
 *option:IMS-P10:value:5 = # NO DHW: IMS provides WH.  
 *option:IMS-P10:value:6 = shoulder-ideal.ctl
 *option:IMS-P10:cost:total    = 9000
- 
  
 ! Not-so-good P9 system. PSC motor?
 *option:Combi-P9-a:value:1 = Combi-P9.hvac
@@ -1584,7 +1581,6 @@ Whitehorse Wall Options (Code is R28)
 *option:Combi-P9-ecmV2:value:6 = shoulder-ideal.ctl
 *option:Combi-P9-ecmV2:cost:total    = 1445   !based on quote from Patric
 
-
 *option:propanefurnaceAC:value:1 = propane_furnace_ACv2.hvac
 *option:propanefurnaceAC:value:2 = #-no-GSHP-file
 *option:propanefurnaceAC:value:3 = #No-IMS: 
@@ -1592,7 +1588,6 @@ Whitehorse Wall Options (Code is R28)
 *option:propanefurnaceAC:value:5 = 
 *option:propanefurnaceAC:value:6 = shoulder-ideal.ctl
 *option:propanefurnaceAC:cost:total    = 0
-
 
 *option:oilfurnace:value:1 = basefurnace_ACv2_oil.hvac
 *option:oilfurnace:value:2 = #-no-GSHP-file
@@ -1617,7 +1612,6 @@ Whitehorse Wall Options (Code is R28)
 *option:CCASHP:value:5 = 
 *option:CCASHP:value:6 =  shoulder-ideal.ctl
 *option:CCASHP:cost:total   = 9595          ! Does this reflect AC system savings?
-
 
 Reflects southern Ontario costs
 *option:GSHP:value:1 = GSHPv2.hvac
@@ -1670,7 +1664,6 @@ Reflects southern Ontario costs
 *option:oil-furnace-low:value:6 = shoulder-ideal.ctl 
 *option:oil-furnace-low:cost:total    = 0
 
-
 !---Options for retrofit-------------------------------
 !BC 1980
 *option:gas-furnace-84_3:value:1 = gas-furnace-84_3.hvac
@@ -1706,7 +1699,38 @@ Reflects southern Ontario costs
 *option:retro_GSHP:value:6 = shoulder-ideal.ctl 
 *option:retro_GSHP:cost:total    = 32500          ! Does this reflect AC
 
+*attribute:end
 
+!-----------------------------------------------------------------------
+! Cooling system spec in HVAC file (Added by JTB Dec 1, 2014)
+!-----------------------------------------------------------------------
+*attribute:start 
+*attribute:name  = Opt-Cooling-Spec
+*attribute:tag:1 = <OPT-Cooling-Capacity>
+*attribute:tag:2 = <OPT-Cooling-COP>
+*attribute:tag:3 = <OPT-Cooling-Fan-Power>
+*attribute:default = SmallCooling
+
+*option:SmallCooling:value:1 = 10000.
+*option:SmallCooling:value:2 = 3.
+*option:SmallCooling:value:1 = 125.
+*option:SmallCooling:cost:total = 0
+
+*option:2TonStdCooling:value:1 = 24000.
+*option:2TonStdCooling:value:2 = 3.2	! Estimated based on 13 SEER (min. OBC)
+*option:2TonStdCooling:value:1 = 373.	! 1/2 hp fan
+*option:2TonStdCooling:cost:total = 0	! Base for Mattamy Ottawa
+  
+*option:2TonDettsonModUnit:value:1 = 24000.
+*option:2TonDettsonModUnit:value:2 = 4.3		! Estimated based on 21 SEER
+*option:2TonDettsonModUnit:value:1 = 373.		! 
+*option:2TonDettsonModUnit:cost:total = 1680	! Mattamy Ottawa
+  
+*option:2TonGoodmanUnit:value:1 = 24000.
+*option:2TonGoodmanUnit:value:2 = 4.0		! Estimated based on 18 SEER
+*option:2TonGoodmanUnit:value:1 = 373.		! 
+*option:2TonGoodmanUnit:cost:total = 2930	! Mattamy Ottawa
+  
 *attribute:end
 
 

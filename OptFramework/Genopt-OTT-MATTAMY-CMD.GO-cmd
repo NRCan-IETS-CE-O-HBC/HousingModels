@@ -60,7 +60,7 @@ Vary{
     Values = "single"; 
   }	
   
-  // Setting the ACH in the AIM-2 input file -- NOT USING generic.aim FOR OTTAWA LEEP
+  // Setting the ACH in the AIM-2 input file generic.aim
   Parameter{ // Toronto-retro
              // Vancouver-retro
              // Van_retro_after
@@ -68,14 +68,14 @@ Vary{
   
     Name = GOtag:Opt-ACH; 
     Ini  = 1;
-    Values = "retro_ACH_2_5, retro_ACH_1_5, retro_ACH_1"; 
+    Values = "retro_ACH_2_5, retro_ACH_1_5, retro_ACH_1"; 	// Base for Mattamy is 2.5 ACH
   }
 
    // Air tightness: Generic, TypicalGTA, R2000, Cdn1ACH, PassiveHouse, Base_WH_1.5, WH_1.0, WH_0.5
    Parameter{   // 
      Name    =  GOtag:Opt-AirTightness;
      Ini     =  1;
-     Values  =  "Generic";
+     Values  =  "Generic";		// Use Generic with Opt-ACH above!
      
    }    
    
@@ -141,7 +141,7 @@ Vary{
    Parameter{   // 
      Name    =  GOtag:Opt-Ceilings;
      Ini     =  1;
-     Values  =  "CeilR50,CeilR60";
+     Values  =  "CeilR50,CeilR60";	// CeilR70? $420
    }    
   
   // Windows:  DoubleLowEHardCoatAirFill 
@@ -231,10 +231,19 @@ Vary{
   Parameter {// 
       Name   = GOtag:Opt-HVACSystem; 
       Ini    = 1; 
-      Values = "basefurnace, zoned-furnace-ecm";	
-	  // Mattamy Ottawa: Basefurnace = Lennox
+      Values = "gas-furnace-ecm, zoned-furnace-ecm";	
+	  // Mattamy Ottawa: Base furnace = Lennox
   }
   
+  // Cooling spec
+  
+  Parameter {// 
+      Name   = GOtag:Opt-Cooling-Spec; 
+      Ini    = 1; 
+      Values = "2TonStdCooling, 2TonDettsonModUnit, 2TonGoodmanUnit";	
+  }
+
+
   // HRV spec: 
   
   Parameter {// 
