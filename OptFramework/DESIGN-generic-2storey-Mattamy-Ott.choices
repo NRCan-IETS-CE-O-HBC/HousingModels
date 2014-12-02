@@ -215,9 +215,12 @@ Opt-DHWSystem        : BaseDHW
 !  oil-furnace-low
 !  oil-furnace-mid
 
-Opt-HVACSystem       : basefurnace
-OPT-Furnace-Fan-Ctl  : Auto
-! HRV spec 
+Opt-HVACSystem       : gas-furnace-ecm
 
+OPT-Furnace-Fan-Ctl  : Auto
+
+Opt-Cooling-Spec     : 2TonStdCooling
+
+! HRV spec 
 Opt-HRVspec : BaseHRV_SRE70
 

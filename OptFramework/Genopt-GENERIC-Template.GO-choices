@@ -87,6 +87,7 @@ Opt-RoofPitch        : %GOtag:RoofPitch%
 ! HVAC 
 Opt-DHWSystem        : %GOtag:Opt-DHWSystem%
 Opt-HVACSystem       : %GOtag:Opt-HVACSystem%
+Opt-Cooling-Spec     : %GOtag:Opt-Cooling-Spec%
 Opt-HRVspec          : %GOtag:Opt-HRVSpec%
 
 
