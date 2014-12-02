@@ -17,9 +17,9 @@ Opt-DBFiles           : retrofit
 ! Optimization substitutions 
 ! Set the orientation for the model (N,S,E,W, or AVG to run all four directions
 ! and compute an average result)
-GOconfig_rotate      : S
+GOconfig_rotate      : E
 
-Opt-Location : Vancouver
+Opt-Location : Ottawa 
 
 ! Assumptions about HRV operation . Not intended to be optimized!
 ! Recognized values: 
@@ -42,33 +42,25 @@ OPT-OPR-SCHED        : constant
 
 Opt-BaseWindows      : MinWindows
 
-! Add one, two or three windows to front of the house 
-Opt-FrontWindows     : NoExtraWin 
-Opt-BackWindows      : NoExtraWin
 
 ! Geometry substitutions
-Opt-geometry      : Van_2st_80_retro
+Opt-geometry      : Van_3st_garage
 
-!Attachment options
+
+! Attachment options
 ! single
 ! semi
 ! row
 
-Opt-Attachment : single
+Opt-Attachment : single 
 
 ! ACH substitutions
 
 Opt-ACH       : retro_ACH_1
 
-
+Opt-WindowOrientation: all
 
 Opt-OverhangWidth : BaseOverhang
-
-
-Opt-ExtLeftSideWindow : No            ! First floor - back side
-
-
-Opt-ExtBasementWindow : No          ! Basement (back)
 
 
 ! Air-Tightness: 
@@ -93,7 +85,7 @@ Opt-AirTightness   : Generic
 !  Retro-R1_52
 !  Retro-R2_1
 
-Opt-MainWall         : Retro-R2_1
+Opt-MainWall         : BaseR20
 
 
 ! Add extra drywall to wall constructions 
@@ -152,7 +144,10 @@ Opt-BasementWallInsulation  : Retro_added_R20_ext
 ! Retrofit Windows
 !    DoubleClear 
 
-Opt-CasementWindows  :  retro_TripleLowEHardCoatArgFill 
+! Mattamy 
+!     DoubleArgon_HighGainOnSouth
+
+Opt-CasementWindows  : DoubleLowESoftCoatArgFill
 
 
 ! Exposed floor over garage (affects floor
