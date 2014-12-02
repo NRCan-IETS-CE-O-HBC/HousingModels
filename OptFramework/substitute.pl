@@ -1633,12 +1633,12 @@ sub postprocess($){
   my $ElecFixedCharge; 
   my $ElecTotalOtherCharges; 
   
-  my $OilFixedCharge; 
+  my $OilFixedCharge      = 0.0 ; 
   my $OilSupplyCharge     = 1.34;    # Whitehorse cost of furnace oil / arctic stove oil is $1.34/l  (Yukon energy statistics)
   my $OilTransportCharge;
   my $OilDeliveryCharge; 
   
-  my $PropaneFixedCharge; 
+  my $PropaneFixedCharge     = 0.0 ; 
   my $PropaneSupplyCharge    = 0.855;   # Yukon cost of propane supply (LPG) $0.855 per litre. YK bureau of statistics.Aug 2013. http://www.eco.gov.yk.ca/stats/pdf/fuel_aug13.pdf  1l of LPG expands to about 270l gaseous propane at 1bar. 
   my $PropaneDeliveryCharge; 
   my $PropaneTrasportCharge;
@@ -1666,7 +1666,7 @@ sub postprocess($){
   #_------------------------- New rates ! -------------------------
   
    
-  # Base charges for natural gas ($/month)
+  # Base charges for electricity ($/month)
   my %Elec_BaseCharge = ( "Halifax"      =>  10.83  ,
                           "Edmonton"     =>  21.93  ,
                           "Calgary"      =>  17.55  ,
@@ -1681,7 +1681,7 @@ sub postprocess($){
                           "Winnipeg"     =>  6.85   ,
                           "Fredricton"   =>  19.73  ,
                           "Whitehorse"   =>  16.25  ,
-                          "Yellowknife"  =>  16.25    ); #???????
+                          "Yellowknife"  =>  18.52    ); #From Artic Energy Alliance Spring 2014
 	
   # Base charges for natural gas ($/month)
   my %NG_BaseCharge = ( "Halifax"      =>  21.87 ,
@@ -1767,9 +1767,9 @@ sub postprocess($){
     $EffElectricRates{"Whitehorse"}{"9.9E99"} =  0.1517 ;
   
     # Tiers for Yellowknife
-    $EffElectricRates{"Yellowknife"}{"1000"} =  0.0967 ; 
-    $EffElectricRates{"Yellowknife"}{"2500"} =  0.1327 ;
-    $EffElectricRates{"Yellowknife"}{"9.9E99"} =  0.1517 ;
+    $EffElectricRates{"Yellowknife"}{"1000"} =  0.29 ;  # Arctic Energy Alliance Spring 2014
+    $EffElectricRates{"Yellowknife"}{"2500"} =  0.29 ;
+    $EffElectricRates{"Yellowknife"}{"9.9E99"} =  0.29 ;
   
   
     my %EffGasRates  = (  "Halifax"      =>  0.5124 ,
@@ -2232,15 +2232,15 @@ sub postprocess($){
   
   
   my $PVsize = $gChoices{"Opt-StandoffPV"}; 
-  
+#  stream_out( "@@@@@@@@@@@@@@@@@@@@ $PVsize \n" ) ;
   my $PVArrayCost;
   my $PVArraySized; 
   
   if ( $PVsize !~ /SizedPV/ ){
     
     # Use spec'd PV sizes. This only works for NoPV. 
-    $gSimResults{"PV production::AnnualTotal"}=-1.0*$gExtOptions{"Opt-StandoffPV"}{"options"}{$PVsize}{"ext-result"}{"production-elec-perKW"}; 
-  
+    $gSimResults{"PV production::AnnualTotal"}= 0.0 ; #-1.0*$gExtOptions{"Opt-StandoffPV"}{"options"}{$PVsize}{"ext-result"}{"production-elec-perKW"}; 
+    $PVArrayCost = 0.0 ;
   }else{
     # Size pv according to user specification,  to max, or to size required to reach Net-Zero. 
     
@@ -2313,7 +2313,7 @@ sub postprocess($){
   $gOptions{"Opt-StandoffPV"}{"options"}{$PVsize}{"cost"} = $PVArrayCost;
 
   stream_out("\n\n Energy Consumption: \n\n") ; 
-
+#  stream_out(" %%%%%%%%%%%%%%%%%%%%% $PVArrayCost \n") ;
   my $gTotalEnergy = 0;
 
   foreach my $token ( sort keys %gSimResults ){

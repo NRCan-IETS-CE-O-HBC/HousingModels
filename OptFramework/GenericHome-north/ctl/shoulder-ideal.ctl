@@ -23,4 +23,4 @@ no zone control description supplied
       7.  # No. of data items
    15000. 0.000 0.00 0.000 21.000 26.000 5.000  
 # Function:Zone links
-0,0,0
+1,0,0
