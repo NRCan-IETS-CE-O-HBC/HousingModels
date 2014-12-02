@@ -54,7 +54,7 @@ first_fl describes the first floor
 *surf,back-gar-1,VERT,-,-,-,<Opt-MainWall-Dry>,OPAQUE,ANOTHER,06,03  #  7 ||< Wall-3:garage
 *surf,side-gar-1,VERT,-,-,-,<Opt-MainWall-Dry>,OPAQUE,ANOTHER,06,02  #  8 ||< Wall-2:garage
 *surf,win-wall-1-2,VERT,Wall-1-2,-,-,<OptAtt-Win2Con>,<OptAtt-Win2Opt>,<OptAtt-Win2BC>,0,0  # 9 ||< external
-*surf,win-wall-1-3,VERT,Wall-1-3,-,-,<OptBW-Construction>,<OptBW-Optics>,EXTERIOR,0,0  # 10 ||< external
+*surf,win-wall-1-3,VERT,Wall-1-3,-,-,<OptAtt-Win3Con>,<OptAtt-Win3Opt>,EXTERIOR,0,0  # 10 ||< external
 *surf,win-wall-1-4,VERT,Wall-1-4,-,-,<OptAtt-Win4Con>,<OptAtt-Win4Opt>,<OptAtt-Win4BC>,0,0  # 11 ||< external
 # 
 *insol,3,0,0,0  # default insolation distribution
