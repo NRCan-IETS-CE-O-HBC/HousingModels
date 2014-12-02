@@ -456,6 +456,11 @@
 *option:Kamloops:value:2 = 50.7
 *option:Kamloops:value:3 = -0.45
 *option:Kamloops:cost:total    = 0    
+
+*option:Yellowknife:value:1 = can_yellowknife.cwec
+*option:Yellowknife:value:2 = 62.47
+*option:Yellowknife:value:3 = -0.55
+*option:Yellowknife:cost:total    = 0
   
 *attribute:end
 
@@ -558,7 +563,6 @@
 *option:Van_3st_garage:value:16   = 11.57382
 *option:Van_3st_garage:cost:total = 0
 
-
 *option:Van_2st_garage:value:1    = 62.5
 *option:Van_2st_garage:value:2    = 5
 *option:Van_2st_garage:value:3    = 12.5
@@ -576,6 +580,25 @@
 *option:Van_2st_garage:value:15   = 3.5052
 *option:Van_2st_garage:value:16   = 11.57382
 *option:Van_2st_garage:cost:total = 0
+
+*option:NWT_Access:value:1    = 98.849
+*option:NWT_Access:value:2    = 8.53
+*option:NWT_Access:value:3    = 11.58
+*option:NWT_Access:value:4    = 4.9924
+*option:NWT_Access:value:5    = 4.2672
+*option:NWT_Access:value:6    = 0.5
+*option:NWT_Access:value:7    = 3.103
+*option:NWT_Access:value:8    = 0.5
+*option:NWT_Access:value:9    = 2.724
+*option:NWT_Access:value:10   = 8.034
+*option:NWT_Access:value:11   = 6.328
+*option:NWT_Access:value:12   = 11.0824
+*option:NWT_Access:value:13   = 9.860
+*option:NWT_Access:value:14   = 3.3019
+*option:NWT_Access:value:15   = 3.5052
+*option:NWT_Access:value:16   = 11.57382
+*option:NWT_Access:cost:total = 0
+
 
 *attribute:end
 
@@ -718,6 +741,57 @@
 *option:DoubleArgon_HighGainOnSouth:value:7 = DblLeScArg
 *option:DoubleArgon_HighGainOnSouth:value:8 = DblLeScArg
 *option:DoubleArgon_HighGainOnSouth:cost:total    = 0 ! Value changed for Van_2st_80_retro geometry. Originally 10965
+
+
+*option:Wind1_trp_CL :value:1 = Wind1_trp_CL   
+*option:Wind1_trp_CL :value:2 = Wind1_trp_CL   
+*option:Wind1_trp_CL :value:3 = Wind1_trp_CL   
+*option:Wind1_trp_CL :value:4 = Wind1_trp_CL
+*option:Wind1_trp_CL :value:5 = Wind1_trp_CL   
+*option:Wind1_trp_CL :value:6 = Wind1_trp_CL
+*option:Wind1_trp_CL :value:7 = Wind1_trp_CL   
+*option:Wind1_trp_CL :value:8 = Wind1_trp_CL
+*option:Wind1_trp_CL :cost:total    = 0   ! this is used as the base case for NWT, so no cost. origianlly $20551
+
+*option:Win2scLE1_tr:value:1 = Win2scLE1_tr
+*option:Win2scLE1_tr:value:2 = Win2scLE1_tr 
+*option:Win2scLE1_tr:value:3 = Win2scLE1_tr
+*option:Win2scLE1_tr:value:4 = Win2scLE1_tr 
+*option:Win2scLE1_tr:value:5 = Win2scLE1_tr
+*option:Win2scLE1_tr:value:6 = Win2scLE1_tr 
+*option:Win2scLE1_tr:value:7 = Win2scLE1_tr
+*option:Win2scLE1_tr:value:8 = Win2scLE1_tr 
+*option:Win2scLE1_tr:cost:total   = 22883
+
+*option:Win3hcLE1_tr:value:1 = Win3hcLE1_tr
+*option:Win3hcLE1_tr:value:2 = Win3hcLE1_tr
+*option:Win3hcLE1_tr:value:3 = Win3hcLE1_tr
+*option:Win3hcLE1_tr:value:4 = Win3hcLE1_tr
+*option:Win3hcLE1_tr:value:5 = Win3hcLE1_tr
+*option:Win3hcLE1_tr:value:6 = Win3hcLE1_tr
+*option:Win3hcLE1_tr:value:7 = Win3hcLE1_tr
+*option:Win3hcLE1_tr:value:8 = Win3hcLE1_tr
+*option:Win3hcLE1_tr:cost:total   = 23550
+
+*option:Win4scLE2_tr:value:1 = Win4scLE2_tr 
+*option:Win4scLE2_tr:value:2 = Win4scLE2_tr
+*option:Win4scLE2_tr:value:3 = Win4scLE2_tr 
+*option:Win4scLE2_tr:value:4 = Win4scLE2_tr
+*option:Win4scLE2_tr:value:5 = Win4scLE2_tr 
+*option:Win4scLE2_tr:value:6 = Win4scLE2_tr
+*option:Win4scLE2_tr:value:7 = Win4scLE2_tr 
+*option:Win4scLE2_tr:value:8 = Win4scLE2_tr
+*option:Win4scLE2_tr:cost:total   = 23824
+
+*option:Win5hcLE2_tr:value:1 = Win5hcLE2_tr
+*option:Win5hcLE2_tr:value:2 = Win5hcLE2_tr
+*option:Win5hcLE2_tr:value:3 = Win5hcLE2_tr
+*option:Win5hcLE2_tr:value:4 = Win5hcLE2_tr
+*option:Win5hcLE2_tr:value:5 = Win5hcLE2_tr
+*option:Win5hcLE2_tr:value:6 = Win5hcLE2_tr
+*option:Win5hcLE2_tr:value:7 = Win5hcLE2_tr
+*option:Win5hcLE2_tr:value:8 = Win5hcLE2_tr
+*option:Win5hcLE2_tr:cost:total   = 24491
 
 
 
@@ -939,6 +1013,13 @@
 *option:retro_attic-4_152_12cell:value:1 =   retroatt_12
 !*option:retro_attic-4_152_12cell:value:2 =  retroatt_12
 *option:retro_attic-4_152_12cell:cost:total    =  1422   !This value based on Vancouver geometry
+
+!-----------------------------------------------------------------------
+!   NWT Retrofit Ceilings options
+!-----------------------------------------------------------------------
+*option:NWTCeilR40:value:1 =   NWTCeilR40
+!*option:NWTCeilR40:value:2 =  NWTCeilR40R
+*option:NWTCeilR40:cost:total    =  0
 
 
 *attribute:end
@@ -1179,6 +1260,13 @@ Whitehorse Wall Options (Code is R28)
 *option:Retro-int_spray:value:3 =   Retrointspr 
 *option:Retro-int_spray:cost:total    =   24145    ! costing calculated for Vancouver retrofit
 
+!-------------------------------------------------------------------------------
+! NWT Retrofit Main Wall Options
+!-------------------------------------------------------------------------------
+*option:NWTR20:value:1 =   NWTR20   ! Added by JP for retrofit analysis
+*option:NWTR20:value:2 =   NWTR20
+*option:NWTR20:value:3 =   NWTR20 
+*option:NWTR20:cost:total    =   0
 
 *attribute:end
 
@@ -1289,6 +1377,13 @@ Whitehorse Wall Options (Code is R28)
 *option:Retro_added_spray_int:meta    = Int
 *option:Retro_added_spray_int:cost:total  = 5262
 
+!-------------------------------------------------------------------------------
+! NWT Retrofit Crawl Space Options
+!-------------------------------------------------------------------------------
+*option:NWTCrawlWll:value:1 = NWTCrawlWll
+*option:NWTCrawlWll:meta    = Int
+*option:NWTCrawlWll:cost:total   = 0
+
 
 
 
@@ -1382,7 +1477,14 @@ Whitehorse Wall Options (Code is R28)
 *option:ExpFloorFoamed-R52:value:2 = ExpFlR52r
 *option:ExpFloorFoamed-R52:cost:total    = 1720.82
 
+!-----------------------------------------------------------------------
+! NWT Crawl Space Floor is Exposed
+*option:NWTCrawlFlr:value:1 = NWTCrawlFlr
+*option:NWTCrawlFlr:value:2 = NWTCrawlFlrr
+*option:NWTCrawlFlr:cost:total    = 0
+
 *attribute:end
+
 !-----------------------------------------------------------------------
 ! Thickness of applied drywall.
 !-----------------------------------------------------------------------
@@ -1636,8 +1738,53 @@ Reflects southern Ontario costs
 *option:retro_GSHP:value:6 = shoulder-ideal.ctl 
 *option:retro_GSHP:cost:total    = 32500          ! Does this reflect AC
 
+!---Options for Northern retrofit-------------------------------
+*option:Olsen:value:1 = oil-furnace-Olsen.hvac
+*option:Olsen:value:2 = #-no-GSHP-file
+*option:Olsen:value:3 = #No-IMS: 
+*option:Olsen:value:4 = 
+*option:Olsen:value:5 = 
+*option:Olsen:value:6 = shoulder-ideal.ctl 
+*option:Olsen:cost:total    = 0
+
 
 *attribute:end
+
+
+!-----------------------------------------------------------------------
+! Cooling system spec in HVAC file (Added by JTB Dec 1, 2014)
+!-----------------------------------------------------------------------
+*attribute:start 
+*attribute:name  = Opt-Cooling-Spec
+*attribute:tag:1 = <OPT-Cooling-Capacity>
+*attribute:tag:2 = <OPT-Cooling-COP>
+*attribute:tag:3 = <OPT-Cooling-Fan-Power>
+*attribute:default = SmallCooling
+
+*option:SmallCooling:value:1 = 10000.
+*option:SmallCooling:value:2 = 3.
+*option:SmallCooling:value:3 = 125.
+*option:SmallCooling:cost:total = 0
+
+*option:2TonStdCooling:value:1 = 24000.
+*option:2TonStdCooling:value:2 = 3.2	! Estimated based on 13 SEER (min. OBC)
+*option:2TonStdCooling:value:3 = 373.	! 1/2 hp fan
+*option:2TonStdCooling:cost:total = 0	! Base for Mattamy Ottawa
+  
+*option:2TonDettsonModUnit:value:1 = 24000.
+*option:2TonDettsonModUnit:value:2 = 4.3		! Estimated based on 21 SEER
+*option:2TonDettsonModUnit:value:3 = 373.		! 
+*option:2TonDettsonModUnit:cost:total = 1680	! Mattamy Ottawa
+  
+*option:2TonGoodmanUnit:value:1 = 24000.
+*option:2TonGoodmanUnit:value:2 = 4.0		! Estimated based on 18 SEER
+*option:2TonGoodmanUnit:value:3 = 373.		! 
+*option:2TonGoodmanUnit:cost:total = 2930	! Mattamy Ottawa
+  
+*attribute:end
+
+
+
 
 
 !-----------------------------------------------------------------------
@@ -2379,6 +2526,9 @@ Reflects southern Ontario costs
 *option[Opt-Location>Whitehorse ;Opt-RoofPitch>6-12  ]:SizedPV:production-elec-perKW  = 3.36888! GH/kW Installed
 *option[Opt-Location>Whitehorse ;Opt-RoofPitch>8-12  ]:SizedPV:production-elec-perKW  = 3.47472! GH/kW Installed
 *option[Opt-Location>Whitehorse ;Opt-RoofPitch>12-12 ]:SizedPV:production-elec-perKW  = 3.55536! GH/kW Installed
+*option[Opt-Location>Yellowknife ;Opt-RoofPitch>6-12  ]:SizedPV:production-elec-perKW  = 3.36888! GH/kW Installed
+*option[Opt-Location>Yellowknife ;Opt-RoofPitch>8-12  ]:SizedPV:production-elec-perKW  = 3.47472! GH/kW Installed
+*option[Opt-Location>Yellowknife ;Opt-RoofPitch>12-12 ]:SizedPV:production-elec-perKW  = 3.55536! GH/kW Installed
 *option:SizedPV:cost:PerKW = 4696 ! $/kW installed
 
 *option:NoPV:production-elec-perKW  = 0! GH/kW Installed
