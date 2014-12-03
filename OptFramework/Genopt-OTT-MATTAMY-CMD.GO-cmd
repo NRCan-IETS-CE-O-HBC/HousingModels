@@ -84,7 +84,7 @@ Vary{
    Parameter{   // 
      Name    =  GOtag:Opt-MainWall;
      Ini     =  1;
-     Values  =  "BaseR20, Stud-R275-Wall"; 	! R275 used for CodeBoard
+     Values  =  "BaseR20, Stud-R275-Wall"; 	// R275 used for CodeBoard
    }    
   
    // Foundation walls: OBC-min-R12
