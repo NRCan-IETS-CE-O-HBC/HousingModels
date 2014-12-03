@@ -47,11 +47,11 @@ GOconfig_rotate      : %GOtag:GOconfig_rotate%
 ! or transparent (MinWindows). NoWindows doesn't presently work!
 Opt-BaseWindows           : MinWindows  
 
-! Add extra windows ("Yes" or "No") 
-Opt-FrontWindows          : %GOtag:Opt-FrontWindows%
-Opt-BackWindows           : %GOtag:Opt-BackWindows%
-Opt-ExtLeftSideWindow     : %GOtag:Opt-ExtLeftSideWindow%
-Opt-ExtBasementWindow     : %GOtag:Opt-ExtBasementWindow%
+! Add extra windows ("Yes" or "No") NO LONGER REQUIRE (JTB DEC 3/14)
+!Opt-FrontWindows          : %GOtag:Opt-FrontWindows%
+!Opt-BackWindows           : %GOtag:Opt-BackWindows%
+!Opt-ExtLeftSideWindow     : %GOtag:Opt-ExtLeftSideWindow%
+!Opt-ExtBasementWindow     : %GOtag:Opt-ExtBasementWindow%
 
 ! Width of overhang       
 Opt-OverhangWidth         : %GOtag:Opt-OverhangWidth%

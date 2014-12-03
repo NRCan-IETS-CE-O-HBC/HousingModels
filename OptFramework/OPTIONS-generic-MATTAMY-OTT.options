@@ -1729,26 +1729,31 @@ Reflects southern Ontario costs
 *attribute:tag:1 = <OPT-Cooling-Capacity>
 *attribute:tag:2 = <OPT-Cooling-COP>
 *attribute:tag:3 = <OPT-Cooling-Fan-Power>
+*attribute:tag:4 = <OPT-Cooling-Fan-Power-Low>
 *attribute:default = SmallCooling
 
 *option:SmallCooling:value:1 = 10000.
 *option:SmallCooling:value:2 = 3.
 *option:SmallCooling:value:3 = 125.
+*option:SmallCooling:value:4 = 0.
 *option:SmallCooling:cost:total = 0
 
 *option:2TonStdCooling:value:1 = 24000.
 *option:2TonStdCooling:value:2 = 3.2	! Estimated based on 13 SEER (min. OBC)
 *option:2TonStdCooling:value:3 = 373.	! 1/2 hp fan
+*option:2TonStdCooling:value:4 = 125.	! Estimate
 *option:2TonStdCooling:cost:total = 0	! Base for Mattamy Ottawa
   
 *option:2TonDettsonModUnit:value:1 = 24000.
 *option:2TonDettsonModUnit:value:2 = 4.3		! Estimated based on 21 SEER
 *option:2TonDettsonModUnit:value:3 = 373.		! 
+*option:2TonDettsonModUnit:value:4 = 125.		! Estimate
 *option:2TonDettsonModUnit:cost:total = 1680	! Mattamy Ottawa
   
 *option:2TonGoodmanUnit:value:1 = 24000.
 *option:2TonGoodmanUnit:value:2 = 4.0		! Estimated based on 18 SEER
 *option:2TonGoodmanUnit:value:3 = 373.		! 
+*option:2TonGoodmanUnit:value:4 = 125.		! Estimate
 *option:2TonGoodmanUnit:cost:total = 2930	! Mattamy Ottawa
   
 *attribute:end

@@ -260,46 +260,18 @@ Vary{
      Values  = "NoPV";		//, SizedPV|3kW, SizedPV|5kW, SizedPV|8kW";
   } 
   
-  
    
   
    //===================================================================
    // PASSIVE SOLAR: Include or exclude extra windows    
    //===================================================================
     
-   Parameter{  // Front windows 
-     Name    = GOtag:Opt-FrontWindows; 
-     Ini     = 1; 
-     Values  = "NoExtraWin"; 
-     // Can be : "NoExtraWin, OneExtraWin, TwoExtraWin, ThreeExtraWin"
-   }
-   
-   Parameter{  // Back windows 
-     Name    = GOtag:Opt-BackWindows; 
-     Ini     = 1; 
-     Values  = "NoExtraWin"; 		// FourExtraWin
-   }
-   
-   Parameter{   // First Floor -- left side (as viewed from front  
-     Name    =  GOtag:Opt-ExtLeftSideWindow;
-     Ini     =  1;
-     Values  =  "No";
-   } 
-   
-   
-  Parameter{   // Basement -- back 
-     Name    =  GOtag:Opt-ExtBasementWindow;
-     Ini     =  1;
-     Values  =  "No";
-   }            
-   
    Parameter { // 
       Name   = GOtag:Opt-OverhangWidth; 
       Ini    = 1;
       Values = "BaseOverhang"; 
   }  
 
-  
   
   
   // ===================================================================
