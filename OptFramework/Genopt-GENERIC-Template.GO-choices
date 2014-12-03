@@ -60,6 +60,9 @@ Opt-OverhangWidth         : %GOtag:Opt-OverhangWidth%
 Opt-AirTightness          : %GOtag:Opt-AirTightness%
 Opt-ACH                   : %GOtag:Opt-ACH%
 
+! Dummy variable. Has to be here. 
+Opt-WindowOrientation: all
+
 ! Insulation levels 
 Opt-MainWall                : %GOtag:Opt-MainWall%
 Opt-Ceilings                : %GOtag:Opt-Ceilings%
