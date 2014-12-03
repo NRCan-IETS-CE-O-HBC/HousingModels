@@ -35,10 +35,13 @@
 
 *option:S:value:1  = S
 *option:S:cost:    = 0
+
 *option:E:value:1  = S
 *option:E:cost:    = 0
+
 *option:N:value:1  = S
 *option:N:cost:    = 0
+
 *option:W:value:1  = S
 *option:W:cost:    = 0
 
@@ -741,7 +744,11 @@
 *option:DoubleArgon_HighGainOnSouth:value:6 = DblLeScArg
 *option:DoubleArgon_HighGainOnSouth:value:7 = DblLeScArg
 *option:DoubleArgon_HighGainOnSouth:value:8 = DblLeScArg
-*option:DoubleArgon_HighGainOnSouth:cost:total    = 0 ! Value changed for Van_2st_80_retro geometry. Originally 10965
+*option:DoubleArgon_HighGainOnSouth:cost:total    = 73	! Mattamy Ott incr. cost: HG(180) on S GOconfig_rotate=S
+!*option:DoubleArgon_HighGainOnSouth:cost:total   = 89	! Mattamy Ott incr. cost: HG(180) on S GOconfig_rotate=W
+!*option:DoubleArgon_HighGainOnSouth:cost:total   = 70	! Mattamy Ott incr. cost: HG(180) on S GOconfig_rotate=N
+!*option:DoubleArgon_HighGainOnSouth:cost:total   = 117	! Mattamy Ott incr. cost: HG(180) on S GOconfig_rotate=E
+! Cost value changed for Van_2st_80_retro geometry. Originally 10965
 
 
 ! Base option for windows has cost b/c we multiply this amount 
@@ -1549,7 +1556,8 @@ Whitehorse Wall Options (Code is R28)
 *option:13kW-furnace-ecm:value:4 = 
 *option:13kW-furnace-ecm:value:5 = 
 *option:13kW-furnace-ecm:value:6 = shoulder-ideal.ctl
-*option:13kW-furnace-ecm:cost:total    = 1230  ! based on quote from Patric
+*option:13kW-furnace-ecm:cost:total    = 1400	! Mattamy Ott Dettson Chinook-45
+												!=1230   !based on quote from Patric
 
 *option:zoned-furnace-ecm:value:1 = smallfurnace_AC-gas-ecm-motor.hvac
 *option:zoned-furnace-ecm:value:2 = #-no-GSHP-file
@@ -1557,7 +1565,7 @@ Whitehorse Wall Options (Code is R28)
 *option:zoned-furnace-ecm:value:4 = 
 *option:zoned-furnace-ecm:value:5 = 
 *option:zoned-furnace-ecm:value:6 = shoulder_zoned.ctl
-*option:zoned-furnace-ecm:cost:total    = 0
+*option:zoned-furnace-ecm:cost:total    = 4155	! Mattamy Ott cost for 3 zone model of Dettson Chinook-45
 
 *option:IMS-P10:value:1 = IMS-P10.hvac
 *option:IMS-P10:value:2 = #-no-GSHP-file
