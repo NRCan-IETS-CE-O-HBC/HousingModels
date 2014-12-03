@@ -86,7 +86,7 @@ Opt-AirTightness   : Generic
 !  W15_R25
 !  Retrofit-DlBr
 
-Opt-MainWall         : NWTR20
+Opt-MainWall         : NWTR20_4  ! NWTR20
 
 
 ! Add extra drywall to wall constructions 
@@ -103,7 +103,7 @@ Opt-ExtraDrywall     : OneSheet
 Opt-FloorSurface     : wood
 
 
-Opt-Ceilings         : NWTCeilR40
+Opt-Ceilings         : NWTCeilR60
 
 ! Basement slab insulation 
 ! Choices: 
@@ -147,7 +147,7 @@ Opt-BasementWallInsulation  : NWTCrawlWll
 ! Retrofit Windows
 !    DoubleClear 
 
-Opt-CasementWindows  :  Wind1_trp_CL 
+Opt-CasementWindows  :  Triple_win_shutter !Wind1_trp_CL 
 
 
 ! Exposed floor over garage (affects floor

@@ -26,7 +26,7 @@ Vary{
     Values = "retrofit"; 
  
    }
-   
+      
   // HRV control scheme (Continuious, ERSp3ACH, EightHRpDay ) 
   Parameter{ 
     Name = GOtag:HRVcontrol; 
@@ -49,18 +49,21 @@ Vary{
              //    Fredricton 
              //    Halifax    
              //    Whitehorse 
-  
+			 //    PrinceGeorge
+			 //    Kamloops
+			 //    Yellowknife
+			 
     Name = GOtag:Opt-Location; 
     Ini  = 1;
-    Values = "PrinceGeorge"; 
+    Values = "Yellowknife"; 
   }
 
   // Geometry  
-  Parameter{ // Van_2st_80_retro 
+  Parameter{ // NWT_Access 
   
     Name = GOtag:Opt-geometry; 
     Ini  = 1;
-    Values = "Van_2st_80_retro"; 
+    Values = "NWT_Access"; 
   }
 
 
@@ -82,15 +85,14 @@ Vary{
   
     Name = GOtag:Opt-ACH; 
     Ini  = 1;
-    Values = "retro_ACH_2";//retro_ACH_6_5,retro_ACH_4,retro_ACH_2"; 
+    Values = "retro_ACH_5_5";
   }
 
   
   // =============================================
   // Parameters that configure the building design
   // =============================================
-  
-  
+ 
    // Air tightness: 
    //   - Typical23
    //   - TypicalGTA, 
@@ -139,14 +141,15 @@ Vary{
    //               - Retro-int_spray
    //               - Retro-ext_4EPS
    //               - Retro-int_2XPS
+   //        NWT:   - NWTR20
+   //               - NWTR20_4
+   //               - NWTR20_1_5   
    
-   
-   
-   
+
    Parameter{   // 
      Name    =  GOtag:Opt-MainWall;
      Ini     =  1;
-     Values  =  "Retro-R2_1,Retro-int_spray,Retro-ext_4EPS,Retro-int_2XPS"; 
+     Values  =  "NWTR20,NWTR20_4,NWTR20_1_5"; 
    }    
   
    // Foundation walls: OBC-min-R12
@@ -175,7 +178,7 @@ Vary{
    Parameter{   // 
      Name    =  GOtag:Opt-BasementWallInsulation;
      Ini     =  1;
-     Values  =  "PouredConcrete_NoIns,Retro_added_R20_ext,Retro_added_spray_int";
+     Values  =  "NWTCrawlWll";
    } 
 
    // Basement Slab: NoInsulation
@@ -203,7 +206,7 @@ Vary{
    Parameter{   // 
      Name    =  GOtag:Opt-ExposedFloor;
      Ini     =  1;
-     Values  =  "BaseExpFloor-R31";
+     Values  =  "NWTCrawlFlr";
    }    
    
    
@@ -223,7 +226,7 @@ Vary{
    Parameter{   // 
      Name    =  GOtag:Opt-Ceilings;
      Ini     =  1;
-     Values  =  "retro_attic-4_152,retro_attic-4_152_6cell,retro_attic-4_152_12cell";
+     Values  =  "NWTCeilR40,NWTCeilR50,NWTCeilR60,NWTCeilR70";
    }    
   
   // Windows:  DoubleLowEHardCoatAirFill 
@@ -247,7 +250,7 @@ Vary{
   Parameter{   // 
      Name    =  GOtag:Opt-CasementWindows;
      Ini     =  1;
-     Values  =  "DoubleClear,retro_DoubleLowEHardCoatArgFill,retro_DoubleLowESoftCoatArgFill,retro_TripleLowEHardCoatArgFill,retro_TripleLowESoftCoatArgFill";    
+     Values  =  "Wind1_trp_CL,Win2scLE1_tr,Win3hcLE1_tr,Win4scLE2_tr,Win5hcLE2_tr,Win6_qd_CL,Triple_win_shutter,Quad_win_shutter";    
      
    }    
    
@@ -285,7 +288,7 @@ Vary{
   Parameter{   // 
      Name    = GOtag:Opt-DWHRandSDHW; 
      Ini     = 1; 
-     Values  = "none,DWHR-4-36,DWHR-4-60,1-plate,2-plate,1-plate-DWHR-4-36,2-plate-DWHR-4-36,1-plate-DWHR-4-60,2-plate-DWHR-4-60"; 
+     Values  = "none"; 
   } 
   
   // Conventional DHW:  BaseDHW, 
@@ -298,7 +301,7 @@ Vary{
   Parameter{ //
      Name    = GOtag:Opt-DHWSystem;
      Ini     = 1; 
-     Values  = "BaseDHW,retro_GasInst,retro_ElectricHP"; 
+     Values  = "ElectricStorage"; 
   }
 
   
@@ -318,7 +321,7 @@ Vary{
   Parameter {// 
       Name   = GOtag:Opt-HVACSystem; 
       Ini    = 1; 
-      Values = "gas-furnace-84_3,retro_upgrade_furnace,retro_CCASHP"; 
+      Values = "Olsen,oil95furnace"; 
   }
   
   // HRV specification
@@ -335,7 +338,7 @@ Vary{
   Parameter{   // 
      Name    =  GOtag:Opt-StandoffPV;
      Ini     =  1;
-     Values  = "NoPV,SizedPV|3kW,SizedPV|5kW,SizedPV|8kW";
+     Values  = "NoPV"; //,SizedPV|3kW,SizedPV|5kW,SizedPV|8kW";
   } 
   
   

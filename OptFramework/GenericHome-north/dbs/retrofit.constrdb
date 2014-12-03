@@ -1,6 +1,6 @@
 # composite construction db defined in ../dbs/NZEH.constrdb
 # based on materials db ../dbs/material.db3.a
-  164  # no of composites 
+  174  # no of composites 
 # layers  description   optics name   symmetry tag
     2    bsm_flr       OPAQ  OPAQUE        NONSYMMETRIC  
 # mat ref thickness (m) mat descr & air gap R
@@ -1215,19 +1215,68 @@
   283    0.0819  fiberglass batt : fiberglass batt insulation
   214    0.0381  EPS : EPS (expanded polystyrene)
   301    0.0125  gypsum board : Gypsum board
+# 155: layers  description   optics name   symmetry tag
+    7    NWTR20_4      OPAQ  OPAQUE        NONSYMMETRIC  
+# mat ref thickness (m) mat descr & air gap R
+   77    0.0809  hardboard siding : Hardboard siding (UK code)
+  214    0.1016  EPS : EPS (expanded polystyrene)
+    0    0.0160  air  0.170 0.170 0.170
+   79    0.0095  OSB : OSB wood based on the SBEM database
+  283    0.0819  fiberglass batt : fiberglass batt insulation
+  214    0.0381  EPS : EPS (expanded polystyrene)
+  301    0.0125  gypsum board : Gypsum board
+# 156: layers  description   optics name   symmetry tag
+    6    NWTR20_1_5    OPAQ  OPAQUE        NONSYMMETRIC  
+# mat ref thickness (m) mat descr & air gap R
+   77    0.0809  hardboard siding : Hardboard siding (UK code)
+    0    0.0160  air  0.170 0.170 0.170
+   79    0.0095  OSB : OSB wood based on the SBEM database
+  283    0.0819  fiberglass batt : fiberglass batt insulation
+  214    0.0762  EPS : EPS (expanded polystyrene)
+  301    0.0125  gypsum board : Gypsum board
 # ACCESS base ceiling 2 @ R-20
-# 155:layers  description   optics name   symmetry tag
+# 157:layers  description   optics name   symmetry tag
     2    NWTCeilR40    OPAQ  OPAQUE        NWTCeilR40R
 # mat ref thickness (m) mat descr & air gap R
   283    0.2463  fiberglass batt
   301    0.019   gypsum board
-# 156: layers  description   optics name   symmetry tag  
+# 158: layers  description   optics name   symmetry tag  
     2    NWTCeilR40R   OPAQ  OPAQUE        NWTCeilR40
 # mat ref thickness (m) mat descr & air gap R 
   301    0.019	 gypsum board
   283    0.2463	 fiberglass batt
+# 159:layers  description   optics name   symmetry tag
+    2    NWTCeilR50    OPAQ  OPAQUE        NWTCeilR50R
+# mat ref thickness (m) mat descr & air gap R
+  283    0.3127  fiberglass batt
+  301    0.019   gypsum board
+# 160: layers  description   optics name   symmetry tag  
+    2    NWTCeilR50R   OPAQ  OPAQUE        NWTCeilR50
+# mat ref thickness (m) mat descr & air gap R 
+  301    0.019	 gypsum board
+  283    0.3127	 fiberglass batt
+# 161:layers  description   optics name   symmetry tag
+    2    NWTCeilR60    OPAQ  OPAQUE        NWTCeilR60R
+# mat ref thickness (m) mat descr & air gap R
+  283    0.3761  fiberglass batt
+  301    0.019   gypsum board
+# 162: layers  description   optics name   symmetry tag  
+    2    NWTCeilR60R   OPAQ  OPAQUE        NWTCeilR60
+# mat ref thickness (m) mat descr & air gap R 
+  301    0.019	 gypsum board
+  283    0.3761  fiberglass batt  
+# 163:layers  description   optics name   symmetry tag
+    2    NWTCeilR70    OPAQ  OPAQUE        NWTCeilR70R
+# mat ref thickness (m) mat descr & air gap R
+  283    0.4395  fiberglass batt
+  301    0.019   gypsum board
+# 164: layers  description   optics name   symmetry tag  
+    2    NWTCeilR70R   OPAQ  OPAQUE        NWTCeilR70
+# mat ref thickness (m) mat descr & air gap R 
+  301    0.019	 gypsum board
+  283    0.4395  fiberglass batt  
 # ACCESS base crawl space wall 2x6 R-20
-# 157: layers  description   optics name   symmetry tag
+# 165: layers  description   optics name   symmetry tag
     5    NWTCrawlWll   OPAQ  OPAQUE        NONSYMMETRIC	
 # layers  description   optics name   symmetry tag
    77    0.1840	 hardboard siding	 
@@ -1236,7 +1285,7 @@
   283    0.0804	 fiberglass batt	
    79    0.0160	 OSB	
 # ACCESS base crawl space exposed floor 2x12 R-20
-# 158: NWTCrawlFlr
+# 166: NWTCrawlFlr
 # layers  description   optics name   symmetry tag
     4    NWTCrawlFlr   OPAQ  OPAQUE        NONSYMMETRIC	
 # layers  description   optics name   symmetry tag
@@ -1248,7 +1297,7 @@
 # Windows - from Whitehorse Optimization!
 #----------------------
 # Window_1_triple,3mm,CL,CL,CL
-# 159: layers  description   optics name   symmetry tag
+# 167: layers  description   optics name   symmetry tag
     5    Wind1_trp_CL  TRAN  Wind1_trp_CL  SYMMETRIC
 # mat ref thickness (m) mat descr & air gap R
   242    0.0060  plate glass : Plate glass 
@@ -1258,7 +1307,7 @@
   242    0.0060  plate glass : Plate glass  
 #----------------------
 # Window_2_triple,3mm,CL,CL,LE (soft),Argon
-# 160: layers  description   optics name   symmetry tag
+# 168: layers  description   optics name   symmetry tag
     5    Win2scLE1_tr  TRAN  Win2scLE1_trp SYMMETRIC
 # mat ref thickness (m) mat descr & air gap R
   242    0.0060  plate glass : Plate glass 
@@ -1268,7 +1317,7 @@
   242    0.0060  plate glass : Plate glass 
 #----------------------
 # Win3hcLE1_tr
-# 161: layers  description   optics name   symmetry tag
+# 169: layers  description   optics name   symmetry tag
     5    Win3hcLE1_tr  TRAN  Win3hcLE1_tr  SYMMETRIC
 # mat ref thickness (m) mat descr & air gap R
   242    0.0060  plate glass : Plate glass 
@@ -1278,7 +1327,7 @@
   242    0.0060  plate glass : Plate glass   
 #----------------------
 # Win4scLE2_trp
-# 162: layers  description   optics name   symmetry tag
+# 170: layers  description   optics name   symmetry tag
     5    Win4scLE2_tr  TRAN  Win4scLE2_tr  SYMMETRIC
 # mat ref thickness (m) mat descr & air gap R
   242    0.0060  plate glass : Plate glass 
@@ -1288,7 +1337,7 @@
   242    0.0060  plate glass : Plate glass  
 #----------------------
 # Win5hcLE2_trp
-# 163: layers  description   optics name   symmetry tag
+# 171: layers  description   optics name   symmetry tag
     5    Win5hcLE2_tr  TRAN  Win5hcLE2_tr  SYMMETRIC
 # mat ref thickness (m) mat descr & air gap R
   242    0.0060  plate glass : Plate glass 
@@ -1298,7 +1347,7 @@
   242    0.0060  plate glass : Plate glass 
 #----------------------
 # Win6_qd_CL
-# 164: layers  description   optics name   symmetry tag
+# 172: layers  description   optics name   symmetry tag
     7    Win6_qd_CL    TRAN  Win6_qd_CL    SYMMETRIC
 # mat ref thickness (m) mat descr & air gap R
   242    0.0060  plate glass : Plate glass 
@@ -1308,4 +1357,28 @@
   242    0.0060  plate glass : Plate glass 
     0    0.0125  air  0.112 0.112 0.112 
   242    0.0060  plate glass : Plate glass   
-   
+#------------------------------------------------
+# Windows with Insulated Shutters - no optical properties
+# Window_1_triple,3mm,CL,CL,CL, 1.5" EPS
+# 173: layers  description   optics name   symmetry tag
+    7    Wind3SHUTTER  OPAQ  OPAQUE        NONSYMMETRIC	
+# layers  description   optics name   symmetry tag
+   72    0.0191  plywood 700d	
+  214    0.0381  EPS
+  242    0.0060  plate glass : Plate glass 
+    0    0.0125  air  0.142 0.142 0.142
+  242    0.0060  plate glass : Plate glass
+    0    0.0125  air  0.142 0.142 0.142
+  242    0.0060  plate glass : Plate glass    
+# 174: layers  description   optics name   symmetry tag
+    9    Wind4SHUTTER  OPAQ  OPAQUE        NONSYMMETRIC	
+# layers  description   optics name   symmetry tag
+   72    0.0191  plywood 700d	
+  214    0.0381  EPS
+  242    0.0060  plate glass : Plate glass 
+    0    0.0125  air  0.142 0.142 0.142
+  242    0.0060  plate glass : Plate glass
+    0    0.0125  air  0.142 0.142 0.142
+  242    0.0060  plate glass : Plate glass    
+    0    0.0125  air  0.142 0.142 0.142
+  242    0.0060  plate glass : Plate glass    
