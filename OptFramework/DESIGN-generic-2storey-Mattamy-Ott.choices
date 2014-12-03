@@ -42,10 +42,6 @@ OPT-OPR-SCHED        : constant
 
 Opt-BaseWindows      : MinWindows
 
-! Add one, two or three windows to front of the house 
-Opt-FrontWindows     : NoExtraWin 
-Opt-BackWindows      : NoExtraWin
-
 ! Geometry substitutions
 Opt-geometry      : MattOtt_2st_garage
 
@@ -60,16 +56,9 @@ Opt-Attachment : single
 
 Opt-ACH       : retro_ACH_2_5
 
-
+Opt-WindowOrientation: all
 
 Opt-OverhangWidth : BaseOverhang
-
-
-Opt-ExtLeftSideWindow : No            ! First floor - back side
-
-
-Opt-ExtBasementWindow : No          ! Basement (back)
-
 
 ! Air-Tightness: 
 !     Generic
@@ -151,8 +140,10 @@ Opt-BasementWallInsulation  : OBC-min-R12
 !    Wind1_trp_CL	
 ! Retrofit Windows
 !    DoubleClear 
+! Mattamy 
+!     DoubleArgon_HighGainOnSouth
 
-Opt-CasementWindows  :  DoubleLowEHardCoatAirFill 
+Opt-CasementWindows  :  DoubleLowEHardCoatArgFill 
 
 
 ! Exposed floor over garage (affects floor
