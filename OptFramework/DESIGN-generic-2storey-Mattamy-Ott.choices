@@ -206,7 +206,7 @@ Opt-DHWSystem        : BaseDHW
 !  oil-furnace-low
 !  oil-furnace-mid
 
-Opt-HVACSystem       : gas-furnace-ecm
+Opt-HVACSystem       : zoned-furnace-ecm
 
 OPT-Furnace-Fan-Ctl  : Auto
 
