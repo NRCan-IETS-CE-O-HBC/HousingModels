@@ -25,7 +25,7 @@
         circ-fan-power 140.0
 
     *sys-data-end
-    *fan-ctl-loop 1
+    <Opt-HRVDucting>  1
 
 *system-end
 # -------- Heat pump (heating) ----------
@@ -62,7 +62,7 @@
         performance CCASHP-CCHT
     *misc-param-end     
     *backup backup-sys
-    *fan-ctl-loop 1
+    <Opt-HRVDucting>  1
 
 *system-end
 ## -------- Heat pump (cooling) ----------
@@ -108,6 +108,6 @@
         *day-type-end
 
     *OA-schedule-end
-    *fan-ctl-loop 1
+    <Opt-HRVDucting>  1
 
 *system-end
