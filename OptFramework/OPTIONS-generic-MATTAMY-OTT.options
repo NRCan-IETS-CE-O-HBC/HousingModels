@@ -1793,7 +1793,7 @@ Reflects southern Ontario costs
 *attribute:start 
 *attribute:name    = Opt-HRVDuct 
 *attribute:tag:1   = <Opt-HRVDucting>
-*attribute:default = Interlock
+*attribute:default = interlock
 
 *option:interlock:value:1         = *fan-ctl-loop
 *option:interlock:cost:total      = 0
