@@ -96,7 +96,7 @@ my %RegionalCostFactors  = (  "Halifax"      =>  0.95 ,
                               "Quebec"       =>  1.00 ,  # Assume same as montreal?
                               "Montreal"     =>  1.00 ,
                               "Vancouver"    =>  1.10 ,
-							  "PrinceGeorge"   =>  1.10 ,
+							  "PrinceGeorge" =>  1.10 ,
 							  "Kamloops"     =>  1.10 ,
                               "Regina"       =>  1.08 ,  # Same as Winnipeg?
                               "Winnipeg"     =>  1.08 ,
@@ -1186,7 +1186,7 @@ else
 my $ScaleResults = 1.0/($#Orientations+1); 
                
 			   
-# Variables that store the average utilit costs, energy amounts. Defined here because if we are running 
+# Variables that store the average utility costs, energy amounts. Defined here because if we are running 
 # multiple orientations, we must average them as we go.	   
 my $gAvgCost_NatGas    = 0 ;
 my $gAvgCost_Electr    = 0 ;
@@ -1638,7 +1638,21 @@ sub postprocess($){
   my $ElecTotalOtherCharges; 
   
   my $OilFixedCharge      = 0.0 ; 
-  my $OilSupplyCharge     = 1.34;    # Whitehorse cost of furnace oil / arctic stove oil is $1.34/l  (Yukon energy statistics)
+##  my $OilSupplyCharge     = 1.34;    # Whitehorse cost of furnace oil / arctic stove oil is $1.34/l  (Yukon energy statistics)
+
+  # Adding Local Oil costs
+  my %OilSupplyCharge   = (  "Halifax"      =>  0.0 ,
+                             "Edmonton"     =>  0.0 ,
+                             "Calgary"      =>  0.0 ,
+                             "Vancouver"    =>  0.0 ,
+                             "PrinceGeorge" =>  0.0 ,
+                             "Kamloops"     =>  0.0 ,
+                             "Regina"       =>  0.0 ,
+                             "Winnipeg"     =>  0.0 ,
+                             "Fredricton"   =>  0.0 ,
+                             "Whitehorse"   =>  1.34 ,
+                             "Yellowknife"  =>  1.28 ); 
+    
   my $OilTransportCharge;
   my $OilDeliveryCharge; 
   
@@ -1718,7 +1732,7 @@ sub postprocess($){
                           "Winnipeg"     =>  "none" ,
                           "Fredricton"   =>  "none" ,
                           "Whitehorse"   =>  "1-month" ,
-                          "Yellowknife"  =>  "1-month"   );  
+                          "Yellowknife"  =>  "none"   );  
  
     my %NG_TierType  = (  "Halifax"      =>  "none" ,
                           "Edmonton"     =>  "none" ,
@@ -1737,12 +1751,14 @@ sub postprocess($){
 						  "Yellowknife"  =>  "NA"   ); 
  
     
-    my %EffElectricRates = ( "Halifax"    => 0.1436 ,
-                             "Edmonton"   => 0.1236 ,
-                             "Calgary"    => 0.1224 ,
-                             "Regina"     => 0.1113 ,
-                             "Winnipeg"   => 0.0694 ,
-                             "Fredricton" => 0.0985   ); 
+    my %EffElectricRates = ( "Halifax"     => 0.1436 ,
+                             "Edmonton"    => 0.1236 ,
+                             "Calgary"     => 0.1224 ,
+                             "Regina"      => 0.1113 ,
+                             "Winnipeg"    => 0.0694 ,
+                             "Fredricton"  => 0.0985 ,
+                             "Yellowknife" => 0.29   ); # Arctic Energy Alliance Spring 2014
+							 
     # TOU for Ottawa (As of May 2014), Toronto (Feb 2013).                        
     $EffElectricRates{"Ottawa"}{"off-peak"} =  0.1243 ;                        
     $EffElectricRates{"Ottawa"}{"mid-peak"} =  0.1626 ;
@@ -1770,12 +1786,6 @@ sub postprocess($){
     $EffElectricRates{"Whitehorse"}{"2500"} =  0.1327 ;
     $EffElectricRates{"Whitehorse"}{"9.9E99"} =  0.1517 ;
   
-    # Tiers for Yellowknife
-    $EffElectricRates{"Yellowknife"}{"1000"} =  0.29 ;  # Arctic Energy Alliance Spring 2014
-    $EffElectricRates{"Yellowknife"}{"2500"} =  0.29 ;
-    $EffElectricRates{"Yellowknife"}{"9.9E99"} =  0.29 ;
-  
-  
     my %EffGasRates  = (  "Halifax"      =>  0.5124 ,
                           "Edmonton"     =>  0.1482 ,
                           "Calgary"      =>  0.1363 ,
@@ -1801,8 +1811,8 @@ sub postprocess($){
     $EffGasRates{"Montreal"}{"300"}    = 0.4106; 
     $EffGasRates{"Montreal"}{"9.9E99"} = 0.3749;
     $EffGasRates{"Quebec"} = $EffGasRates{"Montreal"} ; 
-    
-    
+	
+   
   
   # ------ READ IN Summary Data.                            
   
@@ -1819,7 +1829,7 @@ sub postprocess($){
 
     my ( $token, $value, $units ) = split / /, $line; 
     
-    if ( $units =~ /GJ/ || $units =~ /kWh\/s/ || $units =~ /m3\/s/  ) {
+    if ( $units =~ /GJ/ || $units =~ /kWh\/s/ || $units =~ /m3\/s/ || $units =~ /l\/s/ ) {
     
       $gSimResults{$token} = $value; 
     
@@ -2167,8 +2177,8 @@ sub postprocess($){
     
     my $CurrentOilConsumption = $Oil_Use[$row] * $TSLength; # l
     
-    $OilConsumptionCost += $CurrentOilConsumption * ( $OilSupplyCharge ); 
-    
+    $OilConsumptionCost += $CurrentOilConsumption * ( $OilSupplyCharge{$Locale} ); 
+
     #if ( $CurrMonth > 2 ) { die(); }
          
     #debug_out (" $Locale: TIER: $Elec_TierType{$Locale}  $CurrMonth $CurrDay $CurrHour | $CurrElecRatePeriod - $CurrPeakPeriod ($WeekendOrHoliday)  $ElecConsumption [kWh] * ( old:  vs new: $EffElecRate [\$/kWh] ) = $ElecConsumptionCost  \n");        
@@ -2208,8 +2218,8 @@ sub postprocess($){
   my $TotalElecBill = $Elec_BaseCharge{$Locale}* 12. + $ElecConsumptionCost ; 
   my $TotalGasBill  = $GasConsumptionCost < 0.01 ? 0 : $NG_BaseCharge{$Locale} * 12. + $GasConsumptionCost  ; 
   
-  my $TotalOilBill  = $OilFixedCharge * 12. + $OilConsumptionCost  ; 
-  
+  my $TotalOilBill  = $OilFixedCharge * 12. + $OilConsumptionCost  ; 	
+    
   my $TotalPropaneBill  = $PropaneFixedCharge * 12. + $PropaneConsumptionCost  ; 
   
   #my $TotalWoodBill  = $WoodFixedCharge * 12. + $WoodConsumptionCost  ; 
@@ -2236,7 +2246,6 @@ sub postprocess($){
   
   
   my $PVsize = $gChoices{"Opt-StandoffPV"}; 
-#  stream_out( "@@@@@@@@@@@@@@@@@@@@ $PVsize \n" ) ;
   my $PVArrayCost;
   my $PVArraySized; 
   
@@ -2317,11 +2326,10 @@ sub postprocess($){
   $gOptions{"Opt-StandoffPV"}{"options"}{$PVsize}{"cost"} = $PVArrayCost;
 
   stream_out("\n\n Energy Consumption: \n\n") ; 
-#  stream_out(" %%%%%%%%%%%%%%%%%%%%% $PVArrayCost \n") ;
+
   my $gTotalEnergy = 0;
 
   foreach my $token ( sort keys %gSimResults ){
-
     if ( $token =~ /AnnualTotal/ ){
         my $value = $gSimResults{$token};
         $gTotalEnergy += $value; 
@@ -2368,8 +2376,8 @@ sub postprocess($){
   
   $gEnergyOil   = defined($gSimResults{"total_fuel_use/oil/all_end_uses/quantity::Total_Average"} ) ? 
                          $gSimResults{"total_fuel_use/oil/all_end_uses/quantity::Total_Average"} : 0 ;  
-  
-  
+		 
+					 
   my $PVRevenue = $gEnergyPV * 1e06 / 3600. *$PVTarrifDollarsPerkWh; 
   
   my $TotalBill = $TotalElecBill+$TotalGasBill+$TotalOilBill+$TotalPropaneBill; 
@@ -2397,9 +2405,11 @@ sub postprocess($){
   $gAvgCost_Electr    += $TotalElecBill * $ScaleData;  
   $gAvgCost_Propane   += $TotalPropaneBill * $ScaleData; 
   $gAvgCost_Oil       += $TotalOilBill * $ScaleData; 
+
   $gAvgEnergy_Total   += $gTotalEnergy  * $ScaleData; 
   $gAvgNGasCons_m3    += $gEnergyGas * 8760. * 60. * 60.  * $ScaleData ; 
-  $gAvgOilCons_l      += $gEnergyOil * 8760. * 60. * 60.  * $ScaleData ; 
+  $gAvgOilCons_l      += $gEnergyOil * 8760. * 60. * 60.  * $ScaleData ;  
+  
   $gAvgElecCons_KWh   += $gEnergyElec * 8760. * 60. * 60. * $ScaleData ; 
   
   $gAvgPVOutput_kWh   += -1.0 * $gEnergyPV * 1e06 / 3600. * $ScaleData;  
