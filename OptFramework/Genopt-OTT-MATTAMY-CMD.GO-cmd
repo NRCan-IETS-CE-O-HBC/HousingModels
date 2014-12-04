@@ -60,7 +60,14 @@ Vary{
     Values = "single"; 
   }	
   
-  // Setting the ACH in the AIM-2 input file generic.aim
+   // Air tightness: Generic, TypicalGTA, Typical23, R2000, Cdn1ACH, PassiveHouse, Base_WH_1.5, WH_1.0, WH_0.5
+   Parameter{   // 
+     Name    =  GOtag:Opt-AirTightness;
+     Ini     =  1;
+     Values  =  "Typical23, R2000, Cdn1ACH";	// Use Generic if want Opt-ACH below (but no cost values)!
+   }    
+
+   // Setting the ACH in the AIM-2 input file generic.aim
   Parameter{ // Toronto-retro
              // Vancouver-retro
              // Van_retro_after
@@ -68,23 +75,16 @@ Vary{
   
     Name = GOtag:Opt-ACH; 
     Ini  = 1;
-    Values = "retro_ACH_2_5, retro_ACH_1_5, retro_ACH_1"; 	// Base for Mattamy is 2.5 ACH
+    Values = "retro_ACH_2_5"; 	// Not using this for Mattamy so get costs (above)
   }
 
-   // Air tightness: Generic, TypicalGTA, R2000, Cdn1ACH, PassiveHouse, Base_WH_1.5, WH_1.0, WH_0.5
-   Parameter{   // 
-     Name    =  GOtag:Opt-AirTightness;
-     Ini     =  1;
-     Values  =  "Generic";		// Use Generic with Opt-ACH above!
-     
-   }    
-   
+  
    // Mainwalls. BaseR21
 
    Parameter{   // 
      Name    =  GOtag:Opt-MainWall;
      Ini     =  1;
-     Values  =  "BaseR20, Stud-R275-Wall"; 
+     Values  =  "BaseR20, Stud-R275-Wall"; 	// R275 used for CodeBoard
    }    
   
    // Foundation walls: OBC-min-R12
@@ -108,7 +108,7 @@ Vary{
    Parameter{   // 
      Name    =  GOtag:Opt-BasementWallInsulation;
      Ini     =  1;
-     Values  =  "OBC-min-R12, Rigid+Batt-R20";
+     Values  =  "OBC-min-R12";
 
    } 
 
@@ -118,7 +118,7 @@ Vary{
    Parameter{   // 
      Name    =  GOtag:Opt-BasementSlabInsulation;
      Ini     =  1;
-     Values  =  "NoInsulation, R10UnderSlab+edge"; 
+     Values  =  "NoInsulation"; 	//R10UnderSlab+edge
    } 
 
    // Exposed floor: There are no exposed floors in MB LEEP archetype
@@ -141,7 +141,7 @@ Vary{
    Parameter{   // 
      Name    =  GOtag:Opt-Ceilings;
      Ini     =  1;
-     Values  =  "CeilR50,CeilR60";	// CeilR70? $420
+     Values  =  "CeilR50,CeilR60";	//CeilR70
    }    
   
   // Windows:  DoubleLowEHardCoatAirFill 
@@ -164,7 +164,7 @@ Vary{
   Parameter{   // 
      Name    =  GOtag:Opt-CasementWindows;
      Ini     =  1;
-     Values  =  "DoubleLowEHardCoatArgFill, TripleLowEHardCoatKryFill";  // Need Mix HC/SC coat options
+     Values  =  "DoubleLowEHardCoatArgFill, TripleLowEHardCoatKryFill, DoubleArgon_HighGainOnSouth, TripleKrypton_HighGainOnSouth";
      
    }    
    
@@ -203,7 +203,6 @@ Vary{
      Name    = GOtag:Opt-DWHRandSDHW; 
      Ini     = 1; 
      Values  = "none" ;  // Other values that don't work with 'OldERS':
-	 //,DWHR-4-36,DWHR-4-60,1-plate,2-plate,1-plate-DWHR-4-36,2-plate-DWHR-4-36,1-plate-DWHR-4-60,2-plate-DWHR-4-60"
   } 
   
   // Conventional DHW:  BaseDHW, 
@@ -231,7 +230,7 @@ Vary{
   Parameter {// 
       Name   = GOtag:Opt-HVACSystem; 
       Ini    = 1; 
-      Values = "gas-furnace-ecm";	//, zoned-furnace-ecm";	
+      Values = "gas-furnace-ecm, 13kW-furnace-ecm";		//zoned-furnace-ecm;	
 	  // Mattamy Ottawa: Base furnace = Lennox
   }
   
@@ -249,7 +248,7 @@ Vary{
   Parameter {// 
       Name   = GOtag:Opt-HRVSpec; 
       Ini    = 1; 
-      Values = "BaseHRV_SRE70, UpgHRV_SRE78"; 
+      Values = "BaseHRV_SRE70"; 	//UpgHRV_SRE78
   }  
   
   
@@ -260,46 +259,18 @@ Vary{
      Values  = "NoPV";		//, SizedPV|3kW, SizedPV|5kW, SizedPV|8kW";
   } 
   
-  
    
   
    //===================================================================
    // PASSIVE SOLAR: Include or exclude extra windows    
    //===================================================================
     
-   Parameter{  // Front windows 
-     Name    = GOtag:Opt-FrontWindows; 
-     Ini     = 1; 
-     Values  = "NoExtraWin"; 
-     // Can be : "NoExtraWin, OneExtraWin, TwoExtraWin, ThreeExtraWin"
-   }
-   
-   Parameter{  // Back windows 
-     Name    = GOtag:Opt-BackWindows; 
-     Ini     = 1; 
-     Values  = "NoExtraWin"; 		// FourExtraWin
-   }
-   
-   Parameter{   // First Floor -- left side (as viewed from front  
-     Name    =  GOtag:Opt-ExtLeftSideWindow;
-     Ini     =  1;
-     Values  =  "No";
-   } 
-   
-   
-  Parameter{   // Basement -- back 
-     Name    =  GOtag:Opt-ExtBasementWindow;
-     Ini     =  1;
-     Values  =  "No";
-   }            
-   
    Parameter { // 
       Name   = GOtag:Opt-OverhangWidth; 
       Ini    = 1;
       Values = "BaseOverhang"; 
   }  
 
-  
   
   
   // ===================================================================

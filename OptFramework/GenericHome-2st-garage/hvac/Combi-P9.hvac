@@ -42,7 +42,7 @@
   vent-SRE               1.0
   dhw-water-vol-lpday    <Opt-DHWDailyDrawLperDay>
 *sys-data-end
-*fan-ctl-loop 1
+    <Opt-HRVDucting>  1
 #*misc-param-start
 #  dhw-bcd-flow          dhw-flow
 #  dhw-bcd-del-temp      dhw-delivery-temp
@@ -86,7 +86,7 @@
     *misc-param-start
         performance good
     *misc-param-end     
-    *fan-ctl-loop 1
+    <Opt-HRVDucting>  1
     *OA-schedule-start
 
         *day-type-start

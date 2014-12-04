@@ -27,7 +27,7 @@
         pilot-power 0.
 
     *sys-data-end
-    *fan-ctl-loop 1
+    <Opt-HRVDucting>  1
 *system-end
 ## -------- Heat pump (cooling) ----------
 *system-start
@@ -63,7 +63,7 @@
     *misc-param-start
         performance good
     *misc-param-end     
-    *fan-ctl-loop 1
+    <Opt-HRVDucting>  1
     *OA-schedule-start
 
         *day-type-start

@@ -88,4 +88,6 @@ RUN AN OPTIMIZATION USING GENOPT
    Example: 
 
         java -classpath genopt.jar genopt.GenOpt Genopt-BASE-ini.GO-ini
-    
+		
+		Alternate:
+        rm nohup.out; nohup java -classpath genopt.jar genopt.GenOpt Genopt-OTT-MATTAMY-INI.GO-ini &
