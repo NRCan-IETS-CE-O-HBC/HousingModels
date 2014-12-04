@@ -1844,8 +1844,19 @@ Reflects southern Ontario costs
 
 *option:UpgHRV_SRE78:value:1    = HRV-upg.vnt
 *option:UpgHRV_SRE78:cost:total = 920
+*attribute:end 
 
-<Opt-HRVInputFile>
+*attribute:start 
+*attribute:name    = Opt-HRVDuct 
+*attribute:tag:1   = <Opt-HRVDucting>
+*attribute:default = Interlock
+
+*option:interlock:value:1         = *fan-ctl-loop
+*option:interlock:cost:total      = 0
+
+*option:directduct:value:1           = #No *fan-ctl-loop
+*option:directduct:cost:total = 0
+*attribute:end 
 
 
 !-----------------------------------------------------------------------
