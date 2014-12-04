@@ -674,7 +674,6 @@
 *attribute:default = DoubleLowEHardCoatArgFill
 
 
-
 ! JP removed base case cost - no additional windows available for lighthouse work.
 *option:DoubleLowEHardCoatAirFill:value:1 = DblLeHcAir
 *option:DoubleLowEHardCoatAirFill:value:2 = DblLeHcAir
@@ -685,7 +684,6 @@
 *option:DoubleLowEHardCoatAirFill:value:7 = DblLeHcAir
 *option:DoubleLowEHardCoatAirFill:value:8 = DblLeHcAir
 *option:DoubleLowEHardCoatAirFill:cost:total    = 0.0 ! Clear windows 
-
 
 *option:DoubleLowEHardCoatArgFill:value:1 = DblLeHcArg 
 *option:DoubleLowEHardCoatArgFill:value:2 = DblLeHcArg 
@@ -705,10 +703,7 @@
 *option:TripleLowEHardCoatKryFill:value:6 = TplLeHcKry
 *option:TripleLowEHardCoatKryFill:value:7 = TplLeHcKry
 *option:TripleLowEHardCoatKryFill:value:8 = TplLeHcKry
-*option:TripleLowEHardCoatKryFill:cost:total    = 555! Mattamy upgrade
-
-
-
+*option:TripleLowEHardCoatKryFill:cost:total    = 555! Mattamy upgrade triple HC on all elevations
 
 *option:TripleLowESoftCoatKryFill:value:1 = TplLeScKry
 *option:TripleLowESoftCoatKryFill:value:2 = TplLeScKry
@@ -730,9 +725,6 @@
 *option:DoubleLowESoftCoatArgFill:value:8 = DblLeScArg
 *option:DoubleLowESoftCoatArgFill:cost:total    = 2440 ! Value changed for Van_2st_80_retro geometry. Originally 10965
 
-!---------------------------------------------------------------------
-! Whitehorse window models
-!---------------------------------------------------------------------
 *option:DoubleArgon_HighGainOnSouth:value:1 = DblLeHcArg
 *option:DoubleArgon_HighGainOnSouth:value:2 = DblLeHcArg
 *option:DoubleArgon_HighGainOnSouth:value:3 = DblLeScArg
@@ -741,9 +733,30 @@
 *option:DoubleArgon_HighGainOnSouth:value:6 = DblLeScArg
 *option:DoubleArgon_HighGainOnSouth:value:7 = DblLeScArg
 *option:DoubleArgon_HighGainOnSouth:value:8 = DblLeScArg
-*option:DoubleArgon_HighGainOnSouth:cost:total    = 0 ! Value changed for Van_2st_80_retro geometry. Originally 10965
+*option:DoubleArgon_HighGainOnSouth:cost:total    = 73	! Mattamy Ott incr. cost: HG on S GOconfig_rotate=S
+!*option:DoubleArgon_HighGainOnSouth:cost:total   = 89	! Mattamy Ott incr. cost: HG on S GOconfig_rotate=W
+!*option:DoubleArgon_HighGainOnSouth:cost:total   = 70	! Mattamy Ott incr. cost: HG on S GOconfig_rotate=N
+!*option:DoubleArgon_HighGainOnSouth:cost:total   = 117	! Mattamy Ott incr. cost: HG on S GOconfig_rotate=E
+! Cost value changed for Van_2st_80_retro geometry. Originally 10965
 
 
+*option:TripleKrypton_HighGainOnSouth:value:1 = TplLeHcKry
+*option:TripleKrypton_HighGainOnSouth:value:2 = TplLeHcKry
+*option:TripleKrypton_HighGainOnSouth:value:3 = TplLeScKry
+*option:TripleKrypton_HighGainOnSouth:value:4 = TplLeScKry
+*option:TripleKrypton_HighGainOnSouth:value:5 = TplLeScKry
+*option:TripleKrypton_HighGainOnSouth:value:6 = TplLeScKry
+*option:TripleKrypton_HighGainOnSouth:value:7 = TplLeScKry
+*option:TripleKrypton_HighGainOnSouth:value:8 = TplLeScKry
+*option:TripleKrypton_HighGainOnSouth:cost:total    = 703	! Mattamy Ott incr. cost: HG on S GOconfig_rotate=S
+!*option:TripleKrypton_HighGainOnSouth:cost:total   = 768	! Mattamy Ott incr. cost: HG on S GOconfig_rotate=W
+!*option:TripleKrypton_HighGainOnSouth:cost:total   = 690	! Mattamy Ott incr. cost: HG on S GOconfig_rotate=N
+!*option:TripleKrypton_HighGainOnSouth:cost:total   = 880	! Mattamy Ott incr. cost: HG on S GOconfig_rotate=E
+
+
+!---------------------------------------------------------------------
+! Whitehorse window models
+!---------------------------------------------------------------------
 ! Base option for windows has cost b/c we multiply this amount 
 ! by optional window areas.
 *option:Wind1_trp_CL :value:1 = Wind1_trp_CL   
@@ -916,7 +929,7 @@
 *option:TypicalGTA:cost:total       =   0
 
 *option:Typical23:value:1    =   typical-2.3.aim  
-*option:Typical23:cost:total       =   0
+*option:Typical23:cost:total       =   0			!Mattamy base (2.2 to 2.4 ACH)
 
 *option:R2000:value:1         =   R2000.aim
 *option:R2000:cost:total            =   2133
@@ -971,7 +984,7 @@
 
 *option:CeilR70:value:1 =   CeilR70
 !*option:CeilR70:value:2 =   CeilR70R
-*option:CeilR70:cost:total  =   790
+*option:CeilR70:cost:total  =   420		!Estimated as twice the Mattamy cost for R60
 
 *option:CeilR80:value:1 =   CeilR80
 !*option:CeilR80:value:2 =   CeilR80R
@@ -1269,7 +1282,7 @@ Whitehorse Wall Options (Code is R28)
 
 *option:OBC-min-R12:value:1 = BsmWllR12
 *option:OBC-min-R12:meta    = Int
-*option:OBC-min-R12:cost:total    = 0
+*option:OBC-min-R12:cost:total    = 0			!Base for Mattamy
 
 *option:MB-IntBatt-R20:value:1 = BsmW2x4R20		! JTB 31-Jan-14 for MB Base
 *option:MB-IntBatt-R20:meta    = Int
@@ -1724,26 +1737,31 @@ Reflects southern Ontario costs
 *attribute:tag:1 = <OPT-Cooling-Capacity>
 *attribute:tag:2 = <OPT-Cooling-COP>
 *attribute:tag:3 = <OPT-Cooling-Fan-Power>
+*attribute:tag:4 = <OPT-Cooling-Fan-Power-Low>
 *attribute:default = SmallCooling
 
 *option:SmallCooling:value:1 = 10000.
 *option:SmallCooling:value:2 = 3.
 *option:SmallCooling:value:3 = 125.
+*option:SmallCooling:value:4 = 0.
 *option:SmallCooling:cost:total = 0
 
 *option:2TonStdCooling:value:1 = 24000.
 *option:2TonStdCooling:value:2 = 3.2	! Estimated based on 13 SEER (min. OBC)
-*option:2TonStdCooling:value:3 = 373.	! 1/2 hp fan
+*option:2TonStdCooling:value:3 = 395.	! 1/2 hp fan
+*option:2TonStdCooling:value:4 = 135.	! Estimate
 *option:2TonStdCooling:cost:total = 0	! Base for Mattamy Ottawa
   
 *option:2TonDettsonModUnit:value:1 = 24000.
 *option:2TonDettsonModUnit:value:2 = 4.3		! Estimated based on 21 SEER
-*option:2TonDettsonModUnit:value:3 = 373.		! 
+*option:2TonDettsonModUnit:value:3 = 375.		! 
+*option:2TonDettsonModUnit:value:4 = 125.		! Estimate
 *option:2TonDettsonModUnit:cost:total = 1680	! Mattamy Ottawa
   
 *option:2TonGoodmanUnit:value:1 = 24000.
 *option:2TonGoodmanUnit:value:2 = 4.0		! Estimated based on 18 SEER
-*option:2TonGoodmanUnit:value:3 = 373.		! 
+*option:2TonGoodmanUnit:value:3 = 375.		! 
+*option:2TonGoodmanUnit:value:4 = 125.		! Estimate
 *option:2TonGoodmanUnit:cost:total = 2930	! Mattamy Ottawa
   
 *attribute:end
