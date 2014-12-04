@@ -1647,6 +1647,7 @@ sub postprocess($){
                              "Vancouver"    =>  0.0 ,
                              "PrinceGeorge" =>  0.0 ,
                              "Kamloops"     =>  0.0 ,
+                             "Ottawa"       =>  0.0 , 
                              "Regina"       =>  0.0 ,
                              "Winnipeg"     =>  0.0 ,
                              "Fredricton"   =>  0.0 ,
