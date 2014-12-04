@@ -1789,18 +1789,19 @@ Reflects southern Ontario costs
 *attribute:end 
 
 
-
 *attribute:start 
-*attribute:name    = Opt-HRVDuct 
+*attribute:name    = Opt-HRVduct 
 *attribute:tag:1   = <Opt-HRVDucting>
+*attribute:tag:2   = <Opt-FanVentACH>
 *attribute:default = interlock
 
 *option:interlock:value:1         = *fan-ctl-loop
+*option:interlock:value:2         = 0.8   ! ACH/hr associated with 100CFM bathoom fan in Ottawa builder 2-story home 
 *option:interlock:cost:total      = 0
 
-*option:directduct:value:1           = #No *fan-ctl-loop
+*option:directduct:value:1        = #No *fan-ctl-loop
+*option:directduct:value:2        = 0.0   ! ACH/hr --- hrv replaces bathroom fan. 
 *option:directduct:cost:total = 0
-
 
 *attribute:end 
 
