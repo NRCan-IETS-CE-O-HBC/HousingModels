@@ -92,7 +92,7 @@ Opt-DHWSystem        : %GOtag:Opt-DHWSystem%
 Opt-HVACSystem       : %GOtag:Opt-HVACSystem%
 Opt-Cooling-Spec     : %GOtag:Opt-Cooling-Spec%
 Opt-HRVspec          : %GOtag:Opt-HRVSpec%
-Opt-HRVDuct          : %GOtag:Opt-HRVDuct%    
+Opt-HRVDuct          : %GOtag:Opt-HRVduct%    
 
 
 
