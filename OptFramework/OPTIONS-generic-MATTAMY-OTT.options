@@ -733,10 +733,10 @@
 *option:DoubleArgon_HighGainOnSouth:value:6 = DblLeScArg
 *option:DoubleArgon_HighGainOnSouth:value:7 = DblLeScArg
 *option:DoubleArgon_HighGainOnSouth:value:8 = DblLeScArg
-*option:DoubleArgon_HighGainOnSouth:cost:total    = 73	! Mattamy Ott incr. cost: HG on S GOconfig_rotate=S
-!*option:DoubleArgon_HighGainOnSouth:cost:total   = 89	! Mattamy Ott incr. cost: HG on S GOconfig_rotate=W
-!*option:DoubleArgon_HighGainOnSouth:cost:total   = 70	! Mattamy Ott incr. cost: HG on S GOconfig_rotate=N
-!*option:DoubleArgon_HighGainOnSouth:cost:total   = 117	! Mattamy Ott incr. cost: HG on S GOconfig_rotate=E
+*option:DoubleArgon_HighGainOnSouth:cost:total = 73	! Mattamy Ott incr. cost for S
+!*option:DoubleArgon_HighGainOnSouth:cost:total = 89	! Mattamy Ott incr. cost for W
+!*option:DoubleArgon_HighGainOnSouth:cost:total = 70	! Mattamy Ott incr. cost for N
+!*option:DoubleArgon_HighGainOnSouth:cost:total = 117	! Mattamy Ott incr. cost for E
 ! Cost value changed for Van_2st_80_retro geometry. Originally 10965
 
 
@@ -748,10 +748,10 @@
 *option:TripleKrypton_HighGainOnSouth:value:6 = TplLeScKry
 *option:TripleKrypton_HighGainOnSouth:value:7 = TplLeScKry
 *option:TripleKrypton_HighGainOnSouth:value:8 = TplLeScKry
-*option:TripleKrypton_HighGainOnSouth:cost:total    = 703	! Mattamy Ott incr. cost: HG on S GOconfig_rotate=S
-!*option:TripleKrypton_HighGainOnSouth:cost:total   = 768	! Mattamy Ott incr. cost: HG on S GOconfig_rotate=W
-!*option:TripleKrypton_HighGainOnSouth:cost:total   = 690	! Mattamy Ott incr. cost: HG on S GOconfig_rotate=N
-!*option:TripleKrypton_HighGainOnSouth:cost:total   = 880	! Mattamy Ott incr. cost: HG on S GOconfig_rotate=E
+*option:TripleKrypton_HighGainOnSouth:cost:total  = 703	! Mattamy Ott incr. cost for S
+!*option:TripleKrypton_HighGainOnSouth:cost:total = 768	! Mattamy Ott incr. cost for W
+!*option:TripleKrypton_HighGainOnSouth:cost:total = 690	! Mattamy Ott incr. cost for N
+!*option:TripleKrypton_HighGainOnSouth:cost:total = 880	! Mattamy Ott incr. cost for E
 
 
 !---------------------------------------------------------------------
@@ -1835,7 +1835,7 @@ Reflects southern Ontario costs
 *option:NGERSNoReduction19:cost:total = 0
 
 *option:NGERSReducedA16:value:1    = 0.700
-*option:NGERSReducedA16:cost:total = 0		! JTB: This needs a cost (more than lights to do this)
+*option:NGERSReducedA16:cost:total = 160
 
 *option:NGERSBestInClass14p8:value:1    = 0.648301
 *option:NGERSBestInClass14p8:cost:total = 0
@@ -1876,7 +1876,7 @@ Reflects southern Ontario costs
 *option:No-Reduction:cost:total     = 0
 
 *option:EStar:value:1        = 0
-*option:EStar:cost:total     = 0
+*option:EStar:cost:total     = 80
 
 *option:Low-Flow:value:1        = 0
 *option:Low-Flow:cost:total     = 0
