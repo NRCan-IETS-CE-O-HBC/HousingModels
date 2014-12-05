@@ -69,7 +69,7 @@ Opt-Ceilings                : %GOtag:Opt-Ceilings%
 Opt-BasementSlabInsulation  : %GOtag:Opt-BasementSlabInsulation%
 Opt-BasementWallInsulation  : %GOtag:Opt-BasementWallInsulation%
 Opt-ExposedFloor            : %GOtag:Opt-ExposedFloor%
-
+OPT-OPR-SCHED               : scheduled
 
 ! Window specification
 Opt-CasementWindows  : %GOtag:Opt-CasementWindows%
@@ -92,7 +92,7 @@ Opt-DHWSystem        : %GOtag:Opt-DHWSystem%
 Opt-HVACSystem       : %GOtag:Opt-HVACSystem%
 Opt-Cooling-Spec     : %GOtag:Opt-Cooling-Spec%
 Opt-HRVspec          : %GOtag:Opt-HRVSpec%
-
+Opt-HRVDuct          : %GOtag:Opt-HRVDuct%    
 
 
 

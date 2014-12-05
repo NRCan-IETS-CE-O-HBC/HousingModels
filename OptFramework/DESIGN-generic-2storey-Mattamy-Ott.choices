@@ -214,4 +214,4 @@ Opt-Cooling-Spec     : 2TonStdCooling
 
 ! HRV spec 
 Opt-HRVspec : BaseHRV_SRE70
-Opt-HRVduct : directduct
+Opt-HRVduct : interlock

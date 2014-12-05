@@ -1562,7 +1562,8 @@ Whitehorse Wall Options (Code is R28)
 *option:13kW-furnace-ecm:value:4 = 
 *option:13kW-furnace-ecm:value:5 = 
 *option:13kW-furnace-ecm:value:6 = shoulder-ideal.ctl
-*option:13kW-furnace-ecm:cost:total    = 1230  ! based on quote from Patric
+*option:13kW-furnace-ecm:cost:total    = 1400	!Mattamy Ottawa for Dettson Chinook-45
+! 1230 based on quote from Patric
 
 *option:zoned-furnace-ecm:value:1 = smallfurnace_AC-gas-ecm-motor.hvac
 *option:zoned-furnace-ecm:value:2 = #-no-GSHP-file
@@ -1570,7 +1571,7 @@ Whitehorse Wall Options (Code is R28)
 *option:zoned-furnace-ecm:value:4 = 
 *option:zoned-furnace-ecm:value:5 = 
 *option:zoned-furnace-ecm:value:6 = shoulder_zoned.ctl
-*option:zoned-furnace-ecm:cost:total    = 0
+*option:zoned-furnace-ecm:cost:total    = 2800	! Mattamy Ottawa cost for 3 zone Dettson
 
 *option:IMS-P10:value:1 = IMS-P10.hvac
 *option:IMS-P10:value:2 = #-no-GSHP-file
@@ -1797,11 +1798,11 @@ Reflects southern Ontario costs
 
 *option:interlock:value:1         = *fan-ctl-loop
 *option:interlock:value:2         = 0.8   ! ACH/hr associated with 100CFM bathoom fan in Ottawa builder 2-story home 
-*option:interlock:cost:total      = 0
+*option:interlock:cost:total      = 0	! Mattamy Ott base
 
 *option:directduct:value:1        = #No *fan-ctl-loop
 *option:directduct:value:2        = 0.0   ! ACH/hr --- hrv replaces bathroom fan. 
-*option:directduct:cost:total = 0
+*option:directduct:cost:total     = 1355 ! Mattamy Ottawa cost of ducted HRV
 
 *attribute:end 
 
