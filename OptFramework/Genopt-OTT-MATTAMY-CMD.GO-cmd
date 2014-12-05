@@ -255,7 +255,7 @@ Vary{
   // HRV Duct spec:
   
   Parameter {//
-       Name   = GOtag:Opt-HRVDuct;
+       Name   = GOtag:Opt-HRVduct;
 	   Ini    = 1;
 	   Values = "interlock, directduct";
   }
