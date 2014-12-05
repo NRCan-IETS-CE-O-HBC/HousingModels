@@ -592,7 +592,7 @@ while ( my $line = <OPTIONS> ){
 
 
 		}
-		debug_out( "           - cost = \$$cost ($cost_type) \n");
+#		debug_out( "           - cost = \$$cost ($cost_type) \n");
 		
 		my $ExtEnergyHash = $gOptions{$currentAttributeName}{"options"}{$optionIndex}; 
 		for my $ExtEnergyType ( keys (%$ExtEnergyHash ) ){
