@@ -1847,7 +1847,7 @@ Reflects southern Ontario costs
 *attribute:end 
 
 *attribute:start 
-*attribute:name    = Opt-HRVDuct 
+*attribute:name    = Opt-HRVduct 
 *attribute:tag:1   = <Opt-HRVDucting>
 *attribute:tag:2   = <Opt-FanVentACH>
 *attribute:default = interlock

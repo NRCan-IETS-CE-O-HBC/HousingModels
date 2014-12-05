@@ -13,11 +13,11 @@
     *fuel oil
     *function heating
     *zone-links-start
-    *zone-link 1 1.0 # Served zones and fraction
+    *zone-link 2 1.0 # Served zones and fraction
     *zone-links-end
     *sys-data-start
     
-        furnace-type 8
+        furnace-type 9
         capacity 15000
         efficiency 0.6
         circ-fan-mode 1

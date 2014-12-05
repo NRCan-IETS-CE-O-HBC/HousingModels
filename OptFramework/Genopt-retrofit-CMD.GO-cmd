@@ -323,14 +323,35 @@ Vary{
       Ini    = 1; 
       Values = "Olsen,oil95furnace"; 
   }
+
+ // Cooling spec
   
+  Parameter {// 
+      Name   = GOtag:Opt-Cooling-Spec; 
+      Ini    = 1; 
+      Values = "2TonStdCooling, 2TonDettsonModUnit, 2TonGoodmanUnit";	
+  }
+
+
   // HRV specification
   Parameter { 
      Name = GOtag:Opt-HRVSpec; 
      Ini  = 1; 
-     Values = "BaseHRV_SRE70"; 
+     Values = "BaseHRV_SRE70";  //UpgHRV_SRE78
   }
   
+ 
+ 
+  // HRV Duct spec:
+  
+  Parameter {//
+       Name   = GOtag:Opt-HRVduct;
+	   Ini    = 1;
+	   Values = "interlock";
+  }
+
+  
+
   
   // PV: Set to autosize to ensure each run actually achieves NZEH. 
   // NoPV

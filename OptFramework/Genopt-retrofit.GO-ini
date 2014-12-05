@@ -39,7 +39,7 @@ Simulation{
    CallParameter {
       
       // Windows only: 
-        Prefix = "C:\\cygwin\\bin\\perl.exe ";
+        Prefix = "C:\\cygwin64\\bin\\perl.exe ";
       
       // LINUX 
       //Prefix = "" ; 
