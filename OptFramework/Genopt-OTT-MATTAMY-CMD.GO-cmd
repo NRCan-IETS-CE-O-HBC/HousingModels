@@ -302,13 +302,13 @@ Vary{
       Name   = GOtag:ElecLoadScale; 
       Ini    = 1;
       // Value may be one of  NoReduction, BasicReduction, EfficientLiving      
-      Values = "NoReduction, NGERSReduced19, NGERSReducedA16"; 
+      Values = "NoReduction, NGERSNoReduction19, NGERSReducedA16"; 
   }
   Parameter { // 
       Name   = GOtag:DHWLoadScale; 
       Ini    = 1;
       // Value may be one of  NoReduction, BasicReduction, EfficientLiving, Low-Flow?
-      Values = "NoReduction, OldERS, EStar"; 
+      Values = "No-Reduction, OldERS, EStar"; 
   }
   
   Parameter { // 
