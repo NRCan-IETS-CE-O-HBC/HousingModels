@@ -63,7 +63,7 @@ Opt-OverhangWidth : BaseOverhang
 ! Air-Tightness: 
 !     Generic
 !
-Opt-AirTightness   : Generic
+Opt-AirTightness   : Typical23
 
 
 ! Main wall insulation 
@@ -143,7 +143,7 @@ Opt-BasementWallInsulation  : OBC-min-R12
 ! Mattamy 
 !     DoubleArgon_HighGainOnSouth
 
-Opt-CasementWindows  :  DoubleLowEHardCoatArgFill 
+Opt-CasementWindows  :  DoubleArgon_HighGainOnSouth	!DoubleLowEHardCoatArgFill 
 
 
 ! Exposed floor over garage (affects floor
@@ -206,7 +206,7 @@ Opt-DHWSystem        : BaseDHW
 !  oil-furnace-low
 !  oil-furnace-mid
 
-Opt-HVACSystem       : zoned-furnace-ecm
+Opt-HVACSystem       : gas-furnace-ecm		!zoned-furnace-ecm
 
 OPT-Furnace-Fan-Ctl  : Auto
 
