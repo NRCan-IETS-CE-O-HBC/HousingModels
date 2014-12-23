@@ -1071,7 +1071,6 @@ while ( my ( $attribute, $choice) = each %gChoices ){
   
   # This section implements the multiply-cost 
   
-  die(); 	# Temp during Dakota testing?????? (JTB 23-Dec-2014)
   
   if ($allok ){
     
