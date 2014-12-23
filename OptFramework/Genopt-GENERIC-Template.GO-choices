@@ -47,11 +47,11 @@ GOconfig_rotate      : %GOtag:GOconfig_rotate%
 ! or transparent (MinWindows). NoWindows doesn't presently work!
 Opt-BaseWindows           : MinWindows  
 
-! Add extra windows ("Yes" or "No") 
-Opt-FrontWindows          : %GOtag:Opt-FrontWindows%
-Opt-BackWindows           : %GOtag:Opt-BackWindows%
-Opt-ExtLeftSideWindow     : %GOtag:Opt-ExtLeftSideWindow%
-Opt-ExtBasementWindow     : %GOtag:Opt-ExtBasementWindow%
+! Add extra windows ("Yes" or "No") NO LONGER REQUIRE (JTB DEC 3/14)
+!Opt-FrontWindows          : %GOtag:Opt-FrontWindows%
+!Opt-BackWindows           : %GOtag:Opt-BackWindows%
+!Opt-ExtLeftSideWindow     : %GOtag:Opt-ExtLeftSideWindow%
+!Opt-ExtBasementWindow     : %GOtag:Opt-ExtBasementWindow%
 
 ! Width of overhang       
 Opt-OverhangWidth         : %GOtag:Opt-OverhangWidth%
@@ -60,13 +60,16 @@ Opt-OverhangWidth         : %GOtag:Opt-OverhangWidth%
 Opt-AirTightness          : %GOtag:Opt-AirTightness%
 Opt-ACH                   : %GOtag:Opt-ACH%
 
+! Dummy variable. Has to be here. 
+Opt-WindowOrientation: all
+
 ! Insulation levels 
 Opt-MainWall                : %GOtag:Opt-MainWall%
 Opt-Ceilings                : %GOtag:Opt-Ceilings%
 Opt-BasementSlabInsulation  : %GOtag:Opt-BasementSlabInsulation%
 Opt-BasementWallInsulation  : %GOtag:Opt-BasementWallInsulation%
 Opt-ExposedFloor            : %GOtag:Opt-ExposedFloor%
-
+OPT-OPR-SCHED               : scheduled
 
 ! Window specification
 Opt-CasementWindows  : %GOtag:Opt-CasementWindows%
@@ -87,8 +90,9 @@ Opt-RoofPitch        : %GOtag:RoofPitch%
 ! HVAC 
 Opt-DHWSystem        : %GOtag:Opt-DHWSystem%
 Opt-HVACSystem       : %GOtag:Opt-HVACSystem%
+Opt-Cooling-Spec     : %GOtag:Opt-Cooling-Spec%
 Opt-HRVspec          : %GOtag:Opt-HRVSpec%
-
+Opt-HRVduct          : %GOtag:Opt-HRVduct%    
 
 
 

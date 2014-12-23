@@ -188,4 +188,4 @@
    0.25    # Delay between action 
    0.3    # Control gain modifier 
 # Function:Zone links
- 3,1,2,0
+ 3,1,2,0,0

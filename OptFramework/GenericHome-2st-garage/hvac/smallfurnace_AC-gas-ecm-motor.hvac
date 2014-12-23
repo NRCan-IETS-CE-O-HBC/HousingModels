@@ -20,16 +20,16 @@
     *sys-data-start
     
         furnace-type 8
-        capacity 23800
-        efficiency 0.96
+        capacity 43000
+        efficiency 0.95
         circ-fan-mode <OPT-Furnace-Fan-Ctl>
-        circ-fan-power 360.0
+        circ-fan-power 375
         circ-fan-power-low  125.        
         draft-fan-power 75. 
         pilot-power 0.
 
     *sys-data-end
-    *fan-ctl-loop 1
+    <Opt-HRVDucting>  1
 *system-end
 ## -------- Heat pump (cooling) ----------
 *system-start
@@ -46,14 +46,14 @@
     *zone-links-end
     *sys-data-start
 
-        capacity 10555.
-        COP 3.
+        capacity <OPT-Cooling-Capacity>
+        COP <OPT-Cooling-COP>
         #circ-fan-flow -
         #circ-fan-rated-flow 1.5
         circ-fan-mode <OPT-Furnace-Fan-Ctl>
         circ-fan-position 1
-        circ-fan-power 475.
-        circ-fan-power-low 0.   # < Set to zero if 
+        circ-fan-power <OPT-Cooling-Fan-Power>
+        circ-fan-power-low <OPT-Cooling-Fan-Power-Low>   # Set to zero if single speed
         outdoor-fan-power 0.
         fan-power-in-auto 0.
         circ-fan-rated-position 1
@@ -66,7 +66,7 @@
     *misc-param-start
         performance good
     *misc-param-end     
-    *fan-ctl-loop 1
+    <Opt-HRVDucting>  1
     *OA-schedule-start
 
         *day-type-start
