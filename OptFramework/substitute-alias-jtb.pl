@@ -626,13 +626,8 @@ while ( my $line = <OPTIONS> ){
   }
 }
     
-
-
-
 close (OPTIONS);
  
-
-
  
  
  
@@ -641,7 +636,6 @@ for my $att (keys %gOptions ){
   #debug_out ".... $att \n"; 
   
 }
-
 
 
 stream_out ("...done.\n") ; 
@@ -668,12 +662,8 @@ while ( my $line = <CHOICES> ){
     #     value_abc token_abc
     # Translate into existing choice-value format.  
     
-    # 
-
-    
     $line =~ s/^\s+//; 
     $line =~ s/\s+$//; 
-    
 
     my ($value, $token) = split / /, $line; 
     
@@ -694,7 +684,6 @@ while ( my $line = <CHOICES> ){
     
         # reformat line in friendly format 
         $line = "$token:$value"; 
-    
         
     }
     
@@ -894,7 +883,7 @@ while ( my ( $attribute, $choice) = each %gChoices ){
 		$ThisError .=   "       in options file ($gOptionFile)\n";
 		$ErrorBuffer .= $ThisError; 
 		stream_out( $ThisError );   
-		$allok = 0;		# This stop processing further down
+		# Processing further down
     }
   }else{ 
 	debug_out ( "   - found \$gOptions{\"$attribute\"}{\"options\"}{\"$choice\"} \n"); 
@@ -1060,31 +1049,25 @@ while ( my ( $attribute, $choice) = each %gChoices ){
 
 	 
 	 }
-   
+	 
    }
     
   #debug_out (" >>>>> ".$gOptions{$attribute}{"options"}{$choice}{"result"}{"production-elec-perKW"}."\n"); 
-  
   
   
   my ($BaseOption,$ScaleFactor,$BaseChoice,$BaseCost);
   
   # This section implements the multiply-cost 
   
-  
   if ($allok ){
-    
-    
        
     my $cost = $gOptions{$attribute}{"options"}{$choice}{"cost"};
     my $cost_type = $gOptions{$attribute}{"options"}{$choice}{"cost-type"};
     my $repcost = defined( $cost ) ? $cost : "?" ; 
      
 	debug_out ("   - found cost: \$$cost ($cost_type) \n"); 
-    
 	
     my $ScaleCost = 0; 
-    
     
     # Scale cost by some other parameter. 
     if ( $repcost =~/\<MULTIPLY-COST:.+/){
@@ -1105,8 +1088,6 @@ while ( my ( $attribute, $choice) = each %gChoices ){
       $ScaleCost = 1; 
       $gOptions{$attribute}{"options"}{$choice}{"cost"} = $CompCost; 
       
-      
-      
     }
     
     $cost = $gOptions{$attribute}{"options"}{$choice}{"cost"} ;
@@ -1118,20 +1099,17 @@ while ( my ( $attribute, $choice) = each %gChoices ){
       debug_out (     "  (cost computed as $ScaleFactor *  ".round($BaseCost)." [cost of $BaseChoice])\n");
     }
     
-  
-    
+  }
+   
+  # Check on value of error flag before continuing with while loop
+  # (the flag may be reset in the next iteration!)
+  if ( ! $allok ) {
+    last;	# exit the loop checking choice against options
   }
  
-  
-
 }
 
-
-
 # Seems like we've found everything!
-
-
-
 
 if ( ! $allok ) { 
 

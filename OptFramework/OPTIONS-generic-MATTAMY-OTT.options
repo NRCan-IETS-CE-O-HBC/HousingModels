@@ -284,7 +284,7 @@
 *option[GOconfig_rotate>S]:all:value:7 = <Opt-win-W-CON>
 *option[GOconfig_rotate>S]:all:value:8 = <Opt-win-W-OPT>
 *option[GOconfig_rotate>S]:all:cost:total    = 0
-*option[GOconfig_rotate>S]:all:alias = 600
+*option[GOconfig_rotate>S]:all:alias = 600				! All set to same alias value
 
 *option[GOconfig_rotate>E]:all:value:1 = <Opt-win-E-CON>
 *option[GOconfig_rotate>E]:all:value:2 = <Opt-win-E-OPT>
@@ -295,7 +295,7 @@
 *option[GOconfig_rotate>E]:all:value:7 = <Opt-win-S-CON>
 *option[GOconfig_rotate>E]:all:value:8 = <Opt-win-S-OPT>
 *option[GOconfig_rotate>E]:all:cost:total    = 0
-*option[GOconfig_rotate>E]:all:alias = 601
+*option[GOconfig_rotate>E]:all:alias = 600
 
 *option[GOconfig_rotate>N]:all:value:1 = <Opt-win-N-CON>
 *option[GOconfig_rotate>N]:all:value:2 = <Opt-win-N-OPT>
@@ -306,7 +306,7 @@
 *option[GOconfig_rotate>N]:all:value:7 = <Opt-win-E-CON>
 *option[GOconfig_rotate>N]:all:value:8 = <Opt-win-E-OPT>
 *option[GOconfig_rotate>N]:all:cost:total    = 0
-*option[GOconfig_rotate>N]:all:alias = 602
+*option[GOconfig_rotate>N]:all:alias = 600
 
 *option[GOconfig_rotate>W]:all:value:1 = <Opt-win-W-CON>
 *option[GOconfig_rotate>W]:all:value:2 = <Opt-win-W-OPT>
@@ -317,7 +317,7 @@
 *option[GOconfig_rotate>W]:all:value:7 = <Opt-win-N-CON>
 *option[GOconfig_rotate>W]:all:value:8 = <Opt-win-N-OPT>
 *option[GOconfig_rotate>W]:all:cost:total    = 0
-*option[GOconfig_rotate>W]:all:alias = 603
+*option[GOconfig_rotate>W]:all:alias = 600
 
 *attribute:end
 
