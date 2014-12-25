@@ -96,7 +96,7 @@ Opt-ExtraDrywall     : 2100	!OneSheet
 !   Wood 
 !   1-in-concrete
 !   2-in-concrete
-Opt-FloorSurface     : 220	!wood
+Opt-FloorSurface     : 2200	!wood
 
 
 Opt-Ceilings         : 1600	!CeilR50
