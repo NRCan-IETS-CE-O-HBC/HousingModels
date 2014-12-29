@@ -1929,6 +1929,8 @@ sub postprocess($){
   my @Propane_Use    = @{ $data{" total fuel use:propane:all end uses:quantity (m3/s)"}  };
   my @Wood_Use       = @{ $data{" total fuel use:mixed wood:all end uses:quantity (cord/s)"}  };
   my @Pellets_Use    = @{ $data{" total fuel use:wood_pellets:all end uses:quantity (tonne/s)"}  };
+  #my @Wood_Use       = @{ $data{" total fuel use:wood:all end uses:quantity (cord/s)"}  };
+  #my @Pellets_Use    = @{ $data{" total fuel use:pellets:all end uses:quantity (ton/s)"}  };
   # Recover Day, Hour & Month
   my @DayOfYear   = @{  $data{" building:day:future (day)"}     } ;
   my @HourOfDay   = @{  $data{" building:hour:future (hours)"}  } ;

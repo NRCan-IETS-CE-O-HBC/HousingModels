@@ -48,11 +48,13 @@ Vary{
              //    Quebec     
              //    Fredricton 
              //    Halifax    
-             //    Whitehorse 
+             //    Whitehorse
+             //    Kamloops
+             //    PrinceGeorge			 
   
     Name = GOtag:Opt-Location; 
     Ini  = 1;
-    Values = "Vancouver"; 
+    Values = "Kamloops"; 
   }
 
   // Geometry  
@@ -67,7 +69,7 @@ Vary{
   // Defining the building attachment
   Parameter{ // single
              // semi
-			 // row
+    	     // row
 			 
     Name = GOtag:Opt-Attachment;  
     Ini  = 1;
@@ -82,7 +84,7 @@ Vary{
   
     Name = GOtag:Opt-ACH; 
     Ini  = 1;
-    Values = "retro_ACH_5"; 
+    Values = "retro_ACH_6_5, retro_ACH_4, retro_ACH_2"; 
   }
 
   
@@ -312,14 +314,14 @@ Vary{
   Parameter {// 
       Name   = GOtag:Opt-HVACSystem; 
       Ini    = 1; 
-      Values = "basefurnace,elec-baseboard,gas-furnace-ecm,13kW-furnace-ecm,IMS-P10,Combi-P9-ecmV2,GSHP"; 
+      Values = "basefurnace,elec-baseboard,CCASHP,gas-furnace-ecm,13kW-furnace-ecm,IMS-P10,Combi-P9-ecmV2"; 
   }
   
   // HRV specification
   Parameter { 
      Name = GOtag:Opt-HRVSpec; 
      Ini  = 1; 
-     Values = "BaseHRV_SRE70"; 
+     Values = "BaseHRV_SRE70,UpgHRV_SRE78"; 
   }
   
   
@@ -396,13 +398,13 @@ Vary{
 	  //      (CEF assumptions (equilibrium)) BasicReduction, EfficientLiving
 	  //      (Next-gen ERS) NGERSNoReduction19, NGERSReducedA16,NGERSBestInClass14p8
       Ini    = 1;
-      Values = "NoReduction"; 
+      Values = "NoReduction";//, NGERSNoReduction19, NGERSReducedA16"; 
   }
   Parameter { // 
       Name   = GOtag:DHWLoadScale; 
       Ini    = 1;
       // Value may be one of  OldERS,No-Reduction,EStar,Low-Flow      
-      Values = "OldERS"; 
+      Values = "OldERS";// No-Reduction,EStar,Low-Flow"; 
   }
   
   
