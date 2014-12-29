@@ -464,6 +464,12 @@
 *option:Yellowknife:value:2 = 62.47
 *option:Yellowknife:value:3 = -0.55
 *option:Yellowknife:cost:total    = 0
+
+*option:Inuvik:value:1 = can_inuvik.cwec
+*option:Inuvik:value:2 = 68.3
+*option:Inuvik:value:3 = 1.52
+*option:Inuvik:cost:total    = 0
+
   
 *attribute:end
 
@@ -548,6 +554,24 @@
 *attribute:tag:16   = <gar-area>
 *attribute:default = Toronto
 
+*option:Van_80_2st:value:1    = 132.15
+*option:Van_80_2st:value:2    = 11.50
+*option:Van_80_2st:value:3    = 11.49
+*option:Van_80_2st:value:4    = 9.3639
+*option:Van_80_2st:value:5    = 5.75
+*option:Van_80_2st:value:6    = 0.5
+*option:Van_80_2st:value:7    = 3.950
+*option:Van_80_2st:value:8    = 0.5
+*option:Van_80_2st:value:9    = 3.947
+*option:Van_80_2st:value:10   = 11.0
+*option:Van_80_2st:value:11   = 7.550
+*option:Van_80_2st:value:12   = 10.9913
+*option:Van_80_2st:value:13   = 7.544
+*option:Van_80_2st:value:14   = 0
+*option:Van_80_2st:value:15   = 0
+*option:Van_80_2st:value:16   = 0
+*option:Van_80_2st:cost:total = 0
+
 *option:Van_3st_garage:value:1    = 55.8333
 *option:Van_3st_garage:value:2    = 5
 *option:Van_3st_garage:value:3    = 11.17
@@ -597,10 +621,30 @@
 *option:NWT_Access:value:11   = 6.328
 *option:NWT_Access:value:12   = 11.0824
 *option:NWT_Access:value:13   = 9.860
-*option:NWT_Access:value:14   = 3.3019
-*option:NWT_Access:value:15   = 3.5052
-*option:NWT_Access:value:16   = 11.57382
+*option:NWT_Access:value:14   = 0
+*option:NWT_Access:value:15   = 0
+*option:NWT_Access:value:16   = 0
 *option:NWT_Access:cost:total = 0
+
+
+*option:NWT_1986:value:1    = 56.02224
+*option:NWT_1986:value:2    = 7.62
+*option:NWT_1986:value:3    = 7.35
+*option:NWT_1986:value:4    = 7.277
+*option:NWT_1986:value:5    = 3.81
+*option:NWT_1986:value:6    = 0.5
+*option:NWT_1986:value:7    = 2.786
+*option:NWT_1986:value:8    = 0.5
+*option:NWT_1986:value:9    = 1.235
+*option:NWT_1986:value:10   = 7.120
+*option:NWT_1986:value:11   = 6.358
+*option:NWT_1986:value:12   = 6.852
+*option:NWT_1986:value:13   = 4.646
+*option:NWT_1986:value:14   = 0.
+*option:NWT_1986:value:15   = 0.
+*option:NWT_1986:value:16   = 0.
+*option:NWT_1986:cost:total = 0
+
 
 
 *attribute:end
@@ -796,6 +840,15 @@
 *option:Win5hcLE2_tr:value:8 = Win5hcLE2_tr
 *option:Win5hcLE2_tr:cost:total   = 24491
 
+*option:Win6_qd_CL:value:1 = Win6_qd_CL
+*option:Win6_qd_CL:value:2 = Win6_qd_CL
+*option:Win6_qd_CL:value:3 = Win6_qd_CL
+*option:Win6_qd_CL:value:4 = Win6_qd_CL
+*option:Win6_qd_CL:value:5 = Win6_qd_CL
+*option:Win6_qd_CL:value:6 = Win6_qd_CL
+*option:Win6_qd_CL:value:7 = Win6_qd_CL
+*option:Win6_qd_CL:value:8 = Win6_qd_CL
+*option:Win6_qd_CL:cost:total   = 25226
 
 *option:Triple_win_shutter:value:1 = Wind3SHUTTER
 *option:Triple_win_shutter:value:2 = Wind3SHUTTER
@@ -1791,6 +1844,22 @@ Reflects southern Ontario costs
 *option:Olsen:value:6 = shoulder-ideal.ctl 
 *option:Olsen:cost:total    = 0
 
+*option:upgrade_Olsen:value:1 = upg_oil-furnace-Olsen.hvac
+*option:upgrade_Olsen:value:2 = #-no-GSHP-file
+*option:upgrade_Olsen:value:3 = #No-IMS: 
+*option:upgrade_Olsen:value:4 = #
+*option:upgrade_Olsen:value:5 = 
+*option:upgrade_Olsen:value:6 = shoulder-ideal.ctl 
+*option:upgrade_Olsen:cost:total    = 0
+
+*option:wood_furnace:value:1 = wood-furnace.hvac
+*option:wood_furnace:value:2 = #-no-GSHP-file
+*option:wood_furnace:value:3 = #No-IMS: 
+*option:wood_furnace:value:4 = #
+*option:wood_furnace:value:5 = 
+*option:wood_furnace:value:6 = shoulder-ideal.ctl 
+*option:wood_furnace:cost:total    = 0
+
 
 *attribute:end
 
@@ -1971,6 +2040,19 @@ Reflects southern Ontario costs
 *option:retro_ElectricHP:value:1 = ElecHP.dhw
 *option:retro_ElectricHP:cost:total    = 3750
 
+
+! NWT DHW systems---------------------
+*option:elec_DHW:value:1     = elec_DHW.dhw
+*option:elec_DHW:cost:total        = 0
+
+*option:wood_DHW:value:1 = wood_DHW.dhw
+*option:wood_DHW:cost:total    = 0
+
+*option:NWT_upgrade_elec_DHW:value:1     = upgrade_elec_DHW.dhw
+*option:NWT_upgrade_elec_DHW:cost:total        = 0
+
+*option:NWT_upgrade_oil_DHW:value:1     = upgrade_oil_DHW.dhw
+*option:NWT_upgrade_oil_DHW:cost:total        = 0
 
 *attribute:end
 
@@ -2588,6 +2670,9 @@ Reflects southern Ontario costs
 *option[Opt-Location>Yellowknife ;Opt-RoofPitch>6-12  ]:SizedPV:production-elec-perKW  = 3.36888! GH/kW Installed
 *option[Opt-Location>Yellowknife ;Opt-RoofPitch>8-12  ]:SizedPV:production-elec-perKW  = 3.47472! GH/kW Installed
 *option[Opt-Location>Yellowknife ;Opt-RoofPitch>12-12 ]:SizedPV:production-elec-perKW  = 3.55536! GH/kW Installed
+*option[Opt-Location>Inuvik ;Opt-RoofPitch>6-12  ]:SizedPV:production-elec-perKW  = 3.36888! GH/kW Installed
+*option[Opt-Location>Inuvik ;Opt-RoofPitch>8-12  ]:SizedPV:production-elec-perKW  = 3.47472! GH/kW Installed
+*option[Opt-Location>Inuvik ;Opt-RoofPitch>12-12 ]:SizedPV:production-elec-perKW  = 3.55536! GH/kW Installed
 *option:SizedPV:cost:PerKW = 4696 ! $/kW installed
 
 *option:NoPV:production-elec-perKW  = 0! GH/kW Installed

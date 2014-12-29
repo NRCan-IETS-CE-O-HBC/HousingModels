@@ -50,9 +50,9 @@ second_fl describes the second floor
 *surf,Wall-2-4,VERT,-,-,-,<OptAtt-Wall4Con>,<OptAtt-Wall4Opt>,<OptAtt-Wall4BC>,0,0  #   4 ||< external
 *surf,Top-2nd,CEIL,-,-,-,<Opt-Ceiling>,OPAQUE,ANOTHER,04,06       #   5 ||< Top-2nd:Base-3rd
 *surf,Base-2nd,FLOR,-,-,-,<Opt-IntFloor>,OPAQUE,ANOTHER,02,05     #   6 ||< Base-2nd:Top-1st
-*surf,win-wall-2-1,VERT,Wall-2-1,-,-,<OptBW-Construction>,<OptBW-Optics>,EXTERIOR,0,0  #   7 ||< external
+*surf,win-wall-2-1,VERT,Wall-2-1,-,-,<OptAtt-Win1Con>,<OptAtt-Win1Opt>,EXTERIOR,0,0  #   7 ||< external
 *surf,win-wall-2-2,VERT,Wall-2-2,-,-,<OptAtt-Win2Con>,<OptAtt-Win2Opt>,<OptAtt-Win2BC>,0,0  #   8 ||< external
-*surf,win-wall-2-3,VERT,Wall-2-3,-,-,<OptBW-Construction>,<OptBW-Optics>,EXTERIOR,0,0  #   9 ||< external
+*surf,win-wall-2-3,VERT,Wall-2-3,-,-,<OptAtt-Win3Con>,<OptAtt-Win3Opt>,EXTERIOR,0,0  #   9 ||< external
 *surf,win-wall-2-4,VERT,Wall-2-4,-,-,<OptAtt-Win4Con>,<OptAtt-Win4Opt>,<OptAtt-Win4BC>,0,0  #  10 ||< external
 # 
 *insol,3,0,0,0  # default insolation distribution
