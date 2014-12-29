@@ -545,6 +545,24 @@
 *attribute:tag:16   = <gar-area>
 *attribute:default = Toronto
 
+*option:Van_80_2st:value:1    = 132.15
+*option:Van_80_2st:value:2    = 11.50
+*option:Van_80_2st:value:3    = 11.49
+*option:Van_80_2st:value:4    = 9.3639
+*option:Van_80_2st:value:5    = 5.75
+*option:Van_80_2st:value:6    = 0.5
+*option:Van_80_2st:value:7    = 3.950
+*option:Van_80_2st:value:8    = 0.5
+*option:Van_80_2st:value:9    = 3.947
+*option:Van_80_2st:value:10   = 11.0
+*option:Van_80_2st:value:11   = 7.550
+*option:Van_80_2st:value:12   = 10.9913
+*option:Van_80_2st:value:13   = 7.544
+*option:Van_80_2st:value:14   = 0
+*option:Van_80_2st:value:15   = 0
+*option:Van_80_2st:value:16   = 0
+*option:Van_80_2st:cost:total = 0
+
 *option:Van_3st_garage:value:1    = 55.8333
 *option:Van_3st_garage:value:2    = 5
 *option:Van_3st_garage:value:3    = 11.17
@@ -793,6 +811,15 @@
 *option:Win5hcLE2_tr:value:8 = Win5hcLE2_tr
 *option:Win5hcLE2_tr:cost:total   = 24491
 
+*option:Win6_qd_CL:value:1 = Win6_qd_CL
+*option:Win6_qd_CL:value:2 = Win6_qd_CL
+*option:Win6_qd_CL:value:3 = Win6_qd_CL
+*option:Win6_qd_CL:value:4 = Win6_qd_CL
+*option:Win6_qd_CL:value:5 = Win6_qd_CL
+*option:Win6_qd_CL:value:6 = Win6_qd_CL
+*option:Win6_qd_CL:value:7 = Win6_qd_CL
+*option:Win6_qd_CL:value:8 = Win6_qd_CL
+*option:Win6_qd_CL:cost:total   = 25226
 
 *option:Triple_win_shutter:value:1 = Wind3SHUTTER
 *option:Triple_win_shutter:value:2 = Wind3SHUTTER
@@ -1757,7 +1784,7 @@ Reflects southern Ontario costs
 *option:retro_upgrade_furnace:value:1 = retro_96furnace.hvac
 *option:retro_upgrade_furnace:value:2 = #-no-GSHP-file
 *option:retro_upgrade_furnace:value:3 = #No-IMS: 
-*option:retro_upgrade_furnace:value:4 = 
+*option:retro_upgrade_furnace:value:4 = #No HRV
 *option:retro_upgrade_furnace:value:5 = 
 *option:retro_upgrade_furnace:value:6 = shoulder-ideal.ctl
 *option:retro_upgrade_furnace:cost:total    = 5900
@@ -1783,10 +1810,18 @@ Reflects southern Ontario costs
 *option:Olsen:value:1 = oil-furnace-Olsen.hvac
 *option:Olsen:value:2 = #-no-GSHP-file
 *option:Olsen:value:3 = #No-IMS: 
-*option:Olsen:value:4 = #
+*option:Olsen:value:4 = #No HRV
 *option:Olsen:value:5 = 
 *option:Olsen:value:6 = shoulder-ideal.ctl 
 *option:Olsen:cost:total    = 0
+
+*option:upgrade_Olsen:value:1 = upg_oil-furnace-Olsen.hvac
+*option:upgrade_Olsen:value:2 = #-no-GSHP-file
+*option:upgrade_Olsen:value:3 = #No-IMS: 
+*option:upgrade_Olsen:value:4 = #No HRV
+*option:upgrade_Olsen:value:5 = 
+*option:upgrade_Olsen:value:6 = shoulder-ideal.ctl 
+*option:upgrade_Olsen:cost:total    = 0
 
 
 *attribute:end
@@ -1969,6 +2004,19 @@ Reflects southern Ontario costs
 *option:retro_ElectricHP:cost:total    = 3750
 
 
+! NWT DHW systems---------------------
+*option:elec_DHW:value:1     = elec_DHW.dhw
+*option:elec_DHW:cost:total        = 0
+
+*option:wood_DHW:value:1 = wood_DHW.dhw
+*option:wood_DHW:cost:total    = 0
+
+*option:NWT_upgrade_elec_DHW:value:1     = upgrade_elec_DHW.dhw
+*option:NWT_upgrade_elec_DHW:cost:total        = 0
+
+*option:NWT_upgrade_oil_DHW:value:1     = upgrade_oil_DHW.dhw
+*option:NWT_upgrade_oil_DHW:cost:total        = 0
+
 *attribute:end
 
 
@@ -2057,6 +2105,10 @@ Reflects southern Ontario costs
 *option[   Opt-Location>Whitehorse ;   Opt-DHWLoadScale>No-Reduction ]:None:value:1 =141
 *option[   Opt-Location>Whitehorse ;   Opt-DHWLoadScale>EStar ]:None:value:1 =169
 *option[   Opt-Location>Whitehorse ;   Opt-DHWLoadScale>Low-Flow ]:None:value:1 =141
+*option[   Opt-Location>Yellowknife;   Opt-DHWLoadScale>OldERS ]:None:value:1 =225
+*option[   Opt-Location>Yellowknife;   Opt-DHWLoadScale>No-Reduction ]:None:value:1 =141
+*option[   Opt-Location>Yellowknife;   Opt-DHWLoadScale>EStar ]:None:value:1 =169
+*option[   Opt-Location>Yellowknife;   Opt-DHWLoadScale>Low-Flow ]:None:value:1 =141
 *option[   Opt-Location>Ottawa     ;   Opt-DHWLoadScale>OldERS ]:DWHR-4-36:value:1 =199.2
 *option[   Opt-Location>Ottawa     ;   Opt-DHWLoadScale>No-Reduction ]:DWHR-4-36:value:1 =115.2
 *option[   Opt-Location>Ottawa     ;   Opt-DHWLoadScale>EStar ]:DWHR-4-36:value:1 =143.2
@@ -2113,6 +2165,10 @@ Reflects southern Ontario costs
 *option[   Opt-Location>Whitehorse ;   Opt-DHWLoadScale>No-Reduction ]:DWHR-4-36:value:1 =110.6
 *option[   Opt-Location>Whitehorse ;   Opt-DHWLoadScale>EStar ]:DWHR-4-36:value:1 =138.6
 *option[   Opt-Location>Whitehorse ;   Opt-DHWLoadScale>Low-Flow ]:DWHR-4-36:value:1 =110.6
+*option[   Opt-Location>Yellowknife;   Opt-DHWLoadScale>OldERS ]:DWHR-4-36:value:1 =194.6
+*option[   Opt-Location>Yellowknife;   Opt-DHWLoadScale>No-Reduction ]:DWHR-4-36:value:1 =110.6
+*option[   Opt-Location>Yellowknife;   Opt-DHWLoadScale>EStar ]:DWHR-4-36:value:1 =138.6
+*option[   Opt-Location>Yellowknife;   Opt-DHWLoadScale>Low-Flow ]:DWHR-4-36:value:1 =110.6
 *option[   Opt-Location>Ottawa     ;   Opt-DHWLoadScale>OldERS ]:DWHR-4-60:value:1 =190.2
 *option[   Opt-Location>Ottawa     ;   Opt-DHWLoadScale>No-Reduction ]:DWHR-4-60:value:1 =106.2
 *option[   Opt-Location>Ottawa     ;   Opt-DHWLoadScale>EStar ]:DWHR-4-60:value:1 =134.2
@@ -2169,6 +2225,10 @@ Reflects southern Ontario costs
 *option[   Opt-Location>Whitehorse ;   Opt-DHWLoadScale>No-Reduction ]:DWHR-4-60:value:1 =100
 *option[   Opt-Location>Whitehorse ;   Opt-DHWLoadScale>EStar ]:DWHR-4-60:value:1 =128
 *option[   Opt-Location>Whitehorse ;   Opt-DHWLoadScale>Low-Flow ]:DWHR-4-60:value:1 =100
+*option[   Opt-Location>Yellowknife ;   Opt-DHWLoadScale>OldERS ]:DWHR-4-60:value:1 =184
+*option[   Opt-Location>Yellowknife ;   Opt-DHWLoadScale>No-Reduction ]:DWHR-4-60:value:1 =100
+*option[   Opt-Location>Yellowknife ;   Opt-DHWLoadScale>EStar ]:DWHR-4-60:value:1 =128
+*option[   Opt-Location>Yellowknife ;   Opt-DHWLoadScale>Low-Flow ]:DWHR-4-60:value:1 =100
 *option[   Opt-Location>Ottawa     ;   Opt-DHWLoadScale>OldERS ]:1-plate:value:1 =152.7
 *option[   Opt-Location>Ottawa     ;   Opt-DHWLoadScale>No-Reduction ]:1-plate:value:1 =86.1
 *option[   Opt-Location>Ottawa     ;   Opt-DHWLoadScale>EStar ]:1-plate:value:1 =108.3
@@ -2225,6 +2285,10 @@ Reflects southern Ontario costs
 *option[   Opt-Location>Whitehorse ;   Opt-DHWLoadScale>No-Reduction ]:1-plate:value:1 =95.3
 *option[   Opt-Location>Whitehorse ;   Opt-DHWLoadScale>EStar ]:1-plate:value:1 =119.8
 *option[   Opt-Location>Whitehorse ;   Opt-DHWLoadScale>Low-Flow ]:1-plate:value:1 =95.3
+*option[   Opt-Location>Yellowknife ;   Opt-DHWLoadScale>OldERS ]:1-plate:value:1 =168.9
+*option[   Opt-Location>Yellowknife ;   Opt-DHWLoadScale>No-Reduction ]:1-plate:value:1 =95.3
+*option[   Opt-Location>Yellowknife ;   Opt-DHWLoadScale>EStar ]:1-plate:value:1 =119.8
+*option[   Opt-Location>Yellowknife ;   Opt-DHWLoadScale>Low-Flow ]:1-plate:value:1 =95.3
 *option[   Opt-Location>Ottawa     ;   Opt-DHWLoadScale>OldERS ]:2-plate:value:1 =105.8
 *option[   Opt-Location>Ottawa     ;   Opt-DHWLoadScale>No-Reduction ]:2-plate:value:1 =51.4
 *option[   Opt-Location>Ottawa     ;   Opt-DHWLoadScale>EStar ]:2-plate:value:1 =69.5
@@ -2281,6 +2345,10 @@ Reflects southern Ontario costs
 *option[   Opt-Location>Whitehorse ;   Opt-DHWLoadScale>No-Reduction ]:2-plate:value:1 =66.6
 *option[   Opt-Location>Whitehorse ;   Opt-DHWLoadScale>EStar ]:2-plate:value:1 =88.6
 *option[   Opt-Location>Whitehorse ;   Opt-DHWLoadScale>Low-Flow ]:2-plate:value:1 =66.6
+*option[   Opt-Location>Yellowknife ;   Opt-DHWLoadScale>OldERS ]:2-plate:value:1 =132.5
+*option[   Opt-Location>Yellowknife ;   Opt-DHWLoadScale>No-Reduction ]:2-plate:value:1 =66.6
+*option[   Opt-Location>Yellowknife ;   Opt-DHWLoadScale>EStar ]:2-plate:value:1 =88.6
+*option[   Opt-Location>Yellowknife ;   Opt-DHWLoadScale>Low-Flow ]:2-plate:value:1 =66.6
 *option[   Opt-Location>Ottawa     ;   Opt-DHWLoadScale>OldERS ]:1-plate-DWHR-4-36:value:1 =132.2
 *option[   Opt-Location>Ottawa     ;   Opt-DHWLoadScale>No-Reduction ]:1-plate-DWHR-4-36:value:1 =65.6
 *option[   Opt-Location>Ottawa     ;   Opt-DHWLoadScale>EStar ]:1-plate-DWHR-4-36:value:1 =87.8
@@ -2337,6 +2405,10 @@ Reflects southern Ontario costs
 *option[   Opt-Location>Whitehorse ;   Opt-DHWLoadScale>No-Reduction ]:1-plate-DWHR-4-36:value:1 =68.6
 *option[   Opt-Location>Whitehorse ;   Opt-DHWLoadScale>EStar ]:1-plate-DWHR-4-36:value:1 =93.2
 *option[   Opt-Location>Whitehorse ;   Opt-DHWLoadScale>Low-Flow ]:1-plate-DWHR-4-36:value:1 =68.6
+*option[   Opt-Location>Yellowknife ;   Opt-DHWLoadScale>OldERS ]:1-plate-DWHR-4-36:value:1 =142.3
+*option[   Opt-Location>Yellowknife ;   Opt-DHWLoadScale>No-Reduction ]:1-plate-DWHR-4-36:value:1 =68.6
+*option[   Opt-Location>Yellowknife ;   Opt-DHWLoadScale>EStar ]:1-plate-DWHR-4-36:value:1 =93.2
+*option[   Opt-Location>Yellowknife ;   Opt-DHWLoadScale>Low-Flow ]:1-plate-DWHR-4-36:value:1 =68.6
 *option[   Opt-Location>Ottawa     ;   Opt-DHWLoadScale>OldERS ]:2-plate-DWHR-4-36:value:1 =89.1
 *option[   Opt-Location>Ottawa     ;   Opt-DHWLoadScale>No-Reduction ]:2-plate-DWHR-4-36:value:1 =34.6
 *option[   Opt-Location>Ottawa     ;   Opt-DHWLoadScale>EStar ]:2-plate-DWHR-4-36:value:1 =52.8
@@ -2393,6 +2465,10 @@ Reflects southern Ontario costs
 *option[   Opt-Location>Whitehorse ;   Opt-DHWLoadScale>No-Reduction ]:2-plate-DWHR-4-36:value:1 =42.8
 *option[   Opt-Location>Whitehorse ;   Opt-DHWLoadScale>EStar ]:2-plate-DWHR-4-36:value:1 =64.7
 *option[   Opt-Location>Whitehorse ;   Opt-DHWLoadScale>Low-Flow ]:2-plate-DWHR-4-36:value:1 =42.8
+*option[   Opt-Location>Yellowknife ;   Opt-DHWLoadScale>OldERS ]:2-plate-DWHR-4-36:value:1 =108.7
+*option[   Opt-Location>Yellowknife ;   Opt-DHWLoadScale>No-Reduction ]:2-plate-DWHR-4-36:value:1 =42.8
+*option[   Opt-Location>Yellowknife ;   Opt-DHWLoadScale>EStar ]:2-plate-DWHR-4-36:value:1 =64.7
+*option[   Opt-Location>Yellowknife ;   Opt-DHWLoadScale>Low-Flow ]:2-plate-DWHR-4-36:value:1 =42.8
 *option[   Opt-Location>Ottawa     ;   Opt-DHWLoadScale>OldERS ]:1-plate-DWHR-4-60:value:1 =125.1
 *option[   Opt-Location>Ottawa     ;   Opt-DHWLoadScale>No-Reduction ]:1-plate-DWHR-4-60:value:1 =58.4
 *option[   Opt-Location>Ottawa     ;   Opt-DHWLoadScale>EStar ]:1-plate-DWHR-4-60:value:1 =80.7
@@ -2449,6 +2525,10 @@ Reflects southern Ontario costs
 *option[   Opt-Location>Whitehorse ;   Opt-DHWLoadScale>No-Reduction ]:1-plate-DWHR-4-60:value:1 =59.4
 *option[   Opt-Location>Whitehorse ;   Opt-DHWLoadScale>EStar ]:1-plate-DWHR-4-60:value:1 =83.9
 *option[   Opt-Location>Whitehorse ;   Opt-DHWLoadScale>Low-Flow ]:1-plate-DWHR-4-60:value:1 =59.4
+*option[   Opt-Location>Yellowknife ;   Opt-DHWLoadScale>OldERS ]:1-plate-DWHR-4-60:value:1 =133
+*option[   Opt-Location>Yellowknife ;   Opt-DHWLoadScale>No-Reduction ]:1-plate-DWHR-4-60:value:1 =59.4
+*option[   Opt-Location>Yellowknife ;   Opt-DHWLoadScale>EStar ]:1-plate-DWHR-4-60:value:1 =83.9
+*option[   Opt-Location>Yellowknife ;   Opt-DHWLoadScale>Low-Flow ]:1-plate-DWHR-4-60:value:1 =59.4
 *option[   Opt-Location>Ottawa     ;   Opt-DHWLoadScale>OldERS ]:2-plate-DWHR-4-60:value:1 =83.3
 *option[   Opt-Location>Ottawa     ;   Opt-DHWLoadScale>No-Reduction ]:2-plate-DWHR-4-60:value:1 =28.8
 *option[   Opt-Location>Ottawa     ;   Opt-DHWLoadScale>EStar ]:2-plate-DWHR-4-60:value:1 =47
@@ -2505,7 +2585,10 @@ Reflects southern Ontario costs
 *option[   Opt-Location>Whitehorse ;   Opt-DHWLoadScale>No-Reduction ]:2-plate-DWHR-4-60:value:1 =34.5
 *option[   Opt-Location>Whitehorse ;   Opt-DHWLoadScale>EStar ]:2-plate-DWHR-4-60:value:1 =56.5
 *option[   Opt-Location>Whitehorse ;   Opt-DHWLoadScale>Low-Flow ]:2-plate-DWHR-4-60:value:1 =34.5
-
+*option[   Opt-Location>Yellowknife ;   Opt-DHWLoadScale>OldERS ]:2-plate-DWHR-4-60:value:1 =100.4
+*option[   Opt-Location>Yellowknife ;   Opt-DHWLoadScale>No-Reduction ]:2-plate-DWHR-4-60:value:1 =34.5
+*option[   Opt-Location>Yellowknife ;   Opt-DHWLoadScale>EStar ]:2-plate-DWHR-4-60:value:1 =56.5
+*option[   Opt-Location>Yellowknife ;   Opt-DHWLoadScale>Low-Flow ]:2-plate-DWHR-4-60:value:1 =34.5
 
 
 *attribute:end 
