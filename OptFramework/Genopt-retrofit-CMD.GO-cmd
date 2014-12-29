@@ -85,7 +85,7 @@ Vary{
   
     Name = GOtag:Opt-ACH; 
     Ini  = 1;
-    Values = "retro_ACH_5_5";
+    Values = "retro_ACH_5_5,retro_ACH_3_5";
   }
 
   
@@ -173,6 +173,7 @@ Vary{
    //               - PouredConcrete_NoIns
    //               - Retro_added_R20_ext
    //               - Retro_added_spray_int
+   //        NWT:   - NWTCrawlWll
    
    
    Parameter{   // 
@@ -206,7 +207,7 @@ Vary{
    Parameter{   // 
      Name    =  GOtag:Opt-ExposedFloor;
      Ini     =  1;
-     Values  =  "NWTCrawlFlr";
+     Values  =  "NWTCrawlFlr,BaseExpFloor-R31,ExpFloorFlash&Batt-R36,ExpFloorFoamed-R52";
    }    
    
    
@@ -222,6 +223,10 @@ Vary{
    //           retro_attic-4_152
    //           retro_attic-4_152_6cell
    //           retro_attic-4_152_12cell
+   //    NWT:   NWTCeilR40
+   //           NWTCeilR50
+   //           NWTCeilR60
+   //           NWTCeilR70
    
    Parameter{   // 
      Name    =  GOtag:Opt-Ceilings;
@@ -246,11 +251,13 @@ Vary{
   //           Win9scle2_qd
   //           Win10hcle2_q
   //      retrofit:  DoubleClear
+  //      NWT:       Triple_win_shutter
+  //                 Quad_win_shutter
   
   Parameter{   // 
      Name    =  GOtag:Opt-CasementWindows;
      Ini     =  1;
-     Values  =  "Wind1_trp_CL,Win2scLE1_tr,Win3hcLE1_tr,Win4scLE2_tr,Win5hcLE2_tr,Win6_qd_CL,Triple_win_shutter,Quad_win_shutter";    
+     Values  =  "Wind1_trp_CL,Win2scLE1_tr,Win3hcLE1_tr,Win4scLE2_tr,Win5hcLE2_tr,Win6_qd_CL,Win7scle1_qd,Win8hcle1_qd,Win9scle2_qd,Win10hcle2_qd,Triple_win_shutter,Quad_win_shutter";    
      
    }    
    
@@ -288,7 +295,7 @@ Vary{
   Parameter{   // 
      Name    = GOtag:Opt-DWHRandSDHW; 
      Ini     = 1; 
-     Values  = "none"; 
+     Values  = "none,DWHR-4-36,DWHR-4-60"; 
   } 
   
   // Conventional DHW:  BaseDHW, 
@@ -297,11 +304,15 @@ Vary{
   //                    ElectricHP
   //   retrofit:    retro_GasInst
   //                retro_ElectricHP
+  //   NWT:         elec_DHW
+  //                wood_DHW
+  //                NWT_upgrade_elec_DHW
+  //                NWT_upgrade_oil_DHW 
   //           
   Parameter{ //
      Name    = GOtag:Opt-DHWSystem;
      Ini     = 1; 
-     Values  = "ElectricStorage"; 
+     Values  = "BaseDHW,elec_DHW,NWT_upgrade_elec_DHW,NWT_upgrade_oil_DHW "; 
   }
 
   
@@ -317,11 +328,13 @@ Vary{
   //                     retro_upgrade_furnace
   //                     retro_CCASHP
   //                     retro_GSHP
+  //         NWT:     Olsen
+  //                  upgrade_Olsen
  
   Parameter {// 
       Name   = GOtag:Opt-HVACSystem; 
       Ini    = 1; 
-      Values = "Olsen,oil95furnace"; 
+      Values = "Olsen,upgrade_Olsen"; 
   }
 
  // Cooling spec
@@ -329,7 +342,7 @@ Vary{
   Parameter {// 
       Name   = GOtag:Opt-Cooling-Spec; 
       Ini    = 1; 
-      Values = "2TonStdCooling, 2TonDettsonModUnit, 2TonGoodmanUnit";	
+      Values = "2TonStdCooling";	
   }
 
 
@@ -430,7 +443,7 @@ Vary{
       Name   = GOtag:DHWLoadScale; 
       Ini    = 1;
       // Value may be one of  No-Reduction,EStar,Low-Flow     
-      Values = "No-Reduction,EStar,Low-Flow"; 
+      Values = "No-Reduction,EStar"; 
   }
   
   

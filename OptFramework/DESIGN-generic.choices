@@ -19,7 +19,7 @@ Opt-DBFiles           : retrofit
 ! and compute an average result)
 GOconfig_rotate      : S
 
-Opt-Location : Yellowknife
+Opt-Location : Vancouver
 
 ! Assumptions about HRV operation . Not intended to be optimized!
 ! Recognized values: 
@@ -48,7 +48,7 @@ Opt-BaseWindows      : MinWindows
 ! Van_2st_garage
 ! NWT_Access
 
-Opt-geometry      : NWT_Access
+Opt-geometry      : Van_80_2st
 
 !Attachment options
 ! single
@@ -86,7 +86,7 @@ Opt-AirTightness   : Generic
 !  W15_R25
 !  Retrofit-DlBr
 
-Opt-MainWall         : NWTR20_4  ! NWTR20
+Opt-MainWall         : BaseR20 !NWTR20_4  ! NWTR20
 
 
 ! Add extra drywall to wall constructions 
@@ -130,7 +130,7 @@ Opt-BasementSlabInsulation  : NoInsulation
 !    TripleBrick
 !    NWT-Crawl-Wall !NWT crawl space wall
 
-Opt-BasementWallInsulation  : NWTCrawlWll
+Opt-BasementWallInsulation  : OBC-min-R12
 
 
 ! Optical and thermal characteristics of casement windows (currently 
@@ -147,7 +147,7 @@ Opt-BasementWallInsulation  : NWTCrawlWll
 ! Retrofit Windows
 !    DoubleClear 
 
-Opt-CasementWindows  :  Triple_win_shutter !Wind1_trp_CL 
+Opt-CasementWindows  :  DoubleClear !Triple_win_shutter !Wind1_trp_CL 
 
 
 ! Exposed floor over garage (affects floor
@@ -159,7 +159,7 @@ Opt-CasementWindows  :  Triple_win_shutter !Wind1_trp_CL
 !NWT Crawl Space Floor
 !  NWTCrawlFloor
 
-Opt-ExposedFloor     : NWTCrawlFlr
+Opt-ExposedFloor     : BaseExpFloor-R31
 
 Opt-StandoffPV       : NoPV
 
@@ -186,7 +186,7 @@ Opt-DWHRandSDHW         : none
 !   - NGERSReducedA16
 !   - NGERSBestInClass14p8
 
-Opt-ElecLoadScale    : NoReduction      
+Opt-ElecLoadScale    : NGERSNoReduction19
 
 
 ! Hot water numbers - These have changed! 
@@ -203,10 +203,10 @@ Opt-RoofPitch : 8-12
 !  GasInstant
 !  ElectricHP
 
-Opt-DHWSystem        : ElectricStorage
+Opt-DHWSystem        : BaseDHW
 
 ! HVAC system 
-Opt-HVACSystem       : Olsen
+Opt-HVACSystem       : gas-furnace-84_3
 
 ! HRV spec 
 

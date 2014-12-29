@@ -50,9 +50,9 @@ first_fl describes the first floor
 *surf,Wall-1-4,VERT,-,-,-,<OptAtt-Wall4Con>,<OptAtt-Wall4Opt>,<OptAtt-Wall4BC>,0,0  #   4 ||< external
 *surf,Top-1st,CEIL,-,-,-,<Opt-IntFloorInv>,OPAQUE,ANOTHER,03,06       #   5 ||< Top-1st:Base-2nd
 *surf,Base-1st,FLOR,-,-,-,<Opt-IntFloor>,OPAQUE,ANOTHER,01,05     #   6 ||< Base-1st:Top_bsm
-*surf,win-wall-1-1,VERT,Wall-1-1,-,-,<OptBW-Construction>,<OptBW-Optics>,EXTERIOR,0,0  #   7 ||< external
+*surf,win-wall-1-1,VERT,Wall-1-1,-,-,<OptAtt-Win1Con>,<OptAtt-Win1Opt>,EXTERIOR,0,0  #   7 ||< external
 *surf,win-wall-1-2,VERT,Wall-1-2,-,-,<OptAtt-Win2Con>,<OptAtt-Win2Opt>,<OptAtt-Win2BC>,0,0  #   8 ||< external
-*surf,win-wall-1-3,VERT,Wall-1-3,-,-,<OptBW-Construction>,<OptBW-Optics>,EXTERIOR,0,0  #   9 ||< external
+*surf,win-wall-1-3,VERT,Wall-1-3,-,-,<OptAtt-Win3Con>,<OptAtt-Win3Opt>,EXTERIOR,0,0  #   9 ||< external
 *surf,win-wall-1-4,VERT,Wall-1-4,-,-,<OptAtt-Win4Con>,<OptAtt-Win4Opt>,<OptAtt-Win4BC>,0,0  #  10 ||< external
 # 
 *insol,3,0,0,0  # default insolation distribution

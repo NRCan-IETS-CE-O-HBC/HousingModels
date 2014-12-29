@@ -14,7 +14,7 @@ Simulation{
       Input{
          File1 = "GenOpt-picked-these-choices.GO-tmp";
          Path1 = "./";
-         SavePath1 = "./ArchGOChoiceFiles/"; 
+         //SavePath1 = "./ArchGOChoiceFiles/"; 
 
       }
       

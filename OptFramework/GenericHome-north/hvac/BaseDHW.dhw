@@ -10,11 +10,11 @@
 #Zone Location of Tank
 1
 #iFuelType  	
-2
+3 #oil
 #iTankType
-1
+11 # conventional oil tank
 #fDOEEF			
-0.67
+0.55
 #fHeatInjectorPower(Watts) 	 
 2000.000000
 #fPilotEnergyRate 	 

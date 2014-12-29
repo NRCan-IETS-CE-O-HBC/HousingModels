@@ -1912,8 +1912,8 @@ sub postprocess($){
   my @NaturalGas_Use = @{ $data{" total fuel use:natural gas:all end uses:quantity (m3/s)"}  };
   my @Oil_Use        = @{ $data{" total fuel use:oil:all end uses:quantity (l/s)"}  };
   my @Propane_Use    = @{ $data{" total fuel use:propane:all end uses:quantity (m3/s)"}  };
-  #my @Wood_Use       = @{ $data{" total fuel use:wood:all end uses:quantity (cord/s)"}  };
-  #my @Pellets_Use    = @{ $data{" total fuel use:pellets:all end uses:quantity (ton/s)"}  };
+  my @Wood_Use       = @{ $data{" total fuel use:wood:all end uses:quantity (cord/s)"}  };
+  my @Pellets_Use    = @{ $data{" total fuel use:pellets:all end uses:quantity (ton/s)"}  };
   # Recover Day, Hour & Month
   my @DayOfYear   = @{  $data{" building:day:future (day)"}     } ;
   my @HourOfDay   = @{  $data{" building:hour:future (hours)"}  } ;
@@ -1929,8 +1929,8 @@ sub postprocess($){
   my $GasConsumptionCost  = 0; 
   my $OilConsumptionCost  = 0; 
   my $PropaneConsumptionCost  = 0; 
-  #my $WoodConsumptionCost  = 0; 
-  #my $PelletsConsumptionCost  = 0; 
+  my $WoodConsumptionCost  = 0; 
+  my $PelletsConsumptionCost  = 0; 
 
   my $GasCurrConsumpionForTiers = 0; 
   my $ElecCurrConsumpionForTiers = 0; 
