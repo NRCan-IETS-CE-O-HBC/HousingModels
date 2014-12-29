@@ -10,13 +10,13 @@
 #Zone Location of Tank
 1
 #iFuelType  	
-2
+3
 #iTankType
-1
+11
 #fDOEEF			
 0.67
 #fHeatInjectorPower(Watts) 	 
-2000.000000
+2000.0
 #fPilotEnergyRate 	 
 0.0
 #fTankSize                
