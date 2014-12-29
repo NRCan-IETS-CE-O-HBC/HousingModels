@@ -118,7 +118,7 @@ Vary{
    Parameter{   // 
      Name    =  GOtag:Opt-BasementSlabInsulation;
      Ini     =  1;
-     Values  =  "NoInsulation"; 	//R10UnderSlab+edge
+     Values  =  "NoInsulation, R10UnderSlab+edge"; 	//
    } 
 
    // Exposed floor: There are no exposed floors in MB LEEP archetype
@@ -141,7 +141,7 @@ Vary{
    Parameter{   // 
      Name    =  GOtag:Opt-Ceilings;
      Ini     =  1;
-     Values  =  "CeilR50,CeilR60";	//CeilR70
+     Values  =  "CeilR50,CeilR60,CeilR70";	//
    }    
   
   // Windows:  DoubleLowEHardCoatAirFill 
@@ -213,7 +213,7 @@ Vary{
   Parameter{ //
      Name    = GOtag:Opt-DHWSystem;
      Ini     = 1; 
-     Values  = "BaseDHW" ;
+     Values  = "BaseDHW, GasInstantaneous" ;
   }
 
   
@@ -302,13 +302,13 @@ Vary{
       Name   = GOtag:ElecLoadScale; 
       Ini    = 1;
       // Value may be one of  NoReduction, BasicReduction, EfficientLiving      
-      Values = "NoReduction"; 
+      Values = "NoReduction, NGERSNoReduction19, NGERSReducedA16"; 
   }
   Parameter { // 
       Name   = GOtag:DHWLoadScale; 
       Ini    = 1;
       // Value may be one of  NoReduction, BasicReduction, EfficientLiving, Low-Flow?
-      Values = "OldERS"; 
+      Values = "No-Reduction, OldERS, EStar"; 
   }
   
   Parameter { // 
@@ -384,10 +384,6 @@ Algorithm{
 //}
 
 //Algorithm{
-
-
-
-
 //  Main = Mesh;
 //  StopAtError = true; 
 //}

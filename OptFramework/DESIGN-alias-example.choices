@@ -96,7 +96,7 @@ Opt-ExtraDrywall     : 2100	!OneSheet
 !   Wood 
 !   1-in-concrete
 !   2-in-concrete
-Opt-FloorSurface     : 2200	!wood
+Opt-FloorSurface     : 220	!wood
 
 
 Opt-Ceilings         : 1600	!CeilR50
@@ -187,7 +187,7 @@ Opt-ElecLoadScale    : 2700	!NoReduction
 !   - No-Reduction ( 190 L/day ) 
 !   - Low-Flow     ( 141 L/day ) 
 
-Opt-DHWLoadScale     : 2804		!No-Reduction
+Opt-DHWLoadScale     : 2800		!No-Reduction
 
 Opt-RoofPitch : 3101	!6-12
 
