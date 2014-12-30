@@ -283,8 +283,8 @@
 *option[GOconfig_rotate>S]:all:value:6 = <Opt-win-N-OPT>
 *option[GOconfig_rotate>S]:all:value:7 = <Opt-win-W-CON>
 *option[GOconfig_rotate>S]:all:value:8 = <Opt-win-W-OPT>
-*option[GOconfig_rotate>S]:all:cost:total    = 0
-*option[GOconfig_rotate>S]:all:alias = 600				! All set to same alias value
+*option:all:cost:total    = 0
+*option:all:alias = 600
 
 *option[GOconfig_rotate>E]:all:value:1 = <Opt-win-E-CON>
 *option[GOconfig_rotate>E]:all:value:2 = <Opt-win-E-OPT>
@@ -294,8 +294,6 @@
 *option[GOconfig_rotate>E]:all:value:6 = <Opt-win-W-OPT>
 *option[GOconfig_rotate>E]:all:value:7 = <Opt-win-S-CON>
 *option[GOconfig_rotate>E]:all:value:8 = <Opt-win-S-OPT>
-*option[GOconfig_rotate>E]:all:cost:total    = 0
-*option[GOconfig_rotate>E]:all:alias = 600
 
 *option[GOconfig_rotate>N]:all:value:1 = <Opt-win-N-CON>
 *option[GOconfig_rotate>N]:all:value:2 = <Opt-win-N-OPT>
@@ -305,8 +303,6 @@
 *option[GOconfig_rotate>N]:all:value:6 = <Opt-win-S-OPT>
 *option[GOconfig_rotate>N]:all:value:7 = <Opt-win-E-CON>
 *option[GOconfig_rotate>N]:all:value:8 = <Opt-win-E-OPT>
-*option[GOconfig_rotate>N]:all:cost:total    = 0
-*option[GOconfig_rotate>N]:all:alias = 600
 
 *option[GOconfig_rotate>W]:all:value:1 = <Opt-win-W-CON>
 *option[GOconfig_rotate>W]:all:value:2 = <Opt-win-W-OPT>
@@ -316,8 +312,6 @@
 *option[GOconfig_rotate>W]:all:value:6 = <Opt-win-E-OPT>
 *option[GOconfig_rotate>W]:all:value:7 = <Opt-win-N-CON>
 *option[GOconfig_rotate>W]:all:value:8 = <Opt-win-N-OPT>
-*option[GOconfig_rotate>W]:all:cost:total    = 0
-*option[GOconfig_rotate>W]:all:alias = 600
 
 *attribute:end
 
@@ -2140,15 +2134,11 @@ Reflects southern Ontario costs
 *attribute:start 
 *attribute:name     = Opt-DWHRandSDHW
 *attribute:tag:1    = <Opt-DHWDailyDrawLperDay>
-*attribute:default  = none
+*attribute:default  = None
 
 ! No DWHR or SDHW
-*option[ Opt-DHWLoadScale>OldERS       ]:none:value:1 =225
-*option[ Opt-DHWLoadScale>No-Reduction ]:none:value:1 =190
-*option[ Opt-DHWLoadScale>EStar        ]:none:value:1 =169
-*option[ Opt-DHWLoadScale>Low-Flow     ]:none:value:1 =141
-*option:none:cost:total = 0
-*option:none:alias = 3000
+*option:None:cost:total = 0
+*option:None:alias = 3000
 
 *option:DWHR-4-36:cost:total = 890
 *option:DWHR-4-36:alias = 3001

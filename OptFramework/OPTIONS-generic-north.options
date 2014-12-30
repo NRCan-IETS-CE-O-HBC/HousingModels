@@ -58,15 +58,18 @@
 *option:CEF:value:1  = NZEH-CEF.constrdb
 *option:CEF:value:2  = optics-CEF.db2
 *option:CEF:cost:total = 0
+*option:CEF:alias = 1 
 
 *option:WHITEHORSE:value:1  = NZEH-WH.constrdb
 *option:WHITEHORSE:value:2  = optics-WH.db2
 *option:WHITEHORSE:cost:total = 0
+*option:CEF:alias = 2 
+
 
 *option:retrofit:value:1  = retrofit.constrdb
 *option:retrofit:value:2  = optics-retrofit.db2
 *option:retrofit:cost:total = 0
-
+*option:CEF:alias = 3
 
 *attribute:end
 
