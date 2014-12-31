@@ -1860,6 +1860,13 @@ Reflects southern Ontario costs
 *option:wood_furnace:value:6 = shoulder-ideal.ctl 
 *option:wood_furnace:cost:total    = 0
 
+*option:oil96:value:1 = oil95furnace.hvac
+*option:oil96:value:2 = #-no-GSHP-file
+*option:oil96:value:3 = #No-IMS: 
+*option:oil96:value:4 = #
+*option:oil96:value:5 = 
+*option:oil96:value:6 = shoulder-ideal.ctl 
+*option:oil96:cost:total    = 0
 
 *attribute:end
 
@@ -2042,17 +2049,20 @@ Reflects southern Ontario costs
 
 
 ! NWT DHW systems---------------------
-*option:elec_DHW:value:1     = elec_DHW.dhw
-*option:elec_DHW:cost:total        = 0
+*option:NWT_oil_DHW:value:1     = NWT_oil_DHW.dhw
+*option:NWT_oil_DHW:cost:total  = 0
 
-*option:wood_DHW:value:1 = wood_DHW.dhw
-*option:wood_DHW:cost:total    = 0
+*option:elec_DHW:value:1        = elec_DHW.dhw
+*option:elec_DHW:cost:total     = 0
+
+*option:wood_DHW:value:1      = wood_DHW.dhw
+*option:wood_DHW:cost:total   = 0
 
 *option:NWT_upgrade_elec_DHW:value:1     = upgrade_elec_DHW.dhw
-*option:NWT_upgrade_elec_DHW:cost:total        = 0
+*option:NWT_upgrade_elec_DHW:cost:total  = 0
 
 *option:NWT_upgrade_oil_DHW:value:1     = upgrade_oil_DHW.dhw
-*option:NWT_upgrade_oil_DHW:cost:total        = 0
+*option:NWT_upgrade_oil_DHW:cost:total  = 0
 
 *attribute:end
 
