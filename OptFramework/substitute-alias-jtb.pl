@@ -160,13 +160,13 @@ my $Help_msg = "
     -d : use dakota format 
 				  
 ";
+
 # dump help text, if no argument given
 if (!@ARGV){
   print $Help_msg;
   die;
 }
-                       
-                                       
+
 
 my ($arg, $cmd_arguements,@processed_args, @binaries);
 
@@ -802,22 +802,21 @@ stream_out(" Validating choices and options...\n");
 
 while ( my ( $option, $null ) = each %gOptions ){
     stream_out ("> option : $option ?\n"); 
-    if ( ! defined( $gChoices{$option} ) ) { 
+    if ( ! defined( $gChoices{$option} ) ) {
  
-             $ThisError = "\nWARNING: Option $option found in options file ($gOptionFile) \n";
-             $ThisError .=  "         was not specified in Choices file ($gChoiceFile) \n";       
-             $ErrorBuffer .= $ThisError; 
-             stream_out ( $ThisError ); 
-
+		$ThisError = "\nWARNING: Option $option found in options file ($gOptionFile) \n";
+		$ThisError .=  "         was not specified in Choices file ($gChoiceFile) \n";       
+		$ErrorBuffer .= $ThisError; 
+		stream_out ( $ThisError ); 
    
         if ( ! $gOptions{$option}{"default"}{"defined"}  ) {
              
-             $ThisError = "\nERROR: No default value for option $option defined in \n";
-             $ThisError .=  "       Options file ($gOptionFile)\n";       
-             $ErrorBuffer .= $ThisError; 
-             fatalerror ( $ThisError );              
+            $ThisError = "\nERROR: No default value for option $option defined in \n";
+            $ThisError .=  "       Options file ($gOptionFile)\n";       
+            $ErrorBuffer .= $ThisError; 
+            fatalerror ( $ThisError );              
              
-        }else{    
+        } else {    
             # Add default value. 
             $gChoices{$option} =   $gOptions{$option}{"default"}{"value"}; 
             # Apply them at the end. 
@@ -826,300 +825,306 @@ while ( my ( $option, $null ) = each %gOptions ){
             $ThisError = "\n         Using default value (".$gChoices{$option}.") \n";
             $ErrorBuffer .= $ThisError; 
             stream_out ( $ThisError ); 
-            
-        }    
+        }
 
     }
     $ThisError = ""; 
 }
 
-  
+
 
 # Search through choices and determine if they match options in the Options file. 
 while ( my ( $attribute, $choice) = each %gChoices ){
   
-  debug_out ( "\n ======================== $attribute ============================\n");
-  debug_out ( "Choosing $attribute -> $choice \n"); 
+	debug_out ( "\n ======================== $attribute ============================\n");
+	debug_out ( "Choosing $attribute -> $choice \n"); 
     
-  # is attribute used in choices file defined in options ?
-  if ( ! defined( $gOptions{$attribute} ) ){
-    $ThisError  = "\nERROR: Attribute $attribute appears in choice file ($gChoiceFile), \n"; 
-    $ThisError .=  "       but can't be found in options file ($gOptionFile)\n"; 
-    $ErrorBuffer .= $ThisError; 
-    stream_out( $ThisError ); 
-    $allok = 0;
-  }else{
+	# is attribute used in choices file defined in options ?
+	if ( ! defined( $gOptions{$attribute} ) ){
+		$ThisError  = "\nERROR: Attribute $attribute appears in choice file ($gChoiceFile), \n"; 
+		$ThisError .=  "       but can't be found in options file ($gOptionFile)\n"; 
+		$ErrorBuffer .= $ThisError; 
+		stream_out( $ThisError ); 
+		$allok = 0;
+	} else {
+		debug_out ( "   - found \$gOptions{\"$attribute\"} \n"); 
+	}
   
-	debug_out ( "   - found \$gOptions{\"$attribute\"} \n"); 
-  
-  }
-  
-  # is choice in options ?
-  if ( ! defined( $gOptions{$attribute}{"options"}{$choice} ) ){
-    $allok =0; 
-	
-	# Catch integer choice values used for Dakota!
-    # - Modify choice that uses integer alias to use option name
-	if ( $choice =~ /\d{3,4}/ ){
-		#Use option text string that matches this integer alias
-		my $OptHash = $gOptions{$attribute}{"options"}; 
-		for my $optionIndex ( keys (%$OptHash ) ){
-			if ( $gOptions{$attribute}{"options"}{$optionIndex}{"alias"} =~ /$choice/ ) {
-				$gChoices{$attribute} = $optionIndex;	# Update hash entry with the opt name
-				$choice = $optionIndex;					# Update $choice too!
-				$allok = 1;
-				# And make sure that this opt name string (from alias) is in options hash!
-				if( ! defined( $gOptions{$attribute}{"options"}{$choice} )) {
-					$allok = 0;
+	# is choice in options ?
+	if ( ! defined( $gOptions{$attribute}{"options"}{$choice} ) ){
+		$allok =0; 
+		
+		# Catch integer choice values used for Dakota!
+		# - Modify choice that uses integer alias to use option name
+		if ( $choice =~ /\d{3,4}/ ){
+			#Use option text string that matches this integer alias
+			my $OptHash = $gOptions{$attribute}{"options"}; 
+			OPHASHKEY: for my $optionIndex ( keys (%$OptHash ) ){
+				if ( $gOptions{$attribute}{"options"}{$optionIndex}{"alias"} =~ /$choice/ ) {
+					$gChoices{$attribute} = $optionIndex;	# Update hash entry
+					$choice = $optionIndex;					# Update $choice too!
+					$allok = 1;
+					# Make sure that this opt name string (from alias) is in options hash!
+					if( ! defined( $gOptions{$attribute}{"options"}{$choice} )) {
+						$allok = 0;
+					}
+					last OPHASHKEY;	# found alias so exit this loop (alias is unique!)
 				}
-				last;	# found alias so exit this for loop
+			}
+		}
+		if ( ! $allok ){ 
+			$ThisError  = "\nERROR: Choice $choice (for attribute $attribute, defined \n"; 
+			$ThisError .=   "       in choice file $gChoiceFile), is not defined \n"; 
+			$ThisError .=   "       in options file ($gOptionFile)\n";
+			$ErrorBuffer .= $ThisError; 
+			stream_out( $ThisError );
+		} else {
+			debug_out ( "   - found \$gOptions{\"$attribute\"}{\"options\"}{\"$choice\"} \n"); 
+		}
+	}
+	
+	if ( ! $allok ){ 
+		fatalerror ( "" );
+	}
+}
+
+# Now we need to process conditions. Note that we need to redo the %gChoices loop. The loop
+# above ensured that, if Dakota aliases where used, all aliases were replaced with valid 
+# option string names. Conditions can use multiple option string names and we can't ensure
+# the order of processing above!
+VALCHOICES: while ( my ( $attribute, $choice) = each %gChoices ){	
+
+	my $ValRef = $gOptions{$attribute}{"options"}{$choice}{"values"}; 
+	
+	if (defined ($ValRef)){
+		my %ValHash = %$ValRef; 
+	  
+		for my $ValueIndex (keys %ValHash){
+		
+			# for each value, check if corresponding conditions are valid
+			my $CondRef = $gOptions{$attribute}{"options"}{$choice}{"values"}{$ValueIndex}{"conditions"}; 
+			my %CondHash = %$CondRef; 
+	  
+			# Check for 'all' conditions
+			my $ValidConditionFound = 0;
+		  
+			if ( defined( $CondHash{"all"} ) ) { 
+				debug_out ("   - VALINDEX: $ValueIndex : found valid condition: \"all\" !\n");
+				$gOptions{$attribute}{"options"}{$choice}{"result"}{$ValueIndex} = $CondHash{"all"};
+				$ValidConditionFound = 1; 
+			} else {
+				# Loop through hash 
+				for my $conditions ( keys %CondHash ) {
+					if ($conditions !~ /else/ ){ 
+						debug_out ( " >>>>> Testing |$conditions| <<<\n" ) ; 
+						my $valid_condition = 1; 
+						foreach my $condition (split /;/, $conditions ){
+							debug_out ("      $condition \n"); 
+							my ($TestAttribute, $TestValueList) = split /=/, $condition; 
+							if ( ! $TestValueList ) {
+								$TestValueList = "XXXX";
+							}
+							my @TestValueArray = split /\|/, $TestValueList;
+							my $thesevalsmatch =0; 
+							foreach my $TestValue (@TestValueArray){
+								if ( $gChoices{$TestAttribute} =~ /$TestValue/ ) { 
+									$thesevalsmatch = 1; 
+								}
+					 
+								debug_out ("      \$gChoices{".$TestAttribute."} = ".$gChoices{$TestAttribute}." / $TestValue / -> $thesevalsmatch \n"); 
+							}
+							if ( ! $thesevalsmatch ){
+								$valid_condition = 0;
+							}
+						}
+						if ( $valid_condition ) { 
+							$gOptions{$attribute}{"options"}{$choice}{"result"}{$ValueIndex}  = $CondHash{$conditions};
+							$ValidConditionFound = 1; 
+							debug_out ("   - VALINDEX: $ValueIndex : found valid condition: \"$conditions\" !\n");
+						}
+					}
+				}
+			}
+			# Check if else condition exists. 
+			if ( ! $ValidConditionFound ) {
+				debug_out ("Looking for else!: ".$CondHash{"else"}."<\n" ); 
+				if ( defined( $CondHash{"else"} ) ){
+					$gOptions{$attribute}{"options"}{$choice}{"result"}{$ValueIndex} = $CondHash{"else"};
+					$ValidConditionFound = 1;
+					debug_out ("   - VALINDEX: $ValueIndex : found valid condition: \"else\" !\n");
+				}
+			}
+		  
+			if ( ! $ValidConditionFound ) {
+				$ThisError  = "\nERROR: No valid conditions were defined for $attribute \n";
+				$ThisError .=   "       in options file ($gOptionFile). Choices must match one \n";
+				$ThisError .=   "       of the following:\n";
+				for my $conditions ( keys %CondHash ) {
+					$ThisError .=   "            -> $conditions \n" ;
+				}
+
+				$ErrorBuffer .= $ThisError; 
+				stream_out( $ThisError );  
+		 
+				$allok = 0; 
+			} else {
+				$allok = 1;
 			}
 		}
 	}
 	
-    if ( ! $allok ){ 
-		$ThisError  = "\nERROR: Choice $choice (for attribute $attribute, defined \n"; 
-		$ThisError .=   "       in choice file $gChoiceFile), is not defined \n"; 
-		$ThisError .=   "       in options file ($gOptionFile)\n";
-		$ErrorBuffer .= $ThisError; 
-		stream_out( $ThisError );   
-		# Processing further down
-    }
-  }else{ 
-	debug_out ( "   - found \$gOptions{\"$attribute\"}{\"options\"}{\"$choice\"} \n"); 
-  }
-  # Now we need to process conditions.
-  
-  my $ValRef = $gOptions{$attribute}{"options"}{$choice}{"values"}; 
-  
-  if (defined ($ValRef)){
-	  my %ValHash = %$ValRef; 
-	  
-	  for my $ValueIndex (keys %ValHash){
-	  
-		# for each value, check if corresponding conditions are valid
-		 
-		 my $CondRef = $gOptions{$attribute}{"options"}{$choice}{"values"}{$ValueIndex}{"conditions"}; 
-		 my %CondHash = %$CondRef; 
-	  
-		 # Check for 'all' conditions
-		  my $ValidConditionFound = 0;
-		  
-		  if ( defined( $CondHash{"all"} ) ) { 
-			debug_out ("   - VALINDEX: $ValueIndex : found valid condition: \"all\" !\n");
-			$gOptions{$attribute}{"options"}{$choice}{"result"}{$ValueIndex} = $CondHash{"all"};
-			$ValidConditionFound = 1; 
-			
-		  }else{
-			
-			# Loop through hash 
-			for my $conditions ( keys %CondHash ) {
-			  if ($conditions !~ /else/ ){ 
-				debug_out ( " >>>>> Testing |$conditions| <<<\n" ) ; 
-				
-				my $valid_condition = 1; 
-				foreach my $condition (split /;/, $conditions ){
-
-				  debug_out ("      $condition \n"); 
-				  my ($TestAttribute, $TestValueList) = split /=/, $condition; 
-				  if ( ! $TestValueList ) {$TestValueList = "XXXX";}
-				  my @TestValueArray = split /\|/, $TestValueList;
-				  my $thesevalsmatch =0; 
-				  foreach my $TestValue (@TestValueArray){
-				    if ( $gChoices{$TestAttribute} eq $TestValue ) { $thesevalsmatch = 1; }
-					 
-				   debug_out ("      \$gChoices{".$TestAttribute."} = ".$gChoices{$TestAttribute}." / $TestValue / -> $thesevalsmatch \n"); 
-				  }
-				  if ( ! $thesevalsmatch ){$valid_condition = 0;}
-				  
-				}
-				if ( $valid_condition ) { 
-				  $gOptions{$attribute}{"options"}{$choice}{"result"}{$ValueIndex}  = $CondHash{$conditions};
-				  $ValidConditionFound = 1; 
-				  debug_out ("   - VALINDEX: $ValueIndex : found valid condition: \"$conditions\" !\n");
-				}
-              }
-			}
-			
-		  }
-		  # Check if else condition exists. 
-		  if ( ! $ValidConditionFound ) {
-            debug_out ("Looking for else!: ".$CondHash{"else"}."<\n" ); 
-		    if ( defined( $CondHash{"else"} ) ){
-			  $gOptions{$attribute}{"options"}{$choice}{"result"}{$ValueIndex} = $CondHash{"else"};
-			  $ValidConditionFound = 1;
-			  debug_out ("   - VALINDEX: $ValueIndex : found valid condition: \"else\" !\n");
-			}
-		  
-		  }
-		  
-		  if ( ! $ValidConditionFound ) {
-             $ThisError  = "\nERROR: No valid conditions were defined for $attribute \n";
-             $ThisError .=   "       in options file ($gOptionFile). Choices must match one \n";
-             $ThisError .=   "       of the following:\n";
-			 for my $conditions ( keys %CondHash ) {
-				$ThisError .=   "            -> $conditions \n" ;
-			 }
-
-             $ErrorBuffer .= $ThisError; 
-             stream_out( $ThisError );  
-		 
-			 $allok = 0; 
-		  }
-	  
-	  }
-	
-	}
-	
-   # Check conditions on external entities that are not 'value' or 'cost' ...
-   my $ExtRef = $gOptions{$attribute}{"options"}{$choice}; 
-   my %ExtHash = %$ExtRef;
+	# Check conditions on external entities that are not 'value' or 'cost' ...
+	my $ExtRef = $gOptions{$attribute}{"options"}{$choice}; 
+	my %ExtHash = %$ExtRef;
    
-   foreach my $ExternalParam ( keys %ExtHash ){
-   
-	 if ( $ExternalParam =~ /production/ ){
+	foreach my $ExternalParam ( keys %ExtHash ){
 		
-		 my $CondRef = $gOptions{$attribute}{"options"}{$choice}{$ExternalParam}{"conditions"}; 
-		 my %CondHash = %$CondRef; 
+		if ( $ExternalParam =~ /production/ ){
+			
+			my $CondRef = $gOptions{$attribute}{"options"}{$choice}{$ExternalParam}{"conditions"}; 
+			my %CondHash = %$CondRef; 
 	  
-		 # Check for 'all' conditions
-		  my $ValidConditionFound = 0;
+			# Check for 'all' conditions
+			my $ValidConditionFound = 0;
 		  
-		  if ( defined( $CondHash{"all"} ) ) { 
-			debug_out ("   - EXTPARAM: $ExternalParam : found valid condition: \"all\" ! (".$CondHash{"all"}.")\n");
-			$gOptions{$attribute}{"options"}{$choice}{"ext-result"}{$ExternalParam} = $CondHash{"all"};
-			$ValidConditionFound = 1; 
-			
-		  }else{
-			
-			# Loop through hash 
-			
-			for my $conditions ( keys %CondHash ) {
-			
-				#debug_out ( " >>>>> Testing $conditions \n" ) ; 
+			if ( defined( $CondHash{"all"} ) ) { 
+				debug_out ("   - EXTPARAM: $ExternalParam : found valid condition: \"all\" ! (".$CondHash{"all"}.")\n");
+				$gOptions{$attribute}{"options"}{$choice}{"ext-result"}{$ExternalParam} = $CondHash{"all"};
+				$ValidConditionFound = 1; 
 				
-				my $valid_condition = 1; 
-				foreach my $condition (split /;/, $conditions ){
-
-				  #debug_out ("      $condition \n"); 
-				  my ($TestAttribute, $TestValueList) = split /=/, $condition; 
-				  if ( ! $TestValueList ) {$TestValueList = "XXXX";}
-				  my @TestValueArray = split /\|/, $TestValueList;
-				  my $thesevalsmatch =0; 
-				  foreach my $TestValue (@TestValueArray){
-				    if ( $gChoices{$TestAttribute} eq $TestValue ) { $thesevalsmatch = 1; }
+			} else {
+			
+				# Loop through hash 
+			
+				for my $conditions ( keys %CondHash ) {
+					
+					#debug_out ( " >>>>> Testing $conditions \n" ) ; 
+				
+					my $valid_condition = 1; 
+					foreach my $condition (split /;/, $conditions ){
+						
+					#debug_out ("      $condition \n"); 
+					my ($TestAttribute, $TestValueList) = split /=/, $condition; 
+					if ( ! $TestValueList ) {
+						$TestValueList = "XXXX";
+					}
+					my @TestValueArray = split /\|/, $TestValueList;
+					my $thesevalsmatch =0; 
+					foreach my $TestValue (@TestValueArray){
+						if ( $gChoices{$TestAttribute} =~ /$TestValue/ ) { 
+							$thesevalsmatch = 1; 
+						}
 					 
-				    #debug_out ("      \$gChoices{".$TestAttribute."} = ".$gChoices{$TestAttribute}." / $TestValue / -> $thesevalsmatch \n"); 
-				  }
-				  if ( ! $thesevalsmatch ){$valid_condition = 0;}
-				  
-				}
-				if ( $valid_condition ) { 
-				  $gOptions{$attribute}{"options"}{$choice}{"ext-result"}{$ExternalParam}= $CondHash{$conditions};
-				  $ValidConditionFound = 1; 
-				  debug_out ("   - EXTPARAM: $ExternalParam : found valid condition: \"$conditions\" (".$CondHash{$conditions}.")\n");
-				}
+						#debug_out ("      \$gChoices{".$TestAttribute."} = ".$gChoices{$TestAttribute}." / $TestValue / -> $thesevalsmatch \n"); 
+					}
+					if ( ! $thesevalsmatch ){
+						$valid_condition = 0;
+					}
+					}
+					
+					if ( $valid_condition ) { 
+						$gOptions{$attribute}{"options"}{$choice}{"ext-result"}{$ExternalParam}= $CondHash{$conditions};
+						$ValidConditionFound = 1; 
+						debug_out ("   - EXTPARAM: $ExternalParam : found valid condition: \"$conditions\" (".$CondHash{$conditions}.")\n");
+					}
 
+				}
+			
 			}
 			
-		  }
-		  # Check if else condition exists. 
-		  if ( ! $ValidConditionFound ) {
-		    if ( defined( $CondHash{"else"} ) ){
-			  $gOptions{$attribute}{"options"}{$choice}{"ext-result"}{$ExternalParam} = $CondHash{"else"};
-			  $ValidConditionFound = 1;
-			  debug_out ("   - EXTPARAM: $ExternalParam : found valid condition: \"else\" ! (".$CondHash{"else"}.")\n");
+			# Check if else condition exists. 
+			if ( ! $ValidConditionFound ) {
+				if ( defined( $CondHash{"else"} ) ){
+					$gOptions{$attribute}{"options"}{$choice}{"ext-result"}{$ExternalParam} = $CondHash{"else"};
+					$ValidConditionFound = 1;
+					debug_out ("   - EXTPARAM: $ExternalParam : found valid condition: \"else\" ! (".$CondHash{"else"}.")\n");
+				}
 			}
 		  
-		  }
-		  
-		  if ( ! $ValidConditionFound ) {
-             $ThisError  = "\nERROR: No valid conditions were defined for $attribute \n";
-             $ThisError .=   "       in options file ($gOptionFile). Choices must match one \n";
-             $ThisError .=   "       of the following:\n";
-			 for my $conditions ( keys %CondHash ) {
-				$ThisError .=  "            -> $conditions \n" ;
-			 }
-
-             $ErrorBuffer .= $ThisError; 
-             stream_out( $ThisError );            
-			 
-			 $allok = 0; 
-		  }
-
-	 
-	 }
-	 
-   }
+			if ( ! $ValidConditionFound ) {
+				$ThisError  = "\nERROR: No valid conditions were defined for $attribute \n";
+				$ThisError .=   "       in options file ($gOptionFile). Choices must match one \n";
+				$ThisError .=   "       of the following:\n";
+				for my $conditions ( keys %CondHash ) {
+					$ThisError .=  "            -> $conditions \n" ;
+				}
+				
+				$ErrorBuffer .= $ThisError; 
+				stream_out( $ThisError );            
+				
+				$allok = 0; 
+			} else {
+				$allok = 1;
+			}
+		}
+	}
     
-  #debug_out (" >>>>> ".$gOptions{$attribute}{"options"}{$choice}{"result"}{"production-elec-perKW"}."\n"); 
+	#debug_out (" >>>>> ".$gOptions{$attribute}{"options"}{$choice}{"result"}{"production-elec-perKW"}."\n"); 
   
+	my ($BaseOption,$ScaleFactor,$BaseChoice,$BaseCost);
   
-  my ($BaseOption,$ScaleFactor,$BaseChoice,$BaseCost);
+	# This section implements the multiply-cost 
   
-  # This section implements the multiply-cost 
-  
-  if ($allok ){
+	if ($allok ){
        
-    my $cost = $gOptions{$attribute}{"options"}{$choice}{"cost"};
-    my $cost_type = $gOptions{$attribute}{"options"}{$choice}{"cost-type"};
-    my $repcost = defined( $cost ) ? $cost : "?" ; 
+		my $cost = $gOptions{$attribute}{"options"}{$choice}{"cost"};
+		my $cost_type = $gOptions{$attribute}{"options"}{$choice}{"cost-type"};
+		my $repcost = defined( $cost ) ? $cost : "?" ; 
      
-	debug_out ("   - found cost: \$$cost ($cost_type) \n"); 
+		debug_out ("   - found cost: \$$cost ($cost_type) \n"); 
 	
-    my $ScaleCost = 0; 
+		my $ScaleCost = 0; 
     
-    # Scale cost by some other parameter. 
-    if ( $repcost =~/\<MULTIPLY-COST:.+/){
+		# Scale cost by some other parameter. 
+		if ( $repcost =~/\<MULTIPLY-COST:.+/){
+			
+    		my $multiplier = $cost;
+			
+			$multiplier =~ s/\<//g;
+			$multiplier =~ s/\>//g;
+			$multiplier =~ s/MULTIPLY-COST://g;
     
-      my $multiplier = $cost;
+			($BaseOption,$ScaleFactor) = split /\*/, $multiplier;
       
-      $multiplier =~ s/\<//g;
-      $multiplier =~ s/\>//g;
-      $multiplier =~ s/MULTIPLY-COST://g;
-    
-      ($BaseOption,$ScaleFactor) = split /\*/, $multiplier;
+			$BaseChoice = $gChoices{$BaseOption};
+			$BaseCost   = $gOptions{$BaseOption}{"options"}{$BaseChoice}{"cost"};
       
-      $BaseChoice = $gChoices{$BaseOption};
-      $BaseCost   = $gOptions{$BaseOption}{"options"}{$BaseChoice}{"cost"};
-      
-      my $CompCost = $BaseCost * $ScaleFactor; 
+			my $CompCost = $BaseCost * $ScaleFactor; 
     
-      $ScaleCost = 1; 
-      $gOptions{$attribute}{"options"}{$choice}{"cost"} = $CompCost; 
-      
-    }
+			$ScaleCost = 1; 
+			$gOptions{$attribute}{"options"}{$choice}{"cost"} = $CompCost; 
+		}
     
-    $cost = $gOptions{$attribute}{"options"}{$choice}{"cost"} ;
-    if ( ! defined ($cost) ){ $cost = "0" ; }                                       
-    debug_out ( "\n\nMAPPING for $attribute = $choice (@ \$".
+		$cost = $gOptions{$attribute}{"options"}{$choice}{"cost"} ;
+		if ( ! defined ($cost) ){ $cost = "0" ; }                                       
+		debug_out ( "\n\nMAPPING for $attribute = $choice (@ \$".
                  round($cost).
                  " inc. cost [$cost_type] ): \n"); 
-    if ( $ScaleCost ){
-      debug_out (     "  (cost computed as $ScaleFactor *  ".round($BaseCost)." [cost of $BaseChoice])\n");
-    }
-    
-  }
+		if ( $ScaleCost ){
+			debug_out (     "  (cost computed as $ScaleFactor *  ".round($BaseCost)." [cost of $BaseChoice])\n");
+		}
+	}
    
-  # Check on value of error flag before continuing with while loop
-  # (the flag may be reset in the next iteration!)
-  if ( ! $allok ) {
-    last;	# exit the loop checking choice against options
-  }
- 
+	# Check on value of error flag before continuing with while loop
+	# (the flag may be reset in the next iteration!)
+	if ( ! $allok ) {
+		last VALCHOICES;	# exit the loop - don't process rest of choices against options
+	}
 }
+
 
 # Seems like we've found everything!
 
+
 if ( ! $allok ) { 
 
-    stream_out("\n--------------------------------------------------------------\n");
-    stream_out("\nSubstitute.pl encountered the following errors:\n"); 
-    stream_out($ErrorBuffer); 
+	stream_out("\n--------------------------------------------------------------\n");
+	stream_out("\nSubstitute.pl encountered the following errors:\n"); 
+	stream_out($ErrorBuffer); 
 
-    fatalerror(" Choices in $gChoiceFile do not match options in $gOptionFile!");
-}else{
-    stream_out (" done.\n");
+	fatalerror(" Choices in $gChoiceFile do not match options in $gOptionFile!");
+} else {
+	stream_out (" done.\n");
 } 
 
 
