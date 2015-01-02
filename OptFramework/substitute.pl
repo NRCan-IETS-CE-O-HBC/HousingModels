@@ -1845,7 +1845,7 @@ sub postprocess($){
 
     my ( $token, $value, $units ) = split / /, $line; 
     
-    if ( $units =~ /GJ/ || $units =~ /kWh\/s/ || $units =~ /m3\/s/ || $units =~ /l\/s/ ) {
+    if ( $units =~ /GJ/ || $units =~ /kWh\/s/ || $units =~ /m3\/s/ || $units =~ /l\/s/  || $units =~ /tonne\/s/ ) {
     
       $gSimResults{$token} = $value; 
     
@@ -2399,8 +2399,15 @@ sub postprocess($){
                          $gSimResults{"total_fuel_use/mixed_wood/all_end_uses/quantity::Total_Average"} : 0 ;  	
 
   $gEnergyPellet = defined($gSimResults{"total_fuel_use/wood_pellets/all_end_uses/quantity::Total_Average"} ) ? 
-                         $gSimResults{"total_fuel_use/wood_pellets/all_end_uses/quantity::Total_Average"} : 0 ;  					
-					 
+                         $gSimResults{"total_fuel_use/wood_pellets/all_end_uses/quantity::Total_Average"} : 0 ;  
+					
+
+  stream_out ( " --------------------------------------------------------\n");
+  stream_out ( "    $gEnergyElec   ( Total Elec energy, kWh ) \n");
+  stream_out ( "    $gEnergyOil    ( Total Oil energy, m3 ) \n");
+  stream_out ( "    $gEnergyPellet ( Total Pellet energy, tonnes ) \n");
+
+						 
   my $PVRevenue = $gEnergyPV * 1e06 / 3600. *$PVTarrifDollarsPerkWh; 
   
   my $TotalBill = $TotalElecBill+$TotalGasBill+$TotalOilBill+$TotalPropaneBill+$TotalWoodBill+$TotalPelletBill; 
