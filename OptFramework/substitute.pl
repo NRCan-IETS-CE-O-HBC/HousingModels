@@ -1226,6 +1226,7 @@ my $EnergyEquipment      ;
 my $gAvgNGasCons_m3     = 0; 
 my $gAvgOilCons_l       = 0; 
 my $gAvgPropCons_l      = 0; 
+my $gAvgPelletCons_tonne = 0; 
 my $gDirection;
 
 UpdateCon();  
@@ -1314,6 +1315,9 @@ print SUMMARY "Energy-PlugGJ     =  $gAvgEnergyEquipmentGJ \n";
 print SUMMARY "EnergyEleckWh     =  $gAvgElecCons_KWh \n";
 print SUMMARY "EnergyGasM3       =  $gAvgNGasCons_m3  \n";
 print SUMMARY "EnergyOil_l       =  $gAvgOilCons_l    \n";
+print SUMMARY "EnergyPellet_t    =  $gAvgPelletCons_tonne   \n";
+
+
 print SUMMARY "Upgrade-cost      =  ".eval($gTotalCost-$gIncBaseCosts)."\n"; 
 print SUMMARY "SimplePaybackYrs  =  ". $payback ."\n"; 
 
@@ -2401,13 +2405,7 @@ sub postprocess($){
   $gEnergyPellet = defined($gSimResults{"total_fuel_use/wood_pellets/all_end_uses/quantity::Total_Average"} ) ? 
                          $gSimResults{"total_fuel_use/wood_pellets/all_end_uses/quantity::Total_Average"} : 0 ;  
 					
-
-  stream_out ( " --------------------------------------------------------\n");
-  stream_out ( "    $gEnergyElec   ( Total Elec energy, kWh ) \n");
-  stream_out ( "    $gEnergyOil    ( Total Oil energy, m3 ) \n");
-  stream_out ( "    $gEnergyPellet ( Total Pellet energy, tonnes ) \n");
-
-						 
+			 
   my $PVRevenue = $gEnergyPV * 1e06 / 3600. *$PVTarrifDollarsPerkWh; 
   
   my $TotalBill = $TotalElecBill+$TotalGasBill+$TotalOilBill+$TotalPropaneBill+$TotalWoodBill+$TotalPelletBill; 
@@ -2443,6 +2441,7 @@ sub postprocess($){
   $gAvgEnergy_Total   += $gTotalEnergy  * $ScaleData; 
   $gAvgNGasCons_m3    += $gEnergyGas * 8760. * 60. * 60.  * $ScaleData ; 
   $gAvgOilCons_l      += $gEnergyOil * 8760. * 60. * 60.  * $ScaleData ;  
+  $gAvgPelletCons_tonne+= $gEnergyPellet * 8760. * 60. * 60.  * $ScaleData ;
   
   $gAvgElecCons_KWh   += $gEnergyElec * 8760. * 60. * 60. * $ScaleData ; 
   
