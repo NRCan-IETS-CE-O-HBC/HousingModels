@@ -213,7 +213,7 @@ Opt-DHWSystem        : NWT_oil_DHW
 !   upgrade_Olsen
 !   oil96
 !   wood_furnace
-Opt-HVACSystem       : Olsen
+Opt-HVACSystem       : wood_furnace
 
 ! HRV spec 
 
