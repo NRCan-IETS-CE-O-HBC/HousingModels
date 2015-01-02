@@ -1357,7 +1357,7 @@ if ( $gDakota ) {
     print SUMMARY "$gAvgCost_Oil \n";
 
     print SUMMARY "$gAvgPVOutput_kWh \n";
-    print SUMMARY "gEnergySDHW \n";
+    print SUMMARY "$gEnergySDHW \n";
     print SUMMARY "$gAvgEnergyHeatingGJ \n";
     print SUMMARY "$gAvgEnergyCoolingGJ \n";
     print SUMMARY "$gAvgEnergyVentilationGJ \n";
