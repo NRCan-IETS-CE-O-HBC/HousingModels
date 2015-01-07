@@ -12,9 +12,6 @@ use Math::Trig;
 
 use File::Copy::Recursive qw(fcopy rcopy dircopy fmove rmove dirmove); 
 
-
-
-
 sub UpdateCon();
 sub runsims($);
 sub postprocess($);
@@ -243,7 +240,6 @@ foreach $arg (@processed_args){
       last SWITCH;
     }    
     
-    
     if ( $arg =~ /^--rotate:/ ){
       # stream out progress messages
       $gRotate = $arg;
@@ -273,14 +269,11 @@ foreach $arg (@processed_args){
        last SWITCH; 
     }   
     
-    
-    
     if ( $arg =~ /^--verbose/ ){
       # stream out progress messages
       $gTest_params{"verbosity"} = "verbose";
       last SWITCH;
     }
-
     
     if ( $arg =~ /^--very_verbose/ ){
       # steam out all messages
@@ -288,7 +281,6 @@ foreach $arg (@processed_args){
 
       last SWITCH;
     }
-
     
     if ( $arg =~ /^--very_very_verbose/ ){
       # steam out all messages
@@ -298,41 +290,30 @@ foreach $arg (@processed_args){
     }    
     
     if ( $arg =~ /^--save-vp-output/ ){ 
-    
         $SaveVPOutput = 1; 
         last SWITCH; 
-    
     }
-    
     
     if ( $arg =~ /^--base_folder/ ){
-      # Base folder name overrides initialized value (at top)
-      $gBaseModelFolder = $arg;
-      $gBaseModelFolder =~ s/--base_folder://g;
-      $gBaseModelFolder =~ s/^.*\///g; 
-      $gBaseModelFolder =~ s/^.*\\//g; 
-      $gModelCfgFile = "$gBaseModelFolder.cfg"; 
-      
+		# Base folder name overrides initialized value (at top)
+		$gBaseModelFolder = $arg;
+		$gBaseModelFolder =~ s/--base_folder://g;
+		$gBaseModelFolder =~ s/^.*\///g; 
+		$gBaseModelFolder =~ s/^.*\\//g; 
+		$gModelCfgFile = "$gBaseModelFolder.cfg"; 
 
-      if ( ! $gBaseModelFolder ){
-        fatalerror("Base folder name missing after --base_folder (or -b) option!");
-      }
-      if (! -d "$gBaseModelFolder" && ! -d "../$gBaseModelFolder" ){ 
-		fatalerror("Base folder does not exist - create and populate folder first!");
-	  }
+		if ( ! $gBaseModelFolder ){
+			fatalerror("Base folder name missing after --base_folder (or -b) option!");
+		}
+		if (! -d "$gBaseModelFolder" && ! -d "../$gBaseModelFolder" ){ 
+			fatalerror("Base folder does not exist - create and populate folder first!");
+		}
 
-	  last SWITCH;
+		last SWITCH;
     }
-    
-    
-    
     
     
     fatalerror("Arguement \"$arg\" is not understood\n");
-    
-    
- 
-    
     
   }
 }
@@ -381,262 +362,238 @@ my %gParameters;
 
 # Parse the option file. 
 while ( my $line = <OPTIONS> ){
-  
-  $line =~ s/\!.*$//g; 
-  $line =~ s/\s*//g;
-  $linecount++;
 
+	$line =~ s/\!.*$//g; 
+	$line =~ s/\s*//g;
+	$linecount++;
     
   
-  #debug_out ("  Line: $linecount >$line<");
+	#debug_out ("  Line: $linecount >$line<");
   
-  if ( $line !~ /^\s*$/ ) {
-    #debug_out (" processing...\n");
-    my ( $token, $value ) = split /=/, $line ;
+	if ( $line !~ /^\s*$/ ) {
+		#debug_out (" processing...\n");
+		my ( $token, $value ) = split /=/, $line ;
 
-    # Allow value to contain spaces: if 
-    if ($value) { $value =~ s/~/ /g; }
-
+		# Allow value to contain spaces: if 
+		if ($value) { $value =~ s/~/ /g; }
 	
-	# The file contains 'attributes that are either internal (evaluated by ESP-r
-	# or external (computed elsewhere and post-processed). 
+		# The file contains 'attributes that are either internal (evaluated by ESP-r
+		# or external (computed elsewhere and post-processed). 
 	
-    # Open up a new attribute    
-    if ( $token =~ /^\*attribute:start/ ){
-    
-      $AttributeOpen = 1; 
-    
-    }
-
-    # Open up a new external attribute    
-    if ( $token =~ /^\*ext-attribute:start/ ){
-    
-      $ExternalAttributeOpen = 1; 
-    
-    }
-
-    # Open up parameter block
-    if ( $token =~ /^\*ext-parameters:start/ ){
-    
-        $ParametersOpen = 1; 
-    
-    }
-    
-    # Parse parameters. 
-    if ( $ParametersOpen ) {
-    
-        # Read parameters. Format: 
-        #  *param:NAME = VALUE 
-        if ( $token =~ /^\*param/ ){
-           $token =~ s/\*param://g; 
-           #stream_out (">>>> TEST: $token => $value \n") ;
-           $gParameters{"$token"} = $value; 
-        } 
-    }
-    
-    
-    # Parse attribute contents Name/Tag/Option(s)
-    if ( $AttributeOpen || $ExternalAttributeOpen ) {
-    
-      # Read name
-      if ( $token =~ /^\*attribute:name/ ){
-    
-        $currentAttributeName = $value ;
-		if ( $ExternalAttributeOpen) { 
-			$gOptions{$currentAttributeName}{"type"} = "external"; 
-		}else{
-			$gOptions{$currentAttributeName}{"type"} = "internal"; 
+		# Open up a new attribute    
+		if ( $token =~ /^\*attribute:start/ ){
+			$AttributeOpen = 1; 
 		}
+
+		# Open up a new external attribute    
+		if ( $token =~ /^\*ext-attribute:start/ ){
+			$ExternalAttributeOpen = 1; 
+		}
+
+		# Open up parameter block
+		if ( $token =~ /^\*ext-parameters:start/ ){
+			$ParametersOpen = 1; 
+		}
+    
+		# Parse parameters. 
+		if ( $ParametersOpen ) {
+			
+			# Read parameters. Format: 
+			#  *param:NAME = VALUE 
+			if ( $token =~ /^\*param/ ){
+				$token =~ s/\*param://g; 
+				#stream_out (">>>> TEST: $token => $value \n") ;
+				$gParameters{"$token"} = $value; 
+			} 
+		}
+    
+		# Parse attribute contents Name/Tag/Option(s)
+		if ( $AttributeOpen || $ExternalAttributeOpen ) {
+    
+			# Read name
+			if ( $token =~ /^\*attribute:name/ ){
+    
+				$currentAttributeName = $value ;
+				if ( $ExternalAttributeOpen) { 
+					$gOptions{$currentAttributeName}{"type"} = "external"; 
+				} else {
+					$gOptions{$currentAttributeName}{"type"} = "internal"; 
+				}
         
-        $gOptions{$currentAttributeName}{"default"}{"defined"} = 0 ;
+				$gOptions{$currentAttributeName}{"default"}{"defined"} = 0 ;
         
-        #debug_out ("    ---> $currentAttributeName \n"); 
-      }
-      
-      
-      # For options that need to be replaced in the 
-      # external file. Note: External Attribubes do not have tags...
-      if ( $token =~ /^\*attribute:tag/ ){
-    
-        my($rubbish,$junk,$TagIndex) = split /:/, $token;
-        
-        #$currentTags{$TagIndex} = $value;
-        $gOptions{$currentAttributeName}{"tags"}{$TagIndex} = $value ; 
-      }
-      
-	  # Standard form (no conditions) --- option:Name:MetaInfo:Index
-	  
-      # Possibly define default value. 
-      if ( $token =~ /^\*attribute:default/ ) {
-	  
-	    $gOptions{$currentAttributeName}{"default"}{"defined"} = 1 ;
-        $gOptions{$currentAttributeName}{"default"}{"value"} = $value ;
-      }
-
-    if ( $token =~ /^\*option/ ){
-	    # Format: 
-		
-		#  *Option:NAME:MetaType:Index or 
-		#  *Option[CONDITIONS]:NAME:MetaType:Index or 	
-		# MetaType is:
-		#  - cost
-		#  - value 
-		#  - production-elec
-		#  - production-sh
-		#  - production-dhw
-		
-		my @breakToken = split /:/, $token; 
-		my @OptionConditions = (); 
-		my $condition_string = ""; 
-		#if ($breakToken[0]){debug_out (" + bt0: ". $breakToken[0] ."\n"); }
-		#if ($breakToken[1]){debug_out (" + bt1: ". $breakToken[1] ."\n"); }
-		#if ($breakToken[2]){debug_out (" + bt2: ". $breakToken[2] ."\n"); }
-		#if ($breakToken[3]){debug_out (" + bt3: ". $breakToken[3] ."\n"); }
-		#if ($breakToken[4]){die (" + bt4: ". $breakToken[4] ."\n"); }
-		#if ($breakToken[5]){debug_out (" + bt5: ". $breakToken[5] ."\n"); }
-		
-		# Check option keyword to see if it has specific conditions
-		# format is *option[condition1>value1;condition2>value2 ...] 
-		
-		if ($breakToken[0]=~/\[.+\]/ ) {
-			
-			$condition_string = $breakToken[0]; 
-			$condition_string =~ s/\*option\[//g; 
-			$condition_string =~ s/\]//g; 
-			$condition_string =~ s/>/=/g; 
-			#debug_out ("  + Reading conditions >$condition_string<!!!\n");
-			
-		}else{
-			$condition_string = "all"; 
-		}
-
-		#debug_out ("  + Reading conditions >$condition_string<!!!\n");
-		
-		my $OptionName = $breakToken[1];
-		my $DataType   = $breakToken[2];
-		
-		my $ValueIndex = ""; 
-		my $CostType   = "";
-		
-		# Assign values 
-
-		if ( $DataType =~ /value/ ){
-			$ValueIndex = $breakToken[3]; 
-			$gOptions{$currentAttributeName}{"options"}{$OptionName}{"values"}{$ValueIndex}{"conditions"}{$condition_string} = $value; 
-		
-			#debug_out ( "++++++  \$gOptions{$currentAttributeName}{options}{ $OptionName }{values}{ $ValueIndex }{\"conditions\"}{$condition_string} = $value \n" );  
-			
-	    }
-		
-		if ( $DataType =~ /cost/ ){
-			$CostType = $breakToken[3];
-			$gOptions{$currentAttributeName}{"options"}{$OptionName}{"cost-type"} = $CostType;
-			$gOptions{$currentAttributeName}{"options"}{$OptionName}{"cost"} = $value;
-			
-			#debug_out ( "++++++ \$gOptions{$currentAttributeName}{options}{ $OptionName }{cost-type} = $CostType \n"); 
-			#debug_out ( "++++++ \$gOptions{$currentAttributeName}{options}{ $OptionName }{cost} = $value  \n"); 
-		}
-
-		if ( $DataType =~ /alias/ ){
-			$gOptions{$currentAttributeName}{"options"}{$OptionName}{"alias"} = $value;
-		}
-
-		# External entities...
-		if ( $DataType =~ /production/ ){
-			if ( $DataType =~ /cost/ ){$CostType = $breakToken[3]; }
-			$gOptions{$currentAttributeName}{"options"}{$OptionName}{$DataType}{"conditions"}{$condition_string} = $value; 
-			
-			#debug_out ( "++++++  \$gOptions{$currentAttributeName}{options}{ $OptionName }{ $DataType }{conditions}{ $condition_string } = $value \n" );  
-		}
-	  
-	  }
-    
-    }
-    
-    
-    
-    # Close attribute and append contents to global options array
-    if ( $token =~ /^\*attribute:end/ || $token =~ /^\*ext-attribute:end/){
-    
-       $AttributeOpen = 0; 
-    
-      # Store tags (what's a tag?)
-      #for my $TagIndex (keys (%currentTags ) ){
-      #  debug_out ("$currentAttributeName TAG -> $TagIndex ...\n"); 
-      #  $gOptions{$currentAttributeName}{"tags"}{$TagIndex} = $currentTags{$TagIndex}; 
-      #
-      #}
-
-      # Store options 
-	  debug_out ( "========== $currentAttributeName ===========\n");
-	  debug_out ( "Storing data for $currentAttributeName: \n" );
-	  
-	  my $OptHash = $gOptions{$currentAttributeName}{"options"}; 
-	  
-      for my $optionIndex ( keys (%$OptHash ) ){
-		debug_out( "    -> $optionIndex \n"); 
-		my $cost_type    = $gOptions{$currentAttributeName}{"options"}{$optionIndex}{"cost-type"}; 	
-		my $cost         = $gOptions{$currentAttributeName}{"options"}{$optionIndex}{"cost"}; 	
-		my $ValHash = $gOptions{$currentAttributeName}{"options"}{$optionIndex}{"values"};
-		
-		for my $valueIndex ( keys (%$ValHash) ) {
-
-		    my $CondHash = $gOptions{$currentAttributeName}{"options"}{$optionIndex}{"values"}{$valueIndex}{"conditions"}; 
-			
-			
-			
-			
-			
-			for my $conditions( keys (%$CondHash) ) {
-				my $tag   = $gOptions{$currentAttributeName}{"tags"}{$valueIndex};
-				my $value = $gOptions{$currentAttributeName}{"options"}{$optionIndex}{"values"}{$valueIndex}{"conditions"}{$conditions};
-				
-				debug_out( "           - $tag -> $value [valid: $conditions ]   \n");		
+				#debug_out ("    ---> $currentAttributeName \n"); 
 			}
-			 
-				
-			#Energy credits not modelled in ESP-r 
-			
+      
+      
+			# For options that need to be replaced in the 
+			# external file. Note: External Attribubes do not have tags...
+			if ( $token =~ /^\*attribute:tag/ ){
+    
+				my($rubbish,$junk,$TagIndex) = split /:/, $token;
+        
+				#$currentTags{$TagIndex} = $value;
+				$gOptions{$currentAttributeName}{"tags"}{$TagIndex} = $value ; 
+			}
+      
+			# Standard form (no conditions) --- option:Name:MetaInfo:Index
+	  
+			# Possibly define default value. 
+			if ( $token =~ /^\*attribute:default/ ) {
+	  
+				$gOptions{$currentAttributeName}{"default"}{"defined"} = 1 ;
+				$gOptions{$currentAttributeName}{"default"}{"value"} = $value ;
+			}
 
-
-		}
-#		debug_out( "           - cost = \$$cost ($cost_type) \n");
+			if ( $token =~ /^\*option/ ){
+				# Format: 
 		
-		my $ExtEnergyHash = $gOptions{$currentAttributeName}{"options"}{$optionIndex}; 
-		for my $ExtEnergyType ( keys (%$ExtEnergyHash ) ){
-			if ( $ExtEnergyType =~ /production/ ) {
-                my $CondHash = $gOptions{$currentAttributeName}{"options"}{$optionIndex}{$ExtEnergyType}{"conditions"}; 
-                for my $conditions( keys (%$CondHash) ) {
-                    my $ExtEnergyCredit = $gOptions{$currentAttributeName}{"options"}{$optionIndex}{$ExtEnergyType}{"conditions"}{$conditions}; 
-                    debug_out ("              - credit:($ExtEnergyType) $ExtEnergyCredit [valid: $conditions ] \n");	
+				#  *Option:NAME:MetaType:Index or 
+				#  *Option[CONDITIONS]:NAME:MetaType:Index or 	
+				# MetaType is:
+				#  - cost
+				#  - value 
+				#  - alias (for Dakota)
+				#  - production-elec
+				#  - production-sh
+				#  - production-dhw
+				
+				my @breakToken = split /:/, $token; 
+				my @OptionConditions = (); 
+				my $condition_string = ""; 
+				#if ($breakToken[0]){debug_out (" + bt0: ". $breakToken[0] ."\n"); }
+				#if ($breakToken[1]){debug_out (" + bt1: ". $breakToken[1] ."\n"); }
+				#if ($breakToken[2]){debug_out (" + bt2: ". $breakToken[2] ."\n"); }
+				#if ($breakToken[3]){debug_out (" + bt3: ". $breakToken[3] ."\n"); }
+				#if ($breakToken[4]){die (" + bt4: ". $breakToken[4] ."\n"); }
+				#if ($breakToken[5]){debug_out (" + bt5: ". $breakToken[5] ."\n"); }
+				
+				# Check option keyword to see if it has specific conditions
+				# format is *option[condition1>value1;condition2>value2 ...] 
+				
+				if ($breakToken[0]=~/\[.+\]/ ) {
+					
+					$condition_string = $breakToken[0]; 
+					$condition_string =~ s/\*option\[//g; 
+					$condition_string =~ s/\]//g; 
+					$condition_string =~ s/>/=/g; 
+					#debug_out ("  + Reading conditions >$condition_string<!!!\n");
+					
+				} else {
+					$condition_string = "all"; 
+				}
+
+				#debug_out ("  + Reading conditions >$condition_string<!!!\n");
+				
+				my $OptionName = $breakToken[1];
+				my $DataType   = $breakToken[2];
+				
+				my $ValueIndex = ""; 
+				my $CostType   = "";
+				
+				# Assign values 
+
+				if ( $DataType =~ /value/ ){
+					$ValueIndex = $breakToken[3]; 
+					$gOptions{$currentAttributeName}{"options"}{$OptionName}{"values"}{$ValueIndex}{"conditions"}{$condition_string} = $value; 
+				
+					#debug_out ( "++++++  \$gOptions{$currentAttributeName}{options}{ $OptionName }{values}{ $ValueIndex }{\"conditions\"}{$condition_string} = $value \n" );  
+				}
+				
+				if ( $DataType =~ /cost/ ){
+					$CostType = $breakToken[3];
+					$gOptions{$currentAttributeName}{"options"}{$OptionName}{"cost-type"} = $CostType;
+					$gOptions{$currentAttributeName}{"options"}{$OptionName}{"cost"} = $value;
+					
+					#debug_out ( "++++++ \$gOptions{$currentAttributeName}{options}{ $OptionName }{cost-type} = $CostType \n"); 
+					#debug_out ( "++++++ \$gOptions{$currentAttributeName}{options}{ $OptionName }{cost} = $value  \n"); 
+				}
+				
+				# Added for Dakota
+				if ( $DataType =~ /alias/ ){
+					$gOptions{$currentAttributeName}{"options"}{$OptionName}{"alias"} = $value;
+				}
+
+				# External entities...
+				if ( $DataType =~ /production/ ){
+					if ( $DataType =~ /cost/ ){$CostType = $breakToken[3]; }
+					$gOptions{$currentAttributeName}{"options"}{$OptionName}{$DataType}{"conditions"}{$condition_string} = $value; 
+					
+					#debug_out ( "++++++  \$gOptions{$currentAttributeName}{options}{ $OptionName }{ $DataType }{conditions}{ $condition_string } = $value \n" );  
+				}
+	  
+			}
+    
+		}
+    
+    
+    
+		# Close attribute and append contents to global options array
+		if ( $token =~ /^\*attribute:end/ || $token =~ /^\*ext-attribute:end/){
+		
+			$AttributeOpen = 0; 
+		
+			# Store tags (what's a tag?)
+			#for my $TagIndex (keys (%currentTags ) ){
+			#  debug_out ("$currentAttributeName TAG -> $TagIndex ...\n"); 
+			#  $gOptions{$currentAttributeName}{"tags"}{$TagIndex} = $currentTags{$TagIndex}; 
+			#
+			#}
+
+			# Store options 
+			debug_out ( "========== $currentAttributeName ===========\n");
+			debug_out ( "Storing data for $currentAttributeName: \n" );
+		  
+			my $OptHash = $gOptions{$currentAttributeName}{"options"}; 
+		  
+			for my $optionIndex ( keys (%$OptHash ) ){
+				debug_out( "    -> $optionIndex \n"); 
+				my $cost_type    = $gOptions{$currentAttributeName}{"options"}{$optionIndex}{"cost-type"}; 	
+				my $cost         = $gOptions{$currentAttributeName}{"options"}{$optionIndex}{"cost"}; 	
+				my $ValHash = $gOptions{$currentAttributeName}{"options"}{$optionIndex}{"values"};
 			
-                }
+				for my $valueIndex ( keys (%$ValHash) ) {
+
+					my $CondHash = $gOptions{$currentAttributeName}{"options"}{$optionIndex}{"values"}{$valueIndex}{"conditions"}; 
+					
+					for my $conditions( keys (%$CondHash) ) {
+						my $tag   = $gOptions{$currentAttributeName}{"tags"}{$valueIndex};
+						my $value = $gOptions{$currentAttributeName}{"options"}{$optionIndex}{"values"}{$valueIndex}{"conditions"}{$conditions};
+					
+						debug_out( "           - $tag -> $value [valid: $conditions ]   \n");		
+					}
+				 
+					#Energy credits not modelled in ESP-r 
+				}
+
+				#debug_out( "           - cost = \$$cost ($cost_type) \n");
+			
+				my $ExtEnergyHash = $gOptions{$currentAttributeName}{"options"}{$optionIndex}; 
+				for my $ExtEnergyType ( keys (%$ExtEnergyHash ) ){
+					if ( $ExtEnergyType =~ /production/ ) {
+						my $CondHash = $gOptions{$currentAttributeName}{"options"}{$optionIndex}{$ExtEnergyType}{"conditions"}; 
+						for my $conditions( keys (%$CondHash) ) {
+							my $ExtEnergyCredit = $gOptions{$currentAttributeName}{"options"}{$optionIndex}{$ExtEnergyType}{"conditions"}{$conditions}; 
+							debug_out ("              - credit:($ExtEnergyType) $ExtEnergyCredit [valid: $conditions ] \n");	
+						}
+					}
+				}
 			}
 		}
-	  }
-       
-    }     
-      
-    if ( $token =~ /\*ext-parameters:end/ ){
-        
-        $ParametersOpen = 0; 
-        
-    }
-      
-  }
+		  
+		if ( $token =~ /\*ext-parameters:end/ ){
+			$ParametersOpen = 0; 
+		}
+	}
 }
     
 close (OPTIONS);
  
  
  
- 
-for my $att (keys %gOptions ){ 
-
+#for my $att (keys %gOptions ){ 
   #debug_out ".... $att \n"; 
-  
-}
-
+#}
 
 stream_out ("...done.\n") ; 
  
@@ -650,107 +607,95 @@ stream_out("\n\nReading $gChoiceFile...");
 $linecount = 0;
 
 while ( my $line = <CHOICES> ){
-  
-  $line =~ s/\!.*$//g; 
-  # next, strip white spaces for standard (and genopt) choice files
-  if ( ! $gDakota ) { 
-    $line =~ s/\s*//g;
-  }else{
-    # Dakota uses white-space to delimit inputs:
-    #       value_a token_a
-    #      value_ab token_ab 
-    #     value_abc token_abc
-    # Translate into existing choice-value format.  
-    
-    $line =~ s/^\s+//; 
-    $line =~ s/\s+$//; 
+	
+	$line =~ s/\!.*$//g; 
+	# next, strip white spaces for standard (and genopt) choice files
+	if ( ! $gDakota ) { 
+		$line =~ s/\s*//g;
+	} else {
+		# Dakota uses white-space to delimit inputs:
+		#       value_a token_a
+		#      value_ab token_ab 
+		#     value_abc token_abc
+		# Translate into existing choice-value format.  
+		
+		$line =~ s/^\s+//; 
+		$line =~ s/\s+$//; 
 
-    my ($value, $token) = split / /, $line; 
+		my ($value, $token) = split / /, $line; 
+		
+		# Ignore reserved keywords that dakota puts into its 
+		# input files. 
+		if ($token =~ /variables/ || 
+			$token =~ /functions/ ||
+			$token =~ /ASV/ ||
+			$token =~ /derivative_variables/ ||
+			$token =~ /analysis_components/  ||
+			$token =~ /eval_id/ ){
+			
+			# Skip dakota meta-info. 
+		
+			$line = ""; 
+			
+		} else {
+			# reformat line in friendly format 
+			$line = "$token:$value"; 
+		}
     
-    # Ignore reserved keywords that dakota puts into its 
-    # input files. 
-    if ($token =~ /variables/ || 
-        $token =~ /functions/ ||
-        $token =~ /ASV/ ||
-        $token =~ /derivative_variables/ ||
-        $token =~ /analysis_components/  ||
-        $token =~ /eval_id/ ){
-        
-        # Skip dakota meta-info. 
+	}
     
-        $line = ""; 
-    
-    }else{
-    
-        # reformat line in friendly format 
-        $line = "$token:$value"; 
-        
-    }
-    
-  }
-    
+	$linecount++;
+	debug_out ("  Line: $linecount >$line<\n");
   
-  $linecount++;
-  debug_out ("  Line: $linecount >$line<\n");
-  
-  if ( $line ) {
-    my ($attribute, $value) = split /:/, $line;
+	if ( $line ) {
+		my ($attribute, $value) = split /:/, $line;
     
-    
-    # Parse config commands
-    if ( $attribute =~ /^GOconfig_/ ){
-      $attribute =~ s/^GOconfig_//g; 
-      if ( $attribute =~ /rotate/ ) { 
-           $gRotate = $value; 
-           $gChoices{"GOconfig_rotate"}=$value; 
-           push @gChoiceOrder, "GOconfig_rotate";
-      } 
-      if ( $attribute =~ /step/ ) { $gGOStep = $value; 
-                                    $gArchGOChoiceFile = 1;  } 
-    }else{
-      my $extradata = $value; 
-      if ( $value =~ /\|/ ){
-        $value =~ s/\|.*$//g; 
-        $extradata =~ s/^.*\|//g; 
-        $extradata =~ s/^.*\|//g; 
-      }else{
-        $extradata = ""; 
-      }
-      
-            
-      $gChoices{"$attribute"}=$value ;
-      
-      stream_out ("::: $attribute -> $value \n"); 
-      
-      # Additional data that may be used to attribute the choices. 
-      $gExtraDataSpecd{"$attribute"} = $extradata ; 
-      
-      # Save order of choices to make sure we apply them correctly. 
-      push @gChoiceOrder, $attribute;
-    }
-  }
-
+		# Parse config commands
+		if ( $attribute =~ /^GOconfig_/ ){
+			$attribute =~ s/^GOconfig_//g; 
+			if ( $attribute =~ /rotate/ ) { 
+				$gRotate = $value; 
+				$gChoices{"GOconfig_rotate"}=$value; 
+				push @gChoiceOrder, "GOconfig_rotate";
+			} 
+			if ( $attribute =~ /step/ ) { 
+				$gGOStep = $value; 
+				$gArchGOChoiceFile = 1;  
+			} 
+		} else {
+			my $extradata = $value; 
+			if ( $value =~ /\|/ ){
+				$value =~ s/\|.*$//g; 
+				$extradata =~ s/^.*\|//g; 
+				$extradata =~ s/^.*\|//g; 
+			} else {
+				$extradata = ""; 
+			}
+				
+			$gChoices{"$attribute"}=$value ;
+		  
+			stream_out ("::: $attribute -> $value \n"); 
+		  
+			# Additional data that may be used to attribute the choices. 
+			$gExtraDataSpecd{"$attribute"} = $extradata ; 
+		  
+			# Save order of choices to make sure we apply them correctly. 
+			push @gChoiceOrder, $attribute;
+		}
+	}
 }
 
 close( CHOICES );
 stream_out ("...done.\n") ; 
 
 # Optionally create a copy of the choice file for later use. 
-
-
-if ( $gArchGOChoiceFile and -d "../ArchGOChoiceFiles" ) { 
+#if ( $gArchGOChoiceFile and -d "../ArchGOChoiceFiles" ) { 
   #debug_out( " Archiving $gChoiceFile -> ../ArchGOChoiceFiles/$gChoiceFile-$gGOStep" ); 
   #!execute ( " cp $gChoiceFile ../ArchGOChoiceFiles/$gChoiceFile-$gGOStep ") ; 
-  
-} 
-
-
-
+#} 
 
 
 my %gChoiceAttIsExt;
-
-
 my %gExtOptions;
 # Report 
 my $allok = 1;
@@ -766,35 +711,25 @@ my $gCostAdjustmentFactor;
 # Possibly overwrite internal parameters with user-specified parameters
 while ( my ( $parameter, $value) = each %gParameters ){
 
-  #stream_out (">>>> PARAM: $parameter | $value \n"); 
+	#stream_out (">>>> PARAM: $parameter | $value \n"); 
 
-  if ( $parameter =~ /CostAdjustmentFactor/  ){
+	if ( $parameter =~ /CostAdjustmentFactor/  ){
+		$gCostAdjustmentFactor = $value;
+		$gCustomCostAdjustment = 1; 
+	}
   
-    $gCostAdjustmentFactor = $value;
-    $gCustomCostAdjustment = 1; 
-  }
+	if ( $parameter =~ /PVTarrifDollarsPerkWh/ ) {
+		$PVTarrifDollarsPerkWh = $value; 
+	}
   
-  if ( $parameter =~ /PVTarrifDollarsPerkWh/ ) {
+	if ( $parameter =~ /BaseUpgradeCost/ ) {
+		$gIncBaseCosts = $value; 
+	}
   
-     $PVTarrifDollarsPerkWh = $value; 
-  
-  }
-  
-  if ( $parameter =~ /BaseUpgradeCost/ ) {
-  
-      $gIncBaseCosts = $value; 
-  
-  }
-  
-  if ( $parameter =~ /BaseUtilitiesCost/ ) {
-  
-      $gUtilityBaseCost = $value; 
-  
-  }
-  
-
+	if ( $parameter =~ /BaseUtilitiesCost/ ) {
+		$gUtilityBaseCost = $value; 
+	}
 }
-
 
 
 stream_out(" Validating choices and options...\n");  
