@@ -1386,7 +1386,9 @@ my $PVcapacity = $gChoices{"Opt-StandoffPV"};
 
 $PVcapacity =~ s/[a-zA-Z:\s'\|]//g;
 
-if (! $PVcapacity ) { $PVcapacity = 0. ; }
+if (! $PVcapacity ) { 
+	$PVcapacity = 0. ; 
+}
 
 if ( $gDakota ) {
 
@@ -1418,11 +1420,7 @@ if ( $gDakota ) {
 
     print SUMMARY "".$PVcapacity."\n"; 
 
-
-
-
-}else{
-
+} else {
 
     print SUMMARY "Energy-Total-GJ   =  $gAvgEnergy_Total \n"; 
     print SUMMARY "Util-Bill-gross   =  $gAvgCost_Total   \n";
@@ -1449,11 +1447,12 @@ if ( $gDakota ) {
     print SUMMARY "Upgrade-cost      =  ".eval($gTotalCost-$gIncBaseCosts)."\n"; 
     print SUMMARY "SimplePaybackYrs  =  ". $payback ."\n"; 
 
+	my $PVcapacity = $gChoices{"Opt-StandoffPV"}; 
 
-my $PVcapacity = $gChoices{"Opt-StandoffPV"}; 
-
-$PVcapacity =~ s/[a-zA-Z:\s'\|]//g;
-if (! $PVcapacity ) { $PVcapacity = 0. ; }
+	$PVcapacity =~ s/[a-zA-Z:\s'\|]//g;
+	if (! $PVcapacity ) { 
+		$PVcapacity = 0. ; 
+	}
 
     print SUMMARY "PV-size-kW      =  ".$PVcapacity."\n"; 
 
