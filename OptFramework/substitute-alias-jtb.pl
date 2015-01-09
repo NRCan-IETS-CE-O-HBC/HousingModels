@@ -704,7 +704,7 @@ stream_out ("...done.\n") ;
 # Post process Dakota output file and stop (-z option)
 # -----------------------------------------------------------------------------------------
 if ( $gPostProcDakota ) {
-
+   
 	my $DakotaGenerated = "all_responses.txt";
 	my $DakotaOutput = "DakotaListingAll.txt";
 	my $gDakotaUtilityCmd = "dakota_restart_util to_tabular dakota.rst $DakotaGenerated";
@@ -723,10 +723,10 @@ if ( $gPostProcDakota ) {
 	
 	# Open Dakota generated file and file to be used for processed output
 	open ( READIN_DAKOTA_RESULTS, "$DakotaGenerated" ) or fatalerror( "Could not read gDakotaGenerated!" );
-	stream_out("\n\nReading $DakotaGenerated...");
+	open (WRITEOUT, ">$DakotaOutput") or die ( "Could not open $DakotaOutput for writing !"); 
 
-	open (WRITEOUT, ">$DakotaOutput") or die ( " Could not open $DakotaOutput for writing !"); 
-	stream_out("\n\nWriting $DakotaOutput: ");
+	stream_out("\n\nReading $DakotaGenerated and writing $DakotaOutput...\n");
+
 	# Write out top 20 blank lines
 	for ( my $i = 1; $i < 21; $i++ ) {
 		print WRITEOUT "Temporary header line #$i\n"
@@ -770,12 +770,12 @@ if ( $gPostProcDakota ) {
 					}
 				}
 				# DataIn array now updated with attribute option names
-				# Write out the data
+				# Write out the data if at end of current input line
 				$DataOut .= "$DataIn[$elementNum] ";
-				#print WRITEOUT "$DataIn[$elementNum] ";
 				if ( $elementNum == scalar(@DataIn)-1 ) {
 					$DataOut .= "\n";
-					#print WRITEOUT "\n";
+					print WRITEOUT $DataOut;	# Write out one line at a time so $DataOut doesn't get huge!!
+					$DataOut = "";				# Clear $DataOut
 					$elementNum = 0;
 				} else {
 					$elementNum++;
@@ -784,10 +784,8 @@ if ( $gPostProcDakota ) {
 		}
 	}
 
-	print WRITEOUT $DataOut;
-
-	close WRITEOUT;
 	close READIN_DAKOTA_RESULTS;
+	close WRITEOUT;
 	
 	# End this script!
 	stream_out("\n\nDakota output file $DakotaOutput successfully produced.\n");
