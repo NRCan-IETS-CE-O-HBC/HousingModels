@@ -716,16 +716,17 @@ if ( $gPostProcDakota ) {
 	my $HeaderRow = "";
 	my $LineOut = "";
 	my @DataIn = ();
+	my $DataOut = "";
 
 	# Execute Dakota utility to generate complete set of output data (inputs + outputs)
 	execute($gDakotaUtilityCmd);
 	
 	# Open Dakota generated file and file to be used for processed output
-	open ( DAKOTARESULTS, "$DakotaGenerated" ) or fatalerror( "Could not read gDakotaGenerated!" );
+	open ( READIN_DAKOTA_RESULTS, "$DakotaGenerated" ) or fatalerror( "Could not read gDakotaGenerated!" );
 	stream_out("\n\nReading $DakotaGenerated...");
 
 	open (WRITEOUT, ">$DakotaOutput") or die ( " Could not open $DakotaOutput for writing !"); 
-	stream_out("\n\nWriting $DakotaOutput...");
+	stream_out("\n\nWriting $DakotaOutput: ");
 	# Write out top 20 blank lines
 	for ( my $i = 1; $i < 21; $i++ ) {
 		print WRITEOUT "Temporary header line #$i\n"
@@ -733,7 +734,7 @@ if ( $gPostProcDakota ) {
 
 	# Parse the Dakota output file to convert integers to attribute option strings and set 
 	# expected format. 
-	while ( my $line = <DAKOTARESULTS> ){
+	while ( my $line = <READIN_DAKOTA_RESULTS> ){
 		$linecnt++;
 		if ( $linecnt == 1 ) {
 			$line =~ s/\s+/ /g;		# Remove multiple spaces
@@ -754,7 +755,8 @@ if ( $gPostProcDakota ) {
 					while ( my ( $attribute, $dummy) = each %gChoices ){
 						my $OptHash = $gOptions{$attribute}{"options"}; 
 						for my $optionIndex ( keys (%$OptHash) ){
-							if ( $gOptions{$attribute}{"options"}{$optionIndex}{"alias"} =~ /^$TestValue$/ ) {
+							my $Test = $gOptions{$attribute}{"options"}{$optionIndex}{"alias"};
+							if ( $Test && $Test =~ /^$TestValue$/ ) {
 								$TestValue = $optionIndex;	# Modify array element with option name
 								$IsEndOfLoop = 1;
 								last;	# found alias so exit this for loop (alias is unique!)
@@ -769,9 +771,11 @@ if ( $gPostProcDakota ) {
 				}
 				# DataIn array now updated with attribute option names
 				# Write out the data
-				print WRITEOUT "$DataIn[$elementNum] ";
+				$DataOut .= "$DataIn[$elementNum] ";
+				#print WRITEOUT "$DataIn[$elementNum] ";
 				if ( $elementNum == scalar(@DataIn)-1 ) {
-					print WRITEOUT "\n";
+					$DataOut .= "\n";
+					#print WRITEOUT "\n";
 					$elementNum = 0;
 				} else {
 					$elementNum++;
@@ -779,8 +783,11 @@ if ( $gPostProcDakota ) {
 			}
 		}
 	}
-	close DAKOTARESULTS;
+
+	print WRITEOUT $DataOut;
+
 	close WRITEOUT;
+	close READIN_DAKOTA_RESULTS;
 	
 	# End this script!
 	stream_out("\n\nDakota output file $DakotaOutput successfully produced.\n");
@@ -889,8 +896,9 @@ while ( my ( $attribute, $choice) = each %gChoices ){
 		if ( $choice =~ /\d{3,4}/ ){
 			#Use option text string that matches this integer alias
 			my $OptHash = $gOptions{$attribute}{"options"}; 
-			OPHASHKEY: for my $optionIndex ( keys (%$OptHash) ){
-				if ( $gOptions{$attribute}{"options"}{$optionIndex}{"alias"} =~ /^$choice$/ ) {
+			for my $optionIndex ( keys (%$OptHash) ){
+				my $Test = $gOptions{$attribute}{"options"}{$optionIndex}{"alias"};
+				if ( $Test && $Test =~ /^$choice$/ ) {
 					$gChoices{$attribute} = $optionIndex;	# Update hash entry
 					$choice = $optionIndex;					# Update $choice too!
 					$allok = 1;
@@ -898,7 +906,7 @@ while ( my ( $attribute, $choice) = each %gChoices ){
 					if( ! defined( $gOptions{$attribute}{"options"}{$choice} )) {
 						$allok = 0;
 					}
-					last OPHASHKEY;	# found alias so exit this loop (alias is unique!)
+					last;	# found alias so exit this inner "for" loop (alias is unique!)
 				}
 			}
 		}
