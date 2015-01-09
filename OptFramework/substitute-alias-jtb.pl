@@ -80,6 +80,9 @@ my $gSkipPRJ = 0;
 my $gEnergyElec = 0;
 my $gEnergyGas = 0;
 my $gEnergyOil = 0; 
+my $gEnergyWood = 0; 
+my $gEnergyPellet = 0; 
+
 
 my $gTotalBaseCost = 0;
 my $gUtilityBaseCost = 0; 
@@ -101,7 +104,8 @@ my %RegionalCostFactors  = (  "Halifax"      =>  0.95 ,
                               "Winnipeg"     =>  1.08 ,
                               "Fredricton"   =>  1.00 ,  # Same as Quebec?
                               "Whitehorse"   =>  1.00 ,
-                              "Yellowknife"  =>  1.38    ); 
+                              "Yellowknife"  =>  1.38 ,
+							  "Inuvik"       =>  1.38   ); 
 
 
 my @gChoiceOrder;
@@ -1280,6 +1284,8 @@ my $gAvgCost_Electr    = 0 ;
 my $gAvgEnergy_Total   = 0 ; 
 my $gAvgCost_Propane   = 0 ;
 my $gAvgCost_Oil       = 0 ;
+my $gAvgCost_Wood      = 0 ;
+my $gAvgCost_Pellet    = 0 ;
 
 my $gAvgPVRevenue      = 0; 
 
@@ -1307,6 +1313,7 @@ my $EnergyEquipment      ;
 my $gAvgNGasCons_m3     = 0; 
 my $gAvgOilCons_l       = 0; 
 my $gAvgPropCons_l      = 0; 
+my $gAvgPelletCons_tonne = 0; 
 my $gDirection;
 
 UpdateCon();  
@@ -1322,7 +1329,7 @@ for my $Direction  ( @Orientations ){
 
 }
 
-$gAvgCost_Total   = $gAvgCost_Electr + $gAvgCost_NatGas + $gAvgCost_Propane + $gAvgCost_Oil ;
+$gAvgCost_Total   = $gAvgCost_Electr + $gAvgCost_NatGas + $gAvgCost_Propane + $gAvgCost_Oil + $gAvgCost_Wood + $gAvgCost_Pellet ;
 
 $gAvgPVRevenue =  $gAvgPVOutput_kWh * $PVTarrifDollarsPerkWh ;  
 
@@ -1391,6 +1398,8 @@ if ( $gDakota ) {
     print SUMMARY "$gAvgCost_NatGas  \n";
     print SUMMARY "$gAvgCost_Propane \n";
     print SUMMARY "$gAvgCost_Oil \n";
+	print SUMMARY "Util-Bill-Wood    =  $gAvgCost_Wood \n";
+	print SUMMARY "Util-Bill-Pellet  =  $gAvgCost_Pellet \n";
 
     print SUMMARY "$gAvgPVOutput_kWh \n";
     #print SUMMARY "$gEnergySDHW \n";
@@ -1402,7 +1411,9 @@ if ( $gDakota ) {
     print SUMMARY "$gAvgElecCons_KWh \n";
     print SUMMARY "$gAvgNGasCons_m3  \n";
     print SUMMARY "$gAvgOilCons_l    \n";
-    print SUMMARY "".eval($gTotalCost-$gIncBaseCosts)."\n"; 
+  	print SUMMARY "EnergyPellet_t    =  $gAvgPelletCons_tonne   \n";
+	
+	print SUMMARY "".eval($gTotalCost-$gIncBaseCosts)."\n"; 
     print SUMMARY "". $payback ."\n"; 
 
     print SUMMARY "".$PVcapacity."\n"; 
@@ -1421,6 +1432,8 @@ if ( $gDakota ) {
     print SUMMARY "Util-Bill-Gas     =  $gAvgCost_NatGas  \n";
     print SUMMARY "Util-Bill-Prop    =  $gAvgCost_Propane \n";
     print SUMMARY "Util-Bill-Oil     =  $gAvgCost_Oil \n";
+	print SUMMARY "Util-Bill-Wood    =  $gAvgCost_Wood \n";
+	print SUMMARY "Util-Bill-Pellet  =  $gAvgCost_Pellet \n";
 
     print SUMMARY "Energy-PV-kWh     =  $gAvgPVOutput_kWh \n";
     #print SUMMARY "Energy-SDHW      =  $gEnergySDHW \n";
@@ -1432,11 +1445,15 @@ if ( $gDakota ) {
     print SUMMARY "EnergyEleckWh     =  $gAvgElecCons_KWh \n";
     print SUMMARY "EnergyGasM3       =  $gAvgNGasCons_m3  \n";
     print SUMMARY "EnergyOil_l       =  $gAvgOilCons_l    \n";
+	print SUMMARY "EnergyPellet_t    =  $gAvgPelletCons_tonne   \n";
     print SUMMARY "Upgrade-cost      =  ".eval($gTotalCost-$gIncBaseCosts)."\n"; 
     print SUMMARY "SimplePaybackYrs  =  ". $payback ."\n"; 
 
 
+my $PVcapacity = $gChoices{"Opt-StandoffPV"}; 
 
+$PVcapacity =~ s/[a-zA-Z:\s'\|]//g;
+if (! $PVcapacity ) { $PVcapacity = 0. ; }
 
     print SUMMARY "PV-size-kW      =  ".$PVcapacity."\n"; 
 
@@ -1778,7 +1795,8 @@ sub postprocess($){
                              "Winnipeg"     =>  0.0 ,
                              "Fredricton"   =>  0.0 ,
                              "Whitehorse"   =>  1.34 ,
-                             "Yellowknife"  =>  1.28 ); 
+                             "Yellowknife"  =>  1.28 ,
+							 "Inuvik"       =>  1.50 ); 
     
   my $OilTransportCharge;
   my $OilDeliveryCharge; 
@@ -1788,15 +1806,15 @@ sub postprocess($){
   my $PropaneDeliveryCharge; 
   my $PropaneTrasportCharge;
   
-  #my $WoodFixedCharge; 
-  #my $WoodSupplyCharge    = 260.0;   # ESC Heat Info Sheet - Assumes 18700 MJ / cord
-  #my %WoodDeliveryTier; 
-  #my $WoodTrasportCharge;
+  my $WoodFixedCharge; 
+  my $WoodSupplyCharge    = 325.0 ;  # Northern Fuel Cost Library Spring 2014 # 260.0;   ESC Heat Info Sheet - Assumes 18700 MJ / cord
+#  my %WoodDeliveryTier; 
+#  my $WoodTrasportCharge;
   
-  #my $PelletsFixedCharge; 
-  #my $PelletsSupplyCharge    = 340.0;   # ESC Heat Info Sheet - Assumes 18000 MJ/ton of pellets
-  #my %PelletsDeliveryTier; 
-  #my $PelletsTrasportCharge;
+  my $PelletsFixedCharge; 
+  my $PelletsSupplyCharge    =  337.0  ; # Northern Fuel Cost Library Spring 2014  #340.0;   ESC Heat Info Sheet - Assumes 18000 MJ/ton of pellets
+#  my %PelletsDeliveryTier; 
+#  my $PelletsTrasportCharge;
   
   my $NGTierType;  
 
@@ -1826,7 +1844,8 @@ sub postprocess($){
                           "Winnipeg"     =>  6.85   ,
                           "Fredricton"   =>  19.73  ,
                           "Whitehorse"   =>  16.25  ,
-                          "Yellowknife"  =>  18.52    ); #From Artic Energy Alliance Spring 2014
+                          "Yellowknife"  =>  18.52  , #From Artic Energy Alliance Spring 2014
+						  "Inuvik"       =>  18.00    ); #From Artic Energy Alliance Spring 2014
 	
   # Base charges for natural gas ($/month)
   my %NG_BaseCharge = ( "Halifax"      =>  21.87 ,
@@ -1843,7 +1862,8 @@ sub postprocess($){
                         "Winnipeg"     =>  14.00 ,
                         "Fredricton"   =>  16.00 ,
                         "Whitehorse"   =>  "nil" ,
-                        "Yellowknife"  =>  "nil"    ); 	
+                        "Yellowknife"  =>  "nil" , ,
+						"Inuvik"       =>  "nil"  ); 	
 
    my %Elec_TierType  = ( "Halifax"      =>  "none" ,
                           "Edmonton"     =>  "none" ,
@@ -1859,7 +1879,8 @@ sub postprocess($){
                           "Winnipeg"     =>  "none" ,
                           "Fredricton"   =>  "none" ,
                           "Whitehorse"   =>  "1-month" ,
-                          "Yellowknife"  =>  "none"   );  
+                          "Yellowknife"  =>  "none" ,
+                          "Inuvik"       =>  "none"  );  
  
     my %NG_TierType  = (  "Halifax"      =>  "none" ,
                           "Edmonton"     =>  "none" ,
@@ -1875,7 +1896,8 @@ sub postprocess($){
                           "Winnipeg"     =>  "none" ,
                           "Fredricton"   =>  "none" ,
                           "Whitehorse"   =>  "NA"   ,
-						  "Yellowknife"  =>  "NA"   ); 
+						  "Yellowknife"  =>  "NA"   ,
+						  "Inuvik"       =>  "NA" ); 
  
     
     my %EffElectricRates = ( "Halifax"     => 0.1436 ,
@@ -1884,7 +1906,8 @@ sub postprocess($){
                              "Regina"      => 0.1113 ,
                              "Winnipeg"    => 0.0694 ,
                              "Fredricton"  => 0.0985 ,
-                             "Yellowknife" => 0.29   ); # Arctic Energy Alliance Spring 2014
+                             "Yellowknife" => 0.29   , # Arctic Energy Alliance Spring 2014
+							 "Inuvik"      => 0.29   ); # Arctic Energy Alliance Spring 2014
 							 
     # TOU for Ottawa (As of May 2014), Toronto (Feb 2013).                        
     $EffElectricRates{"Ottawa"}{"off-peak"} =  0.1243 ;                        
@@ -1923,7 +1946,8 @@ sub postprocess($){
                           "Winnipeg"     =>  0.2298 ,
                           "Fredricton"   =>  0.6458 ,
                           "Whitehorse"   =>  99999.9,
-                          "Yellowknife"  =>  99999.9 ); 
+                          "Yellowknife"  =>  99999.9,
+						  "Inuvik"       =>  99999.9 ); 
    
     # Tiers for Ottawa (Apr. 1, 2014), Toronto
     $EffGasRates{"Ottawa"}{"30"}     = 0.3090; 
@@ -1956,7 +1980,7 @@ sub postprocess($){
 
     my ( $token, $value, $units ) = split / /, $line; 
     
-    if ( $units =~ /GJ/ || $units =~ /kWh\/s/ || $units =~ /m3\/s/ || $units =~ /l\/s/ ) {
+    if ( $units =~ /GJ/ || $units =~ /kWh\/s/ || $units =~ /m3\/s/ || $units =~ /l\/s/  || $units =~ /tonne\/s/ ) {
     
       $gSimResults{$token} = $value; 
     
@@ -2038,6 +2062,8 @@ sub postprocess($){
   my @NaturalGas_Use = @{ $data{" total fuel use:natural gas:all end uses:quantity (m3/s)"}  };
   my @Oil_Use        = @{ $data{" total fuel use:oil:all end uses:quantity (l/s)"}  };
   my @Propane_Use    = @{ $data{" total fuel use:propane:all end uses:quantity (m3/s)"}  };
+  my @Wood_Use       = @{ $data{" total fuel use:mixed wood:all end uses:quantity (tonne/s)"}  };
+  my @Pellets_Use    = @{ $data{" total fuel use:wood pellets:all end uses:quantity (tonne/s)"}  };
   #my @Wood_Use       = @{ $data{" total fuel use:wood:all end uses:quantity (cord/s)"}  };
   #my @Pellets_Use    = @{ $data{" total fuel use:pellets:all end uses:quantity (ton/s)"}  };
   # Recover Day, Hour & Month
@@ -2055,8 +2081,8 @@ sub postprocess($){
   my $GasConsumptionCost  = 0; 
   my $OilConsumptionCost  = 0; 
   my $PropaneConsumptionCost  = 0; 
-  #my $WoodConsumptionCost  = 0; 
-  #my $PelletsConsumptionCost  = 0; 
+  my $WoodConsumptionCost  = 0; 
+  my $PelletsConsumptionCost  = 0; 
 
   my $GasCurrConsumpionForTiers = 0; 
   my $ElecCurrConsumpionForTiers = 0; 
@@ -2328,16 +2354,16 @@ sub postprocess($){
 	
 	#### Wood
     
-    #my $CurrentWoodConsumption = $Wood_Use[$row] * $TSLength; # l
+    my $CurrentWoodConsumption = $Wood_Use[$row] * $TSLength; # l
     
-    #$WoodConsumptionCost += $CurrentWoodConsumption * ( $WoodSupplyCharge ); 
+    $WoodConsumptionCost += $CurrentWoodConsumption * ( $WoodSupplyCharge ); 
 
 		
 	#### Pellets
     
-    #my $CurrentPelletsConsumption = $Pellets_Use[$row] * $TSLength; # l
+    my $CurrentPelletsConsumption = $Pellets_Use[$row] * $TSLength; # l
     
-    #$PelletsConsumptionCost += $CurrentPelletsConsumption * ( $PelletsSupplyCharge ); 
+    $PelletsConsumptionCost += $CurrentPelletsConsumption * ( $PelletsSupplyCharge ); 
   }
 
 
@@ -2349,9 +2375,9 @@ sub postprocess($){
     
   my $TotalPropaneBill  = $PropaneFixedCharge * 12. + $PropaneConsumptionCost  ; 
   
-  #my $TotalWoodBill  = $WoodFixedCharge * 12. + $WoodConsumptionCost  ; 
+  my $TotalWoodBill  = $WoodFixedCharge * 12. + $WoodConsumptionCost  ; 
 	
-  #my $TotalPelletsBill  = $PelletsFixedCharge * 12. + $PelletsConsumptionCost  ; 
+  my $TotalPelletBill  = $PelletsFixedCharge * 12. + $PelletsConsumptionCost  ; 
   
   # Add data from externally computed SDHW (Legacy code)
   #my $sizeSDHW = $gChoices{"Opt-SolarDHW"}; 
@@ -2503,11 +2529,17 @@ sub postprocess($){
   
   $gEnergyOil   = defined($gSimResults{"total_fuel_use/oil/all_end_uses/quantity::Total_Average"} ) ? 
                          $gSimResults{"total_fuel_use/oil/all_end_uses/quantity::Total_Average"} : 0 ;  
-		 
-					 
+
+  $gEnergyWood  = defined($gSimResults{"total_fuel_use/mixed_wood/all_end_uses/quantity::Total_Average"} ) ? 
+                         $gSimResults{"total_fuel_use/mixed_wood/all_end_uses/quantity::Total_Average"} : 0 ;  	
+
+  $gEnergyPellet = defined($gSimResults{"total_fuel_use/wood_pellets/all_end_uses/quantity::Total_Average"} ) ? 
+                         $gSimResults{"total_fuel_use/wood_pellets/all_end_uses/quantity::Total_Average"} : 0 ;  
+					
+			 
   my $PVRevenue = $gEnergyPV * 1e06 / 3600. *$PVTarrifDollarsPerkWh; 
   
-  my $TotalBill = $TotalElecBill+$TotalGasBill+$TotalOilBill+$TotalPropaneBill; 
+  my $TotalBill = $TotalElecBill+$TotalGasBill+$TotalOilBill+$TotalPropaneBill+$TotalWoodBill+$TotalPelletBill; 
   my $NetBill   = $TotalBill-$PVRevenue ;
   
   stream_out("\n\n Energy Cost (not including credit for PV, direction $gRotationAngle ): \n\n") ; 
@@ -2516,7 +2548,9 @@ sub postprocess($){
   stream_out("  + \$ ".round($TotalGasBill)." (Natural Gas)\n");
   stream_out("  + \$ ".round($TotalOilBill)." (Oil)\n");
   stream_out("  + \$ ".round($TotalPropaneBill)." (Propane)\n");
-
+  stream_out("  + \$ ".round($TotalWoodBill)." (Wood)\n");
+  stream_out("  + \$ ".round($TotalPelletBill)." (Pellet)\n");
+  
   stream_out ( " --------------------------------------------------------\n");
   stream_out ( "    \$ ".round($TotalBill) ." (All utilities).\n"); 
 
@@ -2532,10 +2566,13 @@ sub postprocess($){
   $gAvgCost_Electr    += $TotalElecBill * $ScaleData;  
   $gAvgCost_Propane   += $TotalPropaneBill * $ScaleData; 
   $gAvgCost_Oil       += $TotalOilBill * $ScaleData; 
-
+  $gAvgCost_Wood      += $TotalWoodBill * $ScaleData; 
+  $gAvgCost_Pellet    += $TotalPelletBill * $ScaleData; 
+   
   $gAvgEnergy_Total   += $gTotalEnergy  * $ScaleData; 
   $gAvgNGasCons_m3    += $gEnergyGas * 8760. * 60. * 60.  * $ScaleData ; 
   $gAvgOilCons_l      += $gEnergyOil * 8760. * 60. * 60.  * $ScaleData ;  
+  $gAvgPelletCons_tonne+= $gEnergyPellet * 8760. * 60. * 60.  * $ScaleData ;
   
   $gAvgElecCons_KWh   += $gEnergyElec * 8760. * 60. * 60. * $ScaleData ; 
   
@@ -2553,7 +2590,10 @@ sub postprocess($){
   stream_out("  - ".round($gEnergyElec* 8760. * 60. * 60.)." (Electricity, kWh)\n");
   stream_out("  - ".round($gEnergyGas* 8760. * 60. * 60.)." (Natural Gas, m3)\n");
   stream_out("  - ".round($gEnergyOil* 8760. * 60. * 60.)." (Oil, l)\n");
-  
+  stream_out("  - ".round($gEnergyWood* 8760. * 60. * 60.)." (Wood, cord)\n");
+  stream_out("  - ".round($gEnergyPellet* 8760. * 60. * 60.)." (Pellet, tonnes)\n");
+
+ 
   stream_out ("> SCALE $ScaleData \n"); 
   
   
