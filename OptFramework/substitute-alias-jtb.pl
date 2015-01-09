@@ -736,8 +736,8 @@ if ( $gPostProcDakota ) {
 	while ( my $line = <DAKOTARESULTS> ){
 		$linecnt++;
 		if ( $linecnt == 1 ) {
-			# Write the header row
-			print WRITEOUT $line;
+			$line =~ s/\s+/ /g;		# Remove multiple spaces
+			print WRITEOUT "$line\n";	# Write the header row
 		} else {
 			# Change spaces separating data to semicolons
 			$line =~ s/\s+/;/g;
