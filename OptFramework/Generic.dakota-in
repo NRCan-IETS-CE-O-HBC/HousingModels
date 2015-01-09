@@ -1,0 +1,431 @@
+
+# General definitions
+environment,                                                            
+    output_file 'Dakota_out_msg.txt'      
+    error_file  'Dakota_err_msg.txt'      
+    tabular_data
+    results_output results_output_file 'Dakota_output' 
+    top_method_pointer 'Coliny_EA'
+    
+
+  
+method,  
+    id_method = 'Coliny_EA'                       
+    coliny_ea
+    seed 23 
+    population_size 50
+    initialization_type unique_random
+    replacement_type chc 10
+    fitness_type merit_function 
+    mutation_type replace_uniform
+    mutation_rate  0.8    
+    output debug
+    show_misc_options 
+    max_function_evaluations 50000
+    max_iterations 100
+
+method     
+    id_method = "random"
+    adaptive_sampling 
+    
+    
+model 
+    single 
+    
+variables,
+    id_variables 'OptimizationVars1' 
+    discrete_design_set 
+	integer 32
+    descriptors 
+    # These are the names of all the variables 
+    # CONFIGURATION (2)
+    #---------------------------------------------------
+    'Opt-calcmode'
+    'Opt-DBFiles' 
+    
+    # LOCALE  (2)
+    #------------------------------------------------------    
+    'Opt-Location'
+    'GOconfig_rotate'
+    
+    # CONTROLS (3)
+    #------------------------------------------------------
+    'OPT-OPR-SCHED'
+    'OPT-Furnace-Fan-Ctl'
+    'OPT-HRV_ctl'
+    
+    # ARCHETYPE & GEOMETRY  (6)
+    #------------------------------------------------------                
+    'Opt-geometry'      
+    'Opt-Attachment'
+    'Opt-BaseWindows'
+    'Opt-RoofPitch'
+    'Opt-OverhangWidth'
+	'Opt-WindowOrientation'
+      
+    # OPERATING CONDITIONS and LOAD CONSERVATION (2)
+    #------------------------------------------------------     
+    'Opt-DHWLoadScale' 
+    'Opt-ElecLoadScale'
+
+    # Envelope Specifications  (10)
+    #------------------------------------------------------              
+    'Opt-AirTightness'    
+    'Opt-ACH'
+    'Opt-CasementWindows'
+    'Opt-Ceilings'
+    'Opt-MainWall'
+    'Opt-ExposedFloor'
+    'Opt-BasementWallInsulation' 
+    'Opt-BasementSlabInsulation'
+    'Opt-ExtraDrywall'
+    'Opt-FloorSurface'
+    
+    # HVAC  (5)
+    #------------------------------------------------------             
+    'Opt-DHWSystem'
+    'Opt-HVACSystem'
+	'Opt-Cooling-Spec'
+    'Opt-HRVspec'
+	'Opt-HRVduct'
+        
+    # RENEWABLE ENERGY (2) 
+    #------------------------------------------------------    
+    'Opt-StandoffPV'
+    'Opt-DWHRandSDHW'
+    
+
+    elements_per_variable
+    # This list defines the # of choices for each variable 
+    # CONFIGURATION (2)
+    #---------------------------------------------------
+    1 #'Opt-calcmode'
+    1 #'Opt-DBFiles'  
+    
+    # LOCALE  (2)
+    #------------------------------------------------------    
+    1 # 'Opt-Location'
+    1 # 'GOconfig_rotate'
+    
+    # CONTROLS (3)
+    #------------------------------------------------------
+    1 # 'OPT-OPR-SCHED'
+    1 # 'OPT-Furnace-Fan-Ctl'
+    3 # 'OPT-HRV_ctl'
+    
+    # ARCHETYPE & GEOMETRY  (6)
+    #------------------------------------------------------                
+    1 # 'Opt-geometry'      
+    1 # 'Opt-Attachment'
+    1 # 'Opt-BaseWindows'
+    1 # 'Opt-RoofPitch'
+    3 # 'Opt-OverhangWidth'
+	1 # 'Opt-WindowOrientation'
+      
+    # OPERATING CONDITIONS and LOAD CONSERVATION (2)
+    #------------------------------------------------------     
+    3 # 'Opt-DHWLoadScale' 
+    5 # 'Opt-ElecLoadScale'
+
+    # Envelope Specifications  (10)
+    #------------------------------------------------------              
+    4 #'Opt-AirTightness'    
+    1 #'Opt-ACH'
+    5 #'Opt-CasementWindows'
+    6 #'Opt-Ceilings'
+    4 #'Opt-MainWall'
+    1 #'Opt-ExposedFloor'
+    2 #'Opt-BasementWallInsulation' 
+    3 #'Opt-BasementSlabInsulation'
+    2 #'Opt-ExtraDrywall'
+    1 #'Opt-FloorSurface'
+    
+    # HVAC  (6)
+    #------------------------------------------------------             
+    2 # 'Opt-DHWSystem'
+    5 # 'Opt-HVACSystem'
+	1 # 'Opt-Cooling-Spec'
+    1 # 'Opt-HRVspec'
+	1 # 'Opt-HRVduct'
+        
+    # RENEWABLE ENERGY (2) 
+    #------------------------------------------------------    
+    1 # 'Opt-StandoffPV'
+    3 # 'Opt-DWHRandSDHW'
+        
+    elements 
+    # CONFIGURATION (2)
+    #---------------------------------------------------
+    # Parameters that control how optimization operates. 
+    #  - Calculation mode (Opt-calcmode)
+        #100	#'debug'
+        101	#'calc' 
+        
+    # Database for measures 'Opt-DBFiles'
+        300 #'CEF'
+		#301 #'WHITEHORSE'
+		#302	#'retrofit'
+		
+    # LOCALE (2)
+    #------------------------------------------------------    
+    # Location  'Opt-Location'
+		#1009	#'Winnipeg'
+		#1004	#'Calgary'   
+		#1011	#'Vancouver'
+		1002	#'Ottawa'
+        
+    # Orientation 'GOconfig_rotate'
+        #202	#'N'
+        #201	#'E'
+        200	#'S'
+        #203	#'W'
+        #'AVG'
+		
+    # CONTROLS (3)
+    #------------------------------------------------------
+    # Occupant gain schedules 'OPT-OPR-SCHED'
+        400	#'constant'
+		
+    # Furnace control assumptions 'OPT-Furnace-Fan-Ctl'
+        901	#'Auto'
+		
+    # HRC control 'OPT-HRV_ctl'
+		800 # 'Continuous'
+		801 # 'ERSp3ACH'
+        802	# 'EightHRpDay'  
+
+    # ARCHETYPE & GEOMETRY (6)
+    #------------------------------------------------------                
+    # Building Design         
+    # Geometry - 'Opt-geometry'      
+		1200	#'MattOtt_2st_garage'
+		
+    # Attachment type 'Opt-Attachment'
+        500	#'single'
+        #501	#'semi'
+        #502	#'row'
+        
+    # Base number of windows  'Opt-BaseWindows'
+        701	#'MinWindows'
+		
+    # Roof Pitch 'Opt-RoofPitch' (This only affects PV output)
+        3101	#'6-12'
+		
+    # Overhang width 'Opt-OverhangWidth'
+        1100	#'BaseOverhang'
+		1101	#'OnepFiveFootOverhang'
+		1102	#'TwoFootOverhang'
+   
+    # Opt-WindowOrientation
+         600	#all
+   
+    # OPERATING CONDITIONS and LOAD CONSERVATION (2)
+    #------------------------------------------------------     
+    # DHW Load scales 'Opt-DHWLoadScale' 
+        #2803	#'OldERS' 		# 225 L/day
+        2805	#'EStar'
+		2806	#'Low-Flow'		# 141 L/day
+        2804	#'No-Reduction	# 190 L/day
+		
+    # Electrical load scale  'Opt-ElecLoadScale'
+        #'NoReduction'            # 24 kW/day			2700
+        #'BasicReduction'       # CEF Project			2701
+        #'EfficientLiving'      # CEF Project			2702
+        #'NGERSNoReduction19'   # Next Generation ERS 	2703   
+        #'NGERSReducedA16'      # Next Generation ERS	2704
+        #'NGERSBestInClass14p8' # Next Generation ERS	2705
+		2700
+		2701
+		2702
+		2703
+		2704
+		
+    # Envelope Specifications (10)
+    #------------------------------------------------------              
+    # 'Opt-AirTightness'    
+        #'Generic'      1505  Use this with opt-ACH (retroACH)
+		#'Typical23' 	1501
+        #'r2000' 		1502
+		1501
+		1502
+		1503
+		1504
+		
+    # Air-tightness Opt-ACH 
+    # Must spec Opt-AirTightness=Generic or this has no effect 
+        #'retro_ACH_2_5' 1309
+        1309
+		
+    # Windows 'Opt-CasementWindows'
+        #'retro_TripleLowEHardCoatArgFill'
+		#'DoubleLowEHardCoatArgFill' 		1401
+        1401
+		#1402 Problems with this!
+		1403
+		1404
+		1405
+		1406
+		
+    # Attic insulation 'Opt-Ceilings'
+        #'CeilR50'					1600
+		#'retro_attic-4_152_6cell'	1611	
+        1600	#R50
+		1601	#R60
+		1602	#R70
+		1603
+		1604
+		1605
+		
+    # Above-grade walls 'Opt-MainWall'
+        #'BaseR20'		1700
+        #'BaseR21' 		1701
+		#'Stud-R35-Wall' 1706
+		1700
+		1701
+		1706
+		1707
+		
+    # Exposed Floor 'Opt-ExposedFloor'
+        #'BaseExpFloor-R31'	2000
+		2000
+    
+    # Below-grade walls 'Opt-BasementWallInsulation' 
+        #'OBC-min-R12'			1800
+		#'MB-IntBatt-R20'       1801
+		#'Retro_added_R20_ext'	1821 (Retrofit)
+        1800
+		1801
+		
+    # Slab insulation 'Opt-BasementSlabInsulation'
+        #'NoInsulation' 1900
+		1900
+		1901
+		1902
+        
+    # Extra dry wall for thermal mass 'Opt-ExtraDrywall'
+        #'OneSheet'		2100
+        #'TwoSheets'	2101
+		2100
+		2101
+		
+    # floor surface for thermal mass 'Opt-FloorSurface'
+        # 'wood'			2200
+        # '1-in-concrete'	2201
+        # '2-in-concrete'   2202
+		2200
+        
+    # HVAC  (6)
+    #------------------------------------------------------             
+    # DHW SYSTEM 'Opt-DHWSystem'
+        #'BaseDHW'	2900
+		2900
+		2903	#Gas instantaneous
+    
+    # Heating 'Opt-HVACSystem'
+        #'basefurnace'		2300
+		#'gas-furnace-84_3'	2318
+		2300
+		2301
+		2302
+		2303
+		2304
+		
+    # Cooling 'Opt-Cooling-Spec'
+	    2401	# '2TonStdCooling'
+		
+    # HRV specification 'Opt-HRVspec'
+        #'BaseHRV_SRE70'	2501
+		2501
+        
+	# HRV Ducts 'Opt-HRVduct'
+        2600	# 'interlock'
+		
+    # RENEWABLE ENERGY (2)
+    #------------------------------------------------------    
+    # PV 'Opt-StandoffPV'
+        # 'NoPV'		3201
+		# 'SizedPV'		3200
+        # 'SizedPV|8kW'	????
+        # 'SizedPV|5kW'	????
+		3201
+    
+    # DHWR + SDHW 'Opt-DWHRandSDHW'
+        # 'None'				3000
+        # 'DWHR-4-36'			3001
+        # 'DWHR-4-60'			3002
+        # '1-plate' 			3003
+        # '2-plate' 			3004
+        # '1-plate-DWHR-4-36'	3005
+        # '2-plate-DWHR-4-36'	3006
+        # '1-plate-DWHR-4-60'	3007
+        # '2-plate-DWHR-4-60'	3008
+        3000
+		3001
+		3002
+		
+interface,
+    id_interface  'test_dakota'
+	fork 
+	   asynchronous 
+	   evaluation_concurrency = 30
+       parameters_file = 'dakota-choices.in'
+       results_file = 'SubstitutePL-output.txt'
+	   file_save
+    work_directory      
+       directory_tag
+#	   directory_save
+       copy_files "/home/ubuntu/HousingModels/OptFramework/GenericHome-2st-garage"
+                  "climate_linux"
+                  "OPTIONS-generic-MATTAMY-OTT.options"
+    analysis_driver './substitute-alias-jtb.pl -d -vv -o OPTIONS-generic-MATTAMY-OTT.options -c dakota-choices.in -b GenericHome-2st-garage' 
+	              verbatim
+    
+responses, 
+    id_responses 'rest_responses'
+    num_objective_functions 20
+    descriptors 
+       'Energy-Total-GJ'  
+       'Util-Bill-gross'  
+       'Util-PV-revenue'  
+       'Util-Bill-Net'    
+       'Util-Bill-Elec'   
+       'Util-Bill-Gas'    
+       'Util-Bill-Prop'   
+       'Util-Bill-Oil'    
+       'Energy-PV-kWh'    
+       'Energy-HeatingGJ' 
+       'Energy-CoolingGJ' 
+       'Energy-VentGJ'    
+       'Energy-DHWGJ'     
+       'Energy-PlugGJ'    
+       'EnergyEleckWh'   
+       'EnergyGasM3'      
+       'EnergyOil_l'      
+       'Upgrade-cost'     
+       'SimplePaybackYrs' 
+       'PV-size-kW'       
+    weights 
+       0. # 'Energy-Total-GJ'  
+       0. # 'Util-Bill-gross'  
+       0. # 'Util-PV-revenue'  
+       0. # 'Util-Bill-Net'    
+       0. # 'Util-Bill-Elec'   
+       0. # 'Util-Bill-Gas'    
+       0. # 'Util-Bill-Prop'   
+       0. # 'Util-Bill-Oil'    
+       0. # 'Energy-PV-kWh'    
+       0. # 'Energy-HeatingGJ' 
+       0. # 'Energy-CoolingGJ' 
+       0. # 'Energy-VentGJ'    
+       0. # 'Energy-DHWGJ'     
+       0. # 'Energy-PlugGJ'    
+       0. # 'EnergyEleckWh'   
+       0. # 'EnergyGasM3'      
+       0. # 'EnergyOil_l'      
+       0. # 'Upgrade-cost'     
+       1. # 'SimplePaybackYrs' 
+       0. # 'PV-size-kW'       
+    no_gradients
+    no_hessians
+    
+    
