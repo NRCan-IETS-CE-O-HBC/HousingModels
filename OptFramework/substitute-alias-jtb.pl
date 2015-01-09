@@ -70,6 +70,7 @@ my $gEnergyWaterHeating;
 my $gEnergyEquipment; 
 
 my $gDakota = 0; 
+my $gPostProcDakota = 0;
 
 my $gRegionalCostAdj;   
 
@@ -145,7 +146,7 @@ my $Help_msg = "
                       --choices choices.options  \
                       --base_folder BaseFolderName
                       
- use for optimization work:
+ example use for optimization work:
  
   ./substitute.pl -c optimization-choices.opt \
                   -o optimization-options.opt \
@@ -153,9 +154,11 @@ my $Help_msg = "
                   -v(v) ;
                   
  other options: 
- 
-    -d : use dakota format 
-				  
+    -d : use Dakota format for input (and processing)
+	-z : run this script as Dakota post-processor (implies -d)
+	     Note: Need options (-o) and choice (-c) files but
+		       don't need -b option
+	
 ";
 
 # dump help text, if no argument given
@@ -178,7 +181,7 @@ $cmd_arguements =~ s/\s+/;/g;
 
 # Translate shorthand arguments into longhand
 $cmd_arguements =~ s/-h;/--help;/g;
-$cmd_arguements =~ s/-p;/--path;/g;
+$cmd_arguements =~ s/-p;/--path;/g;			# Not used!
 $cmd_arguements =~ s/-c;/--choices;/g;
 $cmd_arguements =~ s/-o;/--options;/g;
 $cmd_arguements =~ s/-v;/--verbose;/g;
@@ -187,6 +190,7 @@ $cmd_arguements =~ s/-vvv;/--very_very_verbose;/g;
 $cmd_arguements =~ s/-b;/--base_folder;/g;
 $cmd_arguements =~ s/-svp;/--save-vp-output;/g;
 $cmd_arguements =~ s/-d;/--dakota;/g; 
+$cmd_arguements =~ s/-z;/--postprocdakota;/g; 
 
 # Collate options expecting arguments
 $cmd_arguements =~ s/--options;/--options:/g;
@@ -206,7 +210,6 @@ $cmd_arguements =~ s/;$//g;
 @processed_args = split /;/, $cmd_arguements;
 
 print @processed_args; 
-
 
 
 # Interpret arguments
@@ -268,6 +271,13 @@ foreach $arg (@processed_args){
        $gDakota = 1; 
        last SWITCH; 
     }   
+
+    if ( $arg =~ /^--postprocdakota/ ) { 
+       # post process Dakota output (and also set Dakota fag)
+       $gDakota = 1;
+	   $gPostProcDakota = 1;
+       last SWITCH; 
+    }   
     
     if ( $arg =~ /^--verbose/ ){
       # stream out progress messages
@@ -312,7 +322,6 @@ foreach $arg (@processed_args){
 		last SWITCH;
     }
     
-    
     fatalerror("Arguement \"$arg\" is not understood\n");
     
   }
@@ -328,7 +337,7 @@ my $gBPScmd             = "$gBPSpath -h3k -file $gModelCfgFile -mode text -p ful
    
    
 # Create base folder for working model
-if (! -d "$gBaseModelFolder" && -d "../$gBaseModelFolder" ){ 
+if (!$gPostProcDakota && ! -d "$gBaseModelFolder" && -d "../$gBaseModelFolder" ){ 
   execute ("cp -fr ../$gBaseModelFolder ./");
 }
 
@@ -343,7 +352,6 @@ stream_out (" > substitute.pl path: $master_path \n");
 stream_out (" >               ChoiceFile: $gChoiceFile \n");
 stream_out (" >               OptionFile: $gOptionFile \n");
 stream_out (" >               base model: $gBaseModelFolder \n"); 
-
 
 
 
@@ -366,7 +374,6 @@ while ( my $line = <OPTIONS> ){
 	$line =~ s/\!.*$//g; 
 	$line =~ s/\s*//g;
 	$linecount++;
-    
   
 	#debug_out ("  Line: $linecount >$line<");
   
@@ -527,7 +534,6 @@ while ( my $line = <OPTIONS> ){
 		}
     
     
-    
 		# Close attribute and append contents to global options array
 		if ( $token =~ /^\*attribute:end/ || $token =~ /^\*ext-attribute:end/){
 		
@@ -588,8 +594,7 @@ while ( my $line = <OPTIONS> ){
 }
     
 close (OPTIONS);
- 
- 
+
  
 #for my $att (keys %gOptions ){ 
   #debug_out ".... $att \n"; 
@@ -695,11 +700,102 @@ stream_out ("...done.\n") ;
 #} 
 
 
+# -----------------------------------------------------------------------------------------
+# Post process Dakota output file and stop (-z option)
+# -----------------------------------------------------------------------------------------
+if ( $gPostProcDakota ) {
+
+	my $DakotaGenerated = "all_responses.txt";
+	my $DakotaOutput = "DakotaListingAll.txt";
+	my $gDakotaUtilityCmd = "dakota_restart_util to_tabular dakota.rst $DakotaGenerated";
+	my $linecnt = 0;
+	my $SimNum = 0;		# Same as eval_id from Dakota
+	my $MainIter = 0;
+	my $SubIter = 0;
+	my $StepNum = 0;
+	my $HeaderRow = "";
+	my $LineOut = "";
+	my @DataIn = ();
+
+	# Execute Dakota utility to generate complete set of output data (inputs + outputs)
+	execute($gDakotaUtilityCmd);
+	
+	# Open Dakota generated file and file to be used for processed output
+	open ( DAKOTARESULTS, "$DakotaGenerated" ) or fatalerror( "Could not read gDakotaGenerated!" );
+	stream_out("\n\nReading $DakotaGenerated...");
+
+	open (WRITEOUT, ">$DakotaOutput") or die ( " Could not open $DakotaOutput for writing !"); 
+	stream_out("\n\nWriting $DakotaOutput...");
+	# Write out top 20 blank lines
+	for ( my $i = 1; $i < 21; $i++ ) {
+		print WRITEOUT "Temporary header line #$i\n"
+	}
+
+	# Parse the Dakota output file to convert integers to attribute option strings and set 
+	# expected format. 
+	while ( my $line = <DAKOTARESULTS> ){
+		$linecnt++;
+		if ( $linecnt == 1 ) {
+			# Write the header row
+			print WRITEOUT $line;
+		} else {
+			# Change spaces separating data to semicolons
+			$line =~ s/\s+/;/g;
+			# remove leading and trailing ;'s
+			$line =~ s/^;//g;
+			$line =~ s/;$//g;
+
+			@DataIn = split /;/, $line; 
+			my $elementNum = 0;
+			my $IsEndOfLoop = 0;
+			foreach my $TestValue (@DataIn){
+				# Get attribute name for data values that are Dakota aliases
+				if ( $elementNum > 1 && $elementNum < 34 && $TestValue =~ /\d{3,4}/ ){
+					while ( my ( $attribute, $dummy) = each %gChoices ){
+						my $OptHash = $gOptions{$attribute}{"options"}; 
+						for my $optionIndex ( keys (%$OptHash) ){
+							if ( $gOptions{$attribute}{"options"}{$optionIndex}{"alias"} =~ /^$TestValue$/ ) {
+								$TestValue = $optionIndex;	# Modify array element with option name
+								$IsEndOfLoop = 1;
+								last;	# found alias so exit this for loop (alias is unique!)
+							}
+						}
+						if ( $IsEndOfLoop ) {
+							$IsEndOfLoop = 0;
+							keys( %gChoices );	# This resets the %gChoices hash!
+							last;				# End inner while loop
+						}
+					}
+				}
+				# DataIn array now updated with attribute option names
+				# Write out the data
+				print WRITEOUT "$DataIn[$elementNum] ";
+				if ( $elementNum == scalar(@DataIn)-1 ) {
+					print WRITEOUT "\n";
+					$elementNum = 0;
+				} else {
+					$elementNum++;
+				}
+			}
+		}
+	}
+	close DAKOTARESULTS;
+	close WRITEOUT;
+	
+	# End this script!
+	stream_out("\n\nDakota output file $DakotaOutput successfully produced.\n");
+	close(LOG);
+
+	exit 0; 
+}
+# -----------------------------------------------------------------------------------------
+
+
+
 my %gChoiceAttIsExt;
 my %gExtOptions;
 # Report 
 my $allok = 1;
-
 
 debug_out("-----------------------------------\n");
 debug_out("-----------------------------------\n");
@@ -767,7 +863,6 @@ while ( my ( $option, $null ) = each %gOptions ){
 }
 
 
-
 # Search through choices and determine if they match options in the Options file. 
 while ( my ( $attribute, $choice) = each %gChoices ){
   
@@ -794,8 +889,8 @@ while ( my ( $attribute, $choice) = each %gChoices ){
 		if ( $choice =~ /\d{3,4}/ ){
 			#Use option text string that matches this integer alias
 			my $OptHash = $gOptions{$attribute}{"options"}; 
-			OPHASHKEY: for my $optionIndex ( keys (%$OptHash ) ){
-				if ( $gOptions{$attribute}{"options"}{$optionIndex}{"alias"} =~ /$choice/ ) {
+			OPHASHKEY: for my $optionIndex ( keys (%$OptHash) ){
+				if ( $gOptions{$attribute}{"options"}{$optionIndex}{"alias"} =~ /^$choice$/ ) {
 					$gChoices{$attribute} = $optionIndex;	# Update hash entry
 					$choice = $optionIndex;					# Update $choice too!
 					$allok = 1;
@@ -1292,7 +1387,7 @@ if ( $gDakota ) {
     print SUMMARY "$gAvgCost_Oil \n";
 
     print SUMMARY "$gAvgPVOutput_kWh \n";
-    print SUMMARY "$gEnergySDHW \n";
+    #print SUMMARY "$gEnergySDHW \n";
     print SUMMARY "$gAvgEnergyHeatingGJ \n";
     print SUMMARY "$gAvgEnergyCoolingGJ \n";
     print SUMMARY "$gAvgEnergyVentilationGJ \n";
