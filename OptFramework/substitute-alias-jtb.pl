@@ -713,13 +713,6 @@ if ( $gPostProcDakota ) {
 	my $DakotaOutput = "DakotaListingAll.txt";
 	my $gDakotaUtilityCmd = "dakota_restart_util to_tabular dakota.rst $DakotaGenerated";
 	my $linecnt = 0;
-	my $SimNum = 0;		# Same as eval_id from Dakota
-	my $MainIter = 0;
-	my $SubIter = 0;
-	my $StepNum = 0;
-	my $HeaderRow = "";
-	my $LineOut = "";
-	my @DataIn = ();
 	my $DataOut = "";
 
 	# Execute Dakota utility to generate complete set of output data (inputs + outputs)
@@ -732,22 +725,22 @@ if ( $gPostProcDakota ) {
 	stream_out("\n\nReading $DakotaGenerated and writing $DakotaOutput...\n");
 
 	# Write out top 20 blank lines
-	for ( my $i = 1; $i < 21; $i++ ) {
+	for ( my $i = 1; $i < 20; $i++ ) {
 		print WRITEOUT "Temporary header line #$i\n"
 	}
 
 	# Parse the Dakota output file to convert integers to attribute option strings and set 
 	# expected format. 
 	while ( my $line = <READIN_DAKOTA_RESULTS> ){
-		$linecnt++;
 		# Change spaces separating data to semicolons
 		$line =~ s/\s+/;/g;
 		# remove leading and trailing ;'s
 		$line =~ s/^;//g;
 		$line =~ s/;$//g;
 		# Split up line into array elements for processing
-		@DataIn = split /;/, $line; 
+		my @DataIn = split /;/, $line; 
 		
+		$linecnt++;
 		my $eleNum = 0;
 		my $IsEndOfLoop = 0;
 		
@@ -786,8 +779,8 @@ if ( $gPostProcDakota ) {
 				elsif ( $eleNum == 32 ) { $DataIn[$eleNum] = "GOtag:Opt-StandoffPV"; }
 				elsif ( $eleNum == 33 ) { $DataIn[$eleNum] = "GOtag:Opt-DWHRandSDHW"; }
 			}
-			elsif ( $eleNum == 1 )( {
-				$DataIn[$eleNum] = $linecnt;	# Main Iteration set to record number
+			elsif ( $eleNum == 1 ) {
+				$DataIn[$eleNum] = $linecnt-1;	# Main Iteration set to record number
 			}
 			elsif ( $eleNum > 1 && $eleNum < 34 && $TestValue =~ /\d{3,4}/ ){
 				# Get attribute name for data values that are Dakota aliases
