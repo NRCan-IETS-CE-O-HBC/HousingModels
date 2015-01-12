@@ -754,7 +754,7 @@ if ( $gPostProcDakota ) {
 		foreach my $TestValue (@DataIn){
 			if ( $linecnt == 1 ) {
 				# Ignore existing header row and write an alternate that uses the correct variable
-				# names that Tableau expects when using existing visualizations.
+				# names that Tableau expects when using existing visualizations (the "GOtag:..." names.)
 				if ( $eleNum == 0 ) { $DataIn[$eleNum] = "Simulation Number"; }
 				elsif ( $eleNum == 1 ) { $DataIn[$eleNum] = "Main Iteration"; }
 				elsif ( $eleNum == 2 ) { $DataIn[$eleNum] = "GOtag:CalcMode"; }
@@ -785,6 +785,9 @@ if ( $gPostProcDakota ) {
 				elsif ( $eleNum == 31 ) { $DataIn[$eleNum] = "GOtag:Opt-HRVduct"; }
 				elsif ( $eleNum == 32 ) { $DataIn[$eleNum] = "GOtag:Opt-StandoffPV"; }
 				elsif ( $eleNum == 33 ) { $DataIn[$eleNum] = "GOtag:Opt-DWHRandSDHW"; }
+			}
+			elsif ( $eleNum == 1 )( {
+				$DataIn[$eleNum] = $linecnt;	# Main Iteration set to record number
 			}
 			elsif ( $eleNum > 1 && $eleNum < 34 && $TestValue =~ /\d{3,4}/ ){
 				# Get attribute name for data values that are Dakota aliases
