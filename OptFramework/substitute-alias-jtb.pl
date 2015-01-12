@@ -740,50 +740,82 @@ if ( $gPostProcDakota ) {
 	# expected format. 
 	while ( my $line = <READIN_DAKOTA_RESULTS> ){
 		$linecnt++;
-		if ( $linecnt == 1 ) {
-			$line =~ s/\s+/ /g;		# Remove multiple spaces
-			print WRITEOUT "$line\n";	# Write the header row
-		} else {
-			# Change spaces separating data to semicolons
-			$line =~ s/\s+/;/g;
-			# remove leading and trailing ;'s
-			$line =~ s/^;//g;
-			$line =~ s/;$//g;
-
-			@DataIn = split /;/, $line; 
-			my $elementNum = 0;
-			my $IsEndOfLoop = 0;
-			foreach my $TestValue (@DataIn){
+		# Change spaces separating data to semicolons
+		$line =~ s/\s+/;/g;
+		# remove leading and trailing ;'s
+		$line =~ s/^;//g;
+		$line =~ s/;$//g;
+		# Split up line into array elements for processing
+		@DataIn = split /;/, $line; 
+		
+		my $eleNum = 0;
+		my $IsEndOfLoop = 0;
+		
+		foreach my $TestValue (@DataIn){
+			if ( $linecnt == 1 ) {
+				# Ignore existing header row and write an alternate that uses the correct variable
+				# names that Tableau expects when using existing visualizations.
+				if ( $eleNum == 0 ) { $DataIn[$eleNum] = "Simulation Number"; }
+				elsif ( $eleNum == 1 ) { $DataIn[$eleNum] = "Main Iteration"; }
+				elsif ( $eleNum == 2 ) { $DataIn[$eleNum] = "GOtag:CalcMode"; }
+				elsif ( $eleNum == 3 ) { $DataIn[$eleNum] = "GOtag:DBFiles"; }
+				elsif ( $eleNum == 4 ) { $DataIn[$eleNum] = "GOtag:Opt-Location"; }
+				elsif ( $eleNum == 5 ) { $DataIn[$eleNum] = "GOtag:GOconfig_rotate"; }
+				elsif ( $eleNum == 8 ) { $DataIn[$eleNum] = "GOtag:HRVcontrol"; }
+				elsif ( $eleNum == 9 ) { $DataIn[$eleNum] = "GOtag:Opt-geometry"; }
+				elsif ( $eleNum == 10 ) { $DataIn[$eleNum] = "GOtag:Opt-Attachment"; }
+				elsif ( $eleNum == 12 ) { $DataIn[$eleNum] = "GOtag:RoofPitch"; }
+				elsif ( $eleNum == 13 ) { $DataIn[$eleNum] = "GOtag:Opt-OverhangWidth"; }
+				elsif ( $eleNum == 15 ) { $DataIn[$eleNum] = "GOtag:DHWLoadScale"; }
+				elsif ( $eleNum == 16 ) { $DataIn[$eleNum] = "GOtag:ElecLoadScale"; }
+				elsif ( $eleNum == 17 ) { $DataIn[$eleNum] = "GOtag:Opt-AirTightness"; }
+				elsif ( $eleNum == 18 ) { $DataIn[$eleNum] = "GOtag:Opt-ACH"; }
+				elsif ( $eleNum == 19 ) { $DataIn[$eleNum] = "GOtag:Opt-CasementWindows"; }
+				elsif ( $eleNum == 20 ) { $DataIn[$eleNum] = "GOtag:Opt-Ceilings"; }
+				elsif ( $eleNum == 21 ) { $DataIn[$eleNum] = "GOtag:Opt-MainWall"; }
+				elsif ( $eleNum == 22 ) { $DataIn[$eleNum] = "GOtag:Opt-ExposedFloor"; }
+				elsif ( $eleNum == 23 ) { $DataIn[$eleNum] = "GOtag:Opt-BasementWallInsulation"; }
+				elsif ( $eleNum == 24 ) { $DataIn[$eleNum] = "GOtag:Opt-BasementSlabInsulation"; }
+				elsif ( $eleNum == 25 ) { $DataIn[$eleNum] = "GOtag:Ext-DryWall"; }
+				elsif ( $eleNum == 26 ) { $DataIn[$eleNum] = "GOtag:Opt-FloorSurface"; }
+				elsif ( $eleNum == 27 ) { $DataIn[$eleNum] = "GOtag:Opt-DHWSystem"; }
+				elsif ( $eleNum == 28 ) { $DataIn[$eleNum] = "GOtag:Opt-HVACSystem"; }
+				elsif ( $eleNum == 29 ) { $DataIn[$eleNum] = "GOtag:Opt-Cooling-Spec"; }
+				elsif ( $eleNum == 30 ) { $DataIn[$eleNum] = "GOtag:Opt-HRVSpec"; }
+				elsif ( $eleNum == 31 ) { $DataIn[$eleNum] = "GOtag:Opt-HRVduct"; }
+				elsif ( $eleNum == 32 ) { $DataIn[$eleNum] = "GOtag:Opt-StandoffPV"; }
+				elsif ( $eleNum == 33 ) { $DataIn[$eleNum] = "GOtag:Opt-DWHRandSDHW"; }
+			}
+			elsif ( $eleNum > 1 && $eleNum < 34 && $TestValue =~ /\d{3,4}/ ){
 				# Get attribute name for data values that are Dakota aliases
-				if ( $elementNum > 1 && $elementNum < 34 && $TestValue =~ /\d{3,4}/ ){
-					while ( my ( $attribute, $dummy) = each %gChoices ){
-						my $OptHash = $gOptions{$attribute}{"options"}; 
-						for my $optionIndex ( keys (%$OptHash) ){
-							my $Test = $gOptions{$attribute}{"options"}{$optionIndex}{"alias"};
-							if ( $Test && $Test =~ /^$TestValue$/ ) {
-								$TestValue = $optionIndex;	# Modify array element with option name
-								$IsEndOfLoop = 1;
-								last;	# found alias so exit this for loop (alias is unique!)
-							}
-						}
-						if ( $IsEndOfLoop ) {
-							$IsEndOfLoop = 0;
-							keys( %gChoices );	# This resets the %gChoices hash!
-							last;				# End inner while loop
+				while ( my ( $attribute, $dummy) = each %gChoices ){
+					my $OptHash = $gOptions{$attribute}{"options"}; 
+					for my $optionIndex ( keys (%$OptHash) ){
+						my $Test = $gOptions{$attribute}{"options"}{$optionIndex}{"alias"};
+						if ( $Test && $Test =~ /^$TestValue$/ ) {
+							$TestValue = $optionIndex;	# Modify array element with option name
+							$IsEndOfLoop = 1;
+							last;	# found alias so exit this for loop (alias is unique!)
 						}
 					}
+					if ( $IsEndOfLoop ) {
+						$IsEndOfLoop = 0;
+						keys( %gChoices );	# This resets the %gChoices hash!
+						last;				# End inner while loop
+					}
 				}
-				# DataIn array now updated with attribute option names
-				# Write out the data if at end of current input line
-				$DataOut .= "$DataIn[$elementNum] ";
-				if ( $elementNum == scalar(@DataIn)-1 ) {
-					$DataOut .= "\n";
-					print WRITEOUT $DataOut;	# Write out one line at a time so $DataOut doesn't get huge!!
-					$DataOut = "";				# Clear $DataOut
-					$elementNum = 0;
-				} else {
-					$elementNum++;
-				}
+			}
+			
+			# DataIn array now updated with attribute option names (or correct header names)
+			# Write out the data if at end of current input line
+			$DataOut .= "$DataIn[$eleNum] ";
+			if ( $eleNum == scalar(@DataIn)-1 ) {
+				$DataOut .= "\n";
+				print WRITEOUT $DataOut;	# Write out one line at a time so $DataOut doesn't get huge!!
+				$DataOut = "";				# Clear $DataOut
+				$eleNum = 0;
+			} else {
+				$eleNum++;
 			}
 		}
 	}
@@ -1400,8 +1432,8 @@ if ( $gDakota ) {
     print SUMMARY "$gAvgCost_NatGas  \n";
     print SUMMARY "$gAvgCost_Propane \n";
     print SUMMARY "$gAvgCost_Oil \n";
-	print SUMMARY "Util-Bill-Wood    =  $gAvgCost_Wood \n";
-	print SUMMARY "Util-Bill-Pellet  =  $gAvgCost_Pellet \n";
+	print SUMMARY "$gAvgCost_Wood \n";
+	print SUMMARY "$gAvgCost_Pellet \n";
 
     print SUMMARY "$gAvgPVOutput_kWh \n";
     #print SUMMARY "$gEnergySDHW \n";
@@ -1413,7 +1445,7 @@ if ( $gDakota ) {
     print SUMMARY "$gAvgElecCons_KWh \n";
     print SUMMARY "$gAvgNGasCons_m3  \n";
     print SUMMARY "$gAvgOilCons_l    \n";
-  	print SUMMARY "EnergyPellet_t    =  $gAvgPelletCons_tonne   \n";
+  	print SUMMARY "$gAvgPelletCons_tonne   \n";
 	
 	print SUMMARY "".eval($gTotalCost-$gIncBaseCosts)."\n"; 
     print SUMMARY "". $payback ."\n"; 
