@@ -710,7 +710,7 @@ stream_out ("...done.\n") ;
 if ( $gPostProcDakota ) {
    
 	my $DakotaGenerated = "all_responses.txt";
-	my $DakotaOutput = "DakotaListingAll.txt";
+	my $DakotaOutput = "OutputListingAll.txt";
 	my $gDakotaUtilityCmd = "dakota_restart_util to_tabular dakota.rst $DakotaGenerated";
 	my $linecnt = 0;
 	my $DataOut = "";
@@ -804,7 +804,7 @@ if ( $gPostProcDakota ) {
 			
 			# DataIn array now updated with attribute option names (or correct header names)
 			# Write out the data if at end of current input line
-			$DataOut .= "$DataIn[$eleNum] ";
+			$DataOut .= "$DataIn[$eleNum]\t";	# Tab Separate vars (expected by recover_results.pl)
 			if ( $eleNum == scalar(@DataIn)-1 ) {
 				$DataOut .= "\n";
 				print WRITEOUT $DataOut;	# Write out one line at a time so $DataOut doesn't get huge!!
