@@ -21,8 +21,8 @@ method,
     mutation_rate  0.8    
     output debug
     show_misc_options 
-    max_function_evaluations 50000
-    max_iterations 100
+    max_function_evaluations 500000
+    max_iterations 500
 
 method     
     id_method = "random"
@@ -111,7 +111,7 @@ variables,
     #------------------------------------------------------
     1 # 'OPT-OPR-SCHED'
     1 # 'OPT-Furnace-Fan-Ctl'
-    3 # 'OPT-HRV_ctl'
+    1 # 'OPT-HRV_ctl'
     
     # ARCHETYPE & GEOMETRY  (6)
     #------------------------------------------------------                
@@ -119,31 +119,31 @@ variables,
     1 # 'Opt-Attachment'
     1 # 'Opt-BaseWindows'
     1 # 'Opt-RoofPitch'
-    3 # 'Opt-OverhangWidth'
+    1 # 'Opt-OverhangWidth'
 	1 # 'Opt-WindowOrientation'
       
     # OPERATING CONDITIONS and LOAD CONSERVATION (2)
     #------------------------------------------------------     
-    3 # 'Opt-DHWLoadScale' 
-    5 # 'Opt-ElecLoadScale'
+    1 # 'Opt-DHWLoadScale' 
+    3 # 'Opt-ElecLoadScale'
 
     # Envelope Specifications  (10)
     #------------------------------------------------------              
-    4 #'Opt-AirTightness'    
+    2 #'Opt-AirTightness'    
     1 #'Opt-ACH'
-    5 #'Opt-CasementWindows'
-    6 #'Opt-Ceilings'
-    4 #'Opt-MainWall'
+    3 #'Opt-CasementWindows'
+    3 #'Opt-Ceilings'
+    3 #'Opt-MainWall'
     1 #'Opt-ExposedFloor'
     2 #'Opt-BasementWallInsulation' 
-    3 #'Opt-BasementSlabInsulation'
-    2 #'Opt-ExtraDrywall'
+    1 #'Opt-BasementSlabInsulation'
+    1 #'Opt-ExtraDrywall'
     1 #'Opt-FloorSurface'
     
     # HVAC  (6)
     #------------------------------------------------------             
     2 # 'Opt-DHWSystem'
-    5 # 'Opt-HVACSystem'
+    3 # 'Opt-HVACSystem'
 	1 # 'Opt-Cooling-Spec'
     1 # 'Opt-HRVspec'
 	1 # 'Opt-HRVduct'
@@ -190,8 +190,8 @@ variables,
         901	#'Auto'
 		
     # HRC control 'OPT-HRV_ctl'
-		800 # 'Continuous'
-		801 # 'ERSp3ACH'
+		#800 # 'Continuous'
+		#801 # 'ERSp3ACH'
         802	# 'EightHRpDay'  
 
     # ARCHETYPE & GEOMETRY (6)
@@ -213,8 +213,8 @@ variables,
 		
     # Overhang width 'Opt-OverhangWidth'
         1100	#'BaseOverhang'
-		1101	#'OnepFiveFootOverhang'
-		1102	#'TwoFootOverhang'
+		#1101	#'OnepFiveFootOverhang'
+		#1102	#'TwoFootOverhang'
    
     # Opt-WindowOrientation
          600	#all
@@ -223,8 +223,8 @@ variables,
     #------------------------------------------------------     
     # DHW Load scales 'Opt-DHWLoadScale' 
         #2803	#'OldERS' 		# 225 L/day
-        2805	#'EStar'
-		2806	#'Low-Flow'		# 141 L/day
+        #2805	#'EStar'
+		#2806	#'Low-Flow'		# 141 L/day
         2804	#'No-Reduction	# 190 L/day
 		
     # Electrical load scale  'Opt-ElecLoadScale'
@@ -237,8 +237,8 @@ variables,
 		2700
 		2701
 		2702
-		2703
-		2704
+		#2703
+		#2704
 		
     # Envelope Specifications (10)
     #------------------------------------------------------              
@@ -248,8 +248,8 @@ variables,
         #'r2000' 		1502
 		1501
 		1502
-		1503
-		1504
+		#1503
+		#1504
 		
     # Air-tightness Opt-ACH 
     # Must spec Opt-AirTightness=Generic or this has no effect 
@@ -261,8 +261,8 @@ variables,
 		#'DoubleLowEHardCoatArgFill' 		1401
         1401
 		#1402 Problems with this!
-		1403
-		1404
+		#1403
+		#1404
 		1405
 		1406
 		
@@ -272,9 +272,9 @@ variables,
         1600	#R50
 		1601	#R60
 		1602	#R70
-		1603
-		1604
-		1605
+		#1603
+		#1604
+		#1605
 		
     # Above-grade walls 'Opt-MainWall'
         #'BaseR20'		1700
@@ -283,7 +283,7 @@ variables,
 		1700
 		1701
 		1706
-		1707
+		#1707
 		
     # Exposed Floor 'Opt-ExposedFloor'
         #'BaseExpFloor-R31'	2000
@@ -299,14 +299,14 @@ variables,
     # Slab insulation 'Opt-BasementSlabInsulation'
         #'NoInsulation' 1900
 		1900
-		1901
-		1902
+		#1901
+		#1902
         
     # Extra dry wall for thermal mass 'Opt-ExtraDrywall'
         #'OneSheet'		2100
         #'TwoSheets'	2101
 		2100
-		2101
+		#2101
 		
     # floor surface for thermal mass 'Opt-FloorSurface'
         # 'wood'			2200
@@ -327,8 +327,8 @@ variables,
 		2300
 		2301
 		2302
-		2303
-		2304
+		#2303
+		#2304
 		
     # Cooling 'Opt-Cooling-Spec'
 	    2401	# '2TonStdCooling'
