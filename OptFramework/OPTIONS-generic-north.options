@@ -1865,6 +1865,14 @@ Reflects southern Ontario costs
 *option:wood_furnace:value:6 = shoulder-ideal.ctl 
 *option:wood_furnace:cost:total    = 0
 
+*option:upgrade_wood_furnace:value:1 = upgrade_wood-furnace.hvac
+*option:upgrade_wood_furnace:value:2 = #-no-GSHP-file
+*option:upgrade_wood_furnace:value:3 = #No-IMS: 
+*option:upgrade_wood_furnace:value:4 = #
+*option:upgrade_wood_furnace:value:5 = 
+*option:upgrade_wood_furnace:value:6 = shoulder-ideal.ctl 
+*option:upgrade_wood_furnace:cost:total    = 0
+
 *option:oil96:value:1 = oil95furnace.hvac
 *option:oil96:value:2 = #-no-GSHP-file
 *option:oil96:value:3 = #No-IMS: 
