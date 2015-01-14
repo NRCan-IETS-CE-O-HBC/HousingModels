@@ -2,7 +2,6 @@
 NRCan Residential optimization platform. For use on Cygwin/linux systems. 
 =========================================================================
 
-
 SET UP THE ENIVIRONMENT 
 -----------------------
 
@@ -60,28 +59,20 @@ RUN AN OPTIMIZATION USING GENOPT
    reflect windows or linux usage. Set the prefix parameter as follows:
    
    Windows (CYGWIN):
-   
           CallParameter {
-          
               // Windows only: 
               Prefix = "C:\\cygwin\\bin\\perl.exe ";
-
               Suffix = " -c GenOpt-picked-these-choices.GO-tmp -o OPTIONS-General.options "; 
-     
           }
      
     Linux :
-   
           CallParameter {
-          
               // Linux only: 
               Prefix = "";
-
               Suffix = " -c GenOpt-picked-these-choices.GO-tmp -o OPTIONS-General.options "; 
-     
           }  
 
-5. Invoke Genopt: 
+6. Invoke Genopt: 
    
         java -classpath genopt.jar genopt.GenOpt [Genopt-ini-file] 
         
@@ -91,3 +82,14 @@ RUN AN OPTIMIZATION USING GENOPT
 		
 		Alternate:
         rm nohup.out; nohup java -classpath genopt.jar genopt.GenOpt Genopt-OTT-MATTAMY-INI.GO-ini &
+		
+		/cygdrive/c/Users/jeffblake/Dropbox/NRCan-Optimization-Results/Mattamy
+
+		
+RUN AN OPTIMIZATION USING DAKOTA
+--------------------------------
+
+Jeff to write...
+
+
+
