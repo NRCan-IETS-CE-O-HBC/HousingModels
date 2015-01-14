@@ -32,6 +32,16 @@ SET UP THE ENIVIRONMENT
 	
 	  ./Install -d ~/ --xml --no_training --no_dbs --silent --force --extra-debug --noX -v bps ish prj
 	
+	Note: Cygwin needs these installation packages for successful compile/link and use:
+			libxslt
+			libxml2
+			libsqlite
+			subversion
+			fortran (gfortran just installs libs so don't get gfortran executable!)
+			g++ (needed for g++ executable)
+			Git
+
+		- I also added the "make" package but it may be that "fortran" or "g++" includes that.
       
 RUN A SIMULATION FOR A SINGLE DESIGN
 ------------------------------------      
