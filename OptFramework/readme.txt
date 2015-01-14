@@ -2,7 +2,6 @@
 NRCan Residential optimization platform. For use on Cygwin/linux systems. 
 =========================================================================
 
-
 SET UP THE ENIVIRONMENT 
 -----------------------
 
@@ -33,6 +32,16 @@ SET UP THE ENIVIRONMENT
 	
 	  ./Install -d ~/ --xml --no_training --no_dbs --silent --force --extra-debug --noX -v bps ish prj
 	
+	Note: Cygwin needs these installation packages for successful compile/link and use:
+			libxslt
+			libxml2
+			libsqlite
+			subversion
+			fortran (gfortran just installs libs so don't get gfortran executable!)
+			g++ (needed for g++ executable)
+			Git
+
+		- I also added the "make" package but it may be that "fortran" or "g++" includes that.
       
 RUN A SIMULATION FOR A SINGLE DESIGN
 ------------------------------------      
@@ -60,28 +69,20 @@ RUN AN OPTIMIZATION USING GENOPT
    reflect windows or linux usage. Set the prefix parameter as follows:
    
    Windows (CYGWIN):
-   
           CallParameter {
-          
               // Windows only: 
               Prefix = "C:\\cygwin\\bin\\perl.exe ";
-
               Suffix = " -c GenOpt-picked-these-choices.GO-tmp -o OPTIONS-General.options "; 
-     
           }
      
     Linux :
-   
           CallParameter {
-          
               // Linux only: 
               Prefix = "";
-
               Suffix = " -c GenOpt-picked-these-choices.GO-tmp -o OPTIONS-General.options "; 
-     
           }  
 
-5. Invoke Genopt: 
+6. Invoke Genopt: 
    
         java -classpath genopt.jar genopt.GenOpt [Genopt-ini-file] 
         
@@ -91,3 +92,14 @@ RUN AN OPTIMIZATION USING GENOPT
 		
 		Alternate:
         rm nohup.out; nohup java -classpath genopt.jar genopt.GenOpt Genopt-OTT-MATTAMY-INI.GO-ini &
+		
+		/cygdrive/c/Users/jeffblake/Dropbox/NRCan-Optimization-Results/Mattamy
+
+		
+RUN AN OPTIMIZATION USING DAKOTA
+--------------------------------
+
+Jeff to write...
+
+
+
