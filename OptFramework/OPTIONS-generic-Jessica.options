@@ -2048,21 +2048,21 @@ Reflects southern Ontario costs
 *attribute:tag:1   = <DUMMY-TAG-Not-USED>
 *attribute:default = No-Reduction
 
-!220 L/day 
-*option:NoReduction:value:1  = 4.0
-*option:NoReduction:cost:total     = 0
-*option:NoReduction:alias     = 2800
-
-!190 L/day
-*option:BasicReduction:value:1 = 3.0
-*option:BasicReduction:cost:total    = 0
-*option:BasicReduction:alias    = 2801
-
-!135 L/day
-*option:EfficientLiving:value:1 = 1.429
-*option:EfficientLiving:cost:total    = 0
-*option:EfficientLiving:alias    = 2802
-
+!!220 L/day 
+!*option:NoReduction:value:1  = 4.0
+!*option:NoReduction:cost:total     = 0
+!*option:NoReduction:alias     = 2800
+!
+!!190 L/day
+!*option:BasicReduction:value:1 = 3.0
+!*option:BasicReduction:cost:total    = 0
+!*option:BasicReduction:alias    = 2801
+!
+!!135 L/day
+!*option:EfficientLiving:value:1 = 1.429
+!*option:EfficientLiving:cost:total    = 0
+!*option:EfficientLiving:alias    = 2802
+!
 
 ! DHW load scale: new volume method.
 

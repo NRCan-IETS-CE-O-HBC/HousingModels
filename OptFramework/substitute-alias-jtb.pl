@@ -12,9 +12,6 @@ use Math::Trig;
 
 use File::Copy::Recursive qw(fcopy rcopy dircopy fmove rmove dirmove); 
 
-
-
-
 sub UpdateCon();
 sub runsims($);
 sub postprocess($);
@@ -26,6 +23,7 @@ sub round1d($);
 sub min($$);
 sub stream_out($);
 sub stream_out($);
+sub postprocessDakota();
 
 
 my $gDebug = 1; 
@@ -73,6 +71,7 @@ my $gEnergyWaterHeating;
 my $gEnergyEquipment; 
 
 my $gDakota = 0; 
+my $gPostProcDakota = 0;
 
 my $gRegionalCostAdj;   
 
@@ -82,6 +81,9 @@ my $gSkipPRJ = 0;
 my $gEnergyElec = 0;
 my $gEnergyGas = 0;
 my $gEnergyOil = 0; 
+my $gEnergyWood = 0; 
+my $gEnergyPellet = 0; 
+
 
 my $gTotalBaseCost = 0;
 my $gUtilityBaseCost = 0; 
@@ -103,7 +105,8 @@ my %RegionalCostFactors  = (  "Halifax"      =>  0.95 ,
                               "Winnipeg"     =>  1.08 ,
                               "Fredricton"   =>  1.00 ,  # Same as Quebec?
                               "Whitehorse"   =>  1.00 ,
-                              "Yellowknife"  =>  1.38    ); 
+                              "Yellowknife"  =>  1.38 ,
+							  "Inuvik"       =>  1.38   ); 
 
 
 my @gChoiceOrder;
@@ -148,7 +151,7 @@ my $Help_msg = "
                       --choices choices.options  \
                       --base_folder BaseFolderName
                       
- use for optimization work:
+ example use for optimization work:
  
   ./substitute.pl -c optimization-choices.opt \
                   -o optimization-options.opt \
@@ -156,9 +159,11 @@ my $Help_msg = "
                   -v(v) ;
                   
  other options: 
- 
-    -d : use dakota format 
-				  
+    -d : use Dakota format for input (and processing)
+	-z : run this script as Dakota post-processor (implies -d)
+	     Note: Need options (-o) and choice (-c) files but
+		       don't need -b option
+	
 ";
 
 # dump help text, if no argument given
@@ -181,7 +186,7 @@ $cmd_arguements =~ s/\s+/;/g;
 
 # Translate shorthand arguments into longhand
 $cmd_arguements =~ s/-h;/--help;/g;
-$cmd_arguements =~ s/-p;/--path;/g;
+$cmd_arguements =~ s/-p;/--path;/g;			# Not used!
 $cmd_arguements =~ s/-c;/--choices;/g;
 $cmd_arguements =~ s/-o;/--options;/g;
 $cmd_arguements =~ s/-v;/--verbose;/g;
@@ -190,6 +195,7 @@ $cmd_arguements =~ s/-vvv;/--very_very_verbose;/g;
 $cmd_arguements =~ s/-b;/--base_folder;/g;
 $cmd_arguements =~ s/-svp;/--save-vp-output;/g;
 $cmd_arguements =~ s/-d;/--dakota;/g; 
+$cmd_arguements =~ s/-z;/--postprocdakota;/g; 
 
 # Collate options expecting arguments
 $cmd_arguements =~ s/--options;/--options:/g;
@@ -209,7 +215,6 @@ $cmd_arguements =~ s/;$//g;
 @processed_args = split /;/, $cmd_arguements;
 
 print @processed_args; 
-
 
 
 # Interpret arguments
@@ -243,7 +248,6 @@ foreach $arg (@processed_args){
       last SWITCH;
     }    
     
-    
     if ( $arg =~ /^--rotate:/ ){
       # stream out progress messages
       $gRotate = $arg;
@@ -272,15 +276,19 @@ foreach $arg (@processed_args){
        $gDakota = 1; 
        last SWITCH; 
     }   
-    
-    
+
+    if ( $arg =~ /^--postprocdakota/ ) { 
+       # post process Dakota output (and also set Dakota fag)
+       $gDakota = 1;
+	   $gPostProcDakota = 1;
+       last SWITCH; 
+    }   
     
     if ( $arg =~ /^--verbose/ ){
       # stream out progress messages
       $gTest_params{"verbosity"} = "verbose";
       last SWITCH;
     }
-
     
     if ( $arg =~ /^--very_verbose/ ){
       # steam out all messages
@@ -288,7 +296,6 @@ foreach $arg (@processed_args){
 
       last SWITCH;
     }
-
     
     if ( $arg =~ /^--very_very_verbose/ ){
       # steam out all messages
@@ -298,41 +305,29 @@ foreach $arg (@processed_args){
     }    
     
     if ( $arg =~ /^--save-vp-output/ ){ 
-    
         $SaveVPOutput = 1; 
         last SWITCH; 
-    
     }
-    
     
     if ( $arg =~ /^--base_folder/ ){
-      # Base folder name overrides initialized value (at top)
-      $gBaseModelFolder = $arg;
-      $gBaseModelFolder =~ s/--base_folder://g;
-      $gBaseModelFolder =~ s/^.*\///g; 
-      $gBaseModelFolder =~ s/^.*\\//g; 
-      $gModelCfgFile = "$gBaseModelFolder.cfg"; 
-      
+		# Base folder name overrides initialized value (at top)
+		$gBaseModelFolder = $arg;
+		$gBaseModelFolder =~ s/--base_folder://g;
+		$gBaseModelFolder =~ s/^.*\///g; 
+		$gBaseModelFolder =~ s/^.*\\//g; 
+		$gModelCfgFile = "$gBaseModelFolder.cfg"; 
 
-      if ( ! $gBaseModelFolder ){
-        fatalerror("Base folder name missing after --base_folder (or -b) option!");
-      }
-      if (! -d "$gBaseModelFolder" && ! -d "../$gBaseModelFolder" ){ 
-		fatalerror("Base folder does not exist - create and populate folder first!");
-	  }
+		if ( ! $gBaseModelFolder ){
+			fatalerror("Base folder name missing after --base_folder (or -b) option!");
+		}
+		if (! -d "$gBaseModelFolder" && ! -d "../$gBaseModelFolder" ){ 
+			fatalerror("Base folder does not exist - create and populate folder first!");
+		}
 
-	  last SWITCH;
+		last SWITCH;
     }
     
-    
-    
-    
-    
     fatalerror("Arguement \"$arg\" is not understood\n");
-    
-    
- 
-    
     
   }
 }
@@ -347,7 +342,7 @@ my $gBPScmd             = "$gBPSpath -h3k -file $gModelCfgFile -mode text -p ful
    
    
 # Create base folder for working model
-if (! -d "$gBaseModelFolder" && -d "../$gBaseModelFolder" ){ 
+if (!$gPostProcDakota && ! -d "$gBaseModelFolder" && -d "../$gBaseModelFolder" ){ 
   execute ("cp -fr ../$gBaseModelFolder ./");
 }
 
@@ -362,7 +357,6 @@ stream_out (" > substitute.pl path: $master_path \n");
 stream_out (" >               ChoiceFile: $gChoiceFile \n");
 stream_out (" >               OptionFile: $gOptionFile \n");
 stream_out (" >               base model: $gBaseModelFolder \n"); 
-
 
 
 
@@ -381,262 +375,235 @@ my %gParameters;
 
 # Parse the option file. 
 while ( my $line = <OPTIONS> ){
-  
-  $line =~ s/\!.*$//g; 
-  $line =~ s/\s*//g;
-  $linecount++;
 
-    
+	$line =~ s/\!.*$//g; 
+	$line =~ s/\s*//g;
+	$linecount++;
   
-  #debug_out ("  Line: $linecount >$line<");
+	#debug_out ("  Line: $linecount >$line<");
   
-  if ( $line !~ /^\s*$/ ) {
-    #debug_out (" processing...\n");
-    my ( $token, $value ) = split /=/, $line ;
+	if ( $line !~ /^\s*$/ ) {
+		#debug_out (" processing...\n");
+		my ( $token, $value ) = split /=/, $line ;
 
-    # Allow value to contain spaces: if 
-    if ($value) { $value =~ s/~/ /g; }
-
+		# Allow value to contain spaces: if 
+		if ($value) { $value =~ s/~/ /g; }
 	
-	# The file contains 'attributes that are either internal (evaluated by ESP-r
-	# or external (computed elsewhere and post-processed). 
+		# The file contains 'attributes that are either internal (evaluated by ESP-r
+		# or external (computed elsewhere and post-processed). 
 	
-    # Open up a new attribute    
-    if ( $token =~ /^\*attribute:start/ ){
-    
-      $AttributeOpen = 1; 
-    
-    }
-
-    # Open up a new external attribute    
-    if ( $token =~ /^\*ext-attribute:start/ ){
-    
-      $ExternalAttributeOpen = 1; 
-    
-    }
-
-    # Open up parameter block
-    if ( $token =~ /^\*ext-parameters:start/ ){
-    
-        $ParametersOpen = 1; 
-    
-    }
-    
-    # Parse parameters. 
-    if ( $ParametersOpen ) {
-    
-        # Read parameters. Format: 
-        #  *param:NAME = VALUE 
-        if ( $token =~ /^\*param/ ){
-           $token =~ s/\*param://g; 
-           #stream_out (">>>> TEST: $token => $value \n") ;
-           $gParameters{"$token"} = $value; 
-        } 
-    }
-    
-    
-    # Parse attribute contents Name/Tag/Option(s)
-    if ( $AttributeOpen || $ExternalAttributeOpen ) {
-    
-      # Read name
-      if ( $token =~ /^\*attribute:name/ ){
-    
-        $currentAttributeName = $value ;
-		if ( $ExternalAttributeOpen) { 
-			$gOptions{$currentAttributeName}{"type"} = "external"; 
-		}else{
-			$gOptions{$currentAttributeName}{"type"} = "internal"; 
+		# Open up a new attribute    
+		if ( $token =~ /^\*attribute:start/ ){
+			$AttributeOpen = 1; 
 		}
+
+		# Open up a new external attribute    
+		if ( $token =~ /^\*ext-attribute:start/ ){
+			$ExternalAttributeOpen = 1; 
+		}
+
+		# Open up parameter block
+		if ( $token =~ /^\*ext-parameters:start/ ){
+			$ParametersOpen = 1; 
+		}
+    
+		# Parse parameters. 
+		if ( $ParametersOpen ) {
+			
+			# Read parameters. Format: 
+			#  *param:NAME = VALUE 
+			if ( $token =~ /^\*param/ ){
+				$token =~ s/\*param://g; 
+				#stream_out (">>>> TEST: $token => $value \n") ;
+				$gParameters{"$token"} = $value; 
+			} 
+		}
+    
+		# Parse attribute contents Name/Tag/Option(s)
+		if ( $AttributeOpen || $ExternalAttributeOpen ) {
+    
+			# Read name
+			if ( $token =~ /^\*attribute:name/ ){
+    
+				$currentAttributeName = $value ;
+				if ( $ExternalAttributeOpen) { 
+					$gOptions{$currentAttributeName}{"type"} = "external"; 
+				} else {
+					$gOptions{$currentAttributeName}{"type"} = "internal"; 
+				}
         
-        $gOptions{$currentAttributeName}{"default"}{"defined"} = 0 ;
+				$gOptions{$currentAttributeName}{"default"}{"defined"} = 0 ;
         
-        #debug_out ("    ---> $currentAttributeName \n"); 
-      }
-      
-      
-      # For options that need to be replaced in the 
-      # external file. Note: External Attribubes do not have tags...
-      if ( $token =~ /^\*attribute:tag/ ){
-    
-        my($rubbish,$junk,$TagIndex) = split /:/, $token;
-        
-        #$currentTags{$TagIndex} = $value;
-        $gOptions{$currentAttributeName}{"tags"}{$TagIndex} = $value ; 
-      }
-      
-	  # Standard form (no conditions) --- option:Name:MetaInfo:Index
-	  
-      # Possibly define default value. 
-      if ( $token =~ /^\*attribute:default/ ) {
-	  
-	    $gOptions{$currentAttributeName}{"default"}{"defined"} = 1 ;
-        $gOptions{$currentAttributeName}{"default"}{"value"} = $value ;
-      }
-
-    if ( $token =~ /^\*option/ ){
-	    # Format: 
-		
-		#  *Option:NAME:MetaType:Index or 
-		#  *Option[CONDITIONS]:NAME:MetaType:Index or 	
-		# MetaType is:
-		#  - cost
-		#  - value 
-		#  - production-elec
-		#  - production-sh
-		#  - production-dhw
-		
-		my @breakToken = split /:/, $token; 
-		my @OptionConditions = (); 
-		my $condition_string = ""; 
-		#if ($breakToken[0]){debug_out (" + bt0: ". $breakToken[0] ."\n"); }
-		#if ($breakToken[1]){debug_out (" + bt1: ". $breakToken[1] ."\n"); }
-		#if ($breakToken[2]){debug_out (" + bt2: ". $breakToken[2] ."\n"); }
-		#if ($breakToken[3]){debug_out (" + bt3: ". $breakToken[3] ."\n"); }
-		#if ($breakToken[4]){die (" + bt4: ". $breakToken[4] ."\n"); }
-		#if ($breakToken[5]){debug_out (" + bt5: ". $breakToken[5] ."\n"); }
-		
-		# Check option keyword to see if it has specific conditions
-		# format is *option[condition1>value1;condition2>value2 ...] 
-		
-		if ($breakToken[0]=~/\[.+\]/ ) {
-			
-			$condition_string = $breakToken[0]; 
-			$condition_string =~ s/\*option\[//g; 
-			$condition_string =~ s/\]//g; 
-			$condition_string =~ s/>/=/g; 
-			#debug_out ("  + Reading conditions >$condition_string<!!!\n");
-			
-		}else{
-			$condition_string = "all"; 
-		}
-
-		#debug_out ("  + Reading conditions >$condition_string<!!!\n");
-		
-		my $OptionName = $breakToken[1];
-		my $DataType   = $breakToken[2];
-		
-		my $ValueIndex = ""; 
-		my $CostType   = "";
-		
-		# Assign values 
-
-		if ( $DataType =~ /value/ ){
-			$ValueIndex = $breakToken[3]; 
-			$gOptions{$currentAttributeName}{"options"}{$OptionName}{"values"}{$ValueIndex}{"conditions"}{$condition_string} = $value; 
-		
-			#debug_out ( "++++++  \$gOptions{$currentAttributeName}{options}{ $OptionName }{values}{ $ValueIndex }{\"conditions\"}{$condition_string} = $value \n" );  
-			
-	    }
-		
-		if ( $DataType =~ /cost/ ){
-			$CostType = $breakToken[3];
-			$gOptions{$currentAttributeName}{"options"}{$OptionName}{"cost-type"} = $CostType;
-			$gOptions{$currentAttributeName}{"options"}{$OptionName}{"cost"} = $value;
-			
-			#debug_out ( "++++++ \$gOptions{$currentAttributeName}{options}{ $OptionName }{cost-type} = $CostType \n"); 
-			#debug_out ( "++++++ \$gOptions{$currentAttributeName}{options}{ $OptionName }{cost} = $value  \n"); 
-		}
-
-		if ( $DataType =~ /alias/ ){
-			$gOptions{$currentAttributeName}{"options"}{$OptionName}{"alias"} = $value;
-		}
-
-		# External entities...
-		if ( $DataType =~ /production/ ){
-			if ( $DataType =~ /cost/ ){$CostType = $breakToken[3]; }
-			$gOptions{$currentAttributeName}{"options"}{$OptionName}{$DataType}{"conditions"}{$condition_string} = $value; 
-			
-			#debug_out ( "++++++  \$gOptions{$currentAttributeName}{options}{ $OptionName }{ $DataType }{conditions}{ $condition_string } = $value \n" );  
-		}
-	  
-	  }
-    
-    }
-    
-    
-    
-    # Close attribute and append contents to global options array
-    if ( $token =~ /^\*attribute:end/ || $token =~ /^\*ext-attribute:end/){
-    
-       $AttributeOpen = 0; 
-    
-      # Store tags (what's a tag?)
-      #for my $TagIndex (keys (%currentTags ) ){
-      #  debug_out ("$currentAttributeName TAG -> $TagIndex ...\n"); 
-      #  $gOptions{$currentAttributeName}{"tags"}{$TagIndex} = $currentTags{$TagIndex}; 
-      #
-      #}
-
-      # Store options 
-	  debug_out ( "========== $currentAttributeName ===========\n");
-	  debug_out ( "Storing data for $currentAttributeName: \n" );
-	  
-	  my $OptHash = $gOptions{$currentAttributeName}{"options"}; 
-	  
-      for my $optionIndex ( keys (%$OptHash ) ){
-		debug_out( "    -> $optionIndex \n"); 
-		my $cost_type    = $gOptions{$currentAttributeName}{"options"}{$optionIndex}{"cost-type"}; 	
-		my $cost         = $gOptions{$currentAttributeName}{"options"}{$optionIndex}{"cost"}; 	
-		my $ValHash = $gOptions{$currentAttributeName}{"options"}{$optionIndex}{"values"};
-		
-		for my $valueIndex ( keys (%$ValHash) ) {
-
-		    my $CondHash = $gOptions{$currentAttributeName}{"options"}{$optionIndex}{"values"}{$valueIndex}{"conditions"}; 
-			
-			
-			
-			
-			
-			for my $conditions( keys (%$CondHash) ) {
-				my $tag   = $gOptions{$currentAttributeName}{"tags"}{$valueIndex};
-				my $value = $gOptions{$currentAttributeName}{"options"}{$optionIndex}{"values"}{$valueIndex}{"conditions"}{$conditions};
-				
-				debug_out( "           - $tag -> $value [valid: $conditions ]   \n");		
+				#debug_out ("    ---> $currentAttributeName \n"); 
 			}
-			 
-				
-			#Energy credits not modelled in ESP-r 
-			
+      
+      
+			# For options that need to be replaced in the 
+			# external file. Note: External Attribubes do not have tags...
+			if ( $token =~ /^\*attribute:tag/ ){
+    
+				my($rubbish,$junk,$TagIndex) = split /:/, $token;
+        
+				#$currentTags{$TagIndex} = $value;
+				$gOptions{$currentAttributeName}{"tags"}{$TagIndex} = $value ; 
+			}
+      
+			# Standard form (no conditions) --- option:Name:MetaInfo:Index
+	  
+			# Possibly define default value. 
+			if ( $token =~ /^\*attribute:default/ ) {
+	  
+				$gOptions{$currentAttributeName}{"default"}{"defined"} = 1 ;
+				$gOptions{$currentAttributeName}{"default"}{"value"} = $value ;
+			}
 
-
-		}
-#		debug_out( "           - cost = \$$cost ($cost_type) \n");
+			if ( $token =~ /^\*option/ ){
+				# Format: 
 		
-		my $ExtEnergyHash = $gOptions{$currentAttributeName}{"options"}{$optionIndex}; 
-		for my $ExtEnergyType ( keys (%$ExtEnergyHash ) ){
-			if ( $ExtEnergyType =~ /production/ ) {
-                my $CondHash = $gOptions{$currentAttributeName}{"options"}{$optionIndex}{$ExtEnergyType}{"conditions"}; 
-                for my $conditions( keys (%$CondHash) ) {
-                    my $ExtEnergyCredit = $gOptions{$currentAttributeName}{"options"}{$optionIndex}{$ExtEnergyType}{"conditions"}{$conditions}; 
-                    debug_out ("              - credit:($ExtEnergyType) $ExtEnergyCredit [valid: $conditions ] \n");	
+				#  *Option:NAME:MetaType:Index or 
+				#  *Option[CONDITIONS]:NAME:MetaType:Index or 	
+				# MetaType is:
+				#  - cost
+				#  - value 
+				#  - alias (for Dakota)
+				#  - production-elec
+				#  - production-sh
+				#  - production-dhw
+				
+				my @breakToken = split /:/, $token; 
+				my @OptionConditions = (); 
+				my $condition_string = ""; 
+				#if ($breakToken[0]){debug_out (" + bt0: ". $breakToken[0] ."\n"); }
+				#if ($breakToken[1]){debug_out (" + bt1: ". $breakToken[1] ."\n"); }
+				#if ($breakToken[2]){debug_out (" + bt2: ". $breakToken[2] ."\n"); }
+				#if ($breakToken[3]){debug_out (" + bt3: ". $breakToken[3] ."\n"); }
+				#if ($breakToken[4]){die (" + bt4: ". $breakToken[4] ."\n"); }
+				#if ($breakToken[5]){debug_out (" + bt5: ". $breakToken[5] ."\n"); }
+				
+				# Check option keyword to see if it has specific conditions
+				# format is *option[condition1>value1;condition2>value2 ...] 
+				
+				if ($breakToken[0]=~/\[.+\]/ ) {
+					
+					$condition_string = $breakToken[0]; 
+					$condition_string =~ s/\*option\[//g; 
+					$condition_string =~ s/\]//g; 
+					$condition_string =~ s/>/=/g; 
+					#debug_out ("  + Reading conditions >$condition_string<!!!\n");
+					
+				} else {
+					$condition_string = "all"; 
+				}
+
+				#debug_out ("  + Reading conditions >$condition_string<!!!\n");
+				
+				my $OptionName = $breakToken[1];
+				my $DataType   = $breakToken[2];
+				
+				my $ValueIndex = ""; 
+				my $CostType   = "";
+				
+				# Assign values 
+
+				if ( $DataType =~ /value/ ){
+					$ValueIndex = $breakToken[3]; 
+					$gOptions{$currentAttributeName}{"options"}{$OptionName}{"values"}{$ValueIndex}{"conditions"}{$condition_string} = $value; 
+				
+					#debug_out ( "++++++  \$gOptions{$currentAttributeName}{options}{ $OptionName }{values}{ $ValueIndex }{\"conditions\"}{$condition_string} = $value \n" );  
+				}
+				
+				if ( $DataType =~ /cost/ ){
+					$CostType = $breakToken[3];
+					$gOptions{$currentAttributeName}{"options"}{$OptionName}{"cost-type"} = $CostType;
+					$gOptions{$currentAttributeName}{"options"}{$OptionName}{"cost"} = $value;
+					
+					#debug_out ( "++++++ \$gOptions{$currentAttributeName}{options}{ $OptionName }{cost-type} = $CostType \n"); 
+					#debug_out ( "++++++ \$gOptions{$currentAttributeName}{options}{ $OptionName }{cost} = $value  \n"); 
+				}
+				
+				# Added for Dakota
+				if ( $DataType =~ /alias/ ){
+					$gOptions{$currentAttributeName}{"options"}{$OptionName}{"alias"} = $value;
+				}
+
+				# External entities...
+				if ( $DataType =~ /production/ ){
+					if ( $DataType =~ /cost/ ){$CostType = $breakToken[3]; }
+					$gOptions{$currentAttributeName}{"options"}{$OptionName}{$DataType}{"conditions"}{$condition_string} = $value; 
+					
+					#debug_out ( "++++++  \$gOptions{$currentAttributeName}{options}{ $OptionName }{ $DataType }{conditions}{ $condition_string } = $value \n" );  
+				}
+	  
+			}
+    
+		}
+    
+    
+		# Close attribute and append contents to global options array
+		if ( $token =~ /^\*attribute:end/ || $token =~ /^\*ext-attribute:end/){
+		
+			$AttributeOpen = 0; 
+		
+			# Store tags (what's a tag?)
+			#for my $TagIndex (keys (%currentTags ) ){
+			#  debug_out ("$currentAttributeName TAG -> $TagIndex ...\n"); 
+			#  $gOptions{$currentAttributeName}{"tags"}{$TagIndex} = $currentTags{$TagIndex}; 
+			#
+			#}
+
+			# Store options 
+			debug_out ( "========== $currentAttributeName ===========\n");
+			debug_out ( "Storing data for $currentAttributeName: \n" );
+		  
+			my $OptHash = $gOptions{$currentAttributeName}{"options"}; 
+		  
+			for my $optionIndex ( keys (%$OptHash ) ){
+				debug_out( "    -> $optionIndex \n"); 
+				my $cost_type    = $gOptions{$currentAttributeName}{"options"}{$optionIndex}{"cost-type"}; 	
+				my $cost         = $gOptions{$currentAttributeName}{"options"}{$optionIndex}{"cost"}; 	
+				my $ValHash = $gOptions{$currentAttributeName}{"options"}{$optionIndex}{"values"};
 			
-                }
+				for my $valueIndex ( keys (%$ValHash) ) {
+
+					my $CondHash = $gOptions{$currentAttributeName}{"options"}{$optionIndex}{"values"}{$valueIndex}{"conditions"}; 
+					
+					for my $conditions( keys (%$CondHash) ) {
+						my $tag   = $gOptions{$currentAttributeName}{"tags"}{$valueIndex};
+						my $value = $gOptions{$currentAttributeName}{"options"}{$optionIndex}{"values"}{$valueIndex}{"conditions"}{$conditions};
+					
+						debug_out( "           - $tag -> $value [valid: $conditions ]   \n");		
+					}
+				 
+					#Energy credits not modelled in ESP-r 
+				}
+
+				#debug_out( "           - cost = \$$cost ($cost_type) \n");
+			
+				my $ExtEnergyHash = $gOptions{$currentAttributeName}{"options"}{$optionIndex}; 
+				for my $ExtEnergyType ( keys (%$ExtEnergyHash ) ){
+					if ( $ExtEnergyType =~ /production/ ) {
+						my $CondHash = $gOptions{$currentAttributeName}{"options"}{$optionIndex}{$ExtEnergyType}{"conditions"}; 
+						for my $conditions( keys (%$CondHash) ) {
+							my $ExtEnergyCredit = $gOptions{$currentAttributeName}{"options"}{$optionIndex}{$ExtEnergyType}{"conditions"}{$conditions}; 
+							debug_out ("              - credit:($ExtEnergyType) $ExtEnergyCredit [valid: $conditions ] \n");	
+						}
+					}
+				}
 			}
 		}
-	  }
-       
-    }     
-      
-    if ( $token =~ /\*ext-parameters:end/ ){
-        
-        $ParametersOpen = 0; 
-        
-    }
-      
-  }
+		  
+		if ( $token =~ /\*ext-parameters:end/ ){
+			$ParametersOpen = 0; 
+		}
+	}
 }
     
 close (OPTIONS);
- 
- 
- 
- 
-for my $att (keys %gOptions ){ 
 
+ 
+#for my $att (keys %gOptions ){ 
   #debug_out ".... $att \n"; 
-  
-}
-
+#}
 
 stream_out ("...done.\n") ; 
  
@@ -650,111 +617,104 @@ stream_out("\n\nReading $gChoiceFile...");
 $linecount = 0;
 
 while ( my $line = <CHOICES> ){
-  
-  $line =~ s/\!.*$//g; 
-  # next, strip white spaces for standard (and genopt) choice files
-  if ( ! $gDakota ) { 
-    $line =~ s/\s*//g;
-  }else{
-    # Dakota uses white-space to delimit inputs:
-    #       value_a token_a
-    #      value_ab token_ab 
-    #     value_abc token_abc
-    # Translate into existing choice-value format.  
-    
-    $line =~ s/^\s+//; 
-    $line =~ s/\s+$//; 
+	
+	$line =~ s/\!.*$//g; 
+	# next, strip white spaces for standard (and genopt) choice files
+	if ( ! $gDakota ) { 
+		$line =~ s/\s*//g;
+	} else {
+		# Dakota uses white-space to delimit inputs:
+		#       value_a token_a
+		#      value_ab token_ab 
+		#     value_abc token_abc
+		# Translate into existing choice-value format.  
+		
+		$line =~ s/^\s+//; 
+		$line =~ s/\s+$//; 
 
-    my ($value, $token) = split / /, $line; 
+		my ($value, $token) = split / /, $line; 
+		
+		# Ignore reserved keywords that dakota puts into its 
+		# input files. 
+		if ($token =~ /variables/ || 
+			$token =~ /functions/ ||
+			$token =~ /ASV/ ||
+			$token =~ /derivative_variables/ ||
+			$token =~ /analysis_components/  ||
+			$token =~ /eval_id/ ){
+			
+			# Skip dakota meta-info. 
+		
+			$line = ""; 
+			
+		} else {
+			# reformat line in friendly format 
+			$line = "$token:$value"; 
+		}
     
-    # Ignore reserved keywords that dakota puts into its 
-    # input files. 
-    if ($token =~ /variables/ || 
-        $token =~ /functions/ ||
-        $token =~ /ASV/ ||
-        $token =~ /derivative_variables/ ||
-        $token =~ /analysis_components/  ||
-        $token =~ /eval_id/ ){
-        
-        # Skip dakota meta-info. 
+	}
     
-        $line = ""; 
-    
-    }else{
-    
-        # reformat line in friendly format 
-        $line = "$token:$value"; 
-        
-    }
-    
-  }
-    
+	$linecount++;
+	debug_out ("  Line: $linecount >$line<\n");
   
-  $linecount++;
-  debug_out ("  Line: $linecount >$line<\n");
-  
-  if ( $line ) {
-    my ($attribute, $value) = split /:/, $line;
+	if ( $line ) {
+		my ($attribute, $value) = split /:/, $line;
     
-    
-    # Parse config commands
-    if ( $attribute =~ /^GOconfig_/ ){
-      $attribute =~ s/^GOconfig_//g; 
-      if ( $attribute =~ /rotate/ ) { 
-           $gRotate = $value; 
-           $gChoices{"GOconfig_rotate"}=$value; 
-           push @gChoiceOrder, "GOconfig_rotate";
-      } 
-      if ( $attribute =~ /step/ ) { $gGOStep = $value; 
-                                    $gArchGOChoiceFile = 1;  } 
-    }else{
-      my $extradata = $value; 
-      if ( $value =~ /\|/ ){
-        $value =~ s/\|.*$//g; 
-        $extradata =~ s/^.*\|//g; 
-        $extradata =~ s/^.*\|//g; 
-      }else{
-        $extradata = ""; 
-      }
-      
-            
-      $gChoices{"$attribute"}=$value ;
-      
-      stream_out ("::: $attribute -> $value \n"); 
-      
-      # Additional data that may be used to attribute the choices. 
-      $gExtraDataSpecd{"$attribute"} = $extradata ; 
-      
-      # Save order of choices to make sure we apply them correctly. 
-      push @gChoiceOrder, $attribute;
-    }
-  }
-
+		# Parse config commands
+		if ( $attribute =~ /^GOconfig_/ ){
+			$attribute =~ s/^GOconfig_//g; 
+			if ( $attribute =~ /rotate/ ) { 
+				$gRotate = $value; 
+				$gChoices{"GOconfig_rotate"}=$value; 
+				push @gChoiceOrder, "GOconfig_rotate";
+			} 
+			if ( $attribute =~ /step/ ) { 
+				$gGOStep = $value; 
+				$gArchGOChoiceFile = 1;  
+			} 
+		} else {
+			my $extradata = $value; 
+			if ( $value =~ /\|/ ){
+				$value =~ s/\|.*$//g; 
+				$extradata =~ s/^.*\|//g; 
+				$extradata =~ s/^.*\|//g; 
+			} else {
+				$extradata = ""; 
+			}
+				
+			$gChoices{"$attribute"}=$value ;
+		  
+			stream_out ("::: $attribute -> $value \n"); 
+		  
+			# Additional data that may be used to attribute the choices. 
+			$gExtraDataSpecd{"$attribute"} = $extradata ; 
+		  
+			# Save order of choices to make sure we apply them correctly. 
+			push @gChoiceOrder, $attribute;
+		}
+	}
 }
 
 close( CHOICES );
 stream_out ("...done.\n") ; 
 
 # Optionally create a copy of the choice file for later use. 
-
-
-if ( $gArchGOChoiceFile and -d "../ArchGOChoiceFiles" ) { 
+#if ( $gArchGOChoiceFile and -d "../ArchGOChoiceFiles" ) { 
   #debug_out( " Archiving $gChoiceFile -> ../ArchGOChoiceFiles/$gChoiceFile-$gGOStep" ); 
   #!execute ( " cp $gChoiceFile ../ArchGOChoiceFiles/$gChoiceFile-$gGOStep ") ; 
-  
-} 
+#} 
 
 
-
+# Post process Dakota output file and stop (-z option)
+if ( $gPostProcDakota ) {
+	postprocessDakota();
+}
 
 
 my %gChoiceAttIsExt;
-
-
 my %gExtOptions;
 # Report 
 my $allok = 1;
-
 
 debug_out("-----------------------------------\n");
 debug_out("-----------------------------------\n");
@@ -766,35 +726,25 @@ my $gCostAdjustmentFactor;
 # Possibly overwrite internal parameters with user-specified parameters
 while ( my ( $parameter, $value) = each %gParameters ){
 
-  #stream_out (">>>> PARAM: $parameter | $value \n"); 
+	#stream_out (">>>> PARAM: $parameter | $value \n"); 
 
-  if ( $parameter =~ /CostAdjustmentFactor/  ){
+	if ( $parameter =~ /CostAdjustmentFactor/  ){
+		$gCostAdjustmentFactor = $value;
+		$gCustomCostAdjustment = 1; 
+	}
   
-    $gCostAdjustmentFactor = $value;
-    $gCustomCostAdjustment = 1; 
-  }
+	if ( $parameter =~ /PVTarrifDollarsPerkWh/ ) {
+		$PVTarrifDollarsPerkWh = $value; 
+	}
   
-  if ( $parameter =~ /PVTarrifDollarsPerkWh/ ) {
+	if ( $parameter =~ /BaseUpgradeCost/ ) {
+		$gIncBaseCosts = $value; 
+	}
   
-     $PVTarrifDollarsPerkWh = $value; 
-  
-  }
-  
-  if ( $parameter =~ /BaseUpgradeCost/ ) {
-  
-      $gIncBaseCosts = $value; 
-  
-  }
-  
-  if ( $parameter =~ /BaseUtilitiesCost/ ) {
-  
-      $gUtilityBaseCost = $value; 
-  
-  }
-  
-
+	if ( $parameter =~ /BaseUtilitiesCost/ ) {
+		$gUtilityBaseCost = $value; 
+	}
 }
-
 
 
 stream_out(" Validating choices and options...\n");  
@@ -832,7 +782,6 @@ while ( my ( $option, $null ) = each %gOptions ){
 }
 
 
-
 # Search through choices and determine if they match options in the Options file. 
 while ( my ( $attribute, $choice) = each %gChoices ){
   
@@ -859,8 +808,9 @@ while ( my ( $attribute, $choice) = each %gChoices ){
 		if ( $choice =~ /\d{3,4}/ ){
 			#Use option text string that matches this integer alias
 			my $OptHash = $gOptions{$attribute}{"options"}; 
-			OPHASHKEY: for my $optionIndex ( keys (%$OptHash ) ){
-				if ( $gOptions{$attribute}{"options"}{$optionIndex}{"alias"} =~ /$choice/ ) {
+			for my $optionIndex ( keys (%$OptHash) ){
+				my $Test = $gOptions{$attribute}{"options"}{$optionIndex}{"alias"};
+				if ( $Test && $Test =~ /^$choice$/ ) {
 					$gChoices{$attribute} = $optionIndex;	# Update hash entry
 					$choice = $optionIndex;					# Update $choice too!
 					$allok = 1;
@@ -868,7 +818,7 @@ while ( my ( $attribute, $choice) = each %gChoices ){
 					if( ! defined( $gOptions{$attribute}{"options"}{$choice} )) {
 						$allok = 0;
 					}
-					last OPHASHKEY;	# found alias so exit this loop (alias is unique!)
+					last;	# found alias so exit this inner "for" loop (alias is unique!)
 				}
 			}
 		}
@@ -1244,6 +1194,8 @@ my $gAvgCost_Electr    = 0 ;
 my $gAvgEnergy_Total   = 0 ; 
 my $gAvgCost_Propane   = 0 ;
 my $gAvgCost_Oil       = 0 ;
+my $gAvgCost_Wood      = 0 ;
+my $gAvgCost_Pellet    = 0 ;
 
 my $gAvgPVRevenue      = 0; 
 
@@ -1271,6 +1223,7 @@ my $EnergyEquipment      ;
 my $gAvgNGasCons_m3     = 0; 
 my $gAvgOilCons_l       = 0; 
 my $gAvgPropCons_l      = 0; 
+my $gAvgPelletCons_tonne = 0; 
 my $gDirection;
 
 UpdateCon();  
@@ -1286,7 +1239,7 @@ for my $Direction  ( @Orientations ){
 
 }
 
-$gAvgCost_Total   = $gAvgCost_Electr + $gAvgCost_NatGas + $gAvgCost_Propane + $gAvgCost_Oil ;
+$gAvgCost_Total   = $gAvgCost_Electr + $gAvgCost_NatGas + $gAvgCost_Propane + $gAvgCost_Oil + $gAvgCost_Wood + $gAvgCost_Pellet ;
 
 $gAvgPVRevenue =  $gAvgPVOutput_kWh * $PVTarrifDollarsPerkWh ;  
 
@@ -1343,7 +1296,9 @@ my $PVcapacity = $gChoices{"Opt-StandoffPV"};
 
 $PVcapacity =~ s/[a-zA-Z:\s'\|]//g;
 
-if (! $PVcapacity ) { $PVcapacity = 0. ; }
+if (! $PVcapacity ) { 
+	$PVcapacity = 0. ; 
+}
 
 if ( $gDakota ) {
 
@@ -1355,9 +1310,11 @@ if ( $gDakota ) {
     print SUMMARY "$gAvgCost_NatGas  \n";
     print SUMMARY "$gAvgCost_Propane \n";
     print SUMMARY "$gAvgCost_Oil \n";
+	print SUMMARY "$gAvgCost_Wood \n";
+	print SUMMARY "$gAvgCost_Pellet \n";
 
     print SUMMARY "$gAvgPVOutput_kWh \n";
-    print SUMMARY "$gEnergySDHW \n";
+    #print SUMMARY "$gEnergySDHW \n";
     print SUMMARY "$gAvgEnergyHeatingGJ \n";
     print SUMMARY "$gAvgEnergyCoolingGJ \n";
     print SUMMARY "$gAvgEnergyVentilationGJ \n";
@@ -1366,16 +1323,14 @@ if ( $gDakota ) {
     print SUMMARY "$gAvgElecCons_KWh \n";
     print SUMMARY "$gAvgNGasCons_m3  \n";
     print SUMMARY "$gAvgOilCons_l    \n";
-    print SUMMARY "".eval($gTotalCost-$gIncBaseCosts)."\n"; 
+  	print SUMMARY "$gAvgPelletCons_tonne   \n";
+	
+	print SUMMARY "".eval($gTotalCost-$gIncBaseCosts)."\n"; 
     print SUMMARY "". $payback ."\n"; 
 
     print SUMMARY "".$PVcapacity."\n"; 
 
-
-
-
-}else{
-
+} else {
 
     print SUMMARY "Energy-Total-GJ   =  $gAvgEnergy_Total \n"; 
     print SUMMARY "Util-Bill-gross   =  $gAvgCost_Total   \n";
@@ -1385,6 +1340,8 @@ if ( $gDakota ) {
     print SUMMARY "Util-Bill-Gas     =  $gAvgCost_NatGas  \n";
     print SUMMARY "Util-Bill-Prop    =  $gAvgCost_Propane \n";
     print SUMMARY "Util-Bill-Oil     =  $gAvgCost_Oil \n";
+	print SUMMARY "Util-Bill-Wood    =  $gAvgCost_Wood \n";
+	print SUMMARY "Util-Bill-Pellet  =  $gAvgCost_Pellet \n";
 
     print SUMMARY "Energy-PV-kWh     =  $gAvgPVOutput_kWh \n";
     #print SUMMARY "Energy-SDHW      =  $gEnergySDHW \n";
@@ -1396,11 +1353,16 @@ if ( $gDakota ) {
     print SUMMARY "EnergyEleckWh     =  $gAvgElecCons_KWh \n";
     print SUMMARY "EnergyGasM3       =  $gAvgNGasCons_m3  \n";
     print SUMMARY "EnergyOil_l       =  $gAvgOilCons_l    \n";
+	print SUMMARY "EnergyPellet_t    =  $gAvgPelletCons_tonne   \n";
     print SUMMARY "Upgrade-cost      =  ".eval($gTotalCost-$gIncBaseCosts)."\n"; 
     print SUMMARY "SimplePaybackYrs  =  ". $payback ."\n"; 
 
+	my $PVcapacity = $gChoices{"Opt-StandoffPV"}; 
 
-
+	$PVcapacity =~ s/[a-zA-Z:\s'\|]//g;
+	if (! $PVcapacity ) { 
+		$PVcapacity = 0. ; 
+	}
 
     print SUMMARY "PV-size-kW      =  ".$PVcapacity."\n"; 
 
@@ -1742,7 +1704,8 @@ sub postprocess($){
                              "Winnipeg"     =>  0.0 ,
                              "Fredricton"   =>  0.0 ,
                              "Whitehorse"   =>  1.34 ,
-                             "Yellowknife"  =>  1.28 ); 
+                             "Yellowknife"  =>  1.28 ,
+							 "Inuvik"       =>  1.50 ); 
     
   my $OilTransportCharge;
   my $OilDeliveryCharge; 
@@ -1752,15 +1715,15 @@ sub postprocess($){
   my $PropaneDeliveryCharge; 
   my $PropaneTrasportCharge;
   
-  #my $WoodFixedCharge; 
-  #my $WoodSupplyCharge    = 260.0;   # ESC Heat Info Sheet - Assumes 18700 MJ / cord
-  #my %WoodDeliveryTier; 
-  #my $WoodTrasportCharge;
+  my $WoodFixedCharge; 
+  my $WoodSupplyCharge    = 325.0 ;  # Northern Fuel Cost Library Spring 2014 # 260.0;   ESC Heat Info Sheet - Assumes 18700 MJ / cord
+#  my %WoodDeliveryTier; 
+#  my $WoodTrasportCharge;
   
-  #my $PelletsFixedCharge; 
-  #my $PelletsSupplyCharge    = 340.0;   # ESC Heat Info Sheet - Assumes 18000 MJ/ton of pellets
-  #my %PelletsDeliveryTier; 
-  #my $PelletsTrasportCharge;
+  my $PelletsFixedCharge; 
+  my $PelletsSupplyCharge    =  337.0  ; # Northern Fuel Cost Library Spring 2014  #340.0;   ESC Heat Info Sheet - Assumes 18000 MJ/ton of pellets
+#  my %PelletsDeliveryTier; 
+#  my $PelletsTrasportCharge;
   
   my $NGTierType;  
 
@@ -1790,7 +1753,8 @@ sub postprocess($){
                           "Winnipeg"     =>  6.85   ,
                           "Fredricton"   =>  19.73  ,
                           "Whitehorse"   =>  16.25  ,
-                          "Yellowknife"  =>  18.52    ); #From Artic Energy Alliance Spring 2014
+                          "Yellowknife"  =>  18.52  , #From Artic Energy Alliance Spring 2014
+						  "Inuvik"       =>  18.00    ); #From Artic Energy Alliance Spring 2014
 	
   # Base charges for natural gas ($/month)
   my %NG_BaseCharge = ( "Halifax"      =>  21.87 ,
@@ -1807,7 +1771,8 @@ sub postprocess($){
                         "Winnipeg"     =>  14.00 ,
                         "Fredricton"   =>  16.00 ,
                         "Whitehorse"   =>  "nil" ,
-                        "Yellowknife"  =>  "nil"    ); 	
+                        "Yellowknife"  =>  "nil" , ,
+						"Inuvik"       =>  "nil"  ); 	
 
    my %Elec_TierType  = ( "Halifax"      =>  "none" ,
                           "Edmonton"     =>  "none" ,
@@ -1823,7 +1788,8 @@ sub postprocess($){
                           "Winnipeg"     =>  "none" ,
                           "Fredricton"   =>  "none" ,
                           "Whitehorse"   =>  "1-month" ,
-                          "Yellowknife"  =>  "none"   );  
+                          "Yellowknife"  =>  "none" ,
+                          "Inuvik"       =>  "none"  );  
  
     my %NG_TierType  = (  "Halifax"      =>  "none" ,
                           "Edmonton"     =>  "none" ,
@@ -1839,7 +1805,8 @@ sub postprocess($){
                           "Winnipeg"     =>  "none" ,
                           "Fredricton"   =>  "none" ,
                           "Whitehorse"   =>  "NA"   ,
-						  "Yellowknife"  =>  "NA"   ); 
+						  "Yellowknife"  =>  "NA"   ,
+						  "Inuvik"       =>  "NA" ); 
  
     
     my %EffElectricRates = ( "Halifax"     => 0.1436 ,
@@ -1848,7 +1815,8 @@ sub postprocess($){
                              "Regina"      => 0.1113 ,
                              "Winnipeg"    => 0.0694 ,
                              "Fredricton"  => 0.0985 ,
-                             "Yellowknife" => 0.29   ); # Arctic Energy Alliance Spring 2014
+                             "Yellowknife" => 0.29   , # Arctic Energy Alliance Spring 2014
+							 "Inuvik"      => 0.29   ); # Arctic Energy Alliance Spring 2014
 							 
     # TOU for Ottawa (As of May 2014), Toronto (Feb 2013).                        
     $EffElectricRates{"Ottawa"}{"off-peak"} =  0.1243 ;                        
@@ -1887,7 +1855,8 @@ sub postprocess($){
                           "Winnipeg"     =>  0.2298 ,
                           "Fredricton"   =>  0.6458 ,
                           "Whitehorse"   =>  99999.9,
-                          "Yellowknife"  =>  99999.9 ); 
+                          "Yellowknife"  =>  99999.9,
+						  "Inuvik"       =>  99999.9 ); 
    
     # Tiers for Ottawa (Apr. 1, 2014), Toronto
     $EffGasRates{"Ottawa"}{"30"}     = 0.3090; 
@@ -1920,7 +1889,7 @@ sub postprocess($){
 
     my ( $token, $value, $units ) = split / /, $line; 
     
-    if ( $units =~ /GJ/ || $units =~ /kWh\/s/ || $units =~ /m3\/s/ || $units =~ /l\/s/ ) {
+    if ( $units =~ /GJ/ || $units =~ /kWh\/s/ || $units =~ /m3\/s/ || $units =~ /l\/s/  || $units =~ /tonne\/s/ ) {
     
       $gSimResults{$token} = $value; 
     
@@ -2002,6 +1971,8 @@ sub postprocess($){
   my @NaturalGas_Use = @{ $data{" total fuel use:natural gas:all end uses:quantity (m3/s)"}  };
   my @Oil_Use        = @{ $data{" total fuel use:oil:all end uses:quantity (l/s)"}  };
   my @Propane_Use    = @{ $data{" total fuel use:propane:all end uses:quantity (m3/s)"}  };
+  my @Wood_Use       = @{ $data{" total fuel use:mixed wood:all end uses:quantity (tonne/s)"}  };
+  my @Pellets_Use    = @{ $data{" total fuel use:wood pellets:all end uses:quantity (tonne/s)"}  };
   #my @Wood_Use       = @{ $data{" total fuel use:wood:all end uses:quantity (cord/s)"}  };
   #my @Pellets_Use    = @{ $data{" total fuel use:pellets:all end uses:quantity (ton/s)"}  };
   # Recover Day, Hour & Month
@@ -2019,8 +1990,8 @@ sub postprocess($){
   my $GasConsumptionCost  = 0; 
   my $OilConsumptionCost  = 0; 
   my $PropaneConsumptionCost  = 0; 
-  #my $WoodConsumptionCost  = 0; 
-  #my $PelletsConsumptionCost  = 0; 
+  my $WoodConsumptionCost  = 0; 
+  my $PelletsConsumptionCost  = 0; 
 
   my $GasCurrConsumpionForTiers = 0; 
   my $ElecCurrConsumpionForTiers = 0; 
@@ -2292,16 +2263,16 @@ sub postprocess($){
 	
 	#### Wood
     
-    #my $CurrentWoodConsumption = $Wood_Use[$row] * $TSLength; # l
+    my $CurrentWoodConsumption = $Wood_Use[$row] * $TSLength; # l
     
-    #$WoodConsumptionCost += $CurrentWoodConsumption * ( $WoodSupplyCharge ); 
+    $WoodConsumptionCost += $CurrentWoodConsumption * ( $WoodSupplyCharge ); 
 
 		
 	#### Pellets
     
-    #my $CurrentPelletsConsumption = $Pellets_Use[$row] * $TSLength; # l
+    my $CurrentPelletsConsumption = $Pellets_Use[$row] * $TSLength; # l
     
-    #$PelletsConsumptionCost += $CurrentPelletsConsumption * ( $PelletsSupplyCharge ); 
+    $PelletsConsumptionCost += $CurrentPelletsConsumption * ( $PelletsSupplyCharge ); 
   }
 
 
@@ -2313,9 +2284,9 @@ sub postprocess($){
     
   my $TotalPropaneBill  = $PropaneFixedCharge * 12. + $PropaneConsumptionCost  ; 
   
-  #my $TotalWoodBill  = $WoodFixedCharge * 12. + $WoodConsumptionCost  ; 
+  my $TotalWoodBill  = $WoodFixedCharge * 12. + $WoodConsumptionCost  ; 
 	
-  #my $TotalPelletsBill  = $PelletsFixedCharge * 12. + $PelletsConsumptionCost  ; 
+  my $TotalPelletBill  = $PelletsFixedCharge * 12. + $PelletsConsumptionCost  ; 
   
   # Add data from externally computed SDHW (Legacy code)
   #my $sizeSDHW = $gChoices{"Opt-SolarDHW"}; 
@@ -2467,11 +2438,17 @@ sub postprocess($){
   
   $gEnergyOil   = defined($gSimResults{"total_fuel_use/oil/all_end_uses/quantity::Total_Average"} ) ? 
                          $gSimResults{"total_fuel_use/oil/all_end_uses/quantity::Total_Average"} : 0 ;  
-		 
-					 
+
+  $gEnergyWood  = defined($gSimResults{"total_fuel_use/mixed_wood/all_end_uses/quantity::Total_Average"} ) ? 
+                         $gSimResults{"total_fuel_use/mixed_wood/all_end_uses/quantity::Total_Average"} : 0 ;  	
+
+  $gEnergyPellet = defined($gSimResults{"total_fuel_use/wood_pellets/all_end_uses/quantity::Total_Average"} ) ? 
+                         $gSimResults{"total_fuel_use/wood_pellets/all_end_uses/quantity::Total_Average"} : 0 ;  
+					
+			 
   my $PVRevenue = $gEnergyPV * 1e06 / 3600. *$PVTarrifDollarsPerkWh; 
   
-  my $TotalBill = $TotalElecBill+$TotalGasBill+$TotalOilBill+$TotalPropaneBill; 
+  my $TotalBill = $TotalElecBill+$TotalGasBill+$TotalOilBill+$TotalPropaneBill+$TotalWoodBill+$TotalPelletBill; 
   my $NetBill   = $TotalBill-$PVRevenue ;
   
   stream_out("\n\n Energy Cost (not including credit for PV, direction $gRotationAngle ): \n\n") ; 
@@ -2480,7 +2457,9 @@ sub postprocess($){
   stream_out("  + \$ ".round($TotalGasBill)." (Natural Gas)\n");
   stream_out("  + \$ ".round($TotalOilBill)." (Oil)\n");
   stream_out("  + \$ ".round($TotalPropaneBill)." (Propane)\n");
-
+  stream_out("  + \$ ".round($TotalWoodBill)." (Wood)\n");
+  stream_out("  + \$ ".round($TotalPelletBill)." (Pellet)\n");
+  
   stream_out ( " --------------------------------------------------------\n");
   stream_out ( "    \$ ".round($TotalBill) ." (All utilities).\n"); 
 
@@ -2496,10 +2475,13 @@ sub postprocess($){
   $gAvgCost_Electr    += $TotalElecBill * $ScaleData;  
   $gAvgCost_Propane   += $TotalPropaneBill * $ScaleData; 
   $gAvgCost_Oil       += $TotalOilBill * $ScaleData; 
-
+  $gAvgCost_Wood      += $TotalWoodBill * $ScaleData; 
+  $gAvgCost_Pellet    += $TotalPelletBill * $ScaleData; 
+   
   $gAvgEnergy_Total   += $gTotalEnergy  * $ScaleData; 
   $gAvgNGasCons_m3    += $gEnergyGas * 8760. * 60. * 60.  * $ScaleData ; 
   $gAvgOilCons_l      += $gEnergyOil * 8760. * 60. * 60.  * $ScaleData ;  
+  $gAvgPelletCons_tonne+= $gEnergyPellet * 8760. * 60. * 60.  * $ScaleData ;
   
   $gAvgElecCons_KWh   += $gEnergyElec * 8760. * 60. * 60. * $ScaleData ; 
   
@@ -2517,7 +2499,10 @@ sub postprocess($){
   stream_out("  - ".round($gEnergyElec* 8760. * 60. * 60.)." (Electricity, kWh)\n");
   stream_out("  - ".round($gEnergyGas* 8760. * 60. * 60.)." (Natural Gas, m3)\n");
   stream_out("  - ".round($gEnergyOil* 8760. * 60. * 60.)." (Oil, l)\n");
-  
+  stream_out("  - ".round($gEnergyWood* 8760. * 60. * 60.)." (Wood, cord)\n");
+  stream_out("  - ".round($gEnergyPellet* 8760. * 60. * 60.)." (Pellet, tonnes)\n");
+
+ 
   stream_out ("> SCALE $ScaleData \n"); 
   
   
@@ -2641,4 +2626,126 @@ sub min($$){
   else {return $a;}
   
   return 1;
+}
+
+# -----------------------------------------------------------------------------------------
+# Post process Dakota output file and stop (-z option)
+# -----------------------------------------------------------------------------------------
+sub postprocessDakota()
+{
+	my $DakotaGenerated = "all_responses.txt";
+	my $DakotaOutput = "OutputListingAll.txt";
+	my $gDakotaUtilityCmd = "dakota_restart_util to_tabular dakota.rst $DakotaGenerated";
+	my $linecnt = 0;
+	my $DataOut = "";
+
+	# Execute Dakota utility to generate complete set of output data (inputs + outputs)
+	execute($gDakotaUtilityCmd);
+	
+	# Open Dakota generated file and file to be used for processed output
+	open ( READIN_DAKOTA_RESULTS, "$DakotaGenerated" ) or fatalerror( "Could not read gDakotaGenerated!" );
+	open (WRITEOUT, ">$DakotaOutput") or die ( "Could not open $DakotaOutput for writing !"); 
+
+	stream_out("\n\nReading $DakotaGenerated and writing $DakotaOutput...\n");
+
+	# Write out top 20 blank lines
+	for ( my $i = 1; $i < 20; $i++ ) {
+		print WRITEOUT "Temporary header line #$i\n"
+	}
+
+	# Parse the Dakota output file to convert integers to attribute option strings and set 
+	# expected format. 
+	while ( my $line = <READIN_DAKOTA_RESULTS> ){
+		# Change spaces separating data to semicolons
+		$line =~ s/\s+/;/g;
+		# remove leading and trailing ;'s
+		$line =~ s/^;//g;
+		$line =~ s/;$//g;
+		# Split up line into array elements for processing
+		my @DataIn = split /;/, $line; 
+		
+		$linecnt++;
+		my $eleNum = 0;
+		my $IsEndOfLoop = 0;
+		
+		foreach my $TestValue (@DataIn){
+			if ( $linecnt == 1 ) {
+				# Ignore existing header row and write an alternate that uses the correct variable
+				# names that Tableau expects when using existing visualizations (the "GOtag:..." names.)
+				if ( $eleNum == 0 ) { $DataIn[$eleNum] = "Simulation Number"; }
+				elsif ( $eleNum == 1 ) { $DataIn[$eleNum] = "Main Iteration"; }
+				elsif ( $eleNum == 2 ) { $DataIn[$eleNum] = "GOtag:CalcMode"; }
+				elsif ( $eleNum == 3 ) { $DataIn[$eleNum] = "GOtag:DBFiles"; }
+				elsif ( $eleNum == 4 ) { $DataIn[$eleNum] = "GOtag:Opt-Location"; }
+				elsif ( $eleNum == 5 ) { $DataIn[$eleNum] = "GOtag:GOconfig_rotate"; }
+				elsif ( $eleNum == 8 ) { $DataIn[$eleNum] = "GOtag:HRVcontrol"; }
+				elsif ( $eleNum == 9 ) { $DataIn[$eleNum] = "GOtag:Opt-geometry"; }
+				elsif ( $eleNum == 10 ) { $DataIn[$eleNum] = "GOtag:Opt-Attachment"; }
+				elsif ( $eleNum == 12 ) { $DataIn[$eleNum] = "GOtag:RoofPitch"; }
+				elsif ( $eleNum == 13 ) { $DataIn[$eleNum] = "GOtag:Opt-OverhangWidth"; }
+				elsif ( $eleNum == 15 ) { $DataIn[$eleNum] = "GOtag:DHWLoadScale"; }
+				elsif ( $eleNum == 16 ) { $DataIn[$eleNum] = "GOtag:ElecLoadScale"; }
+				elsif ( $eleNum == 17 ) { $DataIn[$eleNum] = "GOtag:Opt-AirTightness"; }
+				elsif ( $eleNum == 18 ) { $DataIn[$eleNum] = "GOtag:Opt-ACH"; }
+				elsif ( $eleNum == 19 ) { $DataIn[$eleNum] = "GOtag:Opt-CasementWindows"; }
+				elsif ( $eleNum == 20 ) { $DataIn[$eleNum] = "GOtag:Opt-Ceilings"; }
+				elsif ( $eleNum == 21 ) { $DataIn[$eleNum] = "GOtag:Opt-MainWall"; }
+				elsif ( $eleNum == 22 ) { $DataIn[$eleNum] = "GOtag:Opt-ExposedFloor"; }
+				elsif ( $eleNum == 23 ) { $DataIn[$eleNum] = "GOtag:Opt-BasementWallInsulation"; }
+				elsif ( $eleNum == 24 ) { $DataIn[$eleNum] = "GOtag:Opt-BasementSlabInsulation"; }
+				elsif ( $eleNum == 25 ) { $DataIn[$eleNum] = "GOtag:Ext-DryWall"; }
+				elsif ( $eleNum == 26 ) { $DataIn[$eleNum] = "GOtag:Opt-FloorSurface"; }
+				elsif ( $eleNum == 27 ) { $DataIn[$eleNum] = "GOtag:Opt-DHWSystem"; }
+				elsif ( $eleNum == 28 ) { $DataIn[$eleNum] = "GOtag:Opt-HVACSystem"; }
+				elsif ( $eleNum == 29 ) { $DataIn[$eleNum] = "GOtag:Opt-Cooling-Spec"; }
+				elsif ( $eleNum == 30 ) { $DataIn[$eleNum] = "GOtag:Opt-HRVSpec"; }
+				elsif ( $eleNum == 31 ) { $DataIn[$eleNum] = "GOtag:Opt-HRVduct"; }
+				elsif ( $eleNum == 32 ) { $DataIn[$eleNum] = "GOtag:Opt-StandoffPV"; }
+				elsif ( $eleNum == 33 ) { $DataIn[$eleNum] = "GOtag:Opt-DWHRandSDHW"; }
+			}
+			elsif ( $eleNum == 1 ) {
+				$DataIn[$eleNum] = $linecnt-1;	# Main Iteration set to record number
+			}
+			elsif ( $eleNum > 1 && $eleNum < 34 && $TestValue =~ /\d{3,4}/ ){
+				# Get attribute name for data values that are Dakota aliases
+				while ( my ( $attribute, $dummy) = each %gChoices ){
+					my $OptHash = $gOptions{$attribute}{"options"}; 
+					for my $optionIndex ( keys (%$OptHash) ){
+						my $Test = $gOptions{$attribute}{"options"}{$optionIndex}{"alias"};
+						if ( $Test && $Test =~ /^$TestValue$/ ) {
+							$TestValue = $optionIndex;	# Modify array element with option name
+							$IsEndOfLoop = 1;
+							last;	# found alias so exit this for loop (alias is unique!)
+						}
+					}
+					if ( $IsEndOfLoop ) {
+						$IsEndOfLoop = 0;
+						keys( %gChoices );	# This resets the %gChoices hash!
+						last;				# End inner while loop
+					}
+				}
+			}
+			
+			# DataIn array now updated with attribute option names (or correct header names)
+			# Write out the data if at end of current input line
+			$DataOut .= "$DataIn[$eleNum]\t";	# Tab Separate vars (expected by recover_results.pl)
+			if ( $eleNum == scalar(@DataIn)-1 ) {
+				$DataOut .= "\n";
+				print WRITEOUT $DataOut;	# Write out one line at a time so $DataOut doesn't get huge!!
+				$DataOut = "";				# Clear $DataOut
+				$eleNum = 0;
+			} else {
+				$eleNum++;
+			}
+		}
+	}
+
+	close READIN_DAKOTA_RESULTS;
+	close WRITEOUT;
+	
+	# End this script!
+	stream_out("\n\nDakota output file $DakotaOutput successfully produced.\n");
+	close(LOG);
+
+	exit 0; 
 }

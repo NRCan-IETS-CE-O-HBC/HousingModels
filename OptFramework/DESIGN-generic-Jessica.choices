@@ -1,0 +1,217 @@
+!-----------------------------------------------------------------------------
+! Change Mode Option - this options switches between a 'debug' mode in which
+! the timestep is defined as one day and the shading calculator (ish) is disabled 
+! AND a full simulation mode in which the timestep is a full year and ish is enabled
+!-----------------------------------------------------------------------  
+!  debug
+!  calc
+
+Opt-calcmode          : calc
+
+
+! Set of database files to be used
+
+Opt-DBFiles           : retrofit 
+
+
+! Optimization substitutions 
+! Set the orientation for the model (N,S,E,W, or AVG to run all four directions
+! and compute an average result)
+GOconfig_rotate      : S
+
+Opt-Location : Ottawa
+
+! Assumptions about HRV operation . Not intended to be optimized!
+! Recognized values: 
+!  - Continuous: HRV runs continuously 
+!  - ERSp3ACH: Existing ERS assumptions of 0.3 ACH from 
+!              natural and mechanical vent. 
+!  - EightHRpDay: HRV operates 33% of each hour, for 8hr/day total.
+
+OPT-HRV_ctl          : ERSp3ACH !EightHRpDay
+
+!Opt-CTL-Strategy    : ecoEIIFramework  
+
+!Optional operations schedule for zoned systems
+! constant
+! scheduled
+OPT-OPR-SCHED        : constant
+
+! Turn original design windows opaque ( NoWindows!)
+! or transparent (MinWindows). NoWindows doesn't presently work!
+
+Opt-BaseWindows      : MinWindows
+
+! Geometry substitutions
+Opt-geometry      : MattOtt_2st_garage
+
+!Attachment options
+! single
+! semi
+! row
+
+Opt-Attachment : single
+
+! ACH substitutions
+
+Opt-ACH       : retro_ACH_2_5
+
+Opt-WindowOrientation: all
+
+Opt-OverhangWidth : BaseOverhang
+
+! Air-Tightness: 
+!     Generic
+!
+Opt-AirTightness   : Typical23
+
+
+! Main wall insulation 
+!  BaseR20
+!  ICFR22
+!  SIPS-R29-Wall
+!  SIPS-R38-Wall
+!  SIPS-R44-Wall
+!  Stud-R38-Wall
+!  Stud-R50-Wall
+!  DblStud-R44-Wall
+!  Truss-R40-Wall
+!  W15_R25
+! Retrofit cases
+!  Retro-DblBr
+!  Retro-R1_52
+!  Retro-R2_1
+
+Opt-MainWall         : BaseR20
+
+
+! Add extra drywall to wall constructions 
+! Options: 
+!   OneSheet
+!   TwoSheets
+Opt-ExtraDrywall     : OneSheet
+
+! Add concrete to floors (internal partitions only)
+! Options:  
+!   Wood 
+!   1-in-concrete
+!   2-in-concrete
+Opt-FloorSurface     : wood
+
+
+Opt-Ceilings         : CeilR50
+
+! Basement slab insulation 
+! Choices: 
+!   NoInsulation
+Opt-BasementSlabInsulation  : NoInsulation
+
+! Foundation walls. 
+! Choices 
+!  OBC-min-R12
+!  Rigid+Batt-R30
+!  Rigid+Blown-R43
+!  ICF-base-R22
+!  ICF-base-R26
+!  ICF-base-R32
+!  ICF-base-R41
+!  ICF-base-R51     
+!  ICF-base-R51r
+!  Fnd0PWF_R28   
+! Retrofit foundation
+!    TripleBrick
+!    PouredConcrete_RSI0_925
+!    PouredConcrete_NoIns
+
+Opt-BasementWallInsulation  : OBC-min-R12
+
+
+
+! Optical and thermal characteristics of casement windows (currently 
+! all windows in model. 
+! Choices: 
+!   "OriginalGlassParam" - Neil's original dbl-low-e spec
+!    DoubleLowEHardCoatAirFill
+!    DoubleLowEHardCoatArgFill
+!    TripleLowEHardCoatKryFill
+!    TripleLowESoftCoatKryFill
+!    DoubleLowESoftCoatArgFill
+! Whitehorse Windows
+!    Wind1_trp_CL	
+! Retrofit Windows
+!    DoubleClear 
+! Mattamy 
+!     DoubleArgon_HighGainOnSouth
+
+Opt-CasementWindows  :  DoubleArgon_HighGainOnSouth	!DoubleLowEHardCoatArgFill 
+
+
+! Exposed floor over garage (affects floor
+! sections in Master and Top floor)
+! Choices:
+!  BaseExpFloor-R31
+!  ExpFloorFlash&Batt-R36
+!  ExpFloorFoamed-R52
+
+Opt-ExposedFloor     : BaseExpFloor-R31
+
+Opt-StandoffPV       : NoPV !SizedPV|8kW
+
+! Hot water reduction technologies (SDHW, DHWR) 
+! 
+! - DWHR-4-36
+! - DWHR-4-60
+! - 1-plate 
+! - 2-plate 
+! - 1-plate-DWHR-4-36
+! - 2-plate-DWHR-4-36
+! - 1-plate-DWHR-4-60
+! - 2-plate-DWHR-4-60
+!   
+Opt-DWHRandSDHW         : None          
+
+! DHW LOAD SCALES 
+! CEF project
+!   - NoReduction
+!   - BasicReduction
+!   - EfficientLiving
+! NG-ERS numbers  (Also used in MB LEEP) 
+!   - NGERSNoReduction19          
+!   - NGERSReducedA16
+!   - NGERSBestInClass14p8
+
+Opt-ElecLoadScale    : NoReduction		!NGERSNoReduction19     
+
+
+! Hot water numbers - These have changed! 
+!   - No-Reduction ( 190 L/day ) 
+!   - Low-Flow     ( 141 L/day ) 
+
+Opt-DHWLoadScale     : No-Reduction !Low-Flow       
+
+Opt-RoofPitch : 6-12
+
+! Hot water system. Choices:
+!  BaseDHW
+!  ElectricStorage
+!  GasInstant
+!  ElectricHP
+
+Opt-DHWSystem        : BaseDHW
+
+! HVAC system 
+!  gas-furnace-low
+!  gas-furnace-mid
+!  baseboard-heating
+!  oil-furnace-low
+!  oil-furnace-mid
+
+Opt-HVACSystem       : basefurnace
+
+OPT-Furnace-Fan-Ctl  : Auto
+
+Opt-Cooling-Spec     : 2TonStdCooling
+
+! HRV spec 
+Opt-HRVspec : BaseHRV_SRE70
+Opt-HRVduct : interlock
