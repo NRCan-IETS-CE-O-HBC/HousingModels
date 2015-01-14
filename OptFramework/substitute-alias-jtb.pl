@@ -23,6 +23,7 @@ sub round1d($);
 sub min($$);
 sub stream_out($);
 sub stream_out($);
+sub postprocessDakota();
 
 
 my $gDebug = 1; 
@@ -704,129 +705,10 @@ stream_out ("...done.\n") ;
 #} 
 
 
-# -----------------------------------------------------------------------------------------
 # Post process Dakota output file and stop (-z option)
-# -----------------------------------------------------------------------------------------
 if ( $gPostProcDakota ) {
-   
-	my $DakotaGenerated = "all_responses.txt";
-	my $DakotaOutput = "OutputListingAll.txt";
-	my $gDakotaUtilityCmd = "dakota_restart_util to_tabular dakota.rst $DakotaGenerated";
-	my $linecnt = 0;
-	my $DataOut = "";
-
-	# Execute Dakota utility to generate complete set of output data (inputs + outputs)
-	execute($gDakotaUtilityCmd);
-	
-	# Open Dakota generated file and file to be used for processed output
-	open ( READIN_DAKOTA_RESULTS, "$DakotaGenerated" ) or fatalerror( "Could not read gDakotaGenerated!" );
-	open (WRITEOUT, ">$DakotaOutput") or die ( "Could not open $DakotaOutput for writing !"); 
-
-	stream_out("\n\nReading $DakotaGenerated and writing $DakotaOutput...\n");
-
-	# Write out top 20 blank lines
-	for ( my $i = 1; $i < 20; $i++ ) {
-		print WRITEOUT "Temporary header line #$i\n"
-	}
-
-	# Parse the Dakota output file to convert integers to attribute option strings and set 
-	# expected format. 
-	while ( my $line = <READIN_DAKOTA_RESULTS> ){
-		# Change spaces separating data to semicolons
-		$line =~ s/\s+/;/g;
-		# remove leading and trailing ;'s
-		$line =~ s/^;//g;
-		$line =~ s/;$//g;
-		# Split up line into array elements for processing
-		my @DataIn = split /;/, $line; 
-		
-		$linecnt++;
-		my $eleNum = 0;
-		my $IsEndOfLoop = 0;
-		
-		foreach my $TestValue (@DataIn){
-			if ( $linecnt == 1 ) {
-				# Ignore existing header row and write an alternate that uses the correct variable
-				# names that Tableau expects when using existing visualizations (the "GOtag:..." names.)
-				if ( $eleNum == 0 ) { $DataIn[$eleNum] = "Simulation Number"; }
-				elsif ( $eleNum == 1 ) { $DataIn[$eleNum] = "Main Iteration"; }
-				elsif ( $eleNum == 2 ) { $DataIn[$eleNum] = "GOtag:CalcMode"; }
-				elsif ( $eleNum == 3 ) { $DataIn[$eleNum] = "GOtag:DBFiles"; }
-				elsif ( $eleNum == 4 ) { $DataIn[$eleNum] = "GOtag:Opt-Location"; }
-				elsif ( $eleNum == 5 ) { $DataIn[$eleNum] = "GOtag:GOconfig_rotate"; }
-				elsif ( $eleNum == 8 ) { $DataIn[$eleNum] = "GOtag:HRVcontrol"; }
-				elsif ( $eleNum == 9 ) { $DataIn[$eleNum] = "GOtag:Opt-geometry"; }
-				elsif ( $eleNum == 10 ) { $DataIn[$eleNum] = "GOtag:Opt-Attachment"; }
-				elsif ( $eleNum == 12 ) { $DataIn[$eleNum] = "GOtag:RoofPitch"; }
-				elsif ( $eleNum == 13 ) { $DataIn[$eleNum] = "GOtag:Opt-OverhangWidth"; }
-				elsif ( $eleNum == 15 ) { $DataIn[$eleNum] = "GOtag:DHWLoadScale"; }
-				elsif ( $eleNum == 16 ) { $DataIn[$eleNum] = "GOtag:ElecLoadScale"; }
-				elsif ( $eleNum == 17 ) { $DataIn[$eleNum] = "GOtag:Opt-AirTightness"; }
-				elsif ( $eleNum == 18 ) { $DataIn[$eleNum] = "GOtag:Opt-ACH"; }
-				elsif ( $eleNum == 19 ) { $DataIn[$eleNum] = "GOtag:Opt-CasementWindows"; }
-				elsif ( $eleNum == 20 ) { $DataIn[$eleNum] = "GOtag:Opt-Ceilings"; }
-				elsif ( $eleNum == 21 ) { $DataIn[$eleNum] = "GOtag:Opt-MainWall"; }
-				elsif ( $eleNum == 22 ) { $DataIn[$eleNum] = "GOtag:Opt-ExposedFloor"; }
-				elsif ( $eleNum == 23 ) { $DataIn[$eleNum] = "GOtag:Opt-BasementWallInsulation"; }
-				elsif ( $eleNum == 24 ) { $DataIn[$eleNum] = "GOtag:Opt-BasementSlabInsulation"; }
-				elsif ( $eleNum == 25 ) { $DataIn[$eleNum] = "GOtag:Ext-DryWall"; }
-				elsif ( $eleNum == 26 ) { $DataIn[$eleNum] = "GOtag:Opt-FloorSurface"; }
-				elsif ( $eleNum == 27 ) { $DataIn[$eleNum] = "GOtag:Opt-DHWSystem"; }
-				elsif ( $eleNum == 28 ) { $DataIn[$eleNum] = "GOtag:Opt-HVACSystem"; }
-				elsif ( $eleNum == 29 ) { $DataIn[$eleNum] = "GOtag:Opt-Cooling-Spec"; }
-				elsif ( $eleNum == 30 ) { $DataIn[$eleNum] = "GOtag:Opt-HRVSpec"; }
-				elsif ( $eleNum == 31 ) { $DataIn[$eleNum] = "GOtag:Opt-HRVduct"; }
-				elsif ( $eleNum == 32 ) { $DataIn[$eleNum] = "GOtag:Opt-StandoffPV"; }
-				elsif ( $eleNum == 33 ) { $DataIn[$eleNum] = "GOtag:Opt-DWHRandSDHW"; }
-			}
-			elsif ( $eleNum == 1 ) {
-				$DataIn[$eleNum] = $linecnt-1;	# Main Iteration set to record number
-			}
-			elsif ( $eleNum > 1 && $eleNum < 34 && $TestValue =~ /\d{3,4}/ ){
-				# Get attribute name for data values that are Dakota aliases
-				while ( my ( $attribute, $dummy) = each %gChoices ){
-					my $OptHash = $gOptions{$attribute}{"options"}; 
-					for my $optionIndex ( keys (%$OptHash) ){
-						my $Test = $gOptions{$attribute}{"options"}{$optionIndex}{"alias"};
-						if ( $Test && $Test =~ /^$TestValue$/ ) {
-							$TestValue = $optionIndex;	# Modify array element with option name
-							$IsEndOfLoop = 1;
-							last;	# found alias so exit this for loop (alias is unique!)
-						}
-					}
-					if ( $IsEndOfLoop ) {
-						$IsEndOfLoop = 0;
-						keys( %gChoices );	# This resets the %gChoices hash!
-						last;				# End inner while loop
-					}
-				}
-			}
-			
-			# DataIn array now updated with attribute option names (or correct header names)
-			# Write out the data if at end of current input line
-			$DataOut .= "$DataIn[$eleNum]\t";	# Tab Separate vars (expected by recover_results.pl)
-			if ( $eleNum == scalar(@DataIn)-1 ) {
-				$DataOut .= "\n";
-				print WRITEOUT $DataOut;	# Write out one line at a time so $DataOut doesn't get huge!!
-				$DataOut = "";				# Clear $DataOut
-				$eleNum = 0;
-			} else {
-				$eleNum++;
-			}
-		}
-	}
-
-	close READIN_DAKOTA_RESULTS;
-	close WRITEOUT;
-	
-	# End this script!
-	stream_out("\n\nDakota output file $DakotaOutput successfully produced.\n");
-	close(LOG);
-
-	exit 0; 
+	postprocessDakota();
 }
-# -----------------------------------------------------------------------------------------
-
 
 
 my %gChoiceAttIsExt;
@@ -2744,4 +2626,126 @@ sub min($$){
   else {return $a;}
   
   return 1;
+}
+
+# -----------------------------------------------------------------------------------------
+# Post process Dakota output file and stop (-z option)
+# -----------------------------------------------------------------------------------------
+sub postprocessDakota()
+{
+	my $DakotaGenerated = "all_responses.txt";
+	my $DakotaOutput = "OutputListingAll.txt";
+	my $gDakotaUtilityCmd = "dakota_restart_util to_tabular dakota.rst $DakotaGenerated";
+	my $linecnt = 0;
+	my $DataOut = "";
+
+	# Execute Dakota utility to generate complete set of output data (inputs + outputs)
+	execute($gDakotaUtilityCmd);
+	
+	# Open Dakota generated file and file to be used for processed output
+	open ( READIN_DAKOTA_RESULTS, "$DakotaGenerated" ) or fatalerror( "Could not read gDakotaGenerated!" );
+	open (WRITEOUT, ">$DakotaOutput") or die ( "Could not open $DakotaOutput for writing !"); 
+
+	stream_out("\n\nReading $DakotaGenerated and writing $DakotaOutput...\n");
+
+	# Write out top 20 blank lines
+	for ( my $i = 1; $i < 20; $i++ ) {
+		print WRITEOUT "Temporary header line #$i\n"
+	}
+
+	# Parse the Dakota output file to convert integers to attribute option strings and set 
+	# expected format. 
+	while ( my $line = <READIN_DAKOTA_RESULTS> ){
+		# Change spaces separating data to semicolons
+		$line =~ s/\s+/;/g;
+		# remove leading and trailing ;'s
+		$line =~ s/^;//g;
+		$line =~ s/;$//g;
+		# Split up line into array elements for processing
+		my @DataIn = split /;/, $line; 
+		
+		$linecnt++;
+		my $eleNum = 0;
+		my $IsEndOfLoop = 0;
+		
+		foreach my $TestValue (@DataIn){
+			if ( $linecnt == 1 ) {
+				# Ignore existing header row and write an alternate that uses the correct variable
+				# names that Tableau expects when using existing visualizations (the "GOtag:..." names.)
+				if ( $eleNum == 0 ) { $DataIn[$eleNum] = "Simulation Number"; }
+				elsif ( $eleNum == 1 ) { $DataIn[$eleNum] = "Main Iteration"; }
+				elsif ( $eleNum == 2 ) { $DataIn[$eleNum] = "GOtag:CalcMode"; }
+				elsif ( $eleNum == 3 ) { $DataIn[$eleNum] = "GOtag:DBFiles"; }
+				elsif ( $eleNum == 4 ) { $DataIn[$eleNum] = "GOtag:Opt-Location"; }
+				elsif ( $eleNum == 5 ) { $DataIn[$eleNum] = "GOtag:GOconfig_rotate"; }
+				elsif ( $eleNum == 8 ) { $DataIn[$eleNum] = "GOtag:HRVcontrol"; }
+				elsif ( $eleNum == 9 ) { $DataIn[$eleNum] = "GOtag:Opt-geometry"; }
+				elsif ( $eleNum == 10 ) { $DataIn[$eleNum] = "GOtag:Opt-Attachment"; }
+				elsif ( $eleNum == 12 ) { $DataIn[$eleNum] = "GOtag:RoofPitch"; }
+				elsif ( $eleNum == 13 ) { $DataIn[$eleNum] = "GOtag:Opt-OverhangWidth"; }
+				elsif ( $eleNum == 15 ) { $DataIn[$eleNum] = "GOtag:DHWLoadScale"; }
+				elsif ( $eleNum == 16 ) { $DataIn[$eleNum] = "GOtag:ElecLoadScale"; }
+				elsif ( $eleNum == 17 ) { $DataIn[$eleNum] = "GOtag:Opt-AirTightness"; }
+				elsif ( $eleNum == 18 ) { $DataIn[$eleNum] = "GOtag:Opt-ACH"; }
+				elsif ( $eleNum == 19 ) { $DataIn[$eleNum] = "GOtag:Opt-CasementWindows"; }
+				elsif ( $eleNum == 20 ) { $DataIn[$eleNum] = "GOtag:Opt-Ceilings"; }
+				elsif ( $eleNum == 21 ) { $DataIn[$eleNum] = "GOtag:Opt-MainWall"; }
+				elsif ( $eleNum == 22 ) { $DataIn[$eleNum] = "GOtag:Opt-ExposedFloor"; }
+				elsif ( $eleNum == 23 ) { $DataIn[$eleNum] = "GOtag:Opt-BasementWallInsulation"; }
+				elsif ( $eleNum == 24 ) { $DataIn[$eleNum] = "GOtag:Opt-BasementSlabInsulation"; }
+				elsif ( $eleNum == 25 ) { $DataIn[$eleNum] = "GOtag:Ext-DryWall"; }
+				elsif ( $eleNum == 26 ) { $DataIn[$eleNum] = "GOtag:Opt-FloorSurface"; }
+				elsif ( $eleNum == 27 ) { $DataIn[$eleNum] = "GOtag:Opt-DHWSystem"; }
+				elsif ( $eleNum == 28 ) { $DataIn[$eleNum] = "GOtag:Opt-HVACSystem"; }
+				elsif ( $eleNum == 29 ) { $DataIn[$eleNum] = "GOtag:Opt-Cooling-Spec"; }
+				elsif ( $eleNum == 30 ) { $DataIn[$eleNum] = "GOtag:Opt-HRVSpec"; }
+				elsif ( $eleNum == 31 ) { $DataIn[$eleNum] = "GOtag:Opt-HRVduct"; }
+				elsif ( $eleNum == 32 ) { $DataIn[$eleNum] = "GOtag:Opt-StandoffPV"; }
+				elsif ( $eleNum == 33 ) { $DataIn[$eleNum] = "GOtag:Opt-DWHRandSDHW"; }
+			}
+			elsif ( $eleNum == 1 ) {
+				$DataIn[$eleNum] = $linecnt-1;	# Main Iteration set to record number
+			}
+			elsif ( $eleNum > 1 && $eleNum < 34 && $TestValue =~ /\d{3,4}/ ){
+				# Get attribute name for data values that are Dakota aliases
+				while ( my ( $attribute, $dummy) = each %gChoices ){
+					my $OptHash = $gOptions{$attribute}{"options"}; 
+					for my $optionIndex ( keys (%$OptHash) ){
+						my $Test = $gOptions{$attribute}{"options"}{$optionIndex}{"alias"};
+						if ( $Test && $Test =~ /^$TestValue$/ ) {
+							$TestValue = $optionIndex;	# Modify array element with option name
+							$IsEndOfLoop = 1;
+							last;	# found alias so exit this for loop (alias is unique!)
+						}
+					}
+					if ( $IsEndOfLoop ) {
+						$IsEndOfLoop = 0;
+						keys( %gChoices );	# This resets the %gChoices hash!
+						last;				# End inner while loop
+					}
+				}
+			}
+			
+			# DataIn array now updated with attribute option names (or correct header names)
+			# Write out the data if at end of current input line
+			$DataOut .= "$DataIn[$eleNum]\t";	# Tab Separate vars (expected by recover_results.pl)
+			if ( $eleNum == scalar(@DataIn)-1 ) {
+				$DataOut .= "\n";
+				print WRITEOUT $DataOut;	# Write out one line at a time so $DataOut doesn't get huge!!
+				$DataOut = "";				# Clear $DataOut
+				$eleNum = 0;
+			} else {
+				$eleNum++;
+			}
+		}
+	}
+
+	close READIN_DAKOTA_RESULTS;
+	close WRITEOUT;
+	
+	# End this script!
+	stream_out("\n\nDakota output file $DakotaOutput successfully produced.\n");
+	close(LOG);
+
+	exit 0; 
 }
