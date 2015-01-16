@@ -133,7 +133,7 @@ Opt-BasementSlabInsulation  : NoInsulation
 !    TripleBrick
 !    NWTCrawlWll !NWT crawl space wall
 
-Opt-BasementWallInsulation  : NWTCrawlWll
+Opt-BasementWallInsulation  : NWTCrawlWll4
 
 
 ! Optical and thermal characteristics of casement windows (currently 

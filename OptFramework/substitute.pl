@@ -1675,12 +1675,12 @@ sub postprocess($){
   my $PropaneDeliveryCharge; 
   my $PropaneTrasportCharge;
   
-  my $WoodFixedCharge; 
+  my $WoodFixedCharge     = 0.0   ; 
   my $WoodSupplyCharge    = 325.0 ;  # Northern Fuel Cost Library Spring 2014 # 260.0;   ESC Heat Info Sheet - Assumes 18700 MJ / cord
 #  my %WoodDeliveryTier; 
 #  my $WoodTrasportCharge;
   
-  my $PelletsFixedCharge; 
+  my $PelletsFixedCharge     =  0.0 ; 
   my $PelletsSupplyCharge    =  337.0  ; # Northern Fuel Cost Library Spring 2014  #340.0;   ESC Heat Info Sheet - Assumes 18000 MJ/ton of pellets
 #  my %PelletsDeliveryTier; 
 #  my $PelletsTrasportCharge;
