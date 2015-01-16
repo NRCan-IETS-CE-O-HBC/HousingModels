@@ -85,7 +85,7 @@ Vary{
   
     Name = GOtag:Opt-ACH; 
     Ini  = 1;
-    Values = "retro_ACH_5_5,retro_ACH_5,retro_ACH_4_5,retro_ACH_4";
+    Values = "retro_ACH_5_5";//,retro_ACH_5,retro_ACH_4_5,retro_ACH_4";
 
   }
 
@@ -150,7 +150,7 @@ Vary{
    Parameter{   // 
      Name    =  GOtag:Opt-MainWall;
      Ini     =  1;
-     Values  =  "NWTR20,NWTR20_4,NWTR20_1_5"; 
+     Values  =  "NWTR20";//,NWTR20_4,NWTR20_1_5"; 
    }    
   
    // Foundation walls: OBC-min-R12
@@ -234,7 +234,7 @@ Vary{
    Parameter{   // 
      Name    =  GOtag:Opt-Ceilings;
      Ini     =  1;
-     Values  =  "NWTCeilR40,NWTCeilR50,NWTCeilR60,NWTCeilR70";
+     Values  =  "NWTCeilR40";//,NWTCeilR50,NWTCeilR60,NWTCeilR70";
    }    
   
   // Windows:  DoubleLowEHardCoatAirFill 
@@ -260,7 +260,7 @@ Vary{
   Parameter{   // 
      Name    =  GOtag:Opt-CasementWindows;
      Ini     =  1;
-     Values  =  "Wind1_trp_CL,Win2scLE1_tr,Win3hcLE1_tr,Win4scLE2_tr,Win5hcLE2_tr,Win6_qd_CL,Triple_win_shutter,Quad_win_shutter";    
+     Values  =  "Wind1_trp_CL";//,Win2scLE1_tr,Win3hcLE1_tr,Win4scLE2_tr,Win5hcLE2_tr,Win6_qd_CL,Triple_win_shutter,Quad_win_shutter";    
      
    }    
    
@@ -316,7 +316,7 @@ Vary{
   Parameter{ //
      Name    = GOtag:Opt-DHWSystem;
      Ini     = 1; 
-     Values  = "NWT_oil_DHW,elec_DHW,NWT_upgrade_elec_DHW,NWT_upgrade_oil_DHW"; 
+     Values  = "NWT_oil_inst,NWT_elec_inst";//NWT_oil_DHW,elec_DHW,NWT_upgrade_elec_DHW,NWT_upgrade_oil_DHW"; 
   }
 
   
@@ -339,7 +339,7 @@ Vary{
   Parameter {// 
       Name   = GOtag:Opt-HVACSystem; 
       Ini    = 1; 
-      Values = "Olsen,upgrade_Olsen,oil96"; 
+      Values = "baseboard,oil_boiler";//Olsen,upgrade_Olsen,oil96"; 
   }
 
  // Cooling spec
@@ -442,13 +442,13 @@ Vary{
       // Value may be one of: NGERSNoReduction19
 	  //                      NGERSReducedA16
       //                      NGERSBestInClass14p8      
-      Values = "NGERSNoReduction19,NGERSReducedA16"; 
+      Values = "NGERSNoReduction19";//,NGERSReducedA16"; 
   }
   Parameter { // 
       Name   = GOtag:DHWLoadScale; 
       Ini    = 1;
       // Value may be one of  No-Reduction,EStar,Low-Flow     
-      Values = "No-Reduction,EStar"; 
+      Values = "No-Reduction";//,EStar"; 
   }
   
   

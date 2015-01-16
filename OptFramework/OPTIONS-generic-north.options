@@ -1108,6 +1108,9 @@
 !*option:NWTCeilR70:value:2 =  NWTCeilR70R
 *option:NWTCeilR70:cost:total    =  0
 
+*option:NWTCei1986:value:1 =   NWTCei1986
+!*option:NWTCei1986:value:2 =  NWTCei1986R
+*option:NWTCei1986:cost:total    =  0
 
 *attribute:end
 
@@ -1353,17 +1356,54 @@ Whitehorse Wall Options (Code is R28)
 *option:NWTR20:value:1 =   NWTR20   ! Added by JP for retrofit analysis
 *option:NWTR20:value:2 =   NWTR20
 *option:NWTR20:value:3 =   NWTR20 
-*option:NWTR20:cost:total    =   0
+*option:NWTR20:cost:total    =   0  
 
 *option:NWTR20_4:value:1 =   NWTR20_4   ! Base case R20 wall with 4" EPS on exterior
 *option:NWTR20_4:value:2 =   NWTR20_4
 *option:NWTR20_4:value:3 =   NWTR20_4 
-*option:NWTR20_4:cost:total    =   0
+*option:NWTR20_4:cost:total    =   0  ! $3.69/sq.ft
 
 *option:NWTR20_1_5:value:1 =   NWTR20_1_5   ! Base case R20 wall with 1.5" EPS on interior
 *option:NWTR20_1_5:value:2 =   NWTR20_1_5
 *option:NWTR20_1_5:value:3 =   NWTR20_1_5 
-*option:NWTR20_1_5:cost:total    =   0
+*option:NWTR20_1_5:cost:total    =   0  ! $2/sqft
+
+*option:NWTR20_2:value:1 =   NWTR20_2   ! Base case R20 wall with 2" EPS on exterior
+*option:NWTR20_2:value:2 =   NWTR20_2
+*option:NWTR20_2:value:3 =   NWTR20_2 
+*option:NWTR20_2:cost:total    =   0   ! $2.43/sq.f
+
+*option:NWTR20_3:value:1 =   NWTR20_3   ! Base case R20 wall with 3" EPS on exterior
+*option:NWTR20_3:value:2 =   NWTR20_3
+*option:NWTR20_3:value:3 =   NWTR20_3 
+*option:NWTR20_3:cost:total    =   0   ! $3.25/sq.ft
+
+! 1986 2-storey duplex wall options 
+*option:NWT-1986:value:1 =   NWT-1986   ! Added by JP for retrofit analysis
+*option:NWT-1986:value:2 =   NWT-1986
+*option:NWT-1986:value:3 =   NWT-1986 
+*option:NWT-1986:cost:total    =   0  
+
+*option:NWT-1986_4:value:1 =   NWT-1986_4   ! Base case R20 wall with 4" EPS on exterior
+*option:NWT-1986_4:value:2 =   NWT-1986_4
+*option:NWT-1986_4:value:3 =   NWT-1986_4 
+*option:NWT-1986_4:cost:total    =   0    ! $3.69/sq.ft
+
+*option:NWT-1986_1_5:value:1 =   NWT-1986_1_5   ! Base case R20 wall with 1.5" EPS on interior
+*option:NWT-1986_1_5:value:2 =   NWT-1986_1_5
+*option:NWT-1986_1_5:value:3 =   NWT-1986_1_5 
+*option:NWT-1986_1_5:cost:total    =   0  ! $2/sqft
+
+*option:NWT-1986_2:value:1 =   NWT-1986_2   ! Base case R20 wall with 2" EPS on exterior
+*option:NWT-1986_2:value:2 =   NWT-1986_2
+*option:NWT-1986_2:value:3 =   NWT-1986_2 
+*option:NWT-1986_2:cost:total    =   0   ! $2.43/sq.f
+
+*option:NWT-1986_3:value:1 =   NWT-1986_3   ! Base case R20 wall with 3" EPS on exterior
+*option:NWT-1986_3:value:2 =   NWT-1986_3
+*option:NWT-1986_3:value:3 =   NWT-1986_3 
+*option:NWT-1986_3:cost:total    =   0   ! $3.25/sq.ft
+
 
 *attribute:end
 
@@ -1586,6 +1626,12 @@ Whitehorse Wall Options (Code is R28)
 *option:NWTCrawlFlr6:value:2 = NWTCrawlFlr6r
 *option:NWTCrawlFlr6:cost:total    = 0
 *attribute:end
+
+! NWT 1986 house Crawl Space Floor is Exposed
+*option:NWT1986Flr:value:1 = NWT1986Flr
+*option:NWT1986Flr:value:2 = NWT1986Flr
+*option:NWT1986Flr:cost:total    = 0
+
 
 !-----------------------------------------------------------------------
 ! Thickness of applied drywall.
@@ -1881,6 +1927,22 @@ Reflects southern Ontario costs
 *option:oil96:value:6 = shoulder-ideal.ctl 
 *option:oil96:cost:total    = 0
 
+*option:baseboard:value:1 = Baseboard.hvac
+*option:baseboard:value:2 = #-no-GSHP-file
+*option:baseboard:value:3 = #No-IMS: 
+*option:baseboard:value:4 = #
+*option:baseboard:value:5 = 
+*option:baseboard:value:6 = shoulder-ideal.ctl
+*option:baseboard:cost:total   = 0
+
+*option:oil_boiler:value:1 = oil-boiler.hvac
+*option:oil_boiler:value:2 = #-no-GSHP-file
+*option:oil_boiler:value:3 = #No-IMS: 
+*option:oil_boiler:value:4 = #
+*option:oil_boiler:value:5 = 
+*option:oil_boiler:value:6 = shoulder-ideal.ctl
+*option:oil_boiler:cost:total   = 0
+
 *attribute:end
 
 
@@ -2077,6 +2139,11 @@ Reflects southern Ontario costs
 *option:NWT_upgrade_oil_DHW:value:1     = upgrade_oil_DHW.dhw
 *option:NWT_upgrade_oil_DHW:cost:total  = 0
 
+*option:NWT_elec_inst:value:1     = ElecInstant.dhw
+*option:NWT_elec_inst:cost:total  = 0
+
+*option:NWT_oil_inst:value:1     = OilInstantaneous.dhw
+*option:NWT_oil_inst:cost:total  = 0
 *attribute:end
 
 
