@@ -88,7 +88,7 @@ Opt-AirTightness   : Generic
 !  Retrofit-DlBr
 !  NWTR20_4  
 !  NWTR20
-Opt-MainWall         : NWTR20
+Opt-MainWall         : NWT-1986
 
 
 ! Add extra drywall to wall constructions 
@@ -105,7 +105,7 @@ Opt-ExtraDrywall     : OneSheet
 Opt-FloorSurface     : wood
 
 
-Opt-Ceilings         : NWTCeilR40
+Opt-Ceilings         : NWTCei1986
 
 ! Basement slab insulation 
 ! Choices: 
@@ -203,17 +203,17 @@ Opt-RoofPitch : 8-12
 ! Hot water system. Choices:
 !  BaseDHW
 !  ElectricStorage
-!  GasInstant
-!  ElectricHP
+!  NWT_elec_inst
+!  NWT_oil_inst
 
-Opt-DHWSystem        : NWT_oil_DHW
+Opt-DHWSystem        : NWT_oil_inst
 
 ! HVAC system 
 !   Olsen
 !   upgrade_Olsen
 !   oil96
 !   wood_furnace
-Opt-HVACSystem       : wood_furnace
+Opt-HVACSystem       : oil_boiler
 
 ! HRV spec 
 

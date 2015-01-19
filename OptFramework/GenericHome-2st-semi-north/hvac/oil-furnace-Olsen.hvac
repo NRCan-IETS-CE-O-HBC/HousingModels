@@ -13,7 +13,8 @@
     *fuel oil
     *function heating
     *zone-links-start
-    *zone-link 2 1.0 # Served zones and fraction
+    *zone-link 2 0.5 # Served zones and fraction
+    *zone-link 3 0.5 # Served zones and fraction
     *zone-links-end
     *sys-data-start
     
