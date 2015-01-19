@@ -8,11 +8,11 @@
 #
 #TankLoop
 #Zone Location of Tank
-1
+2
 #iFuelType  	
 1
 #iTankType
-19 #instantaneous
+16
 #fDOEEF			
 0.99
 #fHeatInjectorPower(Watts) 	 
