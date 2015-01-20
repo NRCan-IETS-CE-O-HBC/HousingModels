@@ -573,6 +573,7 @@
 *attribute:tag:14   = <gar-width>
 *attribute:tag:15   = <gar-length>
 *attribute:tag:16   = <gar-area>
+*attribute:tag:17   = <ERS-volume>		! For calculating ERS number in substitute.pl
 *attribute:default = Toronto
 
 *option:MattOtt_2st_garage:value:1    = 89.4
@@ -591,6 +592,7 @@
 *option:MattOtt_2st_garage:value:14   = 3.0
 *option:MattOtt_2st_garage:value:15   = 6.05
 *option:MattOtt_2st_garage:value:16   = 18.15
+*option:MattOtt_2st_garage:value:17   = 608		! Mattamy Ottawa archetype #OT3006C volume (m3)
 *option:MattOtt_2st_garage:cost:total = 0
 *option:MattOtt_2st_garage:alias = 1200
 
@@ -610,6 +612,7 @@
 *option:Van_3st_garage:value:14   = 3.3019
 *option:Van_3st_garage:value:15   = 3.5052
 *option:Van_3st_garage:value:16   = 11.57382
+*option:Van_3st_garage:value:17   = 1		! Need volume **********************
 *option:Van_3st_garage:cost:total = 0
 *option:Van_3st_garage:alias = 1201
 
@@ -629,6 +632,7 @@
 *option:Van_2st_garage:value:14   = 3.3019
 *option:Van_2st_garage:value:15   = 3.5052
 *option:Van_2st_garage:value:16   = 11.57382
+*option:Van_2st_garage:value:17   = 1		! Need volume **********************
 *option:Van_2st_garage:cost:total = 0
 *option:Van_2st_garage:alias = 1202
 
