@@ -103,16 +103,16 @@ my $gAvgCost_Pellet    = 0 ;
 my $gAvgPVRevenue      = 0; 
 my $gAvgElecCons_KWh    = 0; 
 my $gAvgPVOutput_kWh    = 0; 
-my $gAvgCost_Total            = 0; 
-my $gAvgEnergyHeatingGJ      = 0; 
-my $gAvgEnergyCoolingGJ      = 0; 
+my $gAvgCost_Total      = 0; 
+my $gAvgEnergyHeatingGJ = 0; 
+my $gAvgEnergyCoolingGJ = 0; 
 my $gAvgEnergyVentilationGJ  = 0; 
 my $gAvgEnergyWaterHeatingGJ = 0; 
 my $gAvgEnergyEquipmentGJ    = 0; 
-my $EnergyCooling        = 0; 
-my $EnergyVentilation    = 0; 
-my $EnergyWaterHeating   = 0; 
-my $EnergyEquipment      = 0; 
+my $EnergyCooling       = 0; 
+my $EnergyVentilation   = 0; 
+my $EnergyWaterHeating  = 0; 
+my $EnergyEquipment     = 0; 
 my $gAvgNGasCons_m3     = 0; 
 my $gAvgOilCons_l       = 0; 
 my $gAvgPropCons_l      = 0; 
@@ -878,6 +878,9 @@ while ( my ( $attribute, $choice) = each %gChoices ){
 					$gChoices{$attribute} = $optionIndex;	# Update hash entry
 					$choice = $optionIndex;					# Update $choice too!
 					$allok = 1;
+					if ( $attribute =~ /rotate/ ) {
+						$gRotate = $optionIndex;
+					}
 					# Make sure that this opt name string (from alias) is in options hash!
 					if( ! defined( $gOptions{$attribute}{"options"}{$choice} )) {
 						$allok = 0;
@@ -906,14 +909,14 @@ while ( my ( $attribute, $choice) = each %gChoices ){
 my $gNumRunSetsRqd = 1;
 my $gElecLS = $gChoices{"Opt-ElecLoadScale"};
 my $gDHWLS = $gChoices{"Opt-DHWLoadScale"};
-if ( $gElecLS =~ /"NoReduction"/ && $gDHWLS =~ /"OLDERS"/ ) {
+#if ( $gElecLS =~ /"NoReduction"/ && $gDHWLS =~ /"OLDERS"/ ) {
 	# Conditions already set correctly to calculate ERS!
-	$gNumRunSetsRqd = 1;
-} else {
-	$gNumRunSetsRqd = 2;
-	$gChoices{"Opt-ElecLoadScale"} = "NoReduction";
-	$gChoices{"Opt-DHWLoadScale"} = "OldERS";
-}
+	#$gNumRunSetsRqd = 1;
+#} else {
+	#$gNumRunSetsRqd = 2;
+	#$gChoices{"Opt-ElecLoadScale"} = "NoReduction";
+	#$gChoices{"Opt-DHWLoadScale"} = "OldERS";
+#}
 
 for ( my $iRun = 1; $iRun <= $gNumRunSetsRqd; $iRun++ ) {
 
@@ -1427,7 +1430,7 @@ if ( $gDakota ) {
     print SUMMARY "". $payback ."\n"; 
 
     print SUMMARY "".$PVcapacity."\n"; 
-	print SUMMARY "$gERSNum \n";
+	#print SUMMARY "$gERSNum \n";
 
 } else {
 
@@ -1464,7 +1467,7 @@ if ( $gDakota ) {
 	}
 
     print SUMMARY "PV-size-kW      =  ".$PVcapacity."\n"; 
-	print SUMMARY "$gERSNum \n";
+	#print SUMMARY "$gERSNum \n";
 
 }
 
