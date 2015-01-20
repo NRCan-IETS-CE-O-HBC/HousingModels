@@ -13,13 +13,14 @@ method,
     id_method = 'Coliny_EA'                       
     coliny_ea
     seed 23 
-    population_size 50
+    population_size 100
     initialization_type unique_random
     replacement_type chc 10
-    fitness_type merit_function 
-    mutation_type replace_uniform
-    mutation_rate  0.8    
-    output debug
+    fitness_type merit_function 	# also linear_rank
+    mutation_type replace_uniform	# offset_uniform for discrete design variables
+    mutation_rate  1.0    			# 0-1, higher value, greater portion of population combinations used
+	#convergence_tolerance 1.e-4		# default value (0-1, non-inclusive) relative difference from last iterations
+    output normal					# debug verbose normal quiet silent
     show_misc_options 
     max_function_evaluations 500000
     max_iterations 500
@@ -184,7 +185,8 @@ variables,
     # CONTROLS (3)
     #------------------------------------------------------
     # Occupant gain schedules 'OPT-OPR-SCHED'
-        400	#'constant'
+        #400	#'constant'
+		401		#'scheduled"
 		
     # Furnace control assumptions 'OPT-Furnace-Fan-Ctl'
         901	#'Auto'
@@ -377,12 +379,12 @@ interface,
        copy_files "/home/ubuntu/HousingModels/OptFramework/GenericHome-2st-garage"
                   "climate_linux"
                   "OPTIONS-generic-MATTAMY-OTT.options"
-    analysis_driver './substitute-alias-jtb.pl -d -vv -o OPTIONS-generic-MATTAMY-OTT.options -c dakota-choices.in -b GenericHome-2st-garage' 
+    analysis_driver './substitute-alias-jtb.pl -d -o OPTIONS-generic-MATTAMY-OTT.options -c dakota-choices.in -b GenericHome-2st-garage' 
 	              verbatim
     
 responses, 
     id_responses 'rest_responses'
-    num_objective_functions 23
+    num_objective_functions 23		#24
     descriptors 
        'EnergyTotal'  
        'UtilBillNoPVRevenueDoll'  
@@ -406,7 +408,8 @@ responses,
        'EnergyPellet_t'	   
        'UpgradeCostDoll'     
        'SimplePaybackYrs' 
-       'PVSizekW'       
+       'PVSizekW'
+	   #'ERSValue'
     weights 
        0. # -'EnergyTotal'  
        0. # -'UtilBillNoPVRevenueDoll'
@@ -430,7 +433,8 @@ responses,
        0. # -'EnergyPellet_t'
        0. # -'UpgradeCostDoll'     
        1. # -'SimplePaybackYrs' 
-       0. # -'PVSizekW'       
+       0. # -'PVSizekW'
+	   #0. # -'ERSValue'
     no_gradients
     no_hessians
     
