@@ -1625,13 +1625,13 @@ Whitehorse Wall Options (Code is R28)
 *option:NWTCrawlFlr6:value:1 = NWTCrawlFlr6
 *option:NWTCrawlFlr6:value:2 = NWTCrawlFlr6r
 *option:NWTCrawlFlr6:cost:total    = 0
-*attribute:end
+
 
 ! NWT 1986 house Crawl Space Floor is Exposed
 *option:NWT1986Flr:value:1 = NWT1986Flr
-*option:NWT1986Flr:value:2 = NWT1986Flr
+*option:NWT1986Flr:value:2 = NWT1986Flrr
 *option:NWT1986Flr:cost:total    = 0
-
+*attribute:end
 
 !-----------------------------------------------------------------------
 ! Thickness of applied drywall.
