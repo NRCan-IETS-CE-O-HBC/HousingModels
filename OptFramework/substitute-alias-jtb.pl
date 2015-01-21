@@ -909,14 +909,14 @@ while ( my ( $attribute, $choice) = each %gChoices ){
 my $gNumRunSetsRqd = 1;
 my $gElecLS = $gChoices{"Opt-ElecLoadScale"};
 my $gDHWLS = $gChoices{"Opt-DHWLoadScale"};
-#if ( $gElecLS =~ /"NoReduction"/ && $gDHWLS =~ /"OLDERS"/ ) {
+if ( $gElecLS =~ /"NoReduction"/ && $gDHWLS =~ /"OLDERS"/ ) {
 	# Conditions already set correctly to calculate ERS!
-	#$gNumRunSetsRqd = 1;
-#} else {
-	#$gNumRunSetsRqd = 2;
-	#$gChoices{"Opt-ElecLoadScale"} = "NoReduction";
-	#$gChoices{"Opt-DHWLoadScale"} = "OldERS";
-#}
+	$gNumRunSetsRqd = 1;
+} else {
+	$gNumRunSetsRqd = 2;
+	$gChoices{"Opt-ElecLoadScale"} = "NoReduction";
+	$gChoices{"Opt-DHWLoadScale"} = "OldERS";
+}
 
 for ( my $iRun = 1; $iRun <= $gNumRunSetsRqd; $iRun++ ) {
 
@@ -1430,7 +1430,7 @@ if ( $gDakota ) {
     print SUMMARY "". $payback ."\n"; 
 
     print SUMMARY "".$PVcapacity."\n"; 
-	#print SUMMARY "$gERSNum \n";
+	print SUMMARY "$gERSNum \n";
 
 } else {
 
@@ -1467,7 +1467,7 @@ if ( $gDakota ) {
 	}
 
     print SUMMARY "PV-size-kW      =  ".$PVcapacity."\n"; 
-	#print SUMMARY "$gERSNum \n";
+	print SUMMARY "$gERSNum \n";
 
 }
 
