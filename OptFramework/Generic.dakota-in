@@ -384,7 +384,7 @@ interface,
     
 responses, 
     id_responses 'rest_responses'
-    num_objective_functions 23		#24
+    num_objective_functions 24
     descriptors 
        'EnergyTotal'  
        'UtilBillNoPVRevenueDoll'  
@@ -409,7 +409,7 @@ responses,
        'UpgradeCostDoll'     
        'SimplePaybackYrs' 
        'PVSizekW'
-	   #'ERSValue'
+	   'ERSValue'
     weights 
        0. # -'EnergyTotal'  
        0. # -'UtilBillNoPVRevenueDoll'
@@ -434,7 +434,7 @@ responses,
        0. # -'UpgradeCostDoll'     
        1. # -'SimplePaybackYrs' 
        0. # -'PVSizekW'
-	   #0. # -'ERSValue'
+	   0. # -'ERSValue'
     no_gradients
     no_hessians
     
