@@ -37,19 +37,21 @@ Vary{
    
   // Location  
   Parameter{ // One of:
- 			 //    Yellowknife
+			 //    Yellowknife
+			 //    Inuvik
 			 
     Name = GOtag:Opt-Location; 
     Ini  = 1;
-    Values = "Yellowknife"; 
+    Values = "Inuvik"; 
   }
 
   // Geometry  
   Parameter{ // NWT_Access 
+             // NWT_1986
   
     Name = GOtag:Opt-geometry; 
     Ini  = 1;
-    Values = "NWT_Access"; 
+    Values = "NWT_1986"; 
   }
 
 
@@ -60,7 +62,7 @@ Vary{
 			 
     Name = GOtag:Opt-Attachment;  
     Ini  = 1;
-    Values = "single"; 
+    Values = "semi"; 
   }	
   
   // Setting the ACH in the AIM-2 input file
@@ -81,14 +83,6 @@ Vary{
   // =============================================
  
    // Air tightness: 
-   //   - Typical23
-   //   - TypicalGTA, 
-   //   - R2000, 
-   //   - Cdn1ACH, 
-   //   - PassiveHouse, 
-   //   - Base_WH_1.5, 
-   //   - WH_1.0, 
-   //   - WH_0.5
    //   - Generic
    Parameter{   // 
      Name    =  GOtag:Opt-AirTightness;
@@ -97,32 +91,37 @@ Vary{
      
    }    
    
-   // Mainwalls. 
+   // Mainwalls.
    //        NWT:   - NWTR20
    //               - NWTR20_4
-   //               - NWTR20_1_5 
+   //               - NWTR20_1_5
    //               - NWTR20_2
-   //               - NWTR20_3   
+   //               - NWTR20_3
+   //               - NWT-1986
+   //               - NWT-1986_4
+   //               - NWT-1986_1_5
+   //               - NWT-1986_2
+   //               - NWT-1986_3   
    
 
    Parameter{   // 
      Name    =  GOtag:Opt-MainWall;
      Ini     =  1;
-     Values  =  "NWTR20_2,NWTR20_3"; 
+     Values  =  "NWT-1986,NWT-1986_4,NWT-1986_1_5,NWT-1986_2,NWT-1986_3 "; 
    }    
   
    // Foundation walls: 
    //        NWT:   - NWTCrawlWll
    //               - NWTCrawlWll4 (with 4" ext EPS)
-  
+   
+   
    Parameter{   // 
      Name    =  GOtag:Opt-BasementWallInsulation;
      Ini     =  1;
      Values  =  "NWTCrawlWll,NWTCrawlWll4";
    } 
 
-   // Basement Slab: NoInsulation
-    
+   // Basement Slab: NoInsulation  
    Parameter{   // 
      Name    =  GOtag:Opt-BasementSlabInsulation;
      Ini     =  1;
@@ -135,7 +134,7 @@ Vary{
    Parameter{   // 
      Name    =  GOtag:Opt-ExposedFloor;
      Ini     =  1;
-     Values  =  "NWTCrawlFlr,NWTCrawlFlr6";
+     Values  =  "NWTCrawlFlr";//,NWTCrawlFlr6";
    }    
    
    // Ceilings: 
@@ -147,7 +146,7 @@ Vary{
    Parameter{   // 
      Name    =  GOtag:Opt-Ceilings;
      Ini     =  1;
-     Values  =  "NWTCeilR40,NWTCeilR50,NWTCeilR60,NWTCeilR70";
+     Values  =  "NWTCeilR40";//,NWTCeilR50,NWTCeilR60,NWTCeilR70";
    }    
   
   // Windows: 
@@ -157,18 +156,20 @@ Vary{
   //           Win4scLE2_tr
   //           Win5hcLE2_tr
   //           Win6_qd_CL
+  //      retrofit:  DoubleClear
   //      NWT:       Triple_win_shutter
   //                 Quad_win_shutter
   
   Parameter{   // 
      Name    =  GOtag:Opt-CasementWindows;
      Ini     =  1;
-     Values  =  "Wind1_trp_CL,Win2scLE1_tr,Win3hcLE1_tr,Win4scLE2_tr,Win5hcLE2_tr,Win6_qd_CL,Triple_win_shutter,Quad_win_shutter";    
+     Values  =  "Wind1_trp_CL";//,Win2scLE1_tr,Win3hcLE1_tr,Win4scLE2_tr,Win5hcLE2_tr,Win6_qd_CL,Triple_win_shutter,Quad_win_shutter";    
      
    }    
    
   // Extra drywall:  OneSheet
- 
+  //                 TwoSheets
+  
   Parameter{   // 
      Name    =  GOtag:Ext-DryWall;
      Ini     =  1;
@@ -178,7 +179,9 @@ Vary{
    
    
   // Floor surface:  wood 
- Parameter{   // 
+  //                 1-in-concrete
+  //                 2-in-concrete
+  Parameter{   // 
      Name    =  GOtag:Opt-FloorSurface;
      Ini     =  1;
      Values  =  "wood";    
@@ -196,7 +199,7 @@ Vary{
   } 
   
   // Conventional DHW:  
-  //   NWT:         NWT_oil_DHW
+ //   NWT:          NWT_oil_DHW
   //                elec_DHW
   //                NWT_upgrade_elec_DHW
   //                NWT_upgrade_oil_DHW 
@@ -206,7 +209,7 @@ Vary{
   Parameter{ //
      Name    = GOtag:Opt-DHWSystem;
      Ini     = 1; 
-     Values  = "NWT_oil_inst,NWT_elec_inst,NWT_oil_DHW,elec_DHW,NWT_upgrade_elec_DHW,NWT_upgrade_oil_DHW"; 
+     Values  = "NWT_oil_DHW";//,elec_DHW,NWT_upgrade_elec_DHW,NWT_upgrade_oil_DHW"; 
   }
 
   
@@ -218,11 +221,11 @@ Vary{
   //                  oil_boiler
   //                  upgrade_wood_furnace
   //                  wood_furnace
-  
+ 
   Parameter {// 
       Name   = GOtag:Opt-HVACSystem; 
       Ini    = 1; 
-      Values = "baseboard,oil_boiler,Olsen,upgrade_Olsen,oil96,wood_furnace,upgrade_wood_furnace"; 
+      Values = "Olsen,upgrade_Olsen";//,oil96,upgrade_wood_furnace,wood_furnace"; 
   }
 
  // Cooling spec
@@ -251,14 +254,16 @@ Vary{
 	   Values = "interlock";
   }
 
+  
 
+  
   // PV: Set to autosize to ensure each run actually achieves NZEH. 
   // NoPV
   // SizedPV 
   Parameter{   // 
      Name    =  GOtag:Opt-StandoffPV;
      Ini     =  1;
-     Values  = "NoPV,SizedPV|3kW,SizedPV|5kW,SizedPV|8kW";
+     Values  = "NoPV"; //,SizedPV|3kW,SizedPV|5kW,SizedPV|8kW";
   } 
   
   
@@ -323,13 +328,13 @@ Vary{
       // Value may be one of: NGERSNoReduction19
 	  //                      NGERSReducedA16
       //                      NGERSBestInClass14p8      
-      Values = "NGERSNoReduction19,NGERSReducedA16"; 
+      Values = "NGERSNoReduction19";//,NGERSReducedA16"; 
   }
   Parameter { // 
       Name   = GOtag:DHWLoadScale; 
       Ini    = 1;
       // Value may be one of  No-Reduction,EStar,Low-Flow     
-      Values = "No-Reduction,EStar"; 
+      Values = "No-Reduction";//,EStar"; 
   }
   
   
