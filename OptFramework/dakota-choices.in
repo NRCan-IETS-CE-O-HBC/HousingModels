@@ -1,57 +1,61 @@
                                          32 variables
                                         101 Opt-calcmode
-                                        302 Opt-DBFiles
+                                        300 Opt-DBFiles
                                        1002 Opt-Location
-                                        201 GOconfig_rotate
-                                        400 OPT-OPR-SCHED
+                                        200 GOconfig_rotate
+                                        401 OPT-OPR-SCHED
                                         901 OPT-Furnace-Fan-Ctl
-                                        802 OPT-HRV_ctl
+                                        800 OPT-HRV_ctl
                                        1200 Opt-geometry
                                         500 Opt-Attachment
                                         701 Opt-BaseWindows
                                        3101 Opt-RoofPitch
-                                       1100 Opt-OverhangWidth
-										600 Opt-WindowOrientation
-                                       2804 Opt-DHWLoadScale
-                                       2700 Opt-ElecLoadScale
-                                       1501 Opt-AirTightness
+                                       1101 Opt-OverhangWidth
+                                        600 Opt-WindowOrientation
+                                       2805 Opt-DHWLoadScale
+                                       2702 Opt-ElecLoadScale
+                                       1502 Opt-AirTightness
                                        1309 Opt-ACH
-                                       1401 Opt-CasementWindows
-                                       1600 Opt-Ceilings
+                                       1405 Opt-CasementWindows
+                                       1603 Opt-Ceilings
                                        1701 Opt-MainWall
                                        2000 Opt-ExposedFloor
                                        1800 Opt-BasementWallInsulation
-                                       1900 Opt-BasementSlabInsulation
+                                       1901 Opt-BasementSlabInsulation
                                        2100 Opt-ExtraDrywall
                                        2200 Opt-FloorSurface
-                                       2900 Opt-DHWSystem
+                                       2903 Opt-DHWSystem
                                        2300 Opt-HVACSystem
-									   2401 Opt-Cooling-Spec
+                                       2401 Opt-Cooling-Spec
                                        2501 Opt-HRVspec
-									   2600 Opt-HRVduct
+                                       2600 Opt-HRVduct
                                        3201 Opt-StandoffPV
-                                       3000 Opt-DWHRandSDHW
-                                         20 functions
-                                          1 ASV_1:Energy-Total-GJ
-                                          1 ASV_2:Util-Bill-gross
-                                          1 ASV_3:Util-PV-revenue
-                                          1 ASV_4:Util-Bill-Net
-                                          1 ASV_5:Util-Bill-Elec
-                                          1 ASV_6:Util-Bill-Gas
-                                          1 ASV_7:Util-Bill-Prop
-                                          1 ASV_8:Util-Bill-Oil
-                                          1 ASV_9:Energy-PV-kWh
-                                          1 ASV_10:Energy-HeatingGJ
-                                          1 ASV_11:Energy-CoolingGJ
-                                          1 ASV_12:Energy-VentGJ
-                                          1 ASV_13:Energy-DHWGJ
-                                          1 ASV_14:Energy-PlugGJ
-                                          1 ASV_15:EnergyEleckWh
-                                          1 ASV_16:EnergyGasM3
-                                          1 ASV_17:EnergyOil_l
-                                          1 ASV_18:Upgrade-cost
-                                          1 ASV_19:SimplePaybackYrs
-                                          1 ASV_20:PV-size-kW
+                                       3001 Opt-DWHRandSDHW
+                                         24 functions
+                                          1 ASV_1:EnergyTotal
+                                          1 ASV_2:UtilBillNoPVRevenueDoll
+                                          1 ASV_3:UtilRevenuePVDoll
+                                          1 ASV_4:UtilBillNetDoll
+                                          1 ASV_5:UtilCostElecDoll
+                                          1 ASV_6:UtilCostGasDoll
+                                          1 ASV_7:UtilCostPropaneDoll
+                                          1 ASV_8:UtilCostOilDoll
+                                          1 ASV_9:Util-Bill-Wood
+                                          1 ASV_10:Util-Bill-Pellet
+                                          1 ASV_11:EnergyPVkWh
+                                          1 ASV_12:EnergyHeatingGJ
+                                          1 ASV_13:EnergyCoolingGJ
+                                          1 ASV_14:EnergyVentGJ
+                                          1 ASV_15:EnergyDHWGJ
+                                          1 ASV_16:EnergyPlugGJ
+                                          1 ASV_17:FuelEleckWh
+                                          1 ASV_18:FuelNaturalGasM3
+                                          1 ASV_19:FuelOilL
+                                          1 ASV_20:EnergyPellet_t
+                                          1 ASV_21:UpgradeCostDoll
+                                          1 ASV_22:SimplePaybackYrs
+                                          1 ASV_23:PVSizekW
+                                          1 ASV_24:ERSValue
                                           0 derivative_variables
                                           0 analysis_components
-                                          1 eval_id
+                                      10413 eval_id
