@@ -73,6 +73,7 @@ my $gERSNum = 0;		# ERS number
 
 my $gDakota = 0; 
 my $gPostProcDakota = 0;
+my $gERSCalcMode = 0;
 
 my $gRegionalCostAdj;   
 
@@ -224,6 +225,7 @@ my $Help_msg = "
                   
  other options: 
     -d : use Dakota format for input (and processing)
+	-e : calculate ERS value (produces a second run, if required)
 	-z : run this script as Dakota post-processor (implies -d)
 	     Note: Need options (-o) and choice (-c) files but
 		       don't need -b option
@@ -260,6 +262,7 @@ $cmd_arguements =~ s/-b;/--base_folder;/g;
 $cmd_arguements =~ s/-svp;/--save-vp-output;/g;
 $cmd_arguements =~ s/-d;/--dakota;/g; 
 $cmd_arguements =~ s/-z;/--postprocdakota;/g; 
+$cmd_arguements =~ s/-e;/--erscalc;/g; 
 
 # Collate options expecting arguments
 $cmd_arguements =~ s/--options;/--options:/g;
@@ -346,7 +349,13 @@ foreach $arg (@processed_args){
        $gDakota = 1;
 	   $gPostProcDakota = 1;
        last SWITCH; 
-    }   
+    } 
+
+    if ( $arg =~ /^--erscalc/ ) { 
+       # ERS calculation mode
+       $gERSCalcMode = 1;
+       last SWITCH; 
+    } 
     
     if ( $arg =~ /^--verbose/ ){
       # stream out progress messages
@@ -909,14 +918,18 @@ while ( my ( $attribute, $choice) = each %gChoices ){
 my $gNumRunSetsRqd = 1;
 my $gElecLS = $gChoices{"Opt-ElecLoadScale"};
 my $gDHWLS = $gChoices{"Opt-DHWLoadScale"};
-if ( $gElecLS =~ /"NoReduction"/ && $gDHWLS =~ /"OLDERS"/ ) {
-	# Conditions already set correctly to calculate ERS!
-	$gNumRunSetsRqd = 1;
-} else {
-	$gNumRunSetsRqd = 2;
-	$gChoices{"Opt-ElecLoadScale"} = "NoReduction";
-	$gChoices{"Opt-DHWLoadScale"} = "OldERS";
+
+if ( $gERSCalcMode ) {
+	if ( $gElecLS =~ /"NoReduction"/ && $gDHWLS =~ /"OLDERS"/ ) {
+		# Conditions already set correctly to calculate ERS!
+		$gNumRunSetsRqd = 1;
+	} else {
+		$gNumRunSetsRqd = 2;
+		$gChoices{"Opt-ElecLoadScale"} = "NoReduction";
+		$gChoices{"Opt-DHWLoadScale"} = "OldERS";
+	}
 }
+
 
 for ( my $iRun = 1; $iRun <= $gNumRunSetsRqd; $iRun++ ) {
 
@@ -1310,7 +1323,7 @@ for ( my $iRun = 1; $iRun <= $gNumRunSetsRqd; $iRun++ ) {
 		postprocess($ScaleResults);
 	}
 	
-	if ( $iRun == 1 ) {
+	if ( $gERSCalcMode && $iRun == 1 ) {
 		# Calculate ERS number for output. All energy values in MJ
 		my $SpcElecEnergy = 0;	#*********************
 		my $SpcFuelEnergy = $gAvgEnergyHeatingGJ * 1000.;	#********************
@@ -2593,7 +2606,11 @@ sub postprocess($){
   stream_out("  - ".round($gEnergyOil* 8760. * 60. * 60.)." (Oil, l)\n");
   stream_out("  - ".round($gEnergyWood* 8760. * 60. * 60.)." (Wood, cord)\n");
   stream_out("  - ".round($gEnergyPellet* 8760. * 60. * 60.)." (Pellet, tonnes)\n");
-
+  
+  if ( $gERSCalcMode && $gERSNum > 0 ) {
+	my $tmpval = round($gERSNum * 10) / 10.;
+	stream_out("  - ".$tmpval." (ERS value)\n");
+  }
  
   stream_out ("> SCALE $ScaleData \n"); 
   
