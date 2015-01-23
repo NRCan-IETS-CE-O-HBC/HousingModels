@@ -2013,14 +2013,14 @@ Reflects southern Ontario costs
 *option:NoReduction:alias     = 2700
 
 ! --- CEF assumptions (equilibrium)  ----
-*option:BasicReduction:value:1 = 0.843
-*option:BasicReduction:cost:total    = 0
-*option:BasicReduction:alias    = 2701
+!*option:BasicReduction:value:1 = 0.843
+!*option:BasicReduction:cost:total    = 0
+!*option:BasicReduction:alias    = 2701
 
 ! --- CEF assumptions (equilibrium)  ----
-*option:EfficientLiving:value:1 = 0.711
-*option:EfficientLiving:cost:total    = 0
-*option:EfficientLiving:alias    = 2702
+!*option:EfficientLiving:value:1 = 0.711
+!*option:EfficientLiving:cost:total    = 0
+!*option:EfficientLiving:alias    = 2702
 
 
 ! --- Next-gen ERS ---------
