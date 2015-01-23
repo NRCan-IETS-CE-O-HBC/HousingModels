@@ -1443,7 +1443,10 @@ if ( $gDakota ) {
     print SUMMARY "". $payback ."\n"; 
 
     print SUMMARY "".$PVcapacity."\n"; 
-	print SUMMARY "$gERSNum \n";
+	
+	if ( $gERSCalcMode ) {
+		print SUMMARY "$gERSNum \n";
+	}
 
 } else {
 
@@ -1480,7 +1483,10 @@ if ( $gDakota ) {
 	}
 
     print SUMMARY "PV-size-kW      =  ".$PVcapacity."\n"; 
-	print SUMMARY "$gERSNum \n";
+
+	if ( $gERSCalcMode ) {
+		print SUMMARY "$gERSNum \n";
+	}
 
 }
 
