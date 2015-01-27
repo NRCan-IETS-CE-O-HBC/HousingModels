@@ -121,10 +121,12 @@ my $gAvgPelletCons_tonne = 0;
 my $gDirection = "";
 
 my $gEnergyHeatingElec = 0;
+my $gEnergyVentElec = 0;
 my $gEnergyHeatingFossil = 0;
 my $gEnergyWaterHeatingElec = 0;
 my $gEnergyWaterHeatingFossil = 0;
 my $gAvgEnergyHeatingElec = 0;
+my $gAvgEnergyVentElec = 0;
 my $gAvgEnergyHeatingFossil = 0;
 my $gAvgEnergyWaterHeatingElec = 0;
 my $gAvgEnergyWaterHeatingFossil = 0;
@@ -1317,10 +1319,12 @@ for ( my $iRun = 1; $iRun <= $gNumRunSetsRqd; $iRun++ ) {
 	$gAvgPelletCons_tonne		= 0; 
 	$gDirection                 ="";
 	$gEnergyHeatingElec 		= 0;
+	$gEnergyVentElec            = 0;
 	$gEnergyHeatingFossil 		= 0;
 	$gEnergyWaterHeatingElec 	= 0;
 	$gEnergyWaterHeatingFossil 	= 0;
 	$gAvgEnergyHeatingElec 		= 0;
+	$gAvgEnergyVentElec         = 0;
 	$gAvgEnergyHeatingFossil 	= 0;
 	$gAvgEnergyWaterHeatingElec = 0;
 	$gAvgEnergyWaterHeatingFossil = 0;
@@ -1342,7 +1346,7 @@ for ( my $iRun = 1; $iRun <= $gNumRunSetsRqd; $iRun++ ) {
 	
 	if ( $gERSCalcMode && $iRun == 1 ) {
 		# Calculate ERS number for output. All energy values in MJ
-		my $SpcElecEnergy = $gAvgEnergyHeatingElec * 1000.;
+		my $SpcElecEnergy = ($gAvgEnergyHeatingElec + $gAvgEnergyVentElec) * 1000.;
 		my $SpcFuelEnergy = $gAvgEnergyHeatingFossil * 1000.;
 		my $FuelEff = 0.90;	 # Assume all NG (NG:0.90, Oil:0.83 Wood:0.75)
 		my $SpcHtConsump = $SpcElecEnergy * 1.0 + $SpcFuelEnergy * $FuelEff;  
@@ -2570,6 +2574,9 @@ sub postprocess($){
   # New variables required for ERS calculation
   $gEnergyHeatingElec = defined( $gSimResults{"total_fuel_use/test/electricity/space_heating/energy_content::AnnualTotal"} ) ? 
                          $gSimResults{"total_fuel_use/test/electricity/space_heating/energy_content::AnnualTotal"} : 0 ;  
+						 
+  $gEnergyVentElec = defined( $gSimResults{"total_fuel_use/test/electricity/ventilation/energy_content::AnnualTotal"} ) ? 
+                         $gSimResults{"total_fuel_use/test/electricity/ventilation/energy_content::AnnualTotal"} : 0 ;  
 
   $gEnergyHeatingFossil = defined( $gSimResults{"total_fuel_use/test/fossil_fuels/space_heating/energy_content::AnnualTotal"} ) ? 
                          $gSimResults{"total_fuel_use/test/fossil_fuels/space_heating/energy_content::AnnualTotal"} : 0 ;  
@@ -2628,6 +2635,7 @@ sub postprocess($){
   $gAvgEnergyEquipmentGJ    += $gEnergyEquipment       * $ScaleData; 
 
   $gAvgEnergyHeatingElec        += $gEnergyHeatingElec        * $ScaleData;
+  $gAvgEnergyVentElec           += $gEnergyVentElec           * $ScaleData;
   $gAvgEnergyHeatingFossil      += $gEnergyHeatingFossil      * $ScaleData;
   $gAvgEnergyWaterHeatingElec   += $gEnergyWaterHeatingElec   * $ScaleData;
   $gAvgEnergyWaterHeatingFossil += $gEnergyWaterHeatingFossil * $ScaleData;
