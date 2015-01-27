@@ -120,6 +120,15 @@ my $gAvgPropCons_l      = 0;
 my $gAvgPelletCons_tonne = 0; 
 my $gDirection = "";
 
+my $gEnergyHeatingElec = 0;
+my $gEnergyHeatingFossil = 0;
+my $gEnergyWaterHeatingElec = 0;
+my $gEnergyWaterHeatingFossil = 0;
+my $gAvgEnergyHeatingElec = 0;
+my $gAvgEnergyHeatingFossil = 0;
+my $gAvgEnergyWaterHeatingElec = 0;
+my $gAvgEnergyWaterHeatingFossil = 0;
+
 # Data from Hanscomb 2011 NBC analysis
 my %RegionalCostFactors  = (  "Halifax"      =>  0.95 ,
                               "Edmonton"     =>  1.12 ,
@@ -1307,6 +1316,14 @@ for ( my $iRun = 1; $iRun <= $gNumRunSetsRqd; $iRun++ ) {
 	$gAvgPropCons_l				= 0; 
 	$gAvgPelletCons_tonne		= 0; 
 	$gDirection                 ="";
+	$gEnergyHeatingElec 		= 0;
+	$gEnergyHeatingFossil 		= 0;
+	$gEnergyWaterHeatingElec 	= 0;
+	$gEnergyWaterHeatingFossil 	= 0;
+	$gAvgEnergyHeatingElec 		= 0;
+	$gAvgEnergyHeatingFossil 	= 0;
+	$gAvgEnergyWaterHeatingElec = 0;
+	$gAvgEnergyWaterHeatingFossil = 0;
 	
 	UpdateCon();  
 	 
@@ -1325,15 +1342,13 @@ for ( my $iRun = 1; $iRun <= $gNumRunSetsRqd; $iRun++ ) {
 	
 	if ( $gERSCalcMode && $iRun == 1 ) {
 		# Calculate ERS number for output. All energy values in MJ
-		my $SpcElecEnergy = 0;	#*********************
-		my $SpcFuelEnergy = $gAvgEnergyHeatingGJ * 1000.;	#********************
-		my $FuelEff = 0.90;		#0.90 for NG, 0.83 for oil, 0.75 for wood (EGNH says 0.80 for all fossil fuel)
-		#my $SpcHtConsump = $SpcElecEnergy * 1.0 + $SpcFuelEnergy * $FuelEff;  
-		my $SpcHtConsump = $SpcFuelEnergy;  
-		my $DHWElec = 0;		#********************
-		my $DHWFuel = $gAvgEnergyWaterHeatingGJ * 1000;		#********************
-		#my $OccConsump = 1.136 * ( $DHWElec * 0.88 + $DHWFuel * 0.57 );
-		my $OccConsump = 1.136 * $DHWFuel;
+		my $SpcElecEnergy = $gAvgEnergyHeatingElec * 1000.;
+		my $SpcFuelEnergy = $gAvgEnergyHeatingFossil * 1000.;
+		my $FuelEff = 0.90;	 # Assume all NG (NG:0.90, Oil:0.83 Wood:0.75)
+		my $SpcHtConsump = $SpcElecEnergy * 1.0 + $SpcFuelEnergy * $FuelEff;  
+		my $DHWElec = $gAvgEnergyWaterHeatingElec * 1000.;
+		my $DHWFuel = $gAvgEnergyWaterHeatingFossil * 1000.;
+		my $OccConsump = 1.136 * ( $DHWElec * 0.88 + $DHWFuel * 0.57 );
 		my $EstTotEnergy = $SpcHtConsump + $OccConsump;
 		
 		my $Locale = $gChoices{"Opt-Location"};
@@ -2522,18 +2537,14 @@ sub postprocess($){
   #$gEnergySDHW = defined( $gSimResults{"SDHW production"} ) ? 
   #                       $gSimResults{"SDHW production"} : 0 ;  
 
-
   $gEnergyHeating = defined( $gSimResults{"total_fuel_use/test/all_fuels/space_heating/energy_content::AnnualTotal"} ) ? 
                          $gSimResults{"total_fuel_use/test/all_fuels/space_heating/energy_content::AnnualTotal"} : 0 ;  
-
 
   $gEnergyCooling = defined( $gSimResults{"total_fuel_use/test/all_fuels/space_cooling/energy_content::AnnualTotal"} ) ? 
                          $gSimResults{"total_fuel_use/test/all_fuels/space_cooling/energy_content::AnnualTotal"} : 0 ;  
 
-
   $gEnergyVentilation = defined( $gSimResults{"total_fuel_use/test/all_fuels/ventilation/energy_content::AnnualTotal"} ) ? 
                          $gSimResults{"total_fuel_use/test/all_fuels/ventilation/energy_content::AnnualTotal"} : 0 ;  
-
 
   $gEnergyWaterHeating = defined( $gSimResults{"total_fuel_use/test/all_fuels/water_heating/energy_content::AnnualTotal"} ) ? 
                          $gSimResults{"total_fuel_use/test/all_fuels/water_heating/energy_content::AnnualTotal"} : 0 ;  
@@ -2555,8 +2566,20 @@ sub postprocess($){
 
   $gEnergyPellet = defined($gSimResults{"total_fuel_use/wood_pellets/all_end_uses/quantity::Total_Average"} ) ? 
                          $gSimResults{"total_fuel_use/wood_pellets/all_end_uses/quantity::Total_Average"} : 0 ;  
-					
-			 
+  
+  # New variables required for ERS calculation
+  $gEnergyHeatingElec = defined( $gSimResults{"total_fuel_use/test/electricity/space_heating/energy_content::AnnualTotal"} ) ? 
+                         $gSimResults{"total_fuel_use/test/electricity/space_heating/energy_content::AnnualTotal"} : 0 ;  
+
+  $gEnergyHeatingFossil = defined( $gSimResults{"total_fuel_use/test/fossil_fuels/space_heating/energy_content::AnnualTotal"} ) ? 
+                         $gSimResults{"total_fuel_use/test/fossil_fuels/space_heating/energy_content::AnnualTotal"} : 0 ;  
+						 
+  $gEnergyWaterHeatingElec = defined( $gSimResults{"total_fuel_use/test/electricity/water_heating/energy_content::AnnualTotal"} ) ? 
+                         $gSimResults{"total_fuel_use/test/electricity/water_heating/energy_content::AnnualTotal"} : 0 ;  
+
+  $gEnergyWaterHeatingFossil = defined( $gSimResults{"total_fuel_use/test/fossil_fuels/water_heating/energy_content::AnnualTotal"} ) ? 
+                         $gSimResults{"total_fuel_use/test/fossil_fuels/water_heating/energy_content::AnnualTotal"} : 0 ;  
+	
   my $PVRevenue = $gEnergyPV * 1e06 / 3600. *$PVTarrifDollarsPerkWh; 
   
   my $TotalBill = $TotalElecBill+$TotalGasBill+$TotalOilBill+$TotalPropaneBill+$TotalWoodBill+$TotalPelletBill; 
@@ -2603,8 +2626,12 @@ sub postprocess($){
   $gAvgEnergyVentilationGJ  += $gEnergyVentilation     * $ScaleData; 
   $gAvgEnergyWaterHeatingGJ += $gEnergyWaterHeating    * $ScaleData; 
   $gAvgEnergyEquipmentGJ    += $gEnergyEquipment       * $ScaleData; 
-  
-  
+
+  $gAvgEnergyHeatingElec        += $gEnergyHeatingElec        * $ScaleData;
+  $gAvgEnergyHeatingFossil      += $gEnergyHeatingFossil      * $ScaleData;
+  $gAvgEnergyWaterHeatingElec   += $gEnergyWaterHeatingElec   * $ScaleData;
+  $gAvgEnergyWaterHeatingFossil += $gEnergyWaterHeatingFossil * $ScaleData;
+
   stream_out("\n\n Energy Use (not including credit for PV, direction $gRotationAngle ): \n\n") ; 
   
   stream_out("  - ".round($gEnergyElec* 8760. * 60. * 60.)." (Electricity, kWh)\n");
