@@ -612,7 +612,7 @@
 *option:Van_3st_garage:value:14   = 3.3019
 *option:Van_3st_garage:value:15   = 3.5052
 *option:Van_3st_garage:value:16   = 11.57382
-*option:Van_3st_garage:value:17   = 1		! Need volume **********************
+*option:Van_3st_garage:value:17   = 500		! Need volume **********************
 *option:Van_3st_garage:cost:total = 0
 *option:Van_3st_garage:alias = 1201
 
@@ -632,7 +632,7 @@
 *option:Van_2st_garage:value:14   = 3.3019
 *option:Van_2st_garage:value:15   = 3.5052
 *option:Van_2st_garage:value:16   = 11.57382
-*option:Van_2st_garage:value:17   = 1		! Need volume **********************
+*option:Van_2st_garage:value:17   = 500		! Need volume **********************
 *option:Van_2st_garage:cost:total = 0
 *option:Van_2st_garage:alias = 1202
 
