@@ -1346,7 +1346,7 @@ for ( my $iRun = 1; $iRun <= $gNumRunSetsRqd; $iRun++ ) {
 	
 	if ( $gERSCalcMode && $iRun == 1 ) {
 		# Calculate ERS number for output. All energy values in MJ
-		my $SpcElecEnergy = $gAvgEnergyHeatingElec * 1000.;		#  + $gAvgEnergyVentElec -- Don't add Vent fans!
+		my $SpcElecEnergy = ( $gAvgEnergyHeatingElec + $gAvgEnergyVentElec ) * 1000.;
 		my $SpcFuelEnergy = $gAvgEnergyHeatingFossil * 1000.;
 		my $FuelEff = 0.90;	 # Assume all NG (NG:0.90, Oil:0.83 Wood:0.75)
 		my $SpcHtConsump = $SpcElecEnergy * 1.0 + $SpcFuelEnergy * $FuelEff;  
