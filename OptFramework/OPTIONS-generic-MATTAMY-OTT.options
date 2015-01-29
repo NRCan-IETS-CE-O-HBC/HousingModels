@@ -574,7 +574,7 @@
 *attribute:tag:15   = <gar-length>
 *attribute:tag:16   = <gar-area>
 *attribute:tag:17   = <ERS-volume>		! For calculating ERS number in substitute.pl
-*attribute:default = Toronto
+*attribute:default = MattOtt_2st_garage
 
 *option:MattOtt_2st_garage:value:1    = 89.4
 *option:MattOtt_2st_garage:value:2    = 7.24
