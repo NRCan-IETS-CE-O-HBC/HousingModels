@@ -74,6 +74,7 @@ my $gERSNum = 0;		# ERS number
 my $gDakota = 0; 
 my $gPostProcDakota = 0;
 my $gERSCalcMode = 0;
+my $gReorder = 0;
 
 my $gRegionalCostAdj;   
 
@@ -241,7 +242,8 @@ my $Help_msg = "
 	-z : run this script as Dakota post-processor (implies -d)
 	     Note: Need options (-o) and choice (-c) files but
 		       don't need -b option
-	
+	-r : reorder Dakota postprocessed output to match GenOpt
+	     Implies -d and -z so no need to set.
 ";
 
 # dump help text, if no argument given
@@ -275,6 +277,7 @@ $cmd_arguements =~ s/-svp;/--save-vp-output;/g;
 $cmd_arguements =~ s/-d;/--dakota;/g; 
 $cmd_arguements =~ s/-z;/--postprocdakota;/g; 
 $cmd_arguements =~ s/-e;/--erscalc;/g; 
+$cmd_arguements =~ s/-r;/--reorder;/g; 
 
 # Collate options expecting arguments
 $cmd_arguements =~ s/--options;/--options:/g;
@@ -363,6 +366,14 @@ foreach $arg (@processed_args){
        last SWITCH; 
     } 
 
+    if ( $arg =~ /^--reorder/ ) { 
+       # post process Dakota output (and also set Dakota fag)
+       $gDakota = 1;
+	   $gPostProcDakota = 1;
+	   $gReorder = 1;
+       last SWITCH; 
+    } 
+	
     if ( $arg =~ /^--erscalc/ ) { 
        # ERS calculation mode
        $gERSCalcMode = 1;
@@ -1546,14 +1557,11 @@ sub process_file($){
         my $valHash = $gOptions{$attribute}{"options"}{$choice}{"result"};
       
         for my $tagIndex ( keys ( %{$tagHash} ) ){
-          
-		  
           my $tag   = ${$tagHash}{$tagIndex};
           my $value = ${$valHash}{$tagIndex};
           if (!defined($value)){debug_out (">>>ERR on $tag\n");}        
           if ( $line =~ /$tag/ ){ $matched = 1; }
           $line =~ s/$tag/$value/g; 
-          
         }
         
       }
@@ -1561,12 +1569,10 @@ sub process_file($){
     }
     # if ($matched ){debug_out("> $linecopy| $line");}
     push @file_contents, $line;
-  
  
   }
   
   close(READIN);
-  
   
   open(WRITEOUT,">$file_path") or fatalerror("Could not open $file_path for writing!");
 
@@ -2836,40 +2842,44 @@ sub postprocessDakota()
 		foreach my $TestValue (@DataIn){
 			if ( $linecnt == 1 ) {
 				# Ignore existing header row and write an alternate that uses the correct variable
-				# names that Tableau expects when using existing visualizations (the "GOtag:..." names.)
-				if ( $eleNum == 0 ) { $DataIn[$eleNum] = "Simulation Number"; }
-				elsif ( $eleNum == 1 ) { $DataIn[$eleNum] = "Main Iteration"; }
-				elsif ( $eleNum == 2 ) { $DataIn[$eleNum] = "GOtag:CalcMode"; }
-				elsif ( $eleNum == 3 ) { $DataIn[$eleNum] = "GOtag:DBFiles"; }
-				elsif ( $eleNum == 4 ) { $DataIn[$eleNum] = "GOtag:Opt-Location"; }
-				elsif ( $eleNum == 5 ) { $DataIn[$eleNum] = "GOtag:GOconfig_rotate"; }
-				elsif ( $eleNum == 8 ) { $DataIn[$eleNum] = "GOtag:HRVcontrol"; }
-				elsif ( $eleNum == 9 ) { $DataIn[$eleNum] = "GOtag:Opt-geometry"; }
-				elsif ( $eleNum == 10 ) { $DataIn[$eleNum] = "GOtag:Opt-Attachment"; }
-				elsif ( $eleNum == 12 ) { $DataIn[$eleNum] = "GOtag:RoofPitch"; }
-				elsif ( $eleNum == 13 ) { $DataIn[$eleNum] = "GOtag:Opt-OverhangWidth"; }
-				elsif ( $eleNum == 15 ) { $DataIn[$eleNum] = "GOtag:DHWLoadScale"; }
-				elsif ( $eleNum == 16 ) { $DataIn[$eleNum] = "GOtag:ElecLoadScale"; }
-				elsif ( $eleNum == 17 ) { $DataIn[$eleNum] = "GOtag:Opt-AirTightness"; }
-				elsif ( $eleNum == 18 ) { $DataIn[$eleNum] = "GOtag:Opt-ACH"; }
-				elsif ( $eleNum == 19 ) { $DataIn[$eleNum] = "GOtag:Opt-CasementWindows"; }
-				elsif ( $eleNum == 20 ) { $DataIn[$eleNum] = "GOtag:Opt-Ceilings"; }
-				elsif ( $eleNum == 21 ) { $DataIn[$eleNum] = "GOtag:Opt-MainWall"; }
-				elsif ( $eleNum == 22 ) { $DataIn[$eleNum] = "GOtag:Opt-ExposedFloor"; }
-				elsif ( $eleNum == 23 ) { $DataIn[$eleNum] = "GOtag:Opt-BasementWallInsulation"; }
-				elsif ( $eleNum == 24 ) { $DataIn[$eleNum] = "GOtag:Opt-BasementSlabInsulation"; }
-				elsif ( $eleNum == 25 ) { $DataIn[$eleNum] = "GOtag:Ext-DryWall"; }
-				elsif ( $eleNum == 26 ) { $DataIn[$eleNum] = "GOtag:Opt-FloorSurface"; }
-				elsif ( $eleNum == 27 ) { $DataIn[$eleNum] = "GOtag:Opt-DHWSystem"; }
-				elsif ( $eleNum == 28 ) { $DataIn[$eleNum] = "GOtag:Opt-HVACSystem"; }
-				elsif ( $eleNum == 29 ) { $DataIn[$eleNum] = "GOtag:Opt-Cooling-Spec"; }
-				elsif ( $eleNum == 30 ) { $DataIn[$eleNum] = "GOtag:Opt-HRVSpec"; }
-				elsif ( $eleNum == 31 ) { $DataIn[$eleNum] = "GOtag:Opt-HRVduct"; }
-				elsif ( $eleNum == 32 ) { $DataIn[$eleNum] = "GOtag:Opt-StandoffPV"; }
-				elsif ( $eleNum == 33 ) { $DataIn[$eleNum] = "GOtag:Opt-DWHRandSDHW"; }
+				# names that Tableau expects when using existing visualizations (i.e., the "GOtag:..." names.)
+				if    ( $eleNum == 0 ) { $DataIn[$eleNum]  = "Simulation Number"; }				#0:%eval_id
+				elsif ( $eleNum == 1 ) { $DataIn[$eleNum]  = "Main Iteration"; }				#1:skipping "interface"
+				elsif ( $eleNum == 2 ) { $DataIn[$eleNum]  = "GOtag:CalcMode"; }				#2:Opt-calcmode
+				elsif ( $eleNum == 3 ) { $DataIn[$eleNum]  = "GOtag:DBFiles"; }					#3:Opt-DBFiles
+				elsif ( $eleNum == 4 ) { $DataIn[$eleNum]  = "GOtag:Opt-Location"; }			#4:Opt-Location
+				elsif ( $eleNum == 5 ) { $DataIn[$eleNum]  = "GOtag:GOconfig_rotate"; }			#5:GOconfig_rotate
+				#no change																		#6:OPT-OPR-SCHED
+				#no change																		#7:OPT-Furnace-Fan-Ctl
+				elsif ( $eleNum == 8 ) { $DataIn[$eleNum]  = "GOtag:HRVcontrol"; }				#8:OPT-HRV_ctl
+				elsif ( $eleNum == 9 ) { $DataIn[$eleNum]  = "GOtag:Opt-geometry"; }			#9:Opt-geometry
+				elsif ( $eleNum == 10 ) { $DataIn[$eleNum] = "GOtag:Opt-Attachment"; }			#10:Opt-Attachment
+				#no change																		#11:Opt-BaseWindows
+				elsif ( $eleNum == 12 ) { $DataIn[$eleNum] = "GOtag:RoofPitch"; }				#12:Opt-RoofPitch
+				elsif ( $eleNum == 13 ) { $DataIn[$eleNum] = "GOtag:Opt-OverhangWidth"; }		#13:Opt-OverhangWidth
+				#no change																		#14:Opt-WindowOrientation
+				elsif ( $eleNum == 15 ) { $DataIn[$eleNum] = "GOtag:DHWLoadScale"; }			#15:Opt-DHWLoadScale
+				elsif ( $eleNum == 16 ) { $DataIn[$eleNum] = "GOtag:ElecLoadScale"; }			#16:Opt-ElecLoadScale
+				elsif ( $eleNum == 17 ) { $DataIn[$eleNum] = "GOtag:Opt-AirTightness"; }		#17:Opt-AirTightness
+				elsif ( $eleNum == 18 ) { $DataIn[$eleNum] = "GOtag:Opt-ACH"; }					#18:Opt-ACH
+				elsif ( $eleNum == 19 ) { $DataIn[$eleNum] = "GOtag:Opt-CasementWindows"; }		#19:Opt-CasementWindows
+				elsif ( $eleNum == 20 ) { $DataIn[$eleNum] = "GOtag:Opt-Ceilings"; }			#20:Opt-Ceilings
+				elsif ( $eleNum == 21 ) { $DataIn[$eleNum] = "GOtag:Opt-MainWall"; }			#21:Opt-MainWall
+				elsif ( $eleNum == 22 ) { $DataIn[$eleNum] = "GOtag:Opt-ExposedFloor"; }		#22:Opt-ExposedFloor
+				elsif ( $eleNum == 23 ) { $DataIn[$eleNum] = "GOtag:Opt-BasementWallInsulation"; }	#23:Opt-BasementWallInsulation
+				elsif ( $eleNum == 24 ) { $DataIn[$eleNum] = "GOtag:Opt-BasementSlabInsulation"; }	#24:Opt-BasementSlabInsulation
+				elsif ( $eleNum == 25 ) { $DataIn[$eleNum] = "GOtag:Ext-DryWall"; }				#25:Opt-ExtraDrywall
+				elsif ( $eleNum == 26 ) { $DataIn[$eleNum] = "GOtag:Opt-FloorSurface"; }		#26:Opt-FloorSurface
+				elsif ( $eleNum == 27 ) { $DataIn[$eleNum] = "GOtag:Opt-DHWSystem"; }			#27:Opt-DHWSystem
+				elsif ( $eleNum == 28 ) { $DataIn[$eleNum] = "GOtag:Opt-HVACSystem"; }			#28:Opt-HVACSystem
+				elsif ( $eleNum == 29 ) { $DataIn[$eleNum] = "GOtag:Opt-Cooling-Spec"; }		#29:Opt-Cooling-Spec
+				elsif ( $eleNum == 30 ) { $DataIn[$eleNum] = "GOtag:Opt-HRVSpec"; }				#30:Opt-HRVspec
+				elsif ( $eleNum == 31 ) { $DataIn[$eleNum] = "GOtag:Opt-HRVduct"; }				#31:Opt-HRVduct
+				elsif ( $eleNum == 32 ) { $DataIn[$eleNum] = "GOtag:Opt-StandoffPV"; }			#32:Opt-StandoffPV
+				elsif ( $eleNum == 33 ) { $DataIn[$eleNum] = "GOtag:Opt-DWHRandSDHW"; }			#33:Opt-DWHRandSDHW
 			}
 			elsif ( $eleNum == 1 ) {
-				$DataIn[$eleNum] = $linecnt-1;	# Main Iteration set to record number
+				$DataIn[$eleNum] = $DataIn[0];	# Same as Simulation Number
 			}
 			elsif ( $eleNum > 1 && $eleNum < 34 && $TestValue =~ /\d{3,4}/ ){
 				# Get attribute name for data values that are Dakota aliases
@@ -2892,10 +2902,18 @@ sub postprocessDakota()
 			}
 			
 			# DataIn array now updated with attribute option names (or correct header names)
-			# Write out the data if at end of current input line
+			
+			# $DataOut in order of data read in
 			$DataOut .= "$DataIn[$eleNum]\t";	# Tab Separate vars (expected by recover_results.pl)
+
+			# Write out the data if at end of current input line
 			if ( $eleNum == scalar(@DataIn)-1 ) {
-				$DataOut .= "\n";
+				if ( $gReorder ) {
+					# Reorder the output to match order of Genopt Data (ignores elements 42,43,53, 57). See GenOpt-Dakota Output Mapping.xlsx for mapping (Jeff).
+					$DataOut = "$DataIn[0]\t$DataIn[1]\t$DataIn[2]\t1\t1\t$DataIn[55]\t$DataIn[34]\t$DataIn[35]\t$DataIn[36]\t$DataIn[37]\t$DataIn[38]\t$DataIn[39]\t$DataIn[40]\t$DataIn[41]\t$DataIn[44]\t$DataIn[45]\t$DataIn[46]\t$DataIn[47]\t$DataIn[48]\t$DataIn[49]\t$DataIn[50]\t$DataIn[51]\t$DataIn[52]\t$DataIn[54]\t$DataIn[56]\t$DataIn[2]\t$DataIn[3]\t$DataIn[4]\t$DataIn[9]\t$DataIn[10]\t$DataIn[17]\t$DataIn[18]\t$DataIn[21]\t$DataIn[23]\t$DataIn[24]\t$DataIn[22]\t$DataIn[20]\t$DataIn[19]\t$DataIn[25]\t$DataIn[26]\t$DataIn[33]\t$DataIn[27]\t$DataIn[28]\t$DataIn[29]\t$DataIn[30]\t$DataIn[31]\t$DataIn[32]\t$DataIn[13]\t$DataIn[12]\t$DataIn[16]\t$DataIn[15]\t$DataIn[8]\t$DataIn[5]\n";
+				} else {
+					$DataOut .= "\n";
+				}
 				print WRITEOUT $DataOut;	# Write out one line at a time so $DataOut doesn't get huge!!
 				$DataOut = "";				# Clear $DataOut
 				$eleNum = 0;
