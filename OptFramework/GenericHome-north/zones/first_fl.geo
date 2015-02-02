@@ -51,7 +51,7 @@ first_fl describes the first floor
 *surf,Top-5,CEIL,-,-,-,<Opt-Ceiling>,OPAQUE,ANOTHER,03,05       #   5 ||< Top-5:roof-base
 *surf,Base-6,FLOR,-,-,-,<Opt-IntFloor>,OPAQUE,ANOTHER,01,05     #   6 ||< Base-6:Top_bsm
 *surf,win-wall-1,VERT,Wall-1,-,-,<OptAtt-Win1Con>,<OptAtt-Win1Opt>,EXTERIOR,0,0  #   7 ||< external
-*surf,win-wall-2,VERT,Wall-2,WALL,-,<Opt-MainWall-Bri>,OPAQUE,EXTERIOR,0,0  #   8 ||< external
+*surf,win-wall-2,VERT,Wall-2,-,-,<Opt-MainWall-Bri>,OPAQUE,EXTERIOR,0,0  #   8 ||< external
 *surf,win-wall-3,VERT,Wall-3,-,-,<OptAtt-Win3Con>,<OptAtt-Win3Opt>,EXTERIOR,0,0  #   9 ||< external
 *surf,win-wall-4,VERT,Wall-4,-,-,<OptAtt-Win4Con>,<OptAtt-Win4Opt>,EXTERIOR,0,0  #  10 ||< external
 # 
