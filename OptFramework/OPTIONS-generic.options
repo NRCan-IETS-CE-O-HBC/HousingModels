@@ -643,6 +643,24 @@
 *option:NWT_1986:cost:total = 0
 
 
+*option:BC_LEEP:value:1    = 108.3
+*option:BC_LEEP:value:2    = 9
+*option:BC_LEEP:value:3    = 12.04
+*option:BC_LEEP:value:4    = 12.101
+*option:BC_LEEP:value:5    = 4.5
+*option:BC_LEEP:value:6    = 0.5
+*option:BC_LEEP:value:7    = 2.3
+*option:BC_LEEP:value:8    = 0.5
+*option:BC_LEEP:value:9    = 1.704
+*option:BC_LEEP:value:10   = 8.5
+*option:BC_LEEP:value:11   = 4.9
+*option:BC_LEEP:value:12   = 11.537
+*option:BC_LEEP:value:13   = 10.333
+*option:BC_LEEP:value:14   = 9.
+*option:BC_LEEP:value:15   = 3.5052
+*option:BC_LEEP:value:16   = 31.5468
+*option:BC_LEEP:cost:total = 0
+
 
 *attribute:end
 
