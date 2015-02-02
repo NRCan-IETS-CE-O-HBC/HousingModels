@@ -2888,7 +2888,6 @@ sub postprocessDakota()
 				}
 			}
 
-			}
 			elsif ( $eleNum > 1 && $eleNum < 34 && $TestValue =~ /\d{3,4}/ ){
 				# Get attribute name for data values that are Dakota aliases
 				while ( my ( $attribute, $dummy) = each %gChoices ){
