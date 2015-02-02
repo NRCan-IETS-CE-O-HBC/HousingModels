@@ -1108,6 +1108,41 @@
 
 *attribute:end
 
+
+!-----------------------------------------------------------------------
+!   Generic wall insulation thickness settings: - one layer
+!-----------------------------------------------------------------------
+*attribute:start 
+*attribute:name = Opt-GenericWall_1Layer_definitions
+*attribute:tag:1  = <Opt-GenInsulLayerInboard-a>
+*attribute:default = test
+ 
+ 
+! Thicknesses are defined in meters. Format * must * be #.#### (4 decimals)
+*option:test:value:1 = 0.0250 
+*option:test:cost    = 0
+
+*attribute:end
+
+!-----------------------------------------------------------------------
+!   Generic wall insulation thickness settings: - two layer
+!-----------------------------------------------------------------------
+*attribute:start 
+*attribute:name = Opt-GenericWall_2Layer_definitions
+*attribute:tag:1  = <Opt-GenInsulLayerInboard-b>
+*attribute:tag:2  = <Opt-GenInsulLayerOutboard-b>
+*attribute:default = test
+ 
+ 
+! Thicknesses are defined in meters. Format * must * be #.#### (4 decimals)
+*option:test2:value:1 = 0.0250
+*option:test2:value:2 = 0.0250
+*option:test2:cost    = 0
+
+*attribute:end
+
+
+
 !-----------------------------------------------------------------------
 !   Main walls
 !-----------------------------------------------------------------------
@@ -1119,6 +1154,26 @@
 *attribute:tag:2  = <Opt-MainWall-Vin>
 *attribute:tag:3  = <Opt-MainWall-Dry>
 *attribute:default = BaseR21
+
+! GENERIC wall definitions: thickness of insulation layers
+! is set separately, based on data in options file
+!
+
+! - Single insulation layer (batts). 
+*option:GenericWall_1Layer:value:1 =   GenWal1Rx   ! Added by JTB for MB base wall
+*option:GenericWall_1Layer:value:2 =   GenWal1Rx
+*option:GenericWall_1Layer:value:3 =   GenWal1Rx 
+*option:GenericWall_1Layer:cost:total    =   0     ! Costs defined in Generic Wall definitions 
+
+! - Two insulation layers (e.g. batts - OSB - foam board ). 
+*option:GenericWall_2Layer:value:1 =   GenWal2Rx   ! Added by JTB for MB base wall
+*option:GenericWall_2Layer:value:2 =   GenWal2Rx
+*option:GenericWall_2Layer:value:3 =   GenWal2Rx 
+*option:GenericWall_2Layer:cost:total    =   0
+
+
+! Other wall definitions: insulation configurations and thicknesses 
+! defined in the construction file
 
 
 *option:BaseR20:value:1 =   BaseR20Bri   ! Added by JTB for MB base wall

@@ -85,8 +85,10 @@ Opt-AirTightness   : Generic
 !  Retro-R1_52
 !  Retro-R2_1
 
-Opt-MainWall         : BaseR20
+Opt-MainWall         : GenericWall_2Layer
 
+Opt-GenericWall_1Layer_definitions : test
+Opt-GenericWall_2Layer_definitions : test2
 
 ! Add extra drywall to wall constructions 
 ! Options: 
