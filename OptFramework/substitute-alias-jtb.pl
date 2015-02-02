@@ -2530,9 +2530,9 @@ sub postprocess($){
   my $gTotalEnergy = 0;
 
   foreach my $token ( sort keys %gSimResults ){
-    if ( $token =~ /AnnualTotal/ ){
+    if ( $token =~ /AnnualTotal/ && $token =~ /all_fuels/){
         my $value = $gSimResults{$token};
-        $gTotalEnergy += $value; 
+		$gTotalEnergy += $value; 
         stream_out ( "  + $value ( $token, GJ ) \n");
     }
   }
@@ -2814,8 +2814,8 @@ sub postprocessDakota()
 	execute($gDakotaUtilityCmd);
 	
 	# Open Dakota generated file and file to be used for processed output
-	open ( READIN_DAKOTA_RESULTS, "$DakotaGenerated" ) or fatalerror( "Could not read gDakotaGenerated!" );
-	open (WRITEOUT, ">$DakotaOutput") or die ( "Could not open $DakotaOutput for writing !"); 
+	open ( READIN_DAKOTA_RESULTS, "$DakotaGenerated" ) or fatalerror( "Could not read gDakotaGenerated! This option requires access to the Dakota program dakota_restart_util!" );
+	open (WRITEOUT, ">$DakotaOutput") or die ( "Could not open $DakotaOutput for writing!"); 
 
 	stream_out("\n\nReading $DakotaGenerated and writing $DakotaOutput...\n");
 
