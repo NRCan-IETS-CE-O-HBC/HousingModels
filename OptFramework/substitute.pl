@@ -2877,9 +2877,17 @@ sub postprocessDakota()
 				elsif ( $eleNum == 31 ) { $DataIn[$eleNum] = "GOtag:Opt-HRVduct"; }				#31:Opt-HRVduct
 				elsif ( $eleNum == 32 ) { $DataIn[$eleNum] = "GOtag:Opt-StandoffPV"; }			#32:Opt-StandoffPV
 				elsif ( $eleNum == 33 ) { $DataIn[$eleNum] = "GOtag:Opt-DWHRandSDHW"; }			#33:Opt-DWHRandSDHW
+				elsif ( $gReorder ) { $DataIn[58] = "Sub Iteration"; $DataIn[59] = "Step Number"; }						#58 & 59 for GenOpt
 			}
 			elsif ( $eleNum == 1 ) {
 				$DataIn[$eleNum] = $DataIn[0];	# Same as Simulation Number
+				if ( $gReorder ) {
+					# Set values for GenOpt values not read in
+					$DataIn[58] = 1; 	#Sub Iteration
+					$DataIn[59] = 1;	#Step Number
+				}
+			}
+
 			}
 			elsif ( $eleNum > 1 && $eleNum < 34 && $TestValue =~ /\d{3,4}/ ){
 				# Get attribute name for data values that are Dakota aliases
@@ -2910,7 +2918,7 @@ sub postprocessDakota()
 			if ( $eleNum == scalar(@DataIn)-1 ) {
 				if ( $gReorder ) {
 					# Reorder the output to match order of Genopt Data (ignores elements 42,43,53, 57). See GenOpt-Dakota Output Mapping.xlsx for mapping (Jeff).
-					$DataOut = "$DataIn[0]\t$DataIn[1]\t$DataIn[2]\t1\t1\t$DataIn[55]\t$DataIn[34]\t$DataIn[35]\t$DataIn[36]\t$DataIn[37]\t$DataIn[38]\t$DataIn[39]\t$DataIn[40]\t$DataIn[41]\t$DataIn[44]\t$DataIn[45]\t$DataIn[46]\t$DataIn[47]\t$DataIn[48]\t$DataIn[49]\t$DataIn[50]\t$DataIn[51]\t$DataIn[52]\t$DataIn[54]\t$DataIn[56]\t$DataIn[2]\t$DataIn[3]\t$DataIn[4]\t$DataIn[9]\t$DataIn[10]\t$DataIn[17]\t$DataIn[18]\t$DataIn[21]\t$DataIn[23]\t$DataIn[24]\t$DataIn[22]\t$DataIn[20]\t$DataIn[19]\t$DataIn[25]\t$DataIn[26]\t$DataIn[33]\t$DataIn[27]\t$DataIn[28]\t$DataIn[29]\t$DataIn[30]\t$DataIn[31]\t$DataIn[32]\t$DataIn[13]\t$DataIn[12]\t$DataIn[16]\t$DataIn[15]\t$DataIn[8]\t$DataIn[5]\n";
+					$DataOut = "$DataIn[0]\t$DataIn[1]\t$DataIn[58]\t$DataIn[59]\t$DataIn[55]\t$DataIn[34]\t$DataIn[35]\t$DataIn[36]\t$DataIn[37]\t$DataIn[38]\t$DataIn[39]\t$DataIn[40]\t$DataIn[41]\t$DataIn[44]\t$DataIn[45]\t$DataIn[46]\t$DataIn[47]\t$DataIn[48]\t$DataIn[49]\t$DataIn[50]\t$DataIn[51]\t$DataIn[52]\t$DataIn[54]\t$DataIn[56]\t$DataIn[2]\t$DataIn[3]\t$DataIn[4]\t$DataIn[9]\t$DataIn[10]\t$DataIn[17]\t$DataIn[18]\t$DataIn[21]\t$DataIn[23]\t$DataIn[24]\t$DataIn[22]\t$DataIn[20]\t$DataIn[19]\t$DataIn[25]\t$DataIn[26]\t$DataIn[33]\t$DataIn[27]\t$DataIn[28]\t$DataIn[29]\t$DataIn[30]\t$DataIn[31]\t$DataIn[32]\t$DataIn[13]\t$DataIn[12]\t$DataIn[16]\t$DataIn[15]\t$DataIn[8]\t$DataIn[5]\n";
 				} else {
 					$DataOut .= "\n";
 				}
