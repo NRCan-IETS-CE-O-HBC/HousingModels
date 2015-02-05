@@ -1,5 +1,5 @@
 *Geometry 1.1,GEN,first_fl # tag version, format, zone name
-*date Thu Feb  5 14:17:37 2015  # latest file modification 
+*date Thu Feb  5 15:18:10 2015  # latest file modification 
 first_fl describes the first floor
 # tag, X co-ord, Y co-ord, Z co-ord
 *vertex,6.60000,6.60400,2.43840  #   1

@@ -1,5 +1,5 @@
 *Geometry 1.1,GEN,second_fl # tag version, format, zone name
-*date Thu Feb  5 14:17:37 2015  # latest file modification 
+*date Thu Feb  5 15:18:10 2015  # latest file modification 
 second_fl describes the second floor
 # tag, X co-ord, Y co-ord, Z co-ord
 *vertex,0.00000,0.00000,5.15240  #   1
@@ -15,16 +15,16 @@ second_fl describes the second floor
 *vertex,3.40600,0.00000,7.20560  #  11
 *vertex,0.50000,0.00000,7.20560  #  12
 *vertex,6.60000,0.50000,5.98640  #  13
-*vertex,6.60000,3.11900,5.98640  #  14
-*vertex,6.60000,3.11900,7.20560  #  15
+*vertex,6.60000,0.51000,5.98640  #  14
+*vertex,6.60000,0.51000,7.20560  #  15
 *vertex,6.60000,0.50000,7.20560  #  16
 *vertex,6.10400,9.35000,5.98640  #  17
 *vertex,3.06600,9.35000,5.98640  #  18
 *vertex,3.06600,9.35000,7.20560  #  19
 *vertex,6.10400,9.35000,7.20560  #  20
 *vertex,0.00000,8.85300,5.98640  #  21
-*vertex,0.00000,8.84300,5.98640  #  22
-*vertex,0.00000,8.84300,7.20560  #  23
+*vertex,0.00000,6.23400,5.98640  #  22
+*vertex,0.00000,6.23400,7.20560  #  23
 *vertex,0.00000,8.85300,7.20560  #  24
 *vertex,6.60000,6.60400,5.15240  #  25
 *vertex,0.00000,6.60400,5.15240  #  26

@@ -318,10 +318,10 @@ Storing data for Opt-geometry:
            - <Opt-Width> -> 6.60 [valid: all ]   
            - <Opt-Area> -> 61.76 [valid: all ]   
            - <gar-area> -> 39.23 [valid: all ]   
-           - <win-wall-4-left> -> 8.843 [valid: all ]   
+           - <win-wall-4-left> -> 6.234 [valid: all ]   
            - <win-wall-1-right> -> 0.5 [valid: all ]   
            - <Opt-Length> -> 9.35 [valid: all ]   
-           - <win-wall-2-left> -> 3.119 [valid: all ]   
+           - <win-wall-2-left> -> 0.51 [valid: all ]   
            - <win-wall-4-right> -> 8.853 [valid: all ]   
            - <gar-width> -> 5.94 [valid: all ]   
            - <gar-length> -> 6.604 [valid: all ]   
@@ -2692,35 +2692,35 @@ done.
  Energy Consumption: 
 
   + 24.377392 ( total_fuel_use/test/all_fuels/equipment/energy_content::AnnualTotal, GJ ) 
-  + 1.452036 ( total_fuel_use/test/all_fuels/space_cooling/energy_content::AnnualTotal, GJ ) 
-  + 36.593088 ( total_fuel_use/test/all_fuels/space_heating/energy_content::AnnualTotal, GJ ) 
+  + 1.149158 ( total_fuel_use/test/all_fuels/space_cooling/energy_content::AnnualTotal, GJ ) 
+  + 34.458241 ( total_fuel_use/test/all_fuels/space_heating/energy_content::AnnualTotal, GJ ) 
   + 17.498858 ( total_fuel_use/test/all_fuels/water_heating/energy_content::AnnualTotal, GJ ) 
  --------------------------------------------------------
-    79.921374 ( Total energy, GJ ) 
+    77.483649 ( Total energy, GJ ) 
 
 
  Energy Cost (not including credit for PV, direction 0 ): 
 
-  + $ 573 (Electricity)
-  + $ 569 (Natural Gas)
+  + $ 564 (Electricity)
+  + $ 552 (Natural Gas)
   + $ 0 (Oil)
   + $ 0 (Propane)
   + $ 0 (Wood)
   + $ 0 (Pellet)
  --------------------------------------------------------
-    $ 1141 (All utilities).
+    $ 1116 (All utilities).
 
   - $ 0 (PV revenue, 0 kWh at $ 0.08 / kWh)
  --------------------------------------------------------
-    $ 1141 (Net utility costs).
+    $ 1116 (Net utility costs).
 
 
 
 
  Energy Use (not including credit for PV, direction 0 ): 
 
-  - 7198 (Electricity, kWh)
-  - 1453 (Natural Gas, m3)
+  - 7112 (Electricity, kWh)
+  - 1395 (Natural Gas, m3)
   - 0 (Oil, l)
   - 0 (Wood, cord)
   - 0 (Pellet, tonnes)

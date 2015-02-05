@@ -1,5 +1,5 @@
 *Geometry 1.1,GEN,third_fl # tag version, format, zone name
-*date Thu Feb  5 14:17:37 2015  # latest file modification 
+*date Thu Feb  5 15:18:10 2015  # latest file modification 
 third_fl describes the third floor
 # tag, X co-ord, Y co-ord, Z co-ord
 *vertex,0.00000,0.00000,8.17840  #   1
@@ -15,16 +15,16 @@ third_fl describes the third floor
 *vertex,3.40600,0.00000,9.64460  #  11
 *vertex,0.50000,0.00000,9.64460  #  12
 *vertex,6.60000,0.50000,8.42540  #  13
-*vertex,6.60000,3.11900,8.42540  #  14
-*vertex,6.60000,3.11900,9.64460  #  15
+*vertex,6.60000,0.51000,8.42540  #  14
+*vertex,6.60000,0.51000,9.64460  #  15
 *vertex,6.60000,0.50000,9.64460  #  16
 *vertex,6.10400,9.35000,8.42540  #  17
 *vertex,3.06600,9.35000,8.42540  #  18
 *vertex,3.06600,9.35000,9.64460  #  19
 *vertex,6.10400,9.35000,9.64460  #  20
 *vertex,0.00000,8.85300,8.42540  #  21
-*vertex,0.00000,8.84300,8.42540  #  22
-*vertex,0.00000,8.84300,9.64460  #  23
+*vertex,0.00000,6.23400,8.42540  #  22
+*vertex,0.00000,6.23400,9.64460  #  23
 *vertex,0.00000,8.85300,9.64460  #  24
 # 
 # tag, number of vertices followed by list of associated vert
