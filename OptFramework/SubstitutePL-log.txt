@@ -1,0 +1,2771 @@
+ > substitute.pl path: /cygdrive/c/HousingModels/OptFramework 
+ >               ChoiceFile: DESIGN-generic_BC_LEEP.choices 
+ >               OptionFile: OPTIONS-generic.options 
+ >               base model: GenericHome-LEEP-BC 
+
+
+Reading OPTIONS-generic.options...========== Opt-calcmode ===========
+Storing data for Opt-calcmode: 
+    -> calc 
+           - <Opt-endday> -> 31 [valid: all ]   
+           - <Opt-disable_isi> -> *isi [valid: all ]   
+           - <Opt-endmonth> -> 12 [valid: all ]   
+    -> debug 
+           - <Opt-endday> -> 1 [valid: all ]   
+           - <Opt-disable_isi> -> # [valid: all ]   
+           - <Opt-endmonth> -> 1 [valid: all ]   
+========== GOconfig_rotate ===========
+Storing data for GOconfig_rotate: 
+    -> S 
+           - <NotARealTag> -> S [valid: all ]   
+    -> W 
+           - <NotARealTag> -> S [valid: all ]   
+    -> N 
+           - <NotARealTag> -> S [valid: all ]   
+    -> E 
+           - <NotARealTag> -> S [valid: all ]   
+========== Opt-DBFiles ===========
+Storing data for Opt-DBFiles: 
+    -> CEF 
+           - <OPT-ConstDBFile> -> NZEH-CEF.constrdb [valid: all ]   
+           - <OPT-OptDBFile> -> optics-CEF.db2 [valid: all ]   
+    -> WHITEHORSE 
+           - <OPT-ConstDBFile> -> NZEH-WH.constrdb [valid: all ]   
+           - <OPT-OptDBFile> -> optics-WH.db2 [valid: all ]   
+    -> retrofit 
+           - <OPT-ConstDBFile> -> retrofit.constrdb [valid: all ]   
+           - <OPT-OptDBFile> -> optics-retrofit.db2 [valid: all ]   
+========== Opt-Attachment ===========
+Storing data for Opt-Attachment: 
+    -> single 
+           - <OptAtt-cnn-bsm6> -> 6,<OPT-BsmCnnIndex>,5 [valid: all ]   
+           - <OptAtt-bsm1BC> -> BASESIMP,01,15 [valid: all ]   
+           - <OptAtt-Win2Opt> -> <OptAtt-windows-2-LeftOPT> [valid: all ]   
+           - <OptAtt-cnn-row> -> 0 [valid: all ]   
+           - <OptAtt-bsm2Con> -> <OPT-BsmWall> [valid: all ]   
+           - <OptAtt-Win1Opt> -> <OptAtt-windows-1-FrontOPT> [valid: all ]   
+           - <OptAtt-Win1Con> -> <OptAtt-windows-1-FrontCON> [valid: all ]   
+           - <OptAtt-bsm2BC> -> BASESIMP,01,10 [valid: all ]   
+           - <OptAtt-cnn-bsm4> -> 6,<OPT-BsmCnnIndex>,10 [valid: all ]   
+           - <OptAtt-Win4BC> -> EXTERIOR [valid: all ]   
+           - <OptAtt-cnn-bsm1> -> 6,<OPT-BsmCnnIndex>,10 [valid: all ]   
+           - <OptAtt-cnn-semi> -> 0 [valid: all ]   
+           - <OptAtt-cnn-bsm2> -> 6,<OPT-BsmCnnIndex>,15 [valid: all ]   
+           - <OptAtt-bsm4BC> -> BASESIMP,01,15 [valid: all ]   
+           - <OptAtt-Win4Con> -> <OptAtt-windows-4-RightCON> [valid: all ]   
+           - <OptAtt-bsm6BC> -> BASESIMP,01,5 [valid: all ]   
+           - <OptAtt-Win3Opt> -> <OptAtt-windows-3-BackOPT> [valid: all ]   
+           - <OptAtt-cnn-bsm5> -> 6,<OPT-BsmCnnIndex>,5 [valid: all ]   
+           - <OptAtt-Wall4Con> -> <Opt-MainWall-Bri> [valid: all ]   
+           - <OptAtt-bsm3BC> -> BASESIMP,01,10 [valid: all ]   
+           - <OptAtt-Wall4BC> -> EXTERIOR [valid: all ]   
+           - <OptAtt-bsm5BC> -> BASESIMP,01,5 [valid: all ]   
+           - <OptAtt-cnn-bsm3> -> 6,<OPT-BsmCnnIndex>,15 [valid: all ]   
+           - <OptAtt-Win2Con> -> <OptAtt-windows-2-LeftCON> [valid: all ]   
+           - <OptAtt-Wall2Con> -> <Opt-MainWall-Bri> [valid: all ]   
+           - <OptAtt-Win3Con> -> <OptAtt-windows-3-BackCON> [valid: all ]   
+           - <OptAtt-Wall4Opt> -> OPAQUE [valid: all ]   
+           - <OptAtt-Win4Opt> -> <OptAtt-windows-4-RightOPT> [valid: all ]   
+           - <OptAtt-Win2BC> -> EXTERIOR [valid: all ]   
+           - <OptAtt-Wall2Opt> -> OPAQUE [valid: all ]   
+           - <OptAtt-bsm4Con> -> <OPT-BsmWall> [valid: all ]   
+           - <OptAtt-Wall2BC> -> EXTERIOR [valid: all ]   
+    -> row 
+           - <OptAtt-cnn-bsm6> -> 6,<OPT-BsmCnnIndex>,10 [valid: all ]   
+           - <OptAtt-bsm1BC> -> BASESIMP,01,20 [valid: all ]   
+           - <OptAtt-Win2Opt> -> OPAQUE [valid: all ]   
+           - <OptAtt-cnn-row> -> 5 [valid: all ]   
+           - <OptAtt-bsm2Con> -> int_wl [valid: all ]   
+           - <OptAtt-Win1Opt> -> <OptAtt-windows-1-FrontOPT> [valid: all ]   
+           - <OptAtt-Win1Con> -> <OptAtt-windows-1-FrontCON> [valid: all ]   
+           - <OptAtt-bsm2BC> -> ADIABATIC,0,0 [valid: all ]   
+           - <OptAtt-cnn-bsm4> -> 5,0,0 [valid: all ]   
+           - <OptAtt-Win4BC> -> ADIABATIC [valid: all ]   
+           - <OptAtt-cnn-bsm1> -> 6,<OPT-BsmCnnIndex>,20 [valid: all ]   
+           - <OptAtt-cnn-semi> -> 5 [valid: all ]   
+           - <OptAtt-cnn-bsm2> -> 5,0,0 [valid: all ]   
+           - <OptAtt-bsm4BC> -> ADIABATIC,0,0 [valid: all ]   
+           - <OptAtt-Win4Con> -> int_wl [valid: all ]   
+           - <OptAtt-bsm6BC> -> BASESIMP,01,10 [valid: all ]   
+           - <OptAtt-Win3Opt> -> <OptAtt-windows-3-BackOPT> [valid: all ]   
+           - <OptAtt-cnn-bsm5> -> 6,<OPT-BsmCnnIndex>,10 [valid: all ]   
+           - <OptAtt-Wall4Con> -> int_wl [valid: all ]   
+           - <OptAtt-bsm3BC> -> BASESIMP,01,20 [valid: all ]   
+           - <OptAtt-Wall4BC> -> ADIABATIC [valid: all ]   
+           - <OptAtt-bsm5BC> -> BASESIMP,01,10 [valid: all ]   
+           - <OptAtt-cnn-bsm3> -> 6,<OPT-BsmCnnIndex>,20 [valid: all ]   
+           - <OptAtt-Win2Con> -> int_wl [valid: all ]   
+           - <OptAtt-Wall2Con> -> int_wl [valid: all ]   
+           - <OptAtt-Win3Con> -> <OptAtt-windows-3-BackCON> [valid: all ]   
+           - <OptAtt-Wall4Opt> -> OPAQUE [valid: all ]   
+           - <OptAtt-Win4Opt> -> OPAQUE [valid: all ]   
+           - <OptAtt-Win2BC> -> ADIABATIC [valid: all ]   
+           - <OptAtt-Wall2Opt> -> OPAQUE [valid: all ]   
+           - <OptAtt-bsm4Con> -> int_wl [valid: all ]   
+           - <OptAtt-Wall2BC> -> ADIABATIC [valid: all ]   
+    -> semi 
+           - <OptAtt-cnn-bsm6> -> 6,<OPT-BsmCnnIndex>,5 [valid: all ]   
+           - <OptAtt-bsm1BC> -> BASESIMP,01,20 [valid: all ]   
+           - <OptAtt-Win2Opt> -> <OptAtt-windows-2-LeftOPT> [valid: all ]   
+           - <OptAtt-cnn-row> -> 0 [valid: all ]   
+           - <OptAtt-bsm2Con> -> <OPT-BsmWall> [valid: all ]   
+           - <OptAtt-Win1Opt> -> <OptAtt-windows-1-FrontOPT> [valid: all ]   
+           - <OptAtt-Win1Con> -> <OptAtt-windows-1-FrontCON> [valid: all ]   
+           - <OptAtt-bsm2BC> -> BASESIMP,01,10 [valid: all ]   
+           - <OptAtt-cnn-bsm4> -> 5,0,0 [valid: all ]   
+           - <OptAtt-Win4BC> -> ADIABATIC [valid: all ]   
+           - <OptAtt-cnn-bsm1> -> 6,<OPT-BsmCnnIndex>,10 [valid: all ]   
+           - <OptAtt-cnn-semi> -> 5 [valid: all ]   
+           - <OptAtt-cnn-bsm2> -> 6,<OPT-BsmCnnIndex>,20 [valid: all ]   
+           - <OptAtt-bsm4BC> -> ADIABATIC,0,0 [valid: all ]   
+           - <OptAtt-Win4Con> -> int_wl [valid: all ]   
+           - <OptAtt-bsm6BC> -> BASESIMP,01,5 [valid: all ]   
+           - <OptAtt-Win3Opt> -> <OptAtt-windows-3-BackOPT> [valid: all ]   
+           - <OptAtt-cnn-bsm5> -> 6,<OPT-BsmCnnIndex>,5 [valid: all ]   
+           - <OptAtt-Wall4Con> -> int_wl [valid: all ]   
+           - <OptAtt-bsm3BC> -> BASESIMP,01,20 [valid: all ]   
+           - <OptAtt-Wall4BC> -> ADIABATIC [valid: all ]   
+           - <OptAtt-bsm5BC> -> BASESIMP,01,5 [valid: all ]   
+           - <OptAtt-cnn-bsm3> -> 6,<OPT-BsmCnnIndex>,20 [valid: all ]   
+           - <OptAtt-Win2Con> -> <OptAtt-windows-2-LeftCON> [valid: all ]   
+           - <OptAtt-Wall2Con> -> <Opt-MainWall-Bri> [valid: all ]   
+           - <OptAtt-Win3Con> -> <OptAtt-windows-3-BackCON> [valid: all ]   
+           - <OptAtt-Wall4Opt> -> OPAQUE [valid: all ]   
+           - <OptAtt-Win4Opt> -> OPAQUE [valid: all ]   
+           - <OptAtt-Win2BC> -> EXTERIOR [valid: all ]   
+           - <OptAtt-Wall2Opt> -> OPAQUE [valid: all ]   
+           - <OptAtt-bsm4Con> -> int_wl [valid: all ]   
+           - <OptAtt-Wall2BC> -> EXTERIOR [valid: all ]   
+========== Opt-WindowOrientation ===========
+Storing data for Opt-WindowOrientation: 
+    -> all 
+           - <OptAtt-windows-3-BackOPT> -> <Opt-win-S-OPT> [valid: GOconfig_rotate=N ]   
+           - <OptAtt-windows-3-BackOPT> -> <Opt-win-N-OPT> [valid: GOconfig_rotate=S ]   
+           - <OptAtt-windows-3-BackOPT> -> <Opt-win-W-OPT> [valid: GOconfig_rotate=E ]   
+           - <OptAtt-windows-3-BackOPT> -> <Opt-win-E-OPT> [valid: GOconfig_rotate=W ]   
+           - <OptAtt-windows-2-LeftCON> -> <Opt-win-W-CON> [valid: GOconfig_rotate=N ]   
+           - <OptAtt-windows-2-LeftCON> -> <Opt-win-E-CON> [valid: GOconfig_rotate=S ]   
+           - <OptAtt-windows-2-LeftCON> -> <Opt-win-N-CON> [valid: GOconfig_rotate=E ]   
+           - <OptAtt-windows-2-LeftCON> -> <Opt-win-S-CON> [valid: GOconfig_rotate=W ]   
+           - <OptAtt-windows-4-RightCON> -> <Opt-win-E-CON> [valid: GOconfig_rotate=N ]   
+           - <OptAtt-windows-4-RightCON> -> <Opt-win-W-CON> [valid: GOconfig_rotate=S ]   
+           - <OptAtt-windows-4-RightCON> -> <Opt-win-S-CON> [valid: GOconfig_rotate=E ]   
+           - <OptAtt-windows-4-RightCON> -> <Opt-win-N-CON> [valid: GOconfig_rotate=W ]   
+           - <OptAtt-windows-1-FrontOPT> -> <Opt-win-N-OPT> [valid: GOconfig_rotate=N ]   
+           - <OptAtt-windows-1-FrontOPT> -> <Opt-win-S-OPT> [valid: GOconfig_rotate=S ]   
+           - <OptAtt-windows-1-FrontOPT> -> <Opt-win-E-OPT> [valid: GOconfig_rotate=E ]   
+           - <OptAtt-windows-1-FrontOPT> -> <Opt-win-W-OPT> [valid: GOconfig_rotate=W ]   
+           - <OptAtt-windows-4-RightOPT> -> <Opt-win-E-OPT> [valid: GOconfig_rotate=N ]   
+           - <OptAtt-windows-4-RightOPT> -> <Opt-win-W-OPT> [valid: GOconfig_rotate=S ]   
+           - <OptAtt-windows-4-RightOPT> -> <Opt-win-S-OPT> [valid: GOconfig_rotate=E ]   
+           - <OptAtt-windows-4-RightOPT> -> <Opt-win-N-OPT> [valid: GOconfig_rotate=W ]   
+           - <OptAtt-windows-1-FrontCON> -> <Opt-win-N-CON> [valid: GOconfig_rotate=N ]   
+           - <OptAtt-windows-1-FrontCON> -> <Opt-win-S-CON> [valid: GOconfig_rotate=S ]   
+           - <OptAtt-windows-1-FrontCON> -> <Opt-win-E-CON> [valid: GOconfig_rotate=E ]   
+           - <OptAtt-windows-1-FrontCON> -> <Opt-win-W-CON> [valid: GOconfig_rotate=W ]   
+           - <OptAtt-windows-2-LeftOPT> -> <Opt-win-W-OPT> [valid: GOconfig_rotate=N ]   
+           - <OptAtt-windows-2-LeftOPT> -> <Opt-win-E-OPT> [valid: GOconfig_rotate=S ]   
+           - <OptAtt-windows-2-LeftOPT> -> <Opt-win-N-OPT> [valid: GOconfig_rotate=E ]   
+           - <OptAtt-windows-2-LeftOPT> -> <Opt-win-S-OPT> [valid: GOconfig_rotate=W ]   
+           - <OptAtt-windows-3-BackCON> -> <Opt-win-S-CON> [valid: GOconfig_rotate=N ]   
+           - <OptAtt-windows-3-BackCON> -> <Opt-win-N-CON> [valid: GOconfig_rotate=S ]   
+           - <OptAtt-windows-3-BackCON> -> <Opt-win-W-CON> [valid: GOconfig_rotate=E ]   
+           - <OptAtt-windows-3-BackCON> -> <Opt-win-E-CON> [valid: GOconfig_rotate=W ]   
+========== Opt-BaseWindows ===========
+Storing data for Opt-BaseWindows: 
+    -> MinWindows 
+           - <No-Longer-A-Working-Tag> -> <Opt-CasWinConstruction> [valid: all ]   
+           - <No-Longer-A-Working-Tag2> -> <Opt-CasWinOptics> [valid: all ]   
+    -> NoWindows 
+           - <No-Longer-A-Working-Tag> -> <Opt-MainWall-Bri> [valid: all ]   
+           - <No-Longer-A-Working-Tag2> -> OPAQUE [valid: all ]   
+========== OPT-HRV_ctl ===========
+Storing data for OPT-HRV_ctl: 
+    -> ERSp3ACH 
+           - <OPT-HRV_ctl> -> 8 [valid: all ]   
+    -> EightHRpDay 
+           - <OPT-HRV_ctl> -> 9 [valid: all ]   
+    -> Continuious 
+           - <OPT-HRV_ctl> -> 7 [valid: all ]   
+========== OPT-Furnace-Fan-Ctl ===========
+Storing data for OPT-Furnace-Fan-Ctl: 
+    -> Auto 
+           - <OPT-Furnace-Fan-Ctl> -> 1 [valid: all ]   
+    -> Continuous 
+           - <OPT-Furnace-Fan-Ctl> -> 2 [valid: all ]   
+========== Opt-Location ===========
+Storing data for Opt-Location: 
+    -> PrinceGeorge 
+           - <OPT-WEATHER-FILE> -> can_prince_george.cwec [valid: all ]   
+           - <OPT-Longitude> -> -2.68 [valid: all ]   
+           - <OPT-Latitude> -> 53.88 [valid: all ]   
+    -> Toronto 
+           - <OPT-WEATHER-FILE> -> can_toronto.cwec [valid: all ]   
+           - <OPT-Longitude> -> -4.40 [valid: all ]   
+           - <OPT-Latitude> -> 43.6481 [valid: all ]   
+    -> Halifax 
+           - <OPT-WEATHER-FILE> -> can_halifax.cwec [valid: all ]   
+           - <OPT-Longitude> -> -3.5 [valid: all ]   
+           - <OPT-Latitude> -> 44.6 [valid: all ]   
+    -> Calgary 
+           - <OPT-WEATHER-FILE> -> can_calgary.cwec [valid: all ]   
+           - <OPT-Longitude> -> -9.2 [valid: all ]   
+           - <OPT-Latitude> -> 51.5 [valid: all ]   
+    -> Vancouver 
+           - <OPT-WEATHER-FILE> -> can_vancouver.cwec [valid: all ]   
+           - <OPT-Longitude> -> -3.1 [valid: all ]   
+           - <OPT-Latitude> -> 49.25 [valid: all ]   
+    -> Yellowknife 
+           - <OPT-WEATHER-FILE> -> can_yellowknife.cwec [valid: all ]   
+           - <OPT-Longitude> -> -0.55 [valid: all ]   
+           - <OPT-Latitude> -> 62.47 [valid: all ]   
+    -> Ottawa 
+           - <OPT-WEATHER-FILE> -> can_ottawa.cwec [valid: all ]   
+           - <OPT-Longitude> -> -4.40 [valid: all ]   
+           - <OPT-Latitude> -> 43.6481 [valid: all ]   
+    -> Edmonton 
+           - <OPT-WEATHER-FILE> -> can_edmonton.cwec [valid: all ]   
+           - <OPT-Longitude> -> -8.50 [valid: all ]   
+           - <OPT-Latitude> -> 53.5 [valid: all ]   
+    -> Quebec 
+           - <OPT-WEATHER-FILE> -> can_quebec.cwec [valid: all ]   
+           - <OPT-Longitude> -> 3.8 [valid: all ]   
+           - <OPT-Latitude> -> 46.9 [valid: all ]   
+    -> Inuvik 
+           - <OPT-WEATHER-FILE> -> can_inuvik.cwec [valid: all ]   
+           - <OPT-Longitude> -> 1.52 [valid: all ]   
+           - <OPT-Latitude> -> 68.3 [valid: all ]   
+    -> Montreal 
+           - <OPT-WEATHER-FILE> -> can_montreal.cwec [valid: all ]   
+           - <OPT-Longitude> -> 1.5 [valid: all ]   
+           - <OPT-Latitude> -> 45.5 [valid: all ]   
+    -> Fredricton 
+           - <OPT-WEATHER-FILE> -> can_fredericton.cwec [valid: all ]   
+           - <OPT-Longitude> -> -6.6 [valid: all ]   
+           - <OPT-Latitude> -> 45.96 [valid: all ]   
+    -> Whitehorse 
+           - <OPT-WEATHER-FILE> -> can_whitehorse.cwec [valid: all ]   
+           - <OPT-Longitude> -> -0.05 [valid: all ]   
+           - <OPT-Latitude> -> 60.7161 [valid: all ]   
+    -> Regina 
+           - <OPT-WEATHER-FILE> -> can_regina.cwec [valid: all ]   
+           - <OPT-Longitude> -> -14.6 [valid: all ]   
+           - <OPT-Latitude> -> 50.4 [valid: all ]   
+    -> Kamloops 
+           - <OPT-WEATHER-FILE> -> can_kamloops.cwec [valid: all ]   
+           - <OPT-Longitude> -> -0.45 [valid: all ]   
+           - <OPT-Latitude> -> 50.7 [valid: all ]   
+    -> Winnipeg 
+           - <OPT-WEATHER-FILE> -> can_winnipeg.cwec [valid: all ]   
+           - <OPT-Longitude> -> -7.1 [valid: all ]   
+           - <OPT-Latitude> -> 49.8 [valid: all ]   
+========== Opt-OverhangWidth ===========
+Storing data for Opt-OverhangWidth: 
+    -> BaseOverhang 
+           - <Opt-OverhangW_mainfloor> -> 0.001 [valid: all ]   
+           - <Opt-OverhangW_secondfloor> -> 0.457 [valid: all ]   
+    -> ThreeFootOverhang 
+           - <Opt-OverhangW_mainfloor> -> 0.9144 [valid: all ]   
+           - <Opt-OverhangW_secondfloor> -> 0.6096 [valid: all ]   
+    -> FourFootOverhang 
+           - <Opt-OverhangW_mainfloor> -> 1.2192 [valid: all ]   
+           - <Opt-OverhangW_secondfloor> -> 1.2192 [valid: all ]   
+    -> OnepFiveFootOverhang 
+           - <Opt-OverhangW_mainfloor> -> 0.457 [valid: all ]   
+           - <Opt-OverhangW_secondfloor> -> 0.457 [valid: all ]   
+    -> TwoFootOverhang 
+           - <Opt-OverhangW_mainfloor> -> 0.6096 [valid: all ]   
+           - <Opt-OverhangW_secondfloor> -> 0.6096 [valid: all ]   
+========== Opt-geometry ===========
+Storing data for Opt-geometry: 
+    -> NWT_Access 
+           - <win-wall-3-left> -> 6.328 [valid: all ]   
+           - <win-wall-1-left> -> 3.103 [valid: all ]   
+           - <Opt-Width> -> 8.53 [valid: all ]   
+           - <Opt-Area> -> 98.849 [valid: all ]   
+           - <gar-area> -> 0 [valid: all ]   
+           - <win-wall-4-left> -> 9.860 [valid: all ]   
+           - <win-wall-1-right> -> 0.5 [valid: all ]   
+           - <Opt-Length> -> 11.58 [valid: all ]   
+           - <win-wall-2-left> -> 2.724 [valid: all ]   
+           - <win-wall-4-right> -> 11.0824 [valid: all ]   
+           - <gar-width> -> 0 [valid: all ]   
+           - <gar-length> -> 0 [valid: all ]   
+           - <win-wall-2-right> -> 0.5 [valid: all ]   
+           - <Opt-Roof-Height> -> 4.9924 [valid: all ]   
+           - <win-wall-3-right> -> 8.034 [valid: all ]   
+           - <Opt-Roof-Peak-W> -> 4.2672 [valid: all ]   
+    -> Van_3st_garage 
+           - <win-wall-3-left> -> 2.5 [valid: all ]   
+           - <win-wall-1-left> -> 1.500 [valid: all ]   
+           - <Opt-Width> -> 5 [valid: all ]   
+           - <Opt-Area> -> 55.8333 [valid: all ]   
+           - <gar-area> -> 11.57382 [valid: all ]   
+           - <win-wall-4-left> -> 9.550 [valid: all ]   
+           - <win-wall-1-right> -> 0.5 [valid: all ]   
+           - <Opt-Length> -> 11.17 [valid: all ]   
+           - <win-wall-2-left> -> 1.617 [valid: all ]   
+           - <win-wall-4-right> -> 10.667 [valid: all ]   
+           - <gar-width> -> 3.3019 [valid: all ]   
+           - <gar-length> -> 3.5052 [valid: all ]   
+           - <win-wall-2-right> -> 0.5 [valid: all ]   
+           - <Opt-Roof-Height> -> 10.9914 [valid: all ]   
+           - <win-wall-3-right> -> 4.5 [valid: all ]   
+           - <Opt-Roof-Peak-W> -> 2.5 [valid: all ]   
+    -> BC_LEEP 
+           - <win-wall-3-left> -> 3.066 [valid: all ]   
+           - <win-wall-1-left> -> 3.406 [valid: all ]   
+           - <Opt-Width> -> 6.60 [valid: all ]   
+           - <Opt-Area> -> 61.76 [valid: all ]   
+           - <gar-area> -> 39.23 [valid: all ]   
+           - <win-wall-4-left> -> 8.843 [valid: all ]   
+           - <win-wall-1-right> -> 0.5 [valid: all ]   
+           - <Opt-Length> -> 9.35 [valid: all ]   
+           - <win-wall-2-left> -> 3.119 [valid: all ]   
+           - <win-wall-4-right> -> 8.853 [valid: all ]   
+           - <gar-width> -> 5.94 [valid: all ]   
+           - <gar-length> -> 6.604 [valid: all ]   
+           - <win-wall-2-right> -> 0.5 [valid: all ]   
+           - <Opt-Roof-Height> -> 12.60 [valid: all ]   
+           - <win-wall-3-right> -> 6.104 [valid: all ]   
+           - <Opt-Roof-Peak-W> -> 3.302 [valid: all ]   
+    -> NWT_1986 
+           - <win-wall-3-left> -> 6.358 [valid: all ]   
+           - <win-wall-1-left> -> 2.786 [valid: all ]   
+           - <Opt-Width> -> 7.62 [valid: all ]   
+           - <Opt-Area> -> 56.02224 [valid: all ]   
+           - <gar-area> -> 0. [valid: all ]   
+           - <win-wall-4-left> -> 4.646 [valid: all ]   
+           - <win-wall-1-right> -> 0.5 [valid: all ]   
+           - <Opt-Length> -> 7.35 [valid: all ]   
+           - <win-wall-2-left> -> 1.235 [valid: all ]   
+           - <win-wall-4-right> -> 6.852 [valid: all ]   
+           - <gar-width> -> 0. [valid: all ]   
+           - <gar-length> -> 0. [valid: all ]   
+           - <win-wall-2-right> -> 0.5 [valid: all ]   
+           - <Opt-Roof-Height> -> 7.277 [valid: all ]   
+           - <win-wall-3-right> -> 7.120 [valid: all ]   
+           - <Opt-Roof-Peak-W> -> 3.81 [valid: all ]   
+    -> Van_2st_garage 
+           - <win-wall-3-left> -> 2.5 [valid: all ]   
+           - <win-wall-1-left> -> 1.500 [valid: all ]   
+           - <Opt-Width> -> 5 [valid: all ]   
+           - <Opt-Area> -> 62.5 [valid: all ]   
+           - <gar-area> -> 11.57382 [valid: all ]   
+           - <win-wall-4-left> -> 10.750 [valid: all ]   
+           - <win-wall-1-right> -> 0.5 [valid: all ]   
+           - <Opt-Length> -> 12.5 [valid: all ]   
+           - <win-wall-2-left> -> 1.75 [valid: all ]   
+           - <win-wall-4-right> -> 12 [valid: all ]   
+           - <gar-width> -> 3.3019 [valid: all ]   
+           - <gar-length> -> 3.5052 [valid: all ]   
+           - <win-wall-2-right> -> 0.5 [valid: all ]   
+           - <Opt-Roof-Height> -> 8.5514 [valid: all ]   
+           - <win-wall-3-right> -> 4.5 [valid: all ]   
+           - <Opt-Roof-Peak-W> -> 2.5 [valid: all ]   
+    -> Van_80_2st 
+           - <win-wall-3-left> -> 7.550 [valid: all ]   
+           - <win-wall-1-left> -> 3.950 [valid: all ]   
+           - <Opt-Width> -> 11.50 [valid: all ]   
+           - <Opt-Area> -> 132.15 [valid: all ]   
+           - <gar-area> -> 0 [valid: all ]   
+           - <win-wall-4-left> -> 7.544 [valid: all ]   
+           - <win-wall-1-right> -> 0.5 [valid: all ]   
+           - <Opt-Length> -> 11.49 [valid: all ]   
+           - <win-wall-2-left> -> 3.947 [valid: all ]   
+           - <win-wall-4-right> -> 10.9913 [valid: all ]   
+           - <gar-width> -> 0 [valid: all ]   
+           - <gar-length> -> 0 [valid: all ]   
+           - <win-wall-2-right> -> 0.5 [valid: all ]   
+           - <Opt-Roof-Height> -> 9.3639 [valid: all ]   
+           - <win-wall-3-right> -> 11.0 [valid: all ]   
+           - <Opt-Roof-Peak-W> -> 5.75 [valid: all ]   
+========== Opt-ACH ===========
+Storing data for Opt-ACH: 
+    -> retro_ACH_3 
+           - <Opt-ACH> -> 3.0 [valid: all ]   
+    -> retro_ACH_3_5 
+           - <Opt-ACH> -> 3.5 [valid: all ]   
+    -> retro_ACH_1 
+           - <Opt-ACH> -> 1.0 [valid: all ]   
+    -> retro_ACH_6 
+           - <Opt-ACH> -> 6.0 [valid: all ]   
+    -> retro_ACH_5_5 
+           - <Opt-ACH> -> 5.5 [valid: all ]   
+    -> retro_ACH_6_5 
+           - <Opt-ACH> -> 6.5 [valid: all ]   
+    -> retro_ACH_7 
+           - <Opt-ACH> -> 7.0 [valid: all ]   
+    -> retro_ACH_2_5 
+           - <Opt-ACH> -> 2.5 [valid: all ]   
+    -> retro_ACH_4_5 
+           - <Opt-ACH> -> 4.5 [valid: all ]   
+    -> retro_ACH_4 
+           - <Opt-ACH> -> 4.0 [valid: all ]   
+    -> retro_ACH_1_5 
+           - <Opt-ACH> -> 1.5 [valid: all ]   
+    -> retro_ACH_2 
+           - <Opt-ACH> -> 2.0 [valid: all ]   
+    -> retro_ACH_5 
+           - <Opt-ACH> -> 5.0 [valid: all ]   
+========== Opt-CasementWindows ===========
+Storing data for Opt-CasementWindows: 
+    -> DoubleLowEHardCoatArgFill 
+           - <Opt-win-N-OPT> -> DblLeHcArg [valid: all ]   
+           - <Opt-win-E-CON> -> DblLeHcArg [valid: all ]   
+           - <Opt-win-W-CON> -> DblLeHcArg [valid: all ]   
+           - <Opt-win-S-OPT> -> DblLeHcArg [valid: all ]   
+           - <Opt-win-W-OPT> -> DblLeHcArg [valid: all ]   
+           - <Opt-win-S-CON> -> DblLeHcArg [valid: all ]   
+           - <Opt-win-E-OPT> -> DblLeHcArg [valid: all ]   
+           - <Opt-win-N-CON> -> DblLeHcArg [valid: all ]   
+    -> Quad_win_shutter 
+           - <Opt-win-N-OPT> -> Wind4SHUTTER [valid: all ]   
+           - <Opt-win-E-CON> -> Wind4SHUTTER [valid: all ]   
+           - <Opt-win-W-CON> -> Wind4SHUTTER [valid: all ]   
+           - <Opt-win-S-OPT> -> Wind4SHUTTER [valid: all ]   
+           - <Opt-win-W-OPT> -> Wind4SHUTTER [valid: all ]   
+           - <Opt-win-S-CON> -> Wind4SHUTTER [valid: all ]   
+           - <Opt-win-E-OPT> -> Wind4SHUTTER [valid: all ]   
+           - <Opt-win-N-CON> -> Wind4SHUTTER [valid: all ]   
+    -> retro_TripleLowEHardCoatArgFill 
+           - <Opt-win-N-OPT> -> TplLeHcKry [valid: all ]   
+           - <Opt-win-E-CON> -> TplLeHcKry [valid: all ]   
+           - <Opt-win-W-CON> -> TplLeHcKry [valid: all ]   
+           - <Opt-win-S-OPT> -> TplLeHcKry [valid: all ]   
+           - <Opt-win-W-OPT> -> TplLeHcKry [valid: all ]   
+           - <Opt-win-S-CON> -> TplLeHcKry [valid: all ]   
+           - <Opt-win-E-OPT> -> TplLeHcKry [valid: all ]   
+           - <Opt-win-N-CON> -> TplLeHcKry [valid: all ]   
+    -> DoubleLowEHardCoatAirFill 
+           - <Opt-win-N-OPT> -> DblLeHcAir [valid: all ]   
+           - <Opt-win-E-CON> -> DblLeHcAir [valid: all ]   
+           - <Opt-win-W-CON> -> DblLeHcAir [valid: all ]   
+           - <Opt-win-S-OPT> -> DblLeHcAir [valid: all ]   
+           - <Opt-win-W-OPT> -> DblLeHcAir [valid: all ]   
+           - <Opt-win-S-CON> -> DblLeHcAir [valid: all ]   
+           - <Opt-win-E-OPT> -> DblLeHcAir [valid: all ]   
+           - <Opt-win-N-CON> -> DblLeHcAir [valid: all ]   
+    -> Wind1_trp_CL 
+           - <Opt-win-N-OPT> -> Wind1_trp_CL [valid: all ]   
+           - <Opt-win-E-CON> -> Wind1_trp_CL [valid: all ]   
+           - <Opt-win-W-CON> -> Wind1_trp_CL [valid: all ]   
+           - <Opt-win-S-OPT> -> Wind1_trp_CL [valid: all ]   
+           - <Opt-win-W-OPT> -> Wind1_trp_CL [valid: all ]   
+           - <Opt-win-S-CON> -> Wind1_trp_CL [valid: all ]   
+           - <Opt-win-E-OPT> -> Wind1_trp_CL [valid: all ]   
+           - <Opt-win-N-CON> -> Wind1_trp_CL [valid: all ]   
+    -> Win6_qd_CL 
+           - <Opt-win-N-OPT> -> Win6_qd_CL [valid: all ]   
+           - <Opt-win-E-CON> -> Win6_qd_CL [valid: all ]   
+           - <Opt-win-W-CON> -> Win6_qd_CL [valid: all ]   
+           - <Opt-win-S-OPT> -> Win6_qd_CL [valid: all ]   
+           - <Opt-win-W-OPT> -> Win6_qd_CL [valid: all ]   
+           - <Opt-win-S-CON> -> Win6_qd_CL [valid: all ]   
+           - <Opt-win-E-OPT> -> Win6_qd_CL [valid: all ]   
+           - <Opt-win-N-CON> -> Win6_qd_CL [valid: all ]   
+    -> TripleLowEHardCoatKryFill 
+           - <Opt-win-N-OPT> -> TplLeHcKry [valid: all ]   
+           - <Opt-win-E-CON> -> TplLeHcKry [valid: all ]   
+           - <Opt-win-W-CON> -> TplLeHcKry [valid: all ]   
+           - <Opt-win-S-OPT> -> TplLeHcKry [valid: all ]   
+           - <Opt-win-W-OPT> -> TplLeHcKry [valid: all ]   
+           - <Opt-win-S-CON> -> TplLeHcKry [valid: all ]   
+           - <Opt-win-E-OPT> -> TplLeHcKry [valid: all ]   
+           - <Opt-win-N-CON> -> TplLeHcKry [valid: all ]   
+    -> Win5hcLE2_tr 
+           - <Opt-win-N-OPT> -> Win5hcLE2_tr [valid: all ]   
+           - <Opt-win-E-CON> -> Win5hcLE2_tr [valid: all ]   
+           - <Opt-win-W-CON> -> Win5hcLE2_tr [valid: all ]   
+           - <Opt-win-S-OPT> -> Win5hcLE2_tr [valid: all ]   
+           - <Opt-win-W-OPT> -> Win5hcLE2_tr [valid: all ]   
+           - <Opt-win-S-CON> -> Win5hcLE2_tr [valid: all ]   
+           - <Opt-win-E-OPT> -> Win5hcLE2_tr [valid: all ]   
+           - <Opt-win-N-CON> -> Win5hcLE2_tr [valid: all ]   
+    -> Triple_win_shutter 
+           - <Opt-win-N-OPT> -> Wind3SHUTTER [valid: all ]   
+           - <Opt-win-E-CON> -> Wind3SHUTTER [valid: all ]   
+           - <Opt-win-W-CON> -> Wind3SHUTTER [valid: all ]   
+           - <Opt-win-S-OPT> -> Wind3SHUTTER [valid: all ]   
+           - <Opt-win-W-OPT> -> Wind3SHUTTER [valid: all ]   
+           - <Opt-win-S-CON> -> Wind3SHUTTER [valid: all ]   
+           - <Opt-win-E-OPT> -> Wind3SHUTTER [valid: all ]   
+           - <Opt-win-N-CON> -> Wind3SHUTTER [valid: all ]   
+    -> Win4scLE2_tr 
+           - <Opt-win-N-OPT> -> Win4scLE2_tr [valid: all ]   
+           - <Opt-win-E-CON> -> Win4scLE2_tr [valid: all ]   
+           - <Opt-win-W-CON> -> Win4scLE2_tr [valid: all ]   
+           - <Opt-win-S-OPT> -> Win4scLE2_tr [valid: all ]   
+           - <Opt-win-W-OPT> -> Win4scLE2_tr [valid: all ]   
+           - <Opt-win-S-CON> -> Win4scLE2_tr [valid: all ]   
+           - <Opt-win-E-OPT> -> Win4scLE2_tr [valid: all ]   
+           - <Opt-win-N-CON> -> Win4scLE2_tr [valid: all ]   
+    -> retro_DoubleLowEHardCoatArgFill 
+           - <Opt-win-N-OPT> -> DblLeHcArg [valid: all ]   
+           - <Opt-win-E-CON> -> DblLeHcArg [valid: all ]   
+           - <Opt-win-W-CON> -> DblLeHcArg [valid: all ]   
+           - <Opt-win-S-OPT> -> DblLeHcArg [valid: all ]   
+           - <Opt-win-W-OPT> -> DblLeHcArg [valid: all ]   
+           - <Opt-win-S-CON> -> DblLeHcArg [valid: all ]   
+           - <Opt-win-E-OPT> -> DblLeHcArg [valid: all ]   
+           - <Opt-win-N-CON> -> DblLeHcArg [valid: all ]   
+    -> retro_DoubleLowESoftCoatArgFill 
+           - <Opt-win-N-OPT> -> DblLeScArg [valid: all ]   
+           - <Opt-win-E-CON> -> DblLeScArg [valid: all ]   
+           - <Opt-win-W-CON> -> DblLeScArg [valid: all ]   
+           - <Opt-win-S-OPT> -> DblLeScArg [valid: all ]   
+           - <Opt-win-W-OPT> -> DblLeScArg [valid: all ]   
+           - <Opt-win-S-CON> -> DblLeScArg [valid: all ]   
+           - <Opt-win-E-OPT> -> DblLeScArg [valid: all ]   
+           - <Opt-win-N-CON> -> DblLeScArg [valid: all ]   
+    -> Win3hcLE1_tr 
+           - <Opt-win-N-OPT> -> Win3hcLE1_tr [valid: all ]   
+           - <Opt-win-E-CON> -> Win3hcLE1_tr [valid: all ]   
+           - <Opt-win-W-CON> -> Win3hcLE1_tr [valid: all ]   
+           - <Opt-win-S-OPT> -> Win3hcLE1_tr [valid: all ]   
+           - <Opt-win-W-OPT> -> Win3hcLE1_tr [valid: all ]   
+           - <Opt-win-S-CON> -> Win3hcLE1_tr [valid: all ]   
+           - <Opt-win-E-OPT> -> Win3hcLE1_tr [valid: all ]   
+           - <Opt-win-N-CON> -> Win3hcLE1_tr [valid: all ]   
+    -> retro_TripleLowESoftCoatArgFill 
+           - <Opt-win-N-OPT> -> TplLeScKry [valid: all ]   
+           - <Opt-win-E-CON> -> TplLeScKry [valid: all ]   
+           - <Opt-win-W-CON> -> TplLeScKry [valid: all ]   
+           - <Opt-win-S-OPT> -> TplLeScKry [valid: all ]   
+           - <Opt-win-W-OPT> -> TplLeScKry [valid: all ]   
+           - <Opt-win-S-CON> -> TplLeScKry [valid: all ]   
+           - <Opt-win-E-OPT> -> TplLeScKry [valid: all ]   
+           - <Opt-win-N-CON> -> TplLeScKry [valid: all ]   
+    -> DoubleLowESoftCoatArgFill 
+           - <Opt-win-N-OPT> -> DblLeScArg [valid: all ]   
+           - <Opt-win-E-CON> -> DblLeScArg [valid: all ]   
+           - <Opt-win-W-CON> -> DblLeScArg [valid: all ]   
+           - <Opt-win-S-OPT> -> DblLeScArg [valid: all ]   
+           - <Opt-win-W-OPT> -> DblLeScArg [valid: all ]   
+           - <Opt-win-S-CON> -> DblLeScArg [valid: all ]   
+           - <Opt-win-E-OPT> -> DblLeScArg [valid: all ]   
+           - <Opt-win-N-CON> -> DblLeScArg [valid: all ]   
+    -> DoubleArgon_HighGainOnSouth 
+           - <Opt-win-N-OPT> -> DblLeScArg [valid: all ]   
+           - <Opt-win-E-CON> -> DblLeScArg [valid: all ]   
+           - <Opt-win-W-CON> -> DblLeScArg [valid: all ]   
+           - <Opt-win-S-OPT> -> DblLeHcArg [valid: all ]   
+           - <Opt-win-W-OPT> -> DblLeScArg [valid: all ]   
+           - <Opt-win-S-CON> -> DblLeHcArg [valid: all ]   
+           - <Opt-win-E-OPT> -> DblLeScArg [valid: all ]   
+           - <Opt-win-N-CON> -> DblLeScArg [valid: all ]   
+    -> Win2scLE1_tr 
+           - <Opt-win-N-OPT> -> Win2scLE1_tr [valid: all ]   
+           - <Opt-win-E-CON> -> Win2scLE1_tr [valid: all ]   
+           - <Opt-win-W-CON> -> Win2scLE1_tr [valid: all ]   
+           - <Opt-win-S-OPT> -> Win2scLE1_tr [valid: all ]   
+           - <Opt-win-W-OPT> -> Win2scLE1_tr [valid: all ]   
+           - <Opt-win-S-CON> -> Win2scLE1_tr [valid: all ]   
+           - <Opt-win-E-OPT> -> Win2scLE1_tr [valid: all ]   
+           - <Opt-win-N-CON> -> Win2scLE1_tr [valid: all ]   
+    -> TripleLowESoftCoatKryFill 
+           - <Opt-win-N-OPT> -> TplLeScKry [valid: all ]   
+           - <Opt-win-E-CON> -> TplLeScKry [valid: all ]   
+           - <Opt-win-W-CON> -> TplLeScKry [valid: all ]   
+           - <Opt-win-S-OPT> -> TplLeScKry [valid: all ]   
+           - <Opt-win-W-OPT> -> TplLeScKry [valid: all ]   
+           - <Opt-win-S-CON> -> TplLeScKry [valid: all ]   
+           - <Opt-win-E-OPT> -> TplLeScKry [valid: all ]   
+           - <Opt-win-N-CON> -> TplLeScKry [valid: all ]   
+    -> DoubleClear 
+           - <Opt-win-N-OPT> -> DblClr [valid: all ]   
+           - <Opt-win-E-CON> -> DblClr [valid: all ]   
+           - <Opt-win-W-CON> -> DblClr [valid: all ]   
+           - <Opt-win-S-OPT> -> DblClr [valid: all ]   
+           - <Opt-win-W-OPT> -> DblClr [valid: all ]   
+           - <Opt-win-S-CON> -> DblClr [valid: all ]   
+           - <Opt-win-E-OPT> -> DblClr [valid: all ]   
+           - <Opt-win-N-CON> -> DblClr [valid: all ]   
+========== Opt-AirTightness ===========
+Storing data for Opt-AirTightness: 
+    -> WH_1.0 
+           - <Opt-AirTightness> -> WH_1.0.aim [valid: all ]   
+    -> R2000 
+           - <Opt-AirTightness> -> R2000.aim [valid: all ]   
+    -> Cdn1ACH 
+           - <Opt-AirTightness> -> Cdn1ACH.aim [valid: all ]   
+    -> Generic 
+           - <Opt-AirTightness> -> generic.aim [valid: all ]   
+    -> TypicalGTA 
+           - <Opt-AirTightness> -> base.aim [valid: all ]   
+    -> Base_WH_1.5 
+           - <Opt-AirTightness> -> Base_WH_1.5.aim [valid: all ]   
+    -> PassiveHouse 
+           - <Opt-AirTightness> -> PassiveHouse.aim [valid: all ]   
+    -> WH_0.5 
+           - <Opt-AirTightness> -> WH_0.5.aim [valid: all ]   
+    -> Typical23 
+           - <Opt-AirTightness> -> typical-2.3.aim [valid: all ]   
+========== Opt-Ceilings ===========
+Storing data for Opt-Ceilings: 
+    -> CeilR80 
+           - <Opt-Ceiling> -> CeilR80 [valid: all ]   
+    -> retro_attic-4_152_12cell 
+           - <Opt-Ceiling> -> retroatt_12 [valid: all ]   
+    -> CeilR50 
+           - <Opt-Ceiling> -> CeilR50 [valid: all ]   
+    -> NWTCeilR50 
+           - <Opt-Ceiling> -> NWTCeilR50 [valid: all ]   
+    -> CeilR60 
+           - <Opt-Ceiling> -> CeilR60 [valid: all ]   
+    -> retro_attic-4_152 
+           - <Opt-Ceiling> -> retro-att-4 [valid: all ]   
+    -> retro_attic-2_962 
+           - <Opt-Ceiling> -> retro-att-3 [valid: all ]   
+    -> CeilR100 
+           - <Opt-Ceiling> -> CeilR100 [valid: all ]   
+    -> CeilR110 
+           - <Opt-Ceiling> -> CeilR110 [valid: all ]   
+    -> NWTCeilR70 
+           - <Opt-Ceiling> -> NWTCeilR70 [valid: all ]   
+    -> NWTCeilR60 
+           - <Opt-Ceiling> -> NWTCeilR60 [valid: all ]   
+    -> retro_attic-4_152_6cell 
+           - <Opt-Ceiling> -> retroatt_6 [valid: all ]   
+    -> NWTCeilR40 
+           - <Opt-Ceiling> -> NWTCeilR40 [valid: all ]   
+    -> CeilR120 
+           - <Opt-Ceiling> -> CeilR120 [valid: all ]   
+    -> CeilR70 
+           - <Opt-Ceiling> -> CeilR70 [valid: all ]   
+    -> CeilR90 
+           - <Opt-Ceiling> -> CeilR90 [valid: all ]   
+    -> retro_roof 
+           - <Opt-Ceiling> -> retro_roof [valid: all ]   
+========== Opt-GenericWall_1Layer_definitions ===========
+Storing data for Opt-GenericWall_1Layer_definitions: 
+    -> test 
+           - <Opt-GenInsulLayerInboard-a> -> 0.0250 [valid: all ]   
+========== Opt-GenericWall_2Layer_definitions ===========
+Storing data for Opt-GenericWall_2Layer_definitions: 
+    -> test2 
+           - <Opt-GenInsulLayerInboard-b> -> 0.0250 [valid: all ]   
+           - <Opt-GenInsulLayerOutboard-b> -> 0.0250 [valid: all ]   
+========== Opt-MainWall ===========
+Storing data for Opt-MainWall: 
+    -> Retro-int_2XPS 
+           - <Opt-MainWall-Bri> -> Retroint2XPS [valid: all ]   
+           - <Opt-MainWall-Dry> -> Retroint2XPS [valid: all ]   
+           - <Opt-MainWall-Vin> -> Retroint2XPS [valid: all ]   
+    -> W5_R36 
+           - <Opt-MainWall-Bri> -> W5_R36Bri [valid: all ]   
+           - <Opt-MainWall-Dry> -> W5_R36Dry [valid: all ]   
+           - <Opt-MainWall-Vin> -> W5_R36Vin [valid: all ]   
+    -> W18_R78 
+           - <Opt-MainWall-Bri> -> W18_R78Bri [valid: all ]   
+           - <Opt-MainWall-Dry> -> W18_R78Dry [valid: all ]   
+           - <Opt-MainWall-Vin> -> W18_R78Vin [valid: all ]   
+    -> Retro-ext_4EPS 
+           - <Opt-MainWall-Bri> -> Retroext4EPS [valid: all ]   
+           - <Opt-MainWall-Dry> -> Retroext4EPS [valid: all ]   
+           - <Opt-MainWall-Vin> -> Retroext4EPS [valid: all ]   
+    -> Stud-R40-Wall 
+           - <Opt-MainWall-Bri> -> StudR40Bri [valid: all ]   
+           - <Opt-MainWall-Dry> -> StudR40Dry [valid: all ]   
+           - <Opt-MainWall-Vin> -> StudR40Vin [valid: all ]   
+    -> W19_R27 
+           - <Opt-MainWall-Bri> -> W19_R27Bri [valid: all ]   
+           - <Opt-MainWall-Dry> -> W19_R27Dry [valid: all ]   
+           - <Opt-MainWall-Vin> -> W19_R27Vin [valid: all ]   
+    -> W6_R56 
+           - <Opt-MainWall-Bri> -> W6_R56Bri [valid: all ]   
+           - <Opt-MainWall-Dry> -> W6_R56Dry [valid: all ]   
+           - <Opt-MainWall-Vin> -> W6_R56Vin [valid: all ]   
+    -> SIPS-R22-Wall 
+           - <Opt-MainWall-Bri> -> SipR22Bri [valid: all ]   
+           - <Opt-MainWall-Dry> -> SipR22Dry [valid: all ]   
+           - <Opt-MainWall-Vin> -> SipR22Vin [valid: all ]   
+    -> Retro-R1_52 
+           - <Opt-MainWall-Bri> -> Retro-R1_52 [valid: all ]   
+           - <Opt-MainWall-Dry> -> Retro-R1_52 [valid: all ]   
+           - <Opt-MainWall-Vin> -> Retro-R1_52 [valid: all ]   
+    -> W9_R62 
+           - <Opt-MainWall-Bri> -> W9_R62Bri [valid: all ]   
+           - <Opt-MainWall-Dry> -> W9_R62Dry [valid: all ]   
+           - <Opt-MainWall-Vin> -> W9_R62Vin [valid: all ]   
+    -> Truss-R52-Wall 
+           - <Opt-MainWall-Bri> -> TruR52Bri [valid: all ]   
+           - <Opt-MainWall-Dry> -> TruR52Dry [valid: all ]   
+           - <Opt-MainWall-Vin> -> TruR52Vin [valid: all ]   
+    -> BaseR20 
+           - <Opt-MainWall-Bri> -> BaseR20Bri [valid: all ]   
+           - <Opt-MainWall-Dry> -> BaseR20Dry [valid: all ]   
+           - <Opt-MainWall-Vin> -> BaseR20Vin [valid: all ]   
+    -> Stud-R305-Wall 
+           - <Opt-MainWall-Bri> -> StudR305Bri [valid: all ]   
+           - <Opt-MainWall-Dry> -> StudR305Dry [valid: all ]   
+           - <Opt-MainWall-Vin> -> StudR305Vin [valid: all ]   
+    -> W31b_R55 
+           - <Opt-MainWall-Bri> -> W31b_R55Bri [valid: all ]   
+           - <Opt-MainWall-Dry> -> W31b_R55Dry [valid: all ]   
+           - <Opt-MainWall-Vin> -> W31b_R55Vin [valid: all ]   
+    -> W10_R82 
+           - <Opt-MainWall-Bri> -> W10_R82Bri [valid: all ]   
+           - <Opt-MainWall-Dry> -> W10_R82Dry [valid: all ]   
+           - <Opt-MainWall-Vin> -> W10_R82Vin [valid: all ]   
+    -> Retro-int_spray 
+           - <Opt-MainWall-Bri> -> Retrointspr [valid: all ]   
+           - <Opt-MainWall-Dry> -> Retrointspr [valid: all ]   
+           - <Opt-MainWall-Vin> -> Retrointspr [valid: all ]   
+    -> Stud-R35-Wall 
+           - <Opt-MainWall-Bri> -> StudR35Bri [valid: all ]   
+           - <Opt-MainWall-Dry> -> StudR35Dry [valid: all ]   
+           - <Opt-MainWall-Vin> -> StudR35Vin [valid: all ]   
+    -> BaseR21 
+           - <Opt-MainWall-Bri> -> BaseR21Bri [valid: all ]   
+           - <Opt-MainWall-Dry> -> BaseR21Dry [valid: all ]   
+           - <Opt-MainWall-Vin> -> BaseR21Vin [valid: all ]   
+    -> NWTR20_4 
+           - <Opt-MainWall-Bri> -> NWTR20_4 [valid: all ]   
+           - <Opt-MainWall-Dry> -> NWTR20_4 [valid: all ]   
+           - <Opt-MainWall-Vin> -> NWTR20_4 [valid: all ]   
+    -> GenericWall_1Layer 
+           - <Opt-MainWall-Bri> -> GenWal1Rx [valid: all ]   
+           - <Opt-MainWall-Dry> -> GenWal1Rx [valid: all ]   
+           - <Opt-MainWall-Vin> -> GenWal1Rx [valid: all ]   
+    -> Retro-DblBr 
+           - <Opt-MainWall-Bri> -> RetroBaseBri [valid: all ]   
+           - <Opt-MainWall-Dry> -> RetroBaseDry [valid: all ]   
+           - <Opt-MainWall-Vin> -> RetroBaseVin [valid: all ]   
+    -> DblStud-R37-Wall 
+           - <Opt-MainWall-Bri> -> DblSR37Bri [valid: all ]   
+           - <Opt-MainWall-Dry> -> DblSR37Dry [valid: all ]   
+           - <Opt-MainWall-Vin> -> DblSR37Vin [valid: all ]   
+    -> W8_R42 
+           - <Opt-MainWall-Bri> -> W8_R42Bri [valid: all ]   
+           - <Opt-MainWall-Dry> -> W8_R42Dry [valid: all ]   
+           - <Opt-MainWall-Vin> -> W8_R42Vin [valid: all ]   
+    -> NWTR20 
+           - <Opt-MainWall-Bri> -> NWTR20 [valid: all ]   
+           - <Opt-MainWall-Dry> -> NWTR20 [valid: all ]   
+           - <Opt-MainWall-Vin> -> NWTR20 [valid: all ]   
+    -> GenericWall_2Layer 
+           - <Opt-MainWall-Bri> -> GenWal2Rx [valid: all ]   
+           - <Opt-MainWall-Dry> -> GenWal2Rx [valid: all ]   
+           - <Opt-MainWall-Vin> -> GenWal2Rx [valid: all ]   
+    -> AdvFrm-R20-Wall 
+           - <Opt-MainWall-Bri> -> AdvFrmR20 [valid: all ]   
+           - <Opt-MainWall-Dry> -> AdvFrmR20 [valid: all ]   
+           - <Opt-MainWall-Vin> -> AdvFrmR20 [valid: all ]   
+    -> W12_R59 
+           - <Opt-MainWall-Bri> -> W12_R59Bri [valid: all ]   
+           - <Opt-MainWall-Dry> -> W12_R59Dry [valid: all ]   
+           - <Opt-MainWall-Vin> -> W12_R59Vin [valid: all ]   
+    -> W20_R39 
+           - <Opt-MainWall-Bri> -> W20_R39Bri [valid: all ]   
+           - <Opt-MainWall-Dry> -> W20_R39Dry [valid: all ]   
+           - <Opt-MainWall-Vin> -> W20_R39Vin [valid: all ]   
+    -> Stud-R275-Wall 
+           - <Opt-MainWall-Bri> -> StudR275Bri [valid: all ]   
+           - <Opt-MainWall-Dry> -> StudR275Dry [valid: all ]   
+           - <Opt-MainWall-Vin> -> StudR275Vin [valid: all ]   
+    -> W16_R38 
+           - <Opt-MainWall-Bri> -> W16_R38Bri [valid: all ]   
+           - <Opt-MainWall-Dry> -> W16_R38Dry [valid: all ]   
+           - <Opt-MainWall-Vin> -> W16_R38Vin [valid: all ]   
+    -> Stud-R325-Wall 
+           - <Opt-MainWall-Bri> -> StudR325Bri [valid: all ]   
+           - <Opt-MainWall-Dry> -> StudR325Dry [valid: all ]   
+           - <Opt-MainWall-Vin> -> StudR325Vin [valid: all ]   
+    -> DblStud-R52-Wall 
+           - <Opt-MainWall-Bri> -> DblSR52Bri [valid: all ]   
+           - <Opt-MainWall-Dry> -> DblSR52Dry [valid: all ]   
+           - <Opt-MainWall-Vin> -> DblSR52Vin [valid: all ]   
+    -> W13_R78 
+           - <Opt-MainWall-Bri> -> W13_R78Bri [valid: all ]   
+           - <Opt-MainWall-Dry> -> W13_R78Dry [valid: all ]   
+           - <Opt-MainWall-Vin> -> W13_R78Vin [valid: all ]   
+    -> W21_R59 
+           - <Opt-MainWall-Bri> -> W21_R59Bri [valid: all ]   
+           - <Opt-MainWall-Dry> -> W21_R59Dry [valid: all ]   
+           - <Opt-MainWall-Vin> -> W21_R59Vin [valid: all ]   
+    -> Retro-R2_1 
+           - <Opt-MainWall-Bri> -> Retro-R2_1 [valid: all ]   
+           - <Opt-MainWall-Dry> -> Retro-R2_1 [valid: all ]   
+           - <Opt-MainWall-Vin> -> Retro-R2_1 [valid: all ]   
+    -> SIPS-R28-Wall 
+           - <Opt-MainWall-Bri> -> SipR28Bri [valid: all ]   
+           - <Opt-MainWall-Dry> -> SipR28Dry [valid: all ]   
+           - <Opt-MainWall-Vin> -> SipR28Vin [valid: all ]   
+    -> Truss-R40-Wall 
+           - <Opt-MainWall-Bri> -> TruR40Bri [valid: all ]   
+           - <Opt-MainWall-Dry> -> TruR40Dry [valid: all ]   
+           - <Opt-MainWall-Vin> -> TruR40Vin [valid: all ]   
+    -> NWTR20_1_5 
+           - <Opt-MainWall-Bri> -> NWTR20_1_5 [valid: all ]   
+           - <Opt-MainWall-Dry> -> NWTR20_1_5 [valid: all ]   
+           - <Opt-MainWall-Vin> -> NWTR20_1_5 [valid: all ]   
+    -> W15_R25 
+           - <Opt-MainWall-Bri> -> W15_R25Bri [valid: all ]   
+           - <Opt-MainWall-Dry> -> W15_R25Dry [valid: all ]   
+           - <Opt-MainWall-Vin> -> W15_R25Vin [valid: all ]   
+    -> W17_R58 
+           - <Opt-MainWall-Bri> -> W17_R58Bri [valid: all ]   
+           - <Opt-MainWall-Dry> -> W17_R58Dry [valid: all ]   
+           - <Opt-MainWall-Vin> -> W17_R58Vin [valid: all ]   
+========== Opt-BasementWallInsulation ===========
+Storing data for Opt-BasementWallInsulation: 
+    -> Rigid+Batt-R30 
+           - <OPT-BsmWall> -> BsmWllR30 [valid: all ]   
+    -> Fnd0PWF_R28 
+           - <OPT-BsmWall> -> Fnd0PWF_R28 [valid: all ]   
+    -> Fnd8ICF_R28 
+           - <OPT-BsmWall> -> Fnd8ICF_R28 [valid: all ]   
+    -> ICF-base-R22 
+           - <OPT-BsmWall> -> BsmIcfR22 [valid: all ]   
+    -> MB-Comb-R20 
+           - <OPT-BsmWall> -> MBR20Comb [valid: all ]   
+    -> ICF-base-R41 
+           - <OPT-BsmWall> -> BsmIcfR41 [valid: all ]   
+    -> Rigid+Batt-R37 
+           - <OPT-BsmWall> -> BsmWllR37 [valid: all ]   
+    -> OBC-min-R12 
+           - <OPT-BsmWall> -> BsmWllR12 [valid: all ]   
+    -> Rigid+Batt-R20 
+           - <OPT-BsmWall> -> BsmWllR20 [valid: all ]   
+    -> Retro_added_R20_ext 
+           - <OPT-BsmWall> -> Fnd-4XPS-ext [valid: all ]   
+    -> TripleBrick 
+           - <OPT-BsmWall> -> Fnd_trp_br [valid: all ]   
+    -> PouredConcrete_NoIns 
+           - <OPT-BsmWall> -> NoInsulation [valid: all ]   
+    -> MB-IntBatt-R20 
+           - <OPT-BsmWall> -> BsmW2x4R20 [valid: all ]   
+    -> Fnd2PWF_R56 
+           - <OPT-BsmWall> -> Fnd2PWF_R56 [valid: all ]   
+    -> ICF-base-R26 
+           - <OPT-BsmWall> -> BsmIcfR26 [valid: all ]   
+    -> NWTCrawlWll 
+           - <OPT-BsmWall> -> NWTCrawlWll [valid: all ]   
+    -> ICF-base-R32 
+           - <OPT-BsmWall> -> BsmIcfR32 [valid: all ]   
+    -> Retro_added_spray_int 
+           - <OPT-BsmWall> -> Fnd-2spr-int [valid: all ]   
+    -> Fnd3PWF_R76 
+           - <OPT-BsmWall> -> Fnd3PWF_R76 [valid: all ]   
+    -> ICF-base-R51 
+           - <OPT-BsmWall> -> BsmIcfR51 [valid: all ]   
+    -> ICF-base-R51r 
+           - <OPT-BsmWall> -> BsmIcfR51r [valid: all ]   
+    -> Fnd1PWF_R36 
+           - <OPT-BsmWall> -> Fnd1PWF_R36 [valid: all ]   
+    -> PouredConcrete_RSI0_925 
+           - <OPT-BsmWall> -> Fnd_0_925 [valid: all ]   
+    -> Rigid+Blown-R43 
+           - <OPT-BsmWall> -> BsmWllR43 [valid: all ]   
+========== Opt-BasementSlabInsulation ===========
+Storing data for Opt-BasementSlabInsulation: 
+    -> Slab_8_R40 
+           - <OPT-BsmFloor> -> Slab_8_R40 [valid: all ]   
+           - <OPT-BsmCnnIndex> -> 69 [valid: all ]   
+    -> R12EdgeP10 
+           - <OPT-BsmFloor> -> BsmFlrR0 [valid: all ]   
+           - <OPT-BsmCnnIndex> -> 69 [valid: else ]   
+           - <OPT-BsmCnnIndex> -> 24 [valid: Opt-BasementWallInsulation=OBC-min-R12|Rigid+Blown-R43 ]   
+    -> R12EdgeP6 
+           - <OPT-BsmFloor> -> BsmFlrR0 [valid: all ]   
+           - <OPT-BsmCnnIndex> -> 69 [valid: else ]   
+           - <OPT-BsmCnnIndex> -> 23 [valid: Opt-BasementWallInsulation=OBC-min-R12|Rigid+Blown-R43 ]   
+    -> NoInsulation 
+           - <OPT-BsmFloor> -> BsmFlrR0 [valid: all ]   
+           - <OPT-BsmCnnIndex> -> 68 [valid: else ]   
+           - <OPT-BsmCnnIndex> -> 1 [valid: Opt-BasementWallInsulation=OBC-min-R12|Rigid+Blown-R43|MB-IntBatt-R20|AdvFrm-R20-Wall ]   
+    -> Slab_7_R30 
+           - <OPT-BsmFloor> -> Slab_7_R30 [valid: all ]   
+           - <OPT-BsmCnnIndex> -> 69 [valid: all ]   
+    -> Slab_5_R10 
+           - <OPT-BsmFloor> -> Slab_5_R10 [valid: all ]   
+           - <OPT-BsmCnnIndex> -> 69 [valid: all ]   
+    -> R24UnderSlab+edge 
+           - <OPT-BsmFloor> -> BsmFlrR24 [valid: all ]   
+           - <OPT-BsmCnnIndex> -> 69 [valid: else ]   
+           - <OPT-BsmCnnIndex> -> 22 [valid: Opt-BasementWallInsulation=OBC-min-R12|Rigid+Blown-R43 ]   
+    -> MB-Comb-Insulation 
+           - <OPT-BsmFloor> -> BsmFlrR0 [valid: all ]   
+           - <OPT-BsmCnnIndex> -> 96 [valid: all ]   
+    -> Slab_6_R20 
+           - <OPT-BsmFloor> -> Slab_6_R20 [valid: all ]   
+           - <OPT-BsmCnnIndex> -> 69 [valid: all ]   
+    -> R10UnderSlab+edge 
+           - <OPT-BsmFloor> -> BsmFlrR10 [valid: all ]   
+           - <OPT-BsmCnnIndex> -> 69 [valid: else ]   
+           - <OPT-BsmCnnIndex> -> 22 [valid: Opt-BasementWallInsulation=OBC-min-R12|Rigid+Blown-R43 ]   
+========== Opt-ExposedFloor ===========
+Storing data for Opt-ExposedFloor: 
+    -> ExpFloorFlash&Batt-R36 
+           - <Opt-ExposedFloor> -> ExpFlR36 [valid: all ]   
+           - <Opt-ExposedFloor-r> -> ExpFlR36r [valid: all ]   
+    -> ExpFloorFoamed-R52 
+           - <Opt-ExposedFloor> -> ExpFlR52 [valid: all ]   
+           - <Opt-ExposedFloor-r> -> ExpFlR52r [valid: all ]   
+    -> NWTCrawlFlr 
+           - <Opt-ExposedFloor> -> NWTCrawlFlr [valid: all ]   
+           - <Opt-ExposedFloor-r> -> NWTCrawlFlrr [valid: all ]   
+    -> BaseExpFloor-R31 
+           - <Opt-ExposedFloor> -> ExpFlR31 [valid: all ]   
+           - <Opt-ExposedFloor-r> -> ExpFlR31r [valid: all ]   
+========== Opt-ExtraDrywall ===========
+Storing data for Opt-ExtraDrywall: 
+    -> OneSheet 
+           - <Opt-ExtraDrywall> -> 0.0125 [valid: all ]   
+    -> TwoSheets 
+           - <Opt-ExtraDrywall> -> 0.0250 [valid: all ]   
+========== Opt-FloorSurface ===========
+Storing data for Opt-FloorSurface: 
+    -> 2-in-concrete 
+           - <Opt-IntFloor> -> floor2in [valid: all ]   
+           - <Opt-IntFloorInv> -> floorInv2in [valid: all ]   
+    -> wood 
+           - <Opt-IntFloor> -> floor [valid: all ]   
+           - <Opt-IntFloorInv> -> floor_inv [valid: all ]   
+    -> 1-in-concrete 
+           - <Opt-IntFloor> -> floor1in [valid: all ]   
+           - <Opt-IntFloorInv> -> floorInv1in [valid: all ]   
+========== Opt-HVACSystem ===========
+Storing data for Opt-HVACSystem: 
+    -> baseboard-heating 
+           - <Opt-HVACCtlFile> -> shoulder-ideal.ctl [valid: all ]   
+           - <OPT-VENTisHRV> ->  [valid: all ]   
+           - <Opt-HVACSystem> -> baseboard-heating.hvac [valid: all ]   
+           - <OPT-VENTisIMS> -> #No-IMS: [valid: all ]   
+           - <Opt-HideGSHPfile> -> #-no-GSHP-file [valid: all ]   
+           - <OPT-WHisIMS> ->  [valid: all ]   
+    -> gas-furnace-low 
+           - <Opt-HVACCtlFile> -> shoulder-ideal.ctl [valid: all ]   
+           - <OPT-VENTisHRV> ->  [valid: all ]   
+           - <Opt-HVACSystem> -> gas-furnace-low-eff.hvac [valid: all ]   
+           - <OPT-VENTisIMS> -> #No-IMS: [valid: all ]   
+           - <Opt-HideGSHPfile> -> #-no-GSHP-file [valid: all ]   
+           - <OPT-WHisIMS> ->  [valid: all ]   
+    -> Combi-P9-ecmV2 
+           - <Opt-HVACCtlFile> -> shoulder-ideal.ctl [valid: all ]   
+           - <OPT-VENTisHRV> ->  [valid: all ]   
+           - <Opt-HVACSystem> -> Combi-P9-ecm-v2.hvac [valid: all ]   
+           - <OPT-VENTisIMS> -> #No-IMS: [valid: all ]   
+           - <Opt-HideGSHPfile> -> #-no-GSHP-file [valid: all ]   
+           - <OPT-WHisIMS> -> #NODHW:IMSprovidesWH. [valid: all ]   
+    -> 13kW-furnace-ecm 
+           - <Opt-HVACCtlFile> -> shoulder-ideal.ctl [valid: all ]   
+           - <OPT-VENTisHRV> ->  [valid: all ]   
+           - <Opt-HVACSystem> -> smallfurnace_AC-gas-ecm-motor.hvac [valid: all ]   
+           - <OPT-VENTisIMS> -> #No-IMS: [valid: all ]   
+           - <Opt-HideGSHPfile> -> #-no-GSHP-file [valid: all ]   
+           - <OPT-WHisIMS> ->  [valid: all ]   
+    -> gas-furnace-84_3 
+           - <Opt-HVACCtlFile> -> shoulder-ideal.ctl [valid: all ]   
+           - <OPT-VENTisHRV> -> #NoHRV [valid: all ]   
+           - <Opt-HVACSystem> -> gas-furnace-84_3.hvac [valid: all ]   
+           - <OPT-VENTisIMS> -> #No-IMS: [valid: all ]   
+           - <Opt-HideGSHPfile> -> #-no-GSHP-file [valid: all ]   
+           - <OPT-WHisIMS> ->  [valid: all ]   
+    -> upgrade_Olsen 
+           - <Opt-HVACCtlFile> -> shoulder-ideal.ctl [valid: all ]   
+           - <OPT-VENTisHRV> -> # [valid: all ]   
+           - <Opt-HVACSystem> -> upg_oil-furnace-Olsen.hvac [valid: all ]   
+           - <OPT-VENTisIMS> -> #No-IMS: [valid: all ]   
+           - <Opt-HideGSHPfile> -> #-no-GSHP-file [valid: all ]   
+           - <OPT-WHisIMS> ->  [valid: all ]   
+    -> GSHP 
+           - <Opt-HVACCtlFile> -> shoulder-ideal.ctl [valid: all ]   
+           - <OPT-VENTisHRV> ->  [valid: all ]   
+           - <Opt-HVACSystem> -> GSHPv2.hvac [valid: all ]   
+           - <OPT-VENTisIMS> -> #No-IMS: [valid: all ]   
+           - <Opt-HideGSHPfile> -> *gshp ../hvac/heatx_v1.gshp [valid: all ]   
+           - <OPT-WHisIMS> ->  [valid: all ]   
+    -> Combi-P9-a 
+           - <Opt-HVACCtlFile> -> shoulder-ideal.ctl [valid: all ]   
+           - <OPT-VENTisHRV> ->  [valid: all ]   
+           - <Opt-HVACSystem> -> Combi-P9.hvac [valid: all ]   
+           - <OPT-VENTisIMS> -> #No-IMS: [valid: all ]   
+           - <Opt-HideGSHPfile> -> #-no-GSHP-file [valid: all ]   
+           - <OPT-WHisIMS> -> #NODHW:IMSprovidesWH. [valid: all ]   
+    -> gas-furnace-ecm 
+           - <Opt-HVACCtlFile> -> shoulder-ideal.ctl [valid: all ]   
+           - <OPT-VENTisHRV> ->  [valid: all ]   
+           - <Opt-HVACSystem> -> basefurnace_AC-gas-ecm-motor.hvac [valid: all ]   
+           - <OPT-VENTisIMS> -> #No-IMS: [valid: all ]   
+           - <Opt-HideGSHPfile> -> #-no-GSHP-file [valid: all ]   
+           - <OPT-WHisIMS> ->  [valid: all ]   
+    -> oil-furnace-low 
+           - <Opt-HVACCtlFile> -> shoulder-ideal.ctl [valid: all ]   
+           - <OPT-VENTisHRV> ->  [valid: all ]   
+           - <Opt-HVACSystem> -> oil-furnace-low-eff.hvac [valid: all ]   
+           - <OPT-VENTisIMS> -> #No-IMS: [valid: all ]   
+           - <Opt-HideGSHPfile> -> #-no-GSHP-file [valid: all ]   
+           - <OPT-WHisIMS> ->  [valid: all ]   
+    -> elec-baseboard 
+           - <Opt-HVACCtlFile> -> shoulder-ideal.ctl [valid: all ]   
+           - <OPT-VENTisHRV> ->  [valid: all ]   
+           - <Opt-HVACSystem> -> Baseboardv2.hvac [valid: all ]   
+           - <OPT-VENTisIMS> -> #No-IMS: [valid: all ]   
+           - <Opt-HideGSHPfile> -> #-no-GSHP-file [valid: all ]   
+           - <OPT-WHisIMS> ->  [valid: all ]   
+    -> IMS-P10 
+           - <Opt-HVACCtlFile> -> shoulder-ideal.ctl [valid: all ]   
+           - <OPT-VENTisHRV> -> #NO-HRV:IMSprovidesHRV. [valid: all ]   
+           - <Opt-HVACSystem> -> IMS-P10.hvac [valid: all ]   
+           - <OPT-VENTisIMS> ->  [valid: all ]   
+           - <Opt-HideGSHPfile> -> #-no-GSHP-file [valid: all ]   
+           - <OPT-WHisIMS> -> #NODHW:IMSprovidesWH. [valid: all ]   
+    -> retro_GSHP 
+           - <Opt-HVACCtlFile> -> shoulder-ideal.ctl [valid: all ]   
+           - <OPT-VENTisHRV> -> #NoHRV [valid: all ]   
+           - <Opt-HVACSystem> -> GSHPv2.hvac [valid: all ]   
+           - <OPT-VENTisIMS> -> #No-IMS: [valid: all ]   
+           - <Opt-HideGSHPfile> -> *gshp ../hvac/heatx_v1.gshp [valid: all ]   
+           - <OPT-WHisIMS> ->  [valid: all ]   
+    -> oilfurnace 
+           - <Opt-HVACCtlFile> -> shoulder-ideal.ctl [valid: all ]   
+           - <OPT-VENTisHRV> ->  [valid: all ]   
+           - <Opt-HVACSystem> -> basefurnace_ACv2_oil.hvac [valid: all ]   
+           - <OPT-VENTisIMS> -> #No-IMS: [valid: all ]   
+           - <Opt-HideGSHPfile> -> #-no-GSHP-file [valid: all ]   
+           - <OPT-WHisIMS> ->  [valid: all ]   
+    -> propanefurnaceAC 
+           - <Opt-HVACCtlFile> -> shoulder-ideal.ctl [valid: all ]   
+           - <OPT-VENTisHRV> ->  [valid: all ]   
+           - <Opt-HVACSystem> -> propane_furnace_ACv2.hvac [valid: all ]   
+           - <OPT-VENTisIMS> -> #No-IMS: [valid: all ]   
+           - <Opt-HideGSHPfile> -> #-no-GSHP-file [valid: all ]   
+           - <OPT-WHisIMS> ->  [valid: all ]   
+    -> Olsen 
+           - <Opt-HVACCtlFile> -> shoulder-ideal.ctl [valid: all ]   
+           - <OPT-VENTisHRV> -> # [valid: all ]   
+           - <Opt-HVACSystem> -> oil-furnace-Olsen.hvac [valid: all ]   
+           - <OPT-VENTisIMS> -> #No-IMS: [valid: all ]   
+           - <Opt-HideGSHPfile> -> #-no-GSHP-file [valid: all ]   
+           - <OPT-WHisIMS> ->  [valid: all ]   
+    -> gas-furnace-mid 
+           - <Opt-HVACCtlFile> -> shoulder-ideal.ctl [valid: all ]   
+           - <OPT-VENTisHRV> ->  [valid: all ]   
+           - <Opt-HVACSystem> -> gas-furnace-mid-eff.hvac [valid: all ]   
+           - <OPT-VENTisIMS> -> #No-IMS: [valid: all ]   
+           - <Opt-HideGSHPfile> -> #-no-GSHP-file [valid: all ]   
+           - <OPT-WHisIMS> ->  [valid: all ]   
+    -> wood_furnace 
+           - <Opt-HVACCtlFile> -> shoulder-ideal.ctl [valid: all ]   
+           - <OPT-VENTisHRV> -> # [valid: all ]   
+           - <Opt-HVACSystem> -> wood-furnace.hvac [valid: all ]   
+           - <OPT-VENTisIMS> -> #No-IMS: [valid: all ]   
+           - <Opt-HideGSHPfile> -> #-no-GSHP-file [valid: all ]   
+           - <OPT-WHisIMS> ->  [valid: all ]   
+    -> retro_CCASHP 
+           - <Opt-HVACCtlFile> -> shoulder-ideal.ctl [valid: all ]   
+           - <OPT-VENTisHRV> ->  [valid: all ]   
+           - <Opt-HVACSystem> -> CCASHPv2.hvac [valid: all ]   
+           - <OPT-VENTisIMS> -> #No-IMS: [valid: all ]   
+           - <Opt-HideGSHPfile> -> #-no-GSHP-file [valid: all ]   
+           - <OPT-WHisIMS> ->  [valid: all ]   
+    -> basefurnace 
+           - <Opt-HVACCtlFile> -> shoulder-ideal.ctl [valid: all ]   
+           - <OPT-VENTisHRV> ->  [valid: all ]   
+           - <Opt-HVACSystem> -> basefurnace_ACv2.hvac [valid: all ]   
+           - <OPT-VENTisIMS> -> #No-IMS: [valid: all ]   
+           - <Opt-HideGSHPfile> -> #-no-GSHP-file [valid: all ]   
+           - <OPT-WHisIMS> ->  [valid: all ]   
+    -> oil-furnace-mid 
+           - <Opt-HVACCtlFile> -> shoulder-ideal.ctl [valid: all ]   
+           - <OPT-VENTisHRV> ->  [valid: all ]   
+           - <Opt-HVACSystem> -> oil-furnace-mid-eff.hvac [valid: all ]   
+           - <OPT-VENTisIMS> -> #No-IMS: [valid: all ]   
+           - <Opt-HideGSHPfile> -> #-no-GSHP-file [valid: all ]   
+           - <OPT-WHisIMS> ->  [valid: all ]   
+    -> zoned-furnace-ecm 
+           - <Opt-HVACCtlFile> -> shoulder_zoned.ctl [valid: all ]   
+           - <OPT-VENTisHRV> ->  [valid: all ]   
+           - <Opt-HVACSystem> -> smallfurnace_AC-gas-ecm-motor.hvac [valid: all ]   
+           - <OPT-VENTisIMS> -> #No-IMS: [valid: all ]   
+           - <Opt-HideGSHPfile> -> #-no-GSHP-file [valid: all ]   
+           - <OPT-WHisIMS> ->  [valid: all ]   
+    -> gas-furnace-psc 
+           - <Opt-HVACCtlFile> -> shoulder-ideal.ctl [valid: all ]   
+           - <OPT-VENTisHRV> ->  [valid: all ]   
+           - <Opt-HVACSystem> -> basefurnace_AC-gas-psc-motor.hvac [valid: all ]   
+           - <OPT-VENTisIMS> -> #No-IMS: [valid: all ]   
+           - <Opt-HideGSHPfile> -> #-no-GSHP-file [valid: all ]   
+           - <OPT-WHisIMS> ->  [valid: all ]   
+    -> CCASHP 
+           - <Opt-HVACCtlFile> -> shoulder-ideal.ctl [valid: all ]   
+           - <OPT-VENTisHRV> ->  [valid: all ]   
+           - <Opt-HVACSystem> -> CCASHPv2.hvac [valid: all ]   
+           - <OPT-VENTisIMS> -> #No-IMS: [valid: all ]   
+           - <Opt-HideGSHPfile> -> #-no-GSHP-file [valid: all ]   
+           - <OPT-WHisIMS> ->  [valid: all ]   
+    -> retro_upgrade_furnace 
+           - <Opt-HVACCtlFile> -> shoulder-ideal.ctl [valid: all ]   
+           - <OPT-VENTisHRV> ->  [valid: all ]   
+           - <Opt-HVACSystem> -> retro_96furnace.hvac [valid: all ]   
+           - <OPT-VENTisIMS> -> #No-IMS: [valid: all ]   
+           - <Opt-HideGSHPfile> -> #-no-GSHP-file [valid: all ]   
+           - <OPT-WHisIMS> ->  [valid: all ]   
+========== Opt-Cooling-Spec ===========
+Storing data for Opt-Cooling-Spec: 
+    -> 2TonDettsonModUnit 
+           - <OPT-Cooling-Capacity> -> 24000. [valid: all ]   
+           - <OPT-Cooling-Fan-Power> -> 373. [valid: all ]   
+           - <OPT-Cooling-COP> -> 4.3 [valid: all ]   
+    -> SmallCooling 
+           - <OPT-Cooling-Capacity> -> 10000. [valid: all ]   
+           - <OPT-Cooling-Fan-Power> -> 125. [valid: all ]   
+           - <OPT-Cooling-COP> -> 3. [valid: all ]   
+    -> 2TonGoodmanUnit 
+           - <OPT-Cooling-Capacity> -> 24000. [valid: all ]   
+           - <OPT-Cooling-Fan-Power> -> 373. [valid: all ]   
+           - <OPT-Cooling-COP> -> 4.0 [valid: all ]   
+    -> 2TonStdCooling 
+           - <OPT-Cooling-Capacity> -> 24000. [valid: all ]   
+           - <OPT-Cooling-Fan-Power> -> 373. [valid: all ]   
+           - <OPT-Cooling-COP> -> 3.2 [valid: all ]   
+========== Opt-HRVspec ===========
+Storing data for Opt-HRVspec: 
+    -> BaseHRV_SRE70 
+           - <Opt-HRVInputFile> -> HRV-base.vnt [valid: all ]   
+    -> UpgHRV_SRE78 
+           - <Opt-HRVInputFile> -> HRV-upg.vnt [valid: all ]   
+    -> CEF_SPEC 
+           - <Opt-HRVInputFile> -> HRV.vnt [valid: all ]   
+========== Opt-HRVduct ===========
+Storing data for Opt-HRVduct: 
+    -> interlock 
+           - <Opt-HRVDucting> -> *fan-ctl-loop [valid: all ]   
+           - <Opt-FanVentACH> -> 0.8 [valid: all ]   
+    -> directduct 
+           - <Opt-HRVDucting> -> #No*fan-ctl-loop [valid: all ]   
+           - <Opt-FanVentACH> -> 0.0 [valid: all ]   
+========== Opt-ElecLoadScale ===========
+Storing data for Opt-ElecLoadScale: 
+    -> TStrackLighting 
+           - <Opt-ElecLoadScale> -> 0.7402 [valid: all ]   
+    -> NoReduction 
+           - <Opt-ElecLoadScale> -> 1.066 [valid: all ]   
+    -> EfficientLiving 
+           - <Opt-ElecLoadScale> -> 0.711 [valid: all ]   
+    -> NGERSReducedA16 
+           - <Opt-ElecLoadScale> -> 0.700 [valid: all ]   
+    -> BasicReduction 
+           - <Opt-ElecLoadScale> -> 0.843 [valid: all ]   
+    -> NGERSBestInClass14p8 
+           - <Opt-ElecLoadScale> -> 0.648301 [valid: all ]   
+    -> NGERSNoReduction19 
+           - <Opt-ElecLoadScale> -> 0.832279 [valid: all ]   
+========== Opt-DHWLoadScale ===========
+Storing data for Opt-DHWLoadScale: 
+    -> EStar 
+           - <DUMMY-TAG-Not-USED> -> 0 [valid: all ]   
+    -> No-Reduction 
+           - <DUMMY-TAG-Not-USED> -> 0 [valid: all ]   
+    -> Low-Flow 
+           - <DUMMY-TAG-Not-USED> -> 0 [valid: all ]   
+    -> OldERS 
+           - <DUMMY-TAG-Not-USED> -> 0 [valid: all ]   
+========== Opt-DHWSystem ===========
+Storing data for Opt-DHWSystem: 
+    -> NWT_upgrade_oil_DHW 
+           - <Opt-DHWInputFile> -> upgrade_oil_DHW.dhw [valid: all ]   
+    -> elec_DHW 
+           - <Opt-DHWInputFile> -> elec_DHW.dhw [valid: all ]   
+    -> NWT_upgrade_elec_DHW 
+           - <Opt-DHWInputFile> -> upgrade_elec_DHW.dhw [valid: all ]   
+    -> BaseDHW 
+           - <Opt-DHWInputFile> -> BaseDHW.dhw [valid: all ]   
+    -> wood_DHW 
+           - <Opt-DHWInputFile> -> wood_DHW.dhw [valid: all ]   
+    -> retro_ElectricHP 
+           - <Opt-DHWInputFile> -> ElecHP.dhw [valid: all ]   
+    -> ElecInstantaneous 
+           - <Opt-DHWInputFile> -> ElecInstant.dhw [valid: all ]   
+    -> retro_GasInst 
+           - <Opt-DHWInputFile> -> GasInstantaneous.dhw [valid: all ]   
+    -> GasInstantaneous 
+           - <Opt-DHWInputFile> -> GasInstantaneous.dhw [valid: all ]   
+    -> ElectricStorage 
+           - <Opt-DHWInputFile> -> ElecStorage.dhw [valid: all ]   
+    -> ElectricHP 
+           - <Opt-DHWInputFile> -> ElecHP.dhw [valid: all ]   
+========== Opt-DWHRandSDHW ===========
+Storing data for Opt-DWHRandSDHW: 
+    -> 1-plate-DWHR-4-36 
+           - <Opt-DHWDailyDrawLperDay> -> 66.6 [valid: Opt-Location=Halifax;Opt-DHWLoadScale=No-Reduction ]   
+           - <Opt-DHWDailyDrawLperDay> -> 65.9 [valid: Opt-Location=Toronto;Opt-DHWLoadScale=No-Reduction ]   
+           - <Opt-DHWDailyDrawLperDay> -> 66.3 [valid: Opt-Location=Fredricton;Opt-DHWLoadScale=No-Reduction ]   
+           - <Opt-DHWDailyDrawLperDay> -> 133.4 [valid: Opt-Location=Quebec;Opt-DHWLoadScale=OldERS ]   
+           - <Opt-DHWDailyDrawLperDay> -> 62.6 [valid: Opt-Location=Winnipeg;Opt-DHWLoadScale=Low-Flow ]   
+           - <Opt-DHWDailyDrawLperDay> -> 64 [valid: Opt-Location=Regina;Opt-DHWLoadScale=No-Reduction ]   
+           - <Opt-DHWDailyDrawLperDay> -> 67.8 [valid: Opt-Location=Vancouver;Opt-DHWLoadScale=Low-Flow ]   
+           - <Opt-DHWDailyDrawLperDay> -> 65.6 [valid: Opt-Location=Edmonton;Opt-DHWLoadScale=No-Reduction ]   
+           - <Opt-DHWDailyDrawLperDay> -> 68.6 [valid: Opt-Location=Whitehorse;Opt-DHWLoadScale=Low-Flow ]   
+           - <Opt-DHWDailyDrawLperDay> -> 132.4 [valid: Opt-Location=Montreal;Opt-DHWLoadScale=OldERS ]   
+           - <Opt-DHWDailyDrawLperDay> -> 65.4 [valid: Opt-Location=Montreal;Opt-DHWLoadScale=Low-Flow ]   
+           - <Opt-DHWDailyDrawLperDay> -> 65.6 [valid: Opt-Location=Edmonton;Opt-DHWLoadScale=Low-Flow ]   
+           - <Opt-DHWDailyDrawLperDay> -> 88.4 [valid: Opt-Location=Edmonton;Opt-DHWLoadScale=EStar ]   
+           - <Opt-DHWDailyDrawLperDay> -> 87.8 [valid: Opt-Location=Ottawa;Opt-DHWLoadScale=EStar ]   
+           - <Opt-DHWDailyDrawLperDay> -> 90.3 [valid: Opt-Location=PrinceGeorge;Opt-DHWLoadScale=EStar ]   
+           - <Opt-DHWDailyDrawLperDay> -> 65.7 [valid: Opt-Location=Quebec;Opt-DHWLoadScale=Low-Flow ]   
+           - <Opt-DHWDailyDrawLperDay> -> 135.3 [valid: Opt-Location=PrinceGeorge;Opt-DHWLoadScale=OldERS ]   
+           - <Opt-DHWDailyDrawLperDay> -> 67.8 [valid: Opt-Location=Kamloops;Opt-DHWLoadScale=Low-Flow ]   
+           - <Opt-DHWDailyDrawLperDay> -> 132.1 [valid: Opt-Location=Calgary;Opt-DHWLoadScale=OldERS ]   
+           - <Opt-DHWDailyDrawLperDay> -> 67.8 [valid: Opt-Location=Kamloops;Opt-DHWLoadScale=No-Reduction ]   
+           - <Opt-DHWDailyDrawLperDay> -> 88.3 [valid: Opt-Location=Quebec;Opt-DHWLoadScale=EStar ]   
+           - <Opt-DHWDailyDrawLperDay> -> 93.2 [valid: Opt-Location=Whitehorse;Opt-DHWLoadScale=EStar ]   
+           - <Opt-DHWDailyDrawLperDay> -> 68.6 [valid: Opt-Location=Whitehorse;Opt-DHWLoadScale=No-Reduction ]   
+           - <Opt-DHWDailyDrawLperDay> -> 66.3 [valid: Opt-Location=Fredricton;Opt-DHWLoadScale=Low-Flow ]   
+           - <Opt-DHWDailyDrawLperDay> -> 66.6 [valid: Opt-Location=Halifax;Opt-DHWLoadScale=Low-Flow ]   
+           - <Opt-DHWDailyDrawLperDay> -> 89.3 [valid: Opt-Location=Halifax;Opt-DHWLoadScale=EStar ]   
+           - <Opt-DHWDailyDrawLperDay> -> 132.2 [valid: Opt-Location=Ottawa;Opt-DHWLoadScale=OldERS ]   
+           - <Opt-DHWDailyDrawLperDay> -> 64.9 [valid: Opt-Location=Calgary;Opt-DHWLoadScale=No-Reduction ]   
+           - <Opt-DHWDailyDrawLperDay> -> 131.1 [valid: Opt-Location=Regina;Opt-DHWLoadScale=OldERS ]   
+           - <Opt-DHWDailyDrawLperDay> -> 87.3 [valid: Opt-Location=Calgary;Opt-DHWLoadScale=EStar ]   
+           - <Opt-DHWDailyDrawLperDay> -> 65.9 [valid: Opt-Location=Toronto;Opt-DHWLoadScale=Low-Flow ]   
+           - <Opt-DHWDailyDrawLperDay> -> 135.3 [valid: Opt-Location=Vancouver;Opt-DHWLoadScale=OldERS ]   
+           - <Opt-DHWDailyDrawLperDay> -> 67.8 [valid: Opt-Location=Vancouver;Opt-DHWLoadScale=No-Reduction ]   
+           - <Opt-DHWDailyDrawLperDay> -> 62.6 [valid: Opt-Location=Winnipeg;Opt-DHWLoadScale=No-Reduction ]   
+           - <Opt-DHWDailyDrawLperDay> -> 65.4 [valid: Opt-Location=Montreal;Opt-DHWLoadScale=No-Reduction ]   
+           - <Opt-DHWDailyDrawLperDay> -> 64.9 [valid: Opt-Location=Calgary;Opt-DHWLoadScale=Low-Flow ]   
+           - <Opt-DHWDailyDrawLperDay> -> 64 [valid: Opt-Location=Regina;Opt-DHWLoadScale=Low-Flow ]   
+           - <Opt-DHWDailyDrawLperDay> -> 134.4 [valid: Opt-Location=Fredricton;Opt-DHWLoadScale=OldERS ]   
+           - <Opt-DHWDailyDrawLperDay> -> 84.6 [valid: Opt-Location=Winnipeg;Opt-DHWLoadScale=EStar ]   
+           - <Opt-DHWDailyDrawLperDay> -> 65.6 [valid: Opt-Location=Ottawa;Opt-DHWLoadScale=No-Reduction ]   
+           - <Opt-DHWDailyDrawLperDay> -> 142.3 [valid: Opt-Location=Whitehorse;Opt-DHWLoadScale=OldERS ]   
+           - <Opt-DHWDailyDrawLperDay> -> 128.6 [valid: Opt-Location=Winnipeg;Opt-DHWLoadScale=OldERS ]   
+           - <Opt-DHWDailyDrawLperDay> -> 134.6 [valid: Opt-Location=Halifax;Opt-DHWLoadScale=OldERS ]   
+           - <Opt-DHWDailyDrawLperDay> -> 87.7 [valid: Opt-Location=Montreal;Opt-DHWLoadScale=EStar ]   
+           - <Opt-DHWDailyDrawLperDay> -> 65.6 [valid: Opt-Location=Ottawa;Opt-DHWLoadScale=Low-Flow ]   
+           - <Opt-DHWDailyDrawLperDay> -> 90.3 [valid: Opt-Location=Kamloops;Opt-DHWLoadScale=EStar ]   
+           - <Opt-DHWDailyDrawLperDay> -> 87.9 [valid: Opt-Location=Toronto;Opt-DHWLoadScale=EStar ]   
+           - <Opt-DHWDailyDrawLperDay> -> 67.8 [valid: Opt-Location=PrinceGeorge;Opt-DHWLoadScale=No-Reduction ]   
+           - <Opt-DHWDailyDrawLperDay> -> 65.7 [valid: Opt-Location=Quebec;Opt-DHWLoadScale=No-Reduction ]   
+           - <Opt-DHWDailyDrawLperDay> -> 89 [valid: Opt-Location=Fredricton;Opt-DHWLoadScale=EStar ]   
+           - <Opt-DHWDailyDrawLperDay> -> 135.3 [valid: Opt-Location=Kamloops;Opt-DHWLoadScale=OldERS ]   
+           - <Opt-DHWDailyDrawLperDay> -> 90.3 [valid: Opt-Location=Vancouver;Opt-DHWLoadScale=EStar ]   
+           - <Opt-DHWDailyDrawLperDay> -> 131.9 [valid: Opt-Location=Toronto;Opt-DHWLoadScale=OldERS ]   
+           - <Opt-DHWDailyDrawLperDay> -> 134.2 [valid: Opt-Location=Edmonton;Opt-DHWLoadScale=OldERS ]   
+           - <Opt-DHWDailyDrawLperDay> -> 86.4 [valid: Opt-Location=Regina;Opt-DHWLoadScale=EStar ]   
+           - <Opt-DHWDailyDrawLperDay> -> 67.8 [valid: Opt-Location=PrinceGeorge;Opt-DHWLoadScale=Low-Flow ]   
+    -> None 
+           - <Opt-DHWDailyDrawLperDay> -> 141 [valid: Opt-Location=Halifax;Opt-DHWLoadScale=No-Reduction ]   
+           - <Opt-DHWDailyDrawLperDay> -> 141 [valid: Opt-Location=Toronto;Opt-DHWLoadScale=No-Reduction ]   
+           - <Opt-DHWDailyDrawLperDay> -> 141 [valid: Opt-Location=Fredricton;Opt-DHWLoadScale=No-Reduction ]   
+           - <Opt-DHWDailyDrawLperDay> -> 225 [valid: Opt-Location=Quebec;Opt-DHWLoadScale=OldERS ]   
+           - <Opt-DHWDailyDrawLperDay> -> 141 [valid: Opt-Location=Winnipeg;Opt-DHWLoadScale=Low-Flow ]   
+           - <Opt-DHWDailyDrawLperDay> -> 141 [valid: Opt-Location=Regina;Opt-DHWLoadScale=No-Reduction ]   
+           - <Opt-DHWDailyDrawLperDay> -> 141 [valid: Opt-Location=Vancouver;Opt-DHWLoadScale=Low-Flow ]   
+           - <Opt-DHWDailyDrawLperDay> -> 141 [valid: Opt-Location=Edmonton;Opt-DHWLoadScale=No-Reduction ]   
+           - <Opt-DHWDailyDrawLperDay> -> 141 [valid: Opt-Location=Whitehorse;Opt-DHWLoadScale=Low-Flow ]   
+           - <Opt-DHWDailyDrawLperDay> -> 225 [valid: Opt-Location=Montreal;Opt-DHWLoadScale=OldERS ]   
+           - <Opt-DHWDailyDrawLperDay> -> 141 [valid: Opt-Location=Montreal;Opt-DHWLoadScale=Low-Flow ]   
+           - <Opt-DHWDailyDrawLperDay> -> 141 [valid: Opt-Location=Edmonton;Opt-DHWLoadScale=Low-Flow ]   
+           - <Opt-DHWDailyDrawLperDay> -> 169 [valid: Opt-Location=Edmonton;Opt-DHWLoadScale=EStar ]   
+           - <Opt-DHWDailyDrawLperDay> -> 169 [valid: Opt-Location=Ottawa;Opt-DHWLoadScale=EStar ]   
+           - <Opt-DHWDailyDrawLperDay> -> 169 [valid: Opt-Location=PrinceGeorge;Opt-DHWLoadScale=EStar ]   
+           - <Opt-DHWDailyDrawLperDay> -> 141 [valid: Opt-Location=Quebec;Opt-DHWLoadScale=Low-Flow ]   
+           - <Opt-DHWDailyDrawLperDay> -> 225 [valid: Opt-Location=PrinceGeorge;Opt-DHWLoadScale=OldERS ]   
+           - <Opt-DHWDailyDrawLperDay> -> 141 [valid: Opt-Location=Kamloops;Opt-DHWLoadScale=Low-Flow ]   
+           - <Opt-DHWDailyDrawLperDay> -> 225 [valid: Opt-Location=Calgary;Opt-DHWLoadScale=OldERS ]   
+           - <Opt-DHWDailyDrawLperDay> -> 141 [valid: Opt-Location=Kamloops;Opt-DHWLoadScale=No-Reduction ]   
+           - <Opt-DHWDailyDrawLperDay> -> 169 [valid: Opt-Location=Quebec;Opt-DHWLoadScale=EStar ]   
+           - <Opt-DHWDailyDrawLperDay> -> 169 [valid: Opt-Location=Whitehorse;Opt-DHWLoadScale=EStar ]   
+           - <Opt-DHWDailyDrawLperDay> -> 141 [valid: Opt-Location=Whitehorse;Opt-DHWLoadScale=No-Reduction ]   
+           - <Opt-DHWDailyDrawLperDay> -> 141 [valid: Opt-Location=Fredricton;Opt-DHWLoadScale=Low-Flow ]   
+           - <Opt-DHWDailyDrawLperDay> -> 141 [valid: Opt-Location=Halifax;Opt-DHWLoadScale=Low-Flow ]   
+           - <Opt-DHWDailyDrawLperDay> -> 169 [valid: Opt-Location=Halifax;Opt-DHWLoadScale=EStar ]   
+           - <Opt-DHWDailyDrawLperDay> -> 225 [valid: Opt-Location=Ottawa;Opt-DHWLoadScale=OldERS ]   
+           - <Opt-DHWDailyDrawLperDay> -> 141 [valid: Opt-Location=Calgary;Opt-DHWLoadScale=No-Reduction ]   
+           - <Opt-DHWDailyDrawLperDay> -> 225 [valid: Opt-Location=Regina;Opt-DHWLoadScale=OldERS ]   
+           - <Opt-DHWDailyDrawLperDay> -> 169 [valid: Opt-Location=Calgary;Opt-DHWLoadScale=EStar ]   
+           - <Opt-DHWDailyDrawLperDay> -> 141 [valid: Opt-Location=Toronto;Opt-DHWLoadScale=Low-Flow ]   
+           - <Opt-DHWDailyDrawLperDay> -> 225 [valid: Opt-Location=Vancouver;Opt-DHWLoadScale=OldERS ]   
+           - <Opt-DHWDailyDrawLperDay> -> 141 [valid: Opt-Location=Vancouver;Opt-DHWLoadScale=No-Reduction ]   
+           - <Opt-DHWDailyDrawLperDay> -> 141 [valid: Opt-Location=Winnipeg;Opt-DHWLoadScale=No-Reduction ]   
+           - <Opt-DHWDailyDrawLperDay> -> 141 [valid: Opt-Location=Montreal;Opt-DHWLoadScale=No-Reduction ]   
+           - <Opt-DHWDailyDrawLperDay> -> 141 [valid: Opt-Location=Calgary;Opt-DHWLoadScale=Low-Flow ]   
+           - <Opt-DHWDailyDrawLperDay> -> 141 [valid: Opt-Location=Regina;Opt-DHWLoadScale=Low-Flow ]   
+           - <Opt-DHWDailyDrawLperDay> -> 225 [valid: Opt-Location=Fredricton;Opt-DHWLoadScale=OldERS ]   
+           - <Opt-DHWDailyDrawLperDay> -> 169 [valid: Opt-Location=Winnipeg;Opt-DHWLoadScale=EStar ]   
+           - <Opt-DHWDailyDrawLperDay> -> 141 [valid: Opt-Location=Ottawa;Opt-DHWLoadScale=No-Reduction ]   
+           - <Opt-DHWDailyDrawLperDay> -> 225 [valid: Opt-Location=Whitehorse;Opt-DHWLoadScale=OldERS ]   
+           - <Opt-DHWDailyDrawLperDay> -> 225 [valid: Opt-Location=Winnipeg;Opt-DHWLoadScale=OldERS ]   
+           - <Opt-DHWDailyDrawLperDay> -> 225 [valid: Opt-Location=Halifax;Opt-DHWLoadScale=OldERS ]   
+           - <Opt-DHWDailyDrawLperDay> -> 169 [valid: Opt-Location=Montreal;Opt-DHWLoadScale=EStar ]   
+           - <Opt-DHWDailyDrawLperDay> -> 141 [valid: Opt-Location=Ottawa;Opt-DHWLoadScale=Low-Flow ]   
+           - <Opt-DHWDailyDrawLperDay> -> 169 [valid: Opt-Location=Kamloops;Opt-DHWLoadScale=EStar ]   
+           - <Opt-DHWDailyDrawLperDay> -> 169 [valid: Opt-Location=Toronto;Opt-DHWLoadScale=EStar ]   
+           - <Opt-DHWDailyDrawLperDay> -> 141 [valid: Opt-Location=PrinceGeorge;Opt-DHWLoadScale=No-Reduction ]   
+           - <Opt-DHWDailyDrawLperDay> -> 141 [valid: Opt-Location=Quebec;Opt-DHWLoadScale=No-Reduction ]   
+           - <Opt-DHWDailyDrawLperDay> -> 169 [valid: Opt-Location=Fredricton;Opt-DHWLoadScale=EStar ]   
+           - <Opt-DHWDailyDrawLperDay> -> 225 [valid: Opt-Location=Kamloops;Opt-DHWLoadScale=OldERS ]   
+           - <Opt-DHWDailyDrawLperDay> -> 169 [valid: Opt-Location=Vancouver;Opt-DHWLoadScale=EStar ]   
+           - <Opt-DHWDailyDrawLperDay> -> 225 [valid: Opt-Location=Toronto;Opt-DHWLoadScale=OldERS ]   
+           - <Opt-DHWDailyDrawLperDay> -> 225 [valid: Opt-Location=Edmonton;Opt-DHWLoadScale=OldERS ]   
+           - <Opt-DHWDailyDrawLperDay> -> 169 [valid: Opt-Location=Regina;Opt-DHWLoadScale=EStar ]   
+           - <Opt-DHWDailyDrawLperDay> -> 141 [valid: Opt-Location=PrinceGeorge;Opt-DHWLoadScale=Low-Flow ]   
+    -> none 
+           - <Opt-DHWDailyDrawLperDay> -> 225 [valid: Opt-DHWLoadScale=OldERS ]   
+           - <Opt-DHWDailyDrawLperDay> -> 141 [valid: Opt-DHWLoadScale=Low-Flow ]   
+           - <Opt-DHWDailyDrawLperDay> -> 190 [valid: Opt-DHWLoadScale=No-Reduction ]   
+           - <Opt-DHWDailyDrawLperDay> -> 169 [valid: Opt-DHWLoadScale=EStar ]   
+    -> DWHR-4-60 
+           - <Opt-DHWDailyDrawLperDay> -> 105.8 [valid: Opt-Location=Halifax;Opt-DHWLoadScale=No-Reduction ]   
+           - <Opt-DHWDailyDrawLperDay> -> 108.5 [valid: Opt-Location=Toronto;Opt-DHWLoadScale=No-Reduction ]   
+           - <Opt-DHWDailyDrawLperDay> -> 105 [valid: Opt-Location=Fredricton;Opt-DHWLoadScale=No-Reduction ]   
+           - <Opt-DHWDailyDrawLperDay> -> 188.7 [valid: Opt-Location=Quebec;Opt-DHWLoadScale=OldERS ]   
+           - <Opt-DHWDailyDrawLperDay> -> 107.6 [valid: Opt-Location=Winnipeg;Opt-DHWLoadScale=Low-Flow ]   
+           - <Opt-DHWDailyDrawLperDay> -> 102.4 [valid: Opt-Location=Regina;Opt-DHWLoadScale=No-Reduction ]   
+           - <Opt-DHWDailyDrawLperDay> -> 108.7 [valid: Opt-Location=Vancouver;Opt-DHWLoadScale=Low-Flow ]   
+           - <Opt-DHWDailyDrawLperDay> -> 102.7 [valid: Opt-Location=Edmonton;Opt-DHWLoadScale=No-Reduction ]   
+           - <Opt-DHWDailyDrawLperDay> -> 100 [valid: Opt-Location=Whitehorse;Opt-DHWLoadScale=Low-Flow ]   
+           - <Opt-DHWDailyDrawLperDay> -> 187.8 [valid: Opt-Location=Montreal;Opt-DHWLoadScale=OldERS ]   
+           - <Opt-DHWDailyDrawLperDay> -> 103.8 [valid: Opt-Location=Montreal;Opt-DHWLoadScale=Low-Flow ]   
+           - <Opt-DHWDailyDrawLperDay> -> 102.7 [valid: Opt-Location=Edmonton;Opt-DHWLoadScale=Low-Flow ]   
+           - <Opt-DHWDailyDrawLperDay> -> 130.7 [valid: Opt-Location=Edmonton;Opt-DHWLoadScale=EStar ]   
+           - <Opt-DHWDailyDrawLperDay> -> 134.2 [valid: Opt-Location=Ottawa;Opt-DHWLoadScale=EStar ]   
+           - <Opt-DHWDailyDrawLperDay> -> 136.7 [valid: Opt-Location=PrinceGeorge;Opt-DHWLoadScale=EStar ]   
+           - <Opt-DHWDailyDrawLperDay> -> 104.7 [valid: Opt-Location=Quebec;Opt-DHWLoadScale=Low-Flow ]   
+           - <Opt-DHWDailyDrawLperDay> -> 192.7 [valid: Opt-Location=PrinceGeorge;Opt-DHWLoadScale=OldERS ]   
+           - <Opt-DHWDailyDrawLperDay> -> 108.7 [valid: Opt-Location=Kamloops;Opt-DHWLoadScale=Low-Flow ]   
+           - <Opt-DHWDailyDrawLperDay> -> 187.8 [valid: Opt-Location=Calgary;Opt-DHWLoadScale=OldERS ]   
+           - <Opt-DHWDailyDrawLperDay> -> 108.7 [valid: Opt-Location=Kamloops;Opt-DHWLoadScale=No-Reduction ]   
+           - <Opt-DHWDailyDrawLperDay> -> 132.7 [valid: Opt-Location=Quebec;Opt-DHWLoadScale=EStar ]   
+           - <Opt-DHWDailyDrawLperDay> -> 128 [valid: Opt-Location=Whitehorse;Opt-DHWLoadScale=EStar ]   
+           - <Opt-DHWDailyDrawLperDay> -> 100 [valid: Opt-Location=Whitehorse;Opt-DHWLoadScale=No-Reduction ]   
+           - <Opt-DHWDailyDrawLperDay> -> 105 [valid: Opt-Location=Fredricton;Opt-DHWLoadScale=Low-Flow ]   
+           - <Opt-DHWDailyDrawLperDay> -> 105.8 [valid: Opt-Location=Halifax;Opt-DHWLoadScale=Low-Flow ]   
+           - <Opt-DHWDailyDrawLperDay> -> 133.8 [valid: Opt-Location=Halifax;Opt-DHWLoadScale=EStar ]   
+           - <Opt-DHWDailyDrawLperDay> -> 190.2 [valid: Opt-Location=Ottawa;Opt-DHWLoadScale=OldERS ]   
+           - <Opt-DHWDailyDrawLperDay> -> 103.8 [valid: Opt-Location=Calgary;Opt-DHWLoadScale=No-Reduction ]   
+           - <Opt-DHWDailyDrawLperDay> -> 186.4 [valid: Opt-Location=Regina;Opt-DHWLoadScale=OldERS ]   
+           - <Opt-DHWDailyDrawLperDay> -> 131.8 [valid: Opt-Location=Calgary;Opt-DHWLoadScale=EStar ]   
+           - <Opt-DHWDailyDrawLperDay> -> 108.5 [valid: Opt-Location=Toronto;Opt-DHWLoadScale=Low-Flow ]   
+           - <Opt-DHWDailyDrawLperDay> -> 192.7 [valid: Opt-Location=Vancouver;Opt-DHWLoadScale=OldERS ]   
+           - <Opt-DHWDailyDrawLperDay> -> 108.7 [valid: Opt-Location=Vancouver;Opt-DHWLoadScale=No-Reduction ]   
+           - <Opt-DHWDailyDrawLperDay> -> 107.6 [valid: Opt-Location=Winnipeg;Opt-DHWLoadScale=No-Reduction ]   
+           - <Opt-DHWDailyDrawLperDay> -> 103.8 [valid: Opt-Location=Montreal;Opt-DHWLoadScale=No-Reduction ]   
+           - <Opt-DHWDailyDrawLperDay> -> 103.8 [valid: Opt-Location=Calgary;Opt-DHWLoadScale=Low-Flow ]   
+           - <Opt-DHWDailyDrawLperDay> -> 102.4 [valid: Opt-Location=Regina;Opt-DHWLoadScale=Low-Flow ]   
+           - <Opt-DHWDailyDrawLperDay> -> 189 [valid: Opt-Location=Fredricton;Opt-DHWLoadScale=OldERS ]   
+           - <Opt-DHWDailyDrawLperDay> -> 135.6 [valid: Opt-Location=Winnipeg;Opt-DHWLoadScale=EStar ]   
+           - <Opt-DHWDailyDrawLperDay> -> 106.2 [valid: Opt-Location=Ottawa;Opt-DHWLoadScale=No-Reduction ]   
+           - <Opt-DHWDailyDrawLperDay> -> 184 [valid: Opt-Location=Whitehorse;Opt-DHWLoadScale=OldERS ]   
+           - <Opt-DHWDailyDrawLperDay> -> 191.6 [valid: Opt-Location=Winnipeg;Opt-DHWLoadScale=OldERS ]   
+           - <Opt-DHWDailyDrawLperDay> -> 189.8 [valid: Opt-Location=Halifax;Opt-DHWLoadScale=OldERS ]   
+           - <Opt-DHWDailyDrawLperDay> -> 131.8 [valid: Opt-Location=Montreal;Opt-DHWLoadScale=EStar ]   
+           - <Opt-DHWDailyDrawLperDay> -> 106.2 [valid: Opt-Location=Ottawa;Opt-DHWLoadScale=Low-Flow ]   
+           - <Opt-DHWDailyDrawLperDay> -> 136.7 [valid: Opt-Location=Kamloops;Opt-DHWLoadScale=EStar ]   
+           - <Opt-DHWDailyDrawLperDay> -> 136.5 [valid: Opt-Location=Toronto;Opt-DHWLoadScale=EStar ]   
+           - <Opt-DHWDailyDrawLperDay> -> 108.7 [valid: Opt-Location=PrinceGeorge;Opt-DHWLoadScale=No-Reduction ]   
+           - <Opt-DHWDailyDrawLperDay> -> 104.7 [valid: Opt-Location=Quebec;Opt-DHWLoadScale=No-Reduction ]   
+           - <Opt-DHWDailyDrawLperDay> -> 133 [valid: Opt-Location=Fredricton;Opt-DHWLoadScale=EStar ]   
+           - <Opt-DHWDailyDrawLperDay> -> 192.7 [valid: Opt-Location=Kamloops;Opt-DHWLoadScale=OldERS ]   
+           - <Opt-DHWDailyDrawLperDay> -> 136.7 [valid: Opt-Location=Vancouver;Opt-DHWLoadScale=EStar ]   
+           - <Opt-DHWDailyDrawLperDay> -> 192.5 [valid: Opt-Location=Toronto;Opt-DHWLoadScale=OldERS ]   
+           - <Opt-DHWDailyDrawLperDay> -> 186.7 [valid: Opt-Location=Edmonton;Opt-DHWLoadScale=OldERS ]   
+           - <Opt-DHWDailyDrawLperDay> -> 130.4 [valid: Opt-Location=Regina;Opt-DHWLoadScale=EStar ]   
+           - <Opt-DHWDailyDrawLperDay> -> 108.7 [valid: Opt-Location=PrinceGeorge;Opt-DHWLoadScale=Low-Flow ]   
+    -> 2-plate 
+           - <Opt-DHWDailyDrawLperDay> -> 53.2 [valid: Opt-Location=Halifax;Opt-DHWLoadScale=No-Reduction ]   
+           - <Opt-DHWDailyDrawLperDay> -> 51.3 [valid: Opt-Location=Toronto;Opt-DHWLoadScale=No-Reduction ]   
+           - <Opt-DHWDailyDrawLperDay> -> 53.5 [valid: Opt-Location=Fredricton;Opt-DHWLoadScale=No-Reduction ]   
+           - <Opt-DHWDailyDrawLperDay> -> 109.7 [valid: Opt-Location=Quebec;Opt-DHWLoadScale=OldERS ]   
+           - <Opt-DHWDailyDrawLperDay> -> 44.7 [valid: Opt-Location=Winnipeg;Opt-DHWLoadScale=Low-Flow ]   
+           - <Opt-DHWDailyDrawLperDay> -> 52 [valid: Opt-Location=Regina;Opt-DHWLoadScale=No-Reduction ]   
+           - <Opt-DHWDailyDrawLperDay> -> 54.8 [valid: Opt-Location=Vancouver;Opt-DHWLoadScale=Low-Flow ]   
+           - <Opt-DHWDailyDrawLperDay> -> 55.1 [valid: Opt-Location=Edmonton;Opt-DHWLoadScale=No-Reduction ]   
+           - <Opt-DHWDailyDrawLperDay> -> 66.6 [valid: Opt-Location=Whitehorse;Opt-DHWLoadScale=Low-Flow ]   
+           - <Opt-DHWDailyDrawLperDay> -> 108.5 [valid: Opt-Location=Montreal;Opt-DHWLoadScale=OldERS ]   
+           - <Opt-DHWDailyDrawLperDay> -> 52.4 [valid: Opt-Location=Montreal;Opt-DHWLoadScale=Low-Flow ]   
+           - <Opt-DHWDailyDrawLperDay> -> 55.1 [valid: Opt-Location=Edmonton;Opt-DHWLoadScale=Low-Flow ]   
+           - <Opt-DHWDailyDrawLperDay> -> 74.6 [valid: Opt-Location=Edmonton;Opt-DHWLoadScale=EStar ]   
+           - <Opt-DHWDailyDrawLperDay> -> 69.5 [valid: Opt-Location=Ottawa;Opt-DHWLoadScale=EStar ]   
+           - <Opt-DHWDailyDrawLperDay> -> 72.9 [valid: Opt-Location=PrinceGeorge;Opt-DHWLoadScale=EStar ]   
+           - <Opt-DHWDailyDrawLperDay> -> 52.7 [valid: Opt-Location=Quebec;Opt-DHWLoadScale=Low-Flow ]   
+           - <Opt-DHWDailyDrawLperDay> -> 109 [valid: Opt-Location=PrinceGeorge;Opt-DHWLoadScale=OldERS ]   
+           - <Opt-DHWDailyDrawLperDay> -> 54.8 [valid: Opt-Location=Kamloops;Opt-DHWLoadScale=Low-Flow ]   
+           - <Opt-DHWDailyDrawLperDay> -> 108.3 [valid: Opt-Location=Calgary;Opt-DHWLoadScale=OldERS ]   
+           - <Opt-DHWDailyDrawLperDay> -> 54.8 [valid: Opt-Location=Kamloops;Opt-DHWLoadScale=No-Reduction ]   
+           - <Opt-DHWDailyDrawLperDay> -> 71.7 [valid: Opt-Location=Quebec;Opt-DHWLoadScale=EStar ]   
+           - <Opt-DHWDailyDrawLperDay> -> 88.6 [valid: Opt-Location=Whitehorse;Opt-DHWLoadScale=EStar ]   
+           - <Opt-DHWDailyDrawLperDay> -> 66.6 [valid: Opt-Location=Whitehorse;Opt-DHWLoadScale=No-Reduction ]   
+           - <Opt-DHWDailyDrawLperDay> -> 53.5 [valid: Opt-Location=Fredricton;Opt-DHWLoadScale=Low-Flow ]   
+           - <Opt-DHWDailyDrawLperDay> -> 53.2 [valid: Opt-Location=Halifax;Opt-DHWLoadScale=Low-Flow ]   
+           - <Opt-DHWDailyDrawLperDay> -> 72.4 [valid: Opt-Location=Halifax;Opt-DHWLoadScale=EStar ]   
+           - <Opt-DHWDailyDrawLperDay> -> 105.8 [valid: Opt-Location=Ottawa;Opt-DHWLoadScale=OldERS ]   
+           - <Opt-DHWDailyDrawLperDay> -> 52.6 [valid: Opt-Location=Calgary;Opt-DHWLoadScale=No-Reduction ]   
+           - <Opt-DHWDailyDrawLperDay> -> 108 [valid: Opt-Location=Regina;Opt-DHWLoadScale=OldERS ]   
+           - <Opt-DHWDailyDrawLperDay> -> 71.2 [valid: Opt-Location=Calgary;Opt-DHWLoadScale=EStar ]   
+           - <Opt-DHWDailyDrawLperDay> -> 51.3 [valid: Opt-Location=Toronto;Opt-DHWLoadScale=Low-Flow ]   
+           - <Opt-DHWDailyDrawLperDay> -> 109 [valid: Opt-Location=Vancouver;Opt-DHWLoadScale=OldERS ]   
+           - <Opt-DHWDailyDrawLperDay> -> 54.8 [valid: Opt-Location=Vancouver;Opt-DHWLoadScale=No-Reduction ]   
+           - <Opt-DHWDailyDrawLperDay> -> 44.7 [valid: Opt-Location=Winnipeg;Opt-DHWLoadScale=No-Reduction ]   
+           - <Opt-DHWDailyDrawLperDay> -> 52.4 [valid: Opt-Location=Montreal;Opt-DHWLoadScale=No-Reduction ]   
+           - <Opt-DHWDailyDrawLperDay> -> 52.6 [valid: Opt-Location=Calgary;Opt-DHWLoadScale=Low-Flow ]   
+           - <Opt-DHWDailyDrawLperDay> -> 52 [valid: Opt-Location=Regina;Opt-DHWLoadScale=Low-Flow ]   
+           - <Opt-DHWDailyDrawLperDay> -> 111.2 [valid: Opt-Location=Fredricton;Opt-DHWLoadScale=OldERS ]   
+           - <Opt-DHWDailyDrawLperDay> -> 62.5 [valid: Opt-Location=Winnipeg;Opt-DHWLoadScale=EStar ]   
+           - <Opt-DHWDailyDrawLperDay> -> 51.4 [valid: Opt-Location=Ottawa;Opt-DHWLoadScale=No-Reduction ]   
+           - <Opt-DHWDailyDrawLperDay> -> 132.5 [valid: Opt-Location=Whitehorse;Opt-DHWLoadScale=OldERS ]   
+           - <Opt-DHWDailyDrawLperDay> -> 98.1 [valid: Opt-Location=Winnipeg;Opt-DHWLoadScale=OldERS ]   
+           - <Opt-DHWDailyDrawLperDay> -> 110.8 [valid: Opt-Location=Halifax;Opt-DHWLoadScale=OldERS ]   
+           - <Opt-DHWDailyDrawLperDay> -> 71.1 [valid: Opt-Location=Montreal;Opt-DHWLoadScale=EStar ]   
+           - <Opt-DHWDailyDrawLperDay> -> 51.4 [valid: Opt-Location=Ottawa;Opt-DHWLoadScale=Low-Flow ]   
+           - <Opt-DHWDailyDrawLperDay> -> 72.9 [valid: Opt-Location=Kamloops;Opt-DHWLoadScale=EStar ]   
+           - <Opt-DHWDailyDrawLperDay> -> 68.5 [valid: Opt-Location=Toronto;Opt-DHWLoadScale=EStar ]   
+           - <Opt-DHWDailyDrawLperDay> -> 54.8 [valid: Opt-Location=PrinceGeorge;Opt-DHWLoadScale=No-Reduction ]   
+           - <Opt-DHWDailyDrawLperDay> -> 52.7 [valid: Opt-Location=Quebec;Opt-DHWLoadScale=No-Reduction ]   
+           - <Opt-DHWDailyDrawLperDay> -> 72.7 [valid: Opt-Location=Fredricton;Opt-DHWLoadScale=EStar ]   
+           - <Opt-DHWDailyDrawLperDay> -> 109 [valid: Opt-Location=Kamloops;Opt-DHWLoadScale=OldERS ]   
+           - <Opt-DHWDailyDrawLperDay> -> 72.9 [valid: Opt-Location=Vancouver;Opt-DHWLoadScale=EStar ]   
+           - <Opt-DHWDailyDrawLperDay> -> 102.7 [valid: Opt-Location=Toronto;Opt-DHWLoadScale=OldERS ]   
+           - <Opt-DHWDailyDrawLperDay> -> 113.6 [valid: Opt-Location=Edmonton;Opt-DHWLoadScale=OldERS ]   
+           - <Opt-DHWDailyDrawLperDay> -> 70.7 [valid: Opt-Location=Regina;Opt-DHWLoadScale=EStar ]   
+           - <Opt-DHWDailyDrawLperDay> -> 54.8 [valid: Opt-Location=PrinceGeorge;Opt-DHWLoadScale=Low-Flow ]   
+    -> 2-plate-DWHR-4-60 
+           - <Opt-DHWDailyDrawLperDay> -> 29.1 [valid: Opt-Location=Halifax;Opt-DHWLoadScale=No-Reduction ]   
+           - <Opt-DHWDailyDrawLperDay> -> 31.4 [valid: Opt-Location=Toronto;Opt-DHWLoadScale=No-Reduction ]   
+           - <Opt-DHWDailyDrawLperDay> -> 28.7 [valid: Opt-Location=Fredricton;Opt-DHWLoadScale=No-Reduction ]   
+           - <Opt-DHWDailyDrawLperDay> -> 85.1 [valid: Opt-Location=Quebec;Opt-DHWLoadScale=OldERS ]   
+           - <Opt-DHWDailyDrawLperDay> -> 23.5 [valid: Opt-Location=Winnipeg;Opt-DHWLoadScale=Low-Flow ]   
+           - <Opt-DHWDailyDrawLperDay> -> 26.2 [valid: Opt-Location=Regina;Opt-DHWLoadScale=No-Reduction ]   
+           - <Opt-DHWDailyDrawLperDay> -> 34 [valid: Opt-Location=Vancouver;Opt-DHWLoadScale=Low-Flow ]   
+           - <Opt-DHWDailyDrawLperDay> -> 28.4 [valid: Opt-Location=Edmonton;Opt-DHWLoadScale=No-Reduction ]   
+           - <Opt-DHWDailyDrawLperDay> -> 34.5 [valid: Opt-Location=Whitehorse;Opt-DHWLoadScale=Low-Flow ]   
+           - <Opt-DHWDailyDrawLperDay> -> 83.7 [valid: Opt-Location=Montreal;Opt-DHWLoadScale=OldERS ]   
+           - <Opt-DHWDailyDrawLperDay> -> 27.5 [valid: Opt-Location=Montreal;Opt-DHWLoadScale=Low-Flow ]   
+           - <Opt-DHWDailyDrawLperDay> -> 28.4 [valid: Opt-Location=Edmonton;Opt-DHWLoadScale=Low-Flow ]   
+           - <Opt-DHWDailyDrawLperDay> -> 47.9 [valid: Opt-Location=Edmonton;Opt-DHWLoadScale=EStar ]   
+           - <Opt-DHWDailyDrawLperDay> -> 47 [valid: Opt-Location=Ottawa;Opt-DHWLoadScale=EStar ]   
+           - <Opt-DHWDailyDrawLperDay> -> 52.1 [valid: Opt-Location=PrinceGeorge;Opt-DHWLoadScale=EStar ]   
+           - <Opt-DHWDailyDrawLperDay> -> 28.1 [valid: Opt-Location=Quebec;Opt-DHWLoadScale=Low-Flow ]   
+           - <Opt-DHWDailyDrawLperDay> -> 88.1 [valid: Opt-Location=PrinceGeorge;Opt-DHWLoadScale=OldERS ]   
+           - <Opt-DHWDailyDrawLperDay> -> 34 [valid: Opt-Location=Kamloops;Opt-DHWLoadScale=Low-Flow ]   
+           - <Opt-DHWDailyDrawLperDay> -> 83.6 [valid: Opt-Location=Calgary;Opt-DHWLoadScale=OldERS ]   
+           - <Opt-DHWDailyDrawLperDay> -> 34 [valid: Opt-Location=Kamloops;Opt-DHWLoadScale=No-Reduction ]   
+           - <Opt-DHWDailyDrawLperDay> -> 47.1 [valid: Opt-Location=Quebec;Opt-DHWLoadScale=EStar ]   
+           - <Opt-DHWDailyDrawLperDay> -> 56.5 [valid: Opt-Location=Whitehorse;Opt-DHWLoadScale=EStar ]   
+           - <Opt-DHWDailyDrawLperDay> -> 34.5 [valid: Opt-Location=Whitehorse;Opt-DHWLoadScale=No-Reduction ]   
+           - <Opt-DHWDailyDrawLperDay> -> 28.7 [valid: Opt-Location=Fredricton;Opt-DHWLoadScale=Low-Flow ]   
+           - <Opt-DHWDailyDrawLperDay> -> 29.1 [valid: Opt-Location=Halifax;Opt-DHWLoadScale=Low-Flow ]   
+           - <Opt-DHWDailyDrawLperDay> -> 48.3 [valid: Opt-Location=Halifax;Opt-DHWLoadScale=EStar ]   
+           - <Opt-DHWDailyDrawLperDay> -> 83.3 [valid: Opt-Location=Ottawa;Opt-DHWLoadScale=OldERS ]   
+           - <Opt-DHWDailyDrawLperDay> -> 27.9 [valid: Opt-Location=Calgary;Opt-DHWLoadScale=No-Reduction ]   
+           - <Opt-DHWDailyDrawLperDay> -> 82.3 [valid: Opt-Location=Regina;Opt-DHWLoadScale=OldERS ]   
+           - <Opt-DHWDailyDrawLperDay> -> 46.5 [valid: Opt-Location=Calgary;Opt-DHWLoadScale=EStar ]   
+           - <Opt-DHWDailyDrawLperDay> -> 31.4 [valid: Opt-Location=Toronto;Opt-DHWLoadScale=Low-Flow ]   
+           - <Opt-DHWDailyDrawLperDay> -> 88.1 [valid: Opt-Location=Vancouver;Opt-DHWLoadScale=OldERS ]   
+           - <Opt-DHWDailyDrawLperDay> -> 34 [valid: Opt-Location=Vancouver;Opt-DHWLoadScale=No-Reduction ]   
+           - <Opt-DHWDailyDrawLperDay> -> 23.5 [valid: Opt-Location=Winnipeg;Opt-DHWLoadScale=No-Reduction ]   
+           - <Opt-DHWDailyDrawLperDay> -> 27.5 [valid: Opt-Location=Montreal;Opt-DHWLoadScale=No-Reduction ]   
+           - <Opt-DHWDailyDrawLperDay> -> 27.9 [valid: Opt-Location=Calgary;Opt-DHWLoadScale=Low-Flow ]   
+           - <Opt-DHWDailyDrawLperDay> -> 26.2 [valid: Opt-Location=Regina;Opt-DHWLoadScale=Low-Flow ]   
+           - <Opt-DHWDailyDrawLperDay> -> 86.5 [valid: Opt-Location=Fredricton;Opt-DHWLoadScale=OldERS ]   
+           - <Opt-DHWDailyDrawLperDay> -> 41.3 [valid: Opt-Location=Winnipeg;Opt-DHWLoadScale=EStar ]   
+           - <Opt-DHWDailyDrawLperDay> -> 28.8 [valid: Opt-Location=Ottawa;Opt-DHWLoadScale=No-Reduction ]   
+           - <Opt-DHWDailyDrawLperDay> -> 100.4 [valid: Opt-Location=Whitehorse;Opt-DHWLoadScale=OldERS ]   
+           - <Opt-DHWDailyDrawLperDay> -> 76.9 [valid: Opt-Location=Winnipeg;Opt-DHWLoadScale=OldERS ]   
+           - <Opt-DHWDailyDrawLperDay> -> 86.7 [valid: Opt-Location=Halifax;Opt-DHWLoadScale=OldERS ]   
+           - <Opt-DHWDailyDrawLperDay> -> 46.3 [valid: Opt-Location=Montreal;Opt-DHWLoadScale=EStar ]   
+           - <Opt-DHWDailyDrawLperDay> -> 28.8 [valid: Opt-Location=Ottawa;Opt-DHWLoadScale=Low-Flow ]   
+           - <Opt-DHWDailyDrawLperDay> -> 52.1 [valid: Opt-Location=Kamloops;Opt-DHWLoadScale=EStar ]   
+           - <Opt-DHWDailyDrawLperDay> -> 48.6 [valid: Opt-Location=Toronto;Opt-DHWLoadScale=EStar ]   
+           - <Opt-DHWDailyDrawLperDay> -> 34 [valid: Opt-Location=PrinceGeorge;Opt-DHWLoadScale=No-Reduction ]   
+           - <Opt-DHWDailyDrawLperDay> -> 28.1 [valid: Opt-Location=Quebec;Opt-DHWLoadScale=No-Reduction ]   
+           - <Opt-DHWDailyDrawLperDay> -> 48 [valid: Opt-Location=Fredricton;Opt-DHWLoadScale=EStar ]   
+           - <Opt-DHWDailyDrawLperDay> -> 88.1 [valid: Opt-Location=Kamloops;Opt-DHWLoadScale=OldERS ]   
+           - <Opt-DHWDailyDrawLperDay> -> 52.1 [valid: Opt-Location=Vancouver;Opt-DHWLoadScale=EStar ]   
+           - <Opt-DHWDailyDrawLperDay> -> 82.8 [valid: Opt-Location=Toronto;Opt-DHWLoadScale=OldERS ]   
+           - <Opt-DHWDailyDrawLperDay> -> 86.9 [valid: Opt-Location=Edmonton;Opt-DHWLoadScale=OldERS ]   
+           - <Opt-DHWDailyDrawLperDay> -> 44.9 [valid: Opt-Location=Regina;Opt-DHWLoadScale=EStar ]   
+           - <Opt-DHWDailyDrawLperDay> -> 34 [valid: Opt-Location=PrinceGeorge;Opt-DHWLoadScale=Low-Flow ]   
+    -> 2-plate-DWHR-4-36 
+           - <Opt-DHWDailyDrawLperDay> -> 35.3 [valid: Opt-Location=Halifax;Opt-DHWLoadScale=No-Reduction ]   
+           - <Opt-DHWDailyDrawLperDay> -> 36.6 [valid: Opt-Location=Toronto;Opt-DHWLoadScale=No-Reduction ]   
+           - <Opt-DHWDailyDrawLperDay> -> 35.1 [valid: Opt-Location=Fredricton;Opt-DHWLoadScale=No-Reduction ]   
+           - <Opt-DHWDailyDrawLperDay> -> 91.4 [valid: Opt-Location=Quebec;Opt-DHWLoadScale=OldERS ]   
+           - <Opt-DHWDailyDrawLperDay> -> 29 [valid: Opt-Location=Winnipeg;Opt-DHWLoadScale=Low-Flow ]   
+           - <Opt-DHWDailyDrawLperDay> -> 32.9 [valid: Opt-Location=Regina;Opt-DHWLoadScale=No-Reduction ]   
+           - <Opt-DHWDailyDrawLperDay> -> 39.4 [valid: Opt-Location=Vancouver;Opt-DHWLoadScale=Low-Flow ]   
+           - <Opt-DHWDailyDrawLperDay> -> 35.3 [valid: Opt-Location=Edmonton;Opt-DHWLoadScale=No-Reduction ]   
+           - <Opt-DHWDailyDrawLperDay> -> 42.8 [valid: Opt-Location=Whitehorse;Opt-DHWLoadScale=Low-Flow ]   
+           - <Opt-DHWDailyDrawLperDay> -> 90.1 [valid: Opt-Location=Montreal;Opt-DHWLoadScale=OldERS ]   
+           - <Opt-DHWDailyDrawLperDay> -> 33.9 [valid: Opt-Location=Montreal;Opt-DHWLoadScale=Low-Flow ]   
+           - <Opt-DHWDailyDrawLperDay> -> 35.3 [valid: Opt-Location=Edmonton;Opt-DHWLoadScale=Low-Flow ]   
+           - <Opt-DHWDailyDrawLperDay> -> 54.8 [valid: Opt-Location=Edmonton;Opt-DHWLoadScale=EStar ]   
+           - <Opt-DHWDailyDrawLperDay> -> 52.8 [valid: Opt-Location=Ottawa;Opt-DHWLoadScale=EStar ]   
+           - <Opt-DHWDailyDrawLperDay> -> 57.4 [valid: Opt-Location=PrinceGeorge;Opt-DHWLoadScale=EStar ]   
+           - <Opt-DHWDailyDrawLperDay> -> 34.4 [valid: Opt-Location=Quebec;Opt-DHWLoadScale=Low-Flow ]   
+           - <Opt-DHWDailyDrawLperDay> -> 93.5 [valid: Opt-Location=PrinceGeorge;Opt-DHWLoadScale=OldERS ]   
+           - <Opt-DHWDailyDrawLperDay> -> 39.4 [valid: Opt-Location=Kamloops;Opt-DHWLoadScale=Low-Flow ]   
+           - <Opt-DHWDailyDrawLperDay> -> 90 [valid: Opt-Location=Calgary;Opt-DHWLoadScale=OldERS ]   
+           - <Opt-DHWDailyDrawLperDay> -> 39.4 [valid: Opt-Location=Kamloops;Opt-DHWLoadScale=No-Reduction ]   
+           - <Opt-DHWDailyDrawLperDay> -> 53.4 [valid: Opt-Location=Quebec;Opt-DHWLoadScale=EStar ]   
+           - <Opt-DHWDailyDrawLperDay> -> 64.7 [valid: Opt-Location=Whitehorse;Opt-DHWLoadScale=EStar ]   
+           - <Opt-DHWDailyDrawLperDay> -> 42.8 [valid: Opt-Location=Whitehorse;Opt-DHWLoadScale=No-Reduction ]   
+           - <Opt-DHWDailyDrawLperDay> -> 35.1 [valid: Opt-Location=Fredricton;Opt-DHWLoadScale=Low-Flow ]   
+           - <Opt-DHWDailyDrawLperDay> -> 35.3 [valid: Opt-Location=Halifax;Opt-DHWLoadScale=Low-Flow ]   
+           - <Opt-DHWDailyDrawLperDay> -> 54.5 [valid: Opt-Location=Halifax;Opt-DHWLoadScale=EStar ]   
+           - <Opt-DHWDailyDrawLperDay> -> 89.1 [valid: Opt-Location=Ottawa;Opt-DHWLoadScale=OldERS ]   
+           - <Opt-DHWDailyDrawLperDay> -> 34.3 [valid: Opt-Location=Calgary;Opt-DHWLoadScale=No-Reduction ]   
+           - <Opt-DHWDailyDrawLperDay> -> 88.9 [valid: Opt-Location=Regina;Opt-DHWLoadScale=OldERS ]   
+           - <Opt-DHWDailyDrawLperDay> -> 52.9 [valid: Opt-Location=Calgary;Opt-DHWLoadScale=EStar ]   
+           - <Opt-DHWDailyDrawLperDay> -> 36.6 [valid: Opt-Location=Toronto;Opt-DHWLoadScale=Low-Flow ]   
+           - <Opt-DHWDailyDrawLperDay> -> 93.5 [valid: Opt-Location=Vancouver;Opt-DHWLoadScale=OldERS ]   
+           - <Opt-DHWDailyDrawLperDay> -> 39.4 [valid: Opt-Location=Vancouver;Opt-DHWLoadScale=No-Reduction ]   
+           - <Opt-DHWDailyDrawLperDay> -> 29 [valid: Opt-Location=Winnipeg;Opt-DHWLoadScale=No-Reduction ]   
+           - <Opt-DHWDailyDrawLperDay> -> 33.9 [valid: Opt-Location=Montreal;Opt-DHWLoadScale=No-Reduction ]   
+           - <Opt-DHWDailyDrawLperDay> -> 34.3 [valid: Opt-Location=Calgary;Opt-DHWLoadScale=Low-Flow ]   
+           - <Opt-DHWDailyDrawLperDay> -> 32.9 [valid: Opt-Location=Regina;Opt-DHWLoadScale=Low-Flow ]   
+           - <Opt-DHWDailyDrawLperDay> -> 92.9 [valid: Opt-Location=Fredricton;Opt-DHWLoadScale=OldERS ]   
+           - <Opt-DHWDailyDrawLperDay> -> 46.8 [valid: Opt-Location=Winnipeg;Opt-DHWLoadScale=EStar ]   
+           - <Opt-DHWDailyDrawLperDay> -> 34.6 [valid: Opt-Location=Ottawa;Opt-DHWLoadScale=No-Reduction ]   
+           - <Opt-DHWDailyDrawLperDay> -> 108.7 [valid: Opt-Location=Whitehorse;Opt-DHWLoadScale=OldERS ]   
+           - <Opt-DHWDailyDrawLperDay> -> 82.4 [valid: Opt-Location=Winnipeg;Opt-DHWLoadScale=OldERS ]   
+           - <Opt-DHWDailyDrawLperDay> -> 92.9 [valid: Opt-Location=Halifax;Opt-DHWLoadScale=OldERS ]   
+           - <Opt-DHWDailyDrawLperDay> -> 52.7 [valid: Opt-Location=Montreal;Opt-DHWLoadScale=EStar ]   
+           - <Opt-DHWDailyDrawLperDay> -> 34.6 [valid: Opt-Location=Ottawa;Opt-DHWLoadScale=Low-Flow ]   
+           - <Opt-DHWDailyDrawLperDay> -> 57.4 [valid: Opt-Location=Kamloops;Opt-DHWLoadScale=EStar ]   
+           - <Opt-DHWDailyDrawLperDay> -> 53.7 [valid: Opt-Location=Toronto;Opt-DHWLoadScale=EStar ]   
+           - <Opt-DHWDailyDrawLperDay> -> 39.4 [valid: Opt-Location=PrinceGeorge;Opt-DHWLoadScale=No-Reduction ]   
+           - <Opt-DHWDailyDrawLperDay> -> 34.4 [valid: Opt-Location=Quebec;Opt-DHWLoadScale=No-Reduction ]   
+           - <Opt-DHWDailyDrawLperDay> -> 54.4 [valid: Opt-Location=Fredricton;Opt-DHWLoadScale=EStar ]   
+           - <Opt-DHWDailyDrawLperDay> -> 93.5 [valid: Opt-Location=Kamloops;Opt-DHWLoadScale=OldERS ]   
+           - <Opt-DHWDailyDrawLperDay> -> 57.4 [valid: Opt-Location=Vancouver;Opt-DHWLoadScale=EStar ]   
+           - <Opt-DHWDailyDrawLperDay> -> 88 [valid: Opt-Location=Toronto;Opt-DHWLoadScale=OldERS ]   
+           - <Opt-DHWDailyDrawLperDay> -> 93.8 [valid: Opt-Location=Edmonton;Opt-DHWLoadScale=OldERS ]   
+           - <Opt-DHWDailyDrawLperDay> -> 51.5 [valid: Opt-Location=Regina;Opt-DHWLoadScale=EStar ]   
+           - <Opt-DHWDailyDrawLperDay> -> 39.4 [valid: Opt-Location=PrinceGeorge;Opt-DHWLoadScale=Low-Flow ]   
+    -> DWHR-4-36 
+           - <Opt-DHWDailyDrawLperDay> -> 114.9 [valid: Opt-Location=Halifax;Opt-DHWLoadScale=No-Reduction ]   
+           - <Opt-DHWDailyDrawLperDay> -> 116.9 [valid: Opt-Location=Toronto;Opt-DHWLoadScale=No-Reduction ]   
+           - <Opt-DHWDailyDrawLperDay> -> 114.3 [valid: Opt-Location=Fredricton;Opt-DHWLoadScale=No-Reduction ]   
+           - <Opt-DHWDailyDrawLperDay> -> 198.1 [valid: Opt-Location=Quebec;Opt-DHWLoadScale=OldERS ]   
+           - <Opt-DHWDailyDrawLperDay> -> 116.2 [valid: Opt-Location=Winnipeg;Opt-DHWLoadScale=Low-Flow ]   
+           - <Opt-DHWDailyDrawLperDay> -> 112.3 [valid: Opt-Location=Regina;Opt-DHWLoadScale=No-Reduction ]   
+           - <Opt-DHWDailyDrawLperDay> -> 117 [valid: Opt-Location=Vancouver;Opt-DHWLoadScale=Low-Flow ]   
+           - <Opt-DHWDailyDrawLperDay> -> 112.6 [valid: Opt-Location=Edmonton;Opt-DHWLoadScale=No-Reduction ]   
+           - <Opt-DHWDailyDrawLperDay> -> 110.6 [valid: Opt-Location=Whitehorse;Opt-DHWLoadScale=Low-Flow ]   
+           - <Opt-DHWDailyDrawLperDay> -> 197.4 [valid: Opt-Location=Montreal;Opt-DHWLoadScale=OldERS ]   
+           - <Opt-DHWDailyDrawLperDay> -> 113.4 [valid: Opt-Location=Montreal;Opt-DHWLoadScale=Low-Flow ]   
+           - <Opt-DHWDailyDrawLperDay> -> 112.6 [valid: Opt-Location=Edmonton;Opt-DHWLoadScale=Low-Flow ]   
+           - <Opt-DHWDailyDrawLperDay> -> 140.6 [valid: Opt-Location=Edmonton;Opt-DHWLoadScale=EStar ]   
+           - <Opt-DHWDailyDrawLperDay> -> 143.2 [valid: Opt-Location=Ottawa;Opt-DHWLoadScale=EStar ]   
+           - <Opt-DHWDailyDrawLperDay> -> 145 [valid: Opt-Location=PrinceGeorge;Opt-DHWLoadScale=EStar ]   
+           - <Opt-DHWDailyDrawLperDay> -> 114.1 [valid: Opt-Location=Quebec;Opt-DHWLoadScale=Low-Flow ]   
+           - <Opt-DHWDailyDrawLperDay> -> 201 [valid: Opt-Location=PrinceGeorge;Opt-DHWLoadScale=OldERS ]   
+           - <Opt-DHWDailyDrawLperDay> -> 117 [valid: Opt-Location=Kamloops;Opt-DHWLoadScale=Low-Flow ]   
+           - <Opt-DHWDailyDrawLperDay> -> 197.4 [valid: Opt-Location=Calgary;Opt-DHWLoadScale=OldERS ]   
+           - <Opt-DHWDailyDrawLperDay> -> 117 [valid: Opt-Location=Kamloops;Opt-DHWLoadScale=No-Reduction ]   
+           - <Opt-DHWDailyDrawLperDay> -> 142.1 [valid: Opt-Location=Quebec;Opt-DHWLoadScale=EStar ]   
+           - <Opt-DHWDailyDrawLperDay> -> 138.6 [valid: Opt-Location=Whitehorse;Opt-DHWLoadScale=EStar ]   
+           - <Opt-DHWDailyDrawLperDay> -> 110.6 [valid: Opt-Location=Whitehorse;Opt-DHWLoadScale=No-Reduction ]   
+           - <Opt-DHWDailyDrawLperDay> -> 114.3 [valid: Opt-Location=Fredricton;Opt-DHWLoadScale=Low-Flow ]   
+           - <Opt-DHWDailyDrawLperDay> -> 114.9 [valid: Opt-Location=Halifax;Opt-DHWLoadScale=Low-Flow ]   
+           - <Opt-DHWDailyDrawLperDay> -> 142.9 [valid: Opt-Location=Halifax;Opt-DHWLoadScale=EStar ]   
+           - <Opt-DHWDailyDrawLperDay> -> 199.2 [valid: Opt-Location=Ottawa;Opt-DHWLoadScale=OldERS ]   
+           - <Opt-DHWDailyDrawLperDay> -> 113.4 [valid: Opt-Location=Calgary;Opt-DHWLoadScale=No-Reduction ]   
+           - <Opt-DHWDailyDrawLperDay> -> 196.3 [valid: Opt-Location=Regina;Opt-DHWLoadScale=OldERS ]   
+           - <Opt-DHWDailyDrawLperDay> -> 141.4 [valid: Opt-Location=Calgary;Opt-DHWLoadScale=EStar ]   
+           - <Opt-DHWDailyDrawLperDay> -> 116.9 [valid: Opt-Location=Toronto;Opt-DHWLoadScale=Low-Flow ]   
+           - <Opt-DHWDailyDrawLperDay> -> 201 [valid: Opt-Location=Vancouver;Opt-DHWLoadScale=OldERS ]   
+           - <Opt-DHWDailyDrawLperDay> -> 117 [valid: Opt-Location=Vancouver;Opt-DHWLoadScale=No-Reduction ]   
+           - <Opt-DHWDailyDrawLperDay> -> 116.2 [valid: Opt-Location=Winnipeg;Opt-DHWLoadScale=No-Reduction ]   
+           - <Opt-DHWDailyDrawLperDay> -> 113.4 [valid: Opt-Location=Montreal;Opt-DHWLoadScale=No-Reduction ]   
+           - <Opt-DHWDailyDrawLperDay> -> 113.4 [valid: Opt-Location=Calgary;Opt-DHWLoadScale=Low-Flow ]   
+           - <Opt-DHWDailyDrawLperDay> -> 112.3 [valid: Opt-Location=Regina;Opt-DHWLoadScale=Low-Flow ]   
+           - <Opt-DHWDailyDrawLperDay> -> 198.3 [valid: Opt-Location=Fredricton;Opt-DHWLoadScale=OldERS ]   
+           - <Opt-DHWDailyDrawLperDay> -> 144.2 [valid: Opt-Location=Winnipeg;Opt-DHWLoadScale=EStar ]   
+           - <Opt-DHWDailyDrawLperDay> -> 115.2 [valid: Opt-Location=Ottawa;Opt-DHWLoadScale=No-Reduction ]   
+           - <Opt-DHWDailyDrawLperDay> -> 194.6 [valid: Opt-Location=Whitehorse;Opt-DHWLoadScale=OldERS ]   
+           - <Opt-DHWDailyDrawLperDay> -> 200.2 [valid: Opt-Location=Winnipeg;Opt-DHWLoadScale=OldERS ]   
+           - <Opt-DHWDailyDrawLperDay> -> 198.9 [valid: Opt-Location=Halifax;Opt-DHWLoadScale=OldERS ]   
+           - <Opt-DHWDailyDrawLperDay> -> 141.4 [valid: Opt-Location=Montreal;Opt-DHWLoadScale=EStar ]   
+           - <Opt-DHWDailyDrawLperDay> -> 115.2 [valid: Opt-Location=Ottawa;Opt-DHWLoadScale=Low-Flow ]   
+           - <Opt-DHWDailyDrawLperDay> -> 145 [valid: Opt-Location=Kamloops;Opt-DHWLoadScale=EStar ]   
+           - <Opt-DHWDailyDrawLperDay> -> 144.9 [valid: Opt-Location=Toronto;Opt-DHWLoadScale=EStar ]   
+           - <Opt-DHWDailyDrawLperDay> -> 117 [valid: Opt-Location=PrinceGeorge;Opt-DHWLoadScale=No-Reduction ]   
+           - <Opt-DHWDailyDrawLperDay> -> 114.1 [valid: Opt-Location=Quebec;Opt-DHWLoadScale=No-Reduction ]   
+           - <Opt-DHWDailyDrawLperDay> -> 142.3 [valid: Opt-Location=Fredricton;Opt-DHWLoadScale=EStar ]   
+           - <Opt-DHWDailyDrawLperDay> -> 201 [valid: Opt-Location=Kamloops;Opt-DHWLoadScale=OldERS ]   
+           - <Opt-DHWDailyDrawLperDay> -> 145 [valid: Opt-Location=Vancouver;Opt-DHWLoadScale=EStar ]   
+           - <Opt-DHWDailyDrawLperDay> -> 200.9 [valid: Opt-Location=Toronto;Opt-DHWLoadScale=OldERS ]   
+           - <Opt-DHWDailyDrawLperDay> -> 196.6 [valid: Opt-Location=Edmonton;Opt-DHWLoadScale=OldERS ]   
+           - <Opt-DHWDailyDrawLperDay> -> 140.3 [valid: Opt-Location=Regina;Opt-DHWLoadScale=EStar ]   
+           - <Opt-DHWDailyDrawLperDay> -> 117 [valid: Opt-Location=PrinceGeorge;Opt-DHWLoadScale=Low-Flow ]   
+    -> 1-plate-DWHR-4-60 
+           - <Opt-DHWDailyDrawLperDay> -> 59.3 [valid: Opt-Location=Halifax;Opt-DHWLoadScale=No-Reduction ]   
+           - <Opt-DHWDailyDrawLperDay> -> 59.4 [valid: Opt-Location=Toronto;Opt-DHWLoadScale=No-Reduction ]   
+           - <Opt-DHWDailyDrawLperDay> -> 58.8 [valid: Opt-Location=Fredricton;Opt-DHWLoadScale=No-Reduction ]   
+           - <Opt-DHWDailyDrawLperDay> -> 125.8 [valid: Opt-Location=Quebec;Opt-DHWLoadScale=OldERS ]   
+           - <Opt-DHWDailyDrawLperDay> -> 55.8 [valid: Opt-Location=Winnipeg;Opt-DHWLoadScale=Low-Flow ]   
+           - <Opt-DHWDailyDrawLperDay> -> 56 [valid: Opt-Location=Regina;Opt-DHWLoadScale=No-Reduction ]   
+           - <Opt-DHWDailyDrawLperDay> -> 61 [valid: Opt-Location=Vancouver;Opt-DHWLoadScale=Low-Flow ]   
+           - <Opt-DHWDailyDrawLperDay> -> 57.5 [valid: Opt-Location=Edmonton;Opt-DHWLoadScale=No-Reduction ]   
+           - <Opt-DHWDailyDrawLperDay> -> 59.4 [valid: Opt-Location=Whitehorse;Opt-DHWLoadScale=Low-Flow ]   
+           - <Opt-DHWDailyDrawLperDay> -> 124.7 [valid: Opt-Location=Montreal;Opt-DHWLoadScale=OldERS ]   
+           - <Opt-DHWDailyDrawLperDay> -> 57.8 [valid: Opt-Location=Montreal;Opt-DHWLoadScale=Low-Flow ]   
+           - <Opt-DHWDailyDrawLperDay> -> 57.5 [valid: Opt-Location=Edmonton;Opt-DHWLoadScale=Low-Flow ]   
+           - <Opt-DHWDailyDrawLperDay> -> 80.4 [valid: Opt-Location=Edmonton;Opt-DHWLoadScale=EStar ]   
+           - <Opt-DHWDailyDrawLperDay> -> 80.7 [valid: Opt-Location=Ottawa;Opt-DHWLoadScale=EStar ]   
+           - <Opt-DHWDailyDrawLperDay> -> 83.6 [valid: Opt-Location=PrinceGeorge;Opt-DHWLoadScale=EStar ]   
+           - <Opt-DHWDailyDrawLperDay> -> 58.2 [valid: Opt-Location=Quebec;Opt-DHWLoadScale=Low-Flow ]   
+           - <Opt-DHWDailyDrawLperDay> -> 128.6 [valid: Opt-Location=PrinceGeorge;Opt-DHWLoadScale=OldERS ]   
+           - <Opt-DHWDailyDrawLperDay> -> 61 [valid: Opt-Location=Kamloops;Opt-DHWLoadScale=Low-Flow ]   
+           - <Opt-DHWDailyDrawLperDay> -> 124.4 [valid: Opt-Location=Calgary;Opt-DHWLoadScale=OldERS ]   
+           - <Opt-DHWDailyDrawLperDay> -> 61 [valid: Opt-Location=Kamloops;Opt-DHWLoadScale=No-Reduction ]   
+           - <Opt-DHWDailyDrawLperDay> -> 80.7 [valid: Opt-Location=Quebec;Opt-DHWLoadScale=EStar ]   
+           - <Opt-DHWDailyDrawLperDay> -> 83.9 [valid: Opt-Location=Whitehorse;Opt-DHWLoadScale=EStar ]   
+           - <Opt-DHWDailyDrawLperDay> -> 59.4 [valid: Opt-Location=Whitehorse;Opt-DHWLoadScale=No-Reduction ]   
+           - <Opt-DHWDailyDrawLperDay> -> 58.8 [valid: Opt-Location=Fredricton;Opt-DHWLoadScale=Low-Flow ]   
+           - <Opt-DHWDailyDrawLperDay> -> 59.3 [valid: Opt-Location=Halifax;Opt-DHWLoadScale=Low-Flow ]   
+           - <Opt-DHWDailyDrawLperDay> -> 81.9 [valid: Opt-Location=Halifax;Opt-DHWLoadScale=EStar ]   
+           - <Opt-DHWDailyDrawLperDay> -> 125.1 [valid: Opt-Location=Ottawa;Opt-DHWLoadScale=OldERS ]   
+           - <Opt-DHWDailyDrawLperDay> -> 57.2 [valid: Opt-Location=Calgary;Opt-DHWLoadScale=No-Reduction ]   
+           - <Opt-DHWDailyDrawLperDay> -> 123.2 [valid: Opt-Location=Regina;Opt-DHWLoadScale=OldERS ]   
+           - <Opt-DHWDailyDrawLperDay> -> 79.6 [valid: Opt-Location=Calgary;Opt-DHWLoadScale=EStar ]   
+           - <Opt-DHWDailyDrawLperDay> -> 59.4 [valid: Opt-Location=Toronto;Opt-DHWLoadScale=Low-Flow ]   
+           - <Opt-DHWDailyDrawLperDay> -> 128.6 [valid: Opt-Location=Vancouver;Opt-DHWLoadScale=OldERS ]   
+           - <Opt-DHWDailyDrawLperDay> -> 61 [valid: Opt-Location=Vancouver;Opt-DHWLoadScale=No-Reduction ]   
+           - <Opt-DHWDailyDrawLperDay> -> 55.8 [valid: Opt-Location=Winnipeg;Opt-DHWLoadScale=No-Reduction ]   
+           - <Opt-DHWDailyDrawLperDay> -> 57.8 [valid: Opt-Location=Montreal;Opt-DHWLoadScale=No-Reduction ]   
+           - <Opt-DHWDailyDrawLperDay> -> 57.2 [valid: Opt-Location=Calgary;Opt-DHWLoadScale=Low-Flow ]   
+           - <Opt-DHWDailyDrawLperDay> -> 56 [valid: Opt-Location=Regina;Opt-DHWLoadScale=Low-Flow ]   
+           - <Opt-DHWDailyDrawLperDay> -> 126.8 [valid: Opt-Location=Fredricton;Opt-DHWLoadScale=OldERS ]   
+           - <Opt-DHWDailyDrawLperDay> -> 77.8 [valid: Opt-Location=Winnipeg;Opt-DHWLoadScale=EStar ]   
+           - <Opt-DHWDailyDrawLperDay> -> 58.4 [valid: Opt-Location=Ottawa;Opt-DHWLoadScale=No-Reduction ]   
+           - <Opt-DHWDailyDrawLperDay> -> 133 [valid: Opt-Location=Whitehorse;Opt-DHWLoadScale=OldERS ]   
+           - <Opt-DHWDailyDrawLperDay> -> 121.8 [valid: Opt-Location=Winnipeg;Opt-DHWLoadScale=OldERS ]   
+           - <Opt-DHWDailyDrawLperDay> -> 127.3 [valid: Opt-Location=Halifax;Opt-DHWLoadScale=OldERS ]   
+           - <Opt-DHWDailyDrawLperDay> -> 80.1 [valid: Opt-Location=Montreal;Opt-DHWLoadScale=EStar ]   
+           - <Opt-DHWDailyDrawLperDay> -> 58.4 [valid: Opt-Location=Ottawa;Opt-DHWLoadScale=Low-Flow ]   
+           - <Opt-DHWDailyDrawLperDay> -> 83.6 [valid: Opt-Location=Kamloops;Opt-DHWLoadScale=EStar ]   
+           - <Opt-DHWDailyDrawLperDay> -> 81.3 [valid: Opt-Location=Toronto;Opt-DHWLoadScale=EStar ]   
+           - <Opt-DHWDailyDrawLperDay> -> 61 [valid: Opt-Location=PrinceGeorge;Opt-DHWLoadScale=No-Reduction ]   
+           - <Opt-DHWDailyDrawLperDay> -> 58.2 [valid: Opt-Location=Quebec;Opt-DHWLoadScale=No-Reduction ]   
+           - <Opt-DHWDailyDrawLperDay> -> 81.4 [valid: Opt-Location=Fredricton;Opt-DHWLoadScale=EStar ]   
+           - <Opt-DHWDailyDrawLperDay> -> 128.6 [valid: Opt-Location=Kamloops;Opt-DHWLoadScale=OldERS ]   
+           - <Opt-DHWDailyDrawLperDay> -> 83.6 [valid: Opt-Location=Vancouver;Opt-DHWLoadScale=EStar ]   
+           - <Opt-DHWDailyDrawLperDay> -> 125.3 [valid: Opt-Location=Toronto;Opt-DHWLoadScale=OldERS ]   
+           - <Opt-DHWDailyDrawLperDay> -> 126.2 [valid: Opt-Location=Edmonton;Opt-DHWLoadScale=OldERS ]   
+           - <Opt-DHWDailyDrawLperDay> -> 78.4 [valid: Opt-Location=Regina;Opt-DHWLoadScale=EStar ]   
+           - <Opt-DHWDailyDrawLperDay> -> 61 [valid: Opt-Location=PrinceGeorge;Opt-DHWLoadScale=Low-Flow ]   
+    -> 1-plate 
+           - <Opt-DHWDailyDrawLperDay> -> 87.8 [valid: Opt-Location=Halifax;Opt-DHWLoadScale=No-Reduction ]   
+           - <Opt-DHWDailyDrawLperDay> -> 84.9 [valid: Opt-Location=Toronto;Opt-DHWLoadScale=No-Reduction ]   
+           - <Opt-DHWDailyDrawLperDay> -> 87.9 [valid: Opt-Location=Fredricton;Opt-DHWLoadScale=No-Reduction ]   
+           - <Opt-DHWDailyDrawLperDay> -> 155.1 [valid: Opt-Location=Quebec;Opt-DHWLoadScale=OldERS ]   
+           - <Opt-DHWDailyDrawLperDay> -> 82 [valid: Opt-Location=Winnipeg;Opt-DHWLoadScale=Low-Flow ]   
+           - <Opt-DHWDailyDrawLperDay> -> 86.9 [valid: Opt-Location=Regina;Opt-DHWLoadScale=No-Reduction ]   
+           - <Opt-DHWDailyDrawLperDay> -> 87.1 [valid: Opt-Location=Vancouver;Opt-DHWLoadScale=Low-Flow ]   
+           - <Opt-DHWDailyDrawLperDay> -> 88.8 [valid: Opt-Location=Edmonton;Opt-DHWLoadScale=No-Reduction ]   
+           - <Opt-DHWDailyDrawLperDay> -> 95.3 [valid: Opt-Location=Whitehorse;Opt-DHWLoadScale=Low-Flow ]   
+           - <Opt-DHWDailyDrawLperDay> -> 154.4 [valid: Opt-Location=Montreal;Opt-DHWLoadScale=OldERS ]   
+           - <Opt-DHWDailyDrawLperDay> -> 87.4 [valid: Opt-Location=Montreal;Opt-DHWLoadScale=Low-Flow ]   
+           - <Opt-DHWDailyDrawLperDay> -> 88.8 [valid: Opt-Location=Edmonton;Opt-DHWLoadScale=Low-Flow ]   
+           - <Opt-DHWDailyDrawLperDay> -> 111.7 [valid: Opt-Location=Edmonton;Opt-DHWLoadScale=EStar ]   
+           - <Opt-DHWDailyDrawLperDay> -> 108.3 [valid: Opt-Location=Ottawa;Opt-DHWLoadScale=EStar ]   
+           - <Opt-DHWDailyDrawLperDay> -> 109.6 [valid: Opt-Location=PrinceGeorge;Opt-DHWLoadScale=EStar ]   
+           - <Opt-DHWDailyDrawLperDay> -> 87.4 [valid: Opt-Location=Quebec;Opt-DHWLoadScale=Low-Flow ]   
+           - <Opt-DHWDailyDrawLperDay> -> 154.6 [valid: Opt-Location=PrinceGeorge;Opt-DHWLoadScale=OldERS ]   
+           - <Opt-DHWDailyDrawLperDay> -> 87.1 [valid: Opt-Location=Kamloops;Opt-DHWLoadScale=Low-Flow ]   
+           - <Opt-DHWDailyDrawLperDay> -> 154.2 [valid: Opt-Location=Calgary;Opt-DHWLoadScale=OldERS ]   
+           - <Opt-DHWDailyDrawLperDay> -> 87.1 [valid: Opt-Location=Kamloops;Opt-DHWLoadScale=No-Reduction ]   
+           - <Opt-DHWDailyDrawLperDay> -> 109.9 [valid: Opt-Location=Quebec;Opt-DHWLoadScale=EStar ]   
+           - <Opt-DHWDailyDrawLperDay> -> 119.8 [valid: Opt-Location=Whitehorse;Opt-DHWLoadScale=EStar ]   
+           - <Opt-DHWDailyDrawLperDay> -> 95.3 [valid: Opt-Location=Whitehorse;Opt-DHWLoadScale=No-Reduction ]   
+           - <Opt-DHWDailyDrawLperDay> -> 87.9 [valid: Opt-Location=Fredricton;Opt-DHWLoadScale=Low-Flow ]   
+           - <Opt-DHWDailyDrawLperDay> -> 87.8 [valid: Opt-Location=Halifax;Opt-DHWLoadScale=Low-Flow ]   
+           - <Opt-DHWDailyDrawLperDay> -> 110.4 [valid: Opt-Location=Halifax;Opt-DHWLoadScale=EStar ]   
+           - <Opt-DHWDailyDrawLperDay> -> 152.7 [valid: Opt-Location=Ottawa;Opt-DHWLoadScale=OldERS ]   
+           - <Opt-DHWDailyDrawLperDay> -> 87 [valid: Opt-Location=Calgary;Opt-DHWLoadScale=No-Reduction ]   
+           - <Opt-DHWDailyDrawLperDay> -> 154.1 [valid: Opt-Location=Regina;Opt-DHWLoadScale=OldERS ]   
+           - <Opt-DHWDailyDrawLperDay> -> 109.4 [valid: Opt-Location=Calgary;Opt-DHWLoadScale=EStar ]   
+           - <Opt-DHWDailyDrawLperDay> -> 84.9 [valid: Opt-Location=Toronto;Opt-DHWLoadScale=Low-Flow ]   
+           - <Opt-DHWDailyDrawLperDay> -> 154.6 [valid: Opt-Location=Vancouver;Opt-DHWLoadScale=OldERS ]   
+           - <Opt-DHWDailyDrawLperDay> -> 87.1 [valid: Opt-Location=Vancouver;Opt-DHWLoadScale=No-Reduction ]   
+           - <Opt-DHWDailyDrawLperDay> -> 82 [valid: Opt-Location=Winnipeg;Opt-DHWLoadScale=No-Reduction ]   
+           - <Opt-DHWDailyDrawLperDay> -> 87.4 [valid: Opt-Location=Montreal;Opt-DHWLoadScale=No-Reduction ]   
+           - <Opt-DHWDailyDrawLperDay> -> 87 [valid: Opt-Location=Calgary;Opt-DHWLoadScale=Low-Flow ]   
+           - <Opt-DHWDailyDrawLperDay> -> 86.9 [valid: Opt-Location=Regina;Opt-DHWLoadScale=Low-Flow ]   
+           - <Opt-DHWDailyDrawLperDay> -> 156 [valid: Opt-Location=Fredricton;Opt-DHWLoadScale=OldERS ]   
+           - <Opt-DHWDailyDrawLperDay> -> 104 [valid: Opt-Location=Winnipeg;Opt-DHWLoadScale=EStar ]   
+           - <Opt-DHWDailyDrawLperDay> -> 86.1 [valid: Opt-Location=Ottawa;Opt-DHWLoadScale=No-Reduction ]   
+           - <Opt-DHWDailyDrawLperDay> -> 168.9 [valid: Opt-Location=Whitehorse;Opt-DHWLoadScale=OldERS ]   
+           - <Opt-DHWDailyDrawLperDay> -> 148 [valid: Opt-Location=Winnipeg;Opt-DHWLoadScale=OldERS ]   
+           - <Opt-DHWDailyDrawLperDay> -> 155.8 [valid: Opt-Location=Halifax;Opt-DHWLoadScale=OldERS ]   
+           - <Opt-DHWDailyDrawLperDay> -> 109.7 [valid: Opt-Location=Montreal;Opt-DHWLoadScale=EStar ]   
+           - <Opt-DHWDailyDrawLperDay> -> 86.1 [valid: Opt-Location=Ottawa;Opt-DHWLoadScale=Low-Flow ]   
+           - <Opt-DHWDailyDrawLperDay> -> 109.6 [valid: Opt-Location=Kamloops;Opt-DHWLoadScale=EStar ]   
+           - <Opt-DHWDailyDrawLperDay> -> 106.9 [valid: Opt-Location=Toronto;Opt-DHWLoadScale=EStar ]   
+           - <Opt-DHWDailyDrawLperDay> -> 87.1 [valid: Opt-Location=PrinceGeorge;Opt-DHWLoadScale=No-Reduction ]   
+           - <Opt-DHWDailyDrawLperDay> -> 87.4 [valid: Opt-Location=Quebec;Opt-DHWLoadScale=No-Reduction ]   
+           - <Opt-DHWDailyDrawLperDay> -> 110.6 [valid: Opt-Location=Fredricton;Opt-DHWLoadScale=EStar ]   
+           - <Opt-DHWDailyDrawLperDay> -> 154.6 [valid: Opt-Location=Kamloops;Opt-DHWLoadScale=OldERS ]   
+           - <Opt-DHWDailyDrawLperDay> -> 109.6 [valid: Opt-Location=Vancouver;Opt-DHWLoadScale=EStar ]   
+           - <Opt-DHWDailyDrawLperDay> -> 150.8 [valid: Opt-Location=Toronto;Opt-DHWLoadScale=OldERS ]   
+           - <Opt-DHWDailyDrawLperDay> -> 157.5 [valid: Opt-Location=Edmonton;Opt-DHWLoadScale=OldERS ]   
+           - <Opt-DHWDailyDrawLperDay> -> 109.3 [valid: Opt-Location=Regina;Opt-DHWLoadScale=EStar ]   
+           - <Opt-DHWDailyDrawLperDay> -> 87.1 [valid: Opt-Location=PrinceGeorge;Opt-DHWLoadScale=Low-Flow ]   
+========== Opt-RoofPitch ===========
+Storing data for Opt-RoofPitch: 
+    -> 6-12 
+           - <zippo> -> nil [valid: all ]   
+    -> 3-12 
+           - <zippo> -> nil [valid: all ]   
+    -> 12-12 
+           - <zippo> -> nil [valid: all ]   
+    -> 8-12 
+           - <zippo> -> nil [valid: all ]   
+========== Opt-StandoffPV ===========
+Storing data for Opt-StandoffPV: 
+    -> NoPV 
+              - credit:(production-elec-perKW) 0 [valid: all ] 
+    -> SizedPV 
+              - credit:(production-elec-perKW) 3.47472 [valid: Opt-Location=Yellowknife;Opt-RoofPitch=8-12 ] 
+              - credit:(production-elec-perKW) 3.64716 [valid: Opt-Location=Vancouver;Opt-RoofPitch=8-12 ] 
+              - credit:(production-elec-perKW) 4.13208 [valid: Opt-Location=Edmonton;Opt-RoofPitch=6-12 ] 
+              - credit:(production-elec-perKW) 3.86892 [valid: Opt-Location=Halifax;Opt-RoofPitch=12-12 ] 
+              - credit:(production-elec-perKW) 3.9168 [valid: Opt-Location=Toronto;Opt-RoofPitch=6-12 ] 
+              - credit:(production-elec-perKW) 3.8844 [valid: Opt-Location=Toronto;Opt-RoofPitch=12-12 ] 
+              - credit:(production-elec-perKW) 4.78764 [valid: Opt-Location=Regina;Opt-RoofPitch=6-12 ] 
+              - credit:(production-elec-perKW) 4.814 [valid: Opt-Location=Calgary;Opt-RoofPitch=12-12 ] 
+              - credit:(production-elec-perKW) 3.93192 [valid: Opt-Location=Montreal;Opt-RoofPitch=6-12 ] 
+              - credit:(production-elec-perKW) 4.21956 [valid: Opt-Location=Ottawa;Opt-RoofPitch=8-12 ] 
+              - credit:(production-elec-perKW) 3.618 [valid: Opt-Location=Vancouver;Opt-RoofPitch=6-12 ] 
+              - credit:(production-elec-perKW) 4.94604 [valid: Opt-Location=Regina;Opt-RoofPitch=8-12 ] 
+              - credit:(production-elec-perKW) 4.21164 [valid: Opt-Location=Ottawa;Opt-RoofPitch=12-12 ] 
+              - credit:(production-elec-perKW) 3.55536 [valid: Opt-Location=Inuvik;Opt-RoofPitch=12-12 ] 
+              - credit:(production-elec-perKW) 4.60476 [valid: Opt-Location=Winnipeg;Opt-RoofPitch=8-12 ] 
+              - credit:(production-elec-perKW) 4.733 [valid: Opt-Location=Calgary;Opt-RoofPitch=8-12 ] 
+              - credit:(production-elec-perKW) 3.55536 [valid: Opt-Location=Whitehorse;Opt-RoofPitch=12-12 ] 
+              - credit:(production-elec-perKW) 3.64716 [valid: Opt-Location=PrinceGeorge;Opt-RoofPitch=8-12 ] 
+              - credit:(production-elec-perKW) 3.9852 [valid: Opt-Location=Montreal;Opt-RoofPitch=8-12 ] 
+              - credit:(production-elec-perKW) 4.630 [valid: Opt-Location=Calgary;Opt-RoofPitch=6-12 ] 
+              - credit:(production-elec-perKW) 3.55536 [valid: Opt-Location=Yellowknife;Opt-RoofPitch=12-12 ] 
+              - credit:(production-elec-perKW) 4.01544 [valid: Opt-Location=Fredricton;Opt-RoofPitch=12-12 ] 
+              - credit:(production-elec-perKW) 4.66416 [valid: Opt-Location=Winnipeg;Opt-RoofPitch=12-12 ] 
+              - credit:(production-elec-perKW) 3.618 [valid: Opt-Location=Kamloops;Opt-RoofPitch=6-12 ] 
+              - credit:(production-elec-perKW) 3.60036 [valid: Opt-Location=PrinceGeorge;Opt-RoofPitch=12-12 ] 
+              - credit:(production-elec-perKW) 4.22496 [valid: Opt-Location=Quebec;Opt-RoofPitch=8-12 ] 
+              - credit:(production-elec-perKW) 3.47472 [valid: Opt-Location=Whitehorse;Opt-RoofPitch=8-12 ] 
+              - credit:(production-elec-perKW) 3.47472 [valid: Opt-Location=Inuvik;Opt-RoofPitch=8-12 ] 
+              - credit:(production-elec-perKW) 4.1526 [valid: Opt-Location=Quebec;Opt-RoofPitch=6-12 ] 
+              - credit:(production-elec-perKW) 4.23216 [valid: Opt-Location=Quebec;Opt-RoofPitch=12-12 ] 
+              - credit:(production-elec-perKW) 3.618 [valid: Opt-Location=PrinceGeorge;Opt-RoofPitch=6-12 ] 
+              - credit:(production-elec-perKW) 4.16088 [valid: Opt-Location=Ottawa;Opt-RoofPitch=6-12 ] 
+              - credit:(production-elec-perKW) 3.85848 [valid: Opt-Location=Halifax;Opt-RoofPitch=6-12 ] 
+              - credit:(production-elec-perKW) 4.00608 [valid: Opt-Location=Fredricton;Opt-RoofPitch=8-12 ] 
+              - credit:(production-elec-perKW) 5.05584 [valid: Opt-Location=Regina;Opt-RoofPitch=12-12 ] 
+              - credit:(production-elec-perKW) 3.36888 [valid: Opt-Location=Yellowknife;Opt-RoofPitch=6-12 ] 
+              - credit:(production-elec-perKW) 4.24764 [valid: Opt-Location=Edmonton;Opt-RoofPitch=8-12 ] 
+              - credit:(production-elec-perKW) 3.36888 [valid: Opt-Location=Whitehorse;Opt-RoofPitch=6-12 ] 
+              - credit:(production-elec-perKW) 3.942 [valid: Opt-Location=Toronto;Opt-RoofPitch=8-12 ] 
+              - credit:(production-elec-perKW) 3.36888 [valid: Opt-Location=Inuvik;Opt-RoofPitch=6-12 ] 
+              - credit:(production-elec-perKW) 3.90168 [valid: Opt-Location=Halifax;Opt-RoofPitch=8-12 ] 
+              - credit:(production-elec-perKW) 4.49568 [valid: Opt-Location=Winnipeg;Opt-RoofPitch=6-12 ] 
+              - credit:(production-elec-perKW) 4.32324 [valid: Opt-Location=Edmonton;Opt-RoofPitch=12-12 ] 
+              - credit:(production-elec-perKW) 3.9654 [valid: Opt-Location=Montreal;Opt-RoofPitch=12-12 ] 
+              - credit:(production-elec-perKW) 3.93732 [valid: Opt-Location=Fredricton;Opt-RoofPitch=6-12 ] 
+              - credit:(production-elec-perKW) 3.60036 [valid: Opt-Location=Vancouver;Opt-RoofPitch=12-12 ] 
+              - credit:(production-elec-perKW) 3.60036 [valid: Opt-Location=Kamloops;Opt-RoofPitch=12-12 ] 
+              - credit:(production-elec-perKW) 3.64716 [valid: Opt-Location=Kamloops;Opt-RoofPitch=8-12 ] 
+...done.
+
+
+Reading DESIGN-generic_BC_LEEP.choices...  Line: 1 ><
+  Line: 2 ><
+  Line: 3 ><
+  Line: 4 ><
+  Line: 5 ><
+  Line: 6 ><
+  Line: 7 ><
+  Line: 8 ><
+  Line: 9 >Opt-calcmode:calc<
+::: Opt-calcmode -> calc 
+  Line: 10 ><
+  Line: 11 ><
+  Line: 12 ><
+  Line: 13 ><
+  Line: 14 >Opt-DBFiles:retrofit<
+::: Opt-DBFiles -> retrofit 
+  Line: 15 ><
+  Line: 16 ><
+  Line: 17 ><
+  Line: 18 ><
+  Line: 19 ><
+  Line: 20 >GOconfig_rotate:S<
+  Line: 21 ><
+  Line: 22 >Opt-Location:Vancouver<
+::: Opt-Location -> Vancouver 
+  Line: 23 ><
+  Line: 24 ><
+  Line: 25 ><
+  Line: 26 ><
+  Line: 27 ><
+  Line: 28 ><
+  Line: 29 ><
+  Line: 30 ><
+  Line: 31 >OPT-HRV_ctl:ERSp3ACH<
+::: OPT-HRV_ctl -> ERSp3ACH 
+  Line: 32 ><
+  Line: 33 ><
+  Line: 34 ><
+  Line: 35 ><
+  Line: 36 ><
+  Line: 37 ><
+  Line: 38 >OPT-OPR-SCHED:constant<
+::: OPT-OPR-SCHED -> constant 
+  Line: 39 ><
+  Line: 40 ><
+  Line: 41 ><
+  Line: 42 ><
+  Line: 43 >Opt-BaseWindows:MinWindows<
+::: Opt-BaseWindows -> MinWindows 
+  Line: 44 ><
+  Line: 45 ><
+  Line: 46 ><
+  Line: 47 ><
+  Line: 48 ><
+  Line: 49 ><
+  Line: 50 ><
+  Line: 51 >Opt-geometry:BC_LEEP<
+::: Opt-geometry -> BC_LEEP 
+  Line: 52 ><
+  Line: 53 ><
+  Line: 54 ><
+  Line: 55 ><
+  Line: 56 ><
+  Line: 57 ><
+  Line: 58 >Opt-Attachment:semi<
+::: Opt-Attachment -> semi 
+  Line: 59 ><
+  Line: 60 ><
+  Line: 61 >Opt-WindowOrientation:all<
+::: Opt-WindowOrientation -> all 
+  Line: 62 ><
+  Line: 63 ><
+  Line: 64 ><
+  Line: 65 >Opt-ACH:retro_ACH_5_5<
+::: Opt-ACH -> retro_ACH_5_5 
+  Line: 66 ><
+  Line: 67 ><
+  Line: 68 >Opt-OverhangWidth:BaseOverhang<
+::: Opt-OverhangWidth -> BaseOverhang 
+  Line: 69 ><
+  Line: 70 ><
+  Line: 71 ><
+  Line: 72 ><
+  Line: 73 ><
+  Line: 74 >Opt-AirTightness:Generic<
+::: Opt-AirTightness -> Generic 
+  Line: 75 ><
+  Line: 76 ><
+  Line: 77 ><
+  Line: 78 ><
+  Line: 79 ><
+  Line: 80 ><
+  Line: 81 ><
+  Line: 82 ><
+  Line: 83 ><
+  Line: 84 ><
+  Line: 85 ><
+  Line: 86 ><
+  Line: 87 ><
+  Line: 88 ><
+  Line: 89 >Opt-MainWall:BaseR20<
+::: Opt-MainWall -> BaseR20 
+  Line: 90 >Opt-GenericWall_1Layer_definitions:test<
+::: Opt-GenericWall_1Layer_definitions -> test 
+  Line: 91 >Opt-GenericWall_2Layer_definitions:test2<
+::: Opt-GenericWall_2Layer_definitions -> test2 
+  Line: 92 ><
+  Line: 93 ><
+  Line: 94 ><
+  Line: 95 ><
+  Line: 96 ><
+  Line: 97 >Opt-ExtraDrywall:OneSheet<
+::: Opt-ExtraDrywall -> OneSheet 
+  Line: 98 ><
+  Line: 99 ><
+  Line: 100 ><
+  Line: 101 ><
+  Line: 102 ><
+  Line: 103 ><
+  Line: 104 >Opt-FloorSurface:wood<
+::: Opt-FloorSurface -> wood 
+  Line: 105 ><
+  Line: 106 ><
+  Line: 107 >Opt-Ceilings:CeilR50<
+::: Opt-Ceilings -> CeilR50 
+  Line: 108 ><
+  Line: 109 ><
+  Line: 110 ><
+  Line: 111 ><
+  Line: 112 ><
+  Line: 113 ><
+  Line: 114 ><
+  Line: 115 ><
+  Line: 116 >Opt-BasementSlabInsulation:NoInsulation<
+::: Opt-BasementSlabInsulation -> NoInsulation 
+  Line: 117 ><
+  Line: 118 ><
+  Line: 119 ><
+  Line: 120 ><
+  Line: 121 ><
+  Line: 122 ><
+  Line: 123 ><
+  Line: 124 ><
+  Line: 125 ><
+  Line: 126 ><
+  Line: 127 ><
+  Line: 128 ><
+  Line: 129 ><
+  Line: 130 ><
+  Line: 131 ><
+  Line: 132 ><
+  Line: 133 ><
+  Line: 134 >Opt-BasementWallInsulation:OBC-min-R12<
+::: Opt-BasementWallInsulation -> OBC-min-R12 
+  Line: 135 ><
+  Line: 136 ><
+  Line: 137 ><
+  Line: 138 ><
+  Line: 139 ><
+  Line: 140 ><
+  Line: 141 ><
+  Line: 142 ><
+  Line: 143 ><
+  Line: 144 ><
+  Line: 145 ><
+  Line: 146 ><
+  Line: 147 ><
+  Line: 148 ><
+  Line: 149 ><
+  Line: 150 ><
+  Line: 151 >Opt-CasementWindows:DoubleClear<
+::: Opt-CasementWindows -> DoubleClear 
+  Line: 152 ><
+  Line: 153 ><
+  Line: 154 ><
+  Line: 155 ><
+  Line: 156 ><
+  Line: 157 ><
+  Line: 158 ><
+  Line: 159 ><
+  Line: 160 ><
+  Line: 161 ><
+  Line: 162 ><
+  Line: 163 >Opt-ExposedFloor:BaseExpFloor-R31<
+::: Opt-ExposedFloor -> BaseExpFloor-R31 
+  Line: 164 ><
+  Line: 165 >Opt-StandoffPV:NoPV<
+::: Opt-StandoffPV -> NoPV 
+  Line: 166 ><
+  Line: 167 ><
+  Line: 168 ><
+  Line: 169 ><
+  Line: 170 ><
+  Line: 171 ><
+  Line: 172 ><
+  Line: 173 ><
+  Line: 174 ><
+  Line: 175 ><
+  Line: 176 ><
+  Line: 177 ><
+  Line: 178 >Opt-DWHRandSDHW:none<
+::: Opt-DWHRandSDHW -> none 
+  Line: 179 ><
+  Line: 180 ><
+  Line: 181 ><
+  Line: 182 ><
+  Line: 183 ><
+  Line: 184 ><
+  Line: 185 ><
+  Line: 186 ><
+  Line: 187 ><
+  Line: 188 ><
+  Line: 189 ><
+  Line: 190 >Opt-ElecLoadScale:NGERSNoReduction19<
+::: Opt-ElecLoadScale -> NGERSNoReduction19 
+  Line: 191 ><
+  Line: 192 ><
+  Line: 193 ><
+  Line: 194 ><
+  Line: 195 ><
+  Line: 196 ><
+  Line: 197 >Opt-DHWLoadScale:No-Reduction<
+::: Opt-DHWLoadScale -> No-Reduction 
+  Line: 198 ><
+  Line: 199 >Opt-RoofPitch:8-12<
+::: Opt-RoofPitch -> 8-12 
+  Line: 200 ><
+  Line: 201 ><
+  Line: 202 ><
+  Line: 203 ><
+  Line: 204 ><
+  Line: 205 ><
+  Line: 206 ><
+  Line: 207 >Opt-DHWSystem:BaseDHW<
+::: Opt-DHWSystem -> BaseDHW 
+  Line: 208 ><
+  Line: 209 ><
+  Line: 210 >Opt-HVACSystem:gas-furnace-84_3<
+::: Opt-HVACSystem -> gas-furnace-84_3 
+  Line: 211 ><
+  Line: 212 ><
+  Line: 213 ><
+  Line: 214 >Opt-HRVspec:BaseHRV_SRE70<
+::: Opt-HRVspec -> BaseHRV_SRE70 
+  Line: 215 ><
+...done.
+-----------------------------------
+-----------------------------------
+Parsing parameters ...
+ Validating choices and options...
+> option : Opt-ExposedFloor ?
+> option : Opt-HRVduct ?
+
+WARNING: Option Opt-HRVduct found in options file (OPTIONS-generic.options) 
+         was not specified in Choices file (DESIGN-generic_BC_LEEP.choices) 
+
+         Using default value (interlock) 
+> option : Opt-GenericWall_2Layer_definitions ?
+> option : Opt-CasementWindows ?
+> option : Opt-ElecLoadScale ?
+> option : Opt-FloorSurface ?
+> option : Opt-BasementWallInsulation ?
+> option : Opt-DHWSystem ?
+> option : Opt-DHWLoadScale ?
+> option : GOconfig_rotate ?
+> option : Opt-ExtraDrywall ?
+> option : Opt-BaseWindows ?
+> option : OPT-OPR-SCHED ?
+> option : Opt-Cooling-Spec ?
+
+WARNING: Option Opt-Cooling-Spec found in options file (OPTIONS-generic.options) 
+         was not specified in Choices file (DESIGN-generic_BC_LEEP.choices) 
+
+         Using default value (SmallCooling) 
+> option : Opt-StandoffPV ?
+> option : Opt-RoofPitch ?
+> option : Opt-Attachment ?
+> option : Opt-Ceilings ?
+> option : Opt-MainWall ?
+> option : Opt-DWHRandSDHW ?
+> option : Opt-Location ?
+> option : Opt-GenericWall_1Layer_definitions ?
+> option : Opt-HRVspec ?
+> option : Opt-geometry ?
+> option : OPT-Furnace-Fan-Ctl ?
+
+WARNING: Option OPT-Furnace-Fan-Ctl found in options file (OPTIONS-generic.options) 
+         was not specified in Choices file (DESIGN-generic_BC_LEEP.choices) 
+
+         Using default value (Auto) 
+> option : Opt-calcmode ?
+> option : Opt-AirTightness ?
+> option : Opt-OverhangWidth ?
+> option : Opt-DBFiles ?
+> option : Opt-WindowOrientation ?
+> option : OPT-HRV_ctl ?
+> option : Opt-HVACSystem ?
+> option : Opt-ACH ?
+> option : Opt-BasementSlabInsulation ?
+
+ ======================== Opt-ExposedFloor ============================
+Choosing Opt-ExposedFloor -> BaseExpFloor-R31 
+   - found $gOptions{"Opt-ExposedFloor"} 
+
+ ======================== Opt-HRVduct ============================
+Choosing Opt-HRVduct -> interlock 
+   - found $gOptions{"Opt-HRVduct"} 
+
+ ======================== Opt-GenericWall_2Layer_definitions ============================
+Choosing Opt-GenericWall_2Layer_definitions -> test2 
+   - found $gOptions{"Opt-GenericWall_2Layer_definitions"} 
+
+ ======================== Opt-CasementWindows ============================
+Choosing Opt-CasementWindows -> DoubleClear 
+   - found $gOptions{"Opt-CasementWindows"} 
+
+ ======================== Opt-ElecLoadScale ============================
+Choosing Opt-ElecLoadScale -> NGERSNoReduction19 
+   - found $gOptions{"Opt-ElecLoadScale"} 
+
+ ======================== Opt-FloorSurface ============================
+Choosing Opt-FloorSurface -> wood 
+   - found $gOptions{"Opt-FloorSurface"} 
+
+ ======================== Opt-BasementWallInsulation ============================
+Choosing Opt-BasementWallInsulation -> OBC-min-R12 
+   - found $gOptions{"Opt-BasementWallInsulation"} 
+
+ ======================== Opt-DHWSystem ============================
+Choosing Opt-DHWSystem -> BaseDHW 
+   - found $gOptions{"Opt-DHWSystem"} 
+
+ ======================== Opt-DHWLoadScale ============================
+Choosing Opt-DHWLoadScale -> No-Reduction 
+   - found $gOptions{"Opt-DHWLoadScale"} 
+
+ ======================== GOconfig_rotate ============================
+Choosing GOconfig_rotate -> S 
+   - found $gOptions{"GOconfig_rotate"} 
+
+ ======================== Opt-ExtraDrywall ============================
+Choosing Opt-ExtraDrywall -> OneSheet 
+   - found $gOptions{"Opt-ExtraDrywall"} 
+
+ ======================== Opt-BaseWindows ============================
+Choosing Opt-BaseWindows -> MinWindows 
+   - found $gOptions{"Opt-BaseWindows"} 
+
+ ======================== OPT-OPR-SCHED ============================
+Choosing OPT-OPR-SCHED -> constant 
+   - found $gOptions{"OPT-OPR-SCHED"} 
+
+ ======================== Opt-Cooling-Spec ============================
+Choosing Opt-Cooling-Spec -> SmallCooling 
+   - found $gOptions{"Opt-Cooling-Spec"} 
+
+ ======================== Opt-StandoffPV ============================
+Choosing Opt-StandoffPV -> NoPV 
+   - found $gOptions{"Opt-StandoffPV"} 
+
+ ======================== Opt-RoofPitch ============================
+Choosing Opt-RoofPitch -> 8-12 
+   - found $gOptions{"Opt-RoofPitch"} 
+
+ ======================== Opt-Attachment ============================
+Choosing Opt-Attachment -> semi 
+   - found $gOptions{"Opt-Attachment"} 
+
+ ======================== Opt-Ceilings ============================
+Choosing Opt-Ceilings -> CeilR50 
+   - found $gOptions{"Opt-Ceilings"} 
+
+ ======================== Opt-MainWall ============================
+Choosing Opt-MainWall -> BaseR20 
+   - found $gOptions{"Opt-MainWall"} 
+
+ ======================== Opt-DWHRandSDHW ============================
+Choosing Opt-DWHRandSDHW -> none 
+   - found $gOptions{"Opt-DWHRandSDHW"} 
+
+ ======================== Opt-Location ============================
+Choosing Opt-Location -> Vancouver 
+   - found $gOptions{"Opt-Location"} 
+
+ ======================== Opt-GenericWall_1Layer_definitions ============================
+Choosing Opt-GenericWall_1Layer_definitions -> test 
+   - found $gOptions{"Opt-GenericWall_1Layer_definitions"} 
+
+ ======================== Opt-HRVspec ============================
+Choosing Opt-HRVspec -> BaseHRV_SRE70 
+   - found $gOptions{"Opt-HRVspec"} 
+
+ ======================== OPT-Furnace-Fan-Ctl ============================
+Choosing OPT-Furnace-Fan-Ctl -> Auto 
+   - found $gOptions{"OPT-Furnace-Fan-Ctl"} 
+
+ ======================== Opt-geometry ============================
+Choosing Opt-geometry -> BC_LEEP 
+   - found $gOptions{"Opt-geometry"} 
+
+ ======================== Opt-calcmode ============================
+Choosing Opt-calcmode -> calc 
+   - found $gOptions{"Opt-calcmode"} 
+
+ ======================== Opt-AirTightness ============================
+Choosing Opt-AirTightness -> Generic 
+   - found $gOptions{"Opt-AirTightness"} 
+
+ ======================== Opt-OverhangWidth ============================
+Choosing Opt-OverhangWidth -> BaseOverhang 
+   - found $gOptions{"Opt-OverhangWidth"} 
+
+ ======================== Opt-DBFiles ============================
+Choosing Opt-DBFiles -> retrofit 
+   - found $gOptions{"Opt-DBFiles"} 
+
+ ======================== Opt-WindowOrientation ============================
+Choosing Opt-WindowOrientation -> all 
+   - found $gOptions{"Opt-WindowOrientation"} 
+
+ ======================== OPT-HRV_ctl ============================
+Choosing OPT-HRV_ctl -> ERSp3ACH 
+   - found $gOptions{"OPT-HRV_ctl"} 
+
+ ======================== Opt-HVACSystem ============================
+Choosing Opt-HVACSystem -> gas-furnace-84_3 
+   - found $gOptions{"Opt-HVACSystem"} 
+
+ ======================== Opt-ACH ============================
+Choosing Opt-ACH -> retro_ACH_5_5 
+   - found $gOptions{"Opt-ACH"} 
+
+ ======================== Opt-BasementSlabInsulation ============================
+Choosing Opt-BasementSlabInsulation -> NoInsulation 
+   - found $gOptions{"Opt-BasementSlabInsulation"} 
+   - VALINDEX: 1 : found valid condition: "all" !
+   - VALINDEX: 2 : found valid condition: "all" !
+   - found cost: $0 (total) 
+
+
+MAPPING for Opt-ExposedFloor = BaseExpFloor-R31 (@ $0 inc. cost [total] ): 
+   - VALINDEX: 1 : found valid condition: "all" !
+   - VALINDEX: 2 : found valid condition: "all" !
+   - found cost: $0 (total) 
+
+
+MAPPING for Opt-HRVduct = interlock (@ $0 inc. cost [total] ): 
+   - VALINDEX: 1 : found valid condition: "all" !
+   - VALINDEX: 2 : found valid condition: "all" !
+   - found cost: $0 () 
+
+
+MAPPING for Opt-GenericWall_2Layer_definitions = test2 (@ $0 inc. cost [] ): 
+   - VALINDEX: 6 : found valid condition: "all" !
+   - VALINDEX: 3 : found valid condition: "all" !
+   - VALINDEX: 7 : found valid condition: "all" !
+   - VALINDEX: 2 : found valid condition: "all" !
+   - VALINDEX: 8 : found valid condition: "all" !
+   - VALINDEX: 1 : found valid condition: "all" !
+   - VALINDEX: 4 : found valid condition: "all" !
+   - VALINDEX: 5 : found valid condition: "all" !
+   - found cost: $0 (total) 
+
+
+MAPPING for Opt-CasementWindows = DoubleClear (@ $0 inc. cost [total] ): 
+   - VALINDEX: 1 : found valid condition: "all" !
+   - found cost: $0 (total) 
+
+
+MAPPING for Opt-ElecLoadScale = NGERSNoReduction19 (@ $0 inc. cost [total] ): 
+   - VALINDEX: 2 : found valid condition: "all" !
+   - VALINDEX: 1 : found valid condition: "all" !
+   - found cost: $0 (total) 
+
+
+MAPPING for Opt-FloorSurface = wood (@ $0 inc. cost [total] ): 
+   - VALINDEX: 1 : found valid condition: "all" !
+   - found cost: $0 (total) 
+
+
+MAPPING for Opt-BasementWallInsulation = OBC-min-R12 (@ $0 inc. cost [total] ): 
+   - VALINDEX: 1 : found valid condition: "all" !
+   - found cost: $0 (total) 
+
+
+MAPPING for Opt-DHWSystem = BaseDHW (@ $0 inc. cost [total] ): 
+   - VALINDEX: 1 : found valid condition: "all" !
+   - found cost: $0 (total) 
+
+
+MAPPING for Opt-DHWLoadScale = No-Reduction (@ $0 inc. cost [total] ): 
+   - VALINDEX: 1 : found valid condition: "all" !
+   - found cost: $0 () 
+
+
+MAPPING for GOconfig_rotate = S (@ $0 inc. cost [] ): 
+   - VALINDEX: 1 : found valid condition: "all" !
+   - found cost: $0 (total) 
+
+
+MAPPING for Opt-ExtraDrywall = OneSheet (@ $0 inc. cost [total] ): 
+   - VALINDEX: 2 : found valid condition: "all" !
+   - VALINDEX: 1 : found valid condition: "all" !
+   - found cost: $0 (total) 
+
+
+MAPPING for Opt-BaseWindows = MinWindows (@ $0 inc. cost [total] ): 
+   - VALINDEX: 1 : found valid condition: "all" !
+   - found cost: $0 (total) 
+
+
+MAPPING for OPT-OPR-SCHED = constant (@ $0 inc. cost [total] ): 
+   - VALINDEX: 3 : found valid condition: "all" !
+   - VALINDEX: 2 : found valid condition: "all" !
+   - VALINDEX: 1 : found valid condition: "all" !
+   - found cost: $0 (total) 
+
+
+MAPPING for Opt-Cooling-Spec = SmallCooling (@ $0 inc. cost [total] ): 
+   - EXTPARAM: production-elec-perKW : found valid condition: "all" ! (0)
+   - found cost: $0 (PerKW) 
+
+
+MAPPING for Opt-StandoffPV = NoPV (@ $0 inc. cost [PerKW] ): 
+   - VALINDEX: 1 : found valid condition: "all" !
+   - found cost: $0 (total) 
+
+
+MAPPING for Opt-RoofPitch = 8-12 (@ $0 inc. cost [total] ): 
+   - VALINDEX: 32 : found valid condition: "all" !
+   - VALINDEX: 21 : found valid condition: "all" !
+   - VALINDEX: 7 : found valid condition: "all" !
+   - VALINDEX: 26 : found valid condition: "all" !
+   - VALINDEX: 2 : found valid condition: "all" !
+   - VALINDEX: 17 : found valid condition: "all" !
+   - VALINDEX: 1 : found valid condition: "all" !
+   - VALINDEX: 18 : found valid condition: "all" !
+   - VALINDEX: 30 : found valid condition: "all" !
+   - VALINDEX: 16 : found valid condition: "all" !
+   - VALINDEX: 27 : found valid condition: "all" !
+   - VALINDEX: 25 : found valid condition: "all" !
+   - VALINDEX: 28 : found valid condition: "all" !
+   - VALINDEX: 20 : found valid condition: "all" !
+   - VALINDEX: 14 : found valid condition: "all" !
+   - VALINDEX: 24 : found valid condition: "all" !
+   - VALINDEX: 10 : found valid condition: "all" !
+   - VALINDEX: 31 : found valid condition: "all" !
+   - VALINDEX: 11 : found valid condition: "all" !
+   - VALINDEX: 22 : found valid condition: "all" !
+   - VALINDEX: 13 : found valid condition: "all" !
+   - VALINDEX: 23 : found valid condition: "all" !
+   - VALINDEX: 29 : found valid condition: "all" !
+   - VALINDEX: 6 : found valid condition: "all" !
+   - VALINDEX: 3 : found valid condition: "all" !
+   - VALINDEX: 9 : found valid condition: "all" !
+   - VALINDEX: 12 : found valid condition: "all" !
+   - VALINDEX: 15 : found valid condition: "all" !
+   - VALINDEX: 8 : found valid condition: "all" !
+   - VALINDEX: 4 : found valid condition: "all" !
+   - VALINDEX: 19 : found valid condition: "all" !
+   - VALINDEX: 5 : found valid condition: "all" !
+   - found cost: $0 (total) 
+
+
+MAPPING for Opt-Attachment = semi (@ $0 inc. cost [total] ): 
+   - VALINDEX: 1 : found valid condition: "all" !
+   - found cost: $0 (total) 
+
+
+MAPPING for Opt-Ceilings = CeilR50 (@ $0 inc. cost [total] ): 
+   - VALINDEX: 2 : found valid condition: "all" !
+   - VALINDEX: 1 : found valid condition: "all" !
+   - VALINDEX: 3 : found valid condition: "all" !
+   - found cost: $0 (total) 
+
+
+MAPPING for Opt-MainWall = BaseR20 (@ $0 inc. cost [total] ): 
+ >>>>> Testing |Opt-DHWLoadScale=OldERS| <<<
+      Opt-DHWLoadScale=OldERS 
+      $gChoices{Opt-DHWLoadScale} = No-Reduction / OldERS / -> 0 
+ >>>>> Testing |Opt-DHWLoadScale=Low-Flow| <<<
+      Opt-DHWLoadScale=Low-Flow 
+      $gChoices{Opt-DHWLoadScale} = No-Reduction / Low-Flow / -> 0 
+ >>>>> Testing |Opt-DHWLoadScale=No-Reduction| <<<
+      Opt-DHWLoadScale=No-Reduction 
+      $gChoices{Opt-DHWLoadScale} = No-Reduction / No-Reduction / -> 1 
+   - VALINDEX: 1 : found valid condition: "Opt-DHWLoadScale=No-Reduction" !
+ >>>>> Testing |Opt-DHWLoadScale=EStar| <<<
+      Opt-DHWLoadScale=EStar 
+      $gChoices{Opt-DHWLoadScale} = No-Reduction / EStar / -> 0 
+   - found cost: $0 (total) 
+
+
+MAPPING for Opt-DWHRandSDHW = none (@ $0 inc. cost [total] ): 
+   - VALINDEX: 2 : found valid condition: "all" !
+   - VALINDEX: 1 : found valid condition: "all" !
+   - VALINDEX: 3 : found valid condition: "all" !
+   - found cost: $0 (total) 
+
+
+MAPPING for Opt-Location = Vancouver (@ $0 inc. cost [total] ): 
+   - VALINDEX: 1 : found valid condition: "all" !
+   - found cost: $0 () 
+
+
+MAPPING for Opt-GenericWall_1Layer_definitions = test (@ $0 inc. cost [] ): 
+   - VALINDEX: 1 : found valid condition: "all" !
+   - found cost: $0 (total) 
+
+
+MAPPING for Opt-HRVspec = BaseHRV_SRE70 (@ $0 inc. cost [total] ): 
+   - VALINDEX: 1 : found valid condition: "all" !
+   - found cost: $0 (total) 
+
+
+MAPPING for OPT-Furnace-Fan-Ctl = Auto (@ $0 inc. cost [total] ): 
+   - VALINDEX: 7 : found valid condition: "all" !
+   - VALINDEX: 2 : found valid condition: "all" !
+   - VALINDEX: 1 : found valid condition: "all" !
+   - VALINDEX: 16 : found valid condition: "all" !
+   - VALINDEX: 14 : found valid condition: "all" !
+   - VALINDEX: 10 : found valid condition: "all" !
+   - VALINDEX: 11 : found valid condition: "all" !
+   - VALINDEX: 13 : found valid condition: "all" !
+   - VALINDEX: 6 : found valid condition: "all" !
+   - VALINDEX: 3 : found valid condition: "all" !
+   - VALINDEX: 9 : found valid condition: "all" !
+   - VALINDEX: 12 : found valid condition: "all" !
+   - VALINDEX: 15 : found valid condition: "all" !
+   - VALINDEX: 8 : found valid condition: "all" !
+   - VALINDEX: 4 : found valid condition: "all" !
+   - VALINDEX: 5 : found valid condition: "all" !
+   - found cost: $0 (total) 
+
+
+MAPPING for Opt-geometry = BC_LEEP (@ $0 inc. cost [total] ): 
+   - VALINDEX: 2 : found valid condition: "all" !
+   - VALINDEX: 1 : found valid condition: "all" !
+   - VALINDEX: 3 : found valid condition: "all" !
+   - found cost: $0 (total) 
+
+
+MAPPING for Opt-calcmode = calc (@ $0 inc. cost [total] ): 
+   - VALINDEX: 1 : found valid condition: "all" !
+   - found cost: $0.0 (total) 
+
+
+MAPPING for Opt-AirTightness = Generic (@ $0 inc. cost [total] ): 
+   - VALINDEX: 2 : found valid condition: "all" !
+   - VALINDEX: 1 : found valid condition: "all" !
+   - found cost: $0 (total) 
+
+
+MAPPING for Opt-OverhangWidth = BaseOverhang (@ $0 inc. cost [total] ): 
+   - VALINDEX: 2 : found valid condition: "all" !
+   - VALINDEX: 1 : found valid condition: "all" !
+   - found cost: $0 (total) 
+
+
+MAPPING for Opt-DBFiles = retrofit (@ $0 inc. cost [total] ): 
+ >>>>> Testing |GOconfig_rotate=N| <<<
+      GOconfig_rotate=N 
+      $gChoices{GOconfig_rotate} = S / N / -> 0 
+ >>>>> Testing |GOconfig_rotate=S| <<<
+      GOconfig_rotate=S 
+      $gChoices{GOconfig_rotate} = S / S / -> 1 
+   - VALINDEX: 7 : found valid condition: "GOconfig_rotate=S" !
+ >>>>> Testing |GOconfig_rotate=E| <<<
+      GOconfig_rotate=E 
+      $gChoices{GOconfig_rotate} = S / E / -> 0 
+ >>>>> Testing |GOconfig_rotate=W| <<<
+      GOconfig_rotate=W 
+      $gChoices{GOconfig_rotate} = S / W / -> 0 
+ >>>>> Testing |GOconfig_rotate=N| <<<
+      GOconfig_rotate=N 
+      $gChoices{GOconfig_rotate} = S / N / -> 0 
+ >>>>> Testing |GOconfig_rotate=S| <<<
+      GOconfig_rotate=S 
+      $gChoices{GOconfig_rotate} = S / S / -> 1 
+   - VALINDEX: 2 : found valid condition: "GOconfig_rotate=S" !
+ >>>>> Testing |GOconfig_rotate=E| <<<
+      GOconfig_rotate=E 
+      $gChoices{GOconfig_rotate} = S / E / -> 0 
+ >>>>> Testing |GOconfig_rotate=W| <<<
+      GOconfig_rotate=W 
+      $gChoices{GOconfig_rotate} = S / W / -> 0 
+ >>>>> Testing |GOconfig_rotate=N| <<<
+      GOconfig_rotate=N 
+      $gChoices{GOconfig_rotate} = S / N / -> 0 
+ >>>>> Testing |GOconfig_rotate=S| <<<
+      GOconfig_rotate=S 
+      $gChoices{GOconfig_rotate} = S / S / -> 1 
+   - VALINDEX: 1 : found valid condition: "GOconfig_rotate=S" !
+ >>>>> Testing |GOconfig_rotate=E| <<<
+      GOconfig_rotate=E 
+      $gChoices{GOconfig_rotate} = S / E / -> 0 
+ >>>>> Testing |GOconfig_rotate=W| <<<
+      GOconfig_rotate=W 
+      $gChoices{GOconfig_rotate} = S / W / -> 0 
+ >>>>> Testing |GOconfig_rotate=N| <<<
+      GOconfig_rotate=N 
+      $gChoices{GOconfig_rotate} = S / N / -> 0 
+ >>>>> Testing |GOconfig_rotate=S| <<<
+      GOconfig_rotate=S 
+      $gChoices{GOconfig_rotate} = S / S / -> 1 
+   - VALINDEX: 6 : found valid condition: "GOconfig_rotate=S" !
+ >>>>> Testing |GOconfig_rotate=E| <<<
+      GOconfig_rotate=E 
+      $gChoices{GOconfig_rotate} = S / E / -> 0 
+ >>>>> Testing |GOconfig_rotate=W| <<<
+      GOconfig_rotate=W 
+      $gChoices{GOconfig_rotate} = S / W / -> 0 
+ >>>>> Testing |GOconfig_rotate=N| <<<
+      GOconfig_rotate=N 
+      $gChoices{GOconfig_rotate} = S / N / -> 0 
+ >>>>> Testing |GOconfig_rotate=S| <<<
+      GOconfig_rotate=S 
+      $gChoices{GOconfig_rotate} = S / S / -> 1 
+   - VALINDEX: 3 : found valid condition: "GOconfig_rotate=S" !
+ >>>>> Testing |GOconfig_rotate=E| <<<
+      GOconfig_rotate=E 
+      $gChoices{GOconfig_rotate} = S / E / -> 0 
+ >>>>> Testing |GOconfig_rotate=W| <<<
+      GOconfig_rotate=W 
+      $gChoices{GOconfig_rotate} = S / W / -> 0 
+ >>>>> Testing |GOconfig_rotate=N| <<<
+      GOconfig_rotate=N 
+      $gChoices{GOconfig_rotate} = S / N / -> 0 
+ >>>>> Testing |GOconfig_rotate=S| <<<
+      GOconfig_rotate=S 
+      $gChoices{GOconfig_rotate} = S / S / -> 1 
+   - VALINDEX: 8 : found valid condition: "GOconfig_rotate=S" !
+ >>>>> Testing |GOconfig_rotate=E| <<<
+      GOconfig_rotate=E 
+      $gChoices{GOconfig_rotate} = S / E / -> 0 
+ >>>>> Testing |GOconfig_rotate=W| <<<
+      GOconfig_rotate=W 
+      $gChoices{GOconfig_rotate} = S / W / -> 0 
+ >>>>> Testing |GOconfig_rotate=N| <<<
+      GOconfig_rotate=N 
+      $gChoices{GOconfig_rotate} = S / N / -> 0 
+ >>>>> Testing |GOconfig_rotate=S| <<<
+      GOconfig_rotate=S 
+      $gChoices{GOconfig_rotate} = S / S / -> 1 
+   - VALINDEX: 4 : found valid condition: "GOconfig_rotate=S" !
+ >>>>> Testing |GOconfig_rotate=E| <<<
+      GOconfig_rotate=E 
+      $gChoices{GOconfig_rotate} = S / E / -> 0 
+ >>>>> Testing |GOconfig_rotate=W| <<<
+      GOconfig_rotate=W 
+      $gChoices{GOconfig_rotate} = S / W / -> 0 
+ >>>>> Testing |GOconfig_rotate=N| <<<
+      GOconfig_rotate=N 
+      $gChoices{GOconfig_rotate} = S / N / -> 0 
+ >>>>> Testing |GOconfig_rotate=S| <<<
+      GOconfig_rotate=S 
+      $gChoices{GOconfig_rotate} = S / S / -> 1 
+   - VALINDEX: 5 : found valid condition: "GOconfig_rotate=S" !
+ >>>>> Testing |GOconfig_rotate=E| <<<
+      GOconfig_rotate=E 
+      $gChoices{GOconfig_rotate} = S / E / -> 0 
+ >>>>> Testing |GOconfig_rotate=W| <<<
+      GOconfig_rotate=W 
+      $gChoices{GOconfig_rotate} = S / W / -> 0 
+   - found cost: $0 (total) 
+
+
+MAPPING for Opt-WindowOrientation = all (@ $0 inc. cost [total] ): 
+   - VALINDEX: 1 : found valid condition: "all" !
+   - found cost: $0 (total) 
+
+
+MAPPING for OPT-HRV_ctl = ERSp3ACH (@ $0 inc. cost [total] ): 
+   - VALINDEX: 2 : found valid condition: "all" !
+   - VALINDEX: 1 : found valid condition: "all" !
+   - VALINDEX: 6 : found valid condition: "all" !
+   - VALINDEX: 3 : found valid condition: "all" !
+   - VALINDEX: 4 : found valid condition: "all" !
+   - VALINDEX: 5 : found valid condition: "all" !
+   - found cost: $0 (total) 
+
+
+MAPPING for Opt-HVACSystem = gas-furnace-84_3 (@ $0 inc. cost [total] ): 
+   - VALINDEX: 1 : found valid condition: "all" !
+   - found cost: $0 (total) 
+
+
+MAPPING for Opt-ACH = retro_ACH_5_5 (@ $0 inc. cost [total] ): 
+ >>>>> Testing |Opt-BasementWallInsulation=OBC-min-R12|Rigid+Blown-R43|MB-IntBatt-R20|AdvFrm-R20-Wall| <<<
+      Opt-BasementWallInsulation=OBC-min-R12|Rigid+Blown-R43|MB-IntBatt-R20|AdvFrm-R20-Wall 
+      $gChoices{Opt-BasementWallInsulation} = OBC-min-R12 / OBC-min-R12 / -> 1 
+      $gChoices{Opt-BasementWallInsulation} = OBC-min-R12 / Rigid+Blown-R43 / -> 1 
+      $gChoices{Opt-BasementWallInsulation} = OBC-min-R12 / MB-IntBatt-R20 / -> 1 
+      $gChoices{Opt-BasementWallInsulation} = OBC-min-R12 / AdvFrm-R20-Wall / -> 1 
+   - VALINDEX: 2 : found valid condition: "Opt-BasementWallInsulation=OBC-min-R12|Rigid+Blown-R43|MB-IntBatt-R20|AdvFrm-R20-Wall" !
+   - VALINDEX: 1 : found valid condition: "all" !
+   - found cost: $0 (total) 
+
+
+MAPPING for Opt-BasementSlabInsulation = NoInsulation (@ $0 inc. cost [total] ): 
+ done.
+
+
+ Creating a working folder for optimization work...done.
+? cwd ?: /cygdrive/c/HousingModels/OptFramework / /cygdrive/c/HousingModels/OptFramework 
+>>>System is CYGWIN_NT-6.1
+ 
+ Creating link to climate_cygwin 
+ Found /cygdrive/c/HousingModels/OptFramework/climate_cygwin. Linking (a).
+Linking  /cygdrive/c/HousingModels/OptFramework/climate_cygwin MODEL-work/climate -> /cygdrive/c/HousingModels/OptFramework/climate_cygwin
+ > executing ln -s  /cygdrive/c/HousingModels/OptFramework/climate_cygwin MODEL-work/climate  
+ > from path /cygdrive/c/HousingModels/OptFramework
+  + Performing substitutions on MODEL-work/aim2/generic.aim
+  + Performing substitutions on MODEL-work/cfg/GenericHome-LEEP-BC.cfg
+  + Performing substitutions on MODEL-work/cfg/GenericHome-LEEP-BC.cnn
+  + Performing substitutions on MODEL-work/ctl/shoulder-ideal.ctl
+  + Performing substitutions on MODEL-work/dbs/NZEH-CEF.constrdb
+  + Performing substitutions on MODEL-work/dbs/NZEH-WH.constrdb
+  + Performing substitutions on MODEL-work/dbs/retrofit.constrdb
+  + Performing substitutions on MODEL-work/hvac/baseboard-heating.hvac
+  + Performing substitutions on MODEL-work/hvac/Baseboardv2.hvac
+  + Performing substitutions on MODEL-work/hvac/BaseDHW.dhw
+  + Performing substitutions on MODEL-work/hvac/basefurnace_AC-gas-ecm-motor.hvac
+  + Performing substitutions on MODEL-work/hvac/basefurnace_AC-gas-psc-motor.hvac
+  + Performing substitutions on MODEL-work/hvac/basefurnace_ACv2.hvac
+  + Performing substitutions on MODEL-work/hvac/CCASHPv2-ecm-motor.hvac
+  + Performing substitutions on MODEL-work/hvac/CCASHPv2.hvac
+  + Performing substitutions on MODEL-work/hvac/Combi-P9-ecm-v2.hvac
+  + Performing substitutions on MODEL-work/hvac/Combi-P9-ecm.hvac
+  + Performing substitutions on MODEL-work/hvac/Combi-P9.hvac
+  + Performing substitutions on MODEL-work/hvac/ElecHP.dhw
+  + Performing substitutions on MODEL-work/hvac/ElecInstant.dhw
+  + Performing substitutions on MODEL-work/hvac/ElecStorage.dhw
+  + Performing substitutions on MODEL-work/hvac/gas-furnace-84_3.hvac
+  + Performing substitutions on MODEL-work/hvac/gas-furnace-low-eff.hvac
+  + Performing substitutions on MODEL-work/hvac/gas-furnace-mid-eff.hvac
+  + Performing substitutions on MODEL-work/hvac/GasInstantaneous.dhw
+  + Performing substitutions on MODEL-work/hvac/GSHPv2.hvac
+  + Performing substitutions on MODEL-work/hvac/HRV-base.vnt
+  + Performing substitutions on MODEL-work/hvac/HRV-upg.vnt
+  + Performing substitutions on MODEL-work/hvac/HRV.vnt
+  + Performing substitutions on MODEL-work/hvac/IMS-P10.hvac
+  + Performing substitutions on MODEL-work/hvac/IMS.vnt
+  + Performing substitutions on MODEL-work/hvac/oil-furnace-low-eff.hvac
+  + Performing substitutions on MODEL-work/hvac/oil-furnace-mid-eff.hvac
+  + Performing substitutions on MODEL-work/hvac/retro_96furnace.hvac
+  + Performing substitutions on MODEL-work/hvac/smallfurnace_AC-gas-ecm-motor.hvac
+  + Performing substitutions on MODEL-work/nets/elec_loads-bak.enf
+  + Performing substitutions on MODEL-work/nets/elec_loads.enf
+  + Performing substitutions on MODEL-work/zones/first_fl-constant.opr
+  + Performing substitutions on MODEL-work/zones/first_fl-scheduled.opr
+  + Performing substitutions on MODEL-work/zones/first_fl.geo
+  + Performing substitutions on MODEL-work/zones/garage.bsm
+  + Performing substitutions on MODEL-work/zones/garage.geo
+  + Performing substitutions on MODEL-work/zones/garage.opr
+  + Performing substitutions on MODEL-work/zones/roof.geo
+  + Performing substitutions on MODEL-work/zones/roof.opr
+  + Performing substitutions on MODEL-work/zones/second_fl-constant.opr
+  + Performing substitutions on MODEL-work/zones/second_fl-scheduled.opr
+  + Performing substitutions on MODEL-work/zones/second_fl.geo
+  + Performing substitutions on MODEL-work/zones/slab.bsm
+  + Performing substitutions on MODEL-work/zones/third_fl-constant.opr
+  + Performing substitutions on MODEL-work/zones/third_fl-scheduled.opr
+  + Performing substitutions on MODEL-work/zones/third_fl.geo
+
+
+ Moved to path:/cygdrive/c/HousingModels/OptFramework/MODEL-work/cfg
+
+
+ Invoking prj to update con files ("~/esp-r/bin/prj -mode text -file GenericHome-LEEP-BC.cfg -act update_con_files")...
+ > executing ~/esp-r/bin/prj -mode text -file GenericHome-LEEP-BC.cfg -act update_con_files 
+ > from path /cygdrive/c/HousingModels/OptFramework/MODEL-work/cfg
+done. 
+
+ > executing rm out.* 
+ > from path /cygdrive/c/HousingModels/OptFramework/MODEL-work/cfg
+
+
+ Moved to path:/cygdrive/c/HousingModels/OptFramework/MODEL-work/cfg
+
+
+ Involing prj to rotate the model by 0 degrees ("~/esp-r/bin/prj -mode text -file GenericHome-LEEP-BC.cfg -act rotate  0")...
+ > executing ~/esp-r/bin/prj -mode text -file GenericHome-LEEP-BC.cfg -act rotate  0 
+ > from path /cygdrive/c/HousingModels/OptFramework/MODEL-work/cfg
+done. 
+> ZONE 1 / *zon   1   # reference for first_fl    
+ 
+> ZONE 2 / *zon   2   # reference for second_fl   
+ 
+> ZONE 3 / *zon   3   # reference for third_fl    
+ 
+> ZONE 4 / *zon   4   # reference for roof        
+ 
+> ZONE 5 / *zon   5   # reference for garage      
+ 
+done. 
+done. 
+done. 
+done. 
+done. 
+
+
+ Invoking ESP-r ("~/esp-r/bin/bps -h3k -file GenericHome-LEEP-BC.cfg -mode text -p fullyear silent")...
+ > executing ~/esp-r/bin/bps -h3k -file GenericHome-LEEP-BC.cfg -mode text -p fullyear silent 
+ > from path /cygdrive/c/HousingModels/OptFramework/MODEL-work/cfg
+
+ > executing cp /cygdrive/c/HousingModels/OptFramework/MODEL-work/cfg/out* /cygdrive/c/HousingModels/OptFramework/sim-output/ 
+ > from path /cygdrive/c/HousingModels/OptFramework/MODEL-work/cfg
+
+
+ Moved to path:/cygdrive/c/HousingModels/OptFramework/MODEL-work/cfg
+
+
+ Reading timestep data...done (parsed 8760 rows)
+
+
+ Energy Consumption: 
+
+  + 24.377392 ( total_fuel_use/test/all_fuels/equipment/energy_content::AnnualTotal, GJ ) 
+  + 1.452036 ( total_fuel_use/test/all_fuels/space_cooling/energy_content::AnnualTotal, GJ ) 
+  + 36.593088 ( total_fuel_use/test/all_fuels/space_heating/energy_content::AnnualTotal, GJ ) 
+  + 17.498858 ( total_fuel_use/test/all_fuels/water_heating/energy_content::AnnualTotal, GJ ) 
+ --------------------------------------------------------
+    79.921374 ( Total energy, GJ ) 
+
+
+ Energy Cost (not including credit for PV, direction 0 ): 
+
+  + $ 573 (Electricity)
+  + $ 569 (Natural Gas)
+  + $ 0 (Oil)
+  + $ 0 (Propane)
+  + $ 0 (Wood)
+  + $ 0 (Pellet)
+ --------------------------------------------------------
+    $ 1141 (All utilities).
+
+  - $ 0 (PV revenue, 0 kWh at $ 0.08 / kWh)
+ --------------------------------------------------------
+    $ 1141 (Net utility costs).
+
+
+
+
+ Energy Use (not including credit for PV, direction 0 ): 
+
+  - 7198 (Electricity, kWh)
+  - 1453 (Natural Gas, m3)
+  - 0 (Oil, l)
+  - 0 (Wood, cord)
+  - 0 (Pellet, tonnes)
+> SCALE 1 
+
+
+ Estimated costs in Vancouver (x1.1 Ottawa costs) : 
+
+ +  0 ( GOconfig_rotate : S ) 
+ +  0 ( OPT-Furnace-Fan-Ctl : Auto ) 
+ +  0 ( OPT-HRV_ctl : ERSp3ACH ) 
+ +  0 ( OPT-OPR-SCHED : constant ) 
+ +  0 ( Opt-ACH : retro_ACH_5_5 ) 
+ +  0 ( Opt-AirTightness : Generic ) 
+ +  0 ( Opt-Attachment : semi ) 
+ +  0 ( Opt-BaseWindows : MinWindows ) 
+ +  0 ( Opt-BasementSlabInsulation : NoInsulation ) 
+ +  0 ( Opt-BasementWallInsulation : OBC-min-R12 ) 
+ +  0 ( Opt-CasementWindows : DoubleClear ) 
+ +  0 ( Opt-Ceilings : CeilR50 ) 
+ +  0 ( Opt-Cooling-Spec : SmallCooling ) 
+ +  0 ( Opt-DBFiles : retrofit ) 
+ +  0 ( Opt-DHWLoadScale : No-Reduction ) 
+ +  0 ( Opt-DHWSystem : BaseDHW ) 
+ +  0 ( Opt-DWHRandSDHW : none ) 
+ +  0 ( Opt-ElecLoadScale : NGERSNoReduction19 ) 
+ +  0 ( Opt-ExposedFloor : BaseExpFloor-R31 ) 
+ +  0 ( Opt-ExtraDrywall : OneSheet ) 
+ +  0 ( Opt-FloorSurface : wood ) 
+ +  0 ( Opt-GenericWall_1Layer_definitions : test ) 
+ +  0 ( Opt-GenericWall_2Layer_definitions : test2 ) 
+ +  0 ( Opt-HRVduct : interlock ) 
+ +  0 ( Opt-HRVspec : BaseHRV_SRE70 ) 
+ +  0 ( Opt-HVACSystem : gas-furnace-84_3 ) 
+ +  0 ( Opt-Location : Vancouver ) 
+ +  0 ( Opt-MainWall : BaseR20 ) 
+ +  0 ( Opt-OverhangWidth : BaseOverhang ) 
+ +  0 ( Opt-RoofPitch : 8-12 ) 
+ +  0 ( Opt-StandoffPV : NoPV ) 
+ +  0 ( Opt-WindowOrientation : all ) 
+ +  0 ( Opt-calcmode : calc ) 
+ +  0 ( Opt-geometry : BC_LEEP ) 
+ - 0 (Base costs for windows)  
+ --------------------------------------------------------
+ =   0 ( Total incremental cost ) 
+
+ ( Unadjusted upgrade costs: $0 )
+

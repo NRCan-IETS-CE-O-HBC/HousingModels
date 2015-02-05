@@ -27,8 +27,8 @@ second_fl describes the second floor
 *vertex,0.00000,<win-wall-4-left>,5.9864  #  22
 *vertex,0.00000,<win-wall-4-left>,7.2056  #  23
 *vertex,0.00000,<win-wall-4-right>,7.2056  #  24
-*vertex,<Opt-Width>,<gar-length>,5.4864  #  25
-*vertex,0.00000,<gar-length>,5.4864  #  26
+*vertex,<Opt-Width>,<gar-length>,5.1524  #  25
+*vertex,0.00000,<gar-length>,5.1524  #  26
 # 
 # tag, number of vertices followed by list of associated vert
 *edges,10,1,2,6,5,1,9,12,11,10,9  #  1

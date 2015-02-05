@@ -1,0 +1,101 @@
+*idealized-hvac
+*version 2
+#------------------------
+# Site altitude
+#------------------------
+*site-altitude 0.0
+#------------------------
+# First system (IMS)
+#------------------------
+*system-start
+*name           IMS
+*type           IMS            # System type: IMS
+*priority       primary        # Priority: primary
+*fuel           gas
+*function       heating
+*zone-links-start
+    *zone-link 1 0.2 # Served zones and fraction
+    *zone-link 2 0.4 #
+    *zone-link 3 0.4 #
+*zone-links-end
+*sys-data-start
+  SH-capacity           23.9
+  nominal-burner-input  58500 
+  SH-net-eff-15         0.91
+  SH-net-eff-40         0.96
+  SH-net-eff-100        0.91
+  SH-power-15           145.
+  SH-power-40           231.
+  SH-power-100          548.
+  heat-source-type      5
+  WHPF                  0.95
+  vent-FA-flow-C        0.001
+  vent-EA-flow-C        0.001
+  vent-FA-flow-H        0.001
+  vent-EA-flow-H        0.001
+  vent-FA-fan-power-C   0.001
+  vent-EA-fan-power-C   0.001
+  vent-FA-fan-power-H   0.001
+  vent-EA-fan-power-H   0.001
+  controls-power        7
+  circ-fan-power        74
+  vent-SRE              1.0
+  dhw-water-vol-lpday    190
+*sys-data-end
+*fan-ctl-loop 1
+#*misc-param-start
+#  dhw-bcd-flow          dhw-flow
+#  dhw-bcd-del-temp      dhw-delivery-temp
+#  dhw-bcd-makeup-temp   dhw-makeup-temp
+#  dhw-bcd-duration      dhw-load-duration
+#  sh-bcd-load           sh-load
+#*misc-param-end
+*system-end
+## -------- Heat pump (cooling) ----------
+*system-start
+
+    *name ASHP-AC
+    *type ASHP
+    *priority primary
+    *fuel electricity
+    *function cooling
+    *zone-links-start
+    *zone-link 1 0.2 # Served zones and fraction
+    *zone-link 2 0.4 #
+    *zone-link 3 0.4 #
+    *zone-links-end
+    *sys-data-start
+
+        capacity 10555.
+        COP 3.
+        #circ-fan-flow -
+        #circ-fan-rated-flow 1.5
+        circ-fan-mode 1
+        circ-fan-position 1
+        circ-fan-power 475.
+        circ-fan-power-low 0.        
+        outdoor-fan-power 0.
+        fan-power-in-auto 0.
+        circ-fan-rated-position 1
+        SHR 0.75
+        cooling-control-mode 1
+        ctl-file-function-num 1
+        sys-num-for-heating-mode 1
+
+    *sys-data-end
+    *misc-param-start
+        performance good
+    *misc-param-end     
+    *fan-ctl-loop 1
+    *OA-schedule-start
+
+        *day-type-start
+
+            *end-hour 8760
+            *period 24 0.0
+
+        *day-type-end
+
+    *OA-schedule-end
+
+*system-end
