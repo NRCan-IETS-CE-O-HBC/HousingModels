@@ -1124,6 +1124,42 @@
 
 *attribute:end
 
+
+!-----------------------------------------------------------------------
+!   Generic wall insulation thickness settings: - one layer
+!-----------------------------------------------------------------------
+*attribute:start 
+*attribute:name = Opt-GenericWall_1Layer_definitions
+*attribute:tag:1  = <Opt-GenInsulLayerInboard-a>
+*attribute:default = test
+ 
+ 
+! Thicknesses are defined in meters. Format * must * be #.#### (4 decimals)
+*option:test:value:1 = 0.0250 
+*option:test:cost    = 0
+
+*attribute:end
+
+!-----------------------------------------------------------------------
+!   Generic wall insulation thickness settings: - two layer
+!-----------------------------------------------------------------------
+*attribute:start 
+*attribute:name = Opt-GenericWall_2Layer_definitions
+*attribute:tag:1  = <Opt-GenInsulLayerInboard-b>
+*attribute:tag:2  = <Opt-GenInsulLayerOutboard-b>
+*attribute:default = test2
+ 
+ 
+! Thicknesses are defined in meters. Format * must * be #.#### (4 decimals)
+*option:test2:value:1 = 0.0250
+*option:test2:value:2 = 0.0250
+*option:test2:cost    = 0
+
+*attribute:end
+
+
+
+
 !-----------------------------------------------------------------------
 !   Main walls
 !-----------------------------------------------------------------------
