@@ -2,14 +2,14 @@
 *date Fri Apr  8 16:41:55 2011  # latest file modification 
 second_fl describes the second floor
 # tag, X co-ord, Y co-ord, Z co-ord
-*vertex,0.00000,0.00000,5.4864  #   1
-*vertex,<Opt-Width>,0.0000,5.4864  #   2
-*vertex,<Opt-Width>,<Opt-Length>,5.4864  #   3
-*vertex,0.00000,<Opt-Length>,5.4864  #   4
-*vertex,0.00000,0.00000,7.9248  #   5
-*vertex,<Opt-Width>,0.0000,7.9248  #   6
-*vertex,<Opt-Width>,<Opt-Length>,7.9248  #   7
-*vertex,0.00000,<Opt-Length>,7.9248  #   8
+*vertex,0.00000,0.00000,5.1524  #   1
+*vertex,<Opt-Width>,0.0000,5.1524  #   2
+*vertex,<Opt-Width>,<Opt-Length>,5.1524  #   3
+*vertex,0.00000,<Opt-Length>,5.1524  #   4
+*vertex,0.00000,0.00000,8.1784  #   5
+*vertex,<Opt-Width>,0.0000,8.1784  #   6
+*vertex,<Opt-Width>,<Opt-Length>,8.1784  #   7
+*vertex,0.00000,<Opt-Length>,8.1784  #   8
 
 *vertex,<win-wall-1-right>,0.00000,5.9864  #   9
 *vertex,<win-wall-1-left>,0.00000,5.9864  #  10

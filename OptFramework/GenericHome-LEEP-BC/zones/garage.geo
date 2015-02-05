@@ -7,10 +7,10 @@ garage describes the inset garage
 *vertex,<Opt-Width>,0.00000,2.43840  #   2
 *vertex,<Opt-Width>,<gar-length>,2.43840  #   3
 *vertex,0.00000,<gar-length>,2.43840  #   4
-*vertex,0.00000,0.00000,5.4864  #   5
-*vertex,<Opt-Width>,0.00000,5.4864  #   6
-*vertex,<Opt-Width>,<gar-length>,5.4864  #   7
-*vertex,0.00000,<gar-length>,5.4864  #   8
+*vertex,0.00000,0.00000,5.1584  #   5
+*vertex,<Opt-Width>,0.00000,5.1584  #   6
+*vertex,<Opt-Width>,<gar-length>,5.1584  #   7
+*vertex,0.00000,<gar-length>,5.1584  #   8
 # 
 # tag, number of vertices followed by list of associated vert
 *edges,4,1,2,6,5  #  1

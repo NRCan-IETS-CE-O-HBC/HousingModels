@@ -2,14 +2,14 @@
 *date Thu Nov 13 11:55:30 2014  # latest file modification 
 third_fl describes the third floor
 # tag, X co-ord, Y co-ord, Z co-ord
-*vertex,0.00000,0.00000,7.92540  #   1
-*vertex,<Opt-Width>,0.00000,7.92540  #   2
-*vertex,<Opt-Width>,<Opt-Length>,7.92540  #   3
-*vertex,0.00000,<Opt-Length>,7.92540  #   4
-*vertex,0.00000,0.00000,10.36380  #   5
-*vertex,<Opt-Width>,0.00000,10.36380  #   6
-*vertex,<Opt-Width>,<Opt-Length>,10.36380  #   7
-*vertex,0.00000,<Opt-Length>,10.36380  #   8
+*vertex,0.00000,0.00000,8.1784  #   1
+*vertex,<Opt-Width>,0.00000,8.1784  #   2
+*vertex,<Opt-Width>,<Opt-Length>,8.1784  #   3
+*vertex,0.00000,<Opt-Length>,8.1784  #   4
+*vertex,0.00000,0.00000,10.9484  #   5
+*vertex,<Opt-Width>,0.00000,10.9484  #   6
+*vertex,<Opt-Width>,<Opt-Length>,10.9484  #   7
+*vertex,0.00000,<Opt-Length>,10.9484  #   8
 *vertex,<win-wall-1-right>,0.00000,8.42540  #   9
 *vertex,<win-wall-1-left>,0.00000,8.42540  #  10
 *vertex,<win-wall-1-left>,0.00000,9.64460  #  11

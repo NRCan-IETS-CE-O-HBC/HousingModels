@@ -6,10 +6,10 @@ first_fl describes the first floor
 *vertex,<Opt-Width>,<Opt-Length>,2.4384  #   2
 *vertex,0.00000,<Opt-Length>,2.4384  #   3
 *vertex,0.00000,<gar-length>,2.4384  #   4
-*vertex,<Opt-Width>,<gar-length>,5.4864  #   5
-*vertex,<Opt-Width>,<Opt-Length>,5.4864  #   6
-*vertex,0.00000,<Opt-Length>,5.4864  #   7
-*vertex,0.00000,<gar-length>,5.4864  #   8
+*vertex,<Opt-Width>,<gar-length>,5.1524  #   5
+*vertex,<Opt-Width>,<Opt-Length>,5.1524  #   6
+*vertex,0.00000,<Opt-Length>,5.1524  #   7
+*vertex,0.00000,<gar-length>,5.1524  #   8
 *vertex,<win-wall-3-right>,<Opt-Length>,2.9384  #  9
 *vertex,<win-wall-3-left>,<Opt-Length>,2.9384  #  10
 *vertex,<win-wall-3-left>,<Opt-Length>,4.4624  #  11
