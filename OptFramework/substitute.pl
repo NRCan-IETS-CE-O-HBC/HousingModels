@@ -234,16 +234,17 @@ my $Help_msg = "
   ./substitute.pl -c optimization-choices.opt \
                   -o optimization-options.opt \
                   -b BaseFolderName           \
-                  -v(v) ;
+                  -v(v)
                   
  other options: 
-    -d : use Dakota format for input (and processing)
-	-e : calculate ERS value (produces a second run, if required)
-	-z : run this script as Dakota post-processor (implies -d)
-	     Note: Need options (-o) and choice (-c) files but
-		       don't need -b option
-	-r : reorder Dakota postprocessed output to match GenOpt
-	     Implies -d and -z so no need to set.
+    -d : Use Dakota format for input (and processing). Choice file different!
+    -e : Calculate ERS value (produces a second run, if required)
+    -z : Run this script as Dakota post-processor (implies -d)
+         Note: Need options (-o) and choice (-c) files but
+               don't need -b option
+    -r : Reorder Dakota postprocessed output to match GenOpt
+         (Implies -d and -z.)
+		 
 ";
 
 # dump help text, if no argument given
@@ -2877,7 +2878,7 @@ sub postprocessDakota()
 				elsif ( $eleNum == 31 ) { $DataIn[$eleNum] = "GOtag:Opt-HRVduct"; }				#31:Opt-HRVduct
 				elsif ( $eleNum == 32 ) { $DataIn[$eleNum] = "GOtag:Opt-StandoffPV"; }			#32:Opt-StandoffPV
 				elsif ( $eleNum == 33 ) { $DataIn[$eleNum] = "GOtag:Opt-DWHRandSDHW"; }			#33:Opt-DWHRandSDHW
-				elsif ( $gReorder ) { $DataIn[58] = "Sub Iteration"; $DataIn[59] = "Step Number"; }						#58 & 59 for GenOpt
+				elsif ( $gReorder && $eleNum == 34 ) { $DataIn[58] = "Sub Iteration"; $DataIn[59] = "Step Number"; } #58 & 59 for GenOpt
 			}
 			elsif ( $eleNum == 1 ) {
 				$DataIn[$eleNum] = $DataIn[0];	# Same as Simulation Number
@@ -2887,7 +2888,6 @@ sub postprocessDakota()
 					$DataIn[59] = 1;	#Step Number
 				}
 			}
-
 			elsif ( $eleNum > 1 && $eleNum < 34 && $TestValue =~ /\d{3,4}/ ){
 				# Get attribute name for data values that are Dakota aliases
 				while ( my ( $attribute, $dummy) = each %gChoices ){
