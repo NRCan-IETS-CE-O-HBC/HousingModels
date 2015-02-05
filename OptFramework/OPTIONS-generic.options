@@ -661,24 +661,6 @@
 *option:BC_LEEP:value:16   = 39.23
 *option:BC_LEEP:cost:total = 0
 
-*attribute:tag:1    = <Opt-Area>
-*attribute:tag:2    = <Opt-Width>
-*attribute:tag:3    = <Opt-Length>
-*attribute:tag:4    = <Opt-Roof-Height>
-*attribute:tag:5    = <Opt-Roof-Peak-W>
-*attribute:tag:6    = <win-wall-1-right>
-*attribute:tag:7    = <win-wall-1-left>
-*attribute:tag:8    = <win-wall-2-right>
-*attribute:tag:9    = <win-wall-2-left>
-*attribute:tag:10   = <win-wall-3-right>
-*attribute:tag:11   = <win-wall-3-left>
-*attribute:tag:12   = <win-wall-4-right>
-*attribute:tag:13   = <win-wall-4-left>
-*attribute:tag:14   = <gar-width>
-*attribute:tag:15   = <gar-length>
-*attribute:tag:16   = <gar-area>
-
-
 *attribute:end
 
 !-----------------------------------------------------------------------
