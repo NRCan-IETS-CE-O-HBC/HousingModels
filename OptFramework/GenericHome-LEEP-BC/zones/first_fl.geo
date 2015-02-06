@@ -30,7 +30,7 @@ first_fl describes the first floor
 #  construction name, optical name
 #  boundary condition tag followed by two data items
 *surf,Wall-1-1,VERT,-,-,-,<Opt-MainWall-Dry>,OPAQUE,ANOTHER,05,03  #   1 ||< wall-1-1:Wall-3-gar
-*surf,Wall-1-2,VERT,-,-,-,<OptAtt-Wall2Con>,<OptAtt-Wall2Opt>,<OptAtt-Wall2BC> #   2 ||< external
+*surf,Wall-1-2,VERT,-,-,-,<OptAtt-Wall2Con>,<OptAtt-Wall2Opt>,<OptAtt-Wall2BC>,0,0 #   2 ||< external
 *surf,Wall-1-3,VERT,-,-,-,<Opt-MainWall-Bri>,OPAQUE,EXTERIOR,0,0  #   3 ||< external
 *surf,Wall-1-4,VERT,-,-,-,<OptAtt-Wall4Con>,<OptAtt-Wall4Opt>,<OptAtt-Wall4BC>,0,0  #   4 ||< external
 *surf,Top-1st,CEIL,-,-,-,<Opt-IntFloorInv>,OPAQUE,ANOTHER,02,06       #   5 ||< Top-1st:Base-2nd

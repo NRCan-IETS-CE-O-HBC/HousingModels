@@ -10,7 +10,6 @@ second_fl describes the second floor
 *vertex,<Opt-Width>,0.0000,8.1784  #   6
 *vertex,<Opt-Width>,<Opt-Length>,8.1784  #   7
 *vertex,0.00000,<Opt-Length>,8.1784  #   8
-
 *vertex,<win-wall-1-right>,0.00000,5.9864  #   9
 *vertex,<win-wall-1-left>,0.00000,5.9864  #  10
 *vertex,<win-wall-1-left>,0.00000,7.2056  #  11
