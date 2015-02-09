@@ -297,8 +297,9 @@ $cmd_arguements =~ s/;$//g;
 # split processed arguments back into array
 @processed_args = split /;/, $cmd_arguements;
 
-print @processed_args; 
-
+if ($gTest_params{"verbosity"} ne "quiet"){
+	print @processed_args; 
+}
 
 # Interpret arguments
 foreach $arg (@processed_args){
@@ -1139,7 +1140,8 @@ for ( my $iRun = 1; $iRun <= $gNumRunSetsRqd; $iRun++ ) {
 			my $cost = $gOptions{$attribute}{"options"}{$choice}{"cost"};
 			my $cost_type = $gOptions{$attribute}{"options"}{$choice}{"cost-type"};
 			my $repcost = defined( $cost ) ? $cost : "?" ; 
-		 
+		    
+			if ( ! defined ($cost_type) ){ $cost_type = "" ; }
 			debug_out ("   - found cost: \$$cost ($cost_type) \n"); 
 		
 			my $ScaleCost = 0; 
@@ -1165,7 +1167,8 @@ for ( my $iRun = 1; $iRun <= $gNumRunSetsRqd; $iRun++ ) {
 			}
 		
 			$cost = $gOptions{$attribute}{"options"}{$choice}{"cost"} ;
-			if ( ! defined ($cost) ){ $cost = "0" ; }                                       
+			if ( ! defined ($cost) ){ $cost = "0" ; }
+			if ( ! defined ($cost_type) ){ $cost_type = "" ; }
 			debug_out ( "\n\nMAPPING for $attribute = $choice (@ \$".
 					 round($cost).
 					 " inc. cost [$cost_type] ): \n"); 
