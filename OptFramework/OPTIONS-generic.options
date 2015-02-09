@@ -185,22 +185,23 @@
 *option:single:cost:total    = 0
 *option:single:alias = 500
 
+
 *option:semi:value:1 = <OptAtt-windows-1-FrontCON>
 *option:semi:value:2 = <OptAtt-windows-1-FrontOPT>
-*option:semi:value:3 = <Opt-MainWall-Bri>
+*option:semi:value:3 = int_wl
 *option:semi:value:4 = OPAQUE
-*option:semi:value:5 = EXTERIOR
-*option:semi:value:6 = <OptAtt-windows-2-LeftCON>
-*option:semi:value:7 = <OptAtt-windows-2-LeftOPT>
-*option:semi:value:8 = EXTERIOR
+*option:semi:value:5 = ADIABATIC
+*option:semi:value:6 = int_wl
+*option:semi:value:7 = OPAQUE
+*option:semi:value:8 = ADIABATIC
 *option:semi:value:9 = <OptAtt-windows-3-BackCON>
 *option:semi:value:10= <OptAtt-windows-3-BackOPT>
-*option:semi:value:11= int_wl
+*option:semi:value:11= <Opt-MainWall-Bri>
 *option:semi:value:12= OPAQUE
-*option:semi:value:13= ADIABATIC
-*option:semi:value:14= int_wl
-*option:semi:value:15= OPAQUE
-*option:semi:value:16= ADIABATIC
+*option:semi:value:13= EXTERIOR
+*option:semi:value:14= <OptAtt-windows-4-RightCON>
+*option:semi:value:15= <OptAtt-windows-4-RightOPT>
+*option:semi:value:16= EXTERIOR
 *option:semi:value:17= <OPT-BsmWall>
 *option:semi:value:18= BASESIMP,01,10
 *option:semi:value:19= int_wl
