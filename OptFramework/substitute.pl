@@ -26,7 +26,7 @@ sub stream_out($);
 sub postprocessDakota();
 
 
-my $gDebug = 1; 
+my $gDebug = 0; 
 
 my %gTest_params;          # test parameters
 my $gChoiceFile  = ""; 
