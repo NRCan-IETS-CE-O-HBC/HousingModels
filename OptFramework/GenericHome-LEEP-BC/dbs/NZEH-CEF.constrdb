@@ -1126,7 +1126,7 @@
 # 141: layers  description   optics name   symmetry tag
     6    GenWal2Rx    OPAQ  OPAQUE        NONSYMMETRIC 
 # mat ref thickness (m) mat descr & air gap R
-    1    0.0809  Paviour brick 
+   77    0.0190  hardboard siding
     0    0.0250  air  0.170 0.170 0.170
   220    <Opt-GenInsulLayerOutboard-b>  XPS CO2 foamed	
    79    0.0120  OSB 
@@ -1140,14 +1140,14 @@
    79    0.0120  OSB   
   220    <Opt-GenInsulLayerOutboard-b>  XPS CO2 foamed   
     0    0.0250  air  0.170 0.170 0.170
-    1    0.0809  Paviour brick   
+   77    0.0190  hardboard siding 
 # MAIN WALLS: Generic insulation system --- 
 # GenWal1Rx & GenWal1RxR have one insulation layer
 # whose thickness is set as tags in the options file
 # 143: layers  description   optics name   symmetry tag
     5    GenWal1Rx    OPAQ  OPAQUE        NONSYMMETRIC 
 # mat ref thickness (m) mat descr & air gap R
-    1    0.0809  Paviour brick 
+   77    0.0190  hardboard siding
     0    0.0250  air  0.170 0.170 0.170
    79    0.0120  OSB 
   283    <Opt-GenInsulLayerInboard-a>  fiberglass batt   
@@ -1159,4 +1159,4 @@
   283    <Opt-GenInsulLayerInboard-a>  fiberglass batt   
    79    0.0120  OSB   
     0    0.0250  air  0.170 0.170 0.170
-    1    0.0809  Paviour brick      
+   77    0.0190  hardboard siding     
