@@ -297,10 +297,6 @@ $cmd_arguements =~ s/;$//g;
 # split processed arguments back into array
 @processed_args = split /;/, $cmd_arguements;
 
-if ($gTest_params{"verbosity"} ne "quiet"){
-	print @processed_args; 
-}
-
 # Interpret arguments
 foreach $arg (@processed_args){
   SWITCH:
@@ -430,6 +426,9 @@ foreach $arg (@processed_args){
   }
 }
 
+if ($gTest_params{"verbosity"} ne "quiet"){
+	print @processed_args; 
+}
 
 # Update ESP-r commands to use defined cfg file name.
 
