@@ -1278,6 +1278,10 @@
 *option:test:cost    = 0
 *option:test:alias = 1750
 
+*option:12inchDblStudCellulose:value:1 = 0.3048 #???
+*option:12inchDblStudCellulose:cost    = 13030
+*option:12inchDblStudCellulose:alias = 1751
+
 *attribute:end
 
 !-----------------------------------------------------------------------
