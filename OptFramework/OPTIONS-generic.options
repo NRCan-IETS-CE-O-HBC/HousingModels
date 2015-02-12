@@ -1278,9 +1278,106 @@
 *option:test:cost    = 0
 *option:test:alias = 1750
 
-*option:12inchDblStudCellulose:value:1 = 0.3048 #???
-*option:12inchDblStudCellulose:cost    = 13030
-*option:12inchDblStudCellulose:alias = 1751
+
+! BC LEEP Wall systems
+
+*option:Stud_2x4_2in_XPS_R-24:value:1 = 0.1366
+*option:Stud_2x4_2in_XPS_R-24:cost = 0
+*option:Stud_2x4_2in_XPS_R-24:alias = 1751
+
+*option:Stud_2x6_1in_XPS_R-23:value:1 = 0.1329
+*option:Stud_2x6_1in_XPS_R-23:cost = 0
+*option:Stud_2x6_1in_XPS_R-23:alias = 1752
+
+*option:Stud_2x6_1.5in_XPS_R-25:value:1 = 0.1457
+*option:Stud_2x6_1.5in_XPS_R-25:cost = 0
+*option:Stud_2x6_1.5in_XPS_R-25:alias = 1753
+
+*option:Stud_2x6_2in_XPS_R-29:value:1 = 0.1668
+*option:Stud_2x6_2in_XPS_R-29:cost = 0
+*option:Stud_2x6_2in_XPS_R-29:alias = 1754
+
+*option:Stud_2x6_3in_XPS_R-34:value:1 = 0.1998
+*option:Stud_2x6_3in_XPS_R-34:cost = 0
+*option:Stud_2x6_3in_XPS_R-34:alias = 1755
+
+*option:Stud_2x6_4in_XPS_R-39:value:1 = 0.2324
+*option:Stud_2x6_4in_XPS_R-39:cost = 0
+*option:Stud_2x6_4in_XPS_R-39:alias = 1756
+
+*option:Stud_2x6_1.5in_MWB_R-25:value:1 = 0.14
+*option:Stud_2x6_1.5in_MWB_R-25:cost = 0
+*option:Stud_2x6_1.5in_MWB_R-25:alias = 1757
+
+*option:Stud_2x6_2in_MWB_R-27:value:1 = 0.1541
+*option:Stud_2x6_2in_MWB_R-27:cost = 0
+*option:Stud_2x6_2in_MWB_R-27:alias = 1758
+
+*option:Stud_2x6_3in_MWB_R-31:value:1 = 0.1812
+*option:Stud_2x6_3in_MWB_R-31:cost = 0
+*option:Stud_2x6_3in_MWB_R-31:alias = 1759
+
+*option:Stud_2x6_4in_MWB_R-35:value:1 = 0.2078
+*option:Stud_2x6_4in_MWB_R-35:cost = 0
+*option:Stud_2x6_4in_MWB_R-35:alias = 1760
+
+*option:Stud_2x4_2in_Polyiso_R-25:value:1 = 0.1422
+*option:Stud_2x4_2in_Polyiso_R-25:cost = 0
+*option:Stud_2x4_2in_Polyiso_R-25:alias = 1761
+
+*option:Stud_2x6_1in_Polyiso_R-24:value:1 = 0.1358
+*option:Stud_2x6_1in_Polyiso_R-24:cost = 0
+*option:Stud_2x6_1in_Polyiso_R-24:alias = 1762
+
+*option:Stud_2x6_2in_Polyiso_R-30:value:1 = 0.1726
+*option:Stud_2x6_2in_Polyiso_R-30:cost = 0
+*option:Stud_2x6_2in_Polyiso_R-30:alias = 1763
+
+*option:Stud_2x6_3in_Polyiso_R-35:value:1 = 0.208
+*option:Stud_2x6_3in_Polyiso_R-35:cost = 0
+*option:Stud_2x6_3in_Polyiso_R-35:alias = 1764
+
+*option:Stud_2x6_4in_Polyiso_R-41:value:1 = 0.2432
+*option:Stud_2x6_4in_Polyiso_R-41:cost = 0
+*option:Stud_2x6_4in_Polyiso_R-41:alias = 1765
+
+*option:Stud_2x4_2in_EPS_R-21:value:1 = 0.1203
+*option:Stud_2x4_2in_EPS_R-21:cost = 0
+*option:Stud_2x4_2in_EPS_R-21:alias = 1766
+
+*option:Stud_2x6_1.5in_EPS_R-24:value:1 = 0.1374
+*option:Stud_2x6_1.5in_EPS_R-24:cost = 0
+*option:Stud_2x6_1.5in_EPS_R-24:alias = 1767
+
+*option:Stud_2x6_2in_EPS_R-26:value:1 = 0.1504
+*option:Stud_2x6_2in_EPS_R-26:cost = 0
+*option:Stud_2x6_2in_EPS_R-26:alias = 1768
+
+*option:Stud_2x6_3in_EPS_R-30:value:1 = 0.1754
+*option:Stud_2x6_3in_EPS_R-30:cost = 0
+*option:Stud_2x6_3in_EPS_R-30:alias = 1769
+
+*option:Stud_2x6_4in_EPS_R-34:value:1 = 0.2003
+*option:Stud_2x6_4in_EPS_R-34:cost = 0
+*option:Stud_2x6_4in_EPS_R-34:alias = 1770
+
+*option:SIPS_6.5in_EPS_R-24:value:1 = 0.1367
+*option:SIPS_6.5in_EPS_R-24:cost = 0
+*option:SIPS_6.5in_EPS_R-24:alias = 1771
+
+*option:SIPS_10.5in_EPS_R-38:value:1 = 0.2256
+*option:SIPS_10.5in_EPS_R-38:cost = 0
+*option:SIPS_10.5in_EPS_R-38:alias = 1772
+
+*option:DblStud_12in_cell_R-41:value:1 = 0.2464
+*option:DblStud_12in_cell_R-41:cost = 0
+*option:DblStud_12in_cell_R-41:alias = 1773
+
+*option:DblStud_10in_cell_R-34:value:1 = 0.1982
+*option:DblStud_10in_cell_R-34:cost = 0
+*option:DblStud_10in_cell_R-34:alias = 1774
+
+
 
 *attribute:end
 
@@ -1298,7 +1395,7 @@
 *option:test2:value:1 = 0.0250
 *option:test2:value:2 = 0.0250
 *option:test2:cost    = 0
-*option:test2:alias = 1770
+*option:test2:alias = 1780
 
 *attribute:end
 
@@ -1320,18 +1417,18 @@
 !
 
 ! - Single insulation layer (batts). 
-*option:GenericWall_1Layer:value:1 =   GenWal1Rx   ! Added by JTB for MB base wall
+*option:GenericWall_1Layer:value:1 =   GenWal1Rx  
 *option:GenericWall_1Layer:value:2 =   GenWal1Rx
 *option:GenericWall_1Layer:value:3 =   GenWal1Rx 
 *option:GenericWall_1Layer:cost:total    =   0     ! Costs defined in Generic Wall definitions 
 *option:GenericWall_1Layer:alias = 3500
 
-! - Two insulation layers (e.g. batts - OSB - foam board ). 
-*option:GenericWall_2Layer:value:1 =   GenWal2Rx   ! Added by JTB for MB base wall
-*option:GenericWall_2Layer:value:2 =   GenWal2Rx
-*option:GenericWall_2Layer:value:3 =   GenWal2Rx 
-*option:GenericWall_2Layer:cost:total    =   0
-*option:GenericWall_2Layer:alias = 3501
+! - Two insulation layers (e.g. batts - OSB - foam board / not being used.  ). 
+!*option:GenericWall_2Layer:value:1 =   GenWal2Rx  
+!*option:GenericWall_2Layer:value:2 =   GenWal2Rx
+!*option:GenericWall_2Layer:value:3 =   GenWal2Rx 
+!*option:GenericWall_2Layer:cost:total    =   0
+!*option:GenericWall_2Layer:alias = 3501
 
 
 ! Other wall definitions: insulation configurations and thicknesses 
