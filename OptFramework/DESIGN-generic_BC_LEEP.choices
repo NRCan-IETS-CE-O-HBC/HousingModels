@@ -28,7 +28,7 @@ Opt-Location : Vancouver
 !              natural and mechanical vent. 
 !  - EightHRpDay: HRV operates 33% of each hour, for 8hr/day total.
 
-OPT-HRV_ctl          : ERSp3ACH !EightHRpDay
+OPT-HRV_ctl          : EightHRpDay	!ERSp3ACH
 
 !Opt-CTL-Strategy     : ecoEIIFramework  
 
@@ -192,7 +192,7 @@ Opt-DWHRandSDHW         : none
 !   - NGERSReducedA16
 !   - NGERSBestInClass14p8
 
-Opt-ElecLoadScale    : NGERSNoReduction19
+Opt-ElecLoadScale    : NoReduction !NGERSNoReduction19
 
 
 ! Hot water numbers - These have changed! 
@@ -201,7 +201,7 @@ Opt-ElecLoadScale    : NGERSNoReduction19
 
 Opt-DHWLoadScale     : No-Reduction       
 
-Opt-RoofPitch : 8-12
+Opt-RoofPitch : 6-12
 
 ! Hot water system. Choices:
 !  BaseDHW
@@ -216,5 +216,5 @@ Opt-HVACSystem       : gas-furnace-84_3
 
 ! HRV spec 
 
-Opt-HRVspec : FansOnly	!BaseHRV_SRE70
+Opt-HRVspec : BaseHRV_SRE70	!FansOnly
 

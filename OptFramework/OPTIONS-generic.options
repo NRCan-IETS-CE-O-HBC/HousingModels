@@ -721,7 +721,7 @@
 *option:BC_LEEP:value:14   = 5.94
 *option:BC_LEEP:value:15   = 6.604
 *option:BC_LEEP:value:16   = 39.23
-*option:BC_LEEP:value:17   = 500	!Need volume for ERS
+*option:BC_LEEP:value:17   = 407.2	! volume for ERS calc
 *option:BC_LEEP:cost:total = 0
 *option:BC_LEEP:alias = 1206
 
@@ -2208,7 +2208,7 @@ Reflects southern Ontario costs
 *option:gas-furnace-84_3:value:1 = gas-furnace-84_3.hvac
 *option:gas-furnace-84_3:value:2 = #-no-GSHP-file
 *option:gas-furnace-84_3:value:3 = #No-IMS: 
-*option:gas-furnace-84_3:value:4 = !#No HRV
+*option:gas-furnace-84_3:value:4 = #No HRV
 *option:gas-furnace-84_3:value:5 = 
 *option:gas-furnace-84_3:value:6 = shoulder-ideal.ctl 
 *option:gas-furnace-84_3:cost:total    = 0
