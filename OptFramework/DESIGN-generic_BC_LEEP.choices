@@ -62,7 +62,7 @@ Opt-WindowOrientation: all
 
 
 ! ACH substitutions
-Opt-ACH       : retro_ACH_5_5
+Opt-ACH       : retro_ACH_6
 
 
 Opt-OverhangWidth : BaseOverhang
@@ -86,7 +86,7 @@ Opt-AirTightness   : Generic
 !  W15_R25
 !  Retrofit-DlBr
 
-Opt-MainWall         : GenericWall_1Layer
+Opt-MainWall         : BaseR20	!GenericWall_1Layer
 
 ! Set this parameter for BC LEEP walls
 Opt-GenericWall_1Layer_definitions : DblStud_12in_cell_R-41
@@ -153,7 +153,7 @@ Opt-BasementWallInsulation  : OBC-min-R12
 ! Retrofit Windows
 !    DoubleClear 
 
-Opt-CasementWindows  :  DoubleClear !Triple_win_shutter !Wind1_trp_CL 
+Opt-CasementWindows  :  DoubleLowESoftCoatArgFill 
 
 
 ! Exposed floor over garage (affects floor
@@ -212,9 +212,11 @@ Opt-RoofPitch : 6-12
 Opt-DHWSystem        : BaseDHW
 
 ! HVAC system 
-Opt-HVACSystem       : gas-furnace-84_3
+
+Opt-HVACSystem       : gas-furnace-ecm
+Opt-Cooling-Spec     : 2TonStdCooling		! Does nothing for BC-LEEP (No cooling tags in hvac)
 
 ! HRV spec 
 
-Opt-HRVspec : BaseHRV_SRE70	!FansOnly
-
+Opt-HRVspec : FansOnly	!BaseHRV_SRE70
+Opt-HRVduct : interlock
