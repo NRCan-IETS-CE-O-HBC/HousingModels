@@ -2852,15 +2852,15 @@ sub postprocessDakota()
 				elsif ( $eleNum == 3 ) { $DataIn[$eleNum]  = "GOtag:DBFiles"; }					#3:Opt-DBFiles
 				elsif ( $eleNum == 4 ) { $DataIn[$eleNum]  = "GOtag:Opt-Location"; }			#4:Opt-Location
 				elsif ( $eleNum == 5 ) { $DataIn[$eleNum]  = "GOtag:GOconfig_rotate"; }			#5:GOconfig_rotate
-				#no change																		#6:OPT-OPR-SCHED
-				#no change																		#7:OPT-Furnace-Fan-Ctl
+				#no change - don't use															#6:OPT-OPR-SCHED
+				#no change - don't use															#7:OPT-Furnace-Fan-Ctl
 				elsif ( $eleNum == 8 ) { $DataIn[$eleNum]  = "GOtag:HRVcontrol"; }				#8:OPT-HRV_ctl
 				elsif ( $eleNum == 9 ) { $DataIn[$eleNum]  = "GOtag:Opt-geometry"; }			#9:Opt-geometry
 				elsif ( $eleNum == 10 ) { $DataIn[$eleNum] = "GOtag:Opt-Attachment"; }			#10:Opt-Attachment
-				#no change																		#11:Opt-BaseWindows
+				#no change - don't use															#11:Opt-BaseWindows
 				elsif ( $eleNum == 12 ) { $DataIn[$eleNum] = "GOtag:RoofPitch"; }				#12:Opt-RoofPitch
 				elsif ( $eleNum == 13 ) { $DataIn[$eleNum] = "GOtag:Opt-OverhangWidth"; }		#13:Opt-OverhangWidth
-				#no change																		#14:Opt-WindowOrientation
+				#no change - don't use															#14:Opt-WindowOrientation
 				elsif ( $eleNum == 15 ) { $DataIn[$eleNum] = "GOtag:DHWLoadScale"; }			#15:Opt-DHWLoadScale
 				elsif ( $eleNum == 16 ) { $DataIn[$eleNum] = "GOtag:ElecLoadScale"; }			#16:Opt-ElecLoadScale
 				elsif ( $eleNum == 17 ) { $DataIn[$eleNum] = "GOtag:Opt-AirTightness"; }		#17:Opt-AirTightness

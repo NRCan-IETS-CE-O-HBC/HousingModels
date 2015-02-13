@@ -211,5 +211,5 @@ Opt-HVACSystem       : gas-furnace-84_3
 
 ! HRV spec 
 
-Opt-HRVspec : BaseHRV_SRE70
+Opt-HRVspec : FansOnly	!BaseHRV_SRE70
 
