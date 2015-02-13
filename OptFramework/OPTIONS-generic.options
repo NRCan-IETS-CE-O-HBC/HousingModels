@@ -2208,7 +2208,7 @@ Reflects southern Ontario costs
 *option:gas-furnace-84_3:value:1 = gas-furnace-84_3.hvac
 *option:gas-furnace-84_3:value:2 = #-no-GSHP-file
 *option:gas-furnace-84_3:value:3 = #No-IMS: 
-*option:gas-furnace-84_3:value:4 = #No HRV
+*option:gas-furnace-84_3:value:4 = !#No HRV
 *option:gas-furnace-84_3:value:5 = 
 *option:gas-furnace-84_3:value:6 = shoulder-ideal.ctl 
 *option:gas-furnace-84_3:cost:total    = 0
@@ -2335,6 +2335,11 @@ Reflects southern Ontario costs
 *option:UpgHRV_SRE78:value:1    = HRV-upg.vnt
 *option:UpgHRV_SRE78:cost:total = 920
 *option:UpgHRV_SRE78:alias = 2502
+
+*option:FansOnly:value:1         = FansOnly.vnt
+*option:FansOnly:cost:total = 0
+*option:FansOnly:alias = 2503
+
 *attribute:end 
 
 *attribute:start 
