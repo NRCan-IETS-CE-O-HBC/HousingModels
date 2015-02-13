@@ -86,8 +86,13 @@ Opt-AirTightness   : Generic
 !  W15_R25
 !  Retrofit-DlBr
 
-Opt-MainWall         : BaseR20 
-Opt-GenericWall_1Layer_definitions : test
+Opt-MainWall         : GenericWall_1Layer
+
+! Set this parameter for BC LEEP walls
+Opt-GenericWall_1Layer_definitions : DblStud_12in_cell_R-41
+
+
+! This parameter is not used!
 Opt-GenericWall_2Layer_definitions : test2
 
 ! Add extra drywall to wall constructions 
