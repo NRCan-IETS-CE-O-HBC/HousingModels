@@ -1276,9 +1276,9 @@
 *attribute:default = test
  
 ! Thicknesses are defined in meters. Format * must * be #.#### (4 decimals)
-*option:test:value:1 = 0.0250 
-*option:test:cost    = 0
-*option:test:alias = 1750
+*option:Stud_2x6_R20:value:1 = 0.08748 
+*option:Stud_2x6_R20:cost    = 0
+*option:Stud_2x6_R20:alias = 1750
 
 
 ! BC LEEP Wall systems
