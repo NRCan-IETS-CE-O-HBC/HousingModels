@@ -62,7 +62,7 @@ Opt-WindowOrientation: all
 
 
 ! ACH substitutions
-Opt-ACH       : retro_ACH_6
+Opt-ACH       : retro_ACH_4
 
 
 Opt-OverhangWidth : BaseOverhang
@@ -86,10 +86,10 @@ Opt-AirTightness   : Generic
 !  W15_R25
 !  Retrofit-DlBr
 
-Opt-MainWall         : BaseR20	!GenericWall_1Layer
+Opt-MainWall         : BaseR21	!GenericWall_1Layer
 
 ! Set this parameter for BC LEEP walls
-Opt-GenericWall_1Layer_definitions : DblStud_12in_cell_R-41
+Opt-GenericWall_1Layer_definitions : test
 
 
 ! This parameter is not used!
@@ -213,7 +213,7 @@ Opt-DHWSystem        : BaseDHW
 
 ! HVAC system 
 
-Opt-HVACSystem       : gas-furnace-ecm
+Opt-HVACSystem       : gas-furnace-psc
 Opt-Cooling-Spec     : 2TonStdCooling		! Does nothing for BC-LEEP (No cooling tags in hvac)
 
 ! HRV spec 

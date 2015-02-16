@@ -862,7 +862,9 @@
 *option:DoubleLowESoftCoatArgFill:value:6 = DblLeScArg
 *option:DoubleLowESoftCoatArgFill:value:7 = DblLeScArg
 *option:DoubleLowESoftCoatArgFill:value:8 = DblLeScArg
-*option:DoubleLowESoftCoatArgFill:cost:total    = 2440 ! Value changed for Van_2st_80_retro geometry. Originally 10965
+*option:DoubleLowESoftCoatArgFill:cost:total    = 0 	! Base for BC-LEEP (Vancouver)
+														! Was 2440 from last use
+														! Van_2st_80_retro geometry: Originally 10965
 *option:DoubleLowESoftCoatArgFill:alias    = 1404
 
 !---------------------------------------------------------------------
