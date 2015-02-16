@@ -95,6 +95,16 @@ RUN AN OPTIMIZATION USING GENOPT
 		
 		/cygdrive/c/Users/jeffblake/Dropbox/NRCan-Optimization-Results/Mattamy
 
+
+Notepad++ Settings for accessing remote Ubuntu files
+----------------------------------------------------
+Plugins menu:
+ - NppFTP --> Show NppFTP Window
+		
+In NppFTP window Click on gear icon for Settings:
+ - Profile Settings --> Set the "Hostname" field to the IP address shown in the AWS Connect window
+   (e.g., 52.1.247.204)
+		
 		
 RUN AN OPTIMIZATION USING DAKOTA
 --------------------------------

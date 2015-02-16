@@ -1273,7 +1273,7 @@
 *attribute:start 
 *attribute:name = Opt-GenericWall_1Layer_definitions
 *attribute:tag:1  = <Opt-GenInsulLayerInboard-a>
-*attribute:default = test
+*attribute:default = Stud_2x6_R20
  
 ! Thicknesses are defined in meters. Format * must * be #.#### (4 decimals)
 *option:Stud_2x6_R20:value:1 = 0.08748 
