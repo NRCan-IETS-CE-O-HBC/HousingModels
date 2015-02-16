@@ -15,17 +15,17 @@
                                        2804 Opt-DHWLoadScale
                                        2700 Opt-ElecLoadScale
                                        1505 Opt-AirTightness
-                                       1302 Opt-ACH
+                                       1304 Opt-ACH
                                        1404 Opt-CasementWindows
                                        1600 Opt-Ceilings
-                                       1700 Opt-MainWall
+                                       1701 Opt-MainWall
                                        2000 Opt-ExposedFloor
                                        1800 Opt-BasementWallInsulation
                                        1900 Opt-BasementSlabInsulation
                                        2100 Opt-ExtraDrywall
                                        2200 Opt-FloorSurface
                                        2900 Opt-DHWSystem
-                                       2301 Opt-HVACSystem
+                                       2302 Opt-HVACSystem
                                        2401 Opt-Cooling-Spec
                                        2503 Opt-HRVspec
                                        2600 Opt-HRVduct

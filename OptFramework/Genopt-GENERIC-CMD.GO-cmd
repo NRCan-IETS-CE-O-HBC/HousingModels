@@ -54,7 +54,7 @@ Vary{
   
     Name = GOtag:Opt-Location; 
     Ini  = 1;
-    Values = "Kamloops"; 
+    Values = "Vancouver"; 
   }
 
   // Geometry  
@@ -62,7 +62,7 @@ Vary{
   
     Name = GOtag:Opt-geometry; 
     Ini  = 1;
-    Values = "Van_2st_80_retro"; 
+    Values = "BC_LEEP"; 
   }
 
 
@@ -73,7 +73,7 @@ Vary{
 			 
     Name = GOtag:Opt-Attachment;  
     Ini  = 1;
-    Values = "single"; 
+    Values = "semi"; 
   }	
   
   // Setting the ACH in the AIM-2 input file
@@ -84,7 +84,7 @@ Vary{
   
     Name = GOtag:Opt-ACH; 
     Ini  = 1;
-    Values = "retro_ACH_6_5, retro_ACH_4, retro_ACH_2"; 
+    Values = "retro_ACH_4, retro_ACH_3_5, retro_ACH_3, retro_ACH_2_5, retro_ACH_2, retro_ACH_1_5"; 
   }
 
   
@@ -106,7 +106,7 @@ Vary{
    Parameter{   // 
      Name    =  GOtag:Opt-AirTightness;
      Ini     =  1;
-     Values  =  "Typical23,R2000,Cdn1ACH,PassiveHouse";
+     Values  =  "Generic";
      
    }    
    
@@ -143,9 +143,16 @@ Vary{
    Parameter{   // 
      Name    =  GOtag:Opt-MainWall;
      Ini     =  1;
-    Values  =  "BaseR21,Stud-R275-Wall,Stud-R305-Wall,Stud-R325-Wall,DblStud-R37-Wall"; 
+    Values  =  "GenericWall_1Layer"; 
    }
-  
+
+   Parameter{   // 
+     Name    =  GOtag:Opt-GenericWall_1Layer_definitions;
+     Ini     =  1;
+    Values  =  "Stud_2x6_R20, Stud_2x6_R20"; 
+   }
+
+   
    // Foundation walls: OBC-min-R12
    //                   Rigid+Batt-R20
    //                   Rigid+Batt-R30               
