@@ -840,7 +840,7 @@
 *option:TripleLowEHardCoatKryFill:value:6 = TplLeHcKry
 *option:TripleLowEHardCoatKryFill:value:7 = TplLeHcKry
 *option:TripleLowEHardCoatKryFill:value:8 = TplLeHcKry
-*option:TripleLowEHardCoatKryFill:cost:total    = 4570! Value changed for Van_2st_80_retro geometry. Originally 20871
+*option:TripleLowEHardCoatKryFill:cost:total    = 1595 ! Value changed for Van_2st_80_retro geometry. Originally 20871
 *option:TripleLowEHardCoatArgFill:alias    = 1402
 
 *option:TripleLowESoftCoatKryFill:value:1 = TplLeScKry
@@ -2056,7 +2056,7 @@ Whitehorse Wall Options (Code is R28)
 *option:gas-furnace-psc:value:4 = 
 *option:gas-furnace-psc:value:5 = 
 *option:gas-furnace-psc:value:6 = shoulder-ideal.ctl
-*option:gas-furnace-psc:cost:total    = 0
+*option:gas-furnace-psc:cost:total    = 0 ! base for BC-LEEP
 *option:gas-furnace-psc:alias = 2302
 
 *option:13kW-furnace-ecm:value:1 = smallfurnace_AC-gas-ecm-motor.hvac
@@ -2065,7 +2065,7 @@ Whitehorse Wall Options (Code is R28)
 *option:13kW-furnace-ecm:value:4 = 
 *option:13kW-furnace-ecm:value:5 = 
 *option:13kW-furnace-ecm:value:6 = shoulder-ideal.ctl
-*option:13kW-furnace-ecm:cost:total    = 1230  ! based on quote from Patric
+*option:13kW-furnace-ecm:cost:total    = 1355
 *option:13kW-furnace-ecm:alias = 2303
 
 *option:zoned-furnace-ecm:value:1 = smallfurnace_AC-gas-ecm-motor.hvac
@@ -2074,7 +2074,7 @@ Whitehorse Wall Options (Code is R28)
 *option:zoned-furnace-ecm:value:4 = 
 *option:zoned-furnace-ecm:value:5 = 
 *option:zoned-furnace-ecm:value:6 = shoulder_zoned.ctl
-*option:zoned-furnace-ecm:cost:total    = 0
+*option:zoned-furnace-ecm:cost:total    = 6480
 *option:zoned-furnace-ecm:alias = 2304
 
 
@@ -2105,7 +2105,7 @@ Whitehorse Wall Options (Code is R28)
 *option:Combi-P9-ecmV2:value:4 = 
 *option:Combi-P9-ecmV2:value:5 = # NO DHW: IMS provides WH.  
 *option:Combi-P9-ecmV2:value:6 = shoulder-ideal.ctl
-*option:Combi-P9-ecmV2:cost:total    = 1445   !based on quote from Patric
+*option:Combi-P9-ecmV2:cost:total    = 1915   !based on quote from Patric
 *option:Combi-P9-ecmV2:alias = 2307
 
 
@@ -2146,6 +2146,14 @@ Whitehorse Wall Options (Code is R28)
 *option:CCASHP:cost:total   = 9595          ! Does this reflect AC system savings?
 *option:CCASHP:alias = 2311
 
+*option:CCASHP:value:1 = CCASHPv2-ecm.hvac
+*option:CCASHP:value:2 = #-no-GSHP-file
+*option:CCASHP:value:3 = #No-IMS: 
+*option:CCASHP:value:4 = 
+*option:CCASHP:value:5 = 
+*option:CCASHP:value:6 =  shoulder-ideal.ctl
+*option:CCASHP:cost:total   = 7840          
+*option:CCASHP:alias = 2325
 
 Reflects southern Ontario costs
 *option:GSHP:value:1 = GSHPv2.hvac
@@ -2473,11 +2481,11 @@ Reflects southern Ontario costs
 *option:ElectricStorage:alias = 2902
 
 *option:GasInstantaneous:value:1 = GasInstantaneous.dhw
-*option:GasInstantaneous:cost:total    = 995
+*option:GasInstantaneous:cost:total    = 550
 *option:GasInstantaneous:alias = 2903
 
 *option:ElectricHP:value:1 = ElecHP.dhw
-*option:ElectricHP:cost:total    = 1495
+*option:ElectricHP:cost:total    = 825
 *option:ElectricHP:alias = 2904
 
 
