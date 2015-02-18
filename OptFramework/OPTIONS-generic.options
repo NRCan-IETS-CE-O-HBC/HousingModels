@@ -2108,6 +2108,16 @@ Whitehorse Wall Options (Code is R28)
 *option:Combi-P9-ecmV2:cost:total    = 1445   !based on quote from Patric
 *option:Combi-P9-ecmV2:alias = 2307
 
+! P9 *zoned* system. ECM motor
+*option:Combi-P9-zoned-ecm:value:1 = Combi-P9-ecm-v2.hvac
+*option:Combi-P9-zoned-ecm:value:2 = #-no-GSHP-file
+*option:Combi-P9-zoned-ecm:value:3 = #No-IMS: 
+*option:Combi-P9-zoned-ecm:value:4 = 
+*option:Combi-P9-zoned-ecm:value:5 = # NO DHW: IMS provides WH.  
+*option:Combi-P9-zoned-ecm:value:6 = shoulder_zoned.ctl
+*option:Combi-P9-zoned-ecm:cost:total = 2970   				!BC-LEEP
+*option:Combi-P9-zoned-ecm:alias = 2330
+
 
 *option:propanefurnaceAC:value:1 = propane_furnace_ACv2.hvac
 *option:propanefurnaceAC:value:2 = #-no-GSHP-file

@@ -89,7 +89,7 @@ Opt-AirTightness   : Generic
 Opt-MainWall         : BaseR21	!GenericWall_1Layer
 
 ! Set this parameter for BC LEEP walls
-Opt-GenericWall_1Layer_definitions : test
+Opt-GenericWall_1Layer_definitions : Stud_2x6_R20
 
 
 ! This parameter is not used!
