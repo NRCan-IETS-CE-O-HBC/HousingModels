@@ -1304,3 +1304,39 @@
    79    0.0120  OSB   
     0    0.0250  air  0.170 0.170 0.170
     1    0.0809  Paviour brick      
+#----------------------
+# UNDERSLAB INSULATION 
+#----------------------
+# Underslab: R8.6
+# 167: layers  description   optics name   symmetry tag
+# layers  description   optics name   symmetry tag
+    3    BsmFlrR8     OPAQ  OPAQUE        NONSYMMETRIC  
+# mat ref thickness (m) mat descr & air gap R
+  262    0.1500  gravel based : Gravel based
+  220    0.0609  XPS underslab : XPS underslab
+   21    0.0890  light mix concrete : Light mix concrete
+# Underslab: R12
+# 168: layers  description   optics name   symmetry tag
+# layers  description   optics name   symmetry tag
+    3    BsmFlrR12     OPAQ  OPAQUE        NONSYMMETRIC  
+# mat ref thickness (m) mat descr & air gap R
+  262    0.1500  gravel based : Gravel based
+  220    0.0844  XPS underslab : XPS underslab
+   21    0.0890  light mix concrete : Light mix concrete
+# Underslab: R13
+# 169: layers  description   optics name   symmetry tag
+# layers  description   optics name   symmetry tag
+    3    BsmFlrR13     OPAQ  OPAQUE        NONSYMMETRIC  
+# mat ref thickness (m) mat descr & air gap R
+  262    0.1500  gravel based : Gravel based
+  220    0.0914  XPS underslab : XPS underslab
+   21    0.0890  light mix concrete : Light mix concrete
+# Underslab: R17.3
+# 170: layers  description   optics name   symmetry tag
+# layers  description   optics name   symmetry tag
+    3    BsmFlrR17     OPAQ  OPAQUE        NONSYMMETRIC  
+# mat ref thickness (m) mat descr & air gap R
+  262    0.1500  gravel based : Gravel based
+  220    0.122  XPS underslab : XPS underslab
+   21    0.0890  light mix concrete : Light mix concrete
+   

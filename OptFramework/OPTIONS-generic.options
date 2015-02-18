@@ -1933,7 +1933,27 @@ Whitehorse Wall Options (Code is R28)
 *option:Slab_8_R40:value:2 = 69
 *option:Slab_8_R40:cost:total   = 4269  
 *option:Slab_8_R40:alias = 1909
-       
+
+*option:R8UnderSlab+edge:value:1 = BsmFlrR8
+*option:R8UnderSlab+edge:value:2 = 58
+*option:R8UnderSlab+edge:cost:total   = 0     ! BC-LEEP base  
+*option:R8UnderSlab+edge:alias = 1910
+
+*option:R12UnderSlab+edge:value:1 = BsmFlrR12
+*option:R12UnderSlab+edge:value:2 = 58
+*option:R12UnderSlab+edge:cost:total   = 655     ! BC-LEEP
+*option:R12UnderSlab+edge:alias = 1911
+
+*option:R13UnderSlab+edge:value:1 = BsmFlrR13
+*option:R13UnderSlab+edge:value:2 = 58
+*option:R13UnderSlab+edge:cost:total   = 370     ! BC-LEEP  
+*option:R13UnderSlab+edge:alias = 1912
+
+*option:R17UnderSlab+edge:value:1 = BsmFlrR17
+*option:R17UnderSlab+edge:value:2 = 58
+*option:R17UnderSlab+edge:cost:total   = 735     ! BC-LEEP  
+*option:R17UnderSlab+edge:alias = 1913
+
 *attribute:end
 
 !-----------------------------------------------------------------------
