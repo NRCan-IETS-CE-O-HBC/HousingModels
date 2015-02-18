@@ -20,11 +20,11 @@
     *sys-data-start
     
         furnace-type 8
-        capacity 8000
-        efficiency 0.92
+        capacity 13800
+        efficiency 0.94
         circ-fan-mode <OPT-Furnace-Fan-Ctl>
-        circ-fan-power 155.2
-        circ-fan-power-low  155.2
+        circ-fan-power 155.
+        circ-fan-power-low  155.
         draft-fan-power 75. 
         pilot-power 0.
 
