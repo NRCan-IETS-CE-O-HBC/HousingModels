@@ -1889,7 +1889,6 @@ Whitehorse Wall Options (Code is R28)
 *option:R10UnderSlab+edge:alias = 1902
 
 
-
 ! Perimeter, sub-slab 0.6m skirt insulation
 
 *option:R12EdgeP6:value:1 = BsmFlrR0
@@ -1913,7 +1912,6 @@ Whitehorse Wall Options (Code is R28)
 
 # Whitehorse data
 
-
 *option:Slab_5_R10:value:1 = Slab_5_R10
 *option:Slab_5_R10:value:2 = 69
 *option:Slab_5_R10:cost:total   = 2645
@@ -1934,25 +1932,31 @@ Whitehorse Wall Options (Code is R28)
 *option:Slab_8_R40:cost:total   = 4269  
 *option:Slab_8_R40:alias = 1909
 
+
+*option:NoSOGInsulation:value:1 = BsmFlrR0	
+*option:NoSOGInsulation:value:2 = 28		! SOG with no insulation
+*option:NoSOGInsulation:cost:total   = 0
+*option:NoSOGInsulation:alias = 1910
+
 *option:R8UnderSlab+edge:value:1 = BsmFlrR8
-*option:R8UnderSlab+edge:value:2 = 58
+*option:R8UnderSlab+edge:value:2 = 52		! Configuration number for SOG insulation below slab without skirt
 *option:R8UnderSlab+edge:cost:total   = 0     ! BC-LEEP base  
-*option:R8UnderSlab+edge:alias = 1910
+*option:R8UnderSlab+edge:alias = 1911
 
 *option:R12UnderSlab+edge:value:1 = BsmFlrR12
-*option:R12UnderSlab+edge:value:2 = 58
+*option:R12UnderSlab+edge:value:2 = 52		! Configuration number for SOG insulation below slab without skirt
 *option:R12UnderSlab+edge:cost:total   = 655     ! BC-LEEP
-*option:R12UnderSlab+edge:alias = 1911
+*option:R12UnderSlab+edge:alias = 1912
 
 *option:R13UnderSlab+edge:value:1 = BsmFlrR13
-*option:R13UnderSlab+edge:value:2 = 58
+*option:R13UnderSlab+edge:value:2 = 52		! Configuration number for SOG insulation below slab without skirt
 *option:R13UnderSlab+edge:cost:total   = 370     ! BC-LEEP  
-*option:R13UnderSlab+edge:alias = 1912
+*option:R13UnderSlab+edge:alias = 1913
 
 *option:R17UnderSlab+edge:value:1 = BsmFlrR17
-*option:R17UnderSlab+edge:value:2 = 58
+*option:R17UnderSlab+edge:value:2 = 52		! Configuration number for SOG insulation below slab without skirt
 *option:R17UnderSlab+edge:cost:total   = 735     ! BC-LEEP  
-*option:R17UnderSlab+edge:alias = 1913
+*option:R17UnderSlab+edge:alias = 1914
 
 *attribute:end
 
