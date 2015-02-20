@@ -2455,13 +2455,12 @@ sub postprocess($){
     # Use spec'd PV sizes. This only works for NoPV. 
     $gSimResults{"PV production::AnnualTotal"}= 0.0 ; #-1.0*$gExtOptions{"Opt-StandoffPV"}{"options"}{$PVsize}{"ext-result"}{"production-elec-perKW"}; 
     $PVArrayCost = 0.0 ;
+	
   }else{
     # Size pv according to user specification,  to max, or to size required to reach Net-Zero. 
     
-    
-    # User-ceified PV size (format is 'SizedPV|XkW', pv will be sized to X kW'.
+    # User-specified PV size (format is 'SizedPV|XkW', PV will be sized to X kW'.
     if ( $gExtraDataSpecd{"Opt-StandoffPV"} =~ /kW/ ){
-    
       
       $PVArraySized = $gExtraDataSpecd{"Opt-StandoffPV"};     
       $PVArraySized =~ s/kW//g; 
@@ -2474,19 +2473,17 @@ sub postprocess($){
       $gSimResults{"PV production::AnnualTotal"} = -1.0 * $PVUnitOutput * $PVArraySized; 
             
       $PVsize="spec'd $PVsize | $PVArraySized kW";
-           
-            
     
     }else{ 
         
         # USER Hasn't specified PV size, Size PV to attempt to get to net-zero. 
-        # First, compute the home's total energy requiremrnt. 
+        # First, compute the home's total energy requirement. 
     
         my $prePVEnergy = 0;
 
         # gSimResults contains all sorts of data. Filter by annual energy consumption (rows containing AnnualTotal).
         foreach my $token ( sort keys %gSimResults ){
-          if ( $token =~ /AnnualTotal/ ){ 
+          if ( $token =~ /AnnualTotal/  && $token =~ /all_fuels/ ){ 
             my $value = $gSimResults{$token};
             $prePVEnergy += $value; 
           }    
@@ -2498,9 +2495,6 @@ sub postprocess($){
           
           my $PVUnitOutput = $gOptions{"Opt-StandoffPV"}{"options"}{$PVsize}{"ext-result"}{"production-elec-perKW"};
           my $PVUnitCost   = $gOptions{"Opt-StandoffPV"}{"options"}{$PVsize}{"cost"};
-         
-          
-        
          
          $PVArraySized = $prePVEnergy / $PVUnitOutput ; # KW Capacity
           my $PVmultiplier = 1. ; 
@@ -2516,7 +2510,6 @@ sub postprocess($){
           # House is already energy positive, no PV needed. Shouldn't happen!
           $PVsize = "0.0 kW" ;
           $PVArrayCost  = 0. ;
-          
         }
         # Degbug: How big is the sized array?
         debug_out (" PV array is $PVsize  ...\n"); 
