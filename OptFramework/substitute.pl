@@ -1367,7 +1367,7 @@ for ( my $iRun = 1; $iRun <= $gNumRunSetsRqd; $iRun++ ) {
 		my $DHWElec = $gAvgEnergyWaterHeatingElec * 1000.;
 		my $DHWFuel = $gAvgEnergyWaterHeatingFossil * 1000.;
 		my $OccConsump = 1.136 * ( $DHWElec * 0.88 + $DHWFuel * 0.57 );
-		my $EstTotEnergy = $SpcHtConsump + $OccConsump;
+		my $EstTotEnergy = $SpcHtConsump + $OccConsump - $gEnergyPV;
 		
 		my $Locale = $gChoices{"Opt-Location"};
 		my $HseVol = $gOptions{"Opt-geometry"}{"options"}{$gChoices{"Opt-geometry"}}{"values"}{17}{"conditions"}{"all"};
@@ -2514,8 +2514,8 @@ sub postprocess($){
         # Degbug: How big is the sized array?
         debug_out (" PV array is $PVsize  ...\n"); 
         
-      }  
-    }
+    }  
+  }
   $gChoices{"Opt-StandoffPV"}=$PVsize;
   $gOptions{"Opt-StandoffPV"}{"options"}{$PVsize}{"cost"} = $PVArrayCost;
 
