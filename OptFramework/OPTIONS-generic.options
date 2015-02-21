@@ -721,7 +721,7 @@
 *option:BC_LEEP:value:14   = 5.94
 *option:BC_LEEP:value:15   = 6.604
 *option:BC_LEEP:value:16   = 39.23
-*option:BC_LEEP:value:17   = 407.2	! volume for ERS calc
+*option:BC_LEEP:value:17   = 407.2	! volume for ERS calc from ESP-r
 *option:BC_LEEP:cost:total = 0
 *option:BC_LEEP:alias = 1206
 
@@ -1174,45 +1174,50 @@
 !*attribute:tag:2  = <Opt-CeilingR>
 *attribute:default = CeilR50
 
+*option:CeilR40:value:1 =   CeilR40
+!*option:CeilR40:value:2 =   CeilR40R
+*option:CeilR40:cost:total    =   0
+*option:CeilR40:alias    =   1600
+
 *option:CeilR50:value:1 =   CeilR50
 !*option:CeilR50:value:2 =   CeilR50R
 *option:CeilR50:cost:total    =   0
-*option:CeilR50:alias    =   1600
+*option:CeilR50:alias    =   1601
 
 *option:CeilR60:value:1 =   CeilR60
 !*option:CeilR60:value:2 =   CeilR60R
 *option:CeilR60:cost:total    =   310
-*option:CeilR60:alias    =   1601
+*option:CeilR60:alias    =   1602
 
 *option:CeilR70:value:1 =   CeilR70
 !*option:CeilR70:value:2 =   CeilR70R
 *option:CeilR70:cost:total  =   790
-*option:CeilR70:alias  =   1602
+*option:CeilR70:alias  =   1603
 
 *option:CeilR80:value:1 =   CeilR80
 !*option:CeilR80:value:2 =   CeilR80R
 *option:CeilR80:cost:total    =   1210
-*option:CeilR80:alias    =   1603
+*option:CeilR80:alias    =   1604
 
 *option:CeilR90:value:1 =   CeilR90
 !*option:CeilR90:value:2 =   CeilR90R
 *option:CeilR90:cost:total    =   1630
-*option:CeilR90:alias    =   1604
+*option:CeilR90:alias    =   1605
 
 *option:CeilR100:value:1 =  CeilR100
 !*option:CeilR100:value:2 =  CeilR100R
 *option:CeilR100:cost:total    =  2050
-*option:CeilR100:alias    =  1605
+*option:CeilR100:alias    =  1606
 
 *option:CeilR110:value:1 =  CeilR110
 !*option:CeilR110:value:2 =  CeilR110R
 *option:CeilR110:cost:total    =  2788  !This value not updated for Vancouver geometry
-*option:CeilR110:alias    =  1606
+*option:CeilR110:alias    =  1607
 
 *option:CeilR120:value:1 =  CeilR120
 !*option:CeilR120:value:2 =  CeilR120R
 *option:CeilR120:cost:total    =  3257  !This value not updated for Vancouver geometry
-*option:CeilR120:alias    =  1607
+*option:CeilR120:alias    =  1608
 
 !-----------------------------------------------------------------------
 !   Retrofit Ceilings options
@@ -1220,27 +1225,27 @@
 *option:retro_roof:value:1 =   retro_roof
 !*option:retro_roof:value:2 =  retro_roofR
 *option:retro_roof:cost:total    =  0
-*option:retro_roof:alias    =  1608
+*option:retro_roof:alias    =  1609
 
 *option:retro_attic-2_962:value:1 =   retro-att-3
 !*option:retro_attic-2_962:value:2 =  retro-att-3R
 *option:retro_attic-2_962:cost:total    =  0
-*option:retro_attic-2_962:alias    =  1609
+*option:retro_attic-2_962:alias    =  1610
 
 *option:retro_attic-4_152:value:1 =   retro-att-4
 !*option:retro_attic-4_152:value:2 =  retro-att-4R
 *option:retro_attic-4_152:cost:total    =  0
-*option:retro_attic-4_152:alias    =  1610
+*option:retro_attic-4_152:alias    =  1611
 
 *option:retro_attic-4_152_6cell:value:1 =   retroatt_6
 !*option:retro_attic-4_152_6cell:value:2 =  retroatt_6 
 *option:retro_attic-4_152_6cell:cost:total    =  1308    !This value based on Vancouver geometry
-*option:retro_attic-4_152_6cell:alias    =  1611
+*option:retro_attic-4_152_6cell:alias    =  1612
 
 *option:retro_attic-4_152_12cell:value:1 =   retroatt_12
 !*option:retro_attic-4_152_12cell:value:2 =  retroatt_12
 *option:retro_attic-4_152_12cell:cost:total    =  1422   !This value based on Vancouver geometry
-*option:retro_attic-4_152_12cell:alias    =  1612
+*option:retro_attic-4_152_12cell:alias    =  1613
 
 !-----------------------------------------------------------------------
 !   NWT Retrofit Ceilings options
@@ -1248,22 +1253,22 @@
 *option:NWTCeilR40:value:1 =   NWTCeilR40
 !*option:NWTCeilR40:value:2 =  NWTCeilR40R
 *option:NWTCeilR40:cost:total    =  0
-*option:NWTCeilR40:alias    =  1613
+*option:NWTCeilR40:alias    =  1614
 
 *option:NWTCeilR50:value:1 =   NWTCeilR50
 !*option:NWTCeilR50:value:2 =  NWTCeilR50R
 *option:NWTCeilR50:cost:total    =  0
-*option:NWTCeilR50:alias    =  1614
+*option:NWTCeilR50:alias    =  1615
 
 *option:NWTCeilR60:value:1 =   NWTCeilR60
 !*option:NWTCeilR60:value:2 =  NWTCeilR60R
 *option:NWTCeilR60:cost:total    =  0
-*option:NWTCeilR60:alias    =  1615
+*option:NWTCeilR60:alias    =  1616
 
 *option:NWTCeilR70:value:1 =   NWTCeilR70
 !*option:NWTCeilR70:value:2 =  NWTCeilR70R
 *option:NWTCeilR70:cost:total    =  0
-*option:NWTCeilR70:alias    =  1616
+*option:NWTCeilR70:alias    =  1617
 
 *attribute:end
 
@@ -1868,23 +1873,27 @@ Whitehorse Wall Options (Code is R28)
 *attribute:name    = Opt-BasementSlabInsulation
 *attribute:tag:1   = <OPT-BsmFloor>
 *attribute:tag:2   = <OPT-BsmCnnIndex>
+*attribute:tag:3   = <OPT-BsmRSIValue>
 *attribute:default = NoInsulation 
 
 *option:NoInsulation:value:1 = BsmFlrR0
 *option[Opt-BasementWallInsulation>OBC-min-R12|Rigid+Blown-R43|MB-IntBatt-R20|AdvFrm-R20-Wall]:NoInsulation:value:2 = 1 
 *option[else                                                  ]:NoInsulation:value:2 = 68
+*option:NoInsulation:value:3       = 0.10  ! concrete
 *option:NoInsulation:cost:total    = 0
 *option:NoInsulation:alias = 1900
 
 *option:R24UnderSlab+edge:value:1 = BsmFlrR24
 *option[Opt-BasementWallInsulation>OBC-min-R12|Rigid+Blown-R43]:R24UnderSlab+edge:value:2 = 22 
 *option[else                                                  ]:R24UnderSlab+edge:value:2 = 69
+*option:R24UnderSlab+edge:value:3       = 4.23
 *option:R24UnderSlab+edge:cost:total    = 3800              ! updated for Vancouver geometry      
 *option:R24UnderSlab+edge:alias = 1901
 
 *option:R10UnderSlab+edge:value:1 = BsmFlrR10
 *option[Opt-BasementWallInsulation>OBC-min-R12|Rigid+Blown-R43]:R10UnderSlab+edge:value:2 = 22 
 *option[else                                                  ]:R10UnderSlab+edge:value:2 = 69
+*option:R10UnderSlab+edge:value:3       = 1.76
 *option:R10UnderSlab+edge:cost:total    = 2720              
 *option:R10UnderSlab+edge:alias = 1902
 
@@ -1894,6 +1903,7 @@ Whitehorse Wall Options (Code is R28)
 *option:R12EdgeP6:value:1 = BsmFlrR0
 *option[Opt-BasementWallInsulation>OBC-min-R12|Rigid+Blown-R43]:R12EdgeP6:value:2 = 23 
 *option[else                                                  ]:R12EdgeP6:value:2 = 69
+*option:R10UnderSlab+edge:value:3       = 1.76
 *option:R12EdgeP6:cost:total    = 450              ! updated for Vancouver geometry        
 *option:R12EdgeP6:alias = 1903
 
@@ -1902,59 +1912,70 @@ Whitehorse Wall Options (Code is R28)
 *option:R12EdgeP10:value:1 = BsmFlrR0
 *option[Opt-BasementWallInsulation>OBC-min-R12|Rigid+Blown-R43]:R12EdgeP10:value:2 = 24
 *option[else                                                  ]:R12EdgeP10:value:2 = 69
+*option:R12UnderSlab+edge:value:3   = 2.11
 *option:R12EdgeP10:cost:total    = 745              ! updated for Vancouver geometry 
 *option:R12EdgeP10:alias = 1904
        
 *option:MB-Comb-Insulation:value:1 = BsmFlrR0
 *option:MB-Comb-Insulation:value:2 = 96
-*option:MB-Comb-Insulation:cost:total    = 0
+*option:MB-Comb-Insulation:value:3 = 0.10	! Concrete (Not sure what's intended here!)
+*option:MB-Comb-Insulation:cost:total = 0
 *option:MB-Comb-Insulation:alias = 905
 
 # Whitehorse data
 
 *option:Slab_5_R10:value:1 = Slab_5_R10
 *option:Slab_5_R10:value:2 = 69
+*option:Slab_5_R10:value:3 = 1.76
 *option:Slab_5_R10:cost:total   = 2645
 *option:Slab_5_R10:alias = 1906
 
 *option:Slab_6_R20:value:1 = Slab_6_R20
 *option:Slab_6_R20:value:2 = 69
+*option:Slab_6_R20:value:3 = 3.52
 *option:Slab_6_R20:cost:total   = 1330         
 *option:Slab_6_R20:alias = 1907
 
 *option:Slab_7_R30:value:1 = Slab_7_R30
 *option:Slab_7_R30:value:2 = 69
+*option:Slab_7_R30:value:3 = 5.28
 *option:Slab_7_R30:cost:total   = 2804     
 *option:Slab_7_R30:alias = 1908
 
 *option:Slab_8_R40:value:1 = Slab_8_R40
 *option:Slab_8_R40:value:2 = 69
+*option:Slab_8_R40:value:3 = 7.04
 *option:Slab_8_R40:cost:total   = 4269  
 *option:Slab_8_R40:alias = 1909
 
 
 *option:NoSOGInsulation:value:1 = BsmFlrR0	
 *option:NoSOGInsulation:value:2 = 28		! SOG with no insulation
+*option:NoSOGInsulation:value:3 = 0.10		! Concrete
 *option:NoSOGInsulation:cost:total   = 0
 *option:NoSOGInsulation:alias = 1910
 
 *option:R8UnderSlab+edge:value:1 = BsmFlrR8
 *option:R8UnderSlab+edge:value:2 = 52		! Configuration number for SOG insulation below slab without skirt
+*option:R8UnderSlab+edge:value:3 = 1.41
 *option:R8UnderSlab+edge:cost:total   = 0     ! BC-LEEP base  
 *option:R8UnderSlab+edge:alias = 1911
 
 *option:R12UnderSlab+edge:value:1 = BsmFlrR12
 *option:R12UnderSlab+edge:value:2 = 52		! Configuration number for SOG insulation below slab without skirt
+*option:R12UnderSlab+edge:value:3 = 2.11
 *option:R12UnderSlab+edge:cost:total   = 655     ! BC-LEEP
 *option:R12UnderSlab+edge:alias = 1912
 
 *option:R13UnderSlab+edge:value:1 = BsmFlrR13
 *option:R13UnderSlab+edge:value:2 = 52		! Configuration number for SOG insulation below slab without skirt
+*option:R13UnderSlab+edge:value:3 = 2.29
 *option:R13UnderSlab+edge:cost:total   = 370     ! BC-LEEP  
 *option:R13UnderSlab+edge:alias = 1913
 
 *option:R17UnderSlab+edge:value:1 = BsmFlrR17
 *option:R17UnderSlab+edge:value:2 = 52		! Configuration number for SOG insulation below slab without skirt
+*option:R17UnderSlab+edge:value:3 = 2.99
 *option:R17UnderSlab+edge:cost:total   = 735     ! BC-LEEP  
 *option:R17UnderSlab+edge:alias = 1914
 
@@ -2378,7 +2399,7 @@ Reflects southern Ontario costs
 *option:UpgHRV_SRE78:cost:total = 920
 *option:UpgHRV_SRE78:alias = 2502
 
-*option:FansOnly:value:1         = FansOnly.vnt
+*option:FansOnly:value:1         = FansOnly.vnt	 !Or HRV0-base.vnt
 *option:FansOnly:cost:total = 0
 *option:FansOnly:alias = 2503
 
@@ -3201,9 +3222,12 @@ Reflects southern Ontario costs
 *option[Opt-Location>Inuvik ;Opt-RoofPitch>12-12 ]:SizedPV:production-elec-perKW  = 3.55536! GH/kW Installed
 *option:SizedPV:cost:PerKW = 4696 ! $/kW installed
 
-*option:NoPV:production-elec-perKW  = 0! GH/kW Installed
+*option:NoPV:production-elec-perKW  = 0	! GH/kW Installed
 *option:NoPV:cost:PerKW = 0 
 *option:NoPV:alias = 3201
+
+!*option:SizedPV|5kW:production-elec-perKW  = 0
+!*option:SizedPV|5kW:alias = 3202
 
 *ext-attribute:end
 
