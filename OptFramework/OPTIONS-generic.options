@@ -2399,7 +2399,7 @@ Reflects southern Ontario costs
 *option:UpgHRV_SRE78:cost:total = 920
 *option:UpgHRV_SRE78:alias = 2502
 
-*option:FansOnly:value:1         = HRV0-base.vnt	!FansOnly.vnt
+*option:FansOnly:value:1 = FansOnly.vnt		!Using HRV0-base.vnt (HRV with 0 eff. much higher ERS value than FansOnly option)
 *option:FansOnly:cost:total = 0
 *option:FansOnly:alias = 2503
 
