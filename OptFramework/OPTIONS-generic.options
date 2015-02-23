@@ -721,7 +721,7 @@
 *option:BC_LEEP:value:14   = 5.94
 *option:BC_LEEP:value:15   = 6.604
 *option:BC_LEEP:value:16   = 39.23
-*option:BC_LEEP:value:17   = 407.2	! volume for ERS calc from ESP-r
+*option:BC_LEEP:value:17   = 364.2	! volume for ERS calc from (ESP-r = 407.2 m3)
 *option:BC_LEEP:cost:total = 0
 *option:BC_LEEP:alias = 1206
 
@@ -2395,13 +2395,17 @@ Reflects southern Ontario costs
 *option:BaseHRV_SRE70:cost:total = 0
 *option:BaseHRV_SRE70:alias = 2501
 
+*option:BaseHRV_SRE55:value:1    = HRV-base1.vnt	! Use for BC-LEEP base (matches HOT2000 inputs)
+*option:BaseHRV_SRE55:cost:total = 0
+*option:BaseHRV_SRE55:alias = 2502
+
 *option:UpgHRV_SRE78:value:1    = HRV-upg.vnt
 *option:UpgHRV_SRE78:cost:total = 920
-*option:UpgHRV_SRE78:alias = 2502
+*option:UpgHRV_SRE78:alias = 2503
 
 *option:FansOnly:value:1 = FansOnly.vnt		!Using HRV0-base.vnt (HRV with 0 eff. much higher ERS value than FansOnly option)
 *option:FansOnly:cost:total = 0
-*option:FansOnly:alias = 2503
+*option:FansOnly:alias = 2504
 
 *attribute:end 
 
