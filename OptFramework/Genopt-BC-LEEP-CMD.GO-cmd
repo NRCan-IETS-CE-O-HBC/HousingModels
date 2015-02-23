@@ -149,7 +149,12 @@ Vary{
    Parameter{   // 
      Name    =  GOtag:Opt-GenericWall_1Layer_definitions;
      Ini     =  1;
-    Values  =  "Stud_2x6_R20, Stud_2x6_R20"; 
+    Values  =  "Stud_2x6_R20,Stud_2x4_2in_XPS_R-24,Stud_2x6_1in_XPS_R-23,Stud_2x6_1.5in_XPS_R-25,Stud_2x6_2in_XPS_R-29,
+	Stud_2x6_3in_XPS_R-34,Stud_2x6_4in_XPS_R-39,Stud_2x6_1.5in_MWB_R-25,Stud_2x6_2in_MWB_R-27,Stud_2x6_3in_MWB_R-31,
+	Stud_2x6_4in_MWB_R-35,Stud_2x4_2in_Polyiso_R-25,Stud_2x6_1in_Polyiso_R-24,Stud_2x6_2in_Polyiso_R-30,
+	Stud_2x6_3in_Polyiso_R-35,Stud_2x6_4in_Polyiso_R-41,Stud_2x4_2in_EPS_R-21,Stud_2x6_1.5in_EPS_R-24,
+	Stud_2x6_2in_EPS_R-26,Stud_2x6_3in_EPS_R-30,Stud_2x6_4in_EPS_R-34,SIPS_6.5in_EPS_R-24,SIPS_10.5in_EPS_R-38,
+	DblStud_12in_cell_R-41,DblStud_10in_cell_R-34"; 
    }
 
    
@@ -179,7 +184,7 @@ Vary{
    Parameter{   // 
      Name    =  GOtag:Opt-BasementWallInsulation;
      Ini     =  1;
-     Values  =  "OBC-min-R12,Rigid+Batt-R20,Rigid+Batt-R30";
+     Values  =  "OBC-min-R12";
    } 
 
    // Basement Slab: NoInsulation
@@ -197,7 +202,7 @@ Vary{
    Parameter{   // 
      Name    =  GOtag:Opt-BasementSlabInsulation;
      Ini     =  1;
-      Values  =  "NoInsulation,R12EdgeP6,R12EdgeP10" ;
+      Values  =  "NoSOGInsulation,R8UnderSlab+edge,R12UnderSlab+edge,R13UnderSlab+edge,R17UnderSlab+edge" ;
    } 
 
    // Exposed floor: NoInsulation
@@ -207,7 +212,7 @@ Vary{
    Parameter{   // 
      Name    =  GOtag:Opt-ExposedFloor;
      Ini     =  1;
-     Values  =  "BaseExpFloor-R31";
+     Values  =  "NoInsulation";
    }    
    
    
@@ -227,8 +232,8 @@ Vary{
    Parameter{   // 
      Name    =  GOtag:Opt-Ceilings;
      Ini     =  1;
-     Values  =  "CeilR50,CeilR60,CeilR70,CeilR80";
-   }    
+     Values  =  "CeilR50,CeilR60,CeilR70,CeilR80,CeilR90,CeilR100";
+   }
   
   // Windows:  DoubleLowEHardCoatAirFill 
   //           DoubleLowEHardCoatArgFill
@@ -251,7 +256,7 @@ Vary{
   Parameter{   // 
      Name    =  GOtag:Opt-CasementWindows;
      Ini     =  1;
-     Values  =  "DoubleLowEHardCoatAirFill,DoubleLowEHardCoatArgFill,DoubleLowESoftCoatArgFill,TripleLowEHardCoatKryFill,TripleLowESoftCoatKryFill";         
+     Values  =  "DoubleLowEHardCoatAirFill,TripleLowEHardCoatKryFill";         
    }    
    
   // Extra drywall:  OneSheet
@@ -301,7 +306,7 @@ Vary{
   Parameter{ //
      Name    = GOtag:Opt-DHWSystem;
      Ini     = 1; 
-     Values  = "BaseDHW,GasInstantaneous,ElecInstantaneous,ElectricStorage,ElectricHP"; 
+     Values  = "BaseDHW,GasInstantaneous,ElectricHP"; 
   }
 
   
@@ -321,14 +326,14 @@ Vary{
   Parameter {// 
       Name   = GOtag:Opt-HVACSystem; 
       Ini    = 1; 
-      Values = "basefurnace,elec-baseboard,CCASHP,gas-furnace-ecm,13kW-furnace-ecm,IMS-P10,Combi-P9-ecmV2"; 
+      Values = "gas-furnace-psc,13kW-furnace-ecm,zoned-furnace-ecm,Combi-P9-ecmV2,Combi-P9-zoned-ecm"; 
   }
   
   // HRV specification
   Parameter { 
      Name = GOtag:Opt-HRVSpec; 
      Ini  = 1; 
-     Values = "BaseHRV_SRE70,UpgHRV_SRE78"; 
+     Values = "FansOnly"; 
   }
   
   
