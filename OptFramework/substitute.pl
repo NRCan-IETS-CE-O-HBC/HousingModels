@@ -1357,6 +1357,8 @@ for ( my $iRun = 1; $iRun <= $gNumRunSetsRqd; $iRun++ ) {
 		postprocess($ScaleResults);
 	}
 	
+	# Currently the ERS number is NOT being averaged when all 4 orientations are run.  The calculation
+	# that follows uses the results of the last orientation run!
 	if ( $gERSCalcMode && $iRun == 1 ) {
 		# Calculate ERS number for output. All energy values in MJ
 		my $SpcElecEnergy = ( $gAvgEnergyHeatingElec + $gAvgEnergyVentElec ) * 1000.;
@@ -1507,7 +1509,7 @@ if ( $gDakota ) {
 	print SUMMARY "EnergyPellet_t    =  $gAvgPelletCons_tonne   \n";
     print SUMMARY "Upgrade-cost      =  ".eval($gTotalCost-$gIncBaseCosts)."\n"; 
     print SUMMARY "SimplePaybackYrs  =  ". $payback ."\n"; 
-
+    
 	my $PVcapacity = $gChoices{"Opt-StandoffPV"}; 
 
 	$PVcapacity =~ s/[a-zA-Z:\s'\|]//g;
@@ -1518,7 +1520,7 @@ if ( $gDakota ) {
     print SUMMARY "PV-size-kW      =  ".$PVcapacity."\n"; 
 
 	if ( $gERSCalcMode ) {
-		print SUMMARY "$gERSNum \n";
+		print SUMMARY "ERS-Value         =  ". $gERSNum."\n";
 	}
 
 }
