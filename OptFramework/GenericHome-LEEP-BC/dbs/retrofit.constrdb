@@ -1,6 +1,6 @@
 # composite construction db defined in ../dbs/retrofit.constrdb
 # based on materials db ../dbs/material.db3.a
-  171  # no of composites 
+  169  # no of composites 
 # 1: layers  description   optics name   symmetry tag
     2    bsm_flr       OPAQ  OPAQUE        NONSYMMETRIC  
 # mat ref thickness (m) mat descr & air gap R
@@ -1267,28 +1267,27 @@
 # MAIN WALLS: Generic insulation system --- 
 # GenWal2Rx & GenWal2RxR have two insulation layers
 # whose thickness is set as tags in the options file
-# 163: layers  description   optics name   symmetry tag
-    6    GenWal2Rx    OPAQ  OPAQUE        NONSYMMETRIC 
+# nnn: layers  description   optics name   symmetry tag
+#    6    GenWal2Rx    OPAQ  OPAQUE        NONSYMMETRIC 
 # mat ref thickness (m) mat descr & air gap R
-    1    0.0809  Paviour brick 
-    0    0.0250  air  0.170 0.170 0.170
-  220    <Opt-GenInsulLayerOutboard-b>  XPS CO2 foamed	
-   79    0.0120  OSB 
-  283    <Opt-GenInsulLayerInboard-b>  fiberglass batt   
-  301    <Opt-ExtraDrywall>  gypsum board 
-# 164: layers  description   optics name   symmetry tag
-    6    GenWal2RxR   OPAQ  OPAQUE        NONSYMMETRIC 
+#    1    0.0809  Paviour brick 
+#    0    0.0250  air  0.170 0.170 0.170
+#  220    <Opt-GenInsulLayerOutboard-b>  XPS CO2 foamed	
+#  283    <Opt-GenInsulLayerInboard-b>  fiberglass batt   
+#  301    <Opt-ExtraDrywall>  gypsum board 
+# nnn: layers  description   optics name   symmetry tag
+#    6    GenWal2RxR   OPAQ  OPAQUE        NONSYMMETRIC 
 # mat ref thickness (m) mat descr & air gap R
-  301    <Opt-ExtraDrywall>  gypsum board 
-  283    <Opt-GenInsulLayerInboard-b>  fiberglass batt   
-   79    0.0120  OSB   
-  220    <Opt-GenInsulLayerOutboard-b>  XPS CO2 foamed   
-    0    0.0250  air  0.170 0.170 0.170
-    1    0.0809  Paviour brick   
+#  301    <Opt-ExtraDrywall>  gypsum board 
+#  283    <Opt-GenInsulLayerInboard-b>  fiberglass batt   
+#   79    0.0120  OSB   
+#  220    <Opt-GenInsulLayerOutboard-b>  XPS CO2 foamed   
+#    0    0.0250  air  0.170 0.170 0.170
+#    1    0.0809  Paviour brick   
 # MAIN WALLS: Generic insulation system --- 
 # GenWal1Rx & GenWal1RxR have one insulation layer
 # whose thickness is set as tags in the options file
-# 165: layers  description   optics name   symmetry tag
+# 163: layers  description   optics name   symmetry tag
     5    GenWal1Rx    OPAQ  OPAQUE        NONSYMMETRIC 
 # mat ref thickness (m) mat descr & air gap R
     1    0.0809  Paviour brick 
@@ -1296,7 +1295,7 @@
    79    0.0120  OSB 
   283    <Opt-GenInsulLayerInboard-a>  fiberglass batt   
   301    <Opt-ExtraDrywall>  gypsum board 
-# 166: layers  description   optics name   symmetry tag
+# 164: layers  description   optics name   symmetry tag
     5    GenWal1RxR   OPAQ  OPAQUE        NONSYMMETRIC 
 # mat ref thickness (m) mat descr & air gap R
   301    <Opt-ExtraDrywall>  gypsum board 
@@ -1308,7 +1307,7 @@
 # UNDERSLAB INSULATION 
 #----------------------
 # Underslab: R8.6
-# 167: layers  description   optics name   symmetry tag
+# 165: layers  description   optics name   symmetry tag
 # layers  description   optics name   symmetry tag
     3    BsmFlrR8     OPAQ  OPAQUE        NONSYMMETRIC  
 # mat ref thickness (m) mat descr & air gap R
@@ -1316,7 +1315,7 @@
   220    0.0609  XPS underslab : XPS underslab
    21    0.0890  light mix concrete : Light mix concrete
 # Underslab: R13
-# 168: layers  description   optics name   symmetry tag
+# 166: layers  description   optics name   symmetry tag
 # layers  description   optics name   symmetry tag
     3    BsmFlrR13     OPAQ  OPAQUE        NONSYMMETRIC  
 # mat ref thickness (m) mat descr & air gap R
@@ -1324,7 +1323,7 @@
   220    0.0914  XPS underslab : XPS underslab
    21    0.0890  light mix concrete : Light mix concrete
 # Underslab: R17.3
-# 169: layers  description   optics name   symmetry tag
+# 167: layers  description   optics name   symmetry tag
 # layers  description   optics name   symmetry tag
     3    BsmFlrR17     OPAQ  OPAQUE        NONSYMMETRIC  
 # mat ref thickness (m) mat descr & air gap R
@@ -1333,12 +1332,12 @@
    21    0.0890  light mix concrete : Light mix concrete
 #----------------------
 # Ceilings: R40
-# 170: layers  description   optics name   symmetry tag  
+# 168: layers  description   optics name   symmetry tag  
     2    CeilR40       OPAQ  OPAQUE        CeilR40R
 # mat ref thickness (m) mat descr & air gap R 
   233    0.2795  celulose fiber flakes 
   301    0.0125  gypsum board
-# 171: layers  description   optics name   symmetry tag  
+# 169: layers  description   optics name   symmetry tag  
     2    CeilR40R      OPAQ  OPAQUE        CeilR40
 # mat ref thickness (m) mat descr & air gap R 
   301    0.0125  gypsum board

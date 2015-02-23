@@ -1389,22 +1389,22 @@
 *attribute:end
 
 !-----------------------------------------------------------------------
-!   Generic wall insulation thickness settings: - two layer
+!  Generic wall insulation thickness settings: - two layer
+!  *** CURRENTLY NOT USING (ALSO COMMENTED OUT IN retrofit.constrbd ***
 !-----------------------------------------------------------------------
-*attribute:start 
-*attribute:name = Opt-GenericWall_2Layer_definitions
-*attribute:tag:1  = <Opt-GenInsulLayerInboard-b>
-*attribute:tag:2  = <Opt-GenInsulLayerOutboard-b>
-*attribute:default = test2
- 
+!*attribute:start 
+!*attribute:name = Opt-GenericWall_2Layer_definitions
+!*attribute:tag:1  = <Opt-GenInsulLayerInboard-b>
+!*attribute:tag:2  = <Opt-GenInsulLayerOutboard-b>
+!*attribute:default = test2
  
 ! Thicknesses are defined in meters. Format * must * be #.#### (4 decimals)
-*option:test2:value:1 = 0.0250
-*option:test2:value:2 = 0.0250
-*option:test2:cost    = 0
-*option:test2:alias = 1780
+!*option:test2:value:1 = 0.0250
+!*option:test2:value:2 = 0.0250
+!*option:test2:cost    = 0
+!*option:test2:alias = 1780
 
-*attribute:end
+!*attribute:end
 
 
 !-----------------------------------------------------------------------
