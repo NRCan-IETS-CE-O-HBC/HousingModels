@@ -1559,12 +1559,17 @@ sub process_file($){
         
         my $tagHash = $gOptions{$attribute}{"tags"};
         my $valHash = $gOptions{$attribute}{"options"}{$choice}{"result"};
-      
+        
         for my $tagIndex ( keys ( %{$tagHash} ) ){
           my $tag   = ${$tagHash}{$tagIndex};
           my $value = ${$valHash}{$tagIndex};
-          if (!defined($value)){debug_out (">>>ERR on $tag\n");}        
-          if ( $line =~ /$tag/ ){ $matched = 1; }
+          if (!defined($value)){
+		     debug_out (">>>ERR on $tag\n");
+			 $value = "";
+		  }        
+          if ( $line =~ /$tag/ ){ 
+		    $matched = 1; 
+		  }
           $line =~ s/$tag/$value/g; 
         }
         
