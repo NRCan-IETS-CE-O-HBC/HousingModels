@@ -2545,7 +2545,6 @@ Reflects southern Ontario costs
 *option:ElectricHP:cost:total    = 825    ! BC-LEEP
 *option:ElectricHP:alias = 2904
 
-
 ! retrofit costs---------------------
 *option:retro_GasInst:value:1 = GasInstantaneous.dhw
 *option:retro_GasInst:cost:total    = 3500
@@ -2572,6 +2571,10 @@ Reflects southern Ontario costs
 *option:NWT_upgrade_oil_DHW:value:1     = upgrade_oil_DHW.dhw
 *option:NWT_upgrade_oil_DHW:cost:total        = 0
 *option:NWT_upgrade_oil_DHW:alias = 2910
+
+*option:GasInstantaneous95:value:1 = GasInstantaneous-95.dhw
+*option:GasInstantaneous95:cost:total    = 1150    ! BC-LEEP
+*option:GasInstantaneous95:alias = 2911
 
 *attribute:end
 

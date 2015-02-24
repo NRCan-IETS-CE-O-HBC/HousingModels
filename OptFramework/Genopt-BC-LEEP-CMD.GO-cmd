@@ -300,7 +300,7 @@ Vary{
   Parameter{ //
      Name    = GOtag:Opt-DHWSystem;
      Ini     = 1;
-     Values  = "BaseDHW,GasInstantaneous,GasInstantaneous-95,ElectricHP";
+     Values  = "BaseDHW,GasInstantaneous, GasInstantaneous95, ElectricHP";
   }
 
   
