@@ -2861,19 +2861,20 @@ sub postprocessDakota()
 				elsif ( $eleNum == 19 ) { $DataIn[$eleNum] = "GOtag:Opt-CasementWindows"; }		#19:Opt-CasementWindows
 				elsif ( $eleNum == 20 ) { $DataIn[$eleNum] = "GOtag:Opt-Ceilings"; }			#20:Opt-Ceilings
 				elsif ( $eleNum == 21 ) { $DataIn[$eleNum] = "GOtag:Opt-MainWall"; }			#21:Opt-MainWall
-				elsif ( $eleNum == 22 ) { $DataIn[$eleNum] = "GOtag:Opt-ExposedFloor"; }		#22:Opt-ExposedFloor
-				elsif ( $eleNum == 23 ) { $DataIn[$eleNum] = "GOtag:Opt-BasementWallInsulation"; }	#23:Opt-BasementWallInsulation
-				elsif ( $eleNum == 24 ) { $DataIn[$eleNum] = "GOtag:Opt-BasementSlabInsulation"; }	#24:Opt-BasementSlabInsulation
-				elsif ( $eleNum == 25 ) { $DataIn[$eleNum] = "GOtag:Ext-DryWall"; }				#25:Opt-ExtraDrywall
-				elsif ( $eleNum == 26 ) { $DataIn[$eleNum] = "GOtag:Opt-FloorSurface"; }		#26:Opt-FloorSurface
-				elsif ( $eleNum == 27 ) { $DataIn[$eleNum] = "GOtag:Opt-DHWSystem"; }			#27:Opt-DHWSystem
-				elsif ( $eleNum == 28 ) { $DataIn[$eleNum] = "GOtag:Opt-HVACSystem"; }			#28:Opt-HVACSystem
-				elsif ( $eleNum == 29 ) { $DataIn[$eleNum] = "GOtag:Opt-Cooling-Spec"; }		#29:Opt-Cooling-Spec
-				elsif ( $eleNum == 30 ) { $DataIn[$eleNum] = "GOtag:Opt-HRVSpec"; }				#30:Opt-HRVspec
-				elsif ( $eleNum == 31 ) { $DataIn[$eleNum] = "GOtag:Opt-HRVduct"; }				#31:Opt-HRVduct
-				elsif ( $eleNum == 32 ) { $DataIn[$eleNum] = "GOtag:Opt-StandoffPV"; }			#32:Opt-StandoffPV
-				elsif ( $eleNum == 33 ) { $DataIn[$eleNum] = "GOtag:Opt-DWHRandSDHW"; }			#33:Opt-DWHRandSDHW
-				elsif ( $gReorder && $eleNum == 34 ) { $DataIn[58] = "Sub Iteration"; $DataIn[59] = "Step Number"; } #58 & 59 for GenOpt
+				elsif ( $eleNum == 22 ) { $DataIn[$eleNum] = "GOtag:Opt-GenericWall_1Layer_definitions"; }			#22:Opt-GenericWall_1Layer_definitions
+				elsif ( $eleNum == 23 ) { $DataIn[$eleNum] = "GOtag:Opt-ExposedFloor"; }		#22:Opt-ExposedFloor
+				elsif ( $eleNum == 24 ) { $DataIn[$eleNum] = "GOtag:Opt-BasementWallInsulation"; }	#23:Opt-BasementWallInsulation
+				elsif ( $eleNum == 25 ) { $DataIn[$eleNum] = "GOtag:Opt-BasementSlabInsulation"; }	#24:Opt-BasementSlabInsulation
+				elsif ( $eleNum == 26 ) { $DataIn[$eleNum] = "GOtag:Ext-DryWall"; }				#25:Opt-ExtraDrywall
+				elsif ( $eleNum == 27 ) { $DataIn[$eleNum] = "GOtag:Opt-FloorSurface"; }		#26:Opt-FloorSurface
+				elsif ( $eleNum == 28 ) { $DataIn[$eleNum] = "GOtag:Opt-DHWSystem"; }			#27:Opt-DHWSystem
+				elsif ( $eleNum == 29 ) { $DataIn[$eleNum] = "GOtag:Opt-HVACSystem"; }			#28:Opt-HVACSystem
+				elsif ( $eleNum == 30 ) { $DataIn[$eleNum] = "GOtag:Opt-Cooling-Spec"; }		#29:Opt-Cooling-Spec
+				elsif ( $eleNum == 31 ) { $DataIn[$eleNum] = "GOtag:Opt-HRVSpec"; }				#30:Opt-HRVspec
+				elsif ( $eleNum == 32 ) { $DataIn[$eleNum] = "GOtag:Opt-HRVduct"; }				#31:Opt-HRVduct
+				elsif ( $eleNum == 33 ) { $DataIn[$eleNum] = "GOtag:Opt-StandoffPV"; }			#32:Opt-StandoffPV
+				elsif ( $eleNum == 34 ) { $DataIn[$eleNum] = "GOtag:Opt-DWHRandSDHW"; }			#33:Opt-DWHRandSDHW
+				elsif ( $gReorder && $eleNum == 35 ) { $DataIn[58] = "Sub Iteration"; $DataIn[59] = "Step Number"; } #58 & 59 for GenOpt
 			}
 			elsif ( $eleNum == 1 ) {
 				$DataIn[$eleNum] = $DataIn[0];	# Same as Simulation Number
@@ -2883,7 +2884,7 @@ sub postprocessDakota()
 					$DataIn[59] = 1;	#Step Number
 				}
 			}
-			elsif ( $eleNum > 1 && $eleNum < 34 && $TestValue =~ /\d{3,4}/ ){
+			elsif ( $eleNum > 1 && $eleNum < 35 && $TestValue =~ /\d{3,4}/ ){
 				# Get attribute name for data values that are Dakota aliases
 				while ( my ( $attribute, $dummy) = each %gChoices ){
 					my $OptHash = $gOptions{$attribute}{"options"}; 
