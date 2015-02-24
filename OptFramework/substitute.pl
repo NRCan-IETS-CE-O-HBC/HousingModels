@@ -1141,6 +1141,7 @@ for ( my $iRun = 1; $iRun <= $gNumRunSetsRqd; $iRun++ ) {
 			my $repcost = defined( $cost ) ? $cost : "?" ; 
 		    
 			if ( ! defined ($cost_type) ){ $cost_type = "" ; }
+			if ( ! defined ($cost) ){ $cost = "" ; }
 			debug_out ("   - found cost: \$$cost ($cost_type) \n"); 
 		
 			my $ScaleCost = 0; 

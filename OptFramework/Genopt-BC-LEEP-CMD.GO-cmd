@@ -84,7 +84,7 @@ Vary{
   
     Name = GOtag:Opt-ACH; 
     Ini  = 1;
-    Values = "retro_ACH_4, retro_ACH_3_5, retro_ACH_3, retro_ACH_2_5, retro_ACH_2, retro_ACH_1_5"; 
+    Values = "retro_ACH_5, retro_ACH_4_5, retro_ACH_4, retro_ACH_3_5, retro_ACH_3, retro_ACH_2_5, retro_ACH_2, retro_ACH_1_5";
   }
 
   
@@ -202,7 +202,7 @@ Vary{
    Parameter{   // 
      Name    =  GOtag:Opt-BasementSlabInsulation;
      Ini     =  1;
-      Values  =  "NoSOGInsulation,R8UnderSlab+edge,R12UnderSlab+edge,R13UnderSlab+edge,R17UnderSlab+edge" ;
+     Values  =  "NoInsulation" ;
    } 
 
    // Exposed floor: NoInsulation
@@ -212,7 +212,7 @@ Vary{
    Parameter{   // 
      Name    =  GOtag:Opt-ExposedFloor;
      Ini     =  1;
-     Values  =  "NoInsulation";
+     Values  =  "BaseExpFloor-R31";
    }    
    
    
@@ -232,7 +232,7 @@ Vary{
    Parameter{   // 
      Name    =  GOtag:Opt-Ceilings;
      Ini     =  1;
-     Values  =  "CeilR50,CeilR60,CeilR70,CeilR80,CeilR90,CeilR100";
+     Values  =  "CeilR40,CeilR50,CeilR60,CeilR70,CeilR80,CeilR90,CeilR100";
    }
   
   // Windows:  DoubleLowEHardCoatAirFill 
@@ -256,7 +256,7 @@ Vary{
   Parameter{   // 
      Name    =  GOtag:Opt-CasementWindows;
      Ini     =  1;
-     Values  =  "DoubleLowEHardCoatAirFill,TripleLowEHardCoatKryFill";         
+     Values  =  "DoubleLowESoftCoatArgFill, DoubleLowEHardCoatAirFill, TripleLowEHardCoatKryFill";         
    }    
    
   // Extra drywall:  OneSheet
@@ -306,7 +306,7 @@ Vary{
   Parameter{ //
      Name    = GOtag:Opt-DHWSystem;
      Ini     = 1; 
-     Values  = "BaseDHW,GasInstantaneous,ElectricHP"; 
+     Values  = "BaseDHW,GasInstantaneous,GasInstantaneous-95,ElectricHP"; 
   }
 
   
@@ -326,7 +326,7 @@ Vary{
   Parameter {// 
       Name   = GOtag:Opt-HVACSystem; 
       Ini    = 1; 
-      Values = "gas-furnace-psc,13kW-furnace-ecm,zoned-furnace-ecm,Combi-P9-ecmV2,Combi-P9-zoned-ecm"; 
+      Values = "gas-furnace-psc, 13kW-furnace-ecm, zoned-furnace-ecm, Combi-P9-ecmV2, Combi-P9-zoned-ecm"; 
   }
   
   // HRV specification
@@ -431,7 +431,7 @@ Vary{
    Parameter{   // 
      Name    =  GOtag:GOconfig_rotate;
      Ini     =  1;
-     Values  =  "S";
+     Values  =  "N";
    }      
     
      
