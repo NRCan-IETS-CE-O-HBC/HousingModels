@@ -1,0 +1,191 @@
+
+! Set of database files to be used
+
+Opt-DBFiles           : CEF 
+
+! Run a one day test (debug) or a full year (calc)
+
+Opt-calcmode          : calc
+
+! Optimization substitutions 
+! Set the orientation for the model (N,S,E,W, or AVG to run all four directions
+! and compute an average result)
+GOconfig_rotate      : AVG
+
+Opt-Location : Winnipeg
+
+! Assumptions about HRV operation . Not intended to be optimized!
+! Recognized values: 
+!  - Continuous: HRV runs continuous
+!  - ERSp3ACH: Existing ERS assumptions of 0.3 ACH from 
+!              natural and mechanical vent. 
+!  - EightHRpDay: HRV operates 33% of each hour, for 8hr/day total.
+
+OPT-HRV_ctl          : EightHRpDay
+
+! Turn original design windows opaque ( NoWindows!)
+! or transparent (MinWindows). NoWindows doesn't presently work!
+
+Opt-BaseWindows      : MinWindows
+
+! Add one, two or three windows to front of the house 
+Opt-FrontWindows     : NoExtraWin 
+Opt-BackWindows      : NoExtraWin
+
+Opt-ExtLeftSideWindow : Yes            ! First floor - back side (Default is yes as per 
+                                       ! original Archetype 2)
+
+
+Opt-ExtBasementWindow : No             ! Basement (back)
+
+
+! Air-Tightness: 
+!     TypicalGTA
+!     Typical23
+!     R2000
+!     Cdn1ACH
+!     PassiveHouse (unconfirmed cost data)
+
+! Patric confirmed base case ach: 2.3
+Opt-AirTightness     : Typical23 
+
+! Main wall insulation 
+!  BaseR20
+!  BaseR21
+!  ICFR22
+!  SIPS-R29-Wall
+!  SIPS-R38-Wall
+!  SIPS-R44-Wall
+!  Stud-R38-Wall
+!  Stud-R50-Wall
+!  DblStud-R44-Wall
+!  Truss-R40-Wall
+!  Stud-R275-Wall
+!  Stud-R325-Wall
+!  AdvFrm-R20-Wall
+
+Opt-MainWall         : BaseR20  ! (MB - Base Wall) 
+
+
+! Add extra drywall to wall constructions 
+! Options: 
+!   OneSheet
+!   TwoSheets
+Opt-ExtraDrywall     : OneSheet ! (OK for LEEP)
+
+! Add concrete to floors (internal partitions only)
+! Options:  
+!   Wood 
+!   1-in-concrete
+!   2-in-concrete
+Opt-FloorSurface     : wood
+
+
+Opt-Ceilings         : CeilR50    ! (OK for LEEP)
+
+! Basement slab insulation 
+! Choices: 
+!   NoInsulation
+!   R10UnderSlab
+!   R10UnderSlab+edge
+!   R12UnderSlab+edge
+!   R24UnderSlab+edge
+!   MB-Comb-Insulation
+
+Opt-BasementSlabInsulation  : MB-Comb-Insulation ! (MB LEEP)
+
+! Foundation walls. 
+! Choices 
+!  OBC-min-R12
+!  MB-IntBatt-R20
+!  Rigid+Batt-R30
+!  Rigid+Blown-R43
+!  ICF-base-R22
+!  ICF-base-R26
+!  ICF-base-R32
+!  ICF-base-R41
+!  ICF-base-R51     
+!  ICF-base-R51r  
+!  MB-Comb-R20  
+
+Opt-BasementWallInsulation  : MB-Comb-R20    ! Upgrade 2x4 R12 batt (+ 2" Ext XPTS)
+
+
+! Optical and thermal characteristics of casement windows (currently 
+! all windows in model. 
+! Choices: 
+!   "OriginalGlassParam" - Neil's original dbl-low-e spec
+!    DoubleLowEHardCoatAirFill
+!    DoubleLowEHardCoatArgFill
+!    TripleLowEHardCoatKryFill
+!    TripleLowESoftCoatKryFill
+!    DoubleLowESoftCoatArgFill
+
+Opt-CasementWindows  : DoubleLowEHardCoatArgFill   ! Patric to confirm with Gary on window type
+
+
+! Exposed floor over garage (affects floor
+! sections in Master and Top floor)
+! Choices:
+!  BaseExpFloor-R31
+!  ExpFloorFlash&Batt-R36
+!  ExpFloorFoamed-R52
+
+Opt-ExposedFloor     : BaseExpFloor-R31    ! This isn't in the spec. Look up in MB code? or ignore??
+
+Opt-RoofPitch : 8-12                          ! OK for LEEP base case
+
+Opt-StandoffPV       : NoPV                ! OK for LEEP base case
+
+! DHW LOAD SCALES 
+! CEF project
+!   - NoReduction
+!   - BasicReduction
+!   - EfficientLiving
+! NG-ERS numbers  (Also used in MB LEEP) 
+!   - NGERSNoReduction19          
+!   - NGERSReducedA16
+!   - NGERSBestInClass14p8
+
+Opt-ElecLoadScale    : NGERSNoReduction19     ! OK for LEEP base case
+
+! Hot water numbers - These have changed! 
+!   - No-Reduction ( 190 L/day ) 
+!   - Low-Flow     ( 141 L/day ) 
+
+Opt-DHWLoadScale     : No-Reduction            ! OK for LEEP base case 
+
+
+! Hot water reduction technologies (SDHW, DHWR) 
+! 
+! - DWHR-4-36
+! - DWHR-4-60
+! - 1-plate 
+! - 2-plate 
+! - 1-plate-DWHR-4-36
+! - 2-plate-DWHR-4-36
+! - 1-plate-DWHR-4-60
+! - 2-plate-DWHR-4-60
+
+Opt-DWHRandSDHW         : none                ! OK for LEEP base case
+
+! Hot water system. Choices:
+!  BaseDHW
+!  ElectricStorage
+!  GasInstant
+!  ElectricHP
+
+Opt-DHWSystem        : ElectricStorage    ! OK for LEEP base case
+
+! HVAC system 
+!  oilfurnace
+!  basefurnace
+!  CCASHP
+! elec-baseboard
+
+Opt-HVACSystem       :  basefurnace       ! OK for LEEP base case 
+
+Opt-OverhangWidth: BaseOverhang 
+! HRV spec 
+Opt-HRVspec : CEF_SPEC
+

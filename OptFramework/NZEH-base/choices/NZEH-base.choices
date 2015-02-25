@@ -1,0 +1,200 @@
+!-----------------------------------------------------------------------------
+! Change Mode Option - this options switches between a 'debug' mode in which
+! the timestep is defined as one day and the shading calculator (ish) is disabled 
+! AND a full simulation mode in which the timestep is a full year and ish is enabled
+!-----------------------------------------------------------------------  
+!  debug
+!  calc
+
+Opt-calcmode          :calc
+
+
+! Set of database files to be used
+
+Opt-DBFiles           : CEF 
+
+
+! Optimization substitutions 
+! Set the orientation for the model (N,S,E,W, or AVG to run all four directions
+! and compute an average result)
+GOconfig_rotate      : S
+
+Opt-Location : Ottawa
+
+! Assumptions about HRV operation . Not intended to be optimized!
+! Recognized values: 
+!  - Continuous: HRV runs continuously 
+!  - ERSp3ACH: Existing ERS assumptions of 0.3 ACH from 
+!              natural and mechanical vent. 
+!  - EightHRpDay: HRV operates 33% of each hour, for 8hr/day total.
+
+OPT-HRV_ctl          : EightHRpDay
+
+! Turn original design windows opaque ( NoWindows!)
+! or transparent (MinWindows). NoWindows doesn't presently work!
+
+Opt-BaseWindows      : MinWindows
+
+
+
+Opt-OverhangWidth : BaseOverhang
+
+
+
+! Air-Tightness: 
+!     TypicalGTA
+!     R2000
+!     Cdn1ACH
+!     PassiveHouse (unconfirmed cost data)
+!     Base_WH_1.5
+!     WH_1.0
+!     WH_0.5
+                 
+Opt-AirTightness     : Typical23
+
+! Main wall insulation 
+!  BaseR21
+!  ICFR22
+!  SIPS-R29-Wall
+!  SIPS-R38-Wall
+!  SIPS-R44-Wall
+!  Stud-R38-Wall
+!  Stud-R50-Wall
+!  DblStud-R44-Wall
+!  Truss-R40-Wall
+!  W15_R25
+
+Opt-MainWall         : BaseR21
+
+
+! Add extra drywall to wall constructions 
+! Options: 
+!   OneSheet
+!   TwoSheets
+Opt-ExtraDrywall     : OneSheet
+
+! Add concrete to floors (internal partitions only)
+! Options:  
+!   Wood 
+!   1-in-concrete
+!   2-in-concrete
+Opt-FloorSurface     : wood
+
+
+Opt-Ceilings         : CeilR50
+
+! Basement slab insulation 
+! Choices: 
+!   NoInsulation
+!   R10UnderSlab
+!   R10UnderSlab+edge
+!   R12UnderSlab+edge
+!   R24UnderSlab+edge
+Opt-BasementSlabInsulation  : NoInsulation
+
+! Foundation walls. 
+! Choices 
+!  OBC-min-R12
+!  Rigid+Batt-R30
+!  Rigid+Blown-R43
+!  ICF-base-R22
+!  ICF-base-R26
+!  ICF-base-R32
+!  ICF-base-R41
+!  ICF-base-R51     
+!  ICF-base-R51r
+!  Fnd0PWF_R28   
+
+Opt-BasementWallInsulation  : OBC-min-R12
+
+
+! Optical and thermal characteristics of casement windows (currently 
+! all windows in model. 
+! Choices: 
+!   "OriginalGlassParam" - Neil's original dbl-low-e spec
+!    DoubleLowEHardCoatAirFill
+!    DoubleLowEHardCoatArgFill
+!    TripleLowEHardCoatKryFill
+!    TripleLowESoftCoatKryFill
+!    DoubleLowESoftCoatArgFill
+! Whitehorse Windows
+!    Wind1_trp_CL	
+
+Opt-CasementWindows  :  DoubleLowEHardCoatAirFill
+
+
+! Exposed floor over garage (affects floor
+! sections in Master and Top floor)
+! Choices:
+!  BaseExpFloor-R31
+!  ExpFloorFlash&Batt-R36
+!  ExpFloorFoamed-R52
+
+Opt-ExposedFloor     : BaseExpFloor-R31
+
+Opt-StandoffPV       : NoPV
+
+! Hot water reduction technologies (SDHW, DHWR) 
+! 
+! - DWHR-4-36
+! - DWHR-4-60
+! - 1-plate 
+! - 2-plate 
+! - 1-plate-DWHR-4-36
+! - 2-plate-DWHR-4-36
+! - 1-plate-DWHR-4-60
+! - 2-plate-DWHR-4-60
+!   
+Opt-DWHRandSDHW         : none                ! OK for LEEP base case
+
+! DHW LOAD SCALES 
+! CEF project
+!   - NoReduction
+!   - BasicReduction
+!   - EfficientLiving
+! NG-ERS numbers  (Also used in MB LEEP) 
+!   - NGERSNoReduction19          
+!   - NGERSReducedA16
+!   - NGERSBestInClass14p8
+
+Opt-ElecLoadScale    : NGERSNoReduction19     ! OK for LEEP base case
+
+
+! Hot water numbers - These have changed! 
+!   - No-Reduction ( 190 L/day ) 
+!   - Low-Flow     ( 141 L/day ) 
+
+Opt-DHWLoadScale     : No-Reduction            ! OK for LEEP base case 
+
+Opt-RoofPitch : 8-12
+
+! Hot water system. Choices:
+!  BaseDHW
+!  ElectricStorage
+!  GasInstant
+!  ElectricHP
+
+Opt-DHWSystem        : ElectricStorage
+
+! HVAC system 
+!  basefurnace
+!  CCASHP
+! elec-baseboard
+
+! WHITEHORSE HVAC
+!  baseoil85furnace
+!  oil95furnace
+!  propanefurnace
+!  elecfurnace
+!  woodstove65
+!  pelletstove75
+!  elec-baseboard
+!  GSHP
+!  CCASHP
+
+Opt-HVACSystem       : CCASHP ! GSHP
+
+! HRV spec 
+
+Opt-HRVspec : CEF_SPEC
+
