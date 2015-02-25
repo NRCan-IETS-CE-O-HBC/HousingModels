@@ -21,6 +21,7 @@
 *option:debug:value:2    = 1
 *option:debug:value:3 = #
 *option:debug:cost:total = 0
+*option:SIPS-R28-Wall:alias    =  1704
 *option:debug:alias = 100
 
 *option:calc:value:1   = 31
@@ -115,7 +116,6 @@
 *attribute:start 
 *attribute:name  = Opt-Attachment
 ! zone .geo changes
-                
                  
 *attribute:tag:1 = <OptAtt-Win1Con>
 *attribute:tag:2 = <OptAtt-Win1Opt>
@@ -497,6 +497,7 @@
 !------------------------------------------------------------------------
 *attribute:start 
 *attribute:name = Opt-OverhangWidth
+
 *attribute:tag:1 = <Opt-OverhangW_mainfloor>
 *attribute:tag:2 = <Opt-OverhangW_secondfloor>
 *attribute:default = BaseOverhang
@@ -614,7 +615,7 @@
 *option:Van_3st_garage:value:16   = 11.57382
 *option:Van_3st_garage:value:17   = 500		! Need volume **********************
 *option:Van_3st_garage:cost:total = 0
-*option:Van_3st_garage:alias = 1201
+*option:Van_3st_garage:alias = 120
 
 *option:Van_2st_garage:value:1    = 62.5
 *option:Van_2st_garage:value:2    = 5
@@ -634,7 +635,7 @@
 *option:Van_2st_garage:value:16   = 11.57382
 *option:Van_2st_garage:value:17   = 500		! Need volume **********************
 *option:Van_2st_garage:cost:total = 0
-*option:Van_2st_garage:alias = 1202
+*option:Van_2st_garage:alias = 1201
 
 *attribute:end
 
@@ -1121,7 +1122,6 @@
 *option:retro_attic-4_152_12cell:cost:total    =  1422   !This value based on Vancouver geometry
 *option:retro_attic-4_152_12cell:alias    =  1612
 
-
 *attribute:end
 
 
@@ -1133,10 +1133,10 @@
 *attribute:tag:1  = <Opt-GenInsulLayerInboard-a>
 *attribute:default = test
  
- 
 ! Thicknesses are defined in meters. Format * must * be #.#### (4 decimals)
 *option:test:value:1 = 0.0250 
 *option:test:cost    = 0
+*option:test:alias = 1750
 
 *attribute:end
 
@@ -1154,10 +1154,9 @@
 *option:test2:value:1 = 0.0250
 *option:test2:value:2 = 0.0250
 *option:test2:cost    = 0
+*option:test2:alias = 1770
 
 *attribute:end
-
-
 
 
 !-----------------------------------------------------------------------
@@ -1171,6 +1170,26 @@
 *attribute:tag:2  = <Opt-MainWall-Vin>
 *attribute:tag:3  = <Opt-MainWall-Dry>
 *attribute:default = BaseR21
+
+! GENERIC wall definitions: thickness of insulation layers
+! is set separately, based on data in options file
+!
+
+! - Single insulation layer (batts). 
+*option:GenericWall_1Layer:value:1 =   GenWal1Rx   ! Added by JTB for MB base wall
+*option:GenericWall_1Layer:value:2 =   GenWal1Rx
+*option:GenericWall_1Layer:value:3 =   GenWal1Rx 
+*option:GenericWall_1Layer:cost:total    =   0     ! Costs defined in Generic Wall definitions 
+
+! - Two insulation layers (e.g. batts - OSB - foam board ). 
+*option:GenericWall_2Layer:value:1 =   GenWal2Rx   ! Added by JTB for MB base wall
+*option:GenericWall_2Layer:value:2 =   GenWal2Rx
+*option:GenericWall_2Layer:value:3 =   GenWal2Rx 
+*option:GenericWall_2Layer:cost:total    =   0
+
+
+! Other wall definitions: insulation configurations and thicknesses 
+! defined in the construction file
 
 *option:BaseR20:value:1 =   BaseR20Bri   ! Added by JTB for MB base wall
 *option:BaseR20:value:2 =   BaseR20Vin
@@ -1431,7 +1450,6 @@ Whitehorse Wall Options (Code is R28)
 *option:Retro-int_spray:value:3 =   Retrointspr 
 *option:Retro-int_spray:cost:total    =   24145    ! costing calculated for Vancouver retrofit
 *option:Retro-int_spray:alias    = 1736
-
 
 *attribute:end
 

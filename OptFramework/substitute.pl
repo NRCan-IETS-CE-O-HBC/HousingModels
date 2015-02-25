@@ -26,7 +26,7 @@ sub stream_out($);
 sub postprocessDakota();
 
 
-my $gDebug = 1; 
+my $gDebug = 0; 
 
 my %gTest_params;          # test parameters
 my $gChoiceFile  = ""; 
@@ -297,9 +297,6 @@ $cmd_arguements =~ s/;$//g;
 # split processed arguments back into array
 @processed_args = split /;/, $cmd_arguements;
 
-print @processed_args; 
-
-
 # Interpret arguments
 foreach $arg (@processed_args){
   SWITCH:
@@ -429,6 +426,9 @@ foreach $arg (@processed_args){
   }
 }
 
+if ($gTest_params{"verbosity"} ne "quiet"){
+	print @processed_args; 
+}
 
 # Update ESP-r commands to use defined cfg file name.
 
@@ -1139,7 +1139,9 @@ for ( my $iRun = 1; $iRun <= $gNumRunSetsRqd; $iRun++ ) {
 			my $cost = $gOptions{$attribute}{"options"}{$choice}{"cost"};
 			my $cost_type = $gOptions{$attribute}{"options"}{$choice}{"cost-type"};
 			my $repcost = defined( $cost ) ? $cost : "?" ; 
-		 
+		    
+			if ( ! defined ($cost_type) ){ $cost_type = "" ; }
+			if ( ! defined ($cost) ){ $cost = "" ; }
 			debug_out ("   - found cost: \$$cost ($cost_type) \n"); 
 		
 			my $ScaleCost = 0; 
@@ -1165,7 +1167,8 @@ for ( my $iRun = 1; $iRun <= $gNumRunSetsRqd; $iRun++ ) {
 			}
 		
 			$cost = $gOptions{$attribute}{"options"}{$choice}{"cost"} ;
-			if ( ! defined ($cost) ){ $cost = "0" ; }                                       
+			if ( ! defined ($cost) ){ $cost = "0" ; }
+			if ( ! defined ($cost_type) ){ $cost_type = "" ; }
 			debug_out ( "\n\nMAPPING for $attribute = $choice (@ \$".
 					 round($cost).
 					 " inc. cost [$cost_type] ): \n"); 
@@ -1355,19 +1358,19 @@ for ( my $iRun = 1; $iRun <= $gNumRunSetsRqd; $iRun++ ) {
 		postprocess($ScaleResults);
 	}
 	
+	# Currently the ERS number is NOT being averaged when all 4 orientations are run.  The calculation
+	# that follows uses the results of the last orientation run!
 	if ( $gERSCalcMode && $iRun == 1 ) {
 		# Calculate ERS number for output. All energy values in MJ
 		my $SpcElecEnergy = ( $gAvgEnergyHeatingElec + $gAvgEnergyVentElec ) * 1000.;
 		my $SpcFuelEnergy = $gAvgEnergyHeatingFossil * 1000.;
-		
 		# NG/Propane:0.90, Oil:0.83, All Wood:0.75
 		my $FuelEff = $gEnergyTotalWood > 0 ? 0.75 : $gAmtOil > 0 ? 0.83 : 0.90;
-		
 		my $SpcHtConsump = $SpcElecEnergy * 1.0 + $SpcFuelEnergy * $FuelEff;  
 		my $DHWElec = $gAvgEnergyWaterHeatingElec * 1000.;
 		my $DHWFuel = $gAvgEnergyWaterHeatingFossil * 1000.;
 		my $OccConsump = 1.136 * ( $DHWElec * 0.88 + $DHWFuel * 0.57 );
-		my $EstTotEnergy = $SpcHtConsump + $OccConsump;
+		my $EstTotEnergy = $SpcHtConsump + $OccConsump - $gEnergyPV;
 		
 		my $Locale = $gChoices{"Opt-Location"};
 		my $HseVol = $gOptions{"Opt-geometry"}{"options"}{$gChoices{"Opt-geometry"}}{"values"}{17}{"conditions"}{"all"};
@@ -1507,7 +1510,7 @@ if ( $gDakota ) {
 	print SUMMARY "EnergyPellet_t    =  $gAvgPelletCons_tonne   \n";
     print SUMMARY "Upgrade-cost      =  ".eval($gTotalCost-$gIncBaseCosts)."\n"; 
     print SUMMARY "SimplePaybackYrs  =  ". $payback ."\n"; 
-
+    
 	my $PVcapacity = $gChoices{"Opt-StandoffPV"}; 
 
 	$PVcapacity =~ s/[a-zA-Z:\s'\|]//g;
@@ -1518,7 +1521,7 @@ if ( $gDakota ) {
     print SUMMARY "PV-size-kW      =  ".$PVcapacity."\n"; 
 
 	if ( $gERSCalcMode ) {
-		print SUMMARY "$gERSNum \n";
+		print SUMMARY "ERS-Value         =  ". $gERSNum."\n";
 	}
 
 }
@@ -1556,12 +1559,17 @@ sub process_file($){
         
         my $tagHash = $gOptions{$attribute}{"tags"};
         my $valHash = $gOptions{$attribute}{"options"}{$choice}{"result"};
-      
+        
         for my $tagIndex ( keys ( %{$tagHash} ) ){
           my $tag   = ${$tagHash}{$tagIndex};
           my $value = ${$valHash}{$tagIndex};
-          if (!defined($value)){debug_out (">>>ERR on $tag\n");}        
-          if ( $line =~ /$tag/ ){ $matched = 1; }
+          if (!defined($value)){
+		     debug_out (">>>ERR on $tag\n");
+			 $value = "";
+		  }        
+          if ( $line =~ /$tag/ ){ 
+		    $matched = 1; 
+		  }
           $line =~ s/$tag/$value/g; 
         }
         
@@ -2455,13 +2463,12 @@ sub postprocess($){
     # Use spec'd PV sizes. This only works for NoPV. 
     $gSimResults{"PV production::AnnualTotal"}= 0.0 ; #-1.0*$gExtOptions{"Opt-StandoffPV"}{"options"}{$PVsize}{"ext-result"}{"production-elec-perKW"}; 
     $PVArrayCost = 0.0 ;
+	
   }else{
     # Size pv according to user specification,  to max, or to size required to reach Net-Zero. 
     
-    
-    # User-ceified PV size (format is 'SizedPV|XkW', pv will be sized to X kW'.
+    # User-specified PV size (format is 'SizedPV|XkW', PV will be sized to X kW'.
     if ( $gExtraDataSpecd{"Opt-StandoffPV"} =~ /kW/ ){
-    
       
       $PVArraySized = $gExtraDataSpecd{"Opt-StandoffPV"};     
       $PVArraySized =~ s/kW//g; 
@@ -2474,19 +2481,17 @@ sub postprocess($){
       $gSimResults{"PV production::AnnualTotal"} = -1.0 * $PVUnitOutput * $PVArraySized; 
             
       $PVsize="spec'd $PVsize | $PVArraySized kW";
-           
-            
     
     }else{ 
         
         # USER Hasn't specified PV size, Size PV to attempt to get to net-zero. 
-        # First, compute the home's total energy requiremrnt. 
+        # First, compute the home's total energy requirement. 
     
         my $prePVEnergy = 0;
 
         # gSimResults contains all sorts of data. Filter by annual energy consumption (rows containing AnnualTotal).
         foreach my $token ( sort keys %gSimResults ){
-          if ( $token =~ /AnnualTotal/ ){ 
+          if ( $token =~ /AnnualTotal/  && $token =~ /all_fuels/ ){ 
             my $value = $gSimResults{$token};
             $prePVEnergy += $value; 
           }    
@@ -2498,9 +2503,6 @@ sub postprocess($){
           
           my $PVUnitOutput = $gOptions{"Opt-StandoffPV"}{"options"}{$PVsize}{"ext-result"}{"production-elec-perKW"};
           my $PVUnitCost   = $gOptions{"Opt-StandoffPV"}{"options"}{$PVsize}{"cost"};
-         
-          
-        
          
          $PVArraySized = $prePVEnergy / $PVUnitOutput ; # KW Capacity
           my $PVmultiplier = 1. ; 
@@ -2516,13 +2518,12 @@ sub postprocess($){
           # House is already energy positive, no PV needed. Shouldn't happen!
           $PVsize = "0.0 kW" ;
           $PVArrayCost  = 0. ;
-          
         }
         # Degbug: How big is the sized array?
         debug_out (" PV array is $PVsize  ...\n"); 
         
-      }  
-    }
+    }  
+  }
   $gChoices{"Opt-StandoffPV"}=$PVsize;
   $gOptions{"Opt-StandoffPV"}{"options"}{$PVsize}{"cost"} = $PVArrayCost;
 
@@ -2850,15 +2851,15 @@ sub postprocessDakota()
 				elsif ( $eleNum == 3 ) { $DataIn[$eleNum]  = "GOtag:DBFiles"; }					#3:Opt-DBFiles
 				elsif ( $eleNum == 4 ) { $DataIn[$eleNum]  = "GOtag:Opt-Location"; }			#4:Opt-Location
 				elsif ( $eleNum == 5 ) { $DataIn[$eleNum]  = "GOtag:GOconfig_rotate"; }			#5:GOconfig_rotate
-				#no change																		#6:OPT-OPR-SCHED
-				#no change																		#7:OPT-Furnace-Fan-Ctl
+				#no change - don't use															#6:OPT-OPR-SCHED
+				#no change - don't use															#7:OPT-Furnace-Fan-Ctl
 				elsif ( $eleNum == 8 ) { $DataIn[$eleNum]  = "GOtag:HRVcontrol"; }				#8:OPT-HRV_ctl
 				elsif ( $eleNum == 9 ) { $DataIn[$eleNum]  = "GOtag:Opt-geometry"; }			#9:Opt-geometry
 				elsif ( $eleNum == 10 ) { $DataIn[$eleNum] = "GOtag:Opt-Attachment"; }			#10:Opt-Attachment
-				#no change																		#11:Opt-BaseWindows
+				#no change - don't use															#11:Opt-BaseWindows
 				elsif ( $eleNum == 12 ) { $DataIn[$eleNum] = "GOtag:RoofPitch"; }				#12:Opt-RoofPitch
 				elsif ( $eleNum == 13 ) { $DataIn[$eleNum] = "GOtag:Opt-OverhangWidth"; }		#13:Opt-OverhangWidth
-				#no change																		#14:Opt-WindowOrientation
+				#no change - don't use															#14:Opt-WindowOrientation
 				elsif ( $eleNum == 15 ) { $DataIn[$eleNum] = "GOtag:DHWLoadScale"; }			#15:Opt-DHWLoadScale
 				elsif ( $eleNum == 16 ) { $DataIn[$eleNum] = "GOtag:ElecLoadScale"; }			#16:Opt-ElecLoadScale
 				elsif ( $eleNum == 17 ) { $DataIn[$eleNum] = "GOtag:Opt-AirTightness"; }		#17:Opt-AirTightness
@@ -2866,19 +2867,20 @@ sub postprocessDakota()
 				elsif ( $eleNum == 19 ) { $DataIn[$eleNum] = "GOtag:Opt-CasementWindows"; }		#19:Opt-CasementWindows
 				elsif ( $eleNum == 20 ) { $DataIn[$eleNum] = "GOtag:Opt-Ceilings"; }			#20:Opt-Ceilings
 				elsif ( $eleNum == 21 ) { $DataIn[$eleNum] = "GOtag:Opt-MainWall"; }			#21:Opt-MainWall
-				elsif ( $eleNum == 22 ) { $DataIn[$eleNum] = "GOtag:Opt-ExposedFloor"; }		#22:Opt-ExposedFloor
-				elsif ( $eleNum == 23 ) { $DataIn[$eleNum] = "GOtag:Opt-BasementWallInsulation"; }	#23:Opt-BasementWallInsulation
-				elsif ( $eleNum == 24 ) { $DataIn[$eleNum] = "GOtag:Opt-BasementSlabInsulation"; }	#24:Opt-BasementSlabInsulation
-				elsif ( $eleNum == 25 ) { $DataIn[$eleNum] = "GOtag:Ext-DryWall"; }				#25:Opt-ExtraDrywall
-				elsif ( $eleNum == 26 ) { $DataIn[$eleNum] = "GOtag:Opt-FloorSurface"; }		#26:Opt-FloorSurface
-				elsif ( $eleNum == 27 ) { $DataIn[$eleNum] = "GOtag:Opt-DHWSystem"; }			#27:Opt-DHWSystem
-				elsif ( $eleNum == 28 ) { $DataIn[$eleNum] = "GOtag:Opt-HVACSystem"; }			#28:Opt-HVACSystem
-				elsif ( $eleNum == 29 ) { $DataIn[$eleNum] = "GOtag:Opt-Cooling-Spec"; }		#29:Opt-Cooling-Spec
-				elsif ( $eleNum == 30 ) { $DataIn[$eleNum] = "GOtag:Opt-HRVSpec"; }				#30:Opt-HRVspec
-				elsif ( $eleNum == 31 ) { $DataIn[$eleNum] = "GOtag:Opt-HRVduct"; }				#31:Opt-HRVduct
-				elsif ( $eleNum == 32 ) { $DataIn[$eleNum] = "GOtag:Opt-StandoffPV"; }			#32:Opt-StandoffPV
-				elsif ( $eleNum == 33 ) { $DataIn[$eleNum] = "GOtag:Opt-DWHRandSDHW"; }			#33:Opt-DWHRandSDHW
-				elsif ( $gReorder && $eleNum == 34 ) { $DataIn[58] = "Sub Iteration"; $DataIn[59] = "Step Number"; } #58 & 59 for GenOpt
+				elsif ( $eleNum == 22 ) { $DataIn[$eleNum] = "GOtag:Opt-GenericWall_1Layer_definitions"; }			#22:Opt-GenericWall_1Layer_definitions
+				elsif ( $eleNum == 23 ) { $DataIn[$eleNum] = "GOtag:Opt-ExposedFloor"; }		#22:Opt-ExposedFloor
+				elsif ( $eleNum == 24 ) { $DataIn[$eleNum] = "GOtag:Opt-BasementWallInsulation"; }	#23:Opt-BasementWallInsulation
+				elsif ( $eleNum == 25 ) { $DataIn[$eleNum] = "GOtag:Opt-BasementSlabInsulation"; }	#24:Opt-BasementSlabInsulation
+				elsif ( $eleNum == 26 ) { $DataIn[$eleNum] = "GOtag:Ext-DryWall"; }				#25:Opt-ExtraDrywall
+				elsif ( $eleNum == 27 ) { $DataIn[$eleNum] = "GOtag:Opt-FloorSurface"; }		#26:Opt-FloorSurface
+				elsif ( $eleNum == 28 ) { $DataIn[$eleNum] = "GOtag:Opt-DHWSystem"; }			#27:Opt-DHWSystem
+				elsif ( $eleNum == 29 ) { $DataIn[$eleNum] = "GOtag:Opt-HVACSystem"; }			#28:Opt-HVACSystem
+				elsif ( $eleNum == 30 ) { $DataIn[$eleNum] = "GOtag:Opt-Cooling-Spec"; }		#29:Opt-Cooling-Spec
+				elsif ( $eleNum == 31 ) { $DataIn[$eleNum] = "GOtag:Opt-HRVSpec"; }				#30:Opt-HRVspec
+				elsif ( $eleNum == 32 ) { $DataIn[$eleNum] = "GOtag:Opt-HRVduct"; }				#31:Opt-HRVduct
+				elsif ( $eleNum == 33 ) { $DataIn[$eleNum] = "GOtag:Opt-StandoffPV"; }			#32:Opt-StandoffPV
+				elsif ( $eleNum == 34 ) { $DataIn[$eleNum] = "GOtag:Opt-DWHRandSDHW"; }			#33:Opt-DWHRandSDHW
+				elsif ( $gReorder && $eleNum == 35 ) { $DataIn[58] = "Sub Iteration"; $DataIn[59] = "Step Number"; } #58 & 59 for GenOpt
 			}
 			elsif ( $eleNum == 1 ) {
 				$DataIn[$eleNum] = $DataIn[0];	# Same as Simulation Number
@@ -2888,7 +2890,7 @@ sub postprocessDakota()
 					$DataIn[59] = 1;	#Step Number
 				}
 			}
-			elsif ( $eleNum > 1 && $eleNum < 34 && $TestValue =~ /\d{3,4}/ ){
+			elsif ( $eleNum > 1 && $eleNum < 35 && $TestValue =~ /\d{3,4}/ ){
 				# Get attribute name for data values that are Dakota aliases
 				while ( my ( $attribute, $dummy) = each %gChoices ){
 					my $OptHash = $gOptions{$attribute}{"options"}; 

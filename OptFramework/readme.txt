@@ -95,7 +95,48 @@ RUN AN OPTIMIZATION USING GENOPT
 		
 		/cygdrive/c/Users/jeffblake/Dropbox/NRCan-Optimization-Results/Mattamy
 
+
+Notepad++ Settings for accessing remote Ubuntu files
+----------------------------------------------------
+Plugins menu:
+ - NppFTP --> Show NppFTP Window
 		
+In NppFTP window Click on gear icon for Settings:
+ - Add a new profile and label it something appropriate (like "AWS")
+ - Profile Settings on the Connections tab 
+   --> Set the "Hostname" field to the IP address shown in the AWS Connect window(e.g., 52.1.247.204)
+   --> Username = "ubuntu"
+   --> No password required
+ - Closing this window saves the changes
+ - To display folders click on the blue connect icon and select the named profile
+
+Post-Processing GenOpt results data (interim or final)
+------------------------------------------------------
+GenOpt data can be downloaded to a local directory on your Windows machine by using a PERL script 
+called "recover-results.pl" in Cygwin at any time while GenOpt is still running or when GenOpt is 
+completed (or manually stopped).
+
+The recover-results.pl script resides in the "Opt-Results" folder below "HousingModels" (Note: Your 
+"HousingModels" folder may have a different name depending on how you checked out the Git repository).
+We have been using this folder to contain temporary local downloaded optimization files. If you want 
+others to share this data please don't add new folders to Git because they're large. We've been using 
+Google Docs for this purpose. Please ask Alex if you need to create a new Google Docs folder for more
+data.
+
+To run the script:
+~/HousingModels/Opt-Results$ ./recover-results.pl <remote computer address>
+
+(e.g. recover-results.pl ubuntu@ec2-23-23-47-71.compute-1.amazonaws.com )
+
+The first time that this PERL script is run it will download the file OutputListingAll.txt from 
+the remote computer (i.e., AWS instance) and create a file called CloudResultsAllData.csv. You will also 
+notice two other files: TempResultsBatch1.txt and RecoveredFromCloud.txt. Rename RecoveredFromCloud.txt
+to CloudresultsBatch1.txt and all subsequent downloads you want to keep to CloudresultsBatchN.txt.
+
+The PERL script will re-create CloudResultsAllData.csv each time it is run by appending any existing 
+CloudresultsBatchN.txt files that may exist to newly downloaded RecoveredFromCloud.txt.
+
+ 
 RUN AN OPTIMIZATION USING DAKOTA
 --------------------------------
 

@@ -4,6 +4,6 @@
 <Opt-Length>              # larger of the two dimensions
 <Opt-Width>               # smaller of the two dimensions
 0.0                       # overlap (only important for BCCN_1 and BCCN_2)
-2.10                      # rsi
+<OPT-BsmRSIValue>         # rsi of walls and floor
 0.85                      # soilk
 8                         # wtable

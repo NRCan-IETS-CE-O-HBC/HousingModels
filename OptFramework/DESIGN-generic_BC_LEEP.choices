@@ -17,7 +17,7 @@ Opt-DBFiles           : retrofit
 ! Optimization substitutions 
 ! Set the orientation for the model (N,S,E,W, or AVG to run all four directions
 ! and compute an average result)
-GOconfig_rotate      : S
+GOconfig_rotate      : N
 
 Opt-Location : Vancouver
 
@@ -28,14 +28,14 @@ Opt-Location : Vancouver
 !              natural and mechanical vent. 
 !  - EightHRpDay: HRV operates 33% of each hour, for 8hr/day total.
 
-OPT-HRV_ctl          : ERSp3ACH !EightHRpDay
+OPT-HRV_ctl          : EightHRpDay
 
 !Opt-CTL-Strategy     : ecoEIIFramework  
 
 !Optional operations schedule for zoned systems
 ! constant
 ! scheduled
-OPT-OPR-SCHED        : constant
+OPT-OPR-SCHED        : scheduled
 
 ! Turn original design windows opaque ( NoWindows!)
 ! or transparent (MinWindows). NoWindows doesn't presently work!
@@ -62,7 +62,7 @@ Opt-WindowOrientation: all
 
 
 ! ACH substitutions
-Opt-ACH       : retro_ACH_5_5
+Opt-ACH       : retro_ACH_5
 
 
 Opt-OverhangWidth : BaseOverhang
@@ -86,8 +86,12 @@ Opt-AirTightness   : Generic
 !  W15_R25
 !  Retrofit-DlBr
 
-Opt-MainWall         : BaseR20 
-Opt-GenericWall_1Layer_definitions : test
+Opt-MainWall         : GenericWall_1Layer
+
+! Set this parameter for BC LEEP walls
+Opt-GenericWall_1Layer_definitions : Stud_2x6_R20
+
+! This parameter is not used!
 Opt-GenericWall_2Layer_definitions : test2
 
 ! Add extra drywall to wall constructions 
@@ -104,7 +108,7 @@ Opt-ExtraDrywall     : OneSheet
 Opt-FloorSurface     : wood
 
 
-Opt-Ceilings         : CeilR50
+Opt-Ceilings         : CeilR40
 
 ! Basement slab insulation 
 ! Choices: 
@@ -113,7 +117,7 @@ Opt-Ceilings         : CeilR50
 !   R10UnderSlab+edge
 !   R12UnderSlab+edge
 !   R24UnderSlab+edge
-Opt-BasementSlabInsulation  : NoInsulation
+Opt-BasementSlabInsulation  : R8UnderSlab+edge
 
 ! Foundation walls. 
 ! Choices 
@@ -148,7 +152,7 @@ Opt-BasementWallInsulation  : OBC-min-R12
 ! Retrofit Windows
 !    DoubleClear 
 
-Opt-CasementWindows  :  DoubleClear !Triple_win_shutter !Wind1_trp_CL 
+Opt-CasementWindows  :  DoubleLowESoftCoatArgFill 
 
 
 ! Exposed floor over garage (affects floor
@@ -187,7 +191,7 @@ Opt-DWHRandSDHW         : none
 !   - NGERSReducedA16
 !   - NGERSBestInClass14p8
 
-Opt-ElecLoadScale    : NGERSNoReduction19
+Opt-ElecLoadScale    : NoReduction !NGERSNoReduction19
 
 
 ! Hot water numbers - These have changed! 
@@ -196,7 +200,7 @@ Opt-ElecLoadScale    : NGERSNoReduction19
 
 Opt-DHWLoadScale     : No-Reduction       
 
-Opt-RoofPitch : 8-12
+Opt-RoofPitch : 6-12
 
 ! Hot water system. Choices:
 !  BaseDHW
@@ -207,9 +211,11 @@ Opt-RoofPitch : 8-12
 Opt-DHWSystem        : BaseDHW
 
 ! HVAC system 
-Opt-HVACSystem       : gas-furnace-84_3
+
+Opt-HVACSystem       : gas-furnace-psc
+Opt-Cooling-Spec     : 2TonStdCooling		! Does nothing for BC-LEEP (No cooling tags in hvac)
 
 ! HRV spec 
 
-Opt-HRVspec : BaseHRV_SRE70
-
+Opt-HRVspec : FansOnly	!BaseHRV_SRE55
+Opt-HRVduct : interlock

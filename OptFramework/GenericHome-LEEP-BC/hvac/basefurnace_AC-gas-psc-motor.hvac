@@ -20,11 +20,11 @@
     *sys-data-start
     
         furnace-type 8
-        capacity 23000
+        capacity 13800
         efficiency 0.94
         circ-fan-mode <OPT-Furnace-Fan-Ctl>
-        circ-fan-power 475.0
-        circ-fan-power-low  475.        
+        circ-fan-power 268.
+        circ-fan-power-low 155.
         draft-fan-power 75. 
         pilot-power 0.
 
@@ -46,13 +46,13 @@
     *zone-links-end
     *sys-data-start
 
-        capacity 10555.
+        capacity 10000.
         COP 3.
         #circ-fan-flow -
         #circ-fan-rated-flow 1.5
         circ-fan-mode <OPT-Furnace-Fan-Ctl>
         circ-fan-position 1
-        circ-fan-power 475.0
+        circ-fan-power 0.0
         circ-fan-power-low  0  # < Set to zero if 
         outdoor-fan-power 0.
         fan-power-in-auto 0.

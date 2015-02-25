@@ -10,17 +10,17 @@ method,
     id_method = 'Coliny_EA'                       
     coliny_ea
     seed 23 
-    population_size 100
+    population_size 1000
     initialization_type unique_random
-    replacement_type chc 20
+    replacement_type chc 200
     fitness_type merit_function 	# also linear_rank
     mutation_type replace_uniform	# offset_uniform for discrete design variables
     mutation_rate  1.0    			# 0-1, higher value, greater portion of population combinations used
-	#convergence_tolerance 1.e-4	# default value (0-1, non-inclusive) relative difference from last iterations
+	convergence_tolerance 0.1	    # Relative difference from last iterations (Default value: 1.e-4?)
     output normal					# debug verbose normal quiet silent
     show_misc_options 
     max_function_evaluations 500000
-    max_iterations 500
+    max_iterations 100
 
 model 
     single 
@@ -81,7 +81,7 @@ variables,
 			1 #'Opt-WindowOrientation'
 			1 #'Opt-DHWLoadScale' 
 			3 #'Opt-ElecLoadScale'
-			2 #'Opt-AirTightness'    
+			1 #'Opt-AirTightness'    
 			1 #'Opt-ACH'
 			3 #'Opt-CasementWindows'
 			3 #'Opt-Ceilings'
@@ -98,7 +98,7 @@ variables,
 			1 #'Opt-HRVduct'
 			1 #'Opt-StandoffPV'
 			2 #'Opt-DWHRandSDHW'
-			  #3888 combinations
+			  #1944 combinations
 		
 		elements 
 			# Parameters that control how optimization operates. 
@@ -181,8 +181,8 @@ variables,
 				#'Generic'      1505  Use this with opt-ACH (retroACH)
 				#'Typical23' 	1501
 				#'r2000' 		1502
-				1501
-				1502
+				1505
+				#1502
 				#1503
 				#1504
 				
@@ -297,16 +297,16 @@ interface,
     id_interface  'test_dakota'
 	fork 
 	   asynchronous 
-	   evaluation_concurrency = 32
+	   evaluation_concurrency = 36
        parameters_file = 'dakota-choices.in'
        results_file = 'SubstitutePL-output.txt'
 	   file_save
     work_directory      
        directory_tag
 	   #directory_save
-       copy_files "/home/ubuntu/HousingModels/OptFramework/GenericHome-2st-garage"
+       copy_files "/home/ubuntu/HousingModels/OptFramework/GenericHome-LEEP-BC"
                   "climate_linux"
-                  "OPTIONS-generic-MATTAMY-OTT.options"
+                  "OPTIONS-generic.options"
     analysis_driver './substitute.pl -d -e -o OPTIONS-generic.options -c dakota-choices.in -b GenericHome-LEEP-BC' 
 	              verbatim
     
