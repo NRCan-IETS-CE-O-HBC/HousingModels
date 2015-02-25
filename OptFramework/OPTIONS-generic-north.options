@@ -1037,7 +1037,7 @@
 *option:CeilR50:value:1 =   CeilR50
 !*option:CeilR50:value:2 =   CeilR50R
 *option:CeilR50:cost:total    =   0
-
+/
 *option:CeilR60:value:1 =   CeilR60
 !*option:CeilR60:value:2 =   CeilR60R
 *option:CeilR60:cost:total    =   310
@@ -1111,6 +1111,23 @@
 *option:NWTCei1986:value:1 =   NWTCei1986
 !*option:NWTCei1986:value:2 =  NWTCei1986R
 *option:NWTCei1986:cost:total    =  0
+
+!Arctic Hot Roof Options for above-tree-line archetype
+*option:HotRoofR40:value:1 =   HotRoofR40
+!*option:HotRoofR40:value:2 =  HotRoofR40R
+*option:HotRoofR40:cost:total    =  0
+
+*option:HotRoofR50:value:1 =   HotRoofR50
+!*option:HotRoofR50:value:2 =  HotRoofR50R
+*option:HotRoofR50:cost:total    =  0
+
+*option:HotRoofR60:value:1 =   HotRoofR60
+!*option:HotRoofR60:value:2 =  HotRoofR60R
+*option:HotRoofR60:cost:total    =  0
+
+*option:HotRoofR70:value:1 =   HotRoofR70
+!*option:HotRoofR70:value:2 =  HotRoofR70R
+*option:HotRoofR70:cost:total    =  0
 
 *attribute:end
 
