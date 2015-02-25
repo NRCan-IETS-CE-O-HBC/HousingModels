@@ -1,0 +1,221 @@
+!-----------------------------------------------------------------------------
+! Change Mode Option - this options switches between a 'debug' mode in which
+! the timestep is defined as one day and the shading calculator (ish) is disabled 
+! AND a full simulation mode in which the timestep is a full year and ish is enabled
+!-----------------------------------------------------------------------  
+!  debug
+!  calc
+
+Opt-calcmode          : calc
+
+
+! Set of database files to be used
+
+Opt-DBFiles           : retrofit 
+
+
+! Optimization substitutions 
+! Set the orientation for the model (N,S,E,W, or AVG to run all four directions
+! and compute an average result)
+GOconfig_rotate      : N
+
+Opt-Location : Vancouver
+
+! Assumptions about HRV operation . Not intended to be optimized!
+! Recognized values: 
+!  - Continuous: HRV runs continuously 
+!  - ERSp3ACH: Existing ERS assumptions of 0.3 ACH from 
+!              natural and mechanical vent. 
+!  - EightHRpDay: HRV operates 33% of each hour, for 8hr/day total.
+
+OPT-HRV_ctl          : EightHRpDay
+
+!Opt-CTL-Strategy     : ecoEIIFramework  
+
+!Optional operations schedule for zoned systems
+! constant
+! scheduled
+OPT-OPR-SCHED        : scheduled
+
+! Turn original design windows opaque ( NoWindows!)
+! or transparent (MinWindows). NoWindows doesn't presently work!
+
+Opt-BaseWindows      : MinWindows
+
+
+! Geometry substitutions
+! Van_3st_garage
+! Van_2st_garage
+! NWT_Access
+
+Opt-geometry      : BC_LEEP
+
+!Attachment options
+! single
+! semi
+! row
+
+Opt-Attachment : semi
+
+! Dummy variable. Has to be here. 
+Opt-WindowOrientation: all
+
+
+! ACH substitutions
+Opt-ACH       : retro_ACH_5
+
+
+Opt-OverhangWidth : BaseOverhang
+
+
+! Air-Tightness: 
+!     Generic
+!
+Opt-AirTightness   : Generic
+
+! Main wall insulation 
+!  BaseR20
+!  ICFR22
+!  SIPS-R29-Wall
+!  SIPS-R38-Wall
+!  SIPS-R44-Wall
+!  Stud-R38-Wall
+!  Stud-R50-Wall
+!  DblStud-R44-Wall
+!  Truss-R40-Wall
+!  W15_R25
+!  Retrofit-DlBr
+
+Opt-MainWall         : GenericWall_1Layer
+
+! Set this parameter for BC LEEP walls
+Opt-GenericWall_1Layer_definitions : Stud_2x6_R20
+
+! This parameter is not used!
+Opt-GenericWall_2Layer_definitions : test2
+
+! Add extra drywall to wall constructions 
+! Options: 
+!   OneSheet
+!   TwoSheets
+Opt-ExtraDrywall     : OneSheet
+
+! Add concrete to floors (internal partitions only)
+! Options:  
+!   Wood 
+!   1-in-concrete
+!   2-in-concrete
+Opt-FloorSurface     : wood
+
+
+Opt-Ceilings         : CeilR40
+
+! Basement slab insulation 
+! Choices: 
+!   NoInsulation
+!   R10UnderSlab
+!   R10UnderSlab+edge
+!   R12UnderSlab+edge
+!   R24UnderSlab+edge
+Opt-BasementSlabInsulation  : R8UnderSlab+edge
+
+! Foundation walls. 
+! Choices 
+!  OBC-min-R12
+!  Rigid+Batt-R30
+!  Rigid+Blown-R43
+!  ICF-base-R22
+!  ICF-base-R26
+!  ICF-base-R32
+!  ICF-base-R41
+!  ICF-base-R51     
+!  ICF-base-R51r
+!  Fnd0PWF_R28   
+! Retrofit foundation
+!    TripleBrick
+!    NWT-Crawl-Wall !NWT crawl space wall
+
+Opt-BasementWallInsulation  : OBC-min-R12
+
+
+! Optical and thermal characteristics of casement windows (currently 
+! all windows in model. 
+! Choices: 
+!   "OriginalGlassParam" - Neil's original dbl-low-e spec
+!    DoubleLowEHardCoatAirFill
+!    DoubleLowEHardCoatArgFill
+!    TripleLowEHardCoatKryFill
+!    TripleLowESoftCoatKryFill
+!    DoubleLowESoftCoatArgFill
+! Whitehorse Windows
+!    Wind1_trp_CL	
+! Retrofit Windows
+!    DoubleClear 
+
+Opt-CasementWindows  :  DoubleLowESoftCoatArgFill 
+
+
+! Exposed floor over garage (affects floor
+! sections in Master and Top floor)
+! Choices:
+!  BaseExpFloor-R31
+!  ExpFloorFlash&Batt-R36
+!  ExpFloorFoamed-R52
+!NWT Crawl Space Floor
+!  NWTCrawlFloor
+
+Opt-ExposedFloor     : BaseExpFloor-R31
+
+Opt-StandoffPV       : NoPV
+
+! Hot water reduction technologies (SDHW, DHWR) 
+! 
+! - DWHR-4-36
+! - DWHR-4-60
+! - 1-plate 
+! - 2-plate 
+! - 1-plate-DWHR-4-36
+! - 2-plate-DWHR-4-36
+! - 1-plate-DWHR-4-60
+! - 2-plate-DWHR-4-60
+!   
+Opt-DWHRandSDHW         : none          
+
+! DHW LOAD SCALES 
+! CEF project
+!   - NoReduction
+!   - BasicReduction
+!   - EfficientLiving
+! NG-ERS numbers  (Also used in MB LEEP) 
+!   - NGERSNoReduction19          
+!   - NGERSReducedA16
+!   - NGERSBestInClass14p8
+
+Opt-ElecLoadScale    : NoReduction !NGERSNoReduction19
+
+
+! Hot water numbers - These have changed! 
+!   - No-Reduction ( 190 L/day ) 
+!   - Low-Flow     ( 141 L/day ) 
+
+Opt-DHWLoadScale     : No-Reduction       
+
+Opt-RoofPitch : 6-12
+
+! Hot water system. Choices:
+!  BaseDHW
+!  ElectricStorage
+!  GasInstant
+!  ElectricHP
+
+Opt-DHWSystem        : BaseDHW
+
+! HVAC system 
+
+Opt-HVACSystem       : gas-furnace-psc
+Opt-Cooling-Spec     : 2TonStdCooling		! Does nothing for BC-LEEP (No cooling tags in hvac)
+
+! HRV spec 
+
+Opt-HRVspec : FansOnly	!BaseHRV_SRE55
+Opt-HRVduct : interlock
