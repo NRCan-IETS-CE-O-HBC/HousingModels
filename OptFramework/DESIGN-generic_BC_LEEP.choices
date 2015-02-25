@@ -92,7 +92,7 @@ Opt-MainWall         : GenericWall_1Layer
 Opt-GenericWall_1Layer_definitions : Stud_2x6_R20
 
 ! This parameter is not used!
-Opt-GenericWall_2Layer_definitions : test2
+!Opt-GenericWall_2Layer_definitions : test2
 
 ! Add extra drywall to wall constructions 
 ! Options: 
