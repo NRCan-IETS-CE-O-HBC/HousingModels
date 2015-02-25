@@ -841,7 +841,7 @@
 *option:TripleLowEHardCoatKryFill:value:7 = TplLeHcKry
 *option:TripleLowEHardCoatKryFill:value:8 = TplLeHcKry
 *option:TripleLowEHardCoatKryFill:cost:total    = 1595 ! Value changed for Van_2st_80_retro geometry. Originally 20871
-*option:TripleLowEHardCoatkryFill:alias    = 1402
+*option:TripleLowEHardCoatKryFill:alias    = 1402
 
 *option:TripleLowESoftCoatKryFill:value:1 = TplLeScKry
 *option:TripleLowESoftCoatKryFill:value:2 = TplLeScKry
