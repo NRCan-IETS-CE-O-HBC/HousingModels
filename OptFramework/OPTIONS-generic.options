@@ -3233,9 +3233,17 @@ Reflects southern Ontario costs
 *option:NoPV:cost:PerKW = 0 
 *option:NoPV:alias = 3201
 
+*option:SizedPV|3kW:dummy
+*option:SizedPV|3kW:cost:PerKW = 4696 ! $/kW installed
+*option:SizedPV|3kW:alias = 3202
+
 *option:SizedPV|5kW:dummy
-*option:SizedPV:cost:PerKW = 4696 ! $/kW installed
-*option:SizedPV|5kW:alias = 3202
+*option:SizedPV|5kW:cost:PerKW = 4696 ! $/kW installed
+*option:SizedPV|5kW:alias = 3203
+
+*option:SizedPV|8kW:dummy
+*option:SizedPV|8kW:cost:PerKW = 4696 ! $/kW installed
+*option:SizedPV|8kW:alias = 3204
 
 *ext-attribute:end
 
