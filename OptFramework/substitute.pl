@@ -1381,7 +1381,8 @@ for ( my $iRun = 1; $iRun <= $gNumRunSetsRqd; $iRun++ ) {
 		my $DHWElec = $gAvgEnergyWaterHeatingElec * 1000.;
 		my $DHWFuel = $gAvgEnergyWaterHeatingFossil * 1000.;
 		my $OccConsump = 1.136 * ( $DHWElec * 0.88 + $DHWFuel * 0.57 );
-		my $EstTotEnergy = $SpcHtConsump + $OccConsump - $gEnergyPV;
+		my $EstTotEnergy = $SpcHtConsump + $OccConsump - $gAvgPVOutput_kWh*3.6;
+		$EstTotEnergy = $EstTotEnergy < 0 ? 0.0 : $EstTotEnergy;
 		
 		my $Locale = $gChoices{"Opt-Location"};
 		my $HseVol = $gOptions{"Opt-geometry"}{"options"}{$gChoices{"Opt-geometry"}}{"values"}{17}{"conditions"}{"all"};
