@@ -772,16 +772,8 @@
 *option:retro_ACH_3:alias  =  1308
 
 *option:retro_ACH_2_5:value:1  = 2.5
-<<<<<<< HEAD
-*option:retro_ACH_2_5:cost:total  =  0
-*option:retro_ACH_2_5:alias  =  1309
-<<<<<<< HEAD
-=======
-=======
 *option:retro_ACH_2_5:cost:total  =  318
-*option:retro_ACH_3:alias  =  1309
->>>>>>> a4b5c3801626ff3a9106450a3b57b2dbdef58a89
->>>>>>> 00eadbd14274fe4b3255810a08e25594ceb786f2
+*option:retro_ACH_2_5:alias  =  1309
 
 *option:retro_ACH_2:value:1  = 2.0
 *option:retro_ACH_2:cost:total  =  0
@@ -3241,16 +3233,9 @@ Reflects southern Ontario costs
 *option:NoPV:cost:PerKW = 0 
 *option:NoPV:alias = 3201
 
-<<<<<<< HEAD
-! This doesn't work - tried as an option to use Sized|5kW in Dakota *********
-!*option:SizedPV|5kW:production-elec-perKW  = 3.618	! GH/kW Installed
-!*option:SizedPV|5kW:cost:PerKW = 4696 ! $/kW installed
-!*option:SizedPV|5kW:alias = 3202
-=======
 *option:SizedPV|5kW:dummy
 *option:SizedPV:cost:PerKW = 4696 ! $/kW installed
 *option:SizedPV|5kW:alias = 3202
->>>>>>> 00eadbd14274fe4b3255810a08e25594ceb786f2
 
 *ext-attribute:end
 

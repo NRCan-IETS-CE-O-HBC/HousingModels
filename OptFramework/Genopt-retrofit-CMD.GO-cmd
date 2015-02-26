@@ -258,11 +258,7 @@ Vary{
   Parameter{   // 
      Name    =  GOtag:Opt-CasementWindows;
      Ini     =  1;
-<<<<<<< HEAD
-     Values  =  "DoubleClear";    
-=======
      Values  =  "Wind1_trp_CL,Win2scLE1_tr,Win3hcLE1_tr,Win4scLE2_tr,Win5hcLE2_tr,Win6_qd_CL,Win7scle1_qd,Win8hcle1_qd,Win9scle2_qd,Win10hcle2_qd,Triple_win_shutter,Quad_win_shutter";    
->>>>>>> 84a3150c9704792e863e77e756711968b9754103
      
    }    
    
@@ -300,11 +296,7 @@ Vary{
   Parameter{   // 
      Name    = GOtag:Opt-DWHRandSDHW; 
      Ini     = 1; 
-<<<<<<< HEAD
-     Values  = "none,DWHR-4-36,DWHR-4-60,"; 
-=======
      Values  = "none,DWHR-4-36,DWHR-4-60"; 
->>>>>>> 84a3150c9704792e863e77e756711968b9754103
   } 
   
   // Conventional DHW:  BaseDHW, 
@@ -321,11 +313,7 @@ Vary{
   Parameter{ //
      Name    = GOtag:Opt-DHWSystem;
      Ini     = 1; 
-<<<<<<< HEAD
-     Values  = "BaseDHW"; 
-=======
      Values  = "BaseDHW,elec_DHW,NWT_upgrade_elec_DHW,NWT_upgrade_oil_DHW "; 
->>>>>>> 84a3150c9704792e863e77e756711968b9754103
   }
 
   
@@ -347,11 +335,7 @@ Vary{
   Parameter {// 
       Name   = GOtag:Opt-HVACSystem; 
       Ini    = 1; 
-<<<<<<< HEAD
-      Values = "gas-furnace-84_3,retro_upgrade_furnace"; 
-=======
       Values = "Olsen,upgrade_Olsen"; 
->>>>>>> 84a3150c9704792e863e77e756711968b9754103
   }
 
  // Cooling spec

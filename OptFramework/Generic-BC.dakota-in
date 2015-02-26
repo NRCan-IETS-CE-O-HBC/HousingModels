@@ -83,8 +83,8 @@ variables,
 			1 #'Opt-DHWLoadScale' 
 			1 #'Opt-ElecLoadScale'
 			1 #'Opt-AirTightness'    
-			8 #'Opt-ACH'
-			3 #'Opt-CasementWindows'
+			5 #'Opt-ACH'
+			2 #'Opt-CasementWindows'
 			7 #'Opt-Ceilings'
 			1 #'Opt-MainWall'
 			25 #'Opt-GenericWall_1Layer_definitions'
@@ -176,11 +176,10 @@ variables,
 			# Air-tightness Opt-ACH 
 			# Must spec Opt-AirTightness=Generic or this has no effect 
 				#'retro_ACH_5' 1304
-				1304 1305 1306 1307 1308 1309 1310 1311
+				1304 1307 1309 1311 1312
 				
 			# Windows 'Opt-CasementWindows'
 				1404	#'DoubleLowESoftCoatArgFill'
-				1401	#'DoubleLowEHardCoatArgFill'
 				1402	#'TripleLowEHardCoatKryFill'
 				
 			# Attic insulation 'Opt-Ceilings'

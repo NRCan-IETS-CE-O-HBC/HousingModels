@@ -30,7 +30,7 @@
                                        2401 Opt-Cooling-Spec
                                        2504 Opt-HRVspec
                                        2600 Opt-HRVduct
-                                       3202 Opt-StandoffPV
+                                       3201 Opt-StandoffPV
                                        3000 Opt-DWHRandSDHW
                                          24 functions
                                           1 ASV_1:EnergyTotal
