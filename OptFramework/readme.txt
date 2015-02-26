@@ -49,13 +49,13 @@ RUN A SIMULATION FOR A SINGLE DESIGN
 2. To run a single case, execute substitute.pl while specifying a) a 
    design-choices file, and an options file:
 
-   From your NZEH-optimization directory:
+   From your OptFramework directory:
    
-      ./substitute.pl -o <OPTIONS FILE> -c <DESIGN-Choices FILE> -vv
+      ./substitute.pl -o <OPTIONS FILE> -c </modelfolder/choices/Choices FILE> -vv
       
    Example: 
    
-      ./substitute.pl -o OPTIONS-General.options -c DESIGN-Arch2-OBC2012.choices  -vv
+      ./substitute.pl -o OPTIONS-General.options -c NZEH-base/choices/Arch2-OBC2012.choices  -vv
   
    
 3. To run a simulation with a different design, edit the design file 
@@ -84,16 +84,15 @@ RUN AN OPTIMIZATION USING GENOPT
 
 6. Invoke Genopt: 
    
-        java -classpath genopt.jar genopt.GenOpt [Genopt-ini-file] 
+        java -classpath genopt.jar genopt.GenOpt [\modelfolder\choices\Genopt-ini-file] 
         
    Example: 
 
-        java -classpath genopt.jar genopt.GenOpt Genopt-BASE-ini.GO-ini
+        java -classpath genopt.jar genopt.GenOpt NZEH-base\choices\Genopt-BASE-ini.GO-ini
 		
 		Alternate:
-        rm nohup.out; nohup java -classpath genopt.jar genopt.GenOpt Genopt-OTT-MATTAMY-INI.GO-ini &
+        rm nohup.out; nohup java -classpath genopt.jar genopt.GenOpt GenericHome-2st-garage\choices\Genopt-OTT-MATTAMY-INI.GO-ini &
 		
-		/cygdrive/c/Users/jeffblake/Dropbox/NRCan-Optimization-Results/Mattamy
 
 
 Notepad++ Settings for accessing remote Ubuntu files

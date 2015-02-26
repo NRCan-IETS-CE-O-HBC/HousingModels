@@ -84,7 +84,7 @@ Vary{
   
     Name = GOtag:Opt-ACH; 
     Ini  = 1;
-    Values = "retro_ACH_5, retro_ACH_4_5, retro_ACH_4, retro_ACH_3_5, retro_ACH_3, retro_ACH_2_5, retro_ACH_2, retro_ACH_1_5";
+    Values = "retro_ACH_5,retro_ACH_3_5,retro_ACH_2_5,retro_ACH_1_5,retro_ACH_1";
   }
 
   
@@ -250,7 +250,7 @@ Vary{
   Parameter{   // 
      Name    =  GOtag:Opt-CasementWindows;
      Ini     =  1;
-     Values  =  "DoubleLowESoftCoatArgFill, DoubleLowEHardCoatAirFill, TripleLowEHardCoatKryFill";         	 
+     Values  =  "DoubleLowESoftCoatArgFill,TripleLowEHardCoatKryFill";         	 
    }    
    
   // Extra drywall:  OneSheet
