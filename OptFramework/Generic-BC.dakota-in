@@ -236,6 +236,9 @@ variables,
 				
 			# PV 'Opt-StandoffPV'
 				3201	# 'NoPV'
+				3202	# 'Sized|3kW'
+				3203	# 'Sized|5kW'
+				3204	# 'Sized|8kW'
 			
 			# DHWR + SDHW 'Opt-DWHRandSDHW'
 				3000	# 'None'
