@@ -902,7 +902,7 @@ while ( my ( $attribute, $choice) = each %gChoices ){
 		
 		# Catch integer choice values used for Dakota!
 		# - Modify choice that uses integer alias to use option name
-		if ( $choice =~ /\d{3,4}/ ){
+		if ( $gDakota && $choice =~ /\d{3,4}/ ){
 			#Use option text string that matches this integer alias
 			my $OptHash = $gOptions{$attribute}{"options"}; 
 			for my $optionIndex ( keys (%$OptHash) ){
@@ -913,6 +913,17 @@ while ( my ( $attribute, $choice) = each %gChoices ){
 					$allok = 1;
 					if ( $attribute =~ /rotate/ ) {
 						$gRotate = $optionIndex;
+					}
+					if ( $choice =~ /\|/ ) {
+						my $extradata = $choice; 
+						my $value = $choice;
+						$value =~ s/\|.*$//g; 
+						$extradata =~ s/^.*\|//g; 
+						$extradata =~ s/^.*\|//g; 
+						$gChoices{$attribute}=$value ;
+						$gExtraDataSpecd{$attribute} = $extradata; # Additional data
+					} else {
+						$gExtraDataSpecd{$attribute} = ""; # Additional data
 					}
 					# Make sure that this opt name string (from alias) is in options hash!
 					if( ! defined( $gOptions{$attribute}{"options"}{$choice} )) {
@@ -2867,27 +2878,38 @@ sub postprocessDakota()
 				elsif ( $eleNum == 19 ) { $DataIn[$eleNum] = "GOtag:Opt-CasementWindows"; }		#19:Opt-CasementWindows
 				elsif ( $eleNum == 20 ) { $DataIn[$eleNum] = "GOtag:Opt-Ceilings"; }			#20:Opt-Ceilings
 				elsif ( $eleNum == 21 ) { $DataIn[$eleNum] = "GOtag:Opt-MainWall"; }			#21:Opt-MainWall
-				elsif ( $eleNum == 22 ) { $DataIn[$eleNum] = "GOtag:Opt-GenericWall_1Layer_definitions"; }			#22:Opt-GenericWall_1Layer_definitions
-				elsif ( $eleNum == 23 ) { $DataIn[$eleNum] = "GOtag:Opt-ExposedFloor"; }		#22:Opt-ExposedFloor
-				elsif ( $eleNum == 24 ) { $DataIn[$eleNum] = "GOtag:Opt-BasementWallInsulation"; }	#23:Opt-BasementWallInsulation
-				elsif ( $eleNum == 25 ) { $DataIn[$eleNum] = "GOtag:Opt-BasementSlabInsulation"; }	#24:Opt-BasementSlabInsulation
-				elsif ( $eleNum == 26 ) { $DataIn[$eleNum] = "GOtag:Ext-DryWall"; }				#25:Opt-ExtraDrywall
-				elsif ( $eleNum == 27 ) { $DataIn[$eleNum] = "GOtag:Opt-FloorSurface"; }		#26:Opt-FloorSurface
-				elsif ( $eleNum == 28 ) { $DataIn[$eleNum] = "GOtag:Opt-DHWSystem"; }			#27:Opt-DHWSystem
-				elsif ( $eleNum == 29 ) { $DataIn[$eleNum] = "GOtag:Opt-HVACSystem"; }			#28:Opt-HVACSystem
-				elsif ( $eleNum == 30 ) { $DataIn[$eleNum] = "GOtag:Opt-Cooling-Spec"; }		#29:Opt-Cooling-Spec
-				elsif ( $eleNum == 31 ) { $DataIn[$eleNum] = "GOtag:Opt-HRVSpec"; }				#30:Opt-HRVspec
-				elsif ( $eleNum == 32 ) { $DataIn[$eleNum] = "GOtag:Opt-HRVduct"; }				#31:Opt-HRVduct
-				elsif ( $eleNum == 33 ) { $DataIn[$eleNum] = "GOtag:Opt-StandoffPV"; }			#32:Opt-StandoffPV
-				elsif ( $eleNum == 34 ) { $DataIn[$eleNum] = "GOtag:Opt-DWHRandSDHW"; }			#33:Opt-DWHRandSDHW
-				elsif ( $gReorder && $eleNum == 35 ) { $DataIn[58] = "Sub Iteration"; $DataIn[59] = "Step Number"; } #58 & 59 for GenOpt
+				elsif ( $eleNum == 22 ) { $DataIn[$eleNum] = "GOtag:Opt-GenericWall_1Layer_definitions"; }	#22:Opt-GenericWall_1Layer_definitions
+				elsif ( $eleNum == 23 ) { $DataIn[$eleNum] = "GOtag:Opt-ExposedFloor"; }		#23:Opt-ExposedFloor
+				elsif ( $eleNum == 24 ) { $DataIn[$eleNum] = "GOtag:Opt-BasementWallInsulation"; }	#24:Opt-BasementWallInsulation
+				elsif ( $eleNum == 25 ) { $DataIn[$eleNum] = "GOtag:Opt-BasementSlabInsulation"; }	#25:Opt-BasementSlabInsulation
+				elsif ( $eleNum == 26 ) { $DataIn[$eleNum] = "GOtag:Ext-DryWall"; }				#26:Opt-ExtraDrywall
+				elsif ( $eleNum == 27 ) { $DataIn[$eleNum] = "GOtag:Opt-FloorSurface"; }		#27:Opt-FloorSurface
+				elsif ( $eleNum == 28 ) { $DataIn[$eleNum] = "GOtag:Opt-DHWSystem"; }			#28:Opt-DHWSystem
+				elsif ( $eleNum == 29 ) { $DataIn[$eleNum] = "GOtag:Opt-HVACSystem"; }			#29:Opt-HVACSystem
+				elsif ( $eleNum == 30 ) { $DataIn[$eleNum] = "GOtag:Opt-Cooling-Spec"; }		#30:Opt-Cooling-Spec
+				elsif ( $eleNum == 31 ) { $DataIn[$eleNum] = "GOtag:Opt-HRVSpec"; }				#31:Opt-HRVspec
+				elsif ( $eleNum == 32 ) { $DataIn[$eleNum] = "GOtag:Opt-HRVduct"; }				#32:Opt-HRVduct
+				elsif ( $eleNum == 33 ) { $DataIn[$eleNum] = "GOtag:Opt-StandoffPV"; }			#33:Opt-StandoffPV
+				elsif ( $eleNum == 34 ) { $DataIn[$eleNum] = "GOtag:Opt-DWHRandSDHW"; }			#34:Opt-DWHRandSDHW
+				elsif ( $gReorder && $eleNum == 35 ) { 											
+					$DataIn[59] = "Sub Iteration"; 												#59 for GenOpt
+					$DataIn[60] = "Step Number"; 												#60 for GenOpt
+					$DataIn[61] = "Garbage1";	#Used for Dakota unmapped GenOpt fields
+					$DataIn[62] = "Garbage2";	#Used for Dakota unmapped GenOpt fields
+					$DataIn[63] = "Garbage3";	#Used for Dakota unmapped GenOpt fields
+					$DataIn[64] = "Garbage4";	#Used for Dakota unmapped GenOpt fields
+				}
 			}
 			elsif ( $eleNum == 1 ) {
 				$DataIn[$eleNum] = $DataIn[0];	# Same as Simulation Number
 				if ( $gReorder ) {
 					# Set values for GenOpt values not read in
-					$DataIn[58] = 1; 	#Sub Iteration
-					$DataIn[59] = 1;	#Step Number
+					$DataIn[58] = 1; 		#Sub Iteration
+					$DataIn[59] = 1;		#Step Number
+					$DataIn[61] = "Empty";	#Used for unmapped fields
+					$DataIn[62] = "Empty";	#Used for unmapped fields
+					$DataIn[63] = "Empty";	#Used for unmapped fields
+					$DataIn[64] = "Empty";	#Used for unmapped fields
 				}
 			}
 			elsif ( $eleNum > 1 && $eleNum < 35 && $TestValue =~ /\d{3,4}/ ){
@@ -2919,7 +2941,7 @@ sub postprocessDakota()
 			if ( $eleNum == scalar(@DataIn)-1 ) {
 				if ( $gReorder ) {
 					# Reorder the output to match order of Genopt Data (ignores elements 42,43,53, 57). See GenOpt-Dakota Output Mapping.xlsx for mapping (Jeff).
-					$DataOut = "$DataIn[0]\t$DataIn[1]\t$DataIn[58]\t$DataIn[59]\t$DataIn[55]\t$DataIn[34]\t$DataIn[35]\t$DataIn[36]\t$DataIn[37]\t$DataIn[38]\t$DataIn[39]\t$DataIn[40]\t$DataIn[41]\t$DataIn[44]\t$DataIn[45]\t$DataIn[46]\t$DataIn[47]\t$DataIn[48]\t$DataIn[49]\t$DataIn[50]\t$DataIn[51]\t$DataIn[52]\t$DataIn[54]\t$DataIn[56]\t$DataIn[2]\t$DataIn[3]\t$DataIn[4]\t$DataIn[9]\t$DataIn[10]\t$DataIn[17]\t$DataIn[18]\t$DataIn[21]\t$DataIn[23]\t$DataIn[24]\t$DataIn[22]\t$DataIn[20]\t$DataIn[19]\t$DataIn[25]\t$DataIn[26]\t$DataIn[33]\t$DataIn[27]\t$DataIn[28]\t$DataIn[29]\t$DataIn[30]\t$DataIn[31]\t$DataIn[32]\t$DataIn[13]\t$DataIn[12]\t$DataIn[16]\t$DataIn[15]\t$DataIn[8]\t$DataIn[5]\n";
+					$DataOut = "$DataIn[0]\t$DataIn[1]\t$DataIn[59]\t$DataIn[60]\t$DataIn[56]\t$DataIn[35]\t$DataIn[36]\t$DataIn[37]\t$DataIn[38]\t$DataIn[39]\t$DataIn[40]\t$DataIn[41]\t$DataIn[42]\t$DataIn[45]\t$DataIn[46]\t$DataIn[47]\t$DataIn[48]\t$DataIn[49]\t$DataIn[50]\t$DataIn[51]\t$DataIn[52]\t$DataIn[53]\t$DataIn[55]\t$DataIn[57]\t$DataIn[58]\t$DataIn[2]\t$DataIn[3]\t$DataIn[8]\t$DataIn[4]\t$DataIn[9]\t$DataIn[10]\t$DataIn[18]\t$DataIn[17]\t$DataIn[21]\t$DataIn[22]\t$DataIn[24]\t$DataIn[25]\t$DataIn[23]\t$DataIn[20]\t$DataIn[19]\t$DataIn[26]\t$DataIn[27]\t$DataIn[34]\t$DataIn[28]\t$DataIn[29]\t$DataIn[31]\t$DataIn[33]\t$DataIn[30]\t$DataIn[32]\t$DataIn[61]\t$DataIn[62]\t$DataIn[63]\t$DataIn[64]\t$DataIn[13]\t$DataIn[12]\t$DataIn[16]\t$DataIn[15]\t$DataIn[5]\n";
 				} else {
 					$DataOut .= "\n";
 				}
