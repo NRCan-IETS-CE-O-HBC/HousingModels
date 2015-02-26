@@ -35,7 +35,7 @@ OPT-HRV_ctl          : ERSp3ACH !EightHRpDay
 !Optional operations schedule for zoned systems
 ! constant
 ! scheduled
-OPT-OPR-SCHED        : constant
+OPT-OPR-SCHED        : scheduled
 
 ! Turn original design windows opaque ( NoWindows!)
 ! or transparent (MinWindows). NoWindows doesn't presently work!
