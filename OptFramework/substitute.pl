@@ -2904,8 +2904,8 @@ sub postprocessDakota()
 				$DataIn[$eleNum] = $DataIn[0];	# Same as Simulation Number
 				if ( $gReorder ) {
 					# Set values for GenOpt values not read in
-					$DataIn[58] = 1; 		#Sub Iteration
-					$DataIn[59] = 1;		#Step Number
+					$DataIn[59] = 1; 		#Sub Iteration
+					$DataIn[60] = 1;		#Step Number
 					$DataIn[61] = "Empty";	#Used for unmapped fields
 					$DataIn[62] = "Empty";	#Used for unmapped fields
 					$DataIn[63] = "Empty";	#Used for unmapped fields
