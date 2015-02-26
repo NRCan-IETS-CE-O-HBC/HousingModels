@@ -98,7 +98,7 @@ variables,
 			1 #'Opt-Cooling-Spec'
 			1 #'Opt-HRVspec'
 			1 #'Opt-HRVduct'
-			1 #'Opt-StandoffPV'
+			4 #'Opt-StandoffPV'
 			3 #'Opt-DWHRandSDHW'
 		
 		elements 
