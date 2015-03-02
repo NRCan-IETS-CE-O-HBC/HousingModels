@@ -110,6 +110,13 @@ Vary{
      Values  =  "NWT-1986,NWT-1986_4,NWT-1986_1_5,NWT-1986_2,NWT-1986_3"; 
    }    
   
+    Parameter{   // 
+     Name    =  GOtag:Opt-GenericWall_1Layer_definitions;
+     Ini     =  1;
+     Values  =  "Stud_2x6_R20"; 
+   }
+  
+  
    // Foundation walls: 
    //        NWT:   - NWTCrawlWll
    //               - NWTCrawlWll4 (with 4" ext EPS)
