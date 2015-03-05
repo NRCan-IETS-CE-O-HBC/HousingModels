@@ -351,9 +351,9 @@
 *attribute:tag:1 = <OPT-HRV_ctl>
 *attribute:default  = EightHRpDay
 
-*option:Continuious:value:1 = 7
-*option:Continuious:cost:total    = 0
-*option:Continuious:alias = 800
+*option:Continuous:value:1 = 7
+*option:Continuous:cost:total    = 0
+*option:Continuous:alias = 800
 
 *option:ERSp3ACH:value:1 = 8
 *option:ERSp3ACH:cost:total    = 0
@@ -721,7 +721,7 @@
 *option:BC_LEEP:value:14   = 5.94
 *option:BC_LEEP:value:15   = 6.604
 *option:BC_LEEP:value:16   = 39.23
-*option:BC_LEEP:value:17   = 364.2	! volume for ERS calc from (ESP-r = 407.2 m3)
+*option:BC_LEEP:value:17   = 392	! volume for ERS calc from (ESP-r = 407.2 m3)
 *option:BC_LEEP:cost:total = 0
 *option:BC_LEEP:alias = 1206
 
@@ -2402,6 +2402,10 @@ Reflects southern Ontario costs
 *option:UpgHRV_SRE78:value:1    = HRV-upg.vnt
 *option:UpgHRV_SRE78:cost:total = 920
 *option:UpgHRV_SRE78:alias = 2503
+
+*option:BaseHRV_SREZero:value:1    = HRV0-base.vnt
+*option:BaseHRV_SREZero:cost:total = 0
+*option:BaseHRV_SREZero:alias = 2501
 
 *option:FansOnly:value:1 = FansOnly.vnt		!Using HRV0-base.vnt (HRV with 0 eff. much higher ERS value than FansOnly option)
 *option:FansOnly:cost:total = 0
