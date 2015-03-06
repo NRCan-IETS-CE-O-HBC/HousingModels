@@ -14,7 +14,7 @@ Simulation{
       Input{
          File1 = "GenOpt-picked-these-choices.GO-tmp";
          Path1 = "./";
-         SavePath1 = "./ArchGOChoiceFiles/"; 
+      //   SavePath1 = "./ArchGOChoiceFiles/"; 
 
       }
       
@@ -126,7 +126,10 @@ Simulation{
       Delimiter21 = "Upgrade-cost      =  ";
 
       Name22 = PVSizekW;
-      Delimiter22 = "PV-size-kW      =  ";      
+      Delimiter22 = "PV-size-kW        =  ";      
+	  
+	  Name23 = ERS-Value
+	  Delimiter23 = "ERS-Value         =  ";
       
      
 
