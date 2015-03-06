@@ -627,7 +627,7 @@
 *option:NWT_1986:value:14   = 0.
 *option:NWT_1986:value:15   = 0.
 *option:NWT_1986:value:16   = 0.
-*option:NWT_1986:value:17   = 500	!Need volume for ERS
+*option:NWT_1986:value:17   = 361	!Need volume for ERS
 *option:NWT_1986:cost:total = 0
 *option:NWT_1986:alias = 1205
 
@@ -2332,14 +2332,14 @@ Reflects southern Ontario costs
 *option:upgrade_wood_furnace:cost:total    = 0
 *option:upgrade_wood_furnace:alias = 2324
 
-*option:oil96:value:1 = oil95furnace.hvac
-*option:oil96:value:2 = #-no-GSHP-file
-*option:oil96:value:3 = #No-IMS: 
-*option:oil96:value:4 = #
-*option:oil96:value:5 = 
-*option:oil96:value:6 = shoulder-ideal.ctl 
-*option:oil96:cost:total    = 0
-*option:oil96:alias = 2325
+*option:oil80:value:1 = oil80furnace.hvac
+*option:oil80:value:2 = #-no-GSHP-file
+*option:oil80:value:3 = #No-IMS: 
+*option:oil80:value:4 = #
+*option:oil80:value:5 = 
+*option:oil80:value:6 = shoulder-ideal.ctl 
+*option:oil80:cost:total    = 0
+*option:oil80:alias = 2325
 
 *option:baseboard:value:1 = Baseboard.hvac
 *option:baseboard:value:2 = #-no-GSHP-file

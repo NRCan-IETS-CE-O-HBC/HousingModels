@@ -73,7 +73,7 @@ Vary{
   
     Name = GOtag:Opt-ACH; 
     Ini  = 1;
-    Values = "retro_ACH_5_5,retro_ACH_5,retro_ACH_4_5,retro_ACH_4,retro_ACH_3_5";
+    Values = "retro_ACH_3_5";//,retro_ACH_3,retro_ACH_2_5,retro_ACH_2,retro_ACH_1_5,retro_ACH_1";
 
   }
 
@@ -107,7 +107,7 @@ Vary{
    Parameter{   // 
      Name    =  GOtag:Opt-MainWall;
      Ini     =  1;
-     Values  =  "NWT-1986,NWT-1986_4,NWT-1986_1_5,NWT-1986_2,NWT-1986_3"; 
+     Values  =  "NWT-1986";//,NWT-1986_4,NWT-1986_1_5,NWT-1986_2,NWT-1986_3"; 
    }    
   
     Parameter{   // 
@@ -125,7 +125,7 @@ Vary{
    Parameter{   // 
      Name    =  GOtag:Opt-BasementWallInsulation;
      Ini     =  1;
-     Values  =  "NWTCrawlWll,NWTCrawlWll4";
+     Values  =  "NWTCrawlWll";//,NWTCrawlWll4";
    } 
 
    // Basement Slab: NoInsulation  
@@ -142,7 +142,7 @@ Vary{
    Parameter{   // 
      Name    =  GOtag:Opt-ExposedFloor;
      Ini     =  1;
-     Values  =  "NWT1986Flr";//,NWTCrawlFlr,NWTCrawlFlr6";
+     Values  =  "NWT1986Flr";//,NWTCrawlFlr6";
    }    
    
    // Ceilings: 
@@ -155,7 +155,7 @@ Vary{
    Parameter{   // 
      Name    =  GOtag:Opt-Ceilings;
      Ini     =  1;
-     Values  =  "NWTCei1986,NWTCeilR40,NWTCeilR50,NWTCeilR60,NWTCeilR70";
+     Values  =  "HotRoofR40";//,HotRoofR50,HotRoofR60,HotRoofR70";
    }    
   
   // Windows: 
@@ -172,7 +172,7 @@ Vary{
   Parameter{   // 
      Name    =  GOtag:Opt-CasementWindows;
      Ini     =  1;
-     Values  =  "Wind1_trp_CL,Win2scLE1_tr,Win3hcLE1_tr,Win4scLE2_tr,Win5hcLE2_tr,Win6_qd_CL,Triple_win_shutter,Quad_win_shutter";    
+     Values  =  "DoubleClear";//,DoubleLowEHardCoatArgFill,Wind1_trp_CL,Win2scLE1_tr,Win3hcLE1_tr,Win4scLE2_tr,Win5hcLE2_tr,Win6_qd_CL";    
      
    }    
    
@@ -218,14 +218,14 @@ Vary{
   Parameter{ //
      Name    = GOtag:Opt-DHWSystem;
      Ini     = 1; 
-     Values  = "NWT_oil_inst,NWT_elec_inst,NWT_oil_DHW,elec_DHW,NWT_upgrade_elec_DHW,NWT_upgrade_oil_DHW"; 
+     Values  = "NWT_oil_DHW";//NWT_oil_inst,NWT_elec_inst,,elec_DHW,NWT_upgrade_elec_DHW,NWT_upgrade_oil_DHW"; 
   }
 
   
   // Heating/cooling: 
   //         NWT:     Olsen
   //                  upgrade_Olsen
-  //                  oil96
+  //                  oil80
   //                  baseboard 
   //                  oil_boiler
   //                  upgrade_wood_furnace
@@ -234,7 +234,7 @@ Vary{
   Parameter {// 
       Name   = GOtag:Opt-HVACSystem; 
       Ini    = 1; 
-      Values = "baseboard,oil_boiler,Olsen,upgrade_Olsen,oil96,wood_furnace,upgrade_wood_furnace"; 
+      Values = "oil_boiler";//,Olsen,upgrade_Olsen,oil80,wood_furnace,upgrade_wood_furnace"; 
   }
 
  // Cooling spec
@@ -272,7 +272,7 @@ Vary{
   Parameter{   // 
      Name    =  GOtag:Opt-StandoffPV;
      Ini     =  1;
-     Values  = "NoPV,SizedPV|3kW,SizedPV|5kW,SizedPV|8kW";
+     Values  = "NoPV";//,SizedPV|3kW,SizedPV|5kW,SizedPV|8kW";
   } 
   
   
