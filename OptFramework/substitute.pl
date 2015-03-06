@@ -1382,7 +1382,7 @@ for ( my $iRun = 1; $iRun <= $gNumRunSetsRqd; $iRun++ ) {
 		my $SpcHtConsump = $SpcElecEnergy * 1.0 + $SpcFuelEnergy * $FuelEff;  
 		my $DHWElec = $gAvgEnergyWaterHeatingElec * 1000.;
 		my $DHWFuel = $gAvgEnergyWaterHeatingFossil * 1000.;
-		my $OccConsump = 1.136 * ( $DHWElec * 0.88 + $DHWFuel * 0.57 );
+		my $OccConsump = 1.136 * ( $DHWElec * 0.88 + $DHWFuel * 0.57 ) + 31536. ;
 		my $EstTotEnergy = $SpcHtConsump + $OccConsump - $gAvgPVOutput_kWh*3.6;
 		$EstTotEnergy = $EstTotEnergy < 0 ? 0.0 : $EstTotEnergy;
 		
@@ -1391,7 +1391,7 @@ for ( my $iRun = 1; $iRun <= $gNumRunSetsRqd; $iRun++ ) {
 		my $HDD =$RegionalHDD{$Locale};
 		my $SpcHtBM = 3.6 * ( 49. * $HDD / 6000. ) * ( 40. + $HseVol / 2.5 );
 		my $TempWM = $RegionalWaterMainTemp{$Locale};
-		my $DHWBM = 1.136 * 17082. * (5. - $TempWM) / (55. - 9.5);
+		my $DHWBM = 1.136 * 17082. * (55. - $TempWM) / (55. - 9.5);
 		my $BaseLdBM = 31536.;
 		my $BenchmarkTotEnergy = $SpcHtBM + $DHWBM + $BaseLdBM;
 		
