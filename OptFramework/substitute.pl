@@ -956,7 +956,7 @@ my $gElecLS = $gChoices{"Opt-ElecLoadScale"};
 my $gDHWLS  = $gChoices{"Opt-DHWLoadScale"};
 
 if ( $gERSCalcMode ) {
-	if ( $gElecLS =~ /"NoReduction"/ && $gDHWLS =~ /"OLDERS"/ ) {
+	if ( $gElecLS =~ /NoReduction/ && $gDHWLS =~ /OldERS/ && $gHRVctl =~ /ERSp3ACH/ ) {
 		# Conditions already set correctly to calculate ERS!
 		$gNumRunSetsRqd = 1;
 	} else {
@@ -1396,6 +1396,9 @@ for ( my $iRun = 1; $iRun <= $gNumRunSetsRqd; $iRun++ ) {
 		my $BenchmarkTotEnergy = $SpcHtBM + $DHWBM + $BaseLdBM;
 		
 		$gERSNum = 100 - ( $EstTotEnergy / $BenchmarkTotEnergy ) * 20;
+
+		my $tmpval = round($gERSNum * 10) / 10.;
+		stream_out(" ERS value: ".$tmpval."\n\n");
 		
 		# Set back the choices to original values, if necessary (for 2nd run)!
 		if ( $gNumRunSetsRqd == 2 ) {
@@ -2685,11 +2688,6 @@ sub postprocess($){
   stream_out("  - ".round($gEnergyWood* 8760. * 60. * 60.)." (Wood, cord)\n");
   stream_out("  - ".round($gEnergyPellet* 8760. * 60. * 60.)." (Pellet, tonnes)\n");
   
-  if ( $gERSCalcMode && $gERSNum > 0 ) {
-	my $tmpval = round($gERSNum * 10) / 10.;
-	stream_out("  - ".$tmpval." (ERS value)\n");
-  }
- 
   stream_out ("> SCALE $ScaleData \n"); 
   
   
@@ -2716,6 +2714,10 @@ sub postprocess($){
   
   stream_out ( " ( Unadjusted upgrade costs: \$".eval( $gTotalCost  /  $gRegionalCostAdj )." )\n\n");
   
+  if ( $gERSCalcMode && $gERSNum > 0 ) {
+	my $tmpval = round($gERSNum * 10) / 10.;
+	stream_out(" ERS value: ".$tmpval."\n");
+  }
   
   chdir($gMasterPath);
   my $fileexists; 
