@@ -829,7 +829,7 @@
 *option:DoubleLowEHardCoatArgFill:value:6 = DblLeHcArg 
 *option:DoubleLowEHardCoatArgFill:value:7 = DblLeHcArg 
 *option:DoubleLowEHardCoatArgFill:value:8 = DblLeHcArg 
-*option:DoubleLowEHardCoatArgFill:cost:total    = 2885! Value changed for Van_2st_80_retro geometry. Originally 11727
+*option:DoubleLowEHardCoatArgFill:cost:total    = 0 ! Value changed for Van_2st_80_retro geometry. Originally 11727
 *option:DoubleLowEHardCoatArgFill:alias    = 1401
 
 *option:TripleLowEHardCoatKryFill:value:1 = TplLeHcKry
@@ -840,7 +840,7 @@
 *option:TripleLowEHardCoatKryFill:value:6 = TplLeHcKry
 *option:TripleLowEHardCoatKryFill:value:7 = TplLeHcKry
 *option:TripleLowEHardCoatKryFill:value:8 = TplLeHcKry
-*option:TripleLowEHardCoatKryFill:cost:total    = 1595 ! Value changed for Van_2st_80_retro geometry. Originally 20871
+*option:TripleLowEHardCoatKryFill:cost:total    = 1665 ! Value changed for Van_2st_80_retro geometry. Originally 20871
 *option:TripleLowEHardCoatKryFill:alias    = 1402
 
 *option:TripleLowESoftCoatKryFill:value:1 = TplLeScKry
@@ -851,7 +851,7 @@
 *option:TripleLowESoftCoatKryFill:value:6 = TplLeScKry
 *option:TripleLowESoftCoatKryFill:value:7 = TplLeScKry
 *option:TripleLowESoftCoatKryFill:value:8 = TplLeScKry
-*option:TripleLowESoftCoatKryFill:cost:total    = 4050 ! Value changed for Van_2st_80_retro geometry. Originally 19310
+*option:TripleLowESoftCoatKryFill:cost:total    = 1893 ! Value changed for Van_2st_80_retro geometry. Originally 19310
 *option:TripleLowESoftCoatKryFill:alias    = 1403
 
 *option:DoubleLowESoftCoatArgFill:value:1 = DblLeScArg
@@ -862,7 +862,7 @@
 *option:DoubleLowESoftCoatArgFill:value:6 = DblLeScArg
 *option:DoubleLowESoftCoatArgFill:value:7 = DblLeScArg
 *option:DoubleLowESoftCoatArgFill:value:8 = DblLeScArg
-*option:DoubleLowESoftCoatArgFill:cost:total    = 0 	! Base for BC-LEEP (Vancouver)
+*option:DoubleLowESoftCoatArgFill:cost:total    = 478.6 	! Base for BC-LEEP (Vancouver)
 														! Was 2440 from last use
 														! Van_2st_80_retro geometry: Originally 10965
 *option:DoubleLowESoftCoatArgFill:alias    = 1404
