@@ -1176,47 +1176,47 @@
 
 *option:CeilR40:value:1 =   CeilR40
 !*option:CeilR40:value:2 =   CeilR40R
-*option:CeilR40:cost:total    =   0
+*option:CeilR40:cost:total    =   0		! BC-LEEP base
 *option:CeilR40:alias    =   1600
 
 *option:CeilR50:value:1 =   CeilR50
 !*option:CeilR50:value:2 =   CeilR50R
-*option:CeilR50:cost:total    =   0
+*option:CeilR50:cost:total    =   255	! BC-LEEP
 *option:CeilR50:alias    =   1601
 
 *option:CeilR60:value:1 =   CeilR60
 !*option:CeilR60:value:2 =   CeilR60R
-*option:CeilR60:cost:total    =   310
+*option:CeilR60:cost:total    =   440	! BC-LEEP
 *option:CeilR60:alias    =   1602
 
 *option:CeilR70:value:1 =   CeilR70
 !*option:CeilR70:value:2 =   CeilR70R
-*option:CeilR70:cost:total  =   790
+*option:CeilR70:cost:total  =   725		! BC-LEEP
 *option:CeilR70:alias  =   1603
 
 *option:CeilR80:value:1 =   CeilR80
 !*option:CeilR80:value:2 =   CeilR80R
-*option:CeilR80:cost:total    =   1210
+*option:CeilR80:cost:total    =   970	! BC-LEEP
 *option:CeilR80:alias    =   1604
 
 *option:CeilR90:value:1 =   CeilR90
 !*option:CeilR90:value:2 =   CeilR90R
-*option:CeilR90:cost:total    =   1630
+*option:CeilR90:cost:total    =   1220	! BC-LEEP
 *option:CeilR90:alias    =   1605
 
 *option:CeilR100:value:1 =  CeilR100
 !*option:CeilR100:value:2 =  CeilR100R
-*option:CeilR100:cost:total    =  2050
+*option:CeilR100:cost:total    = 1465 	! BC-LEEP 
 *option:CeilR100:alias    =  1606
 
 *option:CeilR110:value:1 =  CeilR110
 !*option:CeilR110:value:2 =  CeilR110R
-*option:CeilR110:cost:total    =  2788  !This value not updated for Vancouver geometry
+*option:CeilR110:cost:total    =  2788  
 *option:CeilR110:alias    =  1607
 
 *option:CeilR120:value:1 =  CeilR120
 !*option:CeilR120:value:2 =  CeilR120R
-*option:CeilR120:cost:total    =  3257  !This value not updated for Vancouver geometry
+*option:CeilR120:cost:total    =  3257  
 *option:CeilR120:alias    =  1608
 
 !-----------------------------------------------------------------------
