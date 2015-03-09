@@ -28,7 +28,7 @@ Opt-Location : Vancouver
 !              natural and mechanical vent. 
 !  - EightHRpDay: HRV operates 33% of each hour, for 8hr/day total.
 
-OPT-HRV_ctl          : EightHRpDay
+OPT-HRV_ctl          : EightHRpDay	!ERSp3ACH
 
 !Opt-CTL-Strategy     : ecoEIIFramework  
 
@@ -198,7 +198,7 @@ Opt-ElecLoadScale    : NoReduction !NGERSNoReduction19
 !   - No-Reduction ( 190 L/day ) 
 !   - Low-Flow     ( 141 L/day ) 
 
-Opt-DHWLoadScale     : No-Reduction       
+Opt-DHWLoadScale     : OldERS	!No-Reduction       
 
 Opt-RoofPitch : 6-12
 
