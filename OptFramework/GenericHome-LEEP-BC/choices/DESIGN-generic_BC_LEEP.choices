@@ -152,7 +152,7 @@ Opt-BasementWallInsulation  : OBC-min-R12
 ! Retrofit Windows
 !    DoubleClear 
 
-Opt-CasementWindows  :  DoubleLowESoftCoatArgFill 
+Opt-CasementWindows  :  DoubleLowEHardCoatArgFill 
 
 
 ! Exposed floor over garage (affects floor
@@ -217,5 +217,5 @@ Opt-Cooling-Spec     : 2TonStdCooling		! Does nothing for BC-LEEP (No cooling ta
 
 ! HRV spec 
 
-Opt-HRVspec : FansOnly	!BaseHRV_SRE55
+Opt-HRVspec : BaseHRV_SREZero	!BaseHRV_SRE55
 Opt-HRVduct : interlock
