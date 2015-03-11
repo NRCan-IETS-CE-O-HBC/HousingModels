@@ -2199,14 +2199,14 @@ Whitehorse Wall Options (Code is R28)
 *option:CCASHP:cost:total   = 9595          ! Does this reflect AC system savings?
 *option:CCASHP:alias = 2311
 
-*option:CCASHP:value:1 = CCASHPv2-ecm.hvac
-*option:CCASHP:value:2 = #-no-GSHP-file
-*option:CCASHP:value:3 = #No-IMS: 
-*option:CCASHP:value:4 = 
-*option:CCASHP:value:5 = 
-*option:CCASHP:value:6 =  shoulder-ideal.ctl
-*option:CCASHP:cost:total   = 7840    ! BC-LEEP      
-*option:CCASHP:alias = 2325
+*option:CCASHP-ecm:value:1 = CCASHPv2-ecm.hvac
+*option:CCASHP-ecm:value:2 = #-no-GSHP-file
+*option:CCASHP-ecm:value:3 = #No-IMS: 
+*option:CCASHP-ecm:value:4 = 
+*option:CCASHP-ecm:value:5 = 
+*option:CCASHP-ecm:value:6 =  shoulder-ideal.ctl
+*option:CCASHP-ecm:cost:total   = 7840    ! BC-LEEP      
+*option:CCASHP-ecm:alias = 2325
 
 Reflects southern Ontario costs
 *option:GSHP:value:1 = GSHPv2.hvac
@@ -3241,13 +3241,25 @@ Reflects southern Ontario costs
 *option:SizedPV|3kW:cost:PerKW = 4696 ! $/kW installed
 *option:SizedPV|3kW:alias = 3202
 
+*option:SizedPV|4kW:dummy
+*option:SizedPV|4kW:cost:PerKW = 4696 ! $/kW installed
+*option:SizedPV|4kW:alias = 3203
+
 *option:SizedPV|5kW:dummy
 *option:SizedPV|5kW:cost:PerKW = 4696 ! $/kW installed
-*option:SizedPV|5kW:alias = 3203
+*option:SizedPV|5kW:alias = 3204
+
+*option:SizedPV|6kW:dummy
+*option:SizedPV|6kW:cost:PerKW = 4696 ! $/kW installed
+*option:SizedPV|6kW:alias = 3205
+
+*option:SizedPV|7kW:dummy
+*option:SizedPV|7kW:cost:PerKW = 4696 ! $/kW installed
+*option:SizedPV|7kW:alias = 3206
 
 *option:SizedPV|8kW:dummy
 *option:SizedPV|8kW:cost:PerKW = 4696 ! $/kW installed
-*option:SizedPV|8kW:alias = 3204
+*option:SizedPV|8kW:alias = 3207
 
 *ext-attribute:end
 
