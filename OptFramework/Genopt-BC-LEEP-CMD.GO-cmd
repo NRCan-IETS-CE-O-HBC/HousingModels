@@ -320,7 +320,7 @@ Vary{
   Parameter {// 
       Name   = GOtag:Opt-HVACSystem; 
       Ini    = 1; 
-      Values = "gas-furnace-psc,gas-furnace-ecm,zoned-furnace-ecm,Combi-P9-ecmV2,Combi-P9-zoned-ecm,elec-baseboard,CCASHP,GSHP"; 	  
+      Values = "gas-furnace-psc,gas-furnace-ecm,zoned-furnace-ecm,Combi-P9-ecmV2,Combi-P9-zoned-ecm,elec-baseboard,CCASHP-ecm,GSHP"; 	  
   }
   
   // HRV specification

@@ -211,7 +211,7 @@ variables,
 				2307    #Combi-P9-ecmV2
 				2330    #Combi-P9-zoned-ecm
 				2310	#elec-baseboard
-				2311	#CCASHP
+				2325	#CCASHP-ecm
 				2312	#GSHP
 				
 			# Cooling 'Opt-Cooling-Spec'
