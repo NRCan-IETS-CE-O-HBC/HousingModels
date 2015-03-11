@@ -80,11 +80,11 @@ variables,
 			1 #'Opt-RoofPitch'
 			1 #'Opt-OverhangWidth'
 			1 #'Opt-WindowOrientation'
-			1 #'Opt-DHWLoadScale' 
-			1 #'Opt-ElecLoadScale'
+			4 #'Opt-DHWLoadScale' 
+			3 #'Opt-ElecLoadScale'
 			1 #'Opt-AirTightness'    
 			5 #'Opt-ACH'
-			2 #'Opt-CasementWindows'
+			4 #'Opt-CasementWindows'
 			7 #'Opt-Ceilings'
 			1 #'Opt-MainWall'
 			25 #'Opt-GenericWall_1Layer_definitions'
@@ -93,12 +93,12 @@ variables,
 			4 #'Opt-BasementSlabInsulation'
 			1 #'Opt-ExtraDrywall'
 			1 #'Opt-FloorSurface'
-			4 #'Opt-DHWSystem'
-			5 #'Opt-HVACSystem'
+			5 #'Opt-DHWSystem'
+			8 #'Opt-HVACSystem'
 			1 #'Opt-Cooling-Spec'
-			1 #'Opt-HRVspec'
+			3 #'Opt-HRVspec'
 			1 #'Opt-HRVduct'
-			4 #'Opt-StandoffPV'
+			7 #'Opt-StandoffPV'
 			3 #'Opt-DWHRandSDHW'
 		
 		elements 
@@ -114,10 +114,6 @@ variables,
 				
 			# Orientation 'GOconfig_rotate'
 				202	#'N'
-				#201	#'E'
-				#200	#'S'
-				#203	#'W'
-				#'AVG'
 				
 			# Occupant gain schedules 'OPT-OPR-SCHED'
 				401		#'scheduled"
@@ -126,19 +122,14 @@ variables,
 				901	#'Auto'
 				
 			# HRC control 'OPT-HRV_ctl'
-				#800 # 'Continuous'
-				#801 # 'ERSp3ACH'
 				802	# 'EightHRpDay'  
 
 			# Building Design         
 			# Geometry - 'Opt-geometry'      
-				#1200	#'MattOtt_2st_garage'
 				1206	#'BC_LEEP'
 				
 			# Attachment type 'Opt-Attachment'
-				#500	#'single'
 				501	#'semi'
-				#502	#'row'
 				
 			# Base number of windows  'Opt-BaseWindows'
 				701	#'MinWindows'
@@ -153,24 +144,18 @@ variables,
 				 600	#all
 		   
 			# DHW Load scales 'Opt-DHWLoadScale' 
-				#2803	#'OldERS' 		# 225 L/day
-				#2805	#'EStar'
-				#2806	#'Low-Flow'		# 141 L/day
 				2804	#'No-Reduction	# 190 L/day
+				2803	#OldERS
+				2805	#EStar
+				2806	#Low-Flow
 				
 			# Electrical load scale  'Opt-ElecLoadScale'
-				#'NoReduction'          # 24 kW/day			    2700
-				#'BasicReduction'       # CEF Project			2701
-				#'EfficientLiving'      # CEF Project			2702
-				#'NGERSNoReduction19'   # Next Generation ERS 	2703   
-				#'NGERSReducedA16'      # Next Generation ERS	2704
-				#'NGERSBestInClass14p8' # Next Generation ERS	2705
-				2700
+				2700	#NoReduction  24 kW/day
+				2703	#NGERSNoReduction19
+				2704	#NGERSReducedA16
 				
 			# 'Opt-AirTightness'    
 				#'Generic'      1505  Use this with opt-ACH (retroACH)
-				#'Typical23' 	1501
-				#'r2000' 		1502
 				1505
 				
 			# Air-tightness Opt-ACH 
@@ -179,8 +164,10 @@ variables,
 				1304 1307 1309 1311 1312
 				
 			# Windows 'Opt-CasementWindows'
-				1404	#'DoubleLowESoftCoatArgFill'
-				1402	#'TripleLowEHardCoatKryFill'
+				1401	#DoubleLowEHardCoatArgFill
+				1402	#TripleLowEHardCoatKryFill
+				1404	#DoubleLowESoftCoatArgFill
+				1403    #TripleLowESoftCoatKryFill
 				
 			# Attic insulation 'Opt-Ceilings'
 				1600	#R40
@@ -188,8 +175,6 @@ variables,
 				1602	#R60
 				1603	#R70
 				1604	#R80
-				1605	#R90
-				1606	#R100
 				
 			# Above-grade walls 'Opt-MainWall'
 				3500	# GenericWall_1Layer
@@ -213,9 +198,10 @@ variables,
 				2200	# 'wood'
 				
 			# DHW SYSTEM 'Opt-DHWSystem'
-				2900	#'BaseDHW'
+				2900	#BaseDHW
 				2903	#GasInstantaneous
 				2911	#GasInstantaneous95
+				2902	#ElectricStorage
 				2904	#ElectricHP
 			
 			# Heating 'Opt-HVACSystem'
@@ -224,12 +210,18 @@ variables,
 				2304	#zoned-furnace-ecm
 				2307    #Combi-P9-ecmV2
 				2330    #Combi-P9-zoned-ecm
+				2310	#elec-baseboard
+				2311	#CCASHP
+				2312	#GSHP
 				
 			# Cooling 'Opt-Cooling-Spec'
 				2401	# '2TonStdCooling'
 				
 			# HRV specification 'Opt-HRVspec'
-				2504	#'FansOnly'
+				2501	#BaseHRV_SREZero
+				2502	#BaseHRV_SRE55
+				2503	#UpgHRV_SRE78
+				#2504	#'FansOnly'
 				
 			# HRV Ducts 'Opt-HRVduct'
 				2600	# 'interlock'
@@ -237,8 +229,11 @@ variables,
 			# PV 'Opt-StandoffPV'
 				3201	# 'NoPV'
 				3202	# 'Sized|3kW'
-				3203	# 'Sized|5kW'
-				3204	# 'Sized|8kW'
+				3203	# 'Sized|4kW'
+				3204	# 'Sized|5kW'
+				3205	# 'Sized|6kW'
+				3206	# 'Sized|7kW'
+				3207	# 'Sized|8kW'
 			
 			# DHWR + SDHW 'Opt-DWHRandSDHW'
 				3000	# 'None'
