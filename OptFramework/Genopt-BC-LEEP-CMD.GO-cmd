@@ -300,7 +300,7 @@ Vary{
   Parameter{ //
      Name    = GOtag:Opt-DHWSystem;
      Ini     = 1;
-     Values  = "BaseDHW,GasInstantaneous, ElectricStorage, GasInstantaneous95, ElectricHP";
+     Values  = "BaseDHW,GasInstantaneous,GasInstantaneous95,ElectricStorage, ElectricHP";
   }
 
   
@@ -320,12 +320,12 @@ Vary{
   Parameter {// 
       Name   = GOtag:Opt-HVACSystem; 
       Ini    = 1; 
-      Values = "gas-furnace-psc, 13kW-furnace-ecm, zoned-furnace-ecm, Combi-P9-ecmV2, Combi-P9-zoned-ecm, elec-baseboard,CCASHP,GSHP"; 	  
+      Values = "gas-furnace-psc,gas-furnace-ecm,zoned-furnace-ecm,Combi-P9-ecmV2,Combi-P9-zoned-ecm,elec-baseboard,CCASHP,GSHP"; 	  
   }
   
   // HRV specification
   Parameter { 
-     Name = GOtag:Opt-HRVSpec; 
+     Name = GOtag:Opt-HRVspec; 
      Ini  = 1; 
      Values = "BaseHRV_SREZero,BaseHRV_SRE55,UpgHRV_SRE78";//FansOnly"; 
   }
@@ -413,13 +413,13 @@ Vary{
 	  //      (CEF assumptions (equilibrium)) BasicReduction, EfficientLiving
 	  //      (Next-gen ERS) NGERSNoReduction19, NGERSReducedA16,NGERSBestInClass14p8
       Ini    = 1;
-      Values = "NGERSNoReduction19,NGERSReducedA16";//NGERSNoReduction19";//, , NGERSReducedA16"; 
+      Values = "NGERSNoReduction19,NoReduction,NGERSReducedA16";//NGERSNoReduction19";//, , NGERSReducedA16"; 
   }
   Parameter { // 
       Name   = GOtag:DHWLoadScale; 
       Ini    = 1;
       // Value may be one of  OldERS,No-Reduction,EStar,Low-Flow      
-      Values = "No-Reduction,EStar,Low-Flow"; 
+      Values = "No-Reduction,OldERS,EStar,Low-Flow"; 
   }
   
   
