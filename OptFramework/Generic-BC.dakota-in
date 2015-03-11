@@ -85,7 +85,7 @@ variables,
 			1 #'Opt-AirTightness'    
 			5 #'Opt-ACH'
 			4 #'Opt-CasementWindows'
-			7 #'Opt-Ceilings'
+			5 #'Opt-Ceilings'
 			1 #'Opt-MainWall'
 			25 #'Opt-GenericWall_1Layer_definitions'
 			1 #'Opt-ExposedFloor'
@@ -236,7 +236,7 @@ variables,
 				3207	# 'Sized|8kW'
 			
 			# DHWR + SDHW 'Opt-DWHRandSDHW'
-				3000	# 'None'
+				3000	#None
 				3001	#DWHR-4-36
 				3002	#DWHR-4-60
 		
