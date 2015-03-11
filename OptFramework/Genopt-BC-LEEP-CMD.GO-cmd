@@ -325,7 +325,7 @@ Vary{
   
   // HRV specification
   Parameter { 
-     Name = GOtag:Opt-HRVspec; 
+     Name = GOtag:Opt-HRVSpec; 
      Ini  = 1; 
      Values = "BaseHRV_SREZero,BaseHRV_SRE55,UpgHRV_SRE78";//FansOnly"; 
   }
