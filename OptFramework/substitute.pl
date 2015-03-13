@@ -70,7 +70,7 @@ my $gEnergyVentilation;
 my $gEnergyWaterHeating; 
 my $gEnergyEquipment; 
 my $gERSNum = 0;		# ERS number
-
+my $gERSNum_noVent = 0;		# ERS number
 my $gDakota = 0; 
 my $gPostProcDakota = 0;
 my $gERSCalcMode = 0;
@@ -902,6 +902,7 @@ while ( my ( $attribute, $choice) = each %gChoices ){
 		
 		# Catch integer choice values used for Dakota!
 		# - Modify choice that uses integer alias to use option name
+		# - Modify choice that uses integer alias to use option name
 		if ( $gDakota && $choice =~ /\d{3,4}/ ){
 			#Use option text string that matches this integer alias
 			my $OptHash = $gOptions{$attribute}{"options"}; 
@@ -1376,16 +1377,19 @@ for ( my $iRun = 1; $iRun <= $gNumRunSetsRqd; $iRun++ ) {
 	if ( $gERSCalcMode && $iRun == 1 ) {
 		# Calculate ERS number for output. All energy values in MJ
 		my $SpcElecEnergy = ( $gAvgEnergyHeatingElec + $gAvgEnergyVentElec ) * 1000.;
+        my $SpcElecEnergy_noVent = ( $gAvgEnergyHeatingElec) * 1000.;
 		my $SpcFuelEnergy = $gAvgEnergyHeatingFossil * 1000.;
 		# NG/Propane:0.90, Oil:0.83, All Wood:0.75
 		my $FuelEff = $gEnergyTotalWood > 0 ? 0.75 : $gAmtOil > 0 ? 0.83 : 0.90;
 		my $SpcHtConsump = $SpcElecEnergy * 1.0 + $SpcFuelEnergy * $FuelEff;  
+        my $SpcHtConsump_noVent = $SpcElecEnergy_noVent * 1.0 + $SpcFuelEnergy * $FuelEff; 
 		my $DHWElec = $gAvgEnergyWaterHeatingElec * 1000.;
 		my $DHWFuel = $gAvgEnergyWaterHeatingFossil * 1000.;
 		my $OccConsump = 1.136 * ( $DHWElec * 0.88 + $DHWFuel * 0.57 ) + 31536. ;
 		my $EstTotEnergy = $SpcHtConsump + $OccConsump - $gAvgPVOutput_kWh*3.6;
+        my $EstTotEnergy_noVent = $SpcHtConsump_noVent + $OccConsump - $gAvgPVOutput_kWh*3.6;
 		$EstTotEnergy = $EstTotEnergy < 0 ? 0.0 : $EstTotEnergy;
-		
+		$EstTotEnergy_noVent = $EstTotEnergy_noVent < 0 ? 0.0 : $EstTotEnergy_noVent;
 		my $Locale = $gChoices{"Opt-Location"};
 		my $HseVol = $gOptions{"Opt-geometry"}{"options"}{$gChoices{"Opt-geometry"}}{"values"}{17}{"conditions"}{"all"};
 		my $HDD =$RegionalHDD{$Locale};
@@ -1396,9 +1400,11 @@ for ( my $iRun = 1; $iRun <= $gNumRunSetsRqd; $iRun++ ) {
 		my $BenchmarkTotEnergy = $SpcHtBM + $DHWBM + $BaseLdBM;
 		
 		$gERSNum = 100 - ( $EstTotEnergy / $BenchmarkTotEnergy ) * 20;
-
+        $gERSNum_noVent = 100 - ( $EstTotEnergy_noVent / $BenchmarkTotEnergy ) * 20;
 		my $tmpval = round($gERSNum * 10) / 10.;
-		stream_out(" ERS value: ".$tmpval."\n\n");
+		stream_out(" ERS value:          ".$tmpval."\n");
+        my $tmpval = round($gERSNum_noVent * 10) / 10.;
+        stream_out(" ERS value_noVent:   ".$tmpval."\n\n");
 		
 		# Set back the choices to original values, if necessary (for 2nd run)!
 		if ( $gNumRunSetsRqd == 2 ) {
@@ -1540,6 +1546,7 @@ if ( $gDakota ) {
 
 	if ( $gERSCalcMode ) {
 		print SUMMARY "ERS-Value         =  ". $gERSNum."\n";
+        print SUMMARY "ERS-Value_noVent  =  ". $gERSNum_noVent."\n";
 	}
 
 }

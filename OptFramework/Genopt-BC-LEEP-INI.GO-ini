@@ -39,10 +39,10 @@ Simulation{
    CallParameter {
       
       // Windows only: 
-      //Prefix = "C:\\cygwin\\bin\\perl.exe ";
+      Prefix = "C:\\cygwin\\bin\\perl.exe ";
       
       // LINUX 
-      Prefix = "" ;
+      //Prefix = "" ;
       
       Suffix = " -vv -e -c GenOpt-picked-these-choices.GO-tmp -o OPTIONS-generic.options -b GenericHome-LEEP-BC"; 
  
@@ -121,6 +121,9 @@ Simulation{
 	  Name21 = ERS-Value;
 	  Delimiter21 = "ERS-Value         =  ";
 
+      Name22 = ERS-Value-2;
+	  Delimiter22 = "ERS-Value_noVent  =  ";
+                     
    } // end Simulation.ObjectiveFunctionLocation
    
 } // end Simulation
