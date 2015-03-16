@@ -23,7 +23,7 @@
         capacity 13800
         efficiency 0.94
         circ-fan-mode <OPT-Furnace-Fan-Ctl>
-        circ-fan-power 268.
+        circ-fan-power 475.
         draft-fan-power 75. 
         pilot-power 0.
 
