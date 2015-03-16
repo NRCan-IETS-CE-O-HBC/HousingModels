@@ -2199,7 +2199,7 @@ Whitehorse Wall Options (Code is R28)
 *option:CCASHP:cost:total   = 9595          ! Does this reflect AC system savings?
 *option:CCASHP:alias = 2311
 
-*option:CCASHP-ecm:value:1 = CCASHPv2-ecm.hvac
+*option:CCASHP-ecm:value:1 = CCASHPv2-ecm-motor.hvac
 *option:CCASHP-ecm:value:2 = #-no-GSHP-file
 *option:CCASHP-ecm:value:3 = #No-IMS: 
 *option:CCASHP-ecm:value:4 = 
