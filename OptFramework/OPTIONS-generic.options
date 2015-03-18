@@ -105,6 +105,13 @@
 *option:scheduled:cost:total = 0
 *option:scheduled:alias = 401
 
+!JTB added for scheduled casual gains that exclude exterior electric (16% reduction)
+*option:scheduled1:value:1  = -scheduled1
+*option:scheduled1:cost:total = 0
+*option:scheduled1:alias = 402
+
+*attribute:end
+
 !-------------------------------------------------------------------------
 ! This option can be used to turn the detached house into an semi-detached
 ! or a row house. If the attachment tag is set to:
