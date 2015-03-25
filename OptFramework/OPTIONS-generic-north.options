@@ -865,24 +865,24 @@
 *option:Win6_qd_CL:alias = 1412
 
 *option:Triple_win_shutter:value:1 = Wind3SHUTTER
-*option:Triple_win_shutter:value:2 = Wind3SHUTTER
+*option:Triple_win_shutter:value:2 = OPAQ
 *option:Triple_win_shutter:value:3 = Wind3SHUTTER
-*option:Triple_win_shutter:value:4 = Wind3SHUTTER
+*option:Triple_win_shutter:value:4 = OPAQ
 *option:Triple_win_shutter:value:5 = Wind3SHUTTER
-*option:Triple_win_shutter:value:6 = Wind3SHUTTER
+*option:Triple_win_shutter:value:6 = OPAQ
 *option:Triple_win_shutter:value:7 = Wind3SHUTTER
-*option:Triple_win_shutter:value:8 = Wind3SHUTTER
+*option:Triple_win_shutter:value:8 = OPAQ
 *option:Triple_win_shutter:cost:total   = 24491
 *option:Triple_win_shutter:alias = 1413
 
 *option:Quad_win_shutter:value:1 = Wind4SHUTTER
-*option:Quad_win_shutter:value:2 = Wind4SHUTTER
+*option:Quad_win_shutter:value:2 = OPAQ
 *option:Quad_win_shutter:value:3 = Wind4SHUTTER
-*option:Quad_win_shutter:value:4 = Wind4SHUTTER
+*option:Quad_win_shutter:value:4 = OPAQ
 *option:Quad_win_shutter:value:5 = Wind4SHUTTER
-*option:Quad_win_shutter:value:6 = Wind4SHUTTER
+*option:Quad_win_shutter:value:6 = OPAQ
 *option:Quad_win_shutter:value:7 = Wind4SHUTTER
-*option:Quad_win_shutter:value:8 = Wind4SHUTTER
+*option:Quad_win_shutter:value:8 = OPAQ
 *option:Quad_win_shutter:cost:total   = 24491
 *option:Quad_win_shutter:alias = 1414
 
