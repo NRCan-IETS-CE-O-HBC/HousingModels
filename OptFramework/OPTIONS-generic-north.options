@@ -167,8 +167,8 @@
 *option:single:value:11= <Opt-MainWall-Bri>
 *option:single:value:12= OPAQUE
 *option:single:value:13= EXTERIOR
-*option:single:value:14= <OptAtt-windows-4-RightCON>
-*option:single:value:15= <OptAtt-windows-4-RightOPT>
+*option:single:value:14= <OptAtt-windows-4-RiGJtCON>
+*option:single:value:15= <OptAtt-windows-4-RiGJtOPT>
 *option:single:value:16= EXTERIOR
 *option:single:value:17= <OPT-BsmWall>
 *option:single:value:18= BASESIMP,01,10
@@ -263,7 +263,7 @@
 *attribute:end
 
 !-----------------------------------------------------------------------
-! This option renames the front/left/back/right window tags to 
+! This option renames the front/left/back/riGJt window tags to 
 ! N/S/E/W, according to the orientation .
 !-----------------------------------------------------------------------
 
@@ -275,8 +275,8 @@
 *attribute:tag:4 = <OptAtt-windows-2-LeftOPT>
 *attribute:tag:5 = <OptAtt-windows-3-BackCON>
 *attribute:tag:6 = <OptAtt-windows-3-BackOPT>
-*attribute:tag:7 = <OptAtt-windows-4-RightCON>
-*attribute:tag:8 = <OptAtt-windows-4-RightOPT>
+*attribute:tag:7 = <OptAtt-windows-4-RiGJtCON>
+*attribute:tag:8 = <OptAtt-windows-4-RiGJtOPT>
 *attribute:default  = all
 
 
@@ -325,7 +325,7 @@
 !-----------------DOESN't WORK-------------------------------------------
 ! This option can be used to turn the model's minimum
 ! number of windows opaque. It's not intended for optimization,
-! but might be useful in testing & debugging the model.
+! but miGJt be useful in testing & debugging the model.
 !-----------------------------------------------------------------------
 *attribute:start 
 *attribute:name  = Opt-BaseWindows
@@ -355,7 +355,7 @@
 *attribute:start 
 *attribute:name  = OPT-HRV_ctl
 *attribute:tag:1 = <OPT-HRV_ctl>
-*attribute:default  = EightHRpDay
+*attribute:default  = EiGJtHRpDay
 
 *option:Continuious:value:1 = 7
 *option:Continuious:cost:total    = 0
@@ -365,9 +365,9 @@
 *option:ERSp3ACH:cost:total    = 0
 *option:ERSp3ACH:alias = 801
   
-*option:EightHRpDay:value:1 = 9
-*option:EightHRpDay:cost:total    = 0  
-*option:EightHRpDay:alias = 802
+*option:EiGJtHRpDay:value:1 = 9
+*option:EiGJtHRpDay:cost:total    = 0  
+*option:EiGJtHRpDay:alias = 802
 
 *attribute:end
 
@@ -552,16 +552,16 @@
 !
 ! The following variables need to be calculated in the accompanying spreadsheet
 ! GenericModel Window size calculation.xlsx
-! <Opt-Roof-Height> is the height of the roof peak; calculated based on the slope.
+! <Opt-Roof-HeiGJt> is the heiGJt of the roof peak; calculated based on the slope.
 ! <Opt-Roof-Peak-W> is the placement of the roof peak; = 1/2 of the house width
-! <win-wall-1-right> is the placement of the right-hand side of window 1. All values of left and right are 
+! <win-wall-1-riGJt> is the placement of the riGJt-hand side of window 1. All values of left and riGJt are 
 !           based on the perspective of looking directly at the window from the outside of the house.  
 ! <win-wall-1-left> is the placement of the left-hand side of window 1.
-! <win-wall-2-right> is the placement of the right-hand side of window 2.
+! <win-wall-2-riGJt> is the placement of the riGJt-hand side of window 2.
 ! <win-wall-2-left> is the placement of the left-hand side of window 2.
-! <win-wall-3-right> is the placement of the right-hand side of window 3.
+! <win-wall-3-riGJt> is the placement of the riGJt-hand side of window 3.
 ! <win-wall-3-left> is the placement of the left-hand side of window 3.
-! <win-wall-4-right> is the placement of the right-hand side of window 4.
+! <win-wall-4-riGJt> is the placement of the riGJt-hand side of window 4.
 ! <win-wall-4-left> is the placement of the left-hand side of window 4.
 !
 ! Garage geometry
@@ -575,15 +575,15 @@
 *attribute:tag:1    = <Opt-Area>
 *attribute:tag:2    = <Opt-Width>
 *attribute:tag:3    = <Opt-Length>
-*attribute:tag:4    = <Opt-Roof-Height>
+*attribute:tag:4    = <Opt-Roof-HeiGJt>
 *attribute:tag:5    = <Opt-Roof-Peak-W>
-*attribute:tag:6    = <win-wall-1-right>
+*attribute:tag:6    = <win-wall-1-riGJt>
 *attribute:tag:7    = <win-wall-1-left>
-*attribute:tag:8    = <win-wall-2-right>
+*attribute:tag:8    = <win-wall-2-riGJt>
 *attribute:tag:9    = <win-wall-2-left>
-*attribute:tag:10   = <win-wall-3-right>
+*attribute:tag:10   = <win-wall-3-riGJt>
 *attribute:tag:11   = <win-wall-3-left>
-*attribute:tag:12   = <win-wall-4-right>
+*attribute:tag:12   = <win-wall-4-riGJt>
 *attribute:tag:13   = <win-wall-4-left>
 *attribute:tag:14   = <gar-width>
 *attribute:tag:15   = <gar-length>
@@ -710,7 +710,7 @@
 
 
 
-! JP removed base case cost - no additional windows available for lighthouse work.
+! JP removed base case cost - no additional windows available for liGJthouse work.
 *option:DoubleLowEHardCoatAirFill:value:1 = DblLeHcAir
 *option:DoubleLowEHardCoatAirFill:value:2 = DblLeHcAir
 *option:DoubleLowEHardCoatAirFill:value:3 = DblLeHcAir
@@ -767,36 +767,36 @@
 *option:DoubleLowESoftCoatArgFill:alias    = 1404
 
 !---------------------------------------------------------------------
-! Doubles, high-gain-on south. 
+! Doubles, hiGJ-gain-on south. 
 !---------------------------------------------------------------------
-*option:DoubleArgon_HighGainOnSouth:value:1 = DblLeHcArg
-*option:DoubleArgon_HighGainOnSouth:value:2 = DblLeHcArg
-*option:DoubleArgon_HighGainOnSouth:value:3 = DblLeScArg
-*option:DoubleArgon_HighGainOnSouth:value:4 = DblLeScArg
-*option:DoubleArgon_HighGainOnSouth:value:5 = DblLeScArg
-*option:DoubleArgon_HighGainOnSouth:value:6 = DblLeScArg
-*option:DoubleArgon_HighGainOnSouth:value:7 = DblLeScArg
-*option:DoubleArgon_HighGainOnSouth:value:8 = DblLeScArg
-*option:DoubleArgon_HighGainOnSouth:cost:total = 73	! Mattamy Ott incr. cost for S
-!*option:DoubleArgon_HighGainOnSouth:cost:total = 89	! Mattamy Ott incr. cost for W
-!*option:DoubleArgon_HighGainOnSouth:cost:total = 70	! Mattamy Ott incr. cost for N
-!*option:DoubleArgon_HighGainOnSouth:cost:total = 117	! Mattamy Ott incr. cost for E
+*option:DoubleArgon_HiGJGainOnSouth:value:1 = DblLeHcArg
+*option:DoubleArgon_HiGJGainOnSouth:value:2 = DblLeHcArg
+*option:DoubleArgon_HiGJGainOnSouth:value:3 = DblLeScArg
+*option:DoubleArgon_HiGJGainOnSouth:value:4 = DblLeScArg
+*option:DoubleArgon_HiGJGainOnSouth:value:5 = DblLeScArg
+*option:DoubleArgon_HiGJGainOnSouth:value:6 = DblLeScArg
+*option:DoubleArgon_HiGJGainOnSouth:value:7 = DblLeScArg
+*option:DoubleArgon_HiGJGainOnSouth:value:8 = DblLeScArg
+*option:DoubleArgon_HiGJGainOnSouth:cost:total = 73	! Mattamy Ott incr. cost for S
+!*option:DoubleArgon_HiGJGainOnSouth:cost:total = 89	! Mattamy Ott incr. cost for W
+!*option:DoubleArgon_HiGJGainOnSouth:cost:total = 70	! Mattamy Ott incr. cost for N
+!*option:DoubleArgon_HiGJGainOnSouth:cost:total = 117	! Mattamy Ott incr. cost for E
 ! Cost value changed for Van_2st_80_retro geometry. Originally 10965
-*option:DoubleArgon_HighGainOnSouth:alias = 1405
+*option:DoubleArgon_HiGJGainOnSouth:alias = 1405
 
-*option:TripleKrypton_HighGainOnSouth:value:1 = TplLeHcKry
-*option:TripleKrypton_HighGainOnSouth:value:2 = TplLeHcKry
-*option:TripleKrypton_HighGainOnSouth:value:3 = TplLeScKry
-*option:TripleKrypton_HighGainOnSouth:value:4 = TplLeScKry
-*option:TripleKrypton_HighGainOnSouth:value:5 = TplLeScKry
-*option:TripleKrypton_HighGainOnSouth:value:6 = TplLeScKry
-*option:TripleKrypton_HighGainOnSouth:value:7 = TplLeScKry
-*option:TripleKrypton_HighGainOnSouth:value:8 = TplLeScKry
-*option:TripleKrypton_HighGainOnSouth:cost:total  = 703	! Mattamy Ott incr. cost for S
-!*option:TripleKrypton_HighGainOnSouth:cost:total = 768	! Mattamy Ott incr. cost for W
-!*option:TripleKrypton_HighGainOnSouth:cost:total = 690	! Mattamy Ott incr. cost for N
-!*option:TripleKrypton_HighGainOnSouth:cost:total = 880	! Mattamy Ott incr. cost for E
-*option:TripleKrypton_HighGainOnSouth:alias = 1406
+*option:TripleKrypton_HiGJGainOnSouth:value:1 = TplLeHcKry
+*option:TripleKrypton_HiGJGainOnSouth:value:2 = TplLeHcKry
+*option:TripleKrypton_HiGJGainOnSouth:value:3 = TplLeScKry
+*option:TripleKrypton_HiGJGainOnSouth:value:4 = TplLeScKry
+*option:TripleKrypton_HiGJGainOnSouth:value:5 = TplLeScKry
+*option:TripleKrypton_HiGJGainOnSouth:value:6 = TplLeScKry
+*option:TripleKrypton_HiGJGainOnSouth:value:7 = TplLeScKry
+*option:TripleKrypton_HiGJGainOnSouth:value:8 = TplLeScKry
+*option:TripleKrypton_HiGJGainOnSouth:cost:total  = 703	! Mattamy Ott incr. cost for S
+!*option:TripleKrypton_HiGJGainOnSouth:cost:total = 768	! Mattamy Ott incr. cost for W
+!*option:TripleKrypton_HiGJGainOnSouth:cost:total = 690	! Mattamy Ott incr. cost for N
+!*option:TripleKrypton_HiGJGainOnSouth:cost:total = 880	! Mattamy Ott incr. cost for E
+*option:TripleKrypton_HiGJGainOnSouth:alias = 1406
 
 *option:Wind1_trp_CL :value:1 = Wind1_trp_CL   
 *option:Wind1_trp_CL :value:2 = Wind1_trp_CL   
@@ -1006,13 +1006,13 @@
 
 
 !-----------------------------------------------------------------------
-! This option sets the airtightness by spec'ing the 
+! This option sets the airtiGJtness by spec'ing the 
 ! appropriate aim2 input file. (cost estimates from 
 ! Stirling-homes parameters)
 !-----------------------------------------------------------------------
 *attribute:start    
-*attribute:name = Opt-AirTightness
-*attribute:tag:1 = <Opt-AirTightness>
+*attribute:name = Opt-AirTiGJtness
+*attribute:tag:1 = <Opt-AirTiGJtness>
 *attribute:default = Typical23
 
 *option:TypicalGTA:value:1    =   base.aim  
@@ -1041,7 +1041,7 @@
 *option:Generic:alias    =   1505
 
 !-----------------------------------------------------------------------
-! Whitehorse airtightness options - spec's the appropriate aim2 input file
+! Whitehorse airtiGJtness options - spec's the appropriate aim2 input file
 ! (cost estimates from James Wigmore) - WH Code - 1.5ACH
 !-----------------------------------------------------------------------
 
@@ -2424,11 +2424,11 @@ Reflects southern Ontario costs
 *option:BaseHRV_SRE55:cost:total = 0
 *option:BaseHRV_SRE55:alias = 2502
 
-*option:UpgHRV_SRE78:value:1    = HRV-upg.vnt
-*option:UpgHRV_SRE78:cost:total = 920
-*option:UpgHRV_SRE78:alias = 2503
+*option:UpGJRV_SRE78:value:1    = HRV-upg.vnt
+*option:UpGJRV_SRE78:cost:total = 920
+*option:UpGJRV_SRE78:alias = 2503
 
-*option:FansOnly:value:1 = FansOnly.vnt		!Using HRV0-base.vnt (HRV with 0 eff. much higher ERS value than FansOnly option)
+*option:FansOnly:value:1 = FansOnly.vnt		!Using HRV0-base.vnt (HRV with 0 eff. much hiGJer ERS value than FansOnly option)
 *option:FansOnly:cost:total = 0
 *option:FansOnly:alias = 2504
 
@@ -2482,7 +2482,7 @@ Reflects southern Ontario costs
 *option:NGERSNoReduction19:alias = 2703
 
 *option:NGERSReducedA16:value:1    = 0.700
-*option:NGERSReducedA16:cost:total = 0		! JTB: This needs a cost (more than lights to do this)
+*option:NGERSReducedA16:cost:total = 0		! JTB: This needs a cost (more than liGJts to do this)
 *option:NGERSReducedA16:alias = 2704
 
 *option:NGERSBestInClass14p8:value:1    = 0.648301
@@ -2490,9 +2490,9 @@ Reflects southern Ontario costs
 *option:NGERSBestInClass14p8:alias = 705
 
 ! --- Study that Tery Strack completed (talk to Mark)  ----
-*option:TStrackLighting:value:1    = 0.7402
-*option:TStrackLighting:cost:total = 0
-*option:TStrackLighting:alias = 2706
+*option:TStrackLiGJting:value:1    = 0.7402
+*option:TStrackLiGJting:cost:total = 0
+*option:TStrackLiGJting:alias = 2706
 
 *attribute:end 
 
@@ -3203,57 +3203,57 @@ Reflects southern Ontario costs
 *attribute:name      = Opt-StandoffPV
 *attribute:default   = NoPV 
 
-*option[Opt-Location>Calgary    ;Opt-RoofPitch>6-12  ]:SizedPV:production-elec-perKW  = 4.630 ! GH/kW Installed
-*option[Opt-Location>Calgary    ;Opt-RoofPitch>8-12  ]:SizedPV:production-elec-perKW  = 4.733 ! GH/kW Installed
-*option[Opt-Location>Calgary    ;Opt-RoofPitch>12-12 ]:SizedPV:production-elec-perKW  = 4.814 ! GH/kW Installed
-*option[Opt-Location>Edmonton   ;Opt-RoofPitch>6-12  ]:SizedPV:production-elec-perKW  = 4.13208 ! GH/kW Installed
-*option[Opt-Location>Edmonton   ;Opt-RoofPitch>8-12  ]:SizedPV:production-elec-perKW  = 4.24764 ! GH/kW Installed
-*option[Opt-Location>Edmonton   ;Opt-RoofPitch>12-12 ]:SizedPV:production-elec-perKW  = 4.32324 ! GH/kW Installed
-*option[Opt-Location>Vancouver  ;Opt-RoofPitch>6-12  ]:SizedPV:production-elec-perKW  = 3.618	! GH/kW Installed
-*option[Opt-Location>Vancouver  ;Opt-RoofPitch>8-12  ]:SizedPV:production-elec-perKW  = 3.64716	! GH/kW Installed
-*option[Opt-Location>Vancouver  ;Opt-RoofPitch>12-12 ]:SizedPV:production-elec-perKW  = 3.60036	! GH/kW Installed
-*option[Opt-Location>Kamloops  ;Opt-RoofPitch>6-12  ]:SizedPV:production-elec-perKW  = 3.618	! GH/kW Installed
-*option[Opt-Location>Kamloops  ;Opt-RoofPitch>8-12  ]:SizedPV:production-elec-perKW  = 3.64716	! GH/kW Installed
-*option[Opt-Location>Kamloops  ;Opt-RoofPitch>12-12 ]:SizedPV:production-elec-perKW  = 3.60036	! GH/kW Installed
-*option[Opt-Location>PrinceGeorge  ;Opt-RoofPitch>6-12  ]:SizedPV:production-elec-perKW  = 3.618	! GH/kW Installed
-*option[Opt-Location>PrinceGeorge  ;Opt-RoofPitch>8-12  ]:SizedPV:production-elec-perKW  = 3.64716	! GH/kW Installed
-*option[Opt-Location>PrinceGeorge  ;Opt-RoofPitch>12-12 ]:SizedPV:production-elec-perKW  = 3.60036	! GH/kW Installed
-*option[Opt-Location>Regina     ;Opt-RoofPitch>6-12  ]:SizedPV:production-elec-perKW  = 4.78764  ! GH/kW Installed
-*option[Opt-Location>Regina     ;Opt-RoofPitch>8-12  ]:SizedPV:production-elec-perKW  = 4.94604  ! GH/kW Installed
-*option[Opt-Location>Regina     ;Opt-RoofPitch>12-12 ]:SizedPV:production-elec-perKW  = 5.05584  ! GH/kW Installed
-*option[Opt-Location>Winnipeg   ;Opt-RoofPitch>6-12  ]:SizedPV:production-elec-perKW  = 4.49568	 ! GH/kW Installed
-*option[Opt-Location>Winnipeg   ;Opt-RoofPitch>8-12  ]:SizedPV:production-elec-perKW  = 4.60476	 ! GH/kW Installed
-*option[Opt-Location>Winnipeg   ;Opt-RoofPitch>12-12 ]:SizedPV:production-elec-perKW  = 4.66416	 ! GH/kW Installed
-*option[Opt-Location>Toronto    ;Opt-RoofPitch>6-12  ]:SizedPV:production-elec-perKW  = 3.9168	 ! GH/kW Installed
-*option[Opt-Location>Toronto    ;Opt-RoofPitch>8-12  ]:SizedPV:production-elec-perKW  = 3.942	 ! GH/kW Installed
-*option[Opt-Location>Toronto    ;Opt-RoofPitch>12-12 ]:SizedPV:production-elec-perKW  = 3.8844	 ! GH/kW Installed
-*option[Opt-Location>Ottawa     ;Opt-RoofPitch>6-12  ]:SizedPV:production-elec-perKW  = 4.16088	 ! GH/kW Installed
-*option[Opt-Location>Ottawa     ;Opt-RoofPitch>8-12  ]:SizedPV:production-elec-perKW  = 4.21956    ! GH/kW Installed
-*option[Opt-Location>Ottawa     ;Opt-RoofPitch>12-12 ]:SizedPV:production-elec-perKW  = 4.21164	 ! GH/kW Installed
-*option[Opt-Location>Montreal   ;Opt-RoofPitch>6-12  ]:SizedPV:production-elec-perKW  = 3.93192	 ! GH/kW Installed
-*option[Opt-Location>Montreal   ;Opt-RoofPitch>8-12  ]:SizedPV:production-elec-perKW  = 3.9852	   ! GH/kW Installed
-*option[Opt-Location>Montreal   ;Opt-RoofPitch>12-12 ]:SizedPV:production-elec-perKW  = 3.9654	 ! GH/kW Installed
-*option[Opt-Location>Quebec     ;Opt-RoofPitch>6-12  ]:SizedPV:production-elec-perKW  = 4.1526	 ! GH/kW Installed
-*option[Opt-Location>Quebec     ;Opt-RoofPitch>8-12  ]:SizedPV:production-elec-perKW  = 4.22496	 ! GH/kW Installed
-*option[Opt-Location>Quebec     ;Opt-RoofPitch>12-12 ]:SizedPV:production-elec-perKW  = 4.23216	 ! GH/kW Installed
-*option[Opt-Location>Fredricton ;Opt-RoofPitch>6-12  ]:SizedPV:production-elec-perKW  = 3.93732 ! GH/kW Installed
-*option[Opt-Location>Fredricton ;Opt-RoofPitch>8-12  ]:SizedPV:production-elec-perKW  = 4.00608 ! GH/kW Installed
-*option[Opt-Location>Fredricton ;Opt-RoofPitch>12-12 ]:SizedPV:production-elec-perKW  = 4.01544 ! GH/kW Installed
-*option[Opt-Location>Halifax    ;Opt-RoofPitch>6-12  ]:SizedPV:production-elec-perKW  = 3.85848! GH/kW Installed
-*option[Opt-Location>Halifax    ;Opt-RoofPitch>8-12  ]:SizedPV:production-elec-perKW  = 3.90168! GH/kW Installed
-*option[Opt-Location>Halifax    ;Opt-RoofPitch>12-12 ]:SizedPV:production-elec-perKW  = 3.86892! GH/kW Installed
-*option[Opt-Location>Whitehorse ;Opt-RoofPitch>6-12  ]:SizedPV:production-elec-perKW  = 3.36888! GH/kW Installed
-*option[Opt-Location>Whitehorse ;Opt-RoofPitch>8-12  ]:SizedPV:production-elec-perKW  = 3.47472! GH/kW Installed
-*option[Opt-Location>Whitehorse ;Opt-RoofPitch>12-12 ]:SizedPV:production-elec-perKW  = 3.55536! GH/kW Installed
-*option[Opt-Location>Yellowknife ;Opt-RoofPitch>6-12  ]:SizedPV:production-elec-perKW  = 3.36888! GH/kW Installed
-*option[Opt-Location>Yellowknife ;Opt-RoofPitch>8-12  ]:SizedPV:production-elec-perKW  = 3.47472! GH/kW Installed
-*option[Opt-Location>Yellowknife ;Opt-RoofPitch>12-12 ]:SizedPV:production-elec-perKW  = 3.55536! GH/kW Installed
-*option[Opt-Location>Inuvik ;Opt-RoofPitch>6-12  ]:SizedPV:production-elec-perKW  = 3.36888! GH/kW Installed
-*option[Opt-Location>Inuvik ;Opt-RoofPitch>8-12  ]:SizedPV:production-elec-perKW  = 3.47472! GH/kW Installed
-*option[Opt-Location>Inuvik ;Opt-RoofPitch>12-12 ]:SizedPV:production-elec-perKW  = 3.55536! GH/kW Installed
+*option[Opt-Location>Calgary    ;Opt-RoofPitch>6-12  ]:SizedPV:production-elec-perKW  = 4.630 ! GJ/kW Installed
+*option[Opt-Location>Calgary    ;Opt-RoofPitch>8-12  ]:SizedPV:production-elec-perKW  = 4.733 ! GJ/kW Installed
+*option[Opt-Location>Calgary    ;Opt-RoofPitch>12-12 ]:SizedPV:production-elec-perKW  = 4.814 ! GJ/kW Installed
+*option[Opt-Location>Edmonton   ;Opt-RoofPitch>6-12  ]:SizedPV:production-elec-perKW  = 4.13208 ! GJ/kW Installed
+*option[Opt-Location>Edmonton   ;Opt-RoofPitch>8-12  ]:SizedPV:production-elec-perKW  = 4.24764 ! GJ/kW Installed
+*option[Opt-Location>Edmonton   ;Opt-RoofPitch>12-12 ]:SizedPV:production-elec-perKW  = 4.32324 ! GJ/kW Installed
+*option[Opt-Location>Vancouver  ;Opt-RoofPitch>6-12  ]:SizedPV:production-elec-perKW  = 3.618	! GJ/kW Installed
+*option[Opt-Location>Vancouver  ;Opt-RoofPitch>8-12  ]:SizedPV:production-elec-perKW  = 3.64716	! GJ/kW Installed
+*option[Opt-Location>Vancouver  ;Opt-RoofPitch>12-12 ]:SizedPV:production-elec-perKW  = 3.60036	! GJ/kW Installed
+*option[Opt-Location>Kamloops  ;Opt-RoofPitch>6-12  ]:SizedPV:production-elec-perKW  = 3.618	! GJ/kW Installed
+*option[Opt-Location>Kamloops  ;Opt-RoofPitch>8-12  ]:SizedPV:production-elec-perKW  = 3.64716	! GJ/kW Installed
+*option[Opt-Location>Kamloops  ;Opt-RoofPitch>12-12 ]:SizedPV:production-elec-perKW  = 3.60036	! GJ/kW Installed
+*option[Opt-Location>PrinceGeorge  ;Opt-RoofPitch>6-12  ]:SizedPV:production-elec-perKW  = 3.618	! GJ/kW Installed
+*option[Opt-Location>PrinceGeorge  ;Opt-RoofPitch>8-12  ]:SizedPV:production-elec-perKW  = 3.64716	! GJ/kW Installed
+*option[Opt-Location>PrinceGeorge  ;Opt-RoofPitch>12-12 ]:SizedPV:production-elec-perKW  = 3.60036	! GJ/kW Installed
+*option[Opt-Location>Regina     ;Opt-RoofPitch>6-12  ]:SizedPV:production-elec-perKW  = 4.78764  ! GJ/kW Installed
+*option[Opt-Location>Regina     ;Opt-RoofPitch>8-12  ]:SizedPV:production-elec-perKW  = 4.94604  ! GJ/kW Installed
+*option[Opt-Location>Regina     ;Opt-RoofPitch>12-12 ]:SizedPV:production-elec-perKW  = 5.05584  ! GJ/kW Installed
+*option[Opt-Location>Winnipeg   ;Opt-RoofPitch>6-12  ]:SizedPV:production-elec-perKW  = 4.49568	 ! GJ/kW Installed
+*option[Opt-Location>Winnipeg   ;Opt-RoofPitch>8-12  ]:SizedPV:production-elec-perKW  = 4.60476	 ! GJ/kW Installed
+*option[Opt-Location>Winnipeg   ;Opt-RoofPitch>12-12 ]:SizedPV:production-elec-perKW  = 4.66416	 ! GJ/kW Installed
+*option[Opt-Location>Toronto    ;Opt-RoofPitch>6-12  ]:SizedPV:production-elec-perKW  = 3.9168	 ! GJ/kW Installed
+*option[Opt-Location>Toronto    ;Opt-RoofPitch>8-12  ]:SizedPV:production-elec-perKW  = 3.942	 ! GJ/kW Installed
+*option[Opt-Location>Toronto    ;Opt-RoofPitch>12-12 ]:SizedPV:production-elec-perKW  = 3.8844	 ! GJ/kW Installed
+*option[Opt-Location>Ottawa     ;Opt-RoofPitch>6-12  ]:SizedPV:production-elec-perKW  = 4.16088	 ! GJ/kW Installed
+*option[Opt-Location>Ottawa     ;Opt-RoofPitch>8-12  ]:SizedPV:production-elec-perKW  = 4.21956    ! GJ/kW Installed
+*option[Opt-Location>Ottawa     ;Opt-RoofPitch>12-12 ]:SizedPV:production-elec-perKW  = 4.21164	 ! GJ/kW Installed
+*option[Opt-Location>Montreal   ;Opt-RoofPitch>6-12  ]:SizedPV:production-elec-perKW  = 3.93192	 ! GJ/kW Installed
+*option[Opt-Location>Montreal   ;Opt-RoofPitch>8-12  ]:SizedPV:production-elec-perKW  = 3.9852	   ! GJ/kW Installed
+*option[Opt-Location>Montreal   ;Opt-RoofPitch>12-12 ]:SizedPV:production-elec-perKW  = 3.9654	 ! GJ/kW Installed
+*option[Opt-Location>Quebec     ;Opt-RoofPitch>6-12  ]:SizedPV:production-elec-perKW  = 4.1526	 ! GJ/kW Installed
+*option[Opt-Location>Quebec     ;Opt-RoofPitch>8-12  ]:SizedPV:production-elec-perKW  = 4.22496	 ! GJ/kW Installed
+*option[Opt-Location>Quebec     ;Opt-RoofPitch>12-12 ]:SizedPV:production-elec-perKW  = 4.23216	 ! GJ/kW Installed
+*option[Opt-Location>Fredricton ;Opt-RoofPitch>6-12  ]:SizedPV:production-elec-perKW  = 3.93732 ! GJ/kW Installed
+*option[Opt-Location>Fredricton ;Opt-RoofPitch>8-12  ]:SizedPV:production-elec-perKW  = 4.00608 ! GJ/kW Installed
+*option[Opt-Location>Fredricton ;Opt-RoofPitch>12-12 ]:SizedPV:production-elec-perKW  = 4.01544 ! GJ/kW Installed
+*option[Opt-Location>Halifax    ;Opt-RoofPitch>6-12  ]:SizedPV:production-elec-perKW  = 3.85848! GJ/kW Installed
+*option[Opt-Location>Halifax    ;Opt-RoofPitch>8-12  ]:SizedPV:production-elec-perKW  = 3.90168! GJ/kW Installed
+*option[Opt-Location>Halifax    ;Opt-RoofPitch>12-12 ]:SizedPV:production-elec-perKW  = 3.86892! GJ/kW Installed
+*option[Opt-Location>Whitehorse ;Opt-RoofPitch>6-12  ]:SizedPV:production-elec-perKW  = 3.36888! GJ/kW Installed
+*option[Opt-Location>Whitehorse ;Opt-RoofPitch>8-12  ]:SizedPV:production-elec-perKW  = 3.47472! GJ/kW Installed
+*option[Opt-Location>Whitehorse ;Opt-RoofPitch>12-12 ]:SizedPV:production-elec-perKW  = 3.55536! GJ/kW Installed
+*option[Opt-Location>Yellowknife ;Opt-RoofPitch>6-12  ]:SizedPV:production-elec-perKW  = 4.1112! GJ/kW Installed
+*option[Opt-Location>Yellowknife ;Opt-RoofPitch>8-12  ]:SizedPV:production-elec-perKW  = 3.47472! GJ/kW Installed
+*option[Opt-Location>Yellowknife ;Opt-RoofPitch>12-12 ]:SizedPV:production-elec-perKW  = 3.55536! GJ/kW Installed
+*option[Opt-Location>Inuvik ;Opt-RoofPitch>6-12  ]:SizedPV:production-elec-perKW  = 3.36888! GJ/kW Installed
+*option[Opt-Location>Inuvik ;Opt-RoofPitch>8-12  ]:SizedPV:production-elec-perKW  = 3.47472! GJ/kW Installed
+*option[Opt-Location>Inuvik ;Opt-RoofPitch>12-12 ]:SizedPV:production-elec-perKW  = 3.55536! GJ/kW Installed
 *option:SizedPV:cost:PerKW = 4696 ! $/kW installed
 
-*option:NoPV:production-elec-perKW  = 0	! GH/kW Installed
+*option:NoPV:production-elec-perKW  = 0	! GJ/kW Installed
 *option:NoPV:cost:PerKW = 0 
 *option:NoPV:alias = 3201
 
