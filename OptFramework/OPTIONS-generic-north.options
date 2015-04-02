@@ -167,8 +167,8 @@
 *option:single:value:11= <Opt-MainWall-Bri>
 *option:single:value:12= OPAQUE
 *option:single:value:13= EXTERIOR
-*option:single:value:14= <OptAtt-windows-4-RiGJtCON>
-*option:single:value:15= <OptAtt-windows-4-RiGJtOPT>
+*option:single:value:14= <OptAtt-windows-4-RightCON>
+*option:single:value:15= <OptAtt-windows-4-RightOPT>
 *option:single:value:16= EXTERIOR
 *option:single:value:17= <OPT-BsmWall>
 *option:single:value:18= BASESIMP,01,10
@@ -263,7 +263,7 @@
 *attribute:end
 
 !-----------------------------------------------------------------------
-! This option renames the front/left/back/riGJt window tags to 
+! This option renames the front/left/back/right window tags to 
 ! N/S/E/W, according to the orientation .
 !-----------------------------------------------------------------------
 
@@ -275,8 +275,8 @@
 *attribute:tag:4 = <OptAtt-windows-2-LeftOPT>
 *attribute:tag:5 = <OptAtt-windows-3-BackCON>
 *attribute:tag:6 = <OptAtt-windows-3-BackOPT>
-*attribute:tag:7 = <OptAtt-windows-4-RiGJtCON>
-*attribute:tag:8 = <OptAtt-windows-4-RiGJtOPT>
+*attribute:tag:7 = <OptAtt-windows-4-RightCON>
+*attribute:tag:8 = <OptAtt-windows-4-RightOPT>
 *attribute:default  = all
 
 
@@ -325,7 +325,7 @@
 !-----------------DOESN't WORK-------------------------------------------
 ! This option can be used to turn the model's minimum
 ! number of windows opaque. It's not intended for optimization,
-! but miGJt be useful in testing & debugging the model.
+! but might be useful in testing & debugging the model.
 !-----------------------------------------------------------------------
 *attribute:start 
 *attribute:name  = Opt-BaseWindows
@@ -355,7 +355,7 @@
 *attribute:start 
 *attribute:name  = OPT-HRV_ctl
 *attribute:tag:1 = <OPT-HRV_ctl>
-*attribute:default  = EiGJtHRpDay
+*attribute:default  = EightHRpDay
 
 *option:Continuious:value:1 = 7
 *option:Continuious:cost:total    = 0
@@ -365,9 +365,9 @@
 *option:ERSp3ACH:cost:total    = 0
 *option:ERSp3ACH:alias = 801
   
-*option:EiGJtHRpDay:value:1 = 9
-*option:EiGJtHRpDay:cost:total    = 0  
-*option:EiGJtHRpDay:alias = 802
+*option:EightHRpDay:value:1 = 9
+*option:EightHRpDay:cost:total    = 0  
+*option:EightHRpDay:alias = 802
 
 *attribute:end
 
@@ -552,16 +552,16 @@
 !
 ! The following variables need to be calculated in the accompanying spreadsheet
 ! GenericModel Window size calculation.xlsx
-! <Opt-Roof-HeiGJt> is the heiGJt of the roof peak; calculated based on the slope.
+! <Opt-Roof-Height> is the height of the roof peak; calculated based on the slope.
 ! <Opt-Roof-Peak-W> is the placement of the roof peak; = 1/2 of the house width
-! <win-wall-1-riGJt> is the placement of the riGJt-hand side of window 1. All values of left and riGJt are 
+! <win-wall-1-right> is the placement of the right-hand side of window 1. All values of left and right are 
 !           based on the perspective of looking directly at the window from the outside of the house.  
 ! <win-wall-1-left> is the placement of the left-hand side of window 1.
-! <win-wall-2-riGJt> is the placement of the riGJt-hand side of window 2.
+! <win-wall-2-right> is the placement of the right-hand side of window 2.
 ! <win-wall-2-left> is the placement of the left-hand side of window 2.
-! <win-wall-3-riGJt> is the placement of the riGJt-hand side of window 3.
+! <win-wall-3-right> is the placement of the right-hand side of window 3.
 ! <win-wall-3-left> is the placement of the left-hand side of window 3.
-! <win-wall-4-riGJt> is the placement of the riGJt-hand side of window 4.
+! <win-wall-4-right> is the placement of the right-hand side of window 4.
 ! <win-wall-4-left> is the placement of the left-hand side of window 4.
 !
 ! Garage geometry
@@ -575,15 +575,15 @@
 *attribute:tag:1    = <Opt-Area>
 *attribute:tag:2    = <Opt-Width>
 *attribute:tag:3    = <Opt-Length>
-*attribute:tag:4    = <Opt-Roof-HeiGJt>
+*attribute:tag:4    = <Opt-Roof-Height>
 *attribute:tag:5    = <Opt-Roof-Peak-W>
-*attribute:tag:6    = <win-wall-1-riGJt>
+*attribute:tag:6    = <win-wall-1-right>
 *attribute:tag:7    = <win-wall-1-left>
-*attribute:tag:8    = <win-wall-2-riGJt>
+*attribute:tag:8    = <win-wall-2-right>
 *attribute:tag:9    = <win-wall-2-left>
-*attribute:tag:10   = <win-wall-3-riGJt>
+*attribute:tag:10   = <win-wall-3-right>
 *attribute:tag:11   = <win-wall-3-left>
-*attribute:tag:12   = <win-wall-4-riGJt>
+*attribute:tag:12   = <win-wall-4-right>
 *attribute:tag:13   = <win-wall-4-left>
 *attribute:tag:14   = <gar-width>
 *attribute:tag:15   = <gar-length>
@@ -607,7 +607,7 @@
 *option:NWT_Access:value:14   = 0
 *option:NWT_Access:value:15   = 0
 *option:NWT_Access:value:16   = 0
-*option:NWT_Access:value:17   = 500	!Need volume for ERS
+*option:NWT_Access:value:17   = 247	!Need volume for ERS
 *option:NWT_Access:cost:total = 0
 *option:NWT_Access:alias = 1204
 
@@ -671,7 +671,7 @@
 
 *option:retro_ACH_2_5:value:1  = 2.5
 *option:retro_ACH_2_5:cost:total  =  0
-*option:retro_ACH_3:alias  =  1309
+*option:retro_ACH_2_5:alias  =  1309
 
 *option:retro_ACH_2:value:1  = 2.0
 *option:retro_ACH_2:cost:total  =  0
@@ -710,7 +710,7 @@
 
 
 
-! JP removed base case cost - no additional windows available for liGJthouse work.
+! JP removed base case cost - no additional windows available for lighthouse work.
 *option:DoubleLowEHardCoatAirFill:value:1 = DblLeHcAir
 *option:DoubleLowEHardCoatAirFill:value:2 = DblLeHcAir
 *option:DoubleLowEHardCoatAirFill:value:3 = DblLeHcAir
@@ -767,36 +767,36 @@
 *option:DoubleLowESoftCoatArgFill:alias    = 1404
 
 !---------------------------------------------------------------------
-! Doubles, hiGJ-gain-on south. 
+! Doubles, high-gain-on south. 
 !---------------------------------------------------------------------
-*option:DoubleArgon_HiGJGainOnSouth:value:1 = DblLeHcArg
-*option:DoubleArgon_HiGJGainOnSouth:value:2 = DblLeHcArg
-*option:DoubleArgon_HiGJGainOnSouth:value:3 = DblLeScArg
-*option:DoubleArgon_HiGJGainOnSouth:value:4 = DblLeScArg
-*option:DoubleArgon_HiGJGainOnSouth:value:5 = DblLeScArg
-*option:DoubleArgon_HiGJGainOnSouth:value:6 = DblLeScArg
-*option:DoubleArgon_HiGJGainOnSouth:value:7 = DblLeScArg
-*option:DoubleArgon_HiGJGainOnSouth:value:8 = DblLeScArg
-*option:DoubleArgon_HiGJGainOnSouth:cost:total = 73	! Mattamy Ott incr. cost for S
-!*option:DoubleArgon_HiGJGainOnSouth:cost:total = 89	! Mattamy Ott incr. cost for W
-!*option:DoubleArgon_HiGJGainOnSouth:cost:total = 70	! Mattamy Ott incr. cost for N
-!*option:DoubleArgon_HiGJGainOnSouth:cost:total = 117	! Mattamy Ott incr. cost for E
+*option:DoubleArgon_HighGainOnSouth:value:1 = DblLeHcArg
+*option:DoubleArgon_HighGainOnSouth:value:2 = DblLeHcArg
+*option:DoubleArgon_HighGainOnSouth:value:3 = DblLeScArg
+*option:DoubleArgon_HighGainOnSouth:value:4 = DblLeScArg
+*option:DoubleArgon_HighGainOnSouth:value:5 = DblLeScArg
+*option:DoubleArgon_HighGainOnSouth:value:6 = DblLeScArg
+*option:DoubleArgon_HighGainOnSouth:value:7 = DblLeScArg
+*option:DoubleArgon_HighGainOnSouth:value:8 = DblLeScArg
+*option:DoubleArgon_HighGainOnSouth:cost:total = 73	! Mattamy Ott incr. cost for S
+!*option:DoubleArgon_HighGainOnSouth:cost:total = 89	! Mattamy Ott incr. cost for W
+!*option:DoubleArgon_HighGainOnSouth:cost:total = 70	! Mattamy Ott incr. cost for N
+!*option:DoubleArgon_HighGainOnSouth:cost:total = 117	! Mattamy Ott incr. cost for E
 ! Cost value changed for Van_2st_80_retro geometry. Originally 10965
-*option:DoubleArgon_HiGJGainOnSouth:alias = 1405
+*option:DoubleArgon_HighGainOnSouth:alias = 1405
 
-*option:TripleKrypton_HiGJGainOnSouth:value:1 = TplLeHcKry
-*option:TripleKrypton_HiGJGainOnSouth:value:2 = TplLeHcKry
-*option:TripleKrypton_HiGJGainOnSouth:value:3 = TplLeScKry
-*option:TripleKrypton_HiGJGainOnSouth:value:4 = TplLeScKry
-*option:TripleKrypton_HiGJGainOnSouth:value:5 = TplLeScKry
-*option:TripleKrypton_HiGJGainOnSouth:value:6 = TplLeScKry
-*option:TripleKrypton_HiGJGainOnSouth:value:7 = TplLeScKry
-*option:TripleKrypton_HiGJGainOnSouth:value:8 = TplLeScKry
-*option:TripleKrypton_HiGJGainOnSouth:cost:total  = 703	! Mattamy Ott incr. cost for S
-!*option:TripleKrypton_HiGJGainOnSouth:cost:total = 768	! Mattamy Ott incr. cost for W
-!*option:TripleKrypton_HiGJGainOnSouth:cost:total = 690	! Mattamy Ott incr. cost for N
-!*option:TripleKrypton_HiGJGainOnSouth:cost:total = 880	! Mattamy Ott incr. cost for E
-*option:TripleKrypton_HiGJGainOnSouth:alias = 1406
+*option:TripleKrypton_HighGainOnSouth:value:1 = TplLeHcKry
+*option:TripleKrypton_HighGainOnSouth:value:2 = TplLeHcKry
+*option:TripleKrypton_HighGainOnSouth:value:3 = TplLeScKry
+*option:TripleKrypton_HighGainOnSouth:value:4 = TplLeScKry
+*option:TripleKrypton_HighGainOnSouth:value:5 = TplLeScKry
+*option:TripleKrypton_HighGainOnSouth:value:6 = TplLeScKry
+*option:TripleKrypton_HighGainOnSouth:value:7 = TplLeScKry
+*option:TripleKrypton_HighGainOnSouth:value:8 = TplLeScKry
+*option:TripleKrypton_HighGainOnSouth:cost:total  = 703	! Mattamy Ott incr. cost for S
+!*option:TripleKrypton_HighGainOnSouth:cost:total = 768	! Mattamy Ott incr. cost for W
+!*option:TripleKrypton_HighGainOnSouth:cost:total = 690	! Mattamy Ott incr. cost for N
+!*option:TripleKrypton_HighGainOnSouth:cost:total = 880	! Mattamy Ott incr. cost for E
+*option:TripleKrypton_HighGainOnSouth:alias = 1406
 
 *option:Wind1_trp_CL :value:1 = Wind1_trp_CL   
 *option:Wind1_trp_CL :value:2 = Wind1_trp_CL   
@@ -817,7 +817,7 @@
 *option:Win2scLE1_tr:value:6 = Win2scLE1_tr 
 *option:Win2scLE1_tr:value:7 = Win2scLE1_tr
 *option:Win2scLE1_tr:value:8 = Win2scLE1_tr 
-*option:Win2scLE1_tr:cost:total   = 22883
+*option:Win2scLE1_tr:cost:total   = 0! 22883
 *option:Win2scLE1_tr:alias = 1408
 
 *option:Win3hcLE1_tr:value:1 = Win3hcLE1_tr
@@ -828,7 +828,7 @@
 *option:Win3hcLE1_tr:value:6 = Win3hcLE1_tr
 *option:Win3hcLE1_tr:value:7 = Win3hcLE1_tr
 *option:Win3hcLE1_tr:value:8 = Win3hcLE1_tr
-*option:Win3hcLE1_tr:cost:total   = 23550
+*option:Win3hcLE1_tr:cost:total   = 0! 23550
 *option:Win3hcLE1_tr:alias = 1409
 
 *option:Win4scLE2_tr:value:1 = Win4scLE2_tr 
@@ -839,7 +839,7 @@
 *option:Win4scLE2_tr:value:6 = Win4scLE2_tr
 *option:Win4scLE2_tr:value:7 = Win4scLE2_tr 
 *option:Win4scLE2_tr:value:8 = Win4scLE2_tr
-*option:Win4scLE2_tr:cost:total   = 23824
+*option:Win4scLE2_tr:cost:total   = 0 ! 23824
 *option:Win4scLE2_tr:alias = 1410
 
 *option:Win5hcLE2_tr:value:1 = Win5hcLE2_tr
@@ -850,7 +850,7 @@
 *option:Win5hcLE2_tr:value:6 = Win5hcLE2_tr
 *option:Win5hcLE2_tr:value:7 = Win5hcLE2_tr
 *option:Win5hcLE2_tr:value:8 = Win5hcLE2_tr
-*option:Win5hcLE2_tr:cost:total   = 24491
+*option:Win5hcLE2_tr:cost:total   = 0! 24491
 *option:Win5hcLE2_tr:alias = 1411
 
 *option:Win6_qd_CL:value:1 = Win6_qd_CL
@@ -861,7 +861,7 @@
 *option:Win6_qd_CL:value:6 = Win6_qd_CL
 *option:Win6_qd_CL:value:7 = Win6_qd_CL
 *option:Win6_qd_CL:value:8 = Win6_qd_CL
-*option:Win6_qd_CL:cost:total   = 25226
+*option:Win6_qd_CL:cost:total   = 0! 25226
 *option:Win6_qd_CL:alias = 1412
 
 *option:Triple_win_shutter:value:1 = Wind3SHUTTER
@@ -872,7 +872,7 @@
 *option:Triple_win_shutter:value:6 = OPAQ
 *option:Triple_win_shutter:value:7 = Wind3SHUTTER
 *option:Triple_win_shutter:value:8 = OPAQ
-*option:Triple_win_shutter:cost:total   = 24491
+*option:Triple_win_shutter:cost:total   = 0! 24491
 *option:Triple_win_shutter:alias = 1413
 
 *option:Quad_win_shutter:value:1 = Wind4SHUTTER
@@ -883,7 +883,7 @@
 *option:Quad_win_shutter:value:6 = OPAQ
 *option:Quad_win_shutter:value:7 = Wind4SHUTTER
 *option:Quad_win_shutter:value:8 = OPAQ
-*option:Quad_win_shutter:cost:total   = 24491
+*option:Quad_win_shutter:cost:total   = 0 !24491
 *option:Quad_win_shutter:alias = 1414
 
 !---------------------------------------------------------------------
@@ -894,7 +894,7 @@
 ! by optional window areas.
 !*option:Wind1_trp_CL :value:1 = Wind1_trp_CL   
 !*option:Wind1_trp_CL :value:2 = Wind1_trp_CL   
-!*option:Wind1_trp_CL :cost:total    = 20551
+!*option:Wind1_trp_CL :cost:total    = 020551
 !*option:Wind1_trp_CL :alias = 1415
 !
 !*option:Win2scLE1_tr:value:1 = Win2scLE1_tr
@@ -966,7 +966,7 @@
 *option:retro_DoubleLowEHardCoatArgFill:value:6 = DblLeHcArg 
 *option:retro_DoubleLowEHardCoatArgFill:value:7 = DblLeHcArg 
 *option:retro_DoubleLowEHardCoatArgFill:value:8 = DblLeHcArg 
-*option:retro_DoubleLowEHardCoatArgFill:cost:total    = 28790  
+*option:retro_DoubleLowEHardCoatArgFill:cost:total    = 0! 28790  
 *option:retro_DoubleLowEHardCoatArgFill:alias = 1426
 
 *option:retro_DoubleLowESoftCoatArgFill:value:1 = DblLeScArg
@@ -977,7 +977,7 @@
 *option:retro_DoubleLowESoftCoatArgFill:value:6 = DblLeScArg
 *option:retro_DoubleLowESoftCoatArgFill:value:7 = DblLeScArg
 *option:retro_DoubleLowESoftCoatArgFill:value:8 = DblLeScArg
-*option:retro_DoubleLowESoftCoatArgFill:cost:total    = 28790
+*option:retro_DoubleLowESoftCoatArgFill:cost:total    = 0! 28790
 *option:retro_DoubleLowESoftCoatArgFill:alias = 1427
 
 *option:retro_TripleLowEHardCoatArgFill:value:1 = TplLeHcKry
@@ -988,7 +988,7 @@
 *option:retro_TripleLowEHardCoatArgFill:value:6 = TplLeHcKry
 *option:retro_TripleLowEHardCoatArgFill:value:7 = TplLeHcKry
 *option:retro_TripleLowEHardCoatArgFill:value:8 = TplLeHcKry
-*option:retro_TripleLowEHardCoatArgFill:cost:total    = 32156
+*option:retro_TripleLowEHardCoatArgFill:cost:total    = 0! 32156
 *option:retro_TripleLowEHardCoatArgFill:alias = 1428
 
 *option:retro_TripleLowESoftCoatArgFill:value:1 = TplLeScKry
@@ -999,20 +999,20 @@
 *option:retro_TripleLowESoftCoatArgFill:value:6 = TplLeScKry
 *option:retro_TripleLowESoftCoatArgFill:value:7 = TplLeScKry
 *option:retro_TripleLowESoftCoatArgFill:value:8 = TplLeScKry
-*option:retro_TripleLowESoftCoatArgFill:cost:total    = 32156
+*option:retro_TripleLowESoftCoatArgFill:cost:total    = 0 !32156
 *option:retro_TripleLowESoftCoatArgFill:alias = 1429
 
 *attribute:end
 
 
 !-----------------------------------------------------------------------
-! This option sets the airtiGJtness by spec'ing the 
+! This option sets the airtightness by spec'ing the 
 ! appropriate aim2 input file. (cost estimates from 
 ! Stirling-homes parameters)
 !-----------------------------------------------------------------------
 *attribute:start    
-*attribute:name = Opt-AirTiGJtness
-*attribute:tag:1 = <Opt-AirTiGJtness>
+*attribute:name = Opt-AirTightness
+*attribute:tag:1 = <Opt-AirTightness>
 *attribute:default = Typical23
 
 *option:TypicalGTA:value:1    =   base.aim  
@@ -1041,7 +1041,7 @@
 *option:Generic:alias    =   1505
 
 !-----------------------------------------------------------------------
-! Whitehorse airtiGJtness options - spec's the appropriate aim2 input file
+! Whitehorse airtightness options - spec's the appropriate aim2 input file
 ! (cost estimates from James Wigmore) - WH Code - 1.5ACH
 !-----------------------------------------------------------------------
 
@@ -2424,11 +2424,11 @@ Reflects southern Ontario costs
 *option:BaseHRV_SRE55:cost:total = 0
 *option:BaseHRV_SRE55:alias = 2502
 
-*option:UpGJRV_SRE78:value:1    = HRV-upg.vnt
-*option:UpGJRV_SRE78:cost:total = 920
-*option:UpGJRV_SRE78:alias = 2503
+*option:UpghRV_SRE78:value:1    = HRV-upg.vnt
+*option:UpghRV_SRE78:cost:total = 920
+*option:UpghRV_SRE78:alias = 2503
 
-*option:FansOnly:value:1 = FansOnly.vnt		!Using HRV0-base.vnt (HRV with 0 eff. much hiGJer ERS value than FansOnly option)
+*option:FansOnly:value:1 = FansOnly.vnt		!Using HRV0-base.vnt (HRV with 0 eff. much higher ERS value than FansOnly option)
 *option:FansOnly:cost:total = 0
 *option:FansOnly:alias = 2504
 
@@ -2482,7 +2482,7 @@ Reflects southern Ontario costs
 *option:NGERSNoReduction19:alias = 2703
 
 *option:NGERSReducedA16:value:1    = 0.700
-*option:NGERSReducedA16:cost:total = 0		! JTB: This needs a cost (more than liGJts to do this)
+*option:NGERSReducedA16:cost:total = 0		! JTB: This needs a cost (more than lights to do this)
 *option:NGERSReducedA16:alias = 2704
 
 *option:NGERSBestInClass14p8:value:1    = 0.648301
@@ -2490,9 +2490,9 @@ Reflects southern Ontario costs
 *option:NGERSBestInClass14p8:alias = 705
 
 ! --- Study that Tery Strack completed (talk to Mark)  ----
-*option:TStrackLiGJting:value:1    = 0.7402
-*option:TStrackLiGJting:cost:total = 0
-*option:TStrackLiGJting:alias = 2706
+*option:TStrackLighting:value:1    = 0.7402
+*option:TStrackLighting:cost:total = 0
+*option:TStrackLighting:alias = 2706
 
 *attribute:end 
 
