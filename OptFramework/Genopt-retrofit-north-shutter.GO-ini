@@ -44,7 +44,7 @@ Simulation{
       // LINUX 
        Prefix = "" ; 
       
-      Suffix = " -c GenOpt-picked-these-choices.GO-tmp -o OPTIONS-generic-north.options -b GenericHome-north -vv "; 
+      Suffix = " -c GenOpt-picked-these-choices.GO-tmp -o OPTIONS-generic-north.options -b GenericHome-north -e -vv "; 
  
  
    }

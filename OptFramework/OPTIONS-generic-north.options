@@ -864,6 +864,18 @@
 *option:Win6_qd_CL:cost:total   = 0! 25226
 *option:Win6_qd_CL:alias = 1412
 
+*option:Double_win_shutter:value:1 = Wind3SHUTTER
+*option:Double_win_shutter:value:2 = OPAQ
+*option:Double_win_shutter:value:3 = Wind3SHUTTER
+*option:Double_win_shutter:value:4 = OPAQ
+*option:Double_win_shutter:value:5 = Wind3SHUTTER
+*option:Double_win_shutter:value:6 = OPAQ
+*option:Double_win_shutter:value:7 = Wind3SHUTTER
+*option:Double_win_shutter:value:8 = OPAQ
+*option:Double_win_shutter:cost:total   = 0! 24491
+*option:Double_win_shutter:alias = 1415
+
+
 *option:Triple_win_shutter:value:1 = Wind3SHUTTER
 *option:Triple_win_shutter:value:2 = OPAQ
 *option:Triple_win_shutter:value:3 = Wind3SHUTTER
@@ -894,52 +906,52 @@
 ! by optional window areas.
 !*option:Wind1_trp_CL :value:1 = Wind1_trp_CL   
 !*option:Wind1_trp_CL :value:2 = Wind1_trp_CL   
-!*option:Wind1_trp_CL :cost:total    = 020551
+!*option:Wind1_trp_CL :cost:total    = 0 !20551
 !*option:Wind1_trp_CL :alias = 1415
 !
 !*option:Win2scLE1_tr:value:1 = Win2scLE1_tr
 !*option:Win2scLE1_tr:value:2 = Win2scLE1_tr 
-!*option:Win2scLE1_tr:cost:total   = 22883
+!*option:Win2scLE1_tr:cost:total   = 0 !22883
 !*option:Win2scLE1_tr:alias = 1416
 !
 !*option:Win3hcLE1_tr:value:1 = Win3hcLE1_tr
 !*option:Win3hcLE1_tr:value:2 = Win3hcLE1_tr
-!*option:Win3hcLE1_tr:cost:total   = 23550
+!*option:Win3hcLE1_tr:cost:total   = 0 !23550
 !*option:Win3hcLE1_tr:alias = 1417
 !
 !*option:Win4scLE2_tr:value:1 = Win4scLE2_tr 
 !*option:Win4scLE2_tr:value:2 = Win4scLE2_tr
-!*option:Win4scLE2_tr:cost:total   = 23824
+!*option:Win4scLE2_tr:cost:total   = 0 !23824
 !*option:Win4scLE2_tr:alias = 1418
 !
 !*option:Win5hcLE2_tr:value:1 = Win5hcLE2_tr
 !*option:Win5hcLE2_tr:value:2 = Win5hcLE2_tr
-!*option:Win5hcLE2_tr:cost:total   = 24491
+!*option:Win5hcLE2_tr:cost:total   = 0! 24491
 !*option:Win5hcLE2_tr:alias = 1419
 !
 !*option:Win6_qd_CL:value:1 = Win6_qd_CL
 !*option:Win6_qd_CL:value:2 = Win6_qd_CL
-!*option:Win6_qd_CL:cost:total   = 25226
+!*option:Win6_qd_CL:cost:total   = 0! 25226
 !*option:Win6_qd_CL:alias = 1420
 !
 !*option:Win7scle1_qd:value:1 = Win7scle1_qd
 !*option:Win7scle1_qd:value:2 = Win7scle1_qd
-!*option:Win7scle1_qd:cost:total   = 28209
+!*option:Win7scle1_qd:cost:total   = 0! 28209
 !*option:Win7scle1_qd:alias = 1421
 !
 !*option:Win8hcle1_qd:value:1 = Win8hcle1_qd
 !*option:Win8hcle1_qd:value:2 = Win8hcle1_qd
-!*option:Win8hcle1_qd:cost:total   = 28876
+!*option:Win8hcle1_qd:cost:total   = 0! 28876
 !*option:Win8hcle1_qd:alias = 1422
 !
 !*option:Win9scle2_qd:value:1 = Win9scle2_qd
 !*option:Win9scle2_qd:value:2 = Win9scle2_qd
-!*option:Win9scle2_qd:cost:total   = 29120
+!*option:Win9scle2_qd:cost:total   = 0! 29120
 !*option:Win9scle2_qd:alias = 1423
 !
 !*option:Win10hcle2_q:value:1 = Win10hcle2_q
 !*option:Win10hcle2_q:value:2 = Win10hcle2_q
-!*option:Win10hcle2_q:cost:total   = 29787
+!*option:Win10hcle2_q:cost:total   = 0! 29787
 !*option:Win10hcle2_q:alias = 1424
 
 !---------------------------------------------------------------------
@@ -2341,6 +2353,15 @@ Reflects southern Ontario costs
 *option:oil80:cost:total    = 0
 *option:oil80:alias = 2325
 
+*option:oil87:value:1 = oil87furnace.hvac
+*option:oil87:value:2 = #-no-GSHP-file
+*option:oil87:value:3 = #No-IMS: 
+*option:oil87:value:4 = #
+*option:oil87:value:5 = 
+*option:oil87:value:6 = shoulder-ideal.ctl 
+*option:oil87:cost:total    = 0
+*option:oil87:alias = 2325
+
 *option:baseboard:value:1 = Baseboard.hvac
 *option:baseboard:value:2 = #-no-GSHP-file
 *option:baseboard:value:3 = #No-IMS: 
@@ -2359,6 +2380,14 @@ Reflects southern Ontario costs
 *option:oil_boiler:cost:total   = 0
 *option:oil_boiler:alias = 2327
 
+*option:pellet_boiler:value:1 = pellet-boiler.hvac
+*option:pellet_boiler:value:2 = #-no-GSHP-file
+*option:pellet_boiler:value:3 = #No-IMS: 
+*option:pellet_boiler:value:4 = #
+*option:pellet_boiler:value:5 = 
+*option:pellet_boiler:value:6 = shoulder-ideal.ctl
+*option:pellet_boiler:cost:total   = 0
+*option:pellet_boiler:alias = 2327
 
 *attribute:end
 
@@ -2391,14 +2420,14 @@ Reflects southern Ontario costs
 *option:2TonDettsonModUnit:value:2 = 4.3		! Estimated based on 21 SEER
 *option:2TonDettsonModUnit:value:3 = 373.		! 
 *option:2TonDettsonModUnit:value:4 = 125.		! Estimate
-*option:2TonDettsonModUnit:cost:total = 1680	! Mattamy Ottawa
+*option:2TonDettsonModUnit:cost:total = 0!1680	! Mattamy Ottawa
 *option:2TonDettsonModUnit:alias = 2402
   
 *option:2TonGoodmanUnit:value:1 = 24000.
 *option:2TonGoodmanUnit:value:2 = 4.0		! Estimated based on 18 SEER
 *option:2TonGoodmanUnit:value:3 = 373.		! 
 *option:2TonGoodmanUnit:value:4 = 125.		! Estimate
-*option:2TonGoodmanUnit:cost:total = 2930	! Mattamy Ottawa
+*option:2TonGoodmanUnit:cost:total = 0! 2930	! Mattamy Ottawa
 *option:2TonGoodmanUnit:alias = 2403
   
 *attribute:end
@@ -2425,7 +2454,7 @@ Reflects southern Ontario costs
 *option:BaseHRV_SRE55:alias = 2502
 
 *option:UpghRV_SRE78:value:1    = HRV-upg.vnt
-*option:UpghRV_SRE78:cost:total = 920
+*option:UpghRV_SRE78:cost:total = 0 !920
 *option:UpghRV_SRE78:alias = 2503
 
 *option:FansOnly:value:1 = FansOnly.vnt		!Using HRV0-base.vnt (HRV with 0 eff. much higher ERS value than FansOnly option)
