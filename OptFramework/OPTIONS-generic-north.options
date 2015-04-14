@@ -706,6 +706,7 @@
 *attribute:tag:6 = <Opt-win-N-OPT>
 *attribute:tag:7 = <Opt-win-W-CON>
 *attribute:tag:8 = <Opt-win-W-OPT>
+*attribute:tag:9 = <summer_window>  ! this window option is only exercised when shutters are included
 *attribute:default = DoubleLowEHardCoatArgFill
 
 
@@ -864,14 +865,15 @@
 *option:Win6_qd_CL:cost:total   = 0! 25226
 *option:Win6_qd_CL:alias = 1412
 
-*option:Double_win_shutter:value:1 = Wind3SHUTTER
+*option:Double_win_shutter:value:1 = Wind2SHUTTER
 *option:Double_win_shutter:value:2 = OPAQ
-*option:Double_win_shutter:value:3 = Wind3SHUTTER
+*option:Double_win_shutter:value:3 = Wind2SHUTTER
 *option:Double_win_shutter:value:4 = OPAQ
-*option:Double_win_shutter:value:5 = Wind3SHUTTER
+*option:Double_win_shutter:value:5 = Wind2SHUTTER
 *option:Double_win_shutter:value:6 = OPAQ
-*option:Double_win_shutter:value:7 = Wind3SHUTTER
+*option:Double_win_shutter:value:7 = Wind2SHUTTER
 *option:Double_win_shutter:value:8 = OPAQ
+*option:Double_win_shutter:value:9 = DoubleLowEHardCoatAirFill
 *option:Double_win_shutter:cost:total   = 0! 24491
 *option:Double_win_shutter:alias = 1415
 
@@ -884,6 +886,7 @@
 *option:Triple_win_shutter:value:6 = OPAQ
 *option:Triple_win_shutter:value:7 = Wind3SHUTTER
 *option:Triple_win_shutter:value:8 = OPAQ
+*option:Triple_win_shutter:value:9 = Win3hcLE1_tr
 *option:Triple_win_shutter:cost:total   = 0! 24491
 *option:Triple_win_shutter:alias = 1413
 
@@ -895,6 +898,7 @@
 *option:Quad_win_shutter:value:6 = OPAQ
 *option:Quad_win_shutter:value:7 = Wind4SHUTTER
 *option:Quad_win_shutter:value:8 = OPAQ
+*option:Quad_win_shutter:value:9 = Win6_qd_CL
 *option:Quad_win_shutter:cost:total   = 0 !24491
 *option:Quad_win_shutter:alias = 1414
 
