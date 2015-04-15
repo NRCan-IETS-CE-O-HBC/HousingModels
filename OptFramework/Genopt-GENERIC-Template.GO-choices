@@ -65,7 +65,7 @@ Opt-WindowOrientation: all
 
 ! Insulation levels 
 Opt-MainWall                : %GOtag:Opt-MainWall%
-Opt-GenericWall_1Layer_definitions   : %GOtag:Opt-GenericWall_1Layer_definitions%
+!Opt-GenericWall_1Layer_definitions   : %GOtag:Opt-GenericWall_1Layer_definitions%
 Opt-Ceilings                : %GOtag:Opt-Ceilings%
 Opt-BasementSlabInsulation  : %GOtag:Opt-BasementSlabInsulation%
 Opt-BasementWallInsulation  : %GOtag:Opt-BasementWallInsulation%

@@ -71,7 +71,7 @@ Vary{
   
     Name = GOtag:Opt-ACH; 
     Ini  = 1;
-    Values = "retro_ACH_3_5";//,retro_ACH_3,retro_ACH_2_5,retro_ACH_2,retro_ACH_1_5,retro_ACH_1";
+    Values = "retro_ACH_3_5,retro_ACH_3,retro_ACH_2_5,retro_ACH_2,retro_ACH_1_5,retro_ACH_1";
 
   }
 
@@ -108,7 +108,7 @@ Vary{
    Parameter{   // 
      Name    =  GOtag:Opt-MainWall;
      Ini     =  1;
-     Values  =  "NWTR20";//,NWTR20_4,NWTR20_1_5,NWTR20_2,NWTR20_3"; 
+     Values  =  "NWTR20,NWTR20_4,NWTR20_1_5,NWTR20_2,NWTR20_3"; 
    }    
   
    // Foundation walls: 
@@ -118,7 +118,7 @@ Vary{
    Parameter{   // 
      Name    =  GOtag:Opt-BasementWallInsulation;
      Ini     =  1;
-     Values  =  "NWTCrawlWll";//,NWTCrawlWll4";
+     Values  =  "NWTCrawlWll,NWTCrawlWll4";
    } 
 
    // Basement Slab: NoInsulation
@@ -135,7 +135,7 @@ Vary{
    Parameter{   // 
      Name    =  GOtag:Opt-ExposedFloor;
      Ini     =  1;
-     Values  =  "NWTCrawlFlr";//,NWTCrawlFlr6";
+     Values  =  "NWTCrawlFlr,NWTCrawlFlr6";
    }    
    
    // Ceilings: 
@@ -147,7 +147,7 @@ Vary{
    Parameter{   // 
      Name    =  GOtag:Opt-Ceilings;
      Ini     =  1;
-     Values  =  "NWTCeilR40";//,NWTCeilR50,NWTCeilR60,NWTCeilR70";
+     Values  =  "NWTCeilR40,NWTCeilR50,NWTCeilR60,NWTCeilR70";
    }    
   
   // Windows: 
@@ -206,7 +206,7 @@ Vary{
   Parameter{ //
      Name    = GOtag:Opt-DHWSystem;
      Ini     = 1; 
-     Values  = "NWT_oil_DHW";//NWT_oil_inst,NWT_elec_inst,,elec_DHW,NWT_upgrade_elec_DHW,NWT_upgrade_oil_DHW"; 
+     Values  = "NWT_oil_DHW,NWT_oil_inst,NWT_elec_inst,elec_DHW,NWT_upgrade_elec_DHW,NWT_upgrade_oil_DHW"; 
   }
 
   
@@ -222,7 +222,7 @@ Vary{
   Parameter {// 
       Name   = GOtag:Opt-HVACSystem; 
       Ini    = 1; 
-      Values = "Olsen";//baseboard,oil_boiler,Olsen,upgrade_Olsen,oil96,pellet_boiler"; 
+      Values = "Olsen,oil_boiler,Olsen,upgrade_Olsen,oil80,pellet_boiler"; 
   }
 
  // Cooling spec
@@ -258,7 +258,7 @@ Vary{
   Parameter{   // 
      Name    =  GOtag:Opt-StandoffPV;
      Ini     =  1;
-     Values  = "NoPV";//,SizedPV|3kW,SizedPV|5kW,SizedPV|8kW";
+     Values  = "NoPV,SizedPV|3kW,SizedPV|5kW";//,SizedPV|8kW";
   } 
   
   
@@ -323,13 +323,13 @@ Vary{
       // Value may be one of: NGERSNoReduction19
 	  //                      NGERSReducedA16
       //                      NGERSBestInClass14p8      
-      Values = "NGERSNoReduction19";//,NGERSReducedA16"; 
+      Values = "NGERSNoReduction19,NGERSReducedA16"; 
   }
   Parameter { // 
       Name   = GOtag:DHWLoadScale; 
       Ini    = 1;
       // Value may be one of  No-Reduction,EStar,Low-Flow     
-      Values = "No-Reduction";//EStar"; 
+      Values = "No-Reduction,EStar"; 
   }
   
   

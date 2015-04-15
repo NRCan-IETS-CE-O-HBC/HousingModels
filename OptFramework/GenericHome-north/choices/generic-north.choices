@@ -150,7 +150,7 @@ Opt-BasementWallInsulation  : NWTCrawlWll
 !    DoubleClear 
 !    Triple_win_shutter 
 !    Wind1_trp_CL
-Opt-CasementWindows  :  DoubleClear 
+Opt-CasementWindows  :  Double_win_shutter 
 
 
 ! Exposed floor over garage (affects floor
