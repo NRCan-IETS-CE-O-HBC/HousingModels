@@ -44,8 +44,8 @@ Opt-DHWLoadScale     : %GOtag:DHWLoadScale%
 GOconfig_rotate      : %GOtag:GOconfig_rotate%
 
 ! Turn original design windows opaque ( NoWindows!)
-! or transparent (MinWindows). NoWindows doesn't presently work!
-Opt-BaseWindows           : MinWindows  
+! or transparent (MinWindows). 
+Opt-BaseWindows           : %GOtag:Opt-TurnWindowsOn% 
 
 ! Add extra windows ("Yes" or "No") NO LONGER REQUIRE (JTB DEC 3/14)
 !Opt-FrontWindows          : %GOtag:Opt-FrontWindows%
@@ -57,6 +57,7 @@ Opt-BaseWindows           : MinWindows
 Opt-OverhangWidth         : %GOtag:Opt-OverhangWidth%
 
 ! Target Air tightness 
+Opt-InfilMethod           : UseAIM2
 Opt-AirTightness          : %GOtag:Opt-AirTightness%
 Opt-ACH                   : %GOtag:Opt-ACH%
 
@@ -95,5 +96,5 @@ Opt-Cooling-Spec     : %GOtag:Opt-Cooling-Spec%
 Opt-HRVspec          : %GOtag:Opt-HRVSpec%
 Opt-HRVduct          : %GOtag:Opt-HRVduct%    
 
-
+Opt-ThermostatSetpoints : ERS-SOP
 
