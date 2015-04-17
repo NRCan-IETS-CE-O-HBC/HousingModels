@@ -710,7 +710,6 @@
 *attribute:default = DoubleLowEHardCoatArgFill
 
 
-
 ! JP removed base case cost - no additional windows available for lighthouse work.
 *option:DoubleLowEHardCoatAirFill:value:1 = DblLeHcAir
 *option:DoubleLowEHardCoatAirFill:value:2 = DblLeHcAir
@@ -720,6 +719,7 @@
 *option:DoubleLowEHardCoatAirFill:value:6 = DblLeHcAir
 *option:DoubleLowEHardCoatAirFill:value:7 = DblLeHcAir
 *option:DoubleLowEHardCoatAirFill:value:8 = DblLeHcAir
+*option:DoubleLowEHardCoatAirFill:value:9 = DblLeHcAir
 *option:DoubleLowEHardCoatAirFill:cost:total    = 0.0 ! Value changed for Van_2st_80_retro geometry. Originally 10584
 *option:DoubleLowEHardCoatAirFill:alias    = 1400
 
@@ -731,6 +731,7 @@
 *option:DoubleLowEHardCoatArgFill:value:6 = DblLeHcArg 
 *option:DoubleLowEHardCoatArgFill:value:7 = DblLeHcArg 
 *option:DoubleLowEHardCoatArgFill:value:8 = DblLeHcArg 
+*option:DoubleLowEHardCoatArgFill:value:9 = DblLeHcArg 
 *option:DoubleLowEHardCoatArgFill:cost:total    = 2885! Value changed for Van_2st_80_retro geometry. Originally 11727
 *option:DoubleLowEHardCoatArgFill:alias    = 1401
 
@@ -742,6 +743,7 @@
 *option:TripleLowEHardCoatKryFill:value:6 = TplLeHcKry
 *option:TripleLowEHardCoatKryFill:value:7 = TplLeHcKry
 *option:TripleLowEHardCoatKryFill:value:8 = TplLeHcKry
+*option:TripleLowEHardCoatKryFill:value:9 = TplLeHcKry
 *option:TripleLowEHardCoatKryFill:cost:total    = 4570! Value changed for Van_2st_80_retro geometry. Originally 20871
 *option:TripleLowEHardCoatKryFill:alias    = 1402
 
@@ -753,6 +755,7 @@
 *option:TripleLowESoftCoatKryFill:value:6 = TplLeScKry
 *option:TripleLowESoftCoatKryFill:value:7 = TplLeScKry
 *option:TripleLowESoftCoatKryFill:value:8 = TplLeScKry
+*option:TripleLowESoftCoatKryFill:value:9 = TplLeScKry
 *option:TripleLowESoftCoatKryFill:cost:total    = 4050 ! Value changed for Van_2st_80_retro geometry. Originally 19310
 *option:TripleLowESoftCoatKryFill:alias    = 1403
 
@@ -764,6 +767,7 @@
 *option:DoubleLowESoftCoatArgFill:value:6 = DblLeScArg
 *option:DoubleLowESoftCoatArgFill:value:7 = DblLeScArg
 *option:DoubleLowESoftCoatArgFill:value:8 = DblLeScArg
+*option:DoubleLowESoftCoatArgFill:value:9 = DblLeScArg
 *option:DoubleLowESoftCoatArgFill:cost:total    = 2440 ! Value changed for Van_2st_80_retro geometry. Originally 10965
 *option:DoubleLowESoftCoatArgFill:alias    = 1404
 
@@ -807,6 +811,7 @@
 *option:Wind1_trp_CL :value:6 = Wind1_trp_CL
 *option:Wind1_trp_CL :value:7 = Wind1_trp_CL   
 *option:Wind1_trp_CL :value:8 = Wind1_trp_CL
+*option:Wind1_trp_CL :value:9 = Wind1_trp_CL
 *option:Wind1_trp_CL :cost:total    = 0   ! this is used as the base case for NWT, so no cost. origianlly $20551
 *option:Wind1_trp_CL:alias = 1407
 
@@ -818,6 +823,7 @@
 *option:Win2scLE1_tr:value:6 = Win2scLE1_tr 
 *option:Win2scLE1_tr:value:7 = Win2scLE1_tr
 *option:Win2scLE1_tr:value:8 = Win2scLE1_tr 
+*option:Win2scLE1_tr:value:9 = Win2scLE1_tr 
 *option:Win2scLE1_tr:cost:total   = 0! 22883
 *option:Win2scLE1_tr:alias = 1408
 
@@ -829,6 +835,7 @@
 *option:Win3hcLE1_tr:value:6 = Win3hcLE1_tr
 *option:Win3hcLE1_tr:value:7 = Win3hcLE1_tr
 *option:Win3hcLE1_tr:value:8 = Win3hcLE1_tr
+*option:Win3hcLE1_tr:value:9 = Win3hcLE1_tr
 *option:Win3hcLE1_tr:cost:total   = 0! 23550
 *option:Win3hcLE1_tr:alias = 1409
 
@@ -840,6 +847,7 @@
 *option:Win4scLE2_tr:value:6 = Win4scLE2_tr
 *option:Win4scLE2_tr:value:7 = Win4scLE2_tr 
 *option:Win4scLE2_tr:value:8 = Win4scLE2_tr
+*option:Win4scLE2_tr:value:9 = Win4scLE2_tr
 *option:Win4scLE2_tr:cost:total   = 0 ! 23824
 *option:Win4scLE2_tr:alias = 1410
 
@@ -851,6 +859,7 @@
 *option:Win5hcLE2_tr:value:6 = Win5hcLE2_tr
 *option:Win5hcLE2_tr:value:7 = Win5hcLE2_tr
 *option:Win5hcLE2_tr:value:8 = Win5hcLE2_tr
+*option:Win5hcLE2_tr:value:9 = Win5hcLE2_tr
 *option:Win5hcLE2_tr:cost:total   = 0! 24491
 *option:Win5hcLE2_tr:alias = 1411
 
@@ -862,11 +871,12 @@
 *option:Win6_qd_CL:value:6 = Win6_qd_CL
 *option:Win6_qd_CL:value:7 = Win6_qd_CL
 *option:Win6_qd_CL:value:8 = Win6_qd_CL
+*option:Win6_qd_CL:value:9 = Win6_qd_CL
 *option:Win6_qd_CL:cost:total   = 0! 25226
 *option:Win6_qd_CL:alias = 1412
 
-*option:Double_win_shutter:value:1 = Wind2SHUTTER
-*option:Double_win_shutter:value:2 = OPAQ
+*option:Double_win_shutter:value:1 = DblLeHcAir
+*option:Double_win_shutter:value:2 = DblLeHcAir
 *option:Double_win_shutter:value:3 = Wind2SHUTTER
 *option:Double_win_shutter:value:4 = OPAQ
 *option:Double_win_shutter:value:5 = Wind2SHUTTER
@@ -878,8 +888,8 @@
 *option:Double_win_shutter:alias = 1415
 
 
-*option:Triple_win_shutter:value:1 = Wind3SHUTTER
-*option:Triple_win_shutter:value:2 = OPAQ
+*option:Triple_win_shutter:value:1 = Win3hcLE1_tr ! south-facing windows area always transparent
+*option:Triple_win_shutter:value:2 = Win3hcLE1_tr
 *option:Triple_win_shutter:value:3 = Wind3SHUTTER
 *option:Triple_win_shutter:value:4 = OPAQ
 *option:Triple_win_shutter:value:5 = Wind3SHUTTER
@@ -890,8 +900,8 @@
 *option:Triple_win_shutter:cost:total   = 0! 24491
 *option:Triple_win_shutter:alias = 1413
 
-*option:Quad_win_shutter:value:1 = Wind4SHUTTER
-*option:Quad_win_shutter:value:2 = OPAQ
+*option:Quad_win_shutter:value:1 = Win6_qd_CL
+*option:Quad_win_shutter:value:2 = Win6_qd_CL
 *option:Quad_win_shutter:value:3 = Wind4SHUTTER
 *option:Quad_win_shutter:value:4 = OPAQ
 *option:Quad_win_shutter:value:5 = Wind4SHUTTER
