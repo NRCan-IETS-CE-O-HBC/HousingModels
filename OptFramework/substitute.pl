@@ -25,7 +25,8 @@ sub stream_out($);
 sub stream_out($);
 sub postprocessDakota();
 
-
+# Global variable names  (i.e., variables that maintain their content and use (scope) throughout this file). 
+# Note loose convention to start global variables with a 'g'.
 my $gDebug = 0; 
 
 my %gTest_params;          # test parameters
@@ -130,7 +131,6 @@ my $gAvgEnergyVentElec = 0;
 my $gAvgEnergyHeatingFossil = 0;
 my $gAvgEnergyWaterHeatingElec = 0;
 my $gAvgEnergyWaterHeatingFossil = 0;
-my $gAmtWood = 0;
 my $gAmtOil = 0;
 
 # Data from Hanscomb 2011 NBC analysis
@@ -436,6 +436,7 @@ my $gISHcmd             = "./run.sh $gModelCfgFile";
 my $gPRJZoneConCmd      = "$gPRJpath -mode text -file $gModelCfgFile -act update_con_files";
 my $gPRJZoneRotCmd      = "$gPRJpath -mode text -file $gModelCfgFile -act rotate ";
 my $gBPScmd             = "$gBPSpath -h3k -file $gModelCfgFile -mode text -p fullyear silent";
+
    
    
 # Create base folder for working model
@@ -443,18 +444,14 @@ if (!$gPostProcDakota && ! -d "$gBaseModelFolder" && -d "../$gBaseModelFolder" )
   execute ("cp -fr ../$gBaseModelFolder ./");
 }
 
-
-
 if (! -r "$gOptionFile" && -r "../$gOptionFile" ){ 
   execute ("cp ../$gOptionFile ./");
 }
-
 
 stream_out (" > substitute.pl path: $master_path \n");
 stream_out (" >               ChoiceFile: $gChoiceFile \n");
 stream_out (" >               OptionFile: $gOptionFile \n");
 stream_out (" >               base model: $gBaseModelFolder \n"); 
-
 
 
 # Parse option file. This file defines the available choices and costs
@@ -716,7 +713,7 @@ $linecount = 0;
 while ( my $line = <CHOICES> ){
 	
 	$line =~ s/\!.*$//g; 
-	# next, strip white spaces for standard (and genopt) choice files
+	# Next, strip white spaces for GenOpt and Dakota choice files
 	if ( ! $gDakota ) { 
 		$line =~ s/\s*//g;
 	} else {
@@ -950,521 +947,520 @@ while ( my ( $attribute, $choice) = each %gChoices ){
 	}
 }
 
+# Check if seasonal runs required ...
+my $gSeasonal = 0;
+my $gNumSeasonalRuns = 1;
+my $igSeasonalRun = 1;
+my @gSeason = ( "win1", "summer", "win2" );		# Fixed seasons defined in ESP-r cfg file!
+my $WindowOption = $gChoices{"Opt-CasementWindows"};
+if ( $WindowOption =~ /shutter/ ) {				# This is the trigger for seasonal runs!
+	$gSeasonal = 1;
+	$gNumSeasonalRuns = $#gSeason+1;			# Number of seasons based on array definition above (3)
+	}
+	
 # Check if extra run required for ERS conditions ...
 my $gNumRunSetsRqd = 1;
 my $gHRVctl = $gChoices{"OPT-HRV_ctl"};
 my $gElecLS = $gChoices{"Opt-ElecLoadScale"};
 my $gDHWLS  = $gChoices{"Opt-DHWLoadScale"};
 
-if ( $gERSCalcMode ) {
+if ( $gERSCalcMode) {
 	if ( $gElecLS =~ /NoReduction/ && $gDHWLS =~ /OldERS/ && $gHRVctl =~ /ERSp3ACH/ ) {
 		# Conditions already set correctly to calculate ERS!
 		$gNumRunSetsRqd = 1;
 	} else {
 		$gNumRunSetsRqd = 2;
-        $gChoices{"OPT-HRV_ctl"} = "ERSp3ACH";
+		$gChoices{"OPT-HRV_ctl"} = "ERSp3ACH";
 		$gChoices{"Opt-ElecLoadScale"} = "NoReduction";
 		$gChoices{"Opt-DHWLoadScale"} = "OldERS";
 	}
 }
 
-
 for ( my $iRun = 1; $iRun <= $gNumRunSetsRqd; $iRun++ ) {
 
-	# Now we need to process conditions. Note that we need to redo the %gChoices loop. The loop
-	# above ensured that, if Dakota aliases where used, all aliases were replaced with valid 
-	# option string names. Conditions can use multiple option string names and we can't ensure
-	# the order of processing above!
-	VALCHOICES: while ( my ( $attribute, $choice) = each %gChoices ){	
-
-		my $ValRef = $gOptions{$attribute}{"options"}{$choice}{"values"}; 
+	for ( $igSeasonalRun = 1; $igSeasonalRun <= $gNumSeasonalRuns; $igSeasonalRun++ ) {
 		
-		if (defined ($ValRef)){
-			my %ValHash = %$ValRef; 
-		  
-			for my $ValueIndex (keys %ValHash){
+		# NOTE: Loop variable $igSeasonalRun is global in order for value to be used in subroutine runsims()
+		if ( $igSeasonalRun == 2 ) {
+			# Set summer run period window type as value 9 from selected shutter window choice
+			$gChoices{"Opt-CasementWindows"} = $gOptions{"Opt-CasementWindows"}{"options"}{$WindowOption}{"values"}{9}{"conditions"}{"all"};
+		} elsif ( $igSeasonalRun == 3) {
+			# Set winter2 back to shutter choice
+			$gChoices{"Opt-CasementWindows"} = $WindowOption;
+		}
+		
+		# Now we need to process conditions. Note that we need to redo the %gChoices loop. The loop
+		# above ensured that, if Dakota aliases where used, all aliases were replaced with valid 
+		# option string names. Conditions can use multiple option string names and we can't ensure
+		# the order of processing above!
+		VALCHOICES: while ( my ( $attribute, $choice) = each %gChoices ){	
+
+			my $ValRef = $gOptions{$attribute}{"options"}{$choice}{"values"}; 
 			
-				# for each value, check if corresponding conditions are valid
-				my $CondRef = $gOptions{$attribute}{"options"}{$choice}{"values"}{$ValueIndex}{"conditions"}; 
-				my %CondHash = %$CondRef; 
-		  
-				# Check for 'all' conditions
-				my $ValidConditionFound = 0;
+			if (defined ($ValRef)){
+				my %ValHash = %$ValRef; 
 			  
-				if ( defined( $CondHash{"all"} ) ) { 
-					debug_out ("   - VALINDEX: $ValueIndex : found valid condition: \"all\" !\n");
-					$gOptions{$attribute}{"options"}{$choice}{"result"}{$ValueIndex} = $CondHash{"all"};
-					$ValidConditionFound = 1; 
-				} else {
-					# Loop through hash 
-					for my $conditions ( keys %CondHash ) {
-						if ($conditions !~ /else/ ){ 
-							debug_out ( " >>>>> Testing |$conditions| <<<\n" ) ; 
+				for my $ValueIndex (keys %ValHash){
+				
+					# for each value, check if corresponding conditions are valid
+					my $CondRef = $gOptions{$attribute}{"options"}{$choice}{"values"}{$ValueIndex}{"conditions"}; 
+					my %CondHash = %$CondRef; 
+			  
+					# Check for 'all' conditions
+					my $ValidConditionFound = 0;
+				  
+					if ( defined( $CondHash{"all"} ) ) { 
+						debug_out ("   - VALINDEX: $ValueIndex : found valid condition: \"all\" !\n");
+						$gOptions{$attribute}{"options"}{$choice}{"result"}{$ValueIndex} = $CondHash{"all"};
+						$ValidConditionFound = 1; 
+					} else {
+						# Loop through hash 
+						for my $conditions ( keys %CondHash ) {
+							if ($conditions !~ /else/ ){ 
+								debug_out ( " >>>>> Testing |$conditions| <<<\n" ) ; 
+								my $valid_condition = 1; 
+								foreach my $condition (split /;/, $conditions ){
+									debug_out ("      $condition \n"); 
+									my ($TestAttribute, $TestValueList) = split /=/, $condition; 
+									if ( ! $TestValueList ) {
+										$TestValueList = "XXXX";
+									}
+									my @TestValueArray = split /\|/, $TestValueList;
+									my $thesevalsmatch =0; 
+									foreach my $TestValue (@TestValueArray){
+										if ( $gChoices{$TestAttribute} =~ /$TestValue/ ) { 
+											$thesevalsmatch = 1; 
+										}
+										debug_out ("      \$gChoices{".$TestAttribute."} = ".$gChoices{$TestAttribute}." / $TestValue / -> $thesevalsmatch \n"); 
+									}
+									if ( ! $thesevalsmatch ){
+										$valid_condition = 0;
+									}
+								}
+								if ( $valid_condition ) { 
+									$gOptions{$attribute}{"options"}{$choice}{"result"}{$ValueIndex}  = $CondHash{$conditions};
+									$ValidConditionFound = 1; 
+									debug_out ("   - VALINDEX: $ValueIndex : found valid condition: \"$conditions\" !\n");
+								}
+							}
+						}
+					}
+					# Check if else condition exists. 
+					if ( ! $ValidConditionFound ) {
+						debug_out ("Looking for else!: ".$CondHash{"else"}."<\n" ); 
+						if ( defined( $CondHash{"else"} ) ){
+							$gOptions{$attribute}{"options"}{$choice}{"result"}{$ValueIndex} = $CondHash{"else"};
+							$ValidConditionFound = 1;
+							debug_out ("   - VALINDEX: $ValueIndex : found valid condition: \"else\" !\n");
+						}
+					}
+				  
+					if ( ! $ValidConditionFound ) {
+						$ThisError  = "\nERROR: No valid conditions were defined for $attribute \n";
+						$ThisError .=   "       in options file ($gOptionFile). Choices must match one \n";
+						$ThisError .=   "       of the following:\n";
+						for my $conditions ( keys %CondHash ) {
+							$ThisError .=   "            -> $conditions \n" ;
+						}
+
+						$ErrorBuffer .= $ThisError; 
+						stream_out( $ThisError );  
+				 
+						$allok = 0; 
+					} else {
+						$allok = 1;
+					}
+				}
+			}
+			
+			# Check conditions on external entities that are not 'value' or 'cost' ...
+			my $ExtRef = $gOptions{$attribute}{"options"}{$choice}; 
+			my %ExtHash = %$ExtRef;
+		   
+			foreach my $ExternalParam ( keys %ExtHash ){
+				
+				if ( $ExternalParam =~ /production/ ){
+					
+					my $CondRef = $gOptions{$attribute}{"options"}{$choice}{$ExternalParam}{"conditions"}; 
+					my %CondHash = %$CondRef; 
+			  
+					# Check for 'all' conditions
+					my $ValidConditionFound = 0;
+				  
+					if ( defined( $CondHash{"all"} ) ) { 
+						debug_out ("   - EXTPARAM: $ExternalParam : found valid condition: \"all\" ! (".$CondHash{"all"}.")\n");
+						$gOptions{$attribute}{"options"}{$choice}{"ext-result"}{$ExternalParam} = $CondHash{"all"};
+						$ValidConditionFound = 1; 
+						
+					} else {
+					
+						# Loop through hash 
+					
+						for my $conditions ( keys %CondHash ) {
+							
+							#debug_out ( " >>>>> Testing $conditions \n" ) ; 
+						
 							my $valid_condition = 1; 
 							foreach my $condition (split /;/, $conditions ){
-								debug_out ("      $condition \n"); 
-								my ($TestAttribute, $TestValueList) = split /=/, $condition; 
-								if ( ! $TestValueList ) {
-									$TestValueList = "XXXX";
-								}
-								my @TestValueArray = split /\|/, $TestValueList;
-								my $thesevalsmatch =0; 
-								foreach my $TestValue (@TestValueArray){
-									if ( $gChoices{$TestAttribute} =~ /$TestValue/ ) { 
-										$thesevalsmatch = 1; 
-									}
-						 
-									debug_out ("      \$gChoices{".$TestAttribute."} = ".$gChoices{$TestAttribute}." / $TestValue / -> $thesevalsmatch \n"); 
-								}
-								if ( ! $thesevalsmatch ){
-									$valid_condition = 0;
-								}
+								
+							#debug_out ("      $condition \n"); 
+							my ($TestAttribute, $TestValueList) = split /=/, $condition; 
+							if ( ! $TestValueList ) {
+								$TestValueList = "XXXX";
 							}
-							if ( $valid_condition ) { 
-								$gOptions{$attribute}{"options"}{$choice}{"result"}{$ValueIndex}  = $CondHash{$conditions};
-								$ValidConditionFound = 1; 
-								debug_out ("   - VALINDEX: $ValueIndex : found valid condition: \"$conditions\" !\n");
+							my @TestValueArray = split /\|/, $TestValueList;
+							my $thesevalsmatch =0; 
+							foreach my $TestValue (@TestValueArray){
+								if ( $gChoices{$TestAttribute} =~ /$TestValue/ ) { 
+									$thesevalsmatch = 1; 
+								}
+							 
+								#debug_out ("      \$gChoices{".$TestAttribute."} = ".$gChoices{$TestAttribute}." / $TestValue / -> $thesevalsmatch \n"); 
 							}
-						}
-					}
-				}
-				# Check if else condition exists. 
-				if ( ! $ValidConditionFound ) {
-					debug_out ("Looking for else!: ".$CondHash{"else"}."<\n" ); 
-					if ( defined( $CondHash{"else"} ) ){
-						$gOptions{$attribute}{"options"}{$choice}{"result"}{$ValueIndex} = $CondHash{"else"};
-						$ValidConditionFound = 1;
-						debug_out ("   - VALINDEX: $ValueIndex : found valid condition: \"else\" !\n");
-					}
-				}
-			  
-				if ( ! $ValidConditionFound ) {
-					$ThisError  = "\nERROR: No valid conditions were defined for $attribute \n";
-					$ThisError .=   "       in options file ($gOptionFile). Choices must match one \n";
-					$ThisError .=   "       of the following:\n";
-					for my $conditions ( keys %CondHash ) {
-						$ThisError .=   "            -> $conditions \n" ;
-					}
-
-					$ErrorBuffer .= $ThisError; 
-					stream_out( $ThisError );  
-			 
-					$allok = 0; 
-				} else {
-					$allok = 1;
-				}
-			}
-		}
-		
-		# Check conditions on external entities that are not 'value' or 'cost' ...
-		my $ExtRef = $gOptions{$attribute}{"options"}{$choice}; 
-		my %ExtHash = %$ExtRef;
-	   
-		foreach my $ExternalParam ( keys %ExtHash ){
-			
-			if ( $ExternalParam =~ /production/ ){
-				
-				my $CondRef = $gOptions{$attribute}{"options"}{$choice}{$ExternalParam}{"conditions"}; 
-				my %CondHash = %$CondRef; 
-		  
-				# Check for 'all' conditions
-				my $ValidConditionFound = 0;
-			  
-				if ( defined( $CondHash{"all"} ) ) { 
-					debug_out ("   - EXTPARAM: $ExternalParam : found valid condition: \"all\" ! (".$CondHash{"all"}.")\n");
-					$gOptions{$attribute}{"options"}{$choice}{"ext-result"}{$ExternalParam} = $CondHash{"all"};
-					$ValidConditionFound = 1; 
-					
-				} else {
-				
-					# Loop through hash 
-				
-					for my $conditions ( keys %CondHash ) {
-						
-						#debug_out ( " >>>>> Testing $conditions \n" ) ; 
-					
-						my $valid_condition = 1; 
-						foreach my $condition (split /;/, $conditions ){
+							if ( ! $thesevalsmatch ){
+								$valid_condition = 0;
+							}
+							}
 							
-						#debug_out ("      $condition \n"); 
-						my ($TestAttribute, $TestValueList) = split /=/, $condition; 
-						if ( ! $TestValueList ) {
-							$TestValueList = "XXXX";
-						}
-						my @TestValueArray = split /\|/, $TestValueList;
-						my $thesevalsmatch =0; 
-						foreach my $TestValue (@TestValueArray){
-							if ( $gChoices{$TestAttribute} =~ /$TestValue/ ) { 
-								$thesevalsmatch = 1; 
+							if ( $valid_condition ) { 
+								$gOptions{$attribute}{"options"}{$choice}{"ext-result"}{$ExternalParam}= $CondHash{$conditions};
+								$ValidConditionFound = 1; 
+								debug_out ("   - EXTPARAM: $ExternalParam : found valid condition: \"$conditions\" (".$CondHash{$conditions}.")\n");
 							}
-						 
-							#debug_out ("      \$gChoices{".$TestAttribute."} = ".$gChoices{$TestAttribute}." / $TestValue / -> $thesevalsmatch \n"); 
+
 						}
-						if ( ! $thesevalsmatch ){
-							$valid_condition = 0;
+					
+					}
+					
+					# Check if else condition exists. 
+					if ( ! $ValidConditionFound ) {
+						if ( defined( $CondHash{"else"} ) ){
+							$gOptions{$attribute}{"options"}{$choice}{"ext-result"}{$ExternalParam} = $CondHash{"else"};
+							$ValidConditionFound = 1;
+							debug_out ("   - EXTPARAM: $ExternalParam : found valid condition: \"else\" ! (".$CondHash{"else"}.")\n");
 						}
+					}
+				  
+					if ( ! $ValidConditionFound ) {
+						$ThisError  = "\nERROR: No valid conditions were defined for $attribute \n";
+						$ThisError .=   "       in options file ($gOptionFile). Choices must match one \n";
+						$ThisError .=   "       of the following:\n";
+						for my $conditions ( keys %CondHash ) {
+							$ThisError .=  "            -> $conditions \n" ;
 						}
 						
-						if ( $valid_condition ) { 
-							$gOptions{$attribute}{"options"}{$choice}{"ext-result"}{$ExternalParam}= $CondHash{$conditions};
-							$ValidConditionFound = 1; 
-							debug_out ("   - EXTPARAM: $ExternalParam : found valid condition: \"$conditions\" (".$CondHash{$conditions}.")\n");
-						}
-
-					}
-				
-				}
-				
-				# Check if else condition exists. 
-				if ( ! $ValidConditionFound ) {
-					if ( defined( $CondHash{"else"} ) ){
-						$gOptions{$attribute}{"options"}{$choice}{"ext-result"}{$ExternalParam} = $CondHash{"else"};
-						$ValidConditionFound = 1;
-						debug_out ("   - EXTPARAM: $ExternalParam : found valid condition: \"else\" ! (".$CondHash{"else"}.")\n");
+						$ErrorBuffer .= $ThisError; 
+						stream_out( $ThisError );            
+						
+						$allok = 0; 
+					} else {
+						$allok = 1;
 					}
 				}
-			  
-				if ( ! $ValidConditionFound ) {
-					$ThisError  = "\nERROR: No valid conditions were defined for $attribute \n";
-					$ThisError .=   "       in options file ($gOptionFile). Choices must match one \n";
-					$ThisError .=   "       of the following:\n";
-					for my $conditions ( keys %CondHash ) {
-						$ThisError .=  "            -> $conditions \n" ;
-					}
-					
-					$ErrorBuffer .= $ThisError; 
-					stream_out( $ThisError );            
-					
-					$allok = 0; 
-				} else {
-					$allok = 1;
-				}
 			}
-		}
-		
-		#debug_out (" >>>>> ".$gOptions{$attribute}{"options"}{$choice}{"result"}{"production-elec-perKW"}."\n"); 
-	  
-		my ($BaseOption,$ScaleFactor,$BaseChoice,$BaseCost);
-	  
-		# This section implements the multiply-cost 
-	  
-		if ($allok ){
-		   
-			my $cost = $gOptions{$attribute}{"options"}{$choice}{"cost"};
-			my $cost_type = $gOptions{$attribute}{"options"}{$choice}{"cost-type"};
-			my $repcost = defined( $cost ) ? $cost : "?" ; 
-		    
-			if ( ! defined ($cost_type) ){ $cost_type = "" ; }
-			if ( ! defined ($cost) ){ $cost = "" ; }
-			debug_out ("   - found cost: \$$cost ($cost_type) \n"); 
-		
-			my $ScaleCost = 0; 
-		
-			# Scale cost by some other parameter. 
-			if ( $repcost =~/\<MULTIPLY-COST:.+/){
-				
-				my $multiplier = $cost;
-				
-				$multiplier =~ s/\<//g;
-				$multiplier =~ s/\>//g;
-				$multiplier =~ s/MULTIPLY-COST://g;
-		
-				($BaseOption,$ScaleFactor) = split /\*/, $multiplier;
-		  
-				$BaseChoice = $gChoices{$BaseOption};
-				$BaseCost   = $gOptions{$BaseOption}{"options"}{$BaseChoice}{"cost"};
-		  
-				my $CompCost = $BaseCost * $ScaleFactor; 
-		
-				$ScaleCost = 1; 
-				$gOptions{$attribute}{"options"}{$choice}{"cost"} = $CompCost; 
-			}
-		
-			$cost = $gOptions{$attribute}{"options"}{$choice}{"cost"} ;
-			if ( ! defined ($cost) ){ $cost = "0" ; }
-			if ( ! defined ($cost_type) ){ $cost_type = "" ; }
-			debug_out ( "\n\nMAPPING for $attribute = $choice (@ \$".
-					 round($cost).
-					 " inc. cost [$cost_type] ): \n"); 
-			if ( $ScaleCost ){
-				debug_out (     "  (cost computed as $ScaleFactor *  ".round($BaseCost)." [cost of $BaseChoice])\n");
-			}
-		}
-	   
-		# Check on value of error flag before continuing with while loop
-		# (the flag may be reset in the next iteration!)
-		if ( ! $allok ) {
-			last VALCHOICES;	# exit the loop - don't process rest of choices against options
-		}
-	}
-
-
-	# Seems like we've found everything!
-
-
-	if ( ! $allok ) { 
-
-		stream_out("\n--------------------------------------------------------------\n");
-		stream_out("\nSubstitute.pl encountered the following errors:\n"); 
-		stream_out($ErrorBuffer); 
-
-		fatalerror(" Choices in $gChoiceFile do not match options in $gOptionFile!");
-	} else {
-		stream_out (" done.\n");
-	} 
-
-
-	# Now create a copy of our base ESP-r file for manipulation. 
-	stream_out("\n\n Creating a working folder for optimization work...");
-	if ( ! $gSkipSims ) {
-	  system ("rm -fr $gWorkingModelFolder ");
-	  system ("cp -fr $gBaseModelFolder $gWorkingModelFolder ");
-	}
-	stream_out("done.\n");
-
-
-	# This cmd seems to duplicate definition of $master_path above.
-	$gMasterPath = getcwd();
-
-	# Optimization runs need climate files, which will vary between linux and 
-	# windows systems. We need to find the approprate climate folder, and link to it 
-	# within the model directory. 
-	#
-	# Check to see if working folder contains link to climate directory
-	# 
-
-	debug_out ("? cwd ?: $gMasterPath / $master_path \n"); 
-
-	my $system = `uname`; 
-	debug_out (">>>System is $system \n"); 
-	my $source_clm_dir="UNKNOWN"; 
-	my $clm_link_target = ""; 
-	if ( $system =~ /cygwin/i ) {$source_clm_dir = "climate_cygwin";}
-	if ( $system =~ /linux/i ) {$source_clm_dir = "climate_linux";}
-	debug_out ( " Creating link to $source_clm_dir \n "); 
-
-	# Find the approprate path. If substitute has been invoked directly, 
-	# Cli
-	if  ( -d "$gMasterPath/$source_clm_dir" ) {
-		debug_out ( "Found $gMasterPath/$source_clm_dir. Linking (a).\n");
-		$clm_link_target = "$gMasterPath/$source_clm_dir"; 
-	}
-	# Fi
-	elsif ( -d "$gMasterPath/../$source_clm_dir" ) {
-		debug_out ( "Found $gMasterPath/../$source_clm_dir. Linking (b).\n");
-		$clm_link_target = "$gMasterPath/../$source_clm_dir"; 
-	}
-	else {
-		debug_out ( "Could not find $source_clm_dir. \n");
-		
-		$ThisError  = "\nERROR: Climate file directory ($source_clm_dir) could not be found.  \n"; 
-		$ErrorBuffer .= $ThisError; 
-		debug_out ( "$ThisError \n");
-		$allok = 0; 
-		fatalerror ( " Could not locate climate files !" ); 
-	  
-	}
-
-	# Now create the link
-
-	stream_out ("Linking  $clm_link_target $gWorkingModelFolder/climate -> $clm_link_target"); 
-	if ( $system =~ /linux/i ) {
-	  execute ( "cp -fr  $clm_link_target $gWorkingModelFolder/climate "); 
-	}else{
-	  execute ( "ln -s  $clm_link_target $gWorkingModelFolder/climate ");
-	}
-
-
-	# Search through all files in the working directory, and perform substitutions as needed 
-	 find( sub{
-			  # move on to next file if (1) file is a directory,
-			  # (2) file is not readable, or (3) file is not
-			  # cfg file.
-			  return if -d;
-			  return unless -r;
-			  return if $File::Find::name =~ m/CVS./;
-			  my $MatchExt = 0;
-			  for my $ext ( @search_these_exts ){
-				if ( $File::Find::name =~ /$ext$/ ) {$MatchExt = 1;} 
-			  }
-			  if ( ! $MatchExt ) {return; }
-			  
-			  process_file($File::Find::name);
-			},  $gWorkingModelFolder );
-
-
-
-
-	# Could allow SE/NE/SW/NW here, or even NNE, ENE, ESE, SSE. Note that our solar calculations will not reflect 
-	# orientation changes. For now, we assume the arrays must always point south.
-	my %angles = ( "S" => 0 , 
-				   "E" => 90,
-				   "N" => 180,
-				   "W" => 270  ); 
-
-
-	# Orientations is an array we populate with a single member if the orientation 
-	# is specified, or with all of the orientations to be run if 'AVG' is spec'd.               
-	my @Orientations;               
-
-
-	if ( $gRotate =~  /AVG/ ) 
-	{ 
-	  @Orientations = ( "S", "N", "E", "W" ); 
-	}
-	else 
-	{ 
-	  @Orientations = ( $gRotate ); 
-	}
-
-	# Compute scale factor for averaging between orientations (=1 if only 
-	# one orientation is spec'd)
-	my $ScaleResults = 1.0/($#Orientations+1); 
-
-	# Defined at top and zeroed here because if we are running multiple orientations, 
-	# we must average them as we go.	   
-	$gAvgCost_NatGas    		= 0;
-	$gAvgCost_Electr    		= 0;
-	$gAvgEnergy_Total   		= 0; 
-	$gAvgCost_Propane   		= 0;
-	$gAvgCost_Oil       		= 0;
-	$gAvgCost_Wood      		= 0;
-	$gAvgCost_Pellet    		= 0;
-	$gAvgPVRevenue      		= 0; 
-	$gAvgElecCons_KWh    		= 0; 
-	$gAvgPVOutput_kWh			= 0; 
-	$gAvgCost_Total				= 0; 
-	$gAvgEnergyHeatingGJ		= 0; 
-	$gAvgEnergyCoolingGJ		= 0; 
-	$gAvgEnergyVentilationGJ	= 0; 
-	$gAvgEnergyWaterHeatingGJ	= 0; 
-	$gAvgEnergyEquipmentGJ		= 0; 
-	$gAvgNGasCons_m3			= 0; 
-	$gAvgOilCons_l				= 0; 
-	$gAvgPropCons_l				= 0; 
-	$gAvgPelletCons_tonne		= 0; 
-	$gDirection                 ="";
-	$gEnergyHeatingElec 		= 0;
-	$gEnergyVentElec            = 0;
-	$gEnergyHeatingFossil 		= 0;
-	$gEnergyWaterHeatingElec 	= 0;
-	$gEnergyWaterHeatingFossil 	= 0;
-	$gAvgEnergyHeatingElec 		= 0;
-	$gAvgEnergyVentElec         = 0;
-	$gAvgEnergyHeatingFossil 	= 0;
-	$gAvgEnergyWaterHeatingElec = 0;
-	$gAvgEnergyWaterHeatingFossil = 0;
-	$gAmtWood = 0;
-	$gAmtOil = 0;
-	
-	UpdateCon();  
-	 
-	for my $Direction  ( @Orientations ){
-
-		$gDirection = $Direction; 
-
-		if ( ! $gSkipSims ) { 
-		
-			runsims( $angles{$Direction} ); 
 			
+			#debug_out (" >>>>> ".$gOptions{$attribute}{"options"}{$choice}{"result"}{"production-elec-perKW"}."\n"); 
+		  
+			my ($BaseOption,$ScaleFactor,$BaseChoice,$BaseCost);
+		  
+			# This section implements the multiply-cost 
+		  
+			if ($allok ){
+			   
+				my $cost = $gOptions{$attribute}{"options"}{$choice}{"cost"};
+				my $cost_type = $gOptions{$attribute}{"options"}{$choice}{"cost-type"};
+				my $repcost = defined( $cost ) ? $cost : "?" ; 
+				
+				if ( ! defined ($cost_type) ){ $cost_type = "" ; }
+				if ( ! defined ($cost) ){ $cost = "" ; }
+				debug_out ("   - found cost: \$$cost ($cost_type) \n"); 
+			
+				my $ScaleCost = 0; 
+			
+				# Scale cost by some other parameter. 
+				if ( $repcost =~/\<MULTIPLY-COST:.+/){
+					
+					my $multiplier = $cost;
+					
+					$multiplier =~ s/\<//g;
+					$multiplier =~ s/\>//g;
+					$multiplier =~ s/MULTIPLY-COST://g;
+			
+					($BaseOption,$ScaleFactor) = split /\*/, $multiplier;
+			  
+					$BaseChoice = $gChoices{$BaseOption};
+					$BaseCost   = $gOptions{$BaseOption}{"options"}{$BaseChoice}{"cost"};
+			  
+					my $CompCost = $BaseCost * $ScaleFactor; 
+			
+					$ScaleCost = 1; 
+					$gOptions{$attribute}{"options"}{$choice}{"cost"} = $CompCost; 
+				}
+			
+				$cost = $gOptions{$attribute}{"options"}{$choice}{"cost"} ;
+				if ( ! defined ($cost) ){ $cost = "0" ; }
+				if ( ! defined ($cost_type) ){ $cost_type = "" ; }
+				debug_out ( "\n\nMAPPING for $attribute = $choice (@ \$".
+						 round($cost).
+						 " inc. cost [$cost_type] ): \n"); 
+				if ( $ScaleCost ){
+					debug_out (     "  (cost computed as $ScaleFactor *  ".round($BaseCost)." [cost of $BaseChoice])\n");
+				}
+			}
+		   
+			# Check on value of error flag before continuing with while loop
+			# (the flag may be reset in the next iteration!)
+			if ( ! $allok ) {
+				last VALCHOICES;	# exit the loop - don't process rest of choices against options
+			}
+		}
+
+		# Seems like we've found everything!
+
+		if ( ! $allok ) { 
+
+			stream_out("\n--------------------------------------------------------------\n");
+			stream_out("\nSubstitute.pl encountered the following errors:\n"); 
+			stream_out($ErrorBuffer); 
+
+			fatalerror(" Choices in $gChoiceFile do not match options in $gOptionFile!");
+		} else {
+			stream_out (" done.\n");
+		} 
+
+
+		# Now create a copy of our base ESP-r file for manipulation. 
+		stream_out("\n\n Creating a working folder for optimization work...");
+		if ( ! $gSkipSims ) {
+		  system ("rm -fr $gWorkingModelFolder ");
+		  system ("cp -fr $gBaseModelFolder $gWorkingModelFolder ");
+		}
+		stream_out("done.\n");
+
+
+		# This cmd seems to duplicate definition of $master_path above.
+		$gMasterPath = getcwd();
+
+		# Optimization runs need climate files, which will vary between Linux and 
+		# windows systems. We need to find the appropriate climate folder, and link to it 
+		# within the model directory. 
+		#
+		# Check to see if working folder contains link to climate directory
+		# 
+
+		debug_out ("? cwd ?: $gMasterPath / $master_path \n"); 
+
+		my $system = `uname`; 
+		debug_out (">>>System is $system \n"); 
+		my $source_clm_dir="UNKNOWN"; 
+		my $clm_link_target = ""; 
+		if ( $system =~ /cygwin/i ) {$source_clm_dir = "climate_cygwin";}
+		if ( $system =~ /linux/i ) {$source_clm_dir = "climate_linux";}
+		debug_out ( " Creating link to $source_clm_dir \n "); 
+
+		# Find the appropriate path. If this script has been invoked directly, 
+		# Cli
+		if  ( -d "$gMasterPath/$source_clm_dir" ) {
+			debug_out ( "Found $gMasterPath/$source_clm_dir. Linking (a).\n");
+			$clm_link_target = "$gMasterPath/$source_clm_dir"; 
+		}
+		# Fi
+		elsif ( -d "$gMasterPath/../$source_clm_dir" ) {
+			debug_out ( "Found $gMasterPath/../$source_clm_dir. Linking (b).\n");
+			$clm_link_target = "$gMasterPath/../$source_clm_dir"; 
+		}
+		else {
+			debug_out ( "Could not find $source_clm_dir. \n");
+			
+			$ThisError  = "\nERROR: Climate file directory ($source_clm_dir) could not be found.  \n"; 
+			$ErrorBuffer .= $ThisError; 
+			debug_out ( "$ThisError \n");
+			$allok = 0; 
+			fatalerror ( " Could not locate climate files !" ); 
+		}
+
+		# Now create the link
+
+		stream_out ("Linking  $clm_link_target $gWorkingModelFolder/climate -> $clm_link_target"); 
+		if ( $system =~ /linux/i ) {
+		  execute ( "cp -fr  $clm_link_target $gWorkingModelFolder/climate "); 
+		}else{
+		  execute ( "ln -s  $clm_link_target $gWorkingModelFolder/climate ");
+		}
+
+		# Search through all files in the working directory, and perform substitutions as needed 
+		 find( sub{
+				  # move on to next file if (1) file is a directory,
+				  # (2) file is not readable, or (3) file is not
+				  # cfg file.
+				  return if -d;
+				  return unless -r;
+				  return if $File::Find::name =~ m/CVS./;
+				  my $MatchExt = 0;
+				  for my $ext ( @search_these_exts ){
+					if ( $File::Find::name =~ /$ext$/ ) {$MatchExt = 1;} 
+				  }
+				  if ( ! $MatchExt ) {return; }
+				  
+				  process_file($File::Find::name);
+				},  $gWorkingModelFolder );
+
+		# Could allow SE/NE/SW/NW here, or even NNE, ENE, ESE, SSE. Note that our solar calculations will not reflect 
+		# orientation changes. For now, we assume the arrays must always point south.
+		my %angles = ( "S" => 0 , 
+					   "E" => 90,
+					   "N" => 180,
+					   "W" => 270  ); 
+
+		# Orientations is an array we populate with a single member if the orientation 
+		# is specified, or with all of the orientations to be run if 'AVG' is spec'd.               
+		my @Orientations;               
+
+		if ( $gRotate =~  /AVG/ ) 
+		{ 
+		  @Orientations = ( "S", "N", "E", "W" ); 
+		}
+		else 
+		{ 
+		  @Orientations = ( $gRotate ); 
+		}
+
+		# Compute scale factor for averaging between orientations (=1 if only 
+		# one orientation is spec'd)
+		my $ScaleResults = 1.0/($#Orientations+1); 
+
+		# Defined at top and zeroed here because if we are running multiple orientations, 
+		# we must average them as we go. For seasonal runs, the results are accumulated over
+		# three runs (win1, summer, win2). Averaging is done via the $ScaleResults factor (set
+		# at 0.25) only when the AVG option is used.
+		if ( $igSeasonalRun == 1 ) {
+			$gAvgCost_NatGas    		= 0;
+			$gAvgCost_Electr    		= 0;
+			$gAvgEnergy_Total   		= 0; 
+			$gAvgCost_Propane   		= 0;
+			$gAvgCost_Oil       		= 0;
+			$gAvgCost_Wood      		= 0;
+			$gAvgCost_Pellet    		= 0;
+			$gAvgPVRevenue      		= 0; 
+			$gAvgElecCons_KWh    		= 0; 
+			$gAvgPVOutput_kWh			= 0; 
+			$gAvgCost_Total				= 0; 
+			$gAvgEnergyHeatingGJ		= 0; 
+			$gAvgEnergyCoolingGJ		= 0; 
+			$gAvgEnergyVentilationGJ	= 0; 
+			$gAvgEnergyWaterHeatingGJ	= 0; 
+			$gAvgEnergyEquipmentGJ		= 0; 
+			$gAvgNGasCons_m3			= 0; 
+			$gAvgOilCons_l				= 0; 
+			$gAvgPropCons_l				= 0; 
+			$gAvgPelletCons_tonne		= 0;
+			$gAvgEnergyHeatingElec 		= 0;
+			$gAvgEnergyVentElec         = 0;
+			$gAvgEnergyHeatingFossil 	= 0;
+			$gAvgEnergyWaterHeatingElec = 0;
+			$gAvgEnergyWaterHeatingFossil = 0;
+		}
+		$gDirection                 ="";
+		$gEnergyHeatingElec 		= 0;
+		$gEnergyVentElec            = 0;
+		$gEnergyHeatingFossil 		= 0;
+		$gEnergyWaterHeatingElec 	= 0;
+		$gEnergyWaterHeatingFossil 	= 0;
+		$gAmtOil = 0;
+		
+		UpdateCon();  
+		 
+		for my $Direction  ( @Orientations ){
+
+			$gDirection = $Direction; 
+
+			if ( ! $gSkipSims ) { 
+				runsims( $angles{$Direction} ); 
+			}
+			
+			postprocess($ScaleResults);
 		}
 		
-		postprocess($ScaleResults);
-	}
-	
-	# Currently the ERS number is NOT being averaged when all 4 orientations are run.  The calculation
-	# that follows uses the results of the last orientation run!
-	if ( $gERSCalcMode && $iRun == 1 ) {
-		# Calculate ERS number for output. All energy values in MJ
-		my $SpcElecEnergy = ( $gAvgEnergyHeatingElec + $gAvgEnergyVentElec ) * 1000.;
-        my $SpcElecEnergy_noVent = ( $gAvgEnergyHeatingElec) * 1000.;
-		my $SpcFuelEnergy = $gAvgEnergyHeatingFossil * 1000.;
-		# NG/Propane:0.90, Oil:0.83, All Wood:0.75
-		my $FuelEff = $gEnergyTotalWood > 0 ? 0.75 : $gAmtOil > 0 ? 0.83 : 0.90;
-		my $SpcHtConsump = $SpcElecEnergy * 1.0 + $SpcFuelEnergy * $FuelEff;  
-        my $SpcHtConsump_noVent = $SpcElecEnergy_noVent * 1.0 + $SpcFuelEnergy * $FuelEff; 
-		my $DHWElec = $gAvgEnergyWaterHeatingElec * 1000.;
-		my $DHWFuel = $gAvgEnergyWaterHeatingFossil * 1000.;
-		my $OccConsump = 1.136 * ( $DHWElec * 0.88 + $DHWFuel * 0.57 ) + 31536. ;
-		my $EstTotEnergy = $SpcHtConsump + $OccConsump - $gAvgPVOutput_kWh*3.6;
-        my $EstTotEnergy_noVent = $SpcHtConsump_noVent + $OccConsump - $gAvgPVOutput_kWh*3.6;
-		$EstTotEnergy = $EstTotEnergy < 0 ? 0.0 : $EstTotEnergy;
-		$EstTotEnergy_noVent = $EstTotEnergy_noVent < 0 ? 0.0 : $EstTotEnergy_noVent;
-		my $Locale = $gChoices{"Opt-Location"};
-		my $HseVol = $gOptions{"Opt-geometry"}{"options"}{$gChoices{"Opt-geometry"}}{"values"}{17}{"conditions"}{"all"};
-		my $HDD =$RegionalHDD{$Locale};
-		my $SpcHtBM = 3.6 * ( 49. * $HDD / 6000. ) * ( 40. + $HseVol / 2.5 );
-		my $TempWM = $RegionalWaterMainTemp{$Locale};
-		my $DHWBM = 1.136 * 17082. * (55. - $TempWM) / (55. - 9.5);
-		my $BaseLdBM = 31536.;
-		my $BenchmarkTotEnergy = $SpcHtBM + $DHWBM + $BaseLdBM;
+		# Calculate ERS number. For seasonal, use combined result from the 3 season runs.
+		# The post process function above averages results when 4 orientations are run
+		# - regardless of seasonal setting.
+		if ( $gERSCalcMode && $iRun == 1  && $igSeasonalRun == $gNumSeasonalRuns ) {
+			# Calculate ERS number for output. All energy values in MJ
+			my $SpcElecEnergy = ( $gAvgEnergyHeatingElec + $gAvgEnergyVentElec ) * 1000.;
+			my $SpcElecEnergy_noVent = ( $gAvgEnergyHeatingElec ) * 1000.;
+			my $SpcFuelEnergy = $gAvgEnergyHeatingFossil * 1000.;
+			# NG/Propane:0.90, Oil:0.83, All Wood:0.75
+			my $FuelEff = $gEnergyTotalWood > 0 ? 0.75 : $gAmtOil > 0 ? 0.83 : 0.90;
+			my $SpcHtConsump = $SpcElecEnergy * 1.0 + $SpcFuelEnergy * $FuelEff;  
+			my $SpcHtConsump_noVent = $SpcElecEnergy_noVent * 1.0 + $SpcFuelEnergy * $FuelEff; 
+			my $DHWElec = $gAvgEnergyWaterHeatingElec * 1000.;
+			my $DHWFuel = $gAvgEnergyWaterHeatingFossil * 1000.;
+			my $OccConsump = 1.136 * ( $DHWElec * 0.88 + $DHWFuel * 0.57 ) + 31536. ;
+			my $EstTotEnergy = $SpcHtConsump + $OccConsump - $gAvgPVOutput_kWh*3.6;
+			my $EstTotEnergy_noVent = $SpcHtConsump_noVent + $OccConsump - $gAvgPVOutput_kWh*3.6;
+			$EstTotEnergy = $EstTotEnergy < 0 ? 0.0 : $EstTotEnergy;
+			$EstTotEnergy_noVent = $EstTotEnergy_noVent < 0 ? 0.0 : $EstTotEnergy_noVent;
+			my $Locale = $gChoices{"Opt-Location"};
+			my $HseVol = $gOptions{"Opt-geometry"}{"options"}{$gChoices{"Opt-geometry"}}{"values"}{17}{"conditions"}{"all"};
+			my $HDD =$RegionalHDD{$Locale};
+			my $SpcHtBM = 3.6 * ( 49. * $HDD / 6000. ) * ( 40. + $HseVol / 2.5 );
+			my $TempWM = $RegionalWaterMainTemp{$Locale};
+			my $DHWBM = 1.136 * 17082. * (55. - $TempWM) / (55. - 9.5);
+			my $BaseLdBM = 31536.;
+			my $BenchmarkTotEnergy = $SpcHtBM + $DHWBM + $BaseLdBM;
+			
+			$gERSNum = 100 - ( $EstTotEnergy / $BenchmarkTotEnergy ) * 20;
+			$gERSNum_noVent = 100 - ( $EstTotEnergy_noVent / $BenchmarkTotEnergy ) * 20;
+			my $tmpval = round($gERSNum * 10) / 10.;
+			stream_out(" ERS value:          ".$tmpval."\n");
+			$tmpval = round($gERSNum_noVent * 10) / 10.;
+			stream_out(" ERS value_noVent:   ".$tmpval."\n\n");
+			
+			# Set back the choices to original values, if necessary (for 2nd run)!
+			if ( $gNumRunSetsRqd == 2 ) {
+				$gChoices{"OPT-HRV_ctl"} = $gHRVctl;
+				$gChoices{"Opt-ElecLoadScale"} = $gElecLS;
+				$gChoices{"Opt-DHWLoadScale"} = $gDHWLS;
+			}
+		}	
 		
-		$gERSNum = 100 - ( $EstTotEnergy / $BenchmarkTotEnergy ) * 20;
-        $gERSNum_noVent = 100 - ( $EstTotEnergy_noVent / $BenchmarkTotEnergy ) * 20;
-		my $tmpval = round($gERSNum * 10) / 10.;
-		stream_out(" ERS value:          ".$tmpval."\n");
-        my $tmpval = round($gERSNum_noVent * 10) / 10.;
-        stream_out(" ERS value_noVent:   ".$tmpval."\n\n");
-		
-		# Set back the choices to original values, if necessary (for 2nd run)!
-		if ( $gNumRunSetsRqd == 2 ) {
-            $gChoices{"OPT-HRV_ctl"} = $gHRVctl;
-			$gChoices{"Opt-ElecLoadScale"} = $gElecLS;
-			$gChoices{"Opt-DHWLoadScale"} = $gDHWLS;
-		}
-	}	
-	
+	}	# End of loop controlling seasonal run (1 or 3 runs).
 }	# End of loop controlling ERS run (1 or 2 runs).
 
-$gAvgCost_Total   = $gAvgCost_Electr + $gAvgCost_NatGas + $gAvgCost_Propane + $gAvgCost_Oil + $gAvgCost_Wood + $gAvgCost_Pellet ;
+$gAvgCost_Total = $gAvgCost_Electr + $gAvgCost_NatGas + $gAvgCost_Propane + $gAvgCost_Oil + $gAvgCost_Wood + $gAvgCost_Pellet ;
 
 $gAvgPVRevenue =  $gAvgPVOutput_kWh * $PVTarrifDollarsPerkWh ;  
 
 my $payback ; 
 my $gAvgUtilCostNet = $gAvgCost_Total - $gAvgPVRevenue; 
 
-my $gUpgCost    = $gTotalCost - $gIncBaseCosts; 
+my $gUpgCost = $gTotalCost - $gIncBaseCosts; 
 my $gUpgSavings = $gUtilityBaseCost - $gAvgUtilCostNet ; 
 
 
 if ( abs( $gUpgSavings ) < 1.00 ) {
   # Savings are practically zero. Set payback to a very large number. 
   $payback = 10000.;
-
-# Case when upgrade is cheaper than base cost
-} elsif ( $gTotalCost< $gIncBaseCosts) { 
-
-    # Does it also save on bills? 
-    if ( $gUpgSavings > 0. ) { 
-    
-        # No-brainer. Payback should be zero.
-     
-        $payback = 0 ;
-     
-    }else{
-    
-        # it may be cheap, but it costs in the long run. set 
-        # payback to a very large #.
-        
+} elsif ( $gTotalCost < $gIncBaseCosts) { 	# Case when upgrade is cheaper than base cost
+    if ( $gUpgSavings > 0. ) { 				# Does it also save on bills? 
+        $payback = 0 ;	 # No-brainer. Payback should be zero.
+    } else {
+        # It may be cheap, but it costs in the long run.
+        # Set payback to a very large #.
         $payback = 100000.; 
-        
     }
-
 } else { 
-
   # Compute payback. 
   $payback = ($gTotalCost-$gIncBaseCosts)/($gUtilityBaseCost-($gAvgCost_Total-$gAvgPVRevenue)) ; 
   
   # Paybacks can be less than zero if design costs more in utility bills. Set negative paybacks to very large numbers.
-  if ( $payback < 0 ){$payback = 100000.;}
-  
+  if ( $payback < 0 ) { $payback = 100000.; }
 }
 
 # Proxy for cost of ownership 
 $payback = $gAvgUtilCostNet + ($gTotalCost-$gIncBaseCosts)/25.; 
 
 open (SUMMARY, ">$gMasterPath/SubstitutePL-output.txt") or fatalerror ("Could not open $gMasterPath/SubstitutePL-output.txt");
-
 
 my $PVcapacity = $gChoices{"Opt-StandoffPV"}; 
 
@@ -1663,22 +1659,17 @@ sub runsims($){
 	# Loop through zone shading status flag, and regenerate
 	# shading for any 'shaded zones' using ish. 
 
-
-
 	open(CFG_FILE, "$gModelCfgFile" ) or fatalerror("Could not open $gModelCfgFile!");
-
 
 	my %zone_shading_status; 
 	my $zone_number; 
 	while ( my $line = <CFG_FILE> ) {
 		# rename results libraries for consistency
 
-
 		#--------------------------------------------
 		# Save zone geo file paths & shading tags
 		# for use when regenerating shading files.
 		#--------------------------------------------
-
     
 		# If line describes zone #, parse number
 		if ($line =~ /^\*zon\s+/ ){
@@ -1718,8 +1709,16 @@ sub runsims($){
 		stream_out ("done. \n");         
 	}        
 
-	stream_out ("\n\n Invoking ESP-r (\"$gBPScmd\")..." );
-	execute($gBPScmd); 
+	# Run partial year or full year based on seasonal flag $gSeasonal
+	if ( $gSeasonal ) {
+		# Variable $BPScmd_Seasonal not made global because season portion of string is dynamic
+		my $BPScmd_Seasonal = "$gBPSpath -h3k -file $gModelCfgFile -mode text -p $gSeason[$igSeasonalRun-1] silent";
+		stream_out ("\n\n Invoking ESP-r (\"$BPScmd_Seasonal\")..." );
+		execute($BPScmd_Seasonal);
+	} else {
+		stream_out ("\n\n Invoking ESP-r (\"$gBPScmd\")..." );
+		execute($gBPScmd); 
+	}
           
 	# Save output files
 	if ( ! -d "$gMasterPath/sim-output" ) {
@@ -1736,14 +1735,12 @@ sub runsims($){
 	#  debug_out("done.");ls 
   
 	chdir $gMasterPath;
-	
 } 
 
   
 sub postprocess($){
   
   my ($ScaleData) = @_; 
-
   
   my $TSLength            = 3600. ;  # Seconds
 #  my $gBaseModelFolder    = "NZEH-base";
@@ -2053,6 +2050,7 @@ sub postprocess($){
   # Move to working CFG directory, and parse out.summary file
   chdir $gWorkingCfgPath; 
   debug_out ("\n\n Moved to path:". getcwd()."\n"); 
+  
   open (SIMRESULTS, "out.summary") or fatalerror("Could not open ".getcwd()."/out.summary!");
 
   my %gSimResults; 
@@ -2111,8 +2109,6 @@ sub postprocess($){
       
     }
     
-    
-    
   }
 
   close (TSRESULTS);
@@ -2168,13 +2164,10 @@ sub postprocess($){
   my $GasCurrConsumpionForTiers = 0; 
   my $ElecCurrConsumpionForTiers = 0; 
   
-  
   my $CurrDayOfWeek = $FirstDay_Day_Of_Week; 
 
   my $OldDay   = 1; 
   my $OldMonth = 1; 
-  
-  
 
   my $BiMonthCounter = 1; 
 
@@ -2214,7 +2207,7 @@ sub postprocess($){
     
     }
     
-    # Check to see if bimontly counter has reached 3 for bimonthly 
+    # Check to see if bi-monthly counter has reached 3 for bimonthly 
     # billing tiers. 
     if ( $BiMonthCounter > 2 ){
         $BiMonthRollover = 1; 
@@ -2472,9 +2465,6 @@ sub postprocess($){
   #                                       0.6 * $gSimResults{"total_fuel_use/test/all_fuels/water_heating/energy_content::AnnualTotal"} 
   #                                     ) * (-1.) ; 
   
-  
-  
-  
 
   # Add data from externally computed PVs. 
   
@@ -2657,7 +2647,9 @@ sub postprocess($){
   stream_out ( "    \$ ".round($NetBill) ." (Net utility costs).\n"); 
   
   stream_out ( "\n\n") ; 
-  # Update global params for use in summary 
+  
+  # Update global parameters for use in summary. Scalar $ScaleData averages across orientations
+  # when multiple orientations run. When seasonal run in effect these parameters are cumulative. 
   $gAvgCost_NatGas    += $TotalGasBill  * $ScaleData; 
   $gAvgCost_Electr    += $TotalElecBill * $ScaleData;  
   $gAvgCost_Propane   += $TotalPropaneBill * $ScaleData; 
@@ -2724,6 +2716,9 @@ sub postprocess($){
   if ( $gERSCalcMode && $gERSNum > 0 ) {
 	my $tmpval = round($gERSNum * 10) / 10.;
 	stream_out(" ERS value: ".$tmpval."\n");
+  
+    my $tmpval = round($gERSNum_noVent * 10) / 10.;
+    stream_out(" ERS value_noVent:   ".$tmpval."\n\n");
   }
   
   chdir($gMasterPath);

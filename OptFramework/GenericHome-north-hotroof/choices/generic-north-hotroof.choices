@@ -28,7 +28,7 @@ Opt-Location : Yellowknife
 !              natural and mechanical vent. 
 !  - EightHRpDay: HRV operates 33% of each hour, for 8hr/day total.
 
-OPT-HRV_ctl          : ERSp3ACH !EightHRpDay
+OPT-HRV_ctl          : Continuious! ERSp3ACH !EightHRpDay
 
 !Opt-CTL-Strategy     : ecoEIIFramework  
 
@@ -49,7 +49,7 @@ Opt-BaseWindows      : MinWindows
 ! Van_2st_garage
 ! NWT_Access
 
-Opt-geometry      : NWT_Access
+Opt-geometry      : NWT_AccHotRf
 
 !Attachment options
 ! single
@@ -63,7 +63,7 @@ Opt-WindowOrientation: all
 
 
 ! ACH substitutions
-Opt-ACH       : retro_ACH_5_5
+Opt-ACH       : retro_ACH_1_5
 
 
 Opt-OverhangWidth : BaseOverhang
@@ -88,7 +88,7 @@ Opt-AirTightness   : Generic
 !  Retrofit-DlBr
 !  NWTR20_4  
 !  NWTR20
-Opt-MainWall         : NWTR20 ! NWT-1986
+Opt-MainWall         : NWTR40 ! NWT-1986
 
 
 ! Add extra drywall to wall constructions 
@@ -105,7 +105,7 @@ Opt-ExtraDrywall     : OneSheet
 Opt-FloorSurface     : wood
 
 
-Opt-Ceilings         : NWTCeilR40 !NWTCei1986
+Opt-Ceilings         :  HotRoofR60 ! NWTCeilR40 NWTCei1986
 
 ! Basement slab insulation 
 ! Choices: 
@@ -132,7 +132,7 @@ Opt-BasementSlabInsulation  : NoInsulation
 !    TripleBrick
 !    NWTCrawlWll !NWT crawl space wall
 
-Opt-BasementWallInsulation  : NWTCrawlWll
+Opt-BasementWallInsulation  : NWTCrwlWR40
 
 
 ! Optical and thermal characteristics of casement windows (currently 
@@ -150,7 +150,7 @@ Opt-BasementWallInsulation  : NWTCrawlWll
 !    DoubleClear 
 !    Triple_win_shutter 
 !    Wind1_trp_CL
-Opt-CasementWindows  :  Double_win_shutter 
+Opt-CasementWindows  :  Win3hcLE1_tr 
 
 
 ! Exposed floor over garage (affects floor
@@ -162,7 +162,7 @@ Opt-CasementWindows  :  Double_win_shutter
 !NWT Crawl Space Floor
 !  NWTCrawlFlr
 
-Opt-ExposedFloor     : NWTCrawlFlr
+Opt-ExposedFloor     : NWTCrwlFlR40
 
 Opt-StandoffPV       : NoPV
 
@@ -213,7 +213,7 @@ Opt-DHWSystem        : NWT_oil_inst
 !   upgrade_Olsen
 !   oil96
 !   wood_furnace
-Opt-HVACSystem       : oil_boiler
+Opt-HVACSystem       : oil80
 
 ! HRV spec 
 
