@@ -330,19 +330,39 @@
 !-----------------------------------------------------------------------
 *attribute:start 
 *attribute:name  = Opt-BaseWindows
-*attribute:tag:1 = <No-Longer-A-Working-Tag>
-*attribute:tag:2 = <No-Longer-A-Working-Tag2>
+*attribute:tag:1 = <Opt-win-W-CON>
+*attribute:tag:2 = <Opt-win-W-OPT>
+*attribute:tag:3 = <Opt-win-S-CON>
+*attribute:tag:4 = <Opt-win-S-OPT>
+*attribute:tag:5 = <Opt-win-E-CON>
+*attribute:tag:6 = <Opt-win-E-OPT>
+*attribute:tag:7 = <Opt-win-N-CON>
+*attribute:tag:8 = <Opt-win-N-OPT>
 *attribute:default  = MinWindows
 
 *option:NoWindows:value:1 = <Opt-MainWall-Bri>
 *option:NoWindows:value:2 = OPAQUE
-*option:NoWindows:cost:total    = 0
+*option:NoWindows:value:3 = <Opt-MainWall-Bri>
+*option:NoWindows:value:4 = OPAQUE
+*option:NoWindows:value:5 = <Opt-MainWall-Bri>
+*option:NoWindows:value:6 = OPAQUE
+*option:NoWindows:value:7 = <Opt-MainWall-Bri>
+*option:NoWindows:value:8 = OPAQUE
+*option:NoWindows:cost:total = 0
 *option:NoWindows:alias = 700
 
-*option:MinWindows:value:1 = <Opt-CasWinConstruction>
-*option:MinWindows:value:2 = <Opt-CasWinOptics>
-*option:MinWindows:cost:total    = 0
+
+*option:MinWindows:value:1 = <Opt-win-W-CON>
+*option:MinWindows:value:2 = <Opt-win-W-OPT>
+*option:MinWindows:value:3 = <Opt-win-S-CON>
+*option:MinWindows:value:4 = <Opt-win-S-OPT>
+*option:MinWindows:value:5 = <Opt-win-E-CON>
+*option:MinWindows:value:6 = <Opt-win-E-OPT>
+*option:MinWindows:value:7 = <Opt-win-N-CON>
+*option:MinWindows:value:8 = <Opt-win-N-OPT>
+*option:MinWindows:cost:total = 0
 *option:MinWindows:alias = 701
+
 
 *attribute:end
 
@@ -372,7 +392,43 @@
 
 *attribute:end
 
+!------------------------------------------------------------------------
+! Thermostat ctl 
+!------------------------------------------------------------------------
+*attribute:start 
+*attribute:name  = Opt-ThermostatSetpoints
+*attribute:tag:1 = <Opt-CtlWinterHeating>
+*attribute:tag:2 = <Opt-CtlWinterCooling>
+*attribute:tag:3 = <Opt-CtlShoulderHeating>
+*attribute:tag:4 = <Opt-CtlShoulderCooling>
+*attribute:tag:5 = <Opt-CtlSummerHeating>
+*attribute:tag:6 = <Opt-CtlSummerCooling>
+*attribute:default = OriginalFramework
 
+
+*option:Continuous:value:1
+*option:OriginalFramework:value:1 =  21.0 
+*option:OriginalFramework:value:2 =  26.0
+*option:OriginalFramework:value:3 =  18.0
+*option:OriginalFramework:value:4 =  26.0 
+*option:OriginalFramework:value:5 = -20.0
+*option:OriginalFramework:value:6 =  25.0 
+*option:OriginalFramework:cost:total = 0
+*option:OriginalFramework:alias = 99999
+
+
+*option:Continuous:value:1
+*option:ERS-SOP:value:1 =  21.0 
+*option:ERS-SOP:value:2 =  22.0
+*option:ERS-SOP:value:3 =  21.0
+*option:ERS-SOP:value:4 =  22.0 
+*option:ERS-SOP:value:5 =  21.0
+*option:ERS-SOP:value:6 =  22.0 
+*option:ERS-SOP:cost:total = 0
+*option:ERS-SOP:alias = 99999
+
+
+*attribute:end 
 !-----------------------------------------------------------------------
 ! Furnace fan control flag: flag defining assumptions associated with HRV control
 ! (this relates to the NZEH performance definition, and isn't intended 
@@ -732,6 +788,27 @@
 *option:BC_LEEP:cost:total = 0
 *option:BC_LEEP:alias = 1206
 
+*option:VALIDATION-2Story:value:1    = 100.0
+*option:VALIDATION-2Story:value:2    = 10.00
+*option:VALIDATION-2Story:value:3    = 10.00
+*option:VALIDATION-2Story:value:4    = 10.835
+*option:VALIDATION-2Story:value:5    = 5
+*option:VALIDATION-2Story:value:6    = 0.5
+*option:VALIDATION-2Story:value:7    = 0.502
+*option:VALIDATION-2Story:value:8    = 0.5
+*option:VALIDATION-2Story:value:9    = 0.502
+*option:VALIDATION-2Story:value:10   = 9.500
+*option:VALIDATION-2Story:value:11   = 9.498
+*option:VALIDATION-2Story:value:12   = 9.5
+*option:VALIDATION-2Story:value:13   = 9.498
+*option:VALIDATION-2Story:value:14   = 0.5 
+*option:VALIDATION-2Story:value:15   = 0.5
+*option:VALIDATION-2Story:value:16   = 0.25
+*option:VALIDATION-2Story:value:17   = 750	! volume for ERS calc from (ESP-r = 407.2 m3)
+*option:VALIDATION-2Story:cost:total = 0
+*option:VALIDATION-2Story:alias = 1206
+
+
 *attribute:end
 
 !-----------------------------------------------------------------------
@@ -794,9 +871,38 @@
 *option:retro_ACH_1:cost:total  =  658
 *option:retro_ACH_1:alias  =  1312
 
+*option:retro_ACH_0_1:value:1  = 0.11
+*option:retro_ACH_0_1:cost:total  =  658
+*option:retro_ACH_0_1:alias  =  1312
+
 *attribute:end
 
+!-----------------------------------------------------------------------
+! Infiltration model 
+!-----------------------------------------------------------------------
+*attribute:start 
+*attribute:name    = Opt-InfilMethod
+*attribute:tag:1   = <Opt-Infil>
+*attribute:tag:2   = <Opt-AIM2comment>
+*attribute:default = UseAIM2
 
+*option:Zero:value:1         = 0
+*option:Zero:value:2         = #*aim2
+*option:Zero:cost:total = 0
+*option:Zero:alias = 11111
+
+*option:UseAIM2:value:1         = 0
+*option:UseAIM2:value:2         = *aim2
+*option:UseAIM2:cost:total = 0
+*option:UseAIM2:alias = 11112
+
+
+*option:Constant:value:1         =  0.2764
+*option:Constant:value:2         =  #*aim2
+*option:Constant:cost:total = 0
+*option:Constant:alias = 11113
+
+*attribute:end
 
 !-----------------------------------------------------------------------
 ! This option sets the optical and thermal characteristics of 
@@ -2197,6 +2303,16 @@ Whitehorse Wall Options (Code is R28)
 *option:elec-baseboard:cost:total       = -3870
 *option:elec-baseboard:alias = 2310
 
+*option:elec-baseboard-noAC:value:1 = Baseboardv2-noAC.hvac
+*option:elec-baseboard-noAC:value:2 = #-no-GSHP-file
+*option:elec-baseboard-noAC:value:3 = #No-IMS: 
+*option:elec-baseboard-noAC:value:4 = 
+*option:elec-baseboard-noAC:value:5 = 
+*option:elec-baseboard-noAC:value:6 = shoulder-ideal.ctl
+*option:elec-baseboard-noAC:cost:total       = -3870
+*option:elec-baseboard-noAC:alias = 2310
+
+
 *option:CCASHP:value:1 = CCASHPv2.hvac
 *option:CCASHP:value:2 = #-no-GSHP-file
 *option:CCASHP:value:3 = #No-IMS: 
@@ -2392,31 +2508,39 @@ Reflects southern Ontario costs
 *attribute:start 
 *attribute:name    = Opt-HRVspec 
 *attribute:tag:1   = <Opt-HRVInputFile>
+*attribute:tag:2   = <Opt-CommentOutMVNT>
 *attribute:default = CEF_SPEC
 
 *option:CEF_SPEC:value:1         = HRV.vnt
+*option:CEF_SPEC:value:2         = 
 *option:CEF_SPEC:cost:total = 0
 *option:CEF_SPEC:alias = 2500
 
 *option:BaseHRV_SRE70:value:1    = HRV-base.vnt
+*option:BaseHRV_SRE70:value:2    = 
 *option:BaseHRV_SRE70:cost:total = 0
 *option:BaseHRV_SRE70:alias = 2501
 
 *option:BaseHRV_SRE55:value:1    = HRV-base1.vnt	! Use for BC-LEEP base (matches HOT2000 inputs)
+*option:BaseHRV_SRE55:value:2    = 	
 *option:BaseHRV_SRE55:cost:total = 0
 *option:BaseHRV_SRE55:alias = 2502
 
 *option:UpgHRV_SRE78:value:1    = HRV-upg.vnt
+*option:UpgHRV_SRE78:value:2    = 
 *option:UpgHRV_SRE78:cost:total = 920
 *option:UpgHRV_SRE78:alias = 2503
 
+! This is a proxy for fans-only ventilation
 *option:BaseHRV_SREZero:value:1    = HRV0-base.vnt
+*option:BaseHRV_SREZero:value:2    =  
 *option:BaseHRV_SREZero:cost:total = 0
 *option:BaseHRV_SREZero:alias = 2501
 
-*option:FansOnly:value:1 = FansOnly.vnt		!Using HRV0-base.vnt (HRV with 0 eff. much higher ERS value than FansOnly option)
-*option:FansOnly:cost:total = 0
-*option:FansOnly:alias = 2504
+*option:DisableMVNT:value:1    =  null
+*option:DisableMVNT:value:2    =  #
+*option:DisableMVNT:cost:total = 0
+*option:DisableMVNT:alias = 2504
 
 *attribute:end 
 
@@ -2446,6 +2570,14 @@ Reflects southern Ontario costs
 *attribute:name    = Opt-ElecLoadScale
 *attribute:tag:1   = <Opt-ElecLoadScale>
 *attribute:default = NGERSNoReduction19
+
+
+! --- NONE ERS: 0kwh/day ---- 
+*option:ZEROElecLoad:value:1  = 0.
+*option:ZEROElecLoad:cost:total     = 0
+*option:ZEROElecLoad:alias = 0
+
+
 
 ! --- OLD ERS: 24kwh/day ---- 
 *option:NoReduction:value:1  = 1.066
