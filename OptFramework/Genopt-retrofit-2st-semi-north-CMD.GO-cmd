@@ -34,7 +34,7 @@ Vary{
     Values = EightHRpDay;
      
   }
-   
+      
   // Location  
   Parameter{ // One of:
 			 //    Yellowknife
@@ -172,7 +172,7 @@ Vary{
   Parameter{   // 
      Name    =  GOtag:Opt-CasementWindows;
      Ini     =  1;
-     Values  =  "DoubleClear";//,DoubleLowEHardCoatArgFill,Wind1_trp_CL,Win2scLE1_tr,Win3hcLE1_tr,Win4scLE2_tr,Win5hcLE2_tr,Win6_qd_CL";    
+     Values  =  "Double_win_shutter";//Clear";//,DoubleLowEHardCoatArgFill,Wind1_trp_CL,Win2scLE1_tr,Win3hcLE1_tr,Win4scLE2_tr,Win5hcLE2_tr,Win6_qd_CL";    
      
    }    
    
@@ -228,13 +228,12 @@ Vary{
   //                  oil80
   //                  baseboard 
   //                  oil_boiler
-  //                  upgrade_wood_furnace
-  //                  wood_furnace
- 
+  //                  pellet_boiler
+   
   Parameter {// 
       Name   = GOtag:Opt-HVACSystem; 
       Ini    = 1; 
-      Values = "oil_boiler";//,Olsen,upgrade_Olsen,oil80,wood_furnace,upgrade_wood_furnace"; 
+      Values = "pellet_boiler";//oil_boiler,Olsen,upgrade_Olsen,oil80,wood_furnace,upgrade_wood_furnace"; 
   }
 
  // Cooling spec

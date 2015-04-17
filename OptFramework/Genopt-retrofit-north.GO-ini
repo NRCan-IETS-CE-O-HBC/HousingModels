@@ -7,7 +7,7 @@ Simulation{
    Files{
       // Name and path to file containing input template
       Template{
-         File1 = "Genopt-GENERIC-Template.GO-choices";
+         File1 = "Genopt-retrofit-north-Template.GO-choices";
          Path1 = "./";
       }
       // Name and path to target file 
