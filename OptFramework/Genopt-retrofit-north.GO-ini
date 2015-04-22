@@ -129,7 +129,7 @@ Simulation{
       Delimiter22 = "PV-size-kW      =  ";   
 	  
 	  Name23 = ERS-Value;
-	  Delimiter21 = "ERS-Value         =  ";      
+	  Delimiter23 = "ERS-Value         =  ";      
      
 
    } // end Simulation.ObjectiveFunctionLocation
