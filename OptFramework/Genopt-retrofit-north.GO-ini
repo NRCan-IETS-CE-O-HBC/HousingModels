@@ -44,7 +44,7 @@ Simulation{
       // LINUX 
        Prefix = "" ; 
       
-      Suffix = " -c GenOpt-picked-these-choices.GO-tmp -o OPTIONS-generic-north.options -b GenericHome-north -vv "; 
+      Suffix = " -c GenOpt-picked-these-choices.GO-tmp -o OPTIONS-generic-north.options -b GenericHome-north -e -vv "; 
  
  
    }
@@ -126,8 +126,10 @@ Simulation{
       Delimiter21 = "Upgrade-cost      =  ";
 
       Name22 = PVSizekW;
-      Delimiter22 = "PV-size-kW      =  ";      
-      
+      Delimiter22 = "PV-size-kW      =  ";   
+	  
+	  Name23 = ERS-Value;
+	  Delimiter21 = "ERS-Value         =  ";      
      
 
    } // end Simulation.ObjectiveFunctionLocation

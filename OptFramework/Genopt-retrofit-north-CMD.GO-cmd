@@ -71,7 +71,7 @@ Vary{
   
     Name = GOtag:Opt-ACH; 
     Ini  = 1;
-    Values = "retro_ACH_5_5,retro_ACH_5,retro_ACH_4_5,retro_ACH_4,retro_ACH_3_5";
+    Values = "retro_ACH_3_5,retro_ACH_3,retro_ACH_2_5,retro_ACH_2,retro_ACH_1_5,retro_ACH_1";
 
   }
 
@@ -108,7 +108,7 @@ Vary{
    Parameter{   // 
      Name    =  GOtag:Opt-MainWall;
      Ini     =  1;
-     Values  =  "NWTR20_2,NWTR20_3"; 
+     Values  =  "NWTR20,NWTR20_4,NWTR20_1_5,NWTR20_2,NWTR20_3"; 
    }    
   
    // Foundation walls: 
@@ -163,7 +163,7 @@ Vary{
   Parameter{   // 
      Name    =  GOtag:Opt-CasementWindows;
      Ini     =  1;
-     Values  =  "Wind1_trp_CL,Win2scLE1_tr,Win3hcLE1_tr,Win4scLE2_tr,Win5hcLE2_tr,Win6_qd_CL,Triple_win_shutter,Quad_win_shutter";    
+     Values  =  "DoubleLowEHardCoatArgFill,Wind1_trp_CL,Win2scLE1_tr,Win3hcLE1_tr,Win4scLE2_tr,Win5hcLE2_tr,Win6_qd_CL";    
      
    }    
    
@@ -222,7 +222,7 @@ Vary{
   Parameter {// 
       Name   = GOtag:Opt-HVACSystem; 
       Ini    = 1; 
-      Values = "baseboard,oil_boiler,Olsen,upgrade_Olsen,oil96,wood_furnace,upgrade_wood_furnace"; 
+      Values = "Olsen,oil_boiler,pellet_boiler,upgrade_Olsen,oil80"; 
   }
 
  // Cooling spec
@@ -258,7 +258,7 @@ Vary{
   Parameter{   // 
      Name    =  GOtag:Opt-StandoffPV;
      Ini     =  1;
-     Values  = "NoPV,SizedPV|3kW,SizedPV|5kW,SizedPV|8kW";
+     Values  = "NoPV,SizedPV|3kW,SizedPV|5kW";//,SizedPV|8kW";
   } 
   
   
