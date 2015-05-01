@@ -238,7 +238,7 @@ Vary{
   Parameter { 
      Name = GOtag:Opt-HRVSpec; 
      Ini  = 1; 
-     Values = "BaseHRV_SRE70";  //UpgHRV_SRE78
+     Values = "BaseHRV_SRE70,UpgHRV_SRE78";
   }
   
  
@@ -258,7 +258,7 @@ Vary{
   Parameter{   // 
      Name    =  GOtag:Opt-StandoffPV;
      Ini     =  1;
-     Values  = "NoPV,SizedPV|3kW,SizedPV|5kW";//,SizedPV|8kW";
+     Values  = "NoPV";//,SizedPV|3kW,SizedPV|5kW";//,SizedPV|8kW";
   } 
   
   

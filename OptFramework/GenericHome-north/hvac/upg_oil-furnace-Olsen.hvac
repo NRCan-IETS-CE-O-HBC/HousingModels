@@ -26,4 +26,5 @@
         pilot-power 0.
 
     *sys-data-end
-*system-end
+    *fan-ctl-loop 1
+	*system-end
