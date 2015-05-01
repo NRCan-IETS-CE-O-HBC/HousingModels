@@ -4,7 +4,7 @@
 #fNumOfOccupants		
 *LoadData 3 <Opt-DHWDailyDrawLperDay>
 #fHotSupplyTemp		 
-55.0
+65.0
 #
 #TankLoop
 #Zone Location of Tank
@@ -14,14 +14,14 @@
 #iTankType
 1
 #fDOEEF			
-0.67
+0.62
 #fHeatInjectorPower(Watts) 	 
 2000.000000
 #fPilotEnergyRate 	 
 0.0
 #fTankSize                
-227.0
+189.0
 #fTemperatureBand         
 10.0
 #fBlanketRSI
-0.0
+0.5
