@@ -2325,7 +2325,7 @@ Reflects southern Ontario costs
 *option:Olsen:value:1 = oil-furnace-Olsen.hvac
 *option:Olsen:value:2 = #-no-GSHP-file
 *option:Olsen:value:3 = #No-IMS: 
-*option:Olsen:value:4 = #
+*option:Olsen:value:4 = 
 *option:Olsen:value:5 = 
 *option:Olsen:value:6 = shoulder-ideal.ctl 
 *option:Olsen:cost:total    = 0
@@ -2334,7 +2334,7 @@ Reflects southern Ontario costs
 *option:upgrade_Olsen:value:1 = upg_oil-furnace-Olsen.hvac
 *option:upgrade_Olsen:value:2 = #-no-GSHP-file
 *option:upgrade_Olsen:value:3 = #No-IMS: 
-*option:upgrade_Olsen:value:4 = #
+*option:upgrade_Olsen:value:4 = 
 *option:upgrade_Olsen:value:5 = 
 *option:upgrade_Olsen:value:6 = shoulder-ideal.ctl 
 *option:upgrade_Olsen:cost:total    = 0
@@ -2361,7 +2361,7 @@ Reflects southern Ontario costs
 *option:oil80:value:1 = oil80furnace.hvac
 *option:oil80:value:2 = #-no-GSHP-file
 *option:oil80:value:3 = #No-IMS: 
-*option:oil80:value:4 = #
+*option:oil80:value:4 = 
 *option:oil80:value:5 = 
 *option:oil80:value:6 = shoulder-ideal.ctl 
 *option:oil80:cost:total    = 0
@@ -2388,7 +2388,7 @@ Reflects southern Ontario costs
 *option:oil_boiler:value:1 = oil-boiler.hvac
 *option:oil_boiler:value:2 = #-no-GSHP-file
 *option:oil_boiler:value:3 = #No-IMS: 
-*option:oil_boiler:value:4 = #
+*option:oil_boiler:value:4 = 
 *option:oil_boiler:value:5 = 
 *option:oil_boiler:value:6 = shoulder-ideal.ctl
 *option:oil_boiler:cost:total   = 0
@@ -2397,7 +2397,7 @@ Reflects southern Ontario costs
 *option:pellet_boiler:value:1 = pellet-boiler.hvac
 *option:pellet_boiler:value:2 = #-no-GSHP-file
 *option:pellet_boiler:value:3 = #No-IMS: 
-*option:pellet_boiler:value:4 = #
+*option:pellet_boiler:value:4 = 
 *option:pellet_boiler:value:5 = 
 *option:pellet_boiler:value:6 = shoulder-ideal.ctl
 *option:pellet_boiler:cost:total   = 0
@@ -2467,9 +2467,9 @@ Reflects southern Ontario costs
 *option:BaseHRV_SRE55:cost:total = 0
 *option:BaseHRV_SRE55:alias = 2502
 
-*option:UpghRV_SRE78:value:1    = HRV-upg.vnt
-*option:UpghRV_SRE78:cost:total = 0 !920
-*option:UpghRV_SRE78:alias = 2503
+*option:UpgHRV_SRE78:value:1    = HRV-upg.vnt
+*option:UpgHRV_SRE78:cost:total = 0 !920
+*option:UpgHRV_SRE78:alias = 2503
 
 *option:FansOnly:value:1 = FansOnly.vnt		!Using HRV0-base.vnt (HRV with 0 eff. much higher ERS value than FansOnly option)
 *option:FansOnly:cost:total = 0
@@ -3300,8 +3300,13 @@ Reflects southern Ontario costs
 *option:NoPV:cost:PerKW = 0 
 *option:NoPV:alias = 3201
 
-!*option:SizedPV|5kW:production-elec-perKW  = 0
-!*option:SizedPV|5kW:alias = 3202
+*option:SizedPV|3kW:dummy
+*option:SizedPV|3kW:cost:PerKW = 0 ! $/kW installed
+*option:SizedPV|3kW:alias = 3202
+
+*option:SizedPV|5kW:dummy
+*option:SizedPV|5kW:cost:PerKW = 0 ! $/kW installed
+*option:SizedPV|5kW:alias = 3204
 
 
 *ext-attribute:end
@@ -3316,7 +3321,7 @@ Reflects southern Ontario costs
 
 *param:BaseUpgradeCost = 0 !!14216.602
 *param:BaseUtilitiesCost = 0 !1447
-*param:PVTarrifDollarsPerkWh = 0.08
+*param:PVTarrifDollarsPerkWh = 0! 0.08
 
 ext-parameters:end 
 
