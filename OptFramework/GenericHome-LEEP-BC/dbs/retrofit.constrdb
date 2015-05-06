@@ -712,11 +712,11 @@
 # Triple Hard-coat low e (high gain), krypton fill (LEEP window C)
 # 92: layers  description   optics name   symmetry tag
     5    TplLeHcKry    TRAN  TplLeHcKry    SYMMETRIC
-# mat ref thickness (m) mat descr & air gap R
+# mat ref thickness (m) mat descr & air gap R 
   242    0.0060  plate glass : Plate glass 
-    0    0.0125  air  0.323 0.323 0.323
-  242    0.0060  plate glass : Plate glass 
-    0    0.0125  air  0.323 0.323 0.323
+    0    0.0125  air  1.999 1.999 1.999
+  242    0.0060  plate glass : Plate glass
+    0    0.0125  air  1.999 1.999 1.999
   242    0.0060  plate glass : Plate glass   
 #----------------------
 # Triple Soft-coat low e (low gain), krypton fill (LEEP window D)

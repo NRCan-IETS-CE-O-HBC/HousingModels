@@ -3,8 +3,8 @@
 #
 2 # Central Ventilation System (CVS) type (1=None, 2=HRV, 3=Fans with no heat recovery)
 #---HRV test data (temperature C, effectiveness %, fan + preheater power watts)----------
-  0.     78.     40.  # high temperature
--25.     72.     40.  # low  temperature
+  0.     53.     50.  # high temperature
+-25.     53.     50.  # low  temperature
 # ---CVS supply air flow rates (L/s)
 70.
 25.   # HRV efficiency in cooling mode (used by A/C model)
@@ -18,8 +18,8 @@
 # Sealing Characteristic: # 1=Very Tight, 2=Sealed, 3=Unsealed
 #
 # Location,Type,Sealing, Length(m), Diameter(mm),Insul.RSI
-2           3     2        1.5       152.4         1.2   # Supply duct
-2           3     2        2.5       152.4         1.2   # Exhaust duct
+2           3     2        1.5       152.4         0.7   # Supply duct
+2           3     2        1.5       152.4         0.7   # Exhaust duct
 #------ End of Part 1: Central ventilation system inputs
 #
 #------ Part 2 (replaces part 1 if Fans, No Heat recovery)
