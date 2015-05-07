@@ -84,7 +84,7 @@ Vary{
   
     Name = GOtag:Opt-ACH; 
     Ini  = 1;
-    Values = "retro_ACH_5,retro_ACH_1";
+    Values = "retro_ACH_5,retro_ACH_3_5,retro_ACH_2_5, retro_ACH_1_5,retro_ACH_1";
   }
 
   
@@ -149,7 +149,7 @@ Vary{
    Parameter{   // 
      Name    =  GOtag:Opt-GenericWall_1Layer_definitions;
      Ini     =  1;
-    Values  =  "Stud_2x6_R20"; //,Stud_2x4_2in_XPS_R-24,Stud_2x6_1in_XPS_R-23,Stud_2x6_1.5in_XPS_R-25,Stud_2x6_2in_XPS_R-29,Stud_2x6_3in_XPS_R-34,Stud_2x6_4in_XPS_R-39,Stud_2x6_1.5in_MWB_R-25,Stud_2x6_2in_MWB_R-27,Stud_2x6_3in_MWB_R-31,	Stud_2x6_4in_MWB_R-35,Stud_2x4_2in_Polyiso_R-25,Stud_2x6_1in_Polyiso_R-24,Stud_2x6_2in_Polyiso_R-30,	Stud_2x6_3in_Polyiso_R-35,Stud_2x6_4in_Polyiso_R-41,Stud_2x4_2in_EPS_R-21,Stud_2x6_1.5in_EPS_R-24,	Stud_2x6_2in_EPS_R-26,Stud_2x6_3in_EPS_R-30,Stud_2x6_4in_EPS_R-34,SIPS_6.5in_EPS_R-24,SIPS_10.5in_EPS_R-38,	DblStud_12in_cell_R-41,DblStud_10in_cell_R-34"; 
+    Values  =  "Stud_2x6_R20,Stud_2x4_2in_XPS_R-24,Stud_2x6_1in_XPS_R-23,Stud_2x6_1.5in_XPS_R-25,Stud_2x6_2in_XPS_R-29,Stud_2x6_3in_XPS_R-34,Stud_2x6_4in_XPS_R-39,Stud_2x6_1.5in_MWB_R-25,Stud_2x6_2in_MWB_R-27,Stud_2x6_3in_MWB_R-31,	Stud_2x6_4in_MWB_R-35,SIPS_6.5in_EPS_R-24,SIPS_10.5in_EPS_R-38,	DblStud_12in_cell_R-41,DblStud_10in_cell_R-34"; 
    }
    
    // Foundation walls: OBC-min-R12
@@ -196,7 +196,7 @@ Vary{
    Parameter{   // 
      Name    =  GOtag:Opt-BasementSlabInsulation;
      Ini     =  1;
-      Values  =  "R8UnderSlab+edge"; // ,R12UnderSlab+edge,R13UnderSlab+edge,R17UnderSlab+edge" ;
+      Values  =  "R8UnderSlab+edge,R12UnderSlab+edge,R17UnderSlab+edge" ;
    } 
 
    // Exposed floor: NoInsulation
@@ -226,7 +226,7 @@ Vary{
    Parameter{   // 
      Name    =  GOtag:Opt-Ceilings;
      Ini     =  1;
-     Values  =  "CeilR40"; //,CeilR50,CeilR60,CeilR70,CeilR80"; //CeilR90,CeilR100";
+     Values  =  "CeilR40,CeilR50,CeilR60,CeilR70,CeilR80"; //CeilR90,CeilR100";
    }
   
   // Windows:  DoubleLowEHardCoatAirFill 
@@ -250,7 +250,7 @@ Vary{
   Parameter{   // 
      Name    =  GOtag:Opt-CasementWindows;
      Ini     =  1;
-     Values  =  "DoubleLowEHardCoatArgFill"; //,TripleLowEHardCoatKryFill,DoubleLowESoftCoatArgFill,TripleLowESoftCoatKryFill";         	 
+     Values  =  "DoubleLowEHardCoatArgFill,TripleLowEHardCoatKryFill,DoubleLowESoftCoatArgFill "; //,TripleLowEHardCoatKryFill,DoubleLowESoftCoatArgFill";         	 
    }    
    
   // Extra drywall:  OneSheet
@@ -259,7 +259,7 @@ Vary{
   Parameter{   // 
      Name    =  GOtag:Ext-DryWall;
      Ini     =  1;
-     Values  =  "OneSheet,TwoSheets";    
+     Values  =  "OneSheet";    
      
    }    
    
@@ -287,7 +287,7 @@ Vary{
   Parameter{   // 
      Name    = GOtag:Opt-DWHRandSDHW; 
      Ini     = 1; 
-     Values  = "none"; //,DWHR-4-60,2-plate,2-plate-DWHR-4-60"; 
+     Values  = "none,DWHR-4-60,2-plate,2-plate-DWHR-4-60"; 
   } 
   
   // Conventional DHW:  BaseDHW, 
@@ -300,7 +300,7 @@ Vary{
   Parameter{ //
      Name    = GOtag:Opt-DHWSystem;
      Ini     = 1;
-     Values  = "BaseDHW"; //,GasInstantaneous,GasInstantaneous95,ElectricStorage, ElectricHP";
+     Values  = "GasInstantaneous,GasInstantaneous95,ElectricStorage, ElectricHP";
   }
 
   
@@ -320,7 +320,7 @@ Vary{
   Parameter {// 
       Name   = GOtag:Opt-HVACSystem; 
       Ini    = 1; 
-      Values = "gas-furnace-psc"; //,gas-furnace-ecm,zoned-furnace-ecm,Combi-P9-ecmV2,Combi-P9-zoned-ecm,elec-baseboard,CCASHP-ecm,GSHP"; 	  
+      Values = "gas-furnace-ecm,CCASHP-ecm,Combi-P9-ecmV2,Combi-P9-zoned-ecm,elec-baseboard,GSHP"; 	  
   }
   
   // HRV specification
@@ -413,13 +413,13 @@ Vary{
 	  //      (CEF assumptions (equilibrium)) BasicReduction, EfficientLiving
 	  //      (Next-gen ERS) NGERSNoReduction19, NGERSReducedA16,NGERSBestInClass14p8
       Ini    = 1;
-      Values = "NoReduction";//NGERSNoReduction19";//, , NGERSReducedA16"; 
+      Values = "NGERSNoReduction19,NGERSReducedA16"; 
   }
   Parameter { // 
       Name   = GOtag:DHWLoadScale; 
       Ini    = 1;
       // Value may be one of  OldERS,No-Reduction,EStar,Low-Flow      
-      Values = "OldERS"; 
+      Values = "No-Reduction,EStar"; 
   }
   
   
@@ -450,24 +450,24 @@ OptimizationSettings{
 }
 
 
-//Algorithm{
-// Main                       = PSOIW;
-//  NeighborhoodTopology      = vonNeumann;
-//  NeighborhoodSize          = 24; // Disregarded for vonNeumann topology
-//  NumberOfParticle          = 23;
-//  NumberOfGeneration        = 2000;
-//  Seed                      = 628;
-//  CognitiveAcceleration     = 2; // 0 < CognitiveAcceleration
-//  SocialAcceleration        = 3; // 0 < SocialAcceleration
-//  MaxVelocityGainContinuous = 1.0;
-//  MaxVelocityDiscrete       = 1.0; // 0 < MaxVelocityDiscrete
-//  InitialInertiaWeight      = 0.5;    // 0 < InitialInertiaWeight
-//  FinalInertiaWeight        = 0.2;      // 0 < FinalInertiaWeight
-//}
-
-
-
 Algorithm{
-  Main = Mesh;
-  StopAtError = true; 
+ Main                       = PSOIW;
+  NeighborhoodTopology      = vonNeumann;
+  NeighborhoodSize          = 24; // Disregarded for vonNeumann topology
+  NumberOfParticle          = 23;
+  NumberOfGeneration        = 2000;
+  Seed                      = 628;
+  CognitiveAcceleration     = 2; // 0 < CognitiveAcceleration
+  SocialAcceleration        = 3; // 0 < SocialAcceleration
+  MaxVelocityGainContinuous = 1.0;
+  MaxVelocityDiscrete       = 1.0; // 0 < MaxVelocityDiscrete
+  InitialInertiaWeight      = 0.5;    // 0 < InitialInertiaWeight
+  FinalInertiaWeight        = 0.2;      // 0 < FinalInertiaWeight
 }
+
+
+
+//Algorithm{
+//  Main = Mesh;
+//  StopAtError = true; 
+//}
