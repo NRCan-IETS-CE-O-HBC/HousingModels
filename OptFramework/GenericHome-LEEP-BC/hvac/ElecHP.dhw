@@ -14,13 +14,13 @@
 #iTankType
 18
 #fDOEEF			
-2.51
+2.4
 #fHeatInjectorPower(Watts) 	 
 2000.000000
 #fPilotEnergyRate 	 
 0.0
 #fTankSize                
-246.0
+189.0
 #fTemperatureBand         
 10.0
 #fBlanketRSI

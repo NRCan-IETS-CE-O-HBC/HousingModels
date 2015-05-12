@@ -28,7 +28,7 @@ Opt-Location : Vancouver
 !              natural and mechanical vent. 
 !  - EightHRpDay: HRV operates 33% of each hour, for 8hr/day total.
 
-OPT-HRV_ctl          : EightHRpDay	!ERSp3ACH
+OPT-HRV_ctl          : ERSp3ACH
 
 !Opt-CTL-Strategy     : ecoEIIFramework  
 
@@ -217,5 +217,5 @@ Opt-Cooling-Spec     : 2TonStdCooling		! Does nothing for BC-LEEP (No cooling ta
 
 ! HRV spec 
 
-Opt-HRVspec : BaseHRV_SREZero	!BaseHRV_SRE55
+Opt-HRVspec : BaseHRV_SREZero ! BaseHRV_SRE55
 Opt-HRVduct : interlock

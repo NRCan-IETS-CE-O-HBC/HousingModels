@@ -3,8 +3,8 @@
 #
 2 # Central Ventilation System (CVS) type (1=None, 2=HRV, 3=Fans with no heat recovery)
 #---HRV test data (temperature C, effectiveness %, fan + preheater power watts)----------
-  0.     55.0     125.  # high temperature
--25.     45.0     125.  # low  temperature
+  0.     45.0     50.  # high temperature
+-25.     40.0     50.  # low  temperature
 # ---CVS supply air flow rates (L/s)
 70.
 25.   # HRV efficiency in cooling mode (used by A/C model)

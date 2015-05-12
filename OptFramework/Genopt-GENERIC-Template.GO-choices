@@ -45,7 +45,7 @@ GOconfig_rotate      : %GOtag:GOconfig_rotate%
 
 ! Turn original design windows opaque ( NoWindows!)
 ! or transparent (MinWindows). 
-Opt-BaseWindows           : %GOtag:Opt-TurnWindowsOn% 
+Opt-BaseWindows           : MinWindows ! %GOtag:Opt-TurnWindowsOn% 
 
 ! Add extra windows ("Yes" or "No") NO LONGER REQUIRE (JTB DEC 3/14)
 !Opt-FrontWindows          : %GOtag:Opt-FrontWindows%
@@ -66,7 +66,7 @@ Opt-WindowOrientation: all
 
 ! Insulation levels 
 Opt-MainWall                : %GOtag:Opt-MainWall%
-!Opt-GenericWall_1Layer_definitions   : %GOtag:Opt-GenericWall_1Layer_definitions%
+Opt-GenericWall_1Layer_definitions   : %GOtag:Opt-GenericWall_1Layer_definitions%
 Opt-Ceilings                : %GOtag:Opt-Ceilings%
 Opt-BasementSlabInsulation  : %GOtag:Opt-BasementSlabInsulation%
 Opt-BasementWallInsulation  : %GOtag:Opt-BasementWallInsulation%
