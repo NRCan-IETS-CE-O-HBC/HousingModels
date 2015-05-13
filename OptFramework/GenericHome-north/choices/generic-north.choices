@@ -164,7 +164,7 @@ Opt-CasementWindows  :  Double_win_shutter
 
 Opt-ExposedFloor     : NWTCrawlFlr
 
-Opt-StandoffPV       : NoPV
+Opt-StandoffPV       : SizedPV|3kW !NoPV
 
 ! Hot water reduction technologies (SDHW, DHWR) 
 ! 

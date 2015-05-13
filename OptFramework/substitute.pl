@@ -1480,8 +1480,8 @@ if ( $gDakota ) {
     print SUMMARY "$gAvgCost_NatGas  \n";
     print SUMMARY "$gAvgCost_Propane \n";
     print SUMMARY "$gAvgCost_Oil \n";
-	print SUMMARY "$gAvgCost_Wood \n";
-	print SUMMARY "$gAvgCost_Pellet \n";
+    print SUMMARY "$gAvgCost_Wood \n";
+    print SUMMARY "$gAvgCost_Pellet \n";
 
     print SUMMARY "$gAvgPVOutput_kWh \n";
     #print SUMMARY "$gEnergySDHW \n";
@@ -1493,16 +1493,16 @@ if ( $gDakota ) {
     print SUMMARY "$gAvgElecCons_KWh \n";
     print SUMMARY "$gAvgNGasCons_m3  \n";
     print SUMMARY "$gAvgOilCons_l    \n";
-  	print SUMMARY "$gAvgPelletCons_tonne   \n";
+    print SUMMARY "$gAvgPelletCons_tonne   \n";
 	
-	print SUMMARY "".eval($gTotalCost-$gIncBaseCosts)."\n"; 
+    print SUMMARY "".eval($gTotalCost-$gIncBaseCosts)."\n"; 
     print SUMMARY "". $payback ."\n"; 
 
     print SUMMARY "".$PVcapacity."\n"; 
 	
-	if ( $gERSCalcMode ) {
-		print SUMMARY "$gERSNum \n";
-	}
+    if ( $gERSCalcMode ) {
+       print SUMMARY "$gERSNum \n";
+    }
 
 } else {
 
@@ -1514,8 +1514,8 @@ if ( $gDakota ) {
     print SUMMARY "Util-Bill-Gas     =  $gAvgCost_NatGas  \n";
     print SUMMARY "Util-Bill-Prop    =  $gAvgCost_Propane \n";
     print SUMMARY "Util-Bill-Oil     =  $gAvgCost_Oil \n";
-	print SUMMARY "Util-Bill-Wood    =  $gAvgCost_Wood \n";
-	print SUMMARY "Util-Bill-Pellet  =  $gAvgCost_Pellet \n";
+    print SUMMARY "Util-Bill-Wood    =  $gAvgCost_Wood \n";
+    print SUMMARY "Util-Bill-Pellet  =  $gAvgCost_Pellet \n";
 
     print SUMMARY "Energy-PV-kWh     =  $gAvgPVOutput_kWh \n";
     #print SUMMARY "Energy-SDHW      =  $gEnergySDHW \n";
@@ -1527,23 +1527,16 @@ if ( $gDakota ) {
     print SUMMARY "EnergyEleckWh     =  $gAvgElecCons_KWh \n";
     print SUMMARY "EnergyGasM3       =  $gAvgNGasCons_m3  \n";
     print SUMMARY "EnergyOil_l       =  $gAvgOilCons_l    \n";
-	print SUMMARY "EnergyPellet_t    =  $gAvgPelletCons_tonne   \n";
+    print SUMMARY "EnergyPellet_t    =  $gAvgPelletCons_tonne   \n";
     print SUMMARY "Upgrade-cost      =  ".eval($gTotalCost-$gIncBaseCosts)."\n"; 
     print SUMMARY "SimplePaybackYrs  =  ". $payback ."\n"; 
     
-	my $PVcapacity = $gChoices{"Opt-StandoffPV"}; 
-
-	$PVcapacity =~ s/[a-zA-Z:\s'\|]//g;
-	if (! $PVcapacity ) { 
-		$PVcapacity = 0. ; 
-	}
-
     print SUMMARY "PV-size-kW      =  ".$PVcapacity."\n"; 
 
-	if ( $gERSCalcMode ) {
-		print SUMMARY "ERS-Value         =  ". $gERSNum."\n";
+    if ( $gERSCalcMode ) {
+        print SUMMARY "ERS-Value         =  ". $gERSNum."\n";
         print SUMMARY "ERS-Value_noVent  =  ". $gERSNum_noVent."\n";
-	}
+    }
 
 }
 
@@ -2479,8 +2472,8 @@ sub postprocess($){
     $gSimResults{"PV production::AnnualTotal"}= 0.0 ; #-1.0*$gExtOptions{"Opt-StandoffPV"}{"options"}{$PVsize}{"ext-result"}{"production-elec-perKW"}; 
     $PVArrayCost = 0.0 ;
 	
-  }else{
-    # Size pv according to user specification,  to max, or to size required to reach Net-Zero. 
+  } else {
+    # Size PV according to user specification, to max, or to size required to reach Net-Zero. 
     
     # User-specified PV size (format is 'SizedPV|XkW', PV will be sized to X kW'.
     if ( $gExtraDataSpecd{"Opt-StandoffPV"} =~ /kW/ ){
@@ -2495,9 +2488,11 @@ sub postprocess($){
       
       $gSimResults{"PV production::AnnualTotal"} = -1.0 * $PVUnitOutput * $PVArraySized; 
             
-      $PVsize="spec'd $PVsize | $PVArraySized kW";
+      # JTB May 12/2015: Removed $PVsize, replaced with "SizedPV" to resolve growing string $PVsize
+	  #                  when either seasonal runs or ERS mode used (multiple passes of this code).
+	  $PVsize = "spec'd SizedPV | $PVArraySized kW";
     
-    }else{ 
+    } else { 
         
         # USER Hasn't specified PV size, Size PV to attempt to get to net-zero. 
         # First, compute the home's total energy requirement. 
@@ -2529,7 +2524,7 @@ sub postprocess($){
 
           $gSimResults{"PV production::AnnualTotal"}=-1.0*$PVUnitOutput*$PVArraySized; 
         
-        }else{
+        } else {
           # House is already energy positive, no PV needed. Shouldn't happen!
           $PVsize = "0.0 kW" ;
           $PVArrayCost  = 0. ;
