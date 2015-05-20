@@ -1195,6 +1195,11 @@
 *option:NWTCeilR70:cost:total    =  0
 *option:NWTCeilR70:alias    =  1617
 
+*option:NWTCeilR80:value:1 =   NWTCeilR80
+!*option:NWTCeilR80:value:2 =  NWTCeilR80R
+*option:NWTCeilR80:cost:total    =  0
+*option:NWTCeilR80:alias    =  1623
+
 *option:NWTCei1986:value:1 =   NWTCei1986
 !*option:NWTCei1986:value:2 =  NWTCei1986R
 *option:NWTCei1986:cost:total    =  0
@@ -1220,6 +1225,11 @@
 !*option:HotRoofR70:value:2 =  HotRoofR70R
 *option:HotRoofR70:cost:total    =  0
 *option:HotRoofR70:alias    =  1622
+
+*option:HotRoofR80:value:1 =   HotRoofR80
+!*option:HotRoofR80:value:2 =  HotRoofR80R
+*option:HotRoofR80:cost:total    =  0
+*option:HotRoofR80:alias    =  1624
 
 
 *attribute:end
@@ -1862,6 +1872,13 @@ Whitehorse Wall Options (Code is R28)
 *option:NWTCrawlWll4:meta    = Int
 *option:NWTCrawlWll4:cost:total   = 0
 *option:NWTCrawlWll4:alias = 1824
+
+*option:NWTCrwlWR40:value:1 = NWTCrwlWR40
+*option:NWTCrwlWR40:meta    = Int
+*option:NWTCrwlWR40:cost:total   = 0
+*option:NWTCrwlWR40:alias = 1825
+
+
 
 *attribute:end
 

@@ -114,11 +114,12 @@ Vary{
    // Foundation walls: 
    //        NWT:   - NWTCrawlWll
    //               - NWTCrawlWll4 (with 4" ext EPS)
+   //               - NWTCrwlWR40
   
    Parameter{   // 
      Name    =  GOtag:Opt-BasementWallInsulation;
      Ini     =  1;
-     Values  =  "NWTCrawlWll,NWTCrawlWll4";
+     Values  =  "NWTCrawlWll,NWTCrawlWll4,NWTCrwlWR40";
    } 
 
    // Basement Slab: NoInsulation
@@ -135,7 +136,7 @@ Vary{
    Parameter{   // 
      Name    =  GOtag:Opt-ExposedFloor;
      Ini     =  1;
-     Values  =  "NWTCrawlFlr,NWTCrawlFlr6";
+     Values  =  "NWTCrawlFlR40";
    }    
    
    // Ceilings: 
@@ -143,11 +144,12 @@ Vary{
    //           NWTCeilR50
    //           NWTCeilR60
    //           NWTCeilR70
+   //           NWTCeilR80
    
    Parameter{   // 
      Name    =  GOtag:Opt-Ceilings;
      Ini     =  1;
-     Values  =  "NWTCeilR40,NWTCeilR50,NWTCeilR60,NWTCeilR70";
+     Values  =  "NWTCeilR70";
    }    
   
   // Windows: 
