@@ -2036,11 +2036,17 @@ Whitehorse Wall Options (Code is R28)
 *option:NWTCrawlFlr6:cost:total    = 0
 *option:NWTCrawlFlr6:alias = 2004
 
+! NWT Crawl Space Floor is Exposed
+*option:NWTCrawlFlR40:value:1 = NWTCrawlFlR40
+*option:NWTCrawlFlR40:value:2 = NWTCrawlFlR40r
+*option:NWTCrawlFlR40:cost:total    = 0
+*option:NWTCrawlFlR40:alias = 2005
+
 ! NWT 1986 house Crawl Space Floor is Exposed
 *option:NWT1986Flr:value:1 = NWT1986Flr
 *option:NWT1986Flr:value:2 = NWT1986Flrr
 *option:NWT1986Flr:cost:total    = 0
-*option:NWT1986Flr:alias = 2004
+*option:NWT1986Flr:alias = 2006
 
 *attribute:end
 
