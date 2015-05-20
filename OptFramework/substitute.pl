@@ -1908,7 +1908,7 @@ sub postprocess($){
                           "Toronto"      =>  18.93  ,
                           "Quebec"       =>  12.36  ,
                           "Montreal"     =>  12.36  ,
-                          "Vancouver"    =>  4.58   ,
+                          "Vancouver"    =>  5.06   ,	# April 1, 2014: $0.1664/day * 365/12 = $5.06
 						  "PrinceGeorge" =>  4.58   ,
 						  "Kamloops"     =>  4.58   ,
                           "Regina"       =>  20.22  ,
@@ -1926,7 +1926,7 @@ sub postprocess($){
                         "Toronto"      =>  20.00 ,
                         "Quebec"       =>  14.01 ,
                         "Montreal"     =>  14.01 ,
-                        "Vancouver"    =>  11.83 ,
+                        "Vancouver"    =>  11.83 ,	# April 1, 2015: $0.389/day * 365/12 = $11.83
 						"Kamloops"     =>  11.83 ,
 						"PrinceGeorge" =>  11.83 ,
                         "Regina"       =>  18.85 ,
@@ -1995,8 +1995,8 @@ sub postprocess($){
     $EffElectricRates{"Quebec"} = $EffElectricRates{"Montreal"}; 
     
     # Tiers for Vancouver, PrinceGeorge and Kamloops
-    $EffElectricRates{"Vancouver"}{"1350"} = 0.0714 ; 
-    $EffElectricRates{"Vancouver"}{"9.9E99"} = 0.1070 ; 
+    $EffElectricRates{"Vancouver"}{"1350"} = 0.0752 ; 		# April 1, 2014
+    $EffElectricRates{"Vancouver"}{"9.9E99"} = 0.11127 ;	# April 1, 2014
     $EffElectricRates{"Kamloops"}{"1350"} = 0.0714 ; 
     $EffElectricRates{"Kamloops"}{"9.9E99"} = 0.1070 ;  
 	$EffElectricRates{"PrinceGeorge"}{"1350"} = 0.0714 ; 
@@ -2010,7 +2010,7 @@ sub postprocess($){
     my %EffGasRates  = (  "Halifax"      =>  0.5124 ,
                           "Edmonton"     =>  0.1482 ,
                           "Calgary"      =>  0.1363 ,
-                          "Vancouver"    =>  0.2923 ,
+                          "Vancouver"    =>  0.3455 ,	# April 1, 2015 (7.643+1.4898)*1.004 * 1.055/28 = $0.3455/m3
                           "PrinceGeorge" =>  0.2923 ,
                           "Kamloops"     =>  0.2923 ,
                           "Regina"       =>  0.2163 ,

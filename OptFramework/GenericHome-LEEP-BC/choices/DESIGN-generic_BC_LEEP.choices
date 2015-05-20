@@ -89,7 +89,12 @@ Opt-AirTightness   : Generic
 Opt-MainWall         : GenericWall_1Layer
 
 ! Set this parameter for BC LEEP walls
-Opt-GenericWall_1Layer_definitions : Stud_2x6_R20
+Opt-GenericWall_1Layer_definitions : SIPS_10.5in_EPS_R-38	! Base: Stud_2x6_R20
+															! Upgrade: Stud_2x6_2in_EPS_R-26
+															! Upgrade: Stud_2x6_2in_XPS_R-29
+															! Upgrade: Stud_2x6_2in_MWB_R-27
+															! Upgrade: Stud_2x6_3in_EPS_R-30 for 8.25" SIPS
+															! Upgrade: SIPS_10.5in_EPS_R-38
 
 ! This parameter is not used!
 !Opt-GenericWall_2Layer_definitions : test2
@@ -179,7 +184,7 @@ Opt-StandoffPV       : NoPV
 ! - 1-plate-DWHR-4-60
 ! - 2-plate-DWHR-4-60
 !   
-Opt-DWHRandSDHW         : none          
+Opt-DWHRandSDHW         : DWHR-4-60	!none          
 
 ! DHW LOAD SCALES 
 ! CEF project
@@ -191,14 +196,14 @@ Opt-DWHRandSDHW         : none
 !   - NGERSReducedA16
 !   - NGERSBestInClass14p8
 
-Opt-ElecLoadScale    : NoReduction !NGERSNoReduction19
+Opt-ElecLoadScale    : NGERSNoReduction19
 
 
 ! Hot water numbers - These have changed! 
 !   - No-Reduction ( 190 L/day ) 
 !   - Low-Flow     ( 141 L/day ) 
 
-Opt-DHWLoadScale     : OldERS	!No-Reduction       
+Opt-DHWLoadScale     : No-Reduction
 
 Opt-RoofPitch : 6-12
 
@@ -212,7 +217,9 @@ Opt-DHWSystem        : BaseDHW
 
 ! HVAC system 
 
-Opt-HVACSystem       : gas-furnace-psc
+Opt-HVACSystem       : gas-furnace-psc	! Base: gas-furnace-psc
+										! Upgrade: CCASHP-ecm
+										
 Opt-Cooling-Spec     : 2TonStdCooling		! Does nothing for BC-LEEP (No cooling tags in hvac)
 
 ! HRV spec 

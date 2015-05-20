@@ -814,7 +814,7 @@
 !-----------------------------------------------------------------------
 ! This option sets the ACH in the AIM-2 input file for the case 
 ! being considered.
-!-----------------------------------------------------------------------
+!-----------------------------------------------------------------------  
 *attribute:start
 *attribute:name     = Opt-ACH
 *attribute:tag:1    = <Opt-ACH>
@@ -851,7 +851,7 @@
 *option:retro_ACH_1_5:cost:total  =  588
 *option:retro_ACH_1_5:alias  =  1311
 
-*option:retro_ACH_1:value:1  = 1.3
+*option:retro_ACH_1:value:1  = 1.1
 *option:retro_ACH_1:cost:total  =  658
 *option:retro_ACH_1:alias  =  1312
 
@@ -1391,127 +1391,103 @@
 
 
 
+! BC LEEP Wall systems
 
+*option:Stud_2x4_2in_XPS_R-24:value:1 = 0.1366
 *option:Stud_2x4_2in_XPS_R-24:cost = 2235     ! BC-LEEP
 *option:Stud_2x4_2in_XPS_R-24:alias = 1751
 
-
+*option:Stud_2x6_1in_XPS_R-23:value:1 = 0.1329
 *option:Stud_2x6_1in_XPS_R-23:cost = 2075     ! BC-LEEP
 *option:Stud_2x6_1in_XPS_R-23:alias = 1752
 
-
+*option:Stud_2x6_1.5in_XPS_R-25:value:1 = 0.1457
 *option:Stud_2x6_1.5in_XPS_R-25:cost = 2775     ! BC-LEEP
 *option:Stud_2x6_1.5in_XPS_R-25:alias = 1753
 
-
+*option:Stud_2x6_2in_XPS_R-29:value:1 = 0.1668
 *option:Stud_2x6_2in_XPS_R-29:cost = 3475     ! BC-LEEP
 *option:Stud_2x6_2in_XPS_R-29:alias = 1754
 
-
+*option:Stud_2x6_3in_XPS_R-34:value:1 = 0.1998
 *option:Stud_2x6_3in_XPS_R-34:cost = 4880     ! BC-LEEP
 *option:Stud_2x6_3in_XPS_R-34:alias = 1755
  
-
+*option:Stud_2x6_4in_XPS_R-39:value:1 = 0.2324
 *option:Stud_2x6_4in_XPS_R-39:cost = 7805     ! BC-LEEP
 *option:Stud_2x6_4in_XPS_R-39:alias = 1756
 
-
+*option:Stud_2x6_1.5in_MWB_R-25:value:1 = 0.14
 *option:Stud_2x6_1.5in_MWB_R-25:cost = 5045     ! BC-LEEP
 *option:Stud_2x6_1.5in_MWB_R-25:alias = 1757
 
-
+*option:Stud_2x6_2in_MWB_R-27:value:1 = 0.1541
 *option:Stud_2x6_2in_MWB_R-27:cost = 5275     ! BC-LEEP
 *option:Stud_2x6_2in_MWB_R-27:alias = 1758
 
-
+*option:Stud_2x6_3in_MWB_R-31:value:1 = 0.1812
 *option:Stud_2x6_3in_MWB_R-31:cost = 6970     ! BC-LEEP
 *option:Stud_2x6_3in_MWB_R-31:alias = 1759
 
-
+*option:Stud_2x6_4in_MWB_R-35:value:1 = 0.2078
 *option:Stud_2x6_4in_MWB_R-35:cost = 8465     ! BC-LEEP
 *option:Stud_2x6_4in_MWB_R-35:alias = 1760
 
-
+*option:Stud_2x4_2in_Polyiso_R-25:value:1 = 0.1422
 *option:Stud_2x4_2in_Polyiso_R-25:cost = 2845     ! BC-LEEP
 *option:Stud_2x4_2in_Polyiso_R-25:alias = 1761
 
-
+*option:Stud_2x6_1in_Polyiso_R-24:value:1 = 0.1358
 *option:Stud_2x6_1in_Polyiso_R-24:cost = 2900     ! BC-LEEP
 *option:Stud_2x6_1in_Polyiso_R-24:alias = 1762
 
-
+*option:Stud_2x6_2in_Polyiso_R-30:value:1 = 0.1726
 *option:Stud_2x6_2in_Polyiso_R-30:cost = 3855     ! BC-LEEP
 *option:Stud_2x6_2in_Polyiso_R-30:alias = 1763
 
-
+*option:Stud_2x6_3in_Polyiso_R-35:value:1 = 0.208
 *option:Stud_2x6_3in_Polyiso_R-35:cost = 5145     ! BC-LEEP
 *option:Stud_2x6_3in_Polyiso_R-35:alias = 1764
 
-
+*option:Stud_2x6_4in_Polyiso_R-41:value:1 = 0.2432
 *option:Stud_2x6_4in_Polyiso_R-41:cost = 6740     ! BC-LEEP
 *option:Stud_2x6_4in_Polyiso_R-41:alias = 1765
 
-
+*option:Stud_2x4_2in_EPS_R-21:value:1 = 0.1203
 *option:Stud_2x4_2in_EPS_R-21:cost = 2460     ! BC-LEEP
 *option:Stud_2x4_2in_EPS_R-21:alias = 1766
 
-
+*option:Stud_2x6_1.5in_EPS_R-24:value:1 = 0.1374
 *option:Stud_2x6_1.5in_EPS_R-24:cost = 2910     ! BC-LEEP
 *option:Stud_2x6_1.5in_EPS_R-24:alias = 1767
 
-
+*option:Stud_2x6_2in_EPS_R-26:value:1 = 0.1504
 *option:Stud_2x6_2in_EPS_R-26:cost = 3470     ! BC-LEEP
 *option:Stud_2x6_2in_EPS_R-26:alias = 1768
 
-
+*option:Stud_2x6_3in_EPS_R-30:value:1 = 0.1754
 *option:Stud_2x6_3in_EPS_R-30:cost = 4695     ! BC-LEEP
 *option:Stud_2x6_3in_EPS_R-30:alias = 1769
 
-
+*option:Stud_2x6_4in_EPS_R-34:value:1 = 0.2003
 *option:Stud_2x6_4in_EPS_R-34:cost = 5830     ! BC-LEEP
 *option:Stud_2x6_4in_EPS_R-34:alias = 1770
 
-
+*option:SIPS_6.5in_EPS_R-24:value:1 = 0.1367
 *option:SIPS_6.5in_EPS_R-24:cost = 9140     ! BC-LEEP
 *option:SIPS_6.5in_EPS_R-24:alias = 1771
 
-
-*option:SIPS_10.5in_EPS_R-38:cost = 11945     ! BC-LEEP
+*option:SIPS_10.5in_EPS_R-38:value:1 = 0.2256
+*option:SIPS_10.5in_EPS_R-38:cost = 11945     ! BC-LEEP 
 *option:SIPS_10.5in_EPS_R-38:alias = 1772
 
-
+*option:DblStud_12in_cell_R-41:value:1 = 0.2464
 *option:DblStud_12in_cell_R-41:cost = 13030     ! BC-LEEP
 *option:DblStud_12in_cell_R-41:alias = 1773
 
-
+*option:DblStud_10in_cell_R-34:value:1 = 0.1982
 *option:DblStud_10in_cell_R-34:cost = 11130     ! BC-LEEP
 *option:DblStud_10in_cell_R-34:alias = 1774
-
-*option:Stud_2x4_2in_XPS_R-24:value:1 = 0.2353  
-*option:Stud_2x6_1in_XPS_R-23:value:1 = 0.229   
-*option:Stud_2x6_1.5in_XPS_R-25:value:1 = 0.2508
-*option:Stud_2x6_2in_XPS_R-29:value:1 = 0.2872  
-*option:Stud_2x6_3in_XPS_R-34:value:1 = 0.3441  
-*option:Stud_2x6_4in_XPS_R-39:value:1 = 0.4002  
-*option:Stud_2x6_1.5in_MWB_R-25:value:1 = 0.2411
-*option:Stud_2x6_2in_MWB_R-27:value:1 = 0.2654  
-*option:Stud_2x6_3in_MWB_R-31:value:1 = 0.3121  
-*option:Stud_2x6_4in_MWB_R-35:value:1 = 0.358   
-*option:Stud_2x4_2in_Polyiso_R-25:value:1 = 0.2449
-*option:Stud_2x6_1in_Polyiso_R-24:value:1 = 0.2338
-*option:Stud_2x6_2in_Polyiso_R-30:value:1 = 0.2973
-*option:Stud_2x6_3in_Polyiso_R-35:value:1 = 0.3583
-*option:Stud_2x6_4in_Polyiso_R-41:value:1 = 0.4189
-*option:Stud_2x4_2in_EPS_R-21:value:1 = 0.2072  
-*option:Stud_2x6_1.5in_EPS_R-24:value:1 = 0.2366
-*option:Stud_2x6_2in_EPS_R-26:value:1 = 0.259   
-*option:Stud_2x6_3in_EPS_R-30:value:1 = 0.3021  
-*option:Stud_2x6_4in_EPS_R-34:value:1 = 0.3449  
-*option:SIPS_6.5in_EPS_R-24:value:1 = 0.2354   
-*option:SIPS_10.5in_EPS_R-38:value:1 = 0.3886   
-*option:DblStud_12in_cell_R-41:value:1 = 0.4243   
-*option:DblStud_10in_cell_R-34:value:1 = 0.3414   
-
 
 
 
