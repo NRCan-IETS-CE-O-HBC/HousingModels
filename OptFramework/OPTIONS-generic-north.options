@@ -2037,8 +2037,8 @@ Whitehorse Wall Options (Code is R28)
 *option:NWTCrawlFlr6:alias = 2004
 
 ! NWT Crawl Space Floor is Exposed
-*option:NWTCrawlFlR40:value:1 = NWTCrawlFlR40
-*option:NWTCrawlFlR40:value:2 = NWTCrawlFlR40r
+*option:NWTCrawlFlR40:value:1 = NWTCrwlFlR40
+*option:NWTCrawlFlR40:value:2 = NWTCrwlFlR40r
 *option:NWTCrawlFlR40:cost:total    = 0
 *option:NWTCrawlFlR40:alias = 2005
 
