@@ -1305,6 +1305,11 @@ for ( my $iRun = 1; $iRun <= $gNumRunSetsRqd; $iRun++ ) {
 				  process_file($File::Find::name);
 				},  $gWorkingModelFolder );
 
+		stream_out("\n\nStuffed model file.");
+		if ( $igSeasonalRun == 1 ) {
+			die;
+		}
+
 		# Could allow SE/NE/SW/NW here, or even NNE, ENE, ESE, SSE. Note that our solar calculations will not reflect 
 		# orientation changes. For now, we assume the arrays must always point south.
 		my %angles = ( "S" => 0 , 
