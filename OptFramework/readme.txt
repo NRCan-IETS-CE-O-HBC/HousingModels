@@ -13,7 +13,7 @@ SET UP THE ENIVIRONMENT
       cd ~/ 
       svn co https://espr.svn.cvsdude.com/esp-r/branches/Alex_Ferguson@r9508
       cd Alex_Ferguson/src
-      ./Install -d ~/ --xml --no_training --no_dbs --silent --force --debug --noX bps ish prj
+      ./Install -d ~/ --xml --no_training --silent --force --debug --noX bps ish prj
       cd ~/    
 
 	  USING GIT:
@@ -21,7 +21,7 @@ SET UP THE ENIVIRONMENT
 	  git clone https://github.com/ESP-rCommunity/ESP-rSource.git ESP-rSource
 	  cd ESP-rSource/src  
       git checkout Alex_Ferguson
-      ./Install -d ~/ --xml --no_training --no_dbs --silent --force --debug --noX bps ish prj
+      ./Install -d ~/ --xml --no_training --silent --force --debug --noX bps ish prj
       cd ~/    
 
     Previous versions of the platform required you to copy the climate database 
@@ -30,7 +30,7 @@ SET UP THE ENIVIRONMENT
 
     Replace --debug with --extra-debug to rebuild all libraries:
 	
-	  ./Install -d ~/ --xml --no_training --no_dbs --silent --force --extra-debug --noX -v bps ish prj
+	  ./Install -d ~/ --xml --no_training --silent --force --extra-debug --noX -v bps ish prj
 	
 	Note: Cygwin needs these installation packages for successful compile/link and use:
 			libxslt
@@ -38,11 +38,17 @@ SET UP THE ENIVIRONMENT
 			libsqlite
 			subversion
 			fortran (gfortran just installs libs so don't get gfortran executable!)
-			g++ (needed for g++ executable)
+			g++ (needed for g++ executable - should be installed by "fortran" above)
 			Git
 
 		- I also added the "make" package but it may be that "fortran" or "g++" includes that.
       
+	Checkout HousingModels/OptFramework (from home directory)
+	---------------------------------------------------------
+	Using Git:
+	git clone https://github.com/NRCan-IETS-CE-O-HBC/HousingModels.git
+
+
 RUN A SIMULATION FOR A SINGLE DESIGN
 ------------------------------------      
 
@@ -61,6 +67,12 @@ RUN A SIMULATION FOR A SINGLE DESIGN
 3. To run a simulation with a different design, edit the design file 
    (eg. design-choices.choices). Make sure your specified choices 
    are defined in the options file (eg. OPTIONS-General.options).
+   
+Note: If you get the error message "Can't locate File/Copy/Recursive.pm ...", then you need 
+to install the File::copy::recursive module with CSPAN as follows:
+
+	CPAN install File::Copy::Recursive
+
          
 RUN AN OPTIMIZATION USING GENOPT
 --------------------------------
