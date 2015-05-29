@@ -1305,11 +1305,6 @@ for ( my $iRun = 1; $iRun <= $gNumRunSetsRqd; $iRun++ ) {
 				  process_file($File::Find::name);
 				},  $gWorkingModelFolder );
 
-		stream_out("\n\nStuffed model file.");
-		if ( $igSeasonalRun == 1 ) {
-			die;
-		}
-
 		# Could allow SE/NE/SW/NW here, or even NNE, ENE, ESE, SSE. Note that our solar calculations will not reflect 
 		# orientation changes. For now, we assume the arrays must always point south.
 		my %angles = ( "S" => 0 , 
@@ -2664,7 +2659,8 @@ sub postprocess($){
   
   $gAvgElecCons_KWh   += $gEnergyElec * 8760. * 60. * 60. * $ScaleData ; 
   
-  $gAvgPVOutput_kWh   += -1.0 * $gEnergyPV * 1e06 / 3600. * $ScaleData;  
+  # Shouldn't be cumulative for seasonal runs or orientation runs!!
+  $gAvgPVOutput_kWh   = -1.0 * $gEnergyPV * 1e06 / 3600. * $ScaleData;  
   
   $gAvgEnergyHeatingGJ      += $gEnergyHeating         * $ScaleData; 
   $gAvgEnergyCoolingGJ      += $gEnergyCooling         * $ScaleData; 
