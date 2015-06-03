@@ -1,0 +1,13 @@
+*connections for NZEH
+*Date Mon Oct  3 21:25:36 2011
+    10   # number of connections 
+   1   1   0   0   0  #    1 Wall-1 in first_fl is External
+   1   2   0   0   0  #    2 Wall-2 in first_fl is External
+   1   3   0   0   0  #    3 Wall-3 in first_fl is External
+   1   4   0   0   0  #    4 Wall-4 in first_fl is External
+   1   5   0   0   0  #    5 Top-5  in first_fl is External
+   1   6   0   0   0  #    6 Base-6 in first_fl is external
+   1   7   0   0   0  #    7 win-wall-1 in first_fl is External
+   1   8   0   0   0  #    8 win-wall-2 in first_fl is External
+   1   9   0   0   0  #    9 win-wall-3 in first_fl is External
+   1  10   0   0   0  #   10 win-wall-4 in first_fl is External

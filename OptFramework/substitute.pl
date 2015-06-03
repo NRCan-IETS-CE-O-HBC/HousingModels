@@ -149,7 +149,8 @@ my %RegionalCostFactors  = (  "Halifax"      =>  0.95 ,
                               "Fredricton"   =>  1.00 ,  # Same as Quebec?
                               "Whitehorse"   =>  1.00 ,
                               "Yellowknife"  =>  1.38 ,
-							  "Inuvik"       =>  1.38   ); 
+  							  "Inuvik"       =>  1.38 , 
+							  "Alert"        =>  1.38   ); 
 
 # Heating Degree Days (18C base), Source = HOT2000 v10.x (V10WeatherRPT.doc)
 my %RegionalHDD			= ( "Halifax"    	=>  4100,
@@ -167,7 +168,8 @@ my %RegionalHDD			= ( "Halifax"    	=>  4100,
 							"Fredricton" 	=>  4650,
 							"Whitehorse" 	=>  6900,
                             "Yellowknife"  	=>  8500,
-							"Inuvik"       	=>  10050);
+							"Inuvik"       	=>  10050,
+							"Alert"         =>  12822   );
 
 # Water main temperature (C)
 my %RegionalWaterMainTemp = ( "Halifax"    	=>  11.02,
@@ -185,7 +187,8 @@ my %RegionalWaterMainTemp = ( "Halifax"    	=>  11.02,
 							"Fredricton" 	=>  11.02,
 							"Whitehorse" 	=>  6.01,
                             "Yellowknife"  	=>  4.01,
-							"Inuvik"       	=>  1.01);
+							"Inuvik"       	=>  1.01,
+							"Alert"         =>  1.01 );
 							  
 my @gChoiceOrder;
 
@@ -1867,7 +1870,8 @@ sub postprocess($){
                              "Fredricton"   =>  0.0 ,
                              "Whitehorse"   =>  1.34 ,
                              "Yellowknife"  =>  1.28 ,
-							 "Inuvik"       =>  1.50 ); 
+							 "Inuvik"       =>  1.50 ,
+							 "Alert"        =>  1.50 ); 
     
   my $OilTransportCharge;
   my $OilDeliveryCharge; 
@@ -1916,7 +1920,8 @@ sub postprocess($){
                           "Fredricton"   =>  19.73  ,
                           "Whitehorse"   =>  16.25  ,
                           "Yellowknife"  =>  18.52  , #From Artic Energy Alliance Spring 2014
-						  "Inuvik"       =>  18.00    ); #From Artic Energy Alliance Spring 2014
+						  "Inuvik"       =>  18.00  , #From Artic Energy Alliance Spring 2014
+						  "Alert"        =>  18.00  );
 	
   # Base charges for natural gas ($/month)
   my %NG_BaseCharge = ( "Halifax"      =>  21.87 ,
@@ -1933,8 +1938,9 @@ sub postprocess($){
                         "Winnipeg"     =>  14.00 ,
                         "Fredricton"   =>  16.00 ,
                         "Whitehorse"   =>  "nil" ,
-                        "Yellowknife"  =>  "nil" , ,
-						"Inuvik"       =>  "nil"  ); 	
+                        "Yellowknife"  =>  "nil" , 
+						"Inuvik"       =>  "nil" , 
+						"Alert"        =>  "nil"  ); 	
 
    my %Elec_TierType  = ( "Halifax"      =>  "none" ,
                           "Edmonton"     =>  "none" ,
@@ -1951,7 +1957,8 @@ sub postprocess($){
                           "Fredricton"   =>  "none" ,
                           "Whitehorse"   =>  "1-month" ,
                           "Yellowknife"  =>  "none" ,
-                          "Inuvik"       =>  "none"  );  
+                          "Inuvik"       =>  "none"  ,
+                          "Alert"		 =>  "none"  );  
  
     my %NG_TierType  = (  "Halifax"      =>  "none" ,
                           "Edmonton"     =>  "none" ,
@@ -1968,7 +1975,8 @@ sub postprocess($){
                           "Fredricton"   =>  "none" ,
                           "Whitehorse"   =>  "NA"   ,
 						  "Yellowknife"  =>  "NA"   ,
-						  "Inuvik"       =>  "NA" ); 
+						  "Inuvik"       =>  "NA"   ,
+                          "Alert"        =>  "NA"    ); 
  
     
     my %EffElectricRates = ( "Halifax"     => 0.1436 ,
@@ -1978,7 +1986,8 @@ sub postprocess($){
                              "Winnipeg"    => 0.0694 ,
                              "Fredricton"  => 0.0985 ,
                              "Yellowknife" => 0.29   , # Arctic Energy Alliance Spring 2014
-							 "Inuvik"      => 0.29   ); # Arctic Energy Alliance Spring 2014
+							 "Inuvik"      => 0.29   , # Arctic Energy Alliance Spring 2014
+							 "Alert"       => 0.29   );
 							 
     # TOU for Ottawa (As of May 2014), Toronto (Feb 2013).                        
     $EffElectricRates{"Ottawa"}{"off-peak"} =  0.1243 ;                        
@@ -2018,7 +2027,8 @@ sub postprocess($){
                           "Fredricton"   =>  0.6458 ,
                           "Whitehorse"   =>  99999.9,
                           "Yellowknife"  =>  99999.9,
-						  "Inuvik"       =>  99999.9 ); 
+						  "Inuvik"       =>  99999.9 ,
+						  "Alert"        =>  99999.9 ); 
    
     # Tiers for Ottawa (Apr. 1, 2014), Toronto
     $EffGasRates{"Ottawa"}{"30"}     = 0.3090; 
