@@ -501,7 +501,12 @@
 *option:Inuvik:cost:total    = 0
 *option:Inuvik:alias = 1015
 
- 
+*option:Alert:value:1 = can_alert
+*option:Alert:value:2 = 82.5
+*option:Alert:value:3 = -2.33
+*option:Alert:cost:total    = 0
+*option:Alert:alias = 1016
+
 *attribute:end
 
 
@@ -631,6 +636,47 @@
 *option:NWT_1986:cost:total = 0
 *option:NWT_1986:alias = 1205
 
+*option:Rapid_Northern_House:value:1    = 144
+*option:Rapid_Northern_House:value:2    = 12.0
+*option:Rapid_Northern_House:value:3    = 12.0
+*option:Rapid_Northern_House:value:4    = 4.9924
+*option:Rapid_Northern_House:value:5    = 4.2672
+*option:Rapid_Northern_House:value:6    = 0.5
+*option:Rapid_Northern_House:value:7    = 1.212
+*option:Rapid_Northern_House:value:8    = 0.5
+*option:Rapid_Northern_House:value:9    = 1.212
+*option:Rapid_Northern_House:value:10   = 11.50
+*option:Rapid_Northern_House:value:11   = 10.788
+*option:Rapid_Northern_House:value:12   = 11.5
+*option:Rapid_Northern_House:value:13   = 10.788
+*option:Rapid_Northern_House:value:14   = 0
+*option:Rapid_Northern_House:value:15   = 0
+*option:Rapid_Northern_House:value:16   = 0
+*option:Rapid_Northern_House:value:17   = 408.96	!Need volume for ERS
+*option:Rapid_Northern_House:cost:total = 0
+*option:Rapid_Northern_House:alias = 1205
+
+*option:Rapid_Northern_House_case8:value:1    = 240
+*option:Rapid_Northern_House_case8:value:2    = 20.0
+*option:Rapid_Northern_House_case8:value:3    = 12.0
+*option:Rapid_Northern_House_case8:value:4    = 4.9924
+*option:Rapid_Northern_House_case8:value:5    = 4.2672
+*option:Rapid_Northern_House_case8:value:6    = 0.5
+*option:Rapid_Northern_House_case8:value:7    = 1.212
+*option:Rapid_Northern_House_case8:value:8    = 0.5
+*option:Rapid_Northern_House_case8:value:9    = 1.212
+*option:Rapid_Northern_House_case8:value:10   = 19.50
+*option:Rapid_Northern_House_case8:value:11   = 18.788
+*option:Rapid_Northern_House_case8:value:12   = 11.5
+*option:Rapid_Northern_House_case8:value:13   = 10.788
+*option:Rapid_Northern_House_case8:value:14   = 0
+*option:Rapid_Northern_House_case8:value:15   = 0
+*option:Rapid_Northern_House_case8:value:16   = 0
+*option:Rapid_Northern_House_case8:value:17   = 681.6	!Need volume for ERS
+*option:Rapid_Northern_House_case8:cost:total = 0
+*option:Rapid_Northern_House_case8:alias = 1206
+
+
 *attribute:end
 
 !-----------------------------------------------------------------------
@@ -685,6 +731,9 @@
 *option:retro_ACH_1:cost:total  =  0
 *option:retro_ACH_1:alias  =  1312
 
+*option:retro_ACH_0_5:value:1  = 0.5
+*option:retro_ACH_0_5:cost:total  =  0
+*option:retro_ACH_0_5:alias  =  1313
 
 *attribute:end
 
@@ -1668,31 +1717,31 @@ Whitehorse Wall Options (Code is R28)
 ! NWT Retrofit Main Wall Options
 !-------------------------------------------------------------------------------
 *option:NWTR20:value:1 =   NWTR20   ! Added by JP for retrofit analysis
-*option:NWTR20:value:2 =   NWTR20
+*option:NWTR20:value:2 =   NWTCrawlWll   ! this refers to the crawl space wall
 *option:NWTR20:value:3 =   NWTR20 
 *option:NWTR20:cost:total    =   0  
 *option:NWTR20:alias = 1737
 
 *option:NWTR20_4:value:1 =   NWTR20_4   ! Base case R20 wall with 4" EPS on exterior
-*option:NWTR20_4:value:2 =   NWTR20_4
+*option:NWTR20_4:value:2 =   NWTCrawlWll4 ! this refers to the crawl space wall
 *option:NWTR20_4:value:3 =   NWTR20_4 
 *option:NWTR20_4:cost:total    =   0  ! $3.69/sq.ft
 *option:NWTR20_4:alias = 1738
 
 *option:NWTR20_1_5:value:1 =   NWTR20_1_5   ! Base case R20 wall with 1.5" EPS on interior
-*option:NWTR20_1_5:value:2 =   NWTR20_1_5
+*option:NWTR20_1_5:value:2 =   NWTCrwlWl1_5 ! this refers to the crawl space wall
 *option:NWTR20_1_5:value:3 =   NWTR20_1_5 
 *option:NWTR20_1_5:cost:total    =   0  ! $2/sqft
 *option:NWTR20_1_5:alias = 1739
 
 *option:NWTR20_2:value:1 =   NWTR20_2   ! Base case R20 wall with 2" EPS on exterior
-*option:NWTR20_2:value:2 =   NWTR20_2
+*option:NWTR20_2:value:2 =   NWTCrawlWll2 ! this refers to the crawl space wall
 *option:NWTR20_2:value:3 =   NWTR20_2 
 *option:NWTR20_2:cost:total    =   0   ! $2.43/sq.f
 *option:NWTR20_2:alias = 1740
 
 *option:NWTR20_3:value:1 =   NWTR20_3   ! Base case R20 wall with 3" EPS on exterior
-*option:NWTR20_3:value:2 =   NWTR20_3
+*option:NWTR20_3:value:2 =   NWTCrawlWll3 ! this refers to the crawl space wall
 *option:NWTR20_3:value:3 =   NWTR20_3 
 *option:NWTR20_3:cost:total    =   0   ! $3.25/sq.ft
 *option:NWTR20_3:alias = 1741
@@ -1727,6 +1776,14 @@ Whitehorse Wall Options (Code is R28)
 *option:NWT-1986_3:value:3 =   NWT-1986_3 
 *option:NWT-1986_3:cost:total    =   0   ! $3.25/sq.ft
 *option:NWT-1986_3:alias = 1746
+
+*option:NWTR40:value:1 =   NWTR40   ! Base case R20 wall with 3" EPS on exterior
+*option:NWTR40:value:2 =   NWTCrwlWR40  ! this refers to the crawl space wall
+*option:NWTR40:value:3 =   NWTR40 
+*option:NWTR40:cost:total    =   0   ! $3.25/sq.ft
+*option:NWTR40:alias = 1747
+
+
 
 *attribute:end
 
@@ -2047,6 +2104,13 @@ Whitehorse Wall Options (Code is R28)
 *option:NWT1986Flr:value:2 = NWT1986Flrr
 *option:NWT1986Flr:cost:total    = 0
 *option:NWT1986Flr:alias = 2006
+
+! NWT Crawl Space Floor is Exposed
+*option:NWTCrawlFlR50:value:1 = NWTCrwlFlR50
+*option:NWTCrawlFlR50:value:2 = NWTCrwlFlR50r
+*option:NWTCrawlFlR50:cost:total    = 0
+*option:NWTCrawlFlR50:alias = 2006
+
 
 *attribute:end
 
