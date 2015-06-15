@@ -24,10 +24,10 @@ bsmt describes the NZEH basement
 #  child of (surface name), useage (pair of tags) 
 #  construction name, Optical name
 #  boundary condition tag followed by two data items
-*surf,Wall-1,VERT,-,-,-,<OPT-BsmWall>,OPAQUE,EXTERIOR,0,0  #   1 ||< Crawl Space Wall
-*surf,Wall-2,VERT,-,-,-,<OPT-BsmWall>,OPAQUE,EXTERIOR,0,0  #   2 ||< Crawl Space Wall
-*surf,Wall-3,VERT,-,-,-,<OPT-BsmWall>,OPAQUE,EXTERIOR,0,0  #   3 ||< Crawl Space Wall
-*surf,Wall-4,VERT,-,-,-,<OPT-BsmWall>,OPAQUE,EXTERIOR,0,0  #   4 ||< Crawl Space Wall
+*surf,Wall-1,VERT,-,-,-,<Opt-MainWall-Vin>,OPAQUE,EXTERIOR,0,0  #   1 ||< Crawl Space Wall
+*surf,Wall-2,VERT,-,-,-,<Opt-MainWall-Vin>,OPAQUE,EXTERIOR,0,0  #   2 ||< Crawl Space Wall
+*surf,Wall-3,VERT,-,-,-,<Opt-MainWall-Vin>,OPAQUE,EXTERIOR,0,0  #   3 ||< Crawl Space Wall
+*surf,Wall-4,VERT,-,-,-,<Opt-MainWall-Vin>,OPAQUE,EXTERIOR,0,0  #   4 ||< Crawl Space Wall
 *surf,Top_bsm,CEIL,gr_flr,-,-,<Opt-IntFloorInv>,OPAQUE,ANOTHER,02,06  #   5 ||< Top_bsm:Base-6
 *surf,Base_bsm,FLOR,-,-,-,<Opt-ExposedFloor>,OPAQUE,EXTERIOR,0,0  #  6 ||< Exposed Floor
 # 
