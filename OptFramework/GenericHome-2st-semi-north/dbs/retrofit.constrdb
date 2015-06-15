@@ -1,4 +1,4 @@
-# composite construction db defined in ../dbs/NZEH.constrdb
+# composite construction db defined in ../dbs/retrofit.constrdb
 # based on materials db ../dbs/material.db3.a
   205  # no of composites 
 # layers  description   optics name   symmetry tag
@@ -1526,7 +1526,7 @@
 # layers  description   optics name   symmetry tag
    72    0.0191  plywood 700d	
   283    0.1245  fiberglass batt	
-  284    0.0381  EPS
+  214    0.0381  EPS
     0    0.016	 air 0.170 0.170 0.170	
    79    0.0079  OSB	      
 # ACCESS base crawl space wall +2"
@@ -1536,7 +1536,7 @@
 # layers  description   optics name   symmetry tag
    72    0.0191  plywood 700d	
   283    0.1245  fiberglass batt	
-  284    0.0508  EPS
+  214    0.0508  EPS
     0    0.016	 air 0.170 0.170 0.170	
    79    0.0079  OSB	      
 # ACCESS base crawl space wall +3"
@@ -1546,7 +1546,7 @@
 # layers  description   optics name   symmetry tag
    72    0.0191  plywood 700d	
   283    0.1245  fiberglass batt	
-  284    0.0762  EPS
+  214    0.0762  EPS
     0    0.016	 air 0.170 0.170 0.170	
    79    0.0079  OSB	      
 # ACCESS base crawl space wall +4"
@@ -1556,7 +1556,7 @@
 # layers  description   optics name   symmetry tag
    72    0.0191  plywood 700d	
   283    0.1245  fiberglass batt	
-  284    0.0508  EPS
+  214    0.0508  EPS
     0    0.016	 air 0.170 0.170 0.170	
    79    0.0079  OSB	      
 # ACCESS base crawl space exposed floor R-50

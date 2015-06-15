@@ -1772,7 +1772,7 @@ Whitehorse Wall Options (Code is R28)
 *option:NWT-1986_2:alias = 1745
 
 *option:NWT-1986_3:value:1 =   NWT-1986_3   ! Base case R20 wall with 3" EPS on exterior
-*option:NWT-1986_3:value:2 =   NWTCrwll3    ! this refers to the crawl space wall
+*option:NWT-1986_3:value:2 =   NWT1986Wll3    ! this refers to the crawl space wall
 *option:NWT-1986_3:value:3 =   NWT-1986_3 
 *option:NWT-1986_3:cost:total    =   0   ! $3.25/sq.ft
 *option:NWT-1986_3:alias = 1746
