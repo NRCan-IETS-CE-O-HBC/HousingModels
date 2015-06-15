@@ -86,7 +86,7 @@ Opt-AirTightness   : Generic
 !  NWT-1986_1_5
 !  NWT-1986_2
 !  NWT-1986_3   
-Opt-MainWall         : NWT-1986
+Opt-MainWall         : NWT-1986_3
 
 
 ! Add extra drywall to wall constructions 
