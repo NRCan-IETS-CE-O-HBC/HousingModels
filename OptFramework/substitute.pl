@@ -1345,7 +1345,7 @@ for ( my $iRun = 1; $iRun <= $gNumRunSetsRqd; $iRun++ ) {
 			$gAvgCost_Wood      		= 0;
 			$gAvgCost_Pellet    		= 0;
 			$gAvgPVRevenue      		= 0; 
-			$gAvgElecCons_KWh    		= 0; 
+			$gAvgElecCons_KWh    		= 0;  
 			$gAvgPVOutput_kWh			= 0; 
 			$gAvgCost_Total				= 0; 
 			$gAvgEnergyHeatingGJ		= 0; 
@@ -1366,7 +1366,7 @@ for ( my $iRun = 1; $iRun <= $gNumRunSetsRqd; $iRun++ ) {
 		$gDirection                 ="";
 		$gEnergyHeatingElec 		= 0;
 		$gEnergyVentElec            = 0;
-		$gEnergyHeatingFossil 		= 0;
+		$gEnergyHeatingFossil 		= 0; 
 		$gEnergyWaterHeatingElec 	= 0;
 		$gEnergyWaterHeatingFossil 	= 0;
 		$gAmtOil = 0;
@@ -2173,9 +2173,13 @@ sub postprocess($){
   my $OldMonth = 1; 
 
   my $BiMonthCounter = 1; 
+  
+  my $CountRows = 0; 
 
   for ( $row = 0; $row < $NumberOfRows; $row++){
 
+	$CountRows++; 
+  
     my $DayRollover = 0; 
     my $MonthRollover = 0; 
     my $BiMonthRollover = 0; 
@@ -2443,18 +2447,20 @@ sub postprocess($){
     $PelletsConsumptionCost += $CurrentPelletsConsumption * ( $PelletsSupplyCharge ); 
   }
 
-
-
-  my $TotalElecBill = $Elec_BaseCharge{$Locale}* 12. + $ElecConsumptionCost ; 
-  my $TotalGasBill  = $GasConsumptionCost < 0.01 ? 0 : $NG_BaseCharge{$Locale} * 12. + $GasConsumptionCost  ; 
+  my $FracOfYear          = ( $CountRows * $TSLength )/(3600*8760); 
+  my $MonthsForBaseCharge = $FracOfYear * 12 ; 
   
-  my $TotalOilBill  = $OilFixedCharge * 12. + $OilConsumptionCost  ; 	
+
+  my $TotalElecBill = $Elec_BaseCharge{$Locale}* $MonthsForBaseCharge + $ElecConsumptionCost ; 
+  my $TotalGasBill  = $GasConsumptionCost < 0.01 ? 0 : $NG_BaseCharge{$Locale} * $MonthsForBaseCharge + $GasConsumptionCost  ; 
+  
+  my $TotalOilBill  = $OilFixedCharge * $MonthsForBaseCharge. + $OilConsumptionCost  ; 	
     
-  my $TotalPropaneBill  = $PropaneFixedCharge * 12. + $PropaneConsumptionCost  ; 
+  my $TotalPropaneBill  = $PropaneFixedCharge * $MonthsForBaseCharge + $PropaneConsumptionCost  ; 
   
-  my $TotalWoodBill  = $WoodFixedCharge * 12. + $WoodConsumptionCost  ; 
+  my $TotalWoodBill  = $WoodFixedCharge * $MonthsForBaseCharge + $WoodConsumptionCost  ; 
 	
-  my $TotalPelletBill  = $PelletsFixedCharge * 12. + $PelletsConsumptionCost  ; 
+  my $TotalPelletBill  = $PelletsFixedCharge * $MonthsForBaseCharge + $PelletsConsumptionCost  ; 
   
   # Add data from externally computed SDHW (Legacy code)
   #my $sizeSDHW = $gChoices{"Opt-SolarDHW"}; 
@@ -2587,24 +2593,24 @@ sub postprocess($){
                          $gSimResults{"total_fuel_use/test/all_fuels/equipment/energy_content::AnnualTotal"} : 0 ;  
 
   $gEnergyElec  =  defined($gSimResults{"total_fuel_use/electricity/all_end_uses/quantity::Total_Average"} ) ? 
-                         $gSimResults{"total_fuel_use/electricity/all_end_uses/quantity::Total_Average"} : 0 ;  
+                         $gSimResults{"total_fuel_use/electricity/all_end_uses/quantity::Total_Average"} * $FracOfYear : 0 ;  
   
   $gEnergyGas   = defined($gSimResults{"total_fuel_use/natural_gas/all_end_uses/quantity::Total_Average"} ) ? 
-                         $gSimResults{"total_fuel_use/natural_gas/all_end_uses/quantity::Total_Average"} : 0 ;  
+                         $gSimResults{"total_fuel_use/natural_gas/all_end_uses/quantity::Total_Average"} * $FracOfYear : 0 ;  
   
   $gEnergyOil   = defined($gSimResults{"total_fuel_use/oil/all_end_uses/quantity::Total_Average"} ) ? 
-                         $gSimResults{"total_fuel_use/oil/all_end_uses/quantity::Total_Average"} : 0 ;  
+                         $gSimResults{"total_fuel_use/oil/all_end_uses/quantity::Total_Average"}  * $FracOfYear : 0 ;  
 
   $gEnergyWood  = defined($gSimResults{"total_fuel_use/mixed_wood/all_end_uses/quantity::Total_Average"} ) ? 
-                         $gSimResults{"total_fuel_use/mixed_wood/all_end_uses/quantity::Total_Average"} : 0 ;  	
+                         $gSimResults{"total_fuel_use/mixed_wood/all_end_uses/quantity::Total_Average"} * $FracOfYear : 0 ;  	
   $gEnergyPellet = defined($gSimResults{"total_fuel_use/wood_pellets/all_end_uses/quantity::Total_Average"} ) ? 
-                         $gSimResults{"total_fuel_use/wood_pellets/all_end_uses/quantity::Total_Average"} : 0 ;  
+                         $gSimResults{"total_fuel_use/wood_pellets/all_end_uses/quantity::Total_Average"} * $FracOfYear : 0 ;  
   $gEnergyHardWood = defined( $gSimResults{"total_fuel_use/hard_wood/all_end_uses/quantity::Total_Average"} ) ? 
-                         $gSimResults{"total_fuel_use/hard_wood/all_end_uses/quantity::Total_Average"} : 0 ;  
+                         $gSimResults{"total_fuel_use/hard_wood/all_end_uses/quantity::Total_Average"} * $FracOfYear : 0 ;  
   $gEnergyMixedWood = defined( $gSimResults{"total_fuel_use/mixed_wood/all_end_uses/quantity::Total_Average"} ) ? 
-                         $gSimResults{"total_fuel_use/mixed_wood/all_end_uses/quantity::Total_Average"} : 0 ;  
+                         $gSimResults{"total_fuel_use/mixed_wood/all_end_uses/quantity::Total_Average"} * $FracOfYear : 0 ;  
   $gEnergySoftWood = defined( $gSimResults{"total_fuel_use/soft_wood/all_end_uses/quantity::Total_Average"} ) ? 
-                         $gSimResults{"total_fuel_use/soft_wood/all_end_uses/quantity::Total_Average"} : 0 ;  
+                         $gSimResults{"total_fuel_use/soft_wood/all_end_uses/quantity::Total_Average"} * $FracOfYear : 0 ;  
   
   # New variables required for ERS calculation
   $gEnergyHeatingElec = defined( $gSimResults{"total_fuel_use/test/electricity/space_heating/energy_content::AnnualTotal"} ) ? 
@@ -2625,7 +2631,7 @@ sub postprocess($){
   $gEnergyTotalWood = $gEnergyHardWood + $gEnergyMixedWood + $gEnergySoftWood + $gEnergyPellet;
 
   $gAmtOil = defined( $gSimResults{"total_fuel_use/oil/all_end_uses/quantity::Total_Average"} ) ? 
-                         $gSimResults{"total_fuel_use/oil/all_end_uses/quantity::Total_Average"} : 0 ;  
+                         $gSimResults{"total_fuel_use/oil/all_end_uses/quantity::Total_Average"} * $FracOfYear : 0 ;  
 
 						 
   my $PVRevenue = $gEnergyPV * 1e06 / 3600. *$PVTarrifDollarsPerkWh; 
