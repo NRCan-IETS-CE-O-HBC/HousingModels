@@ -924,6 +924,20 @@
 *option:Win6_qd_CL:cost:total   = 0! 25226
 *option:Win6_qd_CL:alias = 1412
 
+
+*option:Win10hcle2_q:value:1 = Win10hcle2_q
+*option:Win10hcle2_q:value:2 = Win10hcle2_q
+*option:Win10hcle2_q:value:3 = Win10hcle2_q
+*option:Win10hcle2_q:value:4 = Win10hcle2_q
+*option:Win10hcle2_q:value:5 = Win10hcle2_q
+*option:Win10hcle2_q:value:6 = Win10hcle2_q
+*option:Win10hcle2_q:value:7 = Win10hcle2_q
+*option:Win10hcle2_q:value:8 = Win10hcle2_q
+*option:Win10hcle2_q:value:9 = Win10hcle2_q
+*option:Win10hcle2_q:cost:total   = 0! 25226
+*option:Win10hcle2_q:alias = 1424
+
+
 *option:Double_win_shutter:value:1 = DblLeHcAir
 *option:Double_win_shutter:value:2 = DblLeHcAir
 *option:Double_win_shutter:value:3 = Wind2SHUTTER
