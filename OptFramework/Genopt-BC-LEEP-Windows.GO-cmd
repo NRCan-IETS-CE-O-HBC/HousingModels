@@ -62,7 +62,7 @@ Vary{
   
     Name = GOtag:Opt-geometry; 
     Ini  = 1;
-    Values = "MattOtt_2st_garage"; 
+    Values = "LEEP-BC-MO-version-15,LEEP-BC-MO-version-20,LEEP-BC-MO-version-25,LEEP-BC-MO-version-30,LEEP-BC-MO-version-35,LEEP-BC-MO-version-40,LEEP-BC-MO-version-50"; 
   }
 
 
@@ -250,7 +250,7 @@ Vary{
   Parameter{   // 
      Name    =  GOtag:Opt-CasementWindows;
      Ini     =  1;
-     Values  =  "DoubleLowEHardCoatAirFill,DoubleLowEHardCoatArgFill,TripleLowEHardCoatKryFill,DoubleLowESoftCoatArgFill,TripleLowESoftCoatKryFill,NorthStarDblHGLowE,NorthStarDblLGLowE, NorthStarDblHGClr, NorthStarTplHGLowE, NorthStarTplLGLowE, BCLEEP-LG-Double, BCLEEP-HG-Double, BCLEEP-HGi89-Double,BCLEEP-LGi89-Triple, BCLEEP-HGi89-Triple "; 
+     Values  =  "NorthStarDblHGLowE,NorthStarDblLGLowE, NorthStarDblHGClr, NorthStarTplHGLowE, NorthStarTplLGLowE, BCLEEP-LG-Double, BCLEEP-HG-Double, BCLEEP-HGi89-Double,BCLEEP-LGi89-Triple, BCLEEP-HGi89-Triple,BCLEEP-HGi89-Triple-b "; 
    }    
    
   // Extra drywall:  OneSheet
@@ -327,7 +327,7 @@ Vary{
   Parameter { 
      Name = GOtag:Opt-HRVSpec; 
      Ini  = 1; 
-     Values = "BaseHRV_SREZero";//FansOnly"; 
+     Values = "BaseHRV_SRE70";//FansOnly"; 
   }
   
   
