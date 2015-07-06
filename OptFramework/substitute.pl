@@ -25,6 +25,11 @@ sub stream_out($);
 sub stream_out($);
 sub postprocessDakota();
 
+# Routines that build up complex
+# window models from simple descriptions (SHGC & U-valie)
+sub ProcessGenericWindowOptics($); 
+sub ProcessGenericWindowMLC($); 
+
 # Global variable names  (i.e., variables that maintain their content and use (scope) throughout this file). 
 # Note loose convention to start global variables with a 'g'.
 my $gDebug = 0; 
@@ -121,6 +126,25 @@ my $gAvgPropCons_l      = 0;
 my $gAvgPelletCons_tonne = 0; 
 my $gDirection = "";
 
+my %GenericWindowParams; 
+my $GenericWindowParamsDefined = 0; 
+
+
+# List of optics databases that we can 
+# append generic window optics data to:
+my @OpticDBSFiles = ( "optics-CEF.db2", 
+                      "optics-generic.db2",
+					  "optics-WH.db2",
+					  "optics-retrofit.db2");
+
+# List of MLC databases that we can append
+# generic constructions (windiws for now) to:
+my @MlcDBSFiles = ( "NZEH-CEF.constrdb", 
+                    "NZEH-WH.constrdb",
+					"retrofit.constrdb");
+					  
+
+
 my $gEnergyHeatingElec = 0;
 my $gEnergyVentElec = 0;
 my $gEnergyHeatingFossil = 0;
@@ -213,7 +237,8 @@ my @search_these_exts=( "cfg",
                         "bsm",
                         "ctl",
                         "opr",
-                        "dhw"
+                        "dhw",
+						"db2"
                       );
                        
                        
@@ -566,6 +591,7 @@ while ( my $line = <OPTIONS> ){
 				#  - production-elec
 				#  - production-sh
 				#  - production-dhw
+				#  - WindowParams	
 				
 				my @breakToken = split /:/, $token; 
 				my @OptionConditions = (); 
@@ -623,6 +649,27 @@ while ( my $line = <OPTIONS> ){
 					$gOptions{$currentAttributeName}{"options"}{$OptionName}{"alias"} = $value;
 				}
 
+				# Window data processing for generic window definitions:
+				
+				if ( $DataType =~ /WindowParams/ ){
+				
+					stream_out ("\nProcessing window data for $currentAttributeName /  $OptionName  \n");
+					
+					# READ WINDOW DEFINITION DATA and inject into optics database. 
+					# Window data will look like this: 
+					# *option:NorthStarHGLowE:WindowParams:Name  = DblGenWinA 
+                    # *option:NorthStarHGLowE:WindowParams:panes = 2 
+                    # *option:NorthStarHGLowE:WindowParams:SHGC  = 0.50
+                    # *option:NorthStarHGLowE:WindowParams:Uval  = 1.6
+					
+					my $Param = $breakToken[3]; 
+					
+				    $GenericWindowParams{$OptionName}{$Param} = $value ;
+					$GenericWindowParamsDefined = 1; 				
+				
+				}
+				
+				
 				# External entities...
 				if ( $DataType =~ /production/ ){
 					if ( $DataType =~ /cost/ ){$CostType = $breakToken[3]; }
@@ -705,7 +752,6 @@ close (OPTIONS);
 stream_out ("...done.\n") ; 
  
 # Parse configuration (choice file ) 
-
 
 open ( CHOICES, "$gChoiceFile" ) or fatalerror("Could not read $gChoiceFile!");
 
@@ -949,6 +995,41 @@ while ( my ( $attribute, $choice) = each %gChoices ){
 		fatalerror ( "" );
 	}
 }
+
+# Check if generic windows have been defined according to SHGC and U-value. If so, process!
+my $gAddOpticsTxt =""; 
+my $gAddMLCTxt = "";
+my $gAddMLCCount = 0; 
+
+if ( $GenericWindowParamsDefined ){
+   
+   for my $GenericWindow (keys %GenericWindowParams) {
+   
+   
+	  stream_out "->Now looking at Window $GenericWindow : \n"; 
+	  
+	  $gAddOpticsTxt .= ProcessGenericWindowOptics("$GenericWindow"); 
+      $gAddMLCTxt    .= ProcessGenericWindowMLC("$GenericWindow");
+	  $gAddMLCCount++; 
+   
+   
+   }
+
+   
+   #open ( WINDOWDAT, ">window-data.csv")   or die ("Could not open window-data.csv"); 
+   #print WINDOWDAT $AddOpticsTxt; 
+   #close WINDOWDAT; 
+
+}
+
+
+
+
+
+
+
+
+
 
 # Check if seasonal runs required ...
 my $gSeasonal = 0;
@@ -1553,21 +1634,76 @@ close(LOG);
 
 sub process_file($){
 
+  my $OpticsDBFlag = 0; 
+  my $MLCFlag = 0;  
   my ($file_path) = @_; 
+ 
+  my $CountFound = 0; 
   
   my $startpath = getcwd();
+  
   chdir $gMasterPath; 
   
+   
   stream_out("  + Performing substitutions on ".$file_path."\n");
   
   open(READIN,$file_path) or fatalerror("Could not open $file_path for reading!");
   
-  my @file_contents = ();   
+  my $file_contents = "";   
+  
+  
+  # Check if this file matches one of the optics databases, and 
+  # set flag if true. 
+  foreach my $OpticsDB ( @OpticDBSFiles ){
+  
+	if ( $file_path =~ /$OpticsDB/ ){
+	
+		$OpticsDBFlag = 1; 
+	
+	}
+   
+  }
+  
+  foreach my $MLCdb (@MlcDBSFiles){
+  
+	if ( $file_path =~ /$MLCdb/ ){
+	
+		$MLCFlag = 1; 
+	
+	
+	}
+  
+  }
   
   while ( my $line = <READIN> ){
     my $matched =0;
 	my $linecopy = $line;   
-    
+
+    if ( $MLCFlag && !$CountFound ){
+
+		$linecopy =~ s/\#.*$//g; 
+		$linecopy =~ s/\s*//g; 
+	
+
+		if  ( $linecopy =~ /[0-9]+/ ) {
+		
+		    $CountFound = 1; 
+			
+			my $assemblycount = $linecopy; 
+			
+			$assemblycount =~ s/\s*//g; 
+			
+			$assemblycount = $assemblycount + $gAddMLCCount; 
+			
+			$line = "  $assemblycount  # no of composites\n"; 
+			
+		}
+		
+	   
+
+	
+	}
+
     foreach my $attribute ( @gChoiceOrder ){
 
       if ( $gOptions{$attribute}{"type"} eq "internal" ){
@@ -1594,15 +1730,20 @@ sub process_file($){
 	  
     }
     # if ($matched ){debug_out("> $linecopy| $line");}
-    push @file_contents, $line;
+    $file_contents .= $line;
  
   }
+  
+  # If this is an optical database, attach the generic optics text to the end
+  if ($OpticsDBFlag){ $file_contents .=  $gAddOpticsTxt ; }
+  if ($MLCFlag){ $file_contents .=  $gAddMLCTxt ; }
+  
   
   close(READIN);
   
   open(WRITEOUT,">$file_path") or fatalerror("Could not open $file_path for writing!");
 
-  print WRITEOUT @file_contents;
+  print WRITEOUT $file_contents;
   
   close(WRITEOUT);
   
@@ -2729,7 +2870,7 @@ sub postprocess($){
 	my $tmpval = round($gERSNum * 10) / 10.;
 	stream_out(" ERS value: ".$tmpval."\n");
   
-    my $tmpval = round($gERSNum_noVent * 10) / 10.;
+    $tmpval = round($gERSNum_noVent * 10) / 10.;
     stream_out(" ERS value_noVent:   ".$tmpval."\n\n");
   }
   
@@ -2830,6 +2971,186 @@ sub min($$){
   else {return $a;}
   
   return 1;
+}
+
+# -----------------------------------------------------------------------------------------
+# Process generic window.
+# This routine takes a whole-window SHGC result and returns a complete
+# ESP-r optical descirption, including transmission/absorption data 
+# at 0, 40, 55, 70 & 80 degrees. 
+#
+#
+# 
+# -----------------------------------------------------------------------------------------
+sub ProcessGenericWindowOptics($)
+{
+	my ($WindowName) = @_;
+	
+	#my @Angles = (0, 10, 20, 30, 40, 50, 60, 70, 80, 90); 
+	my @Angles = (0, 40, 55, 70, 80); 
+	my %ModelTSol = (); 
+	my %ModelABS1 = (); 
+	my %ModelABS2 = (); 
+	my %ModelABS3 = (); 
+	
+	stream_out "ProcessGenericWindowOptics ( $WindowName ) \n"; 
+    my $panes = $GenericWindowParams{"$WindowName"}{"panes"};
+	my $uval  = $GenericWindowParams{"$WindowName"}{"Uval"};
+    my $label = $GenericWindowParams{"$WindowName"}{"name"};
+	my $SHGC  = $GenericWindowParams{"$WindowName"}{"SHGC"};
+
+	
+	my $dataTxt = ""; 
+		
+	stream_out " -> label : $label \n"; 
+	stream_out " -> panes : $panes \n"; 
+	stream_out " -> SHGC  : $SHGC  \n"; 
+	stream_out " -> UVal  : $uval  \n"; 
+
+	
+	# Estimate SoG Solar transmission from whole-frame u-value. Correlation 
+	# From NSTAR window data. This could be improved to include a specific 
+	# frame ratio for 'thin-frame' windows. 
+	my $TSolSogZero =  1.08752 * $SHGC + 0.035117; 
+	
+	# Estimate 
+	
+	foreach my $angle (@Angles){
+	
+	  stream_out " Angle > $angle \n"; 
+	  
+	  my $reverseAngle = 90 - $angle ; 
+	  
+      $ModelTSol{$angle} = (   1.495e-06 * $reverseAngle**3 
+	                         - 0.0004075 * $reverseAngle**2 
+                             + 0.03549   * $reverseAngle    ) * $TSolSogZero ; 
+	
+	
+	  # Crude switch between high-gain and low-gain correlations. 
+      if ( $SHGC < 0.30 ) {
+	  
+	    $ModelABS1{$angle} = 0.299315   -0.00018869   * $reverseAngle  ; 
+		
+	    $ModelABS2{$angle} = 0.00381548 - 6.62879e-10 * $reverseAngle**4 
+                                        + 1.55934e-07 * $reverseAngle**3 
+                                        - 1.3267e-05  * $reverseAngle**2 
+                                        + 0.000466549 * $reverseAngle   ; 
+		
+		$ModelABS3{$angle} =  0.00285714 + 5.05051e-09 * $reverseAngle**3 
+		                                 - 2.14286e-06 * $reverseAngle**2 
+										 + 0.000199495 * $reverseAngle     ; 
+	  
+	  }else{ 
+	    
+		$ModelABS1{$angle} = 0.137575  - 0.000463492 * $reverseAngle ;   
+		
+	    $ModelABS2{$angle} = 0.0476925 - 3.69318e-09 * $reverseAngle**4 
+                                       + 1.01199e-06 * $reverseAngle**3 
+                                       - 0.000106992 * $reverseAngle**2 
+									   + 0.00512876  * $reverseAngle    ; 
+		
+		
+		$ModelABS3{$angle} = 0.0102381 + 1.99495e-07 * $reverseAngle**3 
+                                       - 4.42857e-05 * $reverseAngle**2 
+									   + 0.00317053  * $reverseAngle    ; 
+		
+		
+		
+		
+		
+	  }
+
+	  
+	  $ModelTSol{$angle} = $ModelTSol{$angle} * (1.-0.2959);
+	  $ModelABS1{$angle} = $ModelABS1{$angle} * (1.-0.2959);
+	  $ModelABS2{$angle} = $ModelABS2{$angle} * (1.-0.2959);
+	  $ModelABS3{$angle} = $ModelABS3{$angle} * (1.-0.2959);
+	  
+	  $dataTxt .= "$WindowName,$panes,$SHGC,$uval,$angle,$TSolSogZero,"
+	             .$ModelTSol{$angle}*(1-0.2959).","
+				 .$ModelABS1{$angle}*(1-0.2959).","
+				 .$ModelABS2{$angle}*(1-0.2959).","
+				 .$ModelABS3{$angle}*(1-0.2959).",\n" ; 
+	 
+	}
+	
+	my $layers = $panes =~ /2/ ? 3 : 5; 
+	
+	my $OpticsEntry = "";
+	$OpticsEntry .= "# 12 char id |  description       | thick | blind\n";
+	$OpticsEntry .= sprintf ("%-12s : Generic window\n", $label ); 
+	$OpticsEntry .= "# def lyr, tmc lyr, vis trn, sol refl, sol absor, U vale\n";
+	$OpticsEntry .= "# 1   2  3.###  4.###  5.###  6.###\n"; 
+	$OpticsEntry .= "  1   $layers  0.600  0.600  0.600  0.600 \n";
+	$OpticsEntry .= "# direct trn @ 5 angles, total heat gain @ 5 angles\n"; 
+	$OpticsEntry .= "# 1.### 2.### 3.### 4.### 5.### 6.### 7.### 8.### 9.### 0.###\n";
+	# ESP-r angles are 0 40	55	70	80
+    $OpticsEntry .= sprintf ("  %.3f %.3f %.3f %.3f %.3f %.3f %.3f %.3f %.3f %.3f\n",
+	                            $ModelTSol{0},$ModelTSol{40},$ModelTSol{55},$ModelTSol{70},$ModelTSol{80},
+	                            0.2,0.2,0.2,0.2,0.2 ); 
+	$OpticsEntry .= "# refr index, absorption @ 5 angles for each tmc layer\n"; 
+	$OpticsEntry .= sprintf ("  %.3f %.3f %.3f %.3f %.3f, %.3f\n", 
+	                          1.520,$ModelABS1{0},$ModelABS1{40},$ModelABS1{55},$ModelABS1{70},$ModelABS1{80} );
+    $OpticsEntry .= sprintf ("  %.3f %.3f %.3f %.3f %.3f, %.3f\n", 
+	                          1.000,0.001,0.001,0.001,0.001,0.001 )	;						  
+	$OpticsEntry .= sprintf ("  %.3f %.3f %.3f %.3f %.3f, %.3f\n", 
+	                          1.520,$ModelABS2{0},$ModelABS2{40},$ModelABS2{55},$ModelABS2{70},$ModelABS2{80} );
+    if($panes =~ /3/ ){
+	$OpticsEntry .= sprintf ("  %.3f %.3f %.3f %.3f %.3f, %.3f\n", 
+	                          1.000,0.001,0.001,0.001,0.001,0.001 )	;						  
+    $OpticsEntry .= sprintf ("  %.3f %.3f %.3f %.3f %.3f, %.3f\n", 
+	                          1.520,$ModelABS3{0},$ModelABS3{40},$ModelABS3{55},$ModelABS3{70},$ModelABS3{80} )	;				
+	}					  
+	stream_out("$OpticsEntry\n"); 
+	
+	
+	return $OpticsEntry; 
+	
+}
+
+# -----------------------------------------------------------------------------------------
+# Process thermal properties of generic window. 
+# -----------------------------------------------------------------------------------------
+sub ProcessGenericWindowMLC($){
+	
+	my ($WindowName) = @_;
+	
+	stream_out "ProcessGenericWindowMLC ( $WindowName ) \n"; 
+    my $panes = $GenericWindowParams{"$WindowName"}{"panes"};
+	my $uval  = $GenericWindowParams{"$WindowName"}{"Uval"};
+    my $label = $GenericWindowParams{"$WindowName"}{"name"};
+	my $SHGC  = $GenericWindowParams{"$WindowName"}{"SHGC"};
+	
+	# Compute effective U-value for gaps between windows. 
+	
+	my $OutsideFilmR = 0.1333    ;
+	my $InsideFilmR  = 0.028986  ;
+	my $GlassR       = 0.039474  ;
+	my $layers; 
+	
+	if ( $panes =~ /2/ ){ $layers = 3};
+	if ( $panes =~ /3/ ){ $layers = 5};
+			
+	my $GapResistance = (1/$uval - $OutsideFilmR - $InsideFilmR - $GlassR * $panes ) / ( $panes - 1 ) ; 
+
+	my $MLCtxt = ""; 
+	
+	$MLCtxt .= "#----------------------"; 
+	$MLCtxt .= "# Generic $panes Window (SHGC: $SHGC , Uval: $uval )\n"; 
+    $MLCtxt .= "# layers  description   optics name   symmetry tag\n"; 
+    $MLCtxt .= sprintf("    $layers    %-12s  TRAN  %-12s  SYMMETRIC\n",$label,$label); 
+    $MLCtxt .= "# mat ref thickness (m) mat descr & air gap R\n";
+    $MLCtxt .= "  242    0.0060  plate glass : Plate glass  \n";
+    $MLCtxt .= sprintf("    0    0.0125  air  %.3f %.3f %.3f     \n",$GapResistance,$GapResistance,$GapResistance );
+    $MLCtxt .= "  242    0.0060  plate glass : Plate glass  \n";
+    if ($layers =~ /5/ ){
+		$MLCtxt .= sprintf("    0    0.0125  air  %.3f %.3f %.3f     \n",$GapResistance,$GapResistance,$GapResistance );
+		$MLCtxt .= "  242    0.0060  plate glass : Plate glass  \n";
+	}
+	
+    return $MLCtxt; 
+	
+
 }
 
 # -----------------------------------------------------------------------------------------
