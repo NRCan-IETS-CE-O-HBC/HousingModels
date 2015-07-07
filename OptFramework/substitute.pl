@@ -101,6 +101,10 @@ my $gTotalBaseCost = 0;
 my $gUtilityBaseCost = 0; 
 my $PVTarrifDollarsPerkWh = 0.10;
 
+my $gPeakCoolingLoadW    = 0; 
+my $gPeakHeatingLoadW    = 0; 
+my $gPeakElecLoadW    = 0; 
+
 my $gMasterPath = "";
 
 # Variables that store the average utility costs, energy amounts.  
@@ -118,7 +122,7 @@ my $gAvgCost_Total      = 0;
 my $gAvgEnergyHeatingGJ = 0; 
 my $gAvgEnergyCoolingGJ = 0; 
 my $gAvgEnergyVentilationGJ  = 0; 
-my $gAvgEnergyWaterHeatingGJ = 0; 
+my $gAvgEnergyWaterHeatingGJ = 0; 	
 my $gAvgEnergyEquipmentGJ    = 0; 
 my $gAvgNGasCons_m3     = 0; 
 my $gAvgOilCons_l       = 0; 
@@ -1615,6 +1619,12 @@ if ( $gDakota ) {
     print SUMMARY "Upgrade-cost      =  ".eval($gTotalCost-$gIncBaseCosts)."\n"; 
     print SUMMARY "SimplePaybackYrs  =  ". $payback ."\n"; 
     
+	
+	# These #s are not yet averaged for orientations!
+	print SUMMARY "PEAK-Heating-W    = $gPeakHeatingLoadW\n"; 
+	print SUMMARY "PEAK-Cooling-W    = $gPeakCoolingLoadW\n"; 
+	
+	
     print SUMMARY "PV-size-kW      =  ".$PVcapacity."\n"; 
 
     if ( $gERSCalcMode ) {
@@ -2292,6 +2302,14 @@ sub postprocess($){
   my @HourOfDay   = @{  $data{" building:hour:future (hours)"}  } ;
   my @MonthOfYear = @{  $data{" building:month (-)"}            } ; 
 
+  
+  # Track peak heating and cooling loads
+  my @HeatingLoads = @{ $data{" building:all zones:supplied energy:heating (W)"} };
+  my @CoolingLoads = @{ $data{" building:all zones:supplied energy:cooling (W)"} }; 
+  
+  
+  
+  
   # Now loop through data and apply energy rates
 
   # Variables to track running tallies for energy consumption 
@@ -2586,6 +2604,24 @@ sub postprocess($){
     my $CurrentPelletsConsumption = $Pellets_Use[$row] * $TSLength; # l
     
     $PelletsConsumptionCost += $CurrentPelletsConsumption * ( $PelletsSupplyCharge ); 
+	
+	## PEAK heating / cooling / electrical load
+	
+	if ( $HeatingLoads[$row] > $gPeakHeatingLoadW ) { 
+	  $gPeakHeatingLoadW = $HeatingLoads[$row] ; 
+	  stream_out  "PEAK Heating LOAD: $gPeakHeatingLoadW ($row) \n"; 
+	   
+	}
+	
+	if ( $CoolingLoads[$row] > $gPeakCoolingLoadW ) { 
+	  $gPeakCoolingLoadW = $CoolingLoads[$row] ; 
+	  stream_out  "PEAK COOLING LOAD: $gPeakCoolingLoadW ($row) \n"; 
+	  
+	}	
+	
+	
+	
+	
   }
 
   my $FracOfYear          = ( $CountRows * $TSLength )/(3600*8760); 
