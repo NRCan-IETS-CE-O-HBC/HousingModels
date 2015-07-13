@@ -71,7 +71,7 @@ Vary{
   
     Name = GOtag:Opt-ACH; 
     Ini  = 1;
-    Values = "retro_ACH_3_5,retro_ACH_3,retro_ACH_2_5,retro_ACH_2,retro_ACH_1_5,retro_ACH_1";
+    Values = "retro_ACH_3_5,retro_ACH_3,retro_ACH_2_5,retro_ACH_2,retro_ACH_1_5";//,retro_ACH_1_5,retro_ACH_1";
 
   }
 
@@ -136,7 +136,7 @@ Vary{
    Parameter{   // 
      Name    =  GOtag:Opt-ExposedFloor;
      Ini     =  1;
-     Values  =  "NWTCrawlFlR40";
+     Values  =  "NWTCrawlFlr,NWTCrawlFlr6,NWTCrawlFlR40";
    }    
    
    // Ceilings: 
@@ -149,7 +149,7 @@ Vary{
    Parameter{   // 
      Name    =  GOtag:Opt-Ceilings;
      Ini     =  1;
-     Values  =  "NWTCeilR70";
+     Values  =  "NWTCeilR40,NWTCeilR50,NWTCeilR60,NWTCeilR70,NWTCeilR80";
    }    
   
   // Windows: 
@@ -165,7 +165,7 @@ Vary{
   Parameter{   // 
      Name    =  GOtag:Opt-CasementWindows;
      Ini     =  1;
-     Values  =  "DoubleLowEHardCoatArgFill,Wind1_trp_CL,Win2scLE1_tr,Win3hcLE1_tr,Win4scLE2_tr,Win5hcLE2_tr,Win6_qd_CL";    
+     Values  =  "ArcticFront_a,ArcticFront_b,ArcticFront_c";//DoubleLowEHardCoatArgFill,TripleLowEHardCoatKryFill,TripleLowESoftCoatKryFill,Win5hcLE2_tr,Win4scLE2_tr";//,Wind1_trp_CL,Win2scLE1_tr,Win3hcLE1_tr,Win4scLE2_tr,,Win6_qd_CL";    
      
    }    
    
@@ -208,7 +208,7 @@ Vary{
   Parameter{ //
      Name    = GOtag:Opt-DHWSystem;
      Ini     = 1; 
-     Values  = "NWT_oil_inst,NWT_elec_inst,NWT_oil_DHW,elec_DHW,NWT_upgrade_elec_DHW,NWT_upgrade_oil_DHW"; 
+     Values  = "NWT_oil_DHW,NWT_upgrade_oil_DHW,NWT_oil_inst";
   }
 
   
@@ -224,7 +224,7 @@ Vary{
   Parameter {// 
       Name   = GOtag:Opt-HVACSystem; 
       Ini    = 1; 
-      Values = "Olsen,oil_boiler,pellet_boiler,upgrade_Olsen,oil80"; 
+      Values = "Olsen,oil80,oil_boiler,pellet_boiler,upgrade_Olsen"; 
   }
 
  // Cooling spec
@@ -381,5 +381,10 @@ Algorithm{
 
 //Algorithm{
 //  Main = Mesh;
-///  StopAtError = true; 
+//  StopAtError = true; 
+
+//Algorithm{
+//  Main = Parametric;
+//  StopAtError = true;   
+  
 //}
