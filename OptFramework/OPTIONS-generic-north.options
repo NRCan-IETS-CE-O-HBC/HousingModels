@@ -1091,6 +1091,58 @@
 *option:retro_TripleLowESoftCoatArgFill:cost:total    = 0 !32156
 *option:retro_TripleLowESoftCoatArgFill:alias = 1429
 
+
+! ============================================================
+! Generic window model --- note that these tags do not exist 
+! in the optics database. Substitute.pl will create the tag 
+! for us. 
+! ============================================================
+
+*option:ArcticFront_a:value:1 = ArcticFr_a
+*option:ArcticFront_a:value:2 = ArcticFr_a
+*option:ArcticFront_a:value:3 = ArcticFr_a
+*option:ArcticFront_a:value:4 = ArcticFr_a
+*option:ArcticFront_a:value:5 = ArcticFr_a
+*option:ArcticFront_a:value:6 = ArcticFr_a
+*option:ArcticFront_a:value:7 = ArcticFr_a
+*option:ArcticFront_a:value:8 = ArcticFr_a
+*option:ArcticFront_a:value:9 = ArcticFr_a
+*option:ArcticFront_a:WindowParams:name  = ArcticFr_a
+*option:ArcticFront_a:WindowParams:panes = 3 
+*option:ArcticFront_a:WindowParams:SHGC  = 0.56
+*option:ArcticFront_a:WindowParams:Uval  = 1.26
+*option:ArcticFront_a:cost:total   = 0
+
+*option:ArcticFront_b:value:1 = ArcticFr_b
+*option:ArcticFront_b:value:2 = ArcticFr_b
+*option:ArcticFront_b:value:3 = ArcticFr_b
+*option:ArcticFront_b:value:4 = ArcticFr_b
+*option:ArcticFront_b:value:5 = ArcticFr_b
+*option:ArcticFront_b:value:6 = ArcticFr_b
+*option:ArcticFront_b:value:7 = ArcticFr_b
+*option:ArcticFront_b:value:8 = ArcticFr_b
+*option:ArcticFront_b:value:9 = ArcticFr_b
+*option:ArcticFront_b:WindowParams:name  = ArcticFr_b
+*option:ArcticFront_b:WindowParams:panes = 3 
+*option:ArcticFront_b:WindowParams:SHGC  = 0.42
+*option:ArcticFront_b:WindowParams:Uval  = 1.3
+*option:ArcticFront_b:cost:total   = 0
+
+*option:ArcticFront_c:value:1 = ArcticFr_c
+*option:ArcticFront_c:value:2 = ArcticFr_c
+*option:ArcticFront_c:value:3 = ArcticFr_c
+*option:ArcticFront_c:value:4 = ArcticFr_c
+*option:ArcticFront_c:value:5 = ArcticFr_c
+*option:ArcticFront_c:value:6 = ArcticFr_c
+*option:ArcticFront_c:value:7 = ArcticFr_c
+*option:ArcticFront_c:value:8 = ArcticFr_c
+*option:ArcticFront_c:value:9 = ArcticFr_c
+*option:ArcticFront_c:WindowParams:name  = ArcticFr_c
+*option:ArcticFront_c:WindowParams:panes = 3 
+*option:ArcticFront_c:WindowParams:SHGC  = 0.56
+*option:ArcticFront_c:WindowParams:Uval  = 1.38
+*option:ArcticFront_c:cost:total   = 0
+
 *attribute:end
 
 

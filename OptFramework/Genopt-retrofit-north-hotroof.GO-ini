@@ -130,7 +130,13 @@ Simulation{
 	  
 	  Name23 = ERS-Value;
 	  Delimiter23 = "ERS-Value         =  ";      
-     
+
+      Name24 = ERS-Value-2;
+	  Delimiter24 = "ERS-Value_noVent  =  ";
+	  
+	  Name25 = PeakHeatingW;
+	  Delimiter25 = "PEAK-Heating-W    =  ";
+
 
    } // end Simulation.ObjectiveFunctionLocation
    
