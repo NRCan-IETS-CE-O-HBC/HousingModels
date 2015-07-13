@@ -808,6 +808,206 @@
 *option:VALIDATION-2Story:cost:total = 0
 *option:VALIDATION-2Story:alias = 1206
 
+*option:LEEP-BC-Windows-ANZEH-ref:value:1       = 111.384
+*option:LEEP-BC-Windows-ANZEH-ref:value:2       = 12.9
+*option:LEEP-BC-Windows-ANZEH-ref:value:3       = 8.634
+*option:LEEP-BC-Windows-ANZEH-ref:value:4       = 11.971
+*option:LEEP-BC-Windows-ANZEH-ref:value:5       = 6.45
+*option:LEEP-BC-Windows-ANZEH-ref:value:6       = 0.5
+*option:LEEP-BC-Windows-ANZEH-ref:value:7       = 5.144
+*option:LEEP-BC-Windows-ANZEH-ref:value:8       = 0.5
+*option:LEEP-BC-Windows-ANZEH-ref:value:9       = 0.5
+*option:LEEP-BC-Windows-ANZEH-ref:value:10       = 12.4
+*option:LEEP-BC-Windows-ANZEH-ref:value:11       = 5.95
+*option:LEEP-BC-Windows-ANZEH-ref:value:12       = 8.134
+*option:LEEP-BC-Windows-ANZEH-ref:value:13       = 7.271
+*option:LEEP-BC-Windows-ANZEH-ref:value:14       = 3
+*option:LEEP-BC-Windows-ANZEH-ref:value:15       = 5
+*option:LEEP-BC-Windows-ANZEH-ref:value:16       = 15
+*option:LEEP-BC-Windows-ANZEH-ref:value:17       = 500
+*option:LEEP-BC-Windows-ANZEH-ref:cost:total = 0 
+*option:LEEP-BC-Windows-ANZEH-ref:alias = 1207
+
+
+*option:NZEH-Arch:value:1       = 111.384
+*option:NZEH-Arch:value:2       = 12.9
+*option:NZEH-Arch:value:3       = 8.634
+*option:NZEH-Arch:value:4       = 11.971
+*option:NZEH-Arch:value:5       = 6.45
+*option:NZEH-Arch:value:6       = 0.5
+*option:NZEH-Arch:value:7       = 5.144
+*option:NZEH-Arch:value:8       = 0.5
+*option:NZEH-Arch:value:9       = 0.5
+*option:NZEH-Arch:value:10       = 12.4
+*option:NZEH-Arch:value:11       = 5.95
+*option:NZEH-Arch:value:12       = 8.134
+*option:NZEH-Arch:value:13       = 7.271
+*option:NZEH-Arch:value:14       = 0
+*option:NZEH-Arch:value:15       = 0
+*option:NZEH-Arch:value:16       = 0
+*option:NZEH-Arch:value:17       = 500
+*option:NZEH-Arch:cost:total = 0 
+
+*option:LEEP-BC-MO-version-15:value:1       = 111.4
+*option:LEEP-BC-MO-version-15:value:2       = 12.9
+*option:LEEP-BC-MO-version-15:value:3       = 8.636
+*option:LEEP-BC-MO-version-15:value:4       = 13.129
+*option:LEEP-BC-MO-version-15:value:5       = 6.45
+*option:LEEP-BC-MO-version-15:value:6       = 0.5
+*option:LEEP-BC-MO-version-15:value:7       = 5.144
+*option:LEEP-BC-MO-version-15:value:8       = 0.5
+*option:LEEP-BC-MO-version-15:value:9       = 0.586
+*option:LEEP-BC-MO-version-15:value:10       = 12.4
+*option:LEEP-BC-MO-version-15:value:11       = 8.53
+*option:LEEP-BC-MO-version-15:value:12       = 8.136
+*option:LEEP-BC-MO-version-15:value:13       = 7.272
+*option:LEEP-BC-MO-version-15:value:14       = 3
+*option:LEEP-BC-MO-version-15:value:15       = 6.05
+*option:LEEP-BC-MO-version-15:value:16       = 18.15
+*option:LEEP-BC-MO-version-15:value:17       = 500
+*option:LEEP-BC-MO-version-15:cost:total = 0 
+
+*option:LEEP-BC-MO-version-20:value:1       = 111.4
+*option:LEEP-BC-MO-version-20:value:2       = 12.9
+*option:LEEP-BC-MO-version-20:value:3       = 8.636
+*option:LEEP-BC-MO-version-20:value:4       = 13.129
+*option:LEEP-BC-MO-version-20:value:5       = 6.45
+*option:LEEP-BC-MO-version-20:value:6       = 0.5
+*option:LEEP-BC-MO-version-20:value:7       = 5.144
+*option:LEEP-BC-MO-version-20:value:8       = 0.5
+*option:LEEP-BC-MO-version-20:value:9       = 0.586
+*option:LEEP-BC-MO-version-20:value:10       = 12.4
+*option:LEEP-BC-MO-version-20:value:11       = 7.24
+*option:LEEP-BC-MO-version-20:value:12       = 8.136
+*option:LEEP-BC-MO-version-20:value:13       = 7.272
+*option:LEEP-BC-MO-version-20:value:14       = 3
+*option:LEEP-BC-MO-version-20:value:15       = 6.05
+*option:LEEP-BC-MO-version-20:value:16       = 18.15
+*option:LEEP-BC-MO-version-20:value:17       = 500
+*option:LEEP-BC-MO-version-20:cost:total = 0 
+
+*option:LEEP-BC-MO-version-25:value:1       = 112.4
+*option:LEEP-BC-MO-version-25:value:2       = 13.9
+*option:LEEP-BC-MO-version-25:value:3       = 8.086
+*option:LEEP-BC-MO-version-25:value:4       = 24.489
+*option:LEEP-BC-MO-version-25:value:5       = 6.95
+*option:LEEP-BC-MO-version-25:value:6       = 0.5
+*option:LEEP-BC-MO-version-25:value:7       = 5.782
+*option:LEEP-BC-MO-version-25:value:8       = 0.5
+*option:LEEP-BC-MO-version-25:value:9       = 0.743
+*option:LEEP-BC-MO-version-25:value:10       = 13.4
+*option:LEEP-BC-MO-version-25:value:11       = 6.45
+*option:LEEP-BC-MO-version-25:value:12       = 7.586
+*option:LEEP-BC-MO-version-25:value:13       = 6.778
+*option:LEEP-BC-MO-version-25:value:14       = 4
+*option:LEEP-BC-MO-version-25:value:15       = 7.05
+*option:LEEP-BC-MO-version-25:value:16       = 28.2
+*option:LEEP-BC-MO-version-25:value:17       = 500
+*option:LEEP-BC-MO-version-25:cost:total = 0 
+
+*option:LEEP-BC-MO-version-30:value:1       = 113.4
+*option:LEEP-BC-MO-version-30:value:2       = 14.9
+*option:LEEP-BC-MO-version-30:value:3       = 7.611
+*option:LEEP-BC-MO-version-30:value:4       = 36.849
+*option:LEEP-BC-MO-version-30:value:5       = 7.45
+*option:LEEP-BC-MO-version-30:value:6       = 0.5
+*option:LEEP-BC-MO-version-30:value:7       = 6.46
+*option:LEEP-BC-MO-version-30:value:8       = 0.5
+*option:LEEP-BC-MO-version-30:value:9       = 0.881
+*option:LEEP-BC-MO-version-30:value:10       = 14.4
+*option:LEEP-BC-MO-version-30:value:11       = 5.46
+*option:LEEP-BC-MO-version-30:value:12       = 7.111
+*option:LEEP-BC-MO-version-30:value:13       = 6.35
+*option:LEEP-BC-MO-version-30:value:14       = 5
+*option:LEEP-BC-MO-version-30:value:15       = 8.05
+*option:LEEP-BC-MO-version-30:value:16       = 40.25
+*option:LEEP-BC-MO-version-30:value:17       = 500
+*option:LEEP-BC-MO-version-30:cost:total = 0 
+
+*option:LEEP-BC-MO-version-35:value:1       = 114.4
+*option:LEEP-BC-MO-version-35:value:2       = 15.9
+*option:LEEP-BC-MO-version-35:value:3       = 7.195
+*option:LEEP-BC-MO-version-35:value:4       = 50.209
+*option:LEEP-BC-MO-version-35:value:5       = 7.95
+*option:LEEP-BC-MO-version-35:value:6       = 0.5
+*option:LEEP-BC-MO-version-35:value:7       = 7.178
+*option:LEEP-BC-MO-version-35:value:8       = 0.5
+*option:LEEP-BC-MO-version-35:value:9       = 1.004
+*option:LEEP-BC-MO-version-35:value:10       = 15.4
+*option:LEEP-BC-MO-version-35:value:11       = 4.27
+*option:LEEP-BC-MO-version-35:value:12       = 6.695
+*option:LEEP-BC-MO-version-35:value:13       = 5.975
+*option:LEEP-BC-MO-version-35:value:14       = 6
+*option:LEEP-BC-MO-version-35:value:15       = 9.05
+*option:LEEP-BC-MO-version-35:value:16       = 54.3
+*option:LEEP-BC-MO-version-35:value:17       = 500
+*option:LEEP-BC-MO-version-35:cost:total = 0 
+
+*option:LEEP-BC-MO-version-40:value:1       = 115.4
+*option:LEEP-BC-MO-version-40:value:2       = 16.9
+*option:LEEP-BC-MO-version-40:value:3       = 6.828
+*option:LEEP-BC-MO-version-40:value:4       = 64.569
+*option:LEEP-BC-MO-version-40:value:5       = 8.45
+*option:LEEP-BC-MO-version-40:value:6       = 0.5
+*option:LEEP-BC-MO-version-40:value:7       = 7.936
+*option:LEEP-BC-MO-version-40:value:8       = 0.5
+*option:LEEP-BC-MO-version-40:value:9       = 1.115
+*option:LEEP-BC-MO-version-40:value:10       = 16.4
+*option:LEEP-BC-MO-version-40:value:11       = 2.88
+*option:LEEP-BC-MO-version-40:value:12       = 6.328
+*option:LEEP-BC-MO-version-40:value:13       = 5.646
+*option:LEEP-BC-MO-version-40:value:14       = 7
+*option:LEEP-BC-MO-version-40:value:15       = 10.05
+*option:LEEP-BC-MO-version-40:value:16       = 70.35
+*option:LEEP-BC-MO-version-40:value:17       = 500
+*option:LEEP-BC-MO-version-40:cost:total = 0 
+
+*option:LEEP-BC-MO-version-45:value:1       = 116.4
+*option:LEEP-BC-MO-version-45:value:2       = 17.9
+*option:LEEP-BC-MO-version-45:value:3       = 6.503
+*option:LEEP-BC-MO-version-45:value:4       = 79.929
+*option:LEEP-BC-MO-version-45:value:5       = 8.95
+*option:LEEP-BC-MO-version-45:value:6       = 0.5
+*option:LEEP-BC-MO-version-45:value:7       = 8.734
+*option:LEEP-BC-MO-version-45:value:8       = 0.5
+*option:LEEP-BC-MO-version-45:value:9       = 1.215
+*option:LEEP-BC-MO-version-45:value:10       = 17.4
+*option:LEEP-BC-MO-version-45:value:11       = 1.29
+*option:LEEP-BC-MO-version-45:value:12       = 6.003
+*option:LEEP-BC-MO-version-45:value:13       = 5.353
+*option:LEEP-BC-MO-version-45:value:14       = 8
+*option:LEEP-BC-MO-version-45:value:15       = 11.05
+*option:LEEP-BC-MO-version-45:value:16       = 88.4
+*option:LEEP-BC-MO-version-45:value:17       = 500
+*option:LEEP-BC-MO-version-45:cost:total = 0 
+
+*option:LEEP-BC-MO-version-50:value:1       = 117.4
+*option:LEEP-BC-MO-version-50:value:2       = 18.9
+*option:LEEP-BC-MO-version-50:value:3       = 6.212
+*option:LEEP-BC-MO-version-50:value:4       = 96.289
+*option:LEEP-BC-MO-version-50:value:5       = 9.45
+*option:LEEP-BC-MO-version-50:value:6       = 0.5
+*option:LEEP-BC-MO-version-50:value:7       = 9.572
+*option:LEEP-BC-MO-version-50:value:8       = 0.5
+*option:LEEP-BC-MO-version-50:value:9       = 1.308
+*option:LEEP-BC-MO-version-50:value:10       = 18.4
+*option:LEEP-BC-MO-version-50:value:11       = -0.5
+*option:LEEP-BC-MO-version-50:value:12       = 5.712
+*option:LEEP-BC-MO-version-50:value:13       = 5.09
+*option:LEEP-BC-MO-version-50:value:14       = 9
+*option:LEEP-BC-MO-version-50:value:15       = 12.05
+*option:LEEP-BC-MO-version-50:value:16       = 108.45
+*option:LEEP-BC-MO-version-50:value:17       = 500
+*option:LEEP-BC-MO-version-50:cost:total = 0 
+
+
+
+
+
+
+
+
+
 
 *attribute:end
 
@@ -1204,6 +1404,175 @@
 *option:retro_TripleLowESoftCoatArgFill:cost:total    = 32156
 *option:retro_TripleLowESoftCoatArgFill:alias = 1429
 
+
+
+
+! ============================================================
+! Generic window model --- note that these tags do not exist 
+! in the optics database. Substiute.pl will create the tag 
+! for us. 
+! ============================================================
+
+*option:NorthStarDblHGLowE:value:1 = DblGenWinA 
+*option:NorthStarDblHGLowE:value:2 = DblGenWinA 
+*option:NorthStarDblHGLowE:value:3 = DblGenWinA 
+*option:NorthStarDblHGLowE:value:4 = DblGenWinA 
+*option:NorthStarDblHGLowE:value:5 = DblGenWinA 
+*option:NorthStarDblHGLowE:value:6 = DblGenWinA 
+*option:NorthStarDblHGLowE:value:7 = DblGenWinA 
+*option:NorthStarDblHGLowE:value:8 = DblGenWinA 
+*option:NorthStarDblHGLowE:WindowParams:name  = DblGenWinA 
+*option:NorthStarDblHGLowE:WindowParams:panes = 2 
+*option:NorthStarDblHGLowE:WindowParams:SHGC  = 0.51
+*option:NorthStarDblHGLowE:WindowParams:Uval  = 1.6
+*option:NorthStarDblHGLowE:cost:total   = 0
+
+*option:NorthStarDblLGLowE:value:1 = DblGenWinB 
+*option:NorthStarDblLGLowE:value:2 = DblGenWinB 
+*option:NorthStarDblLGLowE:value:3 = DblGenWinB 
+*option:NorthStarDblLGLowE:value:4 = DblGenWinB 
+*option:NorthStarDblLGLowE:value:5 = DblGenWinB 
+*option:NorthStarDblLGLowE:value:6 = DblGenWinB 
+*option:NorthStarDblLGLowE:value:7 = DblGenWinB 
+*option:NorthStarDblLGLowE:value:8 = DblGenWinB 
+*option:NorthStarDblLGLowE:WindowParams:name  = DblGenWinB
+*option:NorthStarDblLGLowE:WindowParams:panes = 2 
+*option:NorthStarDblLGLowE:WindowParams:SHGC  = 0.18
+*option:NorthStarDblLGLowE:WindowParams:Uval  = 1.6
+*option:NorthStarDblLGLowE:cost:total   = 0
+
+*option:NorthStarDblHGClr:value:1 = DblGenWinC 
+*option:NorthStarDblHGClr:value:2 = DblGenWinC 
+*option:NorthStarDblHGClr:value:3 = DblGenWinC 
+*option:NorthStarDblHGClr:value:4 = DblGenWinC 
+*option:NorthStarDblHGClr:value:5 = DblGenWinC 
+*option:NorthStarDblHGClr:value:6 = DblGenWinC 
+*option:NorthStarDblHGClr:value:7 = DblGenWinC 
+*option:NorthStarDblHGClr:value:8 = DblGenWinC 
+*option:NorthStarDblHGClr:WindowParams:name  = DblGenWinC 
+*option:NorthStarDblHGClr:WindowParams:panes = 2 
+*option:NorthStarDblHGClr:WindowParams:SHGC  = 0.50
+*option:NorthStarDblHGClr:WindowParams:Uval  = 1.82
+*option:NorthStarDblHGClr:cost:total   = 0
+
+*option:NorthStarTplHGLowE:value:1 = TplGenWinA 
+*option:NorthStarTplHGLowE:value:2 = TplGenWinA 
+*option:NorthStarTplHGLowE:value:3 = TplGenWinA 
+*option:NorthStarTplHGLowE:value:4 = TplGenWinA 
+*option:NorthStarTplHGLowE:value:5 = TplGenWinA 
+*option:NorthStarTplHGLowE:value:6 = TplGenWinA 
+*option:NorthStarTplHGLowE:value:7 = TplGenWinA 
+*option:NorthStarTplHGLowE:value:8 = TplGenWinA 
+*option:NorthStarTplHGLowE:WindowParams:name  = TplGenWinA 
+*option:NorthStarTplHGLowE:WindowParams:panes = 3 
+*option:NorthStarTplHGLowE:WindowParams:SHGC  = 0.44
+*option:NorthStarTplHGLowE:WindowParams:Uval  = 1.08
+*option:NorthStarTplHGLowE:cost:total   = 0
+
+*option:NorthStarTplLGLowE:value:1 = TplGenWinB 
+*option:NorthStarTplLGLowE:value:2 = TplGenWinB 
+*option:NorthStarTplLGLowE:value:3 = TplGenWinB 
+*option:NorthStarTplLGLowE:value:4 = TplGenWinB 
+*option:NorthStarTplLGLowE:value:5 = TplGenWinB 
+*option:NorthStarTplLGLowE:value:6 = TplGenWinB 
+*option:NorthStarTplLGLowE:value:7 = TplGenWinB 
+*option:NorthStarTplLGLowE:value:8 = TplGenWinB 
+*option:NorthStarTplLGLowE:WindowParams:name  = TplGenWinB
+*option:NorthStarTplLGLowE:WindowParams:panes = 3 
+*option:NorthStarTplLGLowE:WindowParams:SHGC  = 0.17
+*option:NorthStarTplLGLowE:WindowParams:Uval  = 1.14
+*option:NorthStarTplLGLowE:cost:total   = 0
+
+! - GENERIC BC LEEP WINDOWS: DOUBLES 
+
+*option:BCLEEP-LG-Double:value:1 = BCLlgDbl
+*option:BCLEEP-LG-Double:value:2 = BCLlgDbl
+*option:BCLEEP-LG-Double:value:3 = BCLlgDbl
+*option:BCLEEP-LG-Double:value:4 = BCLlgDbl
+*option:BCLEEP-LG-Double:value:5 = BCLlgDbl
+*option:BCLEEP-LG-Double:value:6 = BCLlgDbl
+*option:BCLEEP-LG-Double:value:7 = BCLlgDbl
+*option:BCLEEP-LG-Double:value:8 = BCLlgDbl
+*option:BCLEEP-LG-Double:WindowParams:name  = BCLlgDbl
+*option:BCLEEP-LG-Double:WindowParams:panes = 2 
+*option:BCLEEP-LG-Double:WindowParams:SHGC  = 0.18
+*option:BCLEEP-LG-Double:WindowParams:Uval  = 1.27
+*option:BCLEEP-LG-Double:cost:total   = 0
+
+*option:BCLEEP-HG-Double:value:1 = BCLhgDbl
+*option:BCLEEP-HG-Double:value:2 = BCLhgDbl
+*option:BCLEEP-HG-Double:value:3 = BCLhgDbl
+*option:BCLEEP-HG-Double:value:4 = BCLhgDbl
+*option:BCLEEP-HG-Double:value:5 = BCLhgDbl
+*option:BCLEEP-HG-Double:value:6 = BCLhgDbl
+*option:BCLEEP-HG-Double:value:7 = BCLhgDbl
+*option:BCLEEP-HG-Double:value:8 = BCLhgDbl
+*option:BCLEEP-HG-Double:WindowParams:name  = BCLhgDbl
+*option:BCLEEP-HG-Double:WindowParams:panes = 2 
+*option:BCLEEP-HG-Double:WindowParams:SHGC  = 0.33
+*option:BCLEEP-HG-Double:WindowParams:Uval  = 1.28
+*option:BCLEEP-HG-Double:cost:total   = 0
+
+*option:BCLEEP-HGi89-Double:value:1 = BCLhgi89Dbl
+*option:BCLEEP-HGi89-Double:value:2 = BCLhgi89Dbl
+*option:BCLEEP-HGi89-Double:value:3 = BCLhgi89Dbl
+*option:BCLEEP-HGi89-Double:value:4 = BCLhgi89Dbl
+*option:BCLEEP-HGi89-Double:value:5 = BCLhgi89Dbl
+*option:BCLEEP-HGi89-Double:value:6 = BCLhgi89Dbl
+*option:BCLEEP-HGi89-Double:value:7 = BCLhgi89Dbl
+*option:BCLEEP-HGi89-Double:value:8 = BCLhgi89Dbl
+*option:BCLEEP-HGi89-Double:WindowParams:name  = BCLhgi89Dbl
+*option:BCLEEP-HGi89-Double:WindowParams:panes = 2 
+*option:BCLEEP-HGi89-Double:WindowParams:SHGC  = 0.54
+*option:BCLEEP-HGi89-Double:WindowParams:Uval  = 1.25
+*option:BCLEEP-HGi89-Double:cost:total   = 0
+
+! - GENERIC BC LEEP WINDOWS: Triples  
+
+*option:BCLEEP-LGi89-Triple:value:1 = BCLlgi89Tpl 
+*option:BCLEEP-LGi89-Triple:value:2 = BCLlgi89Tpl
+*option:BCLEEP-LGi89-Triple:value:3 = BCLlgi89Tpl
+*option:BCLEEP-LGi89-Triple:value:4 = BCLlgi89Tpl
+*option:BCLEEP-LGi89-Triple:value:5 = BCLlgi89Tpl
+*option:BCLEEP-LGi89-Triple:value:6 = BCLlgi89Tpl
+*option:BCLEEP-LGi89-Triple:value:7 = BCLlgi89Tpl
+*option:BCLEEP-LGi89-Triple:value:8 = BCLlgi89Tpl
+*option:BCLEEP-LGi89-Triple:WindowParams:name  = BCLlgi89Tpl
+*option:BCLEEP-LGi89-Triple:WindowParams:panes = 3 
+*option:BCLEEP-LGi89-Triple:WindowParams:SHGC  = 0.14
+*option:BCLEEP-LGi89-Triple:WindowParams:Uval  = 0.92
+*option:BCLEEP-LGi89-Triple:cost:total   = 0
+
+*option:BCLEEP-HGi89-Triple:value:1 = BCLhgi89Tpl
+*option:BCLEEP-HGi89-Triple:value:2 = BCLhgi89Tpl
+*option:BCLEEP-HGi89-Triple:value:3 = BCLhgi89Tpl
+*option:BCLEEP-HGi89-Triple:value:4 = BCLhgi89Tpl
+*option:BCLEEP-HGi89-Triple:value:5 = BCLhgi89Tpl
+*option:BCLEEP-HGi89-Triple:value:6 = BCLhgi89Tpl
+*option:BCLEEP-HGi89-Triple:value:7 = BCLhgi89Tpl
+*option:BCLEEP-HGi89-Triple:value:8 = BCLhgi89Tpl
+*option:BCLEEP-HGi89-Triple:WindowParams:name  = BCLhgi89Tpl
+*option:BCLEEP-HGi89-Triple:WindowParams:panes = 3 
+*option:BCLEEP-HGi89-Triple:WindowParams:SHGC  = 0.37
+*option:BCLEEP-HGi89-Triple:WindowParams:Uval  = 0.90
+*option:BCLEEP-HGi89-Triple:cost:total   = 0
+
+
+*option:BCLEEP-HGi89-Triple-b:value:1 = BCLhgi89Tplb
+*option:BCLEEP-HGi89-Triple-b:value:2 = BCLhgi89Tplb
+*option:BCLEEP-HGi89-Triple-b:value:3 = BCLhgi89Tplb
+*option:BCLEEP-HGi89-Triple-b:value:4 = BCLhgi89Tplb
+*option:BCLEEP-HGi89-Triple-b:value:5 = BCLhgi89Tplb
+*option:BCLEEP-HGi89-Triple-b:value:6 = BCLhgi89Tplb
+*option:BCLEEP-HGi89-Triple-b:value:7 = BCLhgi89Tplb
+*option:BCLEEP-HGi89-Triple-b:value:8 = BCLhgi89Tplb
+*option:BCLEEP-HGi89-Triple-b:WindowParams:name  = BCLhgi89Tplb
+*option:BCLEEP-HGi89-Triple-b:WindowParams:panes = 3 
+*option:BCLEEP-HGi89-Triple-b:WindowParams:SHGC  = 0.49
+*option:BCLEEP-HGi89-Triple-b:WindowParams:Uval  = 0.91
+*option:BCLEEP-HGi89-Triple-b:cost:total   = 0
+
+
 *attribute:end
 
 
@@ -1499,19 +1868,19 @@
 !  Generic wall insulation thickness settings: - two layer
 !  *** CURRENTLY NOT USING (ALSO COMMENTED OUT IN retrofit.constrbd ***
 !-----------------------------------------------------------------------
-!*attribute:start 
-!*attribute:name = Opt-GenericWall_2Layer_definitions
-!*attribute:tag:1  = <Opt-GenInsulLayerInboard-b>
-!*attribute:tag:2  = <Opt-GenInsulLayerOutboard-b>
-!*attribute:default = test2
+*attribute:start 
+*attribute:name = Opt-GenericWall_2Layer_definitions
+*attribute:tag:1  = <Opt-GenInsulLayerInboard-b>
+*attribute:tag:2  = <Opt-GenInsulLayerOutboard-b>
+*attribute:default = test2
  
-! Thicknesses are defined in meters. Format * must * be #.#### (4 decimals)
-!*option:test2:value:1 = 0.0250
-!*option:test2:value:2 = 0.0250
-!*option:test2:cost    = 0
-!*option:test2:alias = 1780
+ Thicknesses are defined in meters. Format * must * be #.#### (4 decimals)
+*option:test2:value:1 = 0.0250
+*option:test2:value:2 = 0.0250
+*option:test2:cost    = 0
+*option:test2:alias = 1780
 
-!*attribute:end
+*attribute:end
 
 
 !-----------------------------------------------------------------------

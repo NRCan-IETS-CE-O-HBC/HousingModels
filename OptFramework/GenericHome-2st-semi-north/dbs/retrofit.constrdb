@@ -1,6 +1,6 @@
 # composite construction db defined in ../dbs/retrofit.constrdb
 # based on materials db ../dbs/material.db3.a
-  205  # no of composites 
+  206  # no of composites 
 # layers  description   optics name   symmetry tag
     2    bsm_flr       OPAQ  OPAQUE        NONSYMMETRIC  
 # mat ref thickness (m) mat descr & air gap R
@@ -1632,9 +1632,21 @@
   242    0.0060  plate glass : Plate glass 
     0    0.0125  air  0.112 0.112 0.112 
   242    0.0060  plate glass : Plate glass   
+#----------------------
+# Win10scle2_q
+# 203: layers  description   optics name   symmetry tag
+    7    Win10hcle2_q  TRAN  Win10hcle2_q  SYMMETRIC
+# mat ref thickness (m) mat descr & air gap R
+  242    0.0060  plate glass : Plate glass 
+    0    0.0125  air  0.169 0.169 0.169
+  242    0.0060  plate glass : Plate glass 
+    0    0.0125  air  0.169 0.169 0.169
+  242    0.0060  plate glass : Plate glass 
+    0    0.0125  air  0.169 0.169 0.169 
+  242    0.0060  plate glass : Plate glass
 #------------------------------------------------
 # Windows with Insulated Shutters - no optical properties
-# 203: layers  description   optics name   symmetry tag
+# 204: layers  description   optics name   symmetry tag
     5    Wind2SHUTTER  OPAQ  OPAQUE        NONSYMMETRIC	
 # layers  description   optics name   symmetry tag
    72    0.0191  plywood 700d	
@@ -1643,7 +1655,7 @@
     0    0.0125  air  0.142 0.142 0.142
   242    0.0060  plate glass : Plate glass
 # Window_1_triple,3mm,CL,CL,CL, 1.5" EPS
-# 204: layers  description   optics name   symmetry tag
+# 205: layers  description   optics name   symmetry tag
     7    Wind3SHUTTER  OPAQ  OPAQUE        NONSYMMETRIC	
 # layers  description   optics name   symmetry tag
    72    0.0191  plywood 700d	
@@ -1653,7 +1665,7 @@
   242    0.0060  plate glass : Plate glass
     0    0.0125  air  0.142 0.142 0.142
   242    0.0060  plate glass : Plate glass    
-# 205: layers  description   optics name   symmetry tag
+# 206: layers  description   optics name   symmetry tag
     9    Wind4SHUTTER  OPAQ  OPAQUE        NONSYMMETRIC	
 # layers  description   optics name   symmetry tag
    72    0.0191  plywood 700d	
