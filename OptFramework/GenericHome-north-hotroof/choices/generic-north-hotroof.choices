@@ -19,7 +19,7 @@ Opt-DBFiles           : retrofit
 ! and compute an average result)
 GOconfig_rotate      : S
 
-Opt-Location : Yellowknife
+Opt-Location : Inuvik
 
 ! Assumptions about HRV operation . Not intended to be optimized!
 ! Recognized values: 
@@ -49,7 +49,7 @@ Opt-BaseWindows      : MinWindows
 ! Van_2st_garage
 ! NWT_Access
 
-Opt-geometry      : NWT_AccHotRf
+Opt-geometry      : NWT_Access
 
 !Attachment options
 ! single
@@ -150,7 +150,7 @@ Opt-BasementWallInsulation  : NWTCrwlWR40
 !    DoubleClear 
 !    Triple_win_shutter 
 !    Wind1_trp_CL
-Opt-CasementWindows  :  Win3hcLE1_tr 
+Opt-CasementWindows  :  ArcticFront_a 
 
 
 ! Exposed floor over garage (affects floor
@@ -162,7 +162,7 @@ Opt-CasementWindows  :  Win3hcLE1_tr
 !NWT Crawl Space Floor
 !  NWTCrawlFlr
 
-Opt-ExposedFloor     : NWTCrwlFlR40
+Opt-ExposedFloor     : NWTCrawlFlr
 
 Opt-StandoffPV       : NoPV
 

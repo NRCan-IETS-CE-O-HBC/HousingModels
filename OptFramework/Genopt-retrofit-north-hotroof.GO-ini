@@ -39,10 +39,10 @@ Simulation{
    CallParameter {
       
       // Windows only: 
-      //  Prefix = "C:\\cygwin64\\bin\\perl.exe ";
+        Prefix = "C:\\cygwin64\\bin\\perl.exe ";
       
       // LINUX 
-       Prefix = "" ; 
+      // Prefix = "" ; 
       
       Suffix = " -c GenOpt-picked-these-choices.GO-tmp -o OPTIONS-generic-north.options -b GenericHome-north-hotroof -e -vv "; 
  
@@ -140,7 +140,7 @@ Simulation{
 Optimization{
    Files{
       Command {
-         File1 = "Genopt-retrofit-north-CMD.GO-cmd";
+         File1 = "Genopt-retrofit-north-hotroof-CMD.GO-cmd";
          
       }
    }

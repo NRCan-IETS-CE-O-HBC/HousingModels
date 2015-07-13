@@ -43,6 +43,10 @@
   <step_variable>building/zone_*/supplied_energy/cooling</step_variable>
   <step_variable>building/zone_*/supplied_energy/heating</step_variable>
   
+  <step_variable>building/all_zones/supplied_energy/heating</step_variable>
+  <step_variable>building/all_zones/supplied_energy/cooling</step_variable>
+  
+  
   <step_variable>building/day/future</step_variable>
   <step_variable>building/hour/future</step_variable>
   <step_variable>building/month</step_variable>
@@ -60,10 +64,10 @@
   <step_variable>climate*</step_variable>
   
   <step_variable>building/zone_*/surface_*/heat_flux/radiation/shortwave/unit_area</step_variable>
-  <step_variable>building/zone_*/air_point/relative_humidity</step_variable>
+  <step_variable>building/zone_*/air_point/temperature</step_variable>
   <step_variable>building/zone_*/air_point/relative_humidity</step_variable>
   <step_variable>plant/ideal_hvac_models/component_*/coil_load/cooling/*</step_variable>
-  
+  <step_variable>*infiltration*</step_variable> 
   
   
   <!-- -->
