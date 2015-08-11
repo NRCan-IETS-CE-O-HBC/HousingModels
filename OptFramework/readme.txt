@@ -48,12 +48,13 @@ SET UP THE ENIVIRONMENT
 	Using Git:
 	git clone https://github.com/NRCan-IETS-CE-O-HBC/HousingModels.git
 
-
+	
 RUN A SIMULATION FOR A SINGLE DESIGN
 ------------------------------------      
 
-2. To run a single case, execute substitute.pl while specifying a) a 
-   design-choices file, and an options file:
+2. To run a single case, execute substitute.pl while specifying 
+      a) a design-choices file, and 
+	  b) an options file:
 
    From your OptFramework directory:
    
@@ -68,7 +69,7 @@ RUN A SIMULATION FOR A SINGLE DESIGN
    (eg. design-choices.choices). Make sure your specified choices 
    are defined in the options file (eg. OPTIONS-General.options).
    
-Note: If you get the error message "Can't locate File/Copy/Recursive.pm ...", then you need 
+***Note: If you get the error message "Can't locate File/Copy/Recursive.pm ...", then you need ***
 to install the File::copy::recursive module with CSPAN as follows:
 
 	CPAN install File::Copy::Recursive
@@ -96,14 +97,14 @@ RUN AN OPTIMIZATION USING GENOPT
 
 6. Invoke Genopt: 
    
-        java -classpath genopt.jar genopt.GenOpt [\modelfolder\choices\Genopt-ini-file] 
+        java -classpath genopt.jar genopt.GenOpt Genopt-ini-file] 
         
    Example: 
 
-        java -classpath genopt.jar genopt.GenOpt NZEH-base\choices\Genopt-BASE-ini.GO-ini
+        java -classpath genopt.jar genopt.GenOpt Genopt-BASE-ini.GO-ini
 		
 		Alternate:
-        rm nohup.out; nohup java -classpath genopt.jar genopt.GenOpt GenericHome-2st-garage\choices\Genopt-OTT-MATTAMY-INI.GO-ini &
+        rm nohup.out; nohup java -classpath genopt.jar genopt.GenOpt Genopt-OTT-MATTAMY-INI.GO-ini &
 		
 
 
@@ -148,44 +149,3 @@ The PERL script will re-create CloudResultsAllData.csv each time it is run by ap
 CloudresultsBatchN.txt files that may exist to newly downloaded RecoveredFromCloud.txt.
 
  
-RUN AN OPTIMIZATION USING DAKOTA
---------------------------------
-Dakota uses a single file for all inputs. The file for BC-LEEP is named Generic-BC.dakota-in. The command
-used to run Dakota is:
-
-> dakota -i Generic-BC.dakota-in -o Generic-BC.dakota-out -e Generic-BC.dakota-err
-
--i: Input file name
--o: Output file name (this is NOT the results data file)
--e: Error output file
-
-Actually, I don't believe that either the -o or the -e is required as there are default names set in the 
-input file.
-
-Dakota will stop after 100 iterations but can be killed at any time.
-
-Before the Dakota results file can be used (named dakota_tabular.dat) it must be combined with an ASCII 
-version of the Dakota rst file (dakota.rst) that contains much of the results data. The file dakota_tabular.dat
-contains all of the input parameters in integer form and needs to be converted to the correct ASCII attribute
-strings. Substitute.pl contains a command line option to do this and, optionally, re-order the data columns to 
-match GenOpt output.
-
-To post-process the Dakota output without re-ordering the data run substitute.pl as follows:
-
-./substitute.pl -z -vv -o OPTIONS-generic.options -c dakota-choices.in
-
-The -z option implies -d (--dakota) do there is no need for both of these options to be specified.
-The dakota-choices.in file can be any valid choice file (i.e., any combination of input elements). Valid means
-that it must contain the correct number and type of elements used in the last Dakota run. As of February 26, 2015 
-there are 33 elements (or variables) in a valid choice file. The most recently added new variable is 
-Opt-GenericWall_1Layer_definitions.
-
-To post-process the Dakota output AND re-ordering the data to match GenOpt run substitute.pl as follows:
-
-./substitute.pl -r -vv -o OPTIONS-generic.options -c dakota-choices.in
-
-The -r implies both -d and -z.
-
-The output file from the above substitute.pl run is OutputListingAll-D.txt. This file must be renamed to
-OutputListingAll.txt for recover-results.pl to access this data.
-
