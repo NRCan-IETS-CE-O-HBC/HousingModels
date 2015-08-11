@@ -636,46 +636,87 @@
 *option:NWT_1986:cost:total = 0
 *option:NWT_1986:alias = 1205
 
-*option:Rapid_Northern_House:value:1    = 144
-*option:Rapid_Northern_House:value:2    = 12.0
-*option:Rapid_Northern_House:value:3    = 12.0
-*option:Rapid_Northern_House:value:4    = 4.9924
-*option:Rapid_Northern_House:value:5    = 4.2672
+
+*option:Rapid_Northern_House:value:1    = 13.38
+*option:Rapid_Northern_House:value:2    = 3.66
+*option:Rapid_Northern_House:value:3    = 3.66
+*option:Rapid_Northern_House:value:4    = 2.6
+*option:Rapid_Northern_House:value:5    = 1.8288
 *option:Rapid_Northern_House:value:6    = 0.5
 *option:Rapid_Northern_House:value:7    = 1.212
 *option:Rapid_Northern_House:value:8    = 0.5
 *option:Rapid_Northern_House:value:9    = 1.212
-*option:Rapid_Northern_House:value:10   = 11.50
-*option:Rapid_Northern_House:value:11   = 10.788
-*option:Rapid_Northern_House:value:12   = 11.5
-*option:Rapid_Northern_House:value:13   = 10.788
+*option:Rapid_Northern_House:value:10   = 3.158
+*option:Rapid_Northern_House:value:11   = 2.446
+*option:Rapid_Northern_House:value:12   = 3.158
+*option:Rapid_Northern_House:value:13   = 2.446
 *option:Rapid_Northern_House:value:14   = 0
 *option:Rapid_Northern_House:value:15   = 0
 *option:Rapid_Northern_House:value:16   = 0
-*option:Rapid_Northern_House:value:17   = 408.96	!Need volume for ERS
+*option:Rapid_Northern_House:value:17   = 32.62101	!Need volume for ERS
 *option:Rapid_Northern_House:cost:total = 0
 *option:Rapid_Northern_House:alias = 1205
 
-*option:Rapid_Northern_House_case8:value:1    = 240
-*option:Rapid_Northern_House_case8:value:2    = 20.0
-*option:Rapid_Northern_House_case8:value:3    = 12.0
-*option:Rapid_Northern_House_case8:value:4    = 4.9924
-*option:Rapid_Northern_House_case8:value:5    = 4.2672
-*option:Rapid_Northern_House_case8:value:6    = 0.5
-*option:Rapid_Northern_House_case8:value:7    = 1.212
-*option:Rapid_Northern_House_case8:value:8    = 0.5
-*option:Rapid_Northern_House_case8:value:9    = 1.212
-*option:Rapid_Northern_House_case8:value:10   = 19.50
-*option:Rapid_Northern_House_case8:value:11   = 18.788
-*option:Rapid_Northern_House_case8:value:12   = 11.5
-*option:Rapid_Northern_House_case8:value:13   = 10.788
-*option:Rapid_Northern_House_case8:value:14   = 0
-*option:Rapid_Northern_House_case8:value:15   = 0
-*option:Rapid_Northern_House_case8:value:16   = 0
-*option:Rapid_Northern_House_case8:value:17   = 681.6	!Need volume for ERS
-*option:Rapid_Northern_House_case8:cost:total = 0
-*option:Rapid_Northern_House_case8:alias = 1206
+*option:Rapid_Northern_House_12x20:value:1    = 22.2967
+*option:Rapid_Northern_House_12x20:value:2    = 6.10
+*option:Rapid_Northern_House_12x20:value:3    = 3.66
+*option:Rapid_Northern_House_12x20:value:4    = 2.6
+*option:Rapid_Northern_House_12x20:value:5    = 3.048
+*option:Rapid_Northern_House_12x20:value:6    = 0.5
+*option:Rapid_Northern_House_12x20:value:7    = 1.212
+*option:Rapid_Northern_House_12x20:value:8    = 0.5
+*option:Rapid_Northern_House_12x20:value:9    = 1.212
+*option:Rapid_Northern_House_12x20:value:10   = 5.596
+*option:Rapid_Northern_House_12x20:value:11   = 4.884
+*option:Rapid_Northern_House_12x20:value:12   = 3.1576
+*option:Rapid_Northern_House_12x20:value:13   = 2.446
+*option:Rapid_Northern_House_12x20:value:14   = 0
+*option:Rapid_Northern_House_12x20:value:15   = 0
+*option:Rapid_Northern_House_12x20:value:16   = 0
+*option:Rapid_Northern_House_12x20:value:17   = 54.36835	!Need volume for ERS
+*option:Rapid_Northern_House_12x20:cost:total = 0
+*option:Rapid_Northern_House_12x20:alias = 1206
 
+*option:Rapid_Northern_House_24x48:value:1    = 107.0243
+*option:Rapid_Northern_House_24x48:value:2    = 14.63
+*option:Rapid_Northern_House_24x48:value:3    = 7.32
+*option:Rapid_Northern_House_24x48:value:4    = 2.6
+*option:Rapid_Northern_House_24x48:value:5    = 7.3152
+*option:Rapid_Northern_House_24x48:value:6    = 0.5
+*option:Rapid_Northern_House_24x48:value:7    = 1.924
+*option:Rapid_Northern_House_24x48:value:8    = 0.5
+*option:Rapid_Northern_House_24x48:value:9    = 1.212
+*option:Rapid_Northern_House_24x48:value:10   = 14.130
+*option:Rapid_Northern_House_24x48:value:11   = 13.418
+*option:Rapid_Northern_House_24x48:value:12   = 6.8152
+*option:Rapid_Northern_House_24x48:value:13   = 6.103
+*option:Rapid_Northern_House_24x48:value:14   = 0
+*option:Rapid_Northern_House_24x48:value:15   = 0
+*option:Rapid_Northern_House_24x48:value:16   = 0
+*option:Rapid_Northern_House_24x48:value:17   = 260.9681	!Need volume for ERS
+*option:Rapid_Northern_House_24x48:cost:total = 0
+*option:Rapid_Northern_House_24x48:alias = 1208
+
+
+*option:Rapid_Northern_House_2st:value:1    = 26.7561
+*option:Rapid_Northern_House_2st:value:2    = 3.66
+*option:Rapid_Northern_House_2st:value:3    = 3.66
+*option:Rapid_Northern_House_2st:value:4    = 5.03
+*option:Rapid_Northern_House_2st:value:5    = 1.8288
+*option:Rapid_Northern_House_2st:value:6    = 0.5
+*option:Rapid_Northern_House_2st:value:7    = 1.212
+*option:Rapid_Northern_House_2st:value:8    = 0.5
+*option:Rapid_Northern_House_2st:value:9    = 1.212
+*option:Rapid_Northern_House_2st:value:10   = 3.158
+*option:Rapid_Northern_House_2st:value:11   = 2.446
+*option:Rapid_Northern_House_2st:value:12   = 3.158
+*option:Rapid_Northern_House_2st:value:13   = 2.446
+*option:Rapid_Northern_House_2st:value:14   = 0
+*option:Rapid_Northern_House_2st:value:15   = 0
+*option:Rapid_Northern_House_2st:value:16   = 0
+*option:Rapid_Northern_House_2st:value:17   = 65.24201	!Need volume for ERS
+*option:Rapid_Northern_House_2st:cost:total = 0
+*option:Rapid_Northern_House_2st:alias = 1205
 
 *attribute:end
 
@@ -1346,6 +1387,10 @@
 *option:HotRoofR80:cost:total    =  0
 *option:HotRoofR80:alias    =  1624
 
+*option:RapidIntR20:value:1 =   RapidIntR20
+!*option:RapidIntR20:value:2 =  RapidIntR20R
+*option:RapidIntR20:cost:total    =  0
+*option:RapidIntR20:alias    =  1614
 
 *attribute:end
 
@@ -2567,6 +2612,7 @@ Reflects southern Ontario costs
 *attribute:tag:1 = <OPT-Cooling-Capacity>
 *attribute:tag:2 = <OPT-Cooling-COP>
 *attribute:tag:3 = <OPT-Cooling-Fan-Power>
+*attribute:tag:4 = <OPT-Cooling-Fan-Power-Low>
 *attribute:default = SmallCooling
 
 *option:SmallCooling:value:1 = 10000.
@@ -2587,18 +2633,17 @@ Reflects southern Ontario costs
 *option:2TonDettsonModUnit:value:2 = 4.3		! Estimated based on 21 SEER
 *option:2TonDettsonModUnit:value:3 = 373.		! 
 *option:2TonDettsonModUnit:value:4 = 125.		! Estimate
-*option:2TonDettsonModUnit:cost:total = 0!1680	! Mattamy Ottawa
+*option:2TonDettsonModUnit:cost:total = 1680	! Mattamy Ottawa
 *option:2TonDettsonModUnit:alias = 2402
   
 *option:2TonGoodmanUnit:value:1 = 24000.
 *option:2TonGoodmanUnit:value:2 = 4.0		! Estimated based on 18 SEER
 *option:2TonGoodmanUnit:value:3 = 373.		! 
 *option:2TonGoodmanUnit:value:4 = 125.		! Estimate
-*option:2TonGoodmanUnit:cost:total = 0! 2930	! Mattamy Ottawa
+*option:2TonGoodmanUnit:cost:total = 2930	! Mattamy Ottawa
 *option:2TonGoodmanUnit:alias = 2403
   
 *attribute:end
-
 
 !-----------------------------------------------------------------------
 ! HRV spec

@@ -165,7 +165,7 @@ Vary{
   Parameter{   // 
      Name    =  GOtag:Opt-CasementWindows;
      Ini     =  1;
-     Values  =  "ArcticFront_a";//,ArcticFront_b,ArcticFront_c";//DoubleLowEHardCoatArgFill,Wind1_trp_CL,Win2scLE1_tr,Win3hcLE1_tr,Win4scLE2_tr,Win5hcLE2_tr,Win6_qd_CL";    
+     Values  =  "DoubleLowEHardCoatArgFill";//ArcticFront_a";//,ArcticFront_b,ArcticFront_c";//,Wind1_trp_CL,Win2scLE1_tr,Win3hcLE1_tr,Win4scLE2_tr,Win5hcLE2_tr,Win6_qd_CL";    
      
    }    
    
@@ -208,7 +208,7 @@ Vary{
   Parameter{ //
      Name    = GOtag:Opt-DHWSystem;
      Ini     = 1; 
-     Values  = "NWT_oil_inst";//,NWT_elec_inst,NWT_oil_DHW,elec_DHW,NWT_upgrade_elec_DHW,NWT_upgrade_oil_DHW"; 
+     Values  = "NWT_oil_DHW";//,NWT_elec_inst,NWT_oil_inst,elec_DHW,NWT_upgrade_elec_DHW,NWT_upgrade_oil_DHW"; 
   }
 
   
@@ -362,24 +362,24 @@ OptimizationSettings{
 }
 
 
-Algorithm{
- Main                       = PSOIW;
-  NeighborhoodTopology      = vonNeumann;
-  NeighborhoodSize          = 24; // Disregarded for vonNeumann topology
-  NumberOfParticle          = 23;
-  NumberOfGeneration        = 2000;
-  Seed                      = 628;
-  CognitiveAcceleration     = 2; // 0 < CognitiveAcceleration
-  SocialAcceleration        = 3; // 0 < SocialAcceleration
-  MaxVelocityGainContinuous = 1.0;
-  MaxVelocityDiscrete       = 1.0; // 0 < MaxVelocityDiscrete
-  InitialInertiaWeight      = 1.2;    // 0 < InitialInertiaWeight
-  FinalInertiaWeight        = 0;      // 0 < FinalInertiaWeight
-}
-
-
-
 //Algorithm{
-//  Main = Mesh;
-///  StopAtError = true; 
+// Main                       = PSOIW;
+//  NeighborhoodTopology      = vonNeumann;
+//  NeighborhoodSize          = 24; // Disregarded for vonNeumann topology
+//  NumberOfParticle          = 23;
+//  NumberOfGeneration        = 2000;
+//  Seed                      = 628;
+//  CognitiveAcceleration     = 2; // 0 < CognitiveAcceleration
+//  SocialAcceleration        = 3; // 0 < SocialAcceleration
+//  MaxVelocityGainContinuous = 1.0;
+//  MaxVelocityDiscrete       = 1.0; // 0 < MaxVelocityDiscrete
+//  InitialInertiaWeight      = 1.2;    // 0 < InitialInertiaWeight
+//  FinalInertiaWeight        = 0;      // 0 < FinalInertiaWeight
 //}
+
+
+
+Algorithm{
+  Main = Mesh;
+  StopAtError = true; 
+}
