@@ -32,7 +32,7 @@
 *attribute:end
 
 !-----------------------------------------------------------------------
-! Placeholder for oreintation.  
+! Placeholder for orientation.  
 !-----------------------------------------------------------------------
 
 *attribute:start 
@@ -615,6 +615,27 @@
 *option:NWT_Access:value:17   = 247	!Need volume for ERS
 *option:NWT_Access:cost:total = 0
 *option:NWT_Access:alias = 1204
+
+*option:training_2storey:value:1    = 100
+*option:training_2storey:value:2    = 10.
+*option:training_2storey:value:3    = 10.
+*option:training_2storey:value:4    = 9.1764
+*option:training_2storey:value:5    = 5.0
+*option:training_2storey:value:6    = 0.5
+*option:training_2storey:value:7    = 3.5
+*option:training_2storey:value:8    = 0.5
+*option:training_2storey:value:9    = 3.5
+*option:training_2storey:value:10   = 9.5
+*option:training_2storey:value:11   = 6.5
+*option:training_2storey:value:12   = 9.5
+*option:training_2storey:value:13   = 6.5
+*option:training_2storey:value:14   = 0
+*option:training_2storey:value:15   = 0
+*option:training_2storey:value:16   = 0
+*option:training_2storey:value:17   = 792	!Need volume for ERS
+*option:training_2storey:cost:total = 0
+*option:training_2storey:alias = 1204
+
 
 *option:NWT_1986:value:1    = 56.02224
 *option:NWT_1986:value:2    = 7.62
