@@ -1429,6 +1429,235 @@
 *option:Stud_2x6_R20:alias = 1750
 
 
+! Generic definitions for wall systems by RSI 
+*option:Generic_Wall_R-04_RSI-0.7-eff:value:1 = 0.0106
+*option:Generic_Wall_R-04_RSI-0.7-eff:cost = 0
+*option:Generic_Wall_R-04_RSI-0.7-eff:alias = 1775
+
+*option:Generic_Wall_R-05_RSI-0.9-eff:value:1 = 0.0171
+*option:Generic_Wall_R-05_RSI-0.9-eff:cost = 0
+*option:Generic_Wall_R-05_RSI-0.9-eff:alias = 1776
+
+*option:Generic_Wall_R-06_RSI-1.1-eff:value:1 = 0.0236
+*option:Generic_Wall_R-06_RSI-1.1-eff:cost = 0
+*option:Generic_Wall_R-06_RSI-1.1-eff:alias = 1777
+
+*option:Generic_Wall_R-07_RSI-1.3-eff:value:1 = 0.0301
+*option:Generic_Wall_R-07_RSI-1.3-eff:cost = 0
+*option:Generic_Wall_R-07_RSI-1.3-eff:alias = 1778
+
+*option:Generic_Wall_R-08_RSI-1.4-eff:value:1 = 0.0366
+*option:Generic_Wall_R-08_RSI-1.4-eff:cost = 0
+*option:Generic_Wall_R-08_RSI-1.4-eff:alias = 1779
+
+*option:Generic_Wall_R-09_RSI-1.6-eff:value:1 = 0.043
+*option:Generic_Wall_R-09_RSI-1.6-eff:cost = 0
+*option:Generic_Wall_R-09_RSI-1.6-eff:alias = 1780
+
+*option:Generic_Wall_R-10_RSI-1.8-eff:value:1 = 0.0495
+*option:Generic_Wall_R-10_RSI-1.8-eff:cost = 0
+*option:Generic_Wall_R-10_RSI-1.8-eff:alias = 1781
+
+*option:Generic_Wall_R-11_RSI-2-eff:value:1 = 0.056
+*option:Generic_Wall_R-11_RSI-2-eff:cost = 0
+*option:Generic_Wall_R-11_RSI-2-eff:alias = 1782
+
+*option:Generic_Wall_R-12_RSI-2.2-eff:value:1 = 0.0625
+*option:Generic_Wall_R-12_RSI-2.2-eff:cost = 0
+*option:Generic_Wall_R-12_RSI-2.2-eff:alias = 1783
+
+*option:Generic_Wall_R-13_RSI-2.3-eff:value:1 = 0.069
+*option:Generic_Wall_R-13_RSI-2.3-eff:cost = 0
+*option:Generic_Wall_R-13_RSI-2.3-eff:alias = 1784
+
+*option:Generic_Wall_R-14_RSI-2.5-eff:value:1 = 0.0754
+*option:Generic_Wall_R-14_RSI-2.5-eff:cost = 0
+*option:Generic_Wall_R-14_RSI-2.5-eff:alias = 1785
+
+*option:Generic_Wall_R-15_RSI-2.7-eff:value:1 = 0.0819
+*option:Generic_Wall_R-15_RSI-2.7-eff:cost = 0
+*option:Generic_Wall_R-15_RSI-2.7-eff:alias = 1786
+
+*option:Generic_Wall_R-16_RSI-2.9-eff:value:1 = 0.0884
+*option:Generic_Wall_R-16_RSI-2.9-eff:cost = 0
+*option:Generic_Wall_R-16_RSI-2.9-eff:alias = 1787
+
+*option:Generic_Wall_R-17_RSI-3.1-eff:value:1 = 0.0949
+*option:Generic_Wall_R-17_RSI-3.1-eff:cost = 0
+*option:Generic_Wall_R-17_RSI-3.1-eff:alias = 1788
+
+*option:Generic_Wall_R-18_RSI-3.2-eff:value:1 = 0.1014
+*option:Generic_Wall_R-18_RSI-3.2-eff:cost = 0
+*option:Generic_Wall_R-18_RSI-3.2-eff:alias = 1789
+
+*option:Generic_Wall_R-19_RSI-3.4-eff:value:1 = 0.1078
+*option:Generic_Wall_R-19_RSI-3.4-eff:cost = 0
+*option:Generic_Wall_R-19_RSI-3.4-eff:alias = 1790
+
+*option:Generic_Wall_R-20_RSI-3.6-eff:value:1 = 0.1143
+*option:Generic_Wall_R-20_RSI-3.6-eff:cost = 0
+*option:Generic_Wall_R-20_RSI-3.6-eff:alias = 1791
+
+*option:Generic_Wall_R-21_RSI-3.8-eff:value:1 = 0.1208
+*option:Generic_Wall_R-21_RSI-3.8-eff:cost = 0
+*option:Generic_Wall_R-21_RSI-3.8-eff:alias = 1792
+
+*option:Generic_Wall_R-22_RSI-4-eff:value:1 = 0.1273
+*option:Generic_Wall_R-22_RSI-4-eff:cost = 0
+*option:Generic_Wall_R-22_RSI-4-eff:alias = 1793
+
+*option:Generic_Wall_R-24_RSI-4.1-eff:value:1 = 0.1338
+*option:Generic_Wall_R-24_RSI-4.1-eff:cost = 0
+*option:Generic_Wall_R-24_RSI-4.1-eff:alias = 1794
+
+*option:Generic_Wall_R-25_RSI-4.3-eff:value:1 = 0.1402
+*option:Generic_Wall_R-25_RSI-4.3-eff:cost = 0
+*option:Generic_Wall_R-25_RSI-4.3-eff:alias = 1795
+
+*option:Generic_Wall_R-26_RSI-4.5-eff:value:1 = 0.1467
+*option:Generic_Wall_R-26_RSI-4.5-eff:cost = 0
+*option:Generic_Wall_R-26_RSI-4.5-eff:alias = 1796
+
+*option:Generic_Wall_R-27_RSI-4.7-eff:value:1 = 0.1532
+*option:Generic_Wall_R-27_RSI-4.7-eff:cost = 0
+*option:Generic_Wall_R-27_RSI-4.7-eff:alias = 1797
+
+*option:Generic_Wall_R-28_RSI-4.9-eff:value:1 = 0.1597
+*option:Generic_Wall_R-28_RSI-4.9-eff:cost = 0
+*option:Generic_Wall_R-28_RSI-4.9-eff:alias = 1798
+
+*option:Generic_Wall_R-29_RSI-5-eff:value:1 = 0.1662
+*option:Generic_Wall_R-29_RSI-5-eff:cost = 0
+*option:Generic_Wall_R-29_RSI-5-eff:alias = 1799
+
+*option:Generic_Wall_R-30_RSI-5.2-eff:value:1 = 0.1726
+*option:Generic_Wall_R-30_RSI-5.2-eff:cost = 0
+*option:Generic_Wall_R-30_RSI-5.2-eff:alias = 1800
+
+*option:Generic_Wall_R-31_RSI-5.4-eff:value:1 = 0.1791
+*option:Generic_Wall_R-31_RSI-5.4-eff:cost = 0
+*option:Generic_Wall_R-31_RSI-5.4-eff:alias = 1801
+
+*option:Generic_Wall_R-32_RSI-5.6-eff:value:1 = 0.1856
+*option:Generic_Wall_R-32_RSI-5.6-eff:cost = 0
+*option:Generic_Wall_R-32_RSI-5.6-eff:alias = 1802
+
+*option:Generic_Wall_R-33_RSI-5.8-eff:value:1 = 0.1921
+*option:Generic_Wall_R-33_RSI-5.8-eff:cost = 0
+*option:Generic_Wall_R-33_RSI-5.8-eff:alias = 1803
+
+*option:Generic_Wall_R-34_RSI-5.9-eff:value:1 = 0.1986
+*option:Generic_Wall_R-34_RSI-5.9-eff:cost = 0
+*option:Generic_Wall_R-34_RSI-5.9-eff:alias = 1804
+
+*option:Generic_Wall_R-35_RSI-6.1-eff:value:1 = 0.205
+*option:Generic_Wall_R-35_RSI-6.1-eff:cost = 0
+*option:Generic_Wall_R-35_RSI-6.1-eff:alias = 1805
+
+*option:Generic_Wall_R-36_RSI-6.3-eff:value:1 = 0.2115
+*option:Generic_Wall_R-36_RSI-6.3-eff:cost = 0
+*option:Generic_Wall_R-36_RSI-6.3-eff:alias = 1806
+
+*option:Generic_Wall_R-37_RSI-6.5-eff:value:1 = 0.218
+*option:Generic_Wall_R-37_RSI-6.5-eff:cost = 0
+*option:Generic_Wall_R-37_RSI-6.5-eff:alias = 1807
+
+*option:Generic_Wall_R-38_RSI-6.7-eff:value:1 = 0.2245
+*option:Generic_Wall_R-38_RSI-6.7-eff:cost = 0
+*option:Generic_Wall_R-38_RSI-6.7-eff:alias = 1808
+
+*option:Generic_Wall_R-39_RSI-6.8-eff:value:1 = 0.231
+*option:Generic_Wall_R-39_RSI-6.8-eff:cost = 0
+*option:Generic_Wall_R-39_RSI-6.8-eff:alias = 1809
+
+*option:Generic_Wall_R-40_RSI-7-eff:value:1 = 0.2374
+*option:Generic_Wall_R-40_RSI-7-eff:cost = 0
+*option:Generic_Wall_R-40_RSI-7-eff:alias = 1810
+
+*option:Generic_Wall_R-41_RSI-7.2-eff:value:1 = 0.2439
+*option:Generic_Wall_R-41_RSI-7.2-eff:cost = 0
+*option:Generic_Wall_R-41_RSI-7.2-eff:alias = 1811
+
+*option:Generic_Wall_R-42_RSI-7.4-eff:value:1 = 0.2504
+*option:Generic_Wall_R-42_RSI-7.4-eff:cost = 0
+*option:Generic_Wall_R-42_RSI-7.4-eff:alias = 1812
+
+*option:Generic_Wall_R-43_RSI-7.6-eff:value:1 = 0.2569
+*option:Generic_Wall_R-43_RSI-7.6-eff:cost = 0
+*option:Generic_Wall_R-43_RSI-7.6-eff:alias = 1813
+
+*option:Generic_Wall_R-44_RSI-7.7-eff:value:1 = 0.2634
+*option:Generic_Wall_R-44_RSI-7.7-eff:cost = 0
+*option:Generic_Wall_R-44_RSI-7.7-eff:alias = 1814
+
+*option:Generic_Wall_R-45_RSI-7.9-eff:value:1 = 0.2698
+*option:Generic_Wall_R-45_RSI-7.9-eff:cost = 0
+*option:Generic_Wall_R-45_RSI-7.9-eff:alias = 1815
+
+*option:Generic_Wall_R-46_RSI-8.1-eff:value:1 = 0.2763
+*option:Generic_Wall_R-46_RSI-8.1-eff:cost = 0
+*option:Generic_Wall_R-46_RSI-8.1-eff:alias = 1816
+
+*option:Generic_Wall_R-47_RSI-8.3-eff:value:1 = 0.2828
+*option:Generic_Wall_R-47_RSI-8.3-eff:cost = 0
+*option:Generic_Wall_R-47_RSI-8.3-eff:alias = 1817
+
+*option:Generic_Wall_R-48_RSI-8.5-eff:value:1 = 0.2893
+*option:Generic_Wall_R-48_RSI-8.5-eff:cost = 0
+*option:Generic_Wall_R-48_RSI-8.5-eff:alias = 1818
+
+*option:Generic_Wall_R-49_RSI-8.6-eff:value:1 = 0.2958
+*option:Generic_Wall_R-49_RSI-8.6-eff:cost = 0
+*option:Generic_Wall_R-49_RSI-8.6-eff:alias = 1819
+
+*option:Generic_Wall_R-50_RSI-8.8-eff:value:1 = 0.3022
+*option:Generic_Wall_R-50_RSI-8.8-eff:cost = 0
+*option:Generic_Wall_R-50_RSI-8.8-eff:alias = 1820
+
+*option:Generic_Wall_R-51_RSI-9-eff:value:1 = 0.3087
+*option:Generic_Wall_R-51_RSI-9-eff:cost = 0
+*option:Generic_Wall_R-51_RSI-9-eff:alias = 1821
+
+*option:Generic_Wall_R-52_RSI-9.2-eff:value:1 = 0.3152
+*option:Generic_Wall_R-52_RSI-9.2-eff:cost = 0
+*option:Generic_Wall_R-52_RSI-9.2-eff:alias = 1822
+
+*option:Generic_Wall_R-53_RSI-9.4-eff:value:1 = 0.3217
+*option:Generic_Wall_R-53_RSI-9.4-eff:cost = 0
+*option:Generic_Wall_R-53_RSI-9.4-eff:alias = 1823
+
+*option:Generic_Wall_R-54_RSI-9.5-eff:value:1 = 0.3282
+*option:Generic_Wall_R-54_RSI-9.5-eff:cost = 0
+*option:Generic_Wall_R-54_RSI-9.5-eff:alias = 1824
+
+*option:Generic_Wall_R-55_RSI-9.7-eff:value:1 = 0.3346
+*option:Generic_Wall_R-55_RSI-9.7-eff:cost = 0
+*option:Generic_Wall_R-55_RSI-9.7-eff:alias = 1825
+
+*option:Generic_Wall_R-56_RSI-9.9-eff:value:1 = 0.3411
+*option:Generic_Wall_R-56_RSI-9.9-eff:cost = 0
+*option:Generic_Wall_R-56_RSI-9.9-eff:alias = 1826
+
+*option:Generic_Wall_R-57_RSI-10.1-eff:value:1 = 0.3476
+*option:Generic_Wall_R-57_RSI-10.1-eff:cost = 0
+*option:Generic_Wall_R-57_RSI-10.1-eff:alias = 1827
+
+*option:Generic_Wall_R-58_RSI-10.3-eff:value:1 = 0.3541
+*option:Generic_Wall_R-58_RSI-10.3-eff:cost = 0
+*option:Generic_Wall_R-58_RSI-10.3-eff:alias = 1828
+
+*option:Generic_Wall_R-59_RSI-10.4-eff:value:1 = 0.3606
+*option:Generic_Wall_R-59_RSI-10.4-eff:cost = 0
+*option:Generic_Wall_R-59_RSI-10.4-eff:alias = 1829
+
+*option:Generic_Wall_R-60_RSI-10.6-eff:value:1 = 0.367
+*option:Generic_Wall_R-60_RSI-10.6-eff:cost = 0
+*option:Generic_Wall_R-60_RSI-10.6-eff:alias = 1830
+
+
+
+
+
 ! BC LEEP Wall systems
 
 *option:Stud_2x4_2in_XPS_R-24:value:1 = 0.1366
