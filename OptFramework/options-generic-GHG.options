@@ -749,6 +749,27 @@
 *attribute:name     = Opt-ACH
 *attribute:tag:1    = <Opt-ACH>
 
+
+*option:retro_ACH_10:value:1  = 10.0
+*option:retro_ACH_10:cost:total  =  0
+*option:retro_ACH_10:alias  =  1302
+
+*option:retro_ACH_9:value:1  = 9.0
+*option:retro_ACH_9:cost:total  =  0
+*option:retro_ACH_9:alias  =  1302
+
+*option:retro_ACH_8:value:1  = 8.0
+*option:retro_ACH_8:cost:total  =  0
+*option:retro_ACH_8:alias  =  1302
+
+*option:retro_ACH_7:value:1  = 7.0
+*option:retro_ACH_7:cost:total  =  0
+*option:retro_ACH_7:alias  =  1302
+
+*option:retro_ACH_6_5:value:1  = 6.5
+*option:retro_ACH_6_5:cost:total  =  0
+*option:retro_ACH_6_5:alias  =  1302
+
 *option:retro_ACH_6:value:1  = 6.0
 *option:retro_ACH_6:cost:total  =  0
 *option:retro_ACH_6:alias  =  1302
@@ -777,21 +798,41 @@
 *option:retro_ACH_3:cost:total  =  0
 *option:retro_ACH_3:alias  =  1308
 
+*option:retro_ACH_2_75:value:1  = 2.75
+*option:retro_ACH_2_75:cost:total  =  0
+*option:retro_ACH_2_75:alias  =  1309
+
 *option:retro_ACH_2_5:value:1  = 2.5
 *option:retro_ACH_2_5:cost:total  =  0
 *option:retro_ACH_2_5:alias  =  1309
+
+*option:retro_ACH_2_25:value:1  = 2.25
+*option:retro_ACH_2_25:cost:total  =  0
+*option:retro_ACH_2_25:alias  =  1309
 
 *option:retro_ACH_2:value:1  = 2.0
 *option:retro_ACH_2:cost:total  =  0
 *option:retro_ACH_2:alias  =  1310
 
+*option:retro_ACH_1_75:value:1  = 1.75
+*option:retro_ACH_1_75:cost:total  =  0
+*option:retro_ACH_1_75:alias  =  1311
+
 *option:retro_ACH_1_5:value:1  = 1.5
 *option:retro_ACH_1_5:cost:total  =  0
 *option:retro_ACH_1_5:alias  =  1311
 
+*option:retro_ACH_1_25:value:1  = 1.25
+*option:retro_ACH_1_25:cost:total  =  0
+*option:retro_ACH_1_25:alias  =  1311
+
 *option:retro_ACH_1:value:1  = 1.0
 *option:retro_ACH_1:cost:total  =  0
 *option:retro_ACH_1:alias  =  1312
+
+*option:retro_ACH_0_75:value:1  = 0.75
+*option:retro_ACH_0_75:cost:total  =  0
+*option:retro_ACH_0_75:alias  =  1311
 
 *option:retro_ACH_0_5:value:1  = 0.5
 *option:retro_ACH_0_5:cost:total  =  0
@@ -1275,6 +1316,16 @@
 *attribute:tag:1  = <Opt-Ceiling>
 !*attribute:tag:2  = <Opt-CeilingR>
 *attribute:default = CeilR50
+
+*option:CeilR20:value:1 =   CeilR20
+!*option:CeilR20:value:2 =   CeilR20R
+*option:CeilR20:cost:total    =   0
+*option:CeilR20:alias    =   1600
+
+*option:CeilR30:value:1 =   CeilR30
+!*option:CeilR30:value:2 =   CeilR30R
+*option:CeilR30:cost:total    =   0
+*option:CeilR30:alias    =   1601
 
 *option:CeilR40:value:1 =   CeilR40
 !*option:CeilR40:value:2 =   CeilR40R
