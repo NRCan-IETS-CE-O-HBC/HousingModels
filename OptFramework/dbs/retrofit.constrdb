@@ -1,6 +1,6 @@
 # composite construction db defined in ../dbs/retrofit.constrdb
 # based on materials db ../dbs/material.db3.a
-  210  # no of composites 
+  216  # no of composites 
 # 1: layers  description   optics name   symmetry tag
     2    bsm_flr       OPAQ  OPAQUE        NONSYMMETRIC  
 # mat ref thickness (m) mat descr & air gap R
@@ -1712,3 +1712,42 @@
   242    0.0060  plate glass : Plate glass    
     0    0.0125  air  0.142 0.142 0.142
   242    0.0060  plate glass : Plate glass    
+#------------------------------------------------
+# GHG Roadmap 2030 Constructions
+#----------------------
+# Ceilings: R20
+# 211: layers  description   optics name   symmetry tag  
+    2    CeilR20       OPAQ  OPAQUE        CeilR20R
+# mat ref thickness (m) mat descr & air gap R 
+  233    0.1317  celulose fiber flakes 
+  301    0.0125  gypsum board
+# 212: layers  description   optics name   symmetry tag  
+    2    CeilR20R      OPAQ  OPAQUE        CeilR20
+# mat ref thickness (m) mat descr & air gap R 
+  301    0.0125  gypsum board
+  233    0.1317  celulose fiber flakes 
+#----------------------
+# Ceilings: R30
+# 213: layers  description   optics name   symmetry tag  
+    2    CeilR30       OPAQ  OPAQUE        CeilR30R
+# mat ref thickness (m) mat descr & air gap R 
+  233    0.2021  celulose fiber flakes 
+  301    0.0125  gypsum board
+# 214: layers  description   optics name   symmetry tag  
+    2    CeilR30R      OPAQ  OPAQUE        CeilR30
+# mat ref thickness (m) mat descr & air gap R 
+  301    0.0125  gypsum board
+  233    0.2021  celulose fiber flakes 
+#----------------------
+# Ceilings: R40
+# 215: layers  description   optics name   symmetry tag  
+    2    CeilR40       OPAQ  OPAQUE        CeilR40R
+# mat ref thickness (m) mat descr & air gap R 
+  233    0.2725  celulose fiber flakes 
+  301    0.0125  gypsum board
+# 216: layers  description   optics name   symmetry tag  
+    2    CeilR40R      OPAQ  OPAQUE        CeilR40
+# mat ref thickness (m) mat descr & air gap R 
+  301    0.0125  gypsum board
+  233    0.2725  celulose fiber flakes 
+#----------------------
