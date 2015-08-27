@@ -1,0 +1,9 @@
+*FileVersion1.0
+2.4384                    # height
+2.0000                    # depth
+<Opt-Width>               # larger of the two dimensions
+<Opt-Length>              # smaller of the two dimensions
+0.0                       # overlap (only important for BCCN_1 and BCCN_2)
+2.10                      # rsi
+0.85                      # soilk
+8                         # wtable
