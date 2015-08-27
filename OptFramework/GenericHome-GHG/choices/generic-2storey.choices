@@ -44,7 +44,7 @@ Opt-BaseWindows      : MinWindows
 
 
 ! Geometry substitutions
-Opt-geometry      : Van_3st_garage
+Opt-geometry      : training_2storey
 
 
 ! Attachment options
@@ -85,10 +85,10 @@ Opt-AirTightness   : Generic
 !  Retro-R1_52
 !  Retro-R2_1
 
-Opt-MainWall         : GenericWall_2Layer
+Opt-MainWall         : GenericWall_1Layer
 
-Opt-GenericWall_1Layer_definitions : test
-Opt-GenericWall_2Layer_definitions : test2
+Opt-GenericWall_1Layer_definitions : Generic_Wall_R-08_RSI-1.4-eff
+
 
 ! Add extra drywall to wall constructions 
 ! Options: 
@@ -104,7 +104,7 @@ Opt-ExtraDrywall     : OneSheet
 Opt-FloorSurface     : wood
 
 
-Opt-Ceilings         : retro_attic-4_152_6cell
+Opt-Ceilings         : CeilR40
 
 ! Basement slab insulation 
 ! Choices: 
@@ -128,7 +128,7 @@ Opt-BasementSlabInsulation  : NoInsulation
 !    PouredConcrete_RSI0_925
 !    PouredConcrete_NoIns
 
-Opt-BasementWallInsulation  : Retro_added_R20_ext
+Opt-BasementWallInsulation  : PouredConcrete_NoIns
 
 
 
