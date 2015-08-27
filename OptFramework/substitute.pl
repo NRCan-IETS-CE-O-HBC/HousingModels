@@ -1329,9 +1329,9 @@ for ( my $iRun = 1; $iRun <= $gNumRunSetsRqd; $iRun++ ) {
 		# This cmd seems to duplicate definition of $master_path above.
 		$gMasterPath = getcwd();
 
-		# Optimization runs need climate files, which will vary between Linux and 
-		# windows systems. We need to find the appropriate climate folder, and link to it 
-		# within the model directory. 
+		# Optimization runs need climate and database files, which will vary 
+    # between Linux and windows systems. We need to find the appropriate 
+    # climate folder, and link to it within the model directory. 
 		#
 		# Check to see if working folder contains link to climate directory
 		# 
@@ -1340,14 +1340,24 @@ for ( my $iRun = 1; $iRun <= $gNumRunSetsRqd; $iRun++ ) {
 
 		my $system = `uname`; 
 		debug_out (">>>System is $system \n"); 
-		my $source_clm_dir="UNKNOWN"; 
-		my $clm_link_target = ""; 
-		if ( $system =~ /cygwin/i ) {$source_clm_dir = "climate_cygwin";}
-		if ( $system =~ /linux/i ) {$source_clm_dir = "climate_linux";}
+		
+    my $source_clm_dir="UNKNOWN"; 
+   
+		
+    my $clm_link_target = ""; 
+    my $dbs_link_target = ""; 
+    
+		if ( $system =~ /cygwin/i )  {$source_clm_dir = "climate_cygwin"; }
+		if ( $system =~ /linux/i )   {$source_clm_dir = "climate_linux";  }
+    
+    my $source_dbs_dir = "dbs";
+    
 		debug_out ( " Creating link to $source_clm_dir \n "); 
 
+        
 		# Find the appropriate path. If this script has been invoked directly, 
-		# Cli
+		# Locating climate directory
+    
 		if  ( -d "$gMasterPath/$source_clm_dir" ) {
 			debug_out ( "Found $gMasterPath/$source_clm_dir. Linking (a).\n");
 			$clm_link_target = "$gMasterPath/$source_clm_dir"; 
@@ -1367,15 +1377,49 @@ for ( my $iRun = 1; $iRun <= $gNumRunSetsRqd; $iRun++ ) {
 			fatalerror ( " Could not locate climate files !" ); 
 		}
 
-		# Now create the link
+    # Locating database directory 
+    
+    if ( -d "$gMasterPath/$source_dbs_dir" ){ 
+      
+      debug_out ("Found $gMasterPath/$source_dbs_dir. Linking (a)\n"); 
+      $dbs_link_target = "$gMasterPath/$source_dbs_dir"; 
 
-		stream_out ("Linking  $clm_link_target $gWorkingModelFolder/climate -> $clm_link_target"); 
-		if ( $system =~ /linux/i ) {
+    }elsif( -d "$gMasterPath/../$source_dbs_dir" ){
+    
+      debug_out ("Found $gMasterPath/../$source_dbs_dir. Linking (a)\n"); 
+      $dbs_link_target = "$gMasterPath/../$source_dbs_dir"; 
+
+    }else {
+    
+			$ThisError  = "\nERROR: Database file directory ($source_dbs_dir) could not be found in $gMasterPath.  \n"; 
+			$ErrorBuffer .= $ThisError; 
+			debug_out ( "$ThisError \n");
+			$allok = 0; 
+			fatalerror ( " Could not locate database files !" );      
+      
+    }
+      
+      
+    
+    
+    # Now create the link (or copy the files ?)
+
+    stream_out ("Linking  $clm_link_target $gWorkingModelFolder/climate -> $clm_link_target"); 
+		
+    if ( -d "$gWorkingModelFolder/dbs" ) { 
+      execute ("rm -fr $gWorkingModelFolder/dbs");
+    }
+    
+    if ( $system =~ /linux/i ) {
 		  execute ( "cp -fr  $clm_link_target $gWorkingModelFolder/climate "); 
+      execute ( "cp -fr  $dbs_link_target $gWorkingModelFolder/dbs ");
 		}else{
-		  execute ( "ln -s  $clm_link_target $gWorkingModelFolder/climate ");
+      execute ( "ln -s  $clm_link_target $gWorkingModelFolder/climate ");
+      execute ( "cp -fr  $dbs_link_target $gWorkingModelFolder/dbs ");
 		}
-
+    
+    
+    
 		# Search through all files in the working directory, and perform substitutions as needed 
 		 find( sub{
 				  # move on to next file if (1) file is a directory,
