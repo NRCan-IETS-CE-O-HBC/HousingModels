@@ -9,18 +9,18 @@ Vary{
   // ==========================================
   
   Parameter { 
-  
     Name = GOtag:Opt-Choice_Files; 
     Ini    = 1; 
-    Values = "CA_pre1946_Gas.choices, CA_1946-1983_Gas.choices, CA_1984-1995_Gas.choices"; 
- 
-   }
+    Values = "CA_pre1946_Gas.choices, CA_1946-1983_Gas.choices, CA_1984-1995_Gas.choices";
+  }
+}
 
 OptimizationSettings{
   MaxIte = 100000;
   MaxEqualResults = 1000;
   WriteStepNumber = true;
 }
+
 
 //Algorithm{
 // Main                       = PSOIW;
