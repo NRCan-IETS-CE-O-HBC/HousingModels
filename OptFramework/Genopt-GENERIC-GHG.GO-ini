@@ -28,9 +28,9 @@ Simulation{
       Output{
          File1 = "SubstitutePL-output.txt";
       }
-      // File explaining how to start ESP-r.
+      // File explaining how to start evaluations.
       Configuration{
-         File1 = "Genopt-GENERIC-CONFIG.GO-config";
+         File1 = "Genopt-GENERIC-GHG-CONFIG.GO-config";
       }
 
    } // end Simulation.Files
@@ -39,10 +39,10 @@ Simulation{
    CallParameter {
       
       // Windows only: 
-      Prefix = "C:\\cygwin64\\bin\\perl.exe ";
+      //Prefix = "C:\\cygwin\\bin\\perl.exe ";
       
       // LINUX 
-      // Prefix = "" ;
+      Prefix = "" ;
       
 	  Suffix = " GenOpt-picked-these-choices.GO-tmp"; 
  
