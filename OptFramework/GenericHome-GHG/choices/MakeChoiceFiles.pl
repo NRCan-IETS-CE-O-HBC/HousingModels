@@ -6,6 +6,8 @@
 use warnings;
 use strict;
 
+sub fatalerror($);
+
 #--------------------------------------------
 # Help text. Dumped if no arguments supplied.
 #--------------------------------------------
@@ -94,3 +96,31 @@ while ( my $line = <OPTLISTFILE> ){
   }
 }
 close (OPTLISTFILE);
+
+
+
+
+
+
+#-------------------------------------------------------------------
+# Display a fatal error and quit.
+#-------------------------------------------------------------------
+
+sub fatalerror($){
+  my ($err_msg) = @_;
+
+  #if ( $gTest_params{"verbosity"} eq "very_verbose" ){
+  #  #print echo_config();
+  #}
+  #if ($gTest_params{"logfile"}){
+  #  print LOG "\nsubstitute.pl -> Fatal error: \n"; 
+  #  print LOG "$err_msg\n"; 
+  #}
+  print "\n=========================================================\n"; 
+  print "substitute.pl -> Fatal error: \n\n";
+  print "$err_msg \n";
+  print "\n\n"; 
+  print "substitute.pl -> Error and warning messages:\n\n";
+  #print "$ErrorBuffer \n"; 
+  die "Run stopped";
+}
