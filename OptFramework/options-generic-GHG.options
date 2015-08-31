@@ -2590,317 +2590,82 @@ Whitehorse Wall Options (Code is R28)
 *attribute:tag:5   = <OPT-WHisIMS>
 *attribute:tag:6   = <Opt-HVACCtlFile>
 
-
-!--- Consider using psc variety as base furnace from now on. 
-*option:basefurnace:value:1 = basefurnace_ACv2.hvac
-*option:basefurnace:value:2 = #-no-GSHP-file
-*option:basefurnace:value:3 = #No-IMS: 
-*option:basefurnace:value:4 = 
-*option:basefurnace:value:5 = 
-*option:basefurnace:value:6 = shoulder-ideal.ctl
-*option:basefurnace:cost:total    = 0
-*option:basefurnace:alias = 2300
-
-*option:gas-furnace-ecm:value:1 = basefurnace_AC-gas-ecm-motor.hvac
-*option:gas-furnace-ecm:value:2 = #-no-GSHP-file
-*option:gas-furnace-ecm:value:3 = #No-IMS: 
-*option:gas-furnace-ecm:value:4 = 
-*option:gas-furnace-ecm:value:5 = 
-*option:gas-furnace-ecm:value:6 = shoulder-ideal.ctl
-*option:gas-furnace-ecm:cost:total    = 500  ! based on quote from Patric
-*option:gas-furnace-ecm:alias = 2301
-
-*option:gas-furnace-psc:value:1 = basefurnace_AC-gas-psc-motor.hvac
-*option:gas-furnace-psc:value:2 = #-no-GSHP-file
-*option:gas-furnace-psc:value:3 = #No-IMS: 
-*option:gas-furnace-psc:value:4 = 
-*option:gas-furnace-psc:value:5 = 
-*option:gas-furnace-psc:value:6 = shoulder-ideal.ctl
-*option:gas-furnace-psc:cost:total    = 0 ! base for BC-LEEP
-*option:gas-furnace-psc:alias = 2302
-
-*option:13kW-furnace-ecm:value:1 = smallfurnace_AC-gas-ecm-motor.hvac
-*option:13kW-furnace-ecm:value:2 = #-no-GSHP-file
-*option:13kW-furnace-ecm:value:3 = #No-IMS: 
-*option:13kW-furnace-ecm:value:4 = 
-*option:13kW-furnace-ecm:value:5 = 
-*option:13kW-furnace-ecm:value:6 = shoulder-ideal.ctl
-*option:13kW-furnace-ecm:cost:total    = 1355    ! BC-LEEP
-*option:13kW-furnace-ecm:alias = 2303
-
-*option:zoned-furnace-ecm:value:1 = smallfurnace_AC-gas-ecm-motor.hvac
-*option:zoned-furnace-ecm:value:2 = #-no-GSHP-file
-*option:zoned-furnace-ecm:value:3 = #No-IMS: 
-*option:zoned-furnace-ecm:value:4 = 
-*option:zoned-furnace-ecm:value:5 = 
-*option:zoned-furnace-ecm:value:6 = shoulder_zoned.ctl
-*option:zoned-furnace-ecm:cost:total    = 6480    ! BC-LEEP
-*option:zoned-furnace-ecm:alias = 2304
-
-
-*option:IMS-P10:value:1 = IMS-P10.hvac
-*option:IMS-P10:value:2 = #-no-GSHP-file
-*option:IMS-P10:value:3 =  
-*option:IMS-P10:value:4 = # NO - HRV: IMS provides HRV. 
-*option:IMS-P10:value:5 = # NO DHW: IMS provides WH.  
-*option:IMS-P10:value:6 = shoulder-ideal.ctl
-*option:IMS-P10:cost:total    = 9000
-*option:IMS-P10:alias = 2305
+! ==================================================
+! --- Furnace Data FOR GHG RUNS > Gas heating 
  
- 
-! Not-so-good P9 system. PSC motor?
-*option:Combi-P9-a:value:1 = Combi-P9.hvac
-*option:Combi-P9-a:value:2 = #-no-GSHP-file
-*option:Combi-P9-a:value:3 = #No-IMS: 
-*option:Combi-P9-a:value:4 = 
-*option:Combi-P9-a:value:5 = # NO DHW: IMS provides WH.  
-*option:Combi-P9-a:value:6 = shoulder-ideal.ctl
-*option:Combi-P9-a:cost:total    = 1145      !based on quote from Patric
-*option:Combi-P9-a:alias = 2306
+*option:gas-high-eff-ecm:value:1 = SH-gas-furnace-high-eff-ecm.hvac
+*option:gas-high-eff-ecm:value:2 = #-no-GSHP-file
+*option:gas-high-eff-ecm:value:3 = #No-IMS: 
+*option:gas-high-eff-ecm:value:4 = 
+*option:gas-high-eff-ecm:value:5 = 
+*option:gas-high-eff-ecm:value:6 = shoulder-ideal.ctl
+*option:gas-high-eff-ecm:cost:total    = 0
+*option:gas-high-eff-ecm:alias = 2300
 
-! Best P9 system. ECM motor
-*option:Combi-P9-ecmV2:value:1 = Combi-P9-ecm-v2.hvac
-*option:Combi-P9-ecmV2:value:2 = #-no-GSHP-file
-*option:Combi-P9-ecmV2:value:3 = #No-IMS: 
-*option:Combi-P9-ecmV2:value:4 = 
-*option:Combi-P9-ecmV2:value:5 = # NO DHW: IMS provides WH.  
-*option:Combi-P9-ecmV2:value:6 = shoulder-ideal.ctl
-*option:Combi-P9-ecmV2:cost:total    = 1915   ! BC-LEEP
-*option:Combi-P9-ecmV2:alias = 2307
 
-! P9 *zoned* system. ECM motor
-*option:Combi-P9-zoned-ecm:value:1 = Combi-P9-ecm-v2.hvac
-*option:Combi-P9-zoned-ecm:value:2 = #-no-GSHP-file
-*option:Combi-P9-zoned-ecm:value:3 = #No-IMS: 
-*option:Combi-P9-zoned-ecm:value:4 = 
-*option:Combi-P9-zoned-ecm:value:5 = # NO DHW: IMS provides WH.  
-*option:Combi-P9-zoned-ecm:value:6 = shoulder_zoned.ctl
-*option:Combi-P9-zoned-ecm:cost:total = 2970   				!BC-LEEP
-*option:Combi-P9-zoned-ecm:alias = 2330
+*option:gas-high-eff-psc:value:1 = SH-gas-furnace-high-eff-psc.hvac
+*option:gas-high-eff-psc:value:2 = #-no-GSHP-file
+*option:gas-high-eff-psc:value:3 = #No-IMS: 
+*option:gas-high-eff-psc:value:4 = 
+*option:gas-high-eff-psc:value:5 = 
+*option:gas-high-eff-psc:value:6 = shoulder-ideal.ctl
+*option:gas-high-eff-psc:cost:total    = 0
+*option:gas-high-eff-psc:alias = 2301
 
-*option:propanefurnaceAC:value:1 = propane_furnace_ACv2.hvac
-*option:propanefurnaceAC:value:2 = #-no-GSHP-file
-*option:propanefurnaceAC:value:3 = #No-IMS: 
-*option:propanefurnaceAC:value:4 = 
-*option:propanefurnaceAC:value:5 = 
-*option:propanefurnaceAC:value:6 = shoulder-ideal.ctl
-*option:propanefurnaceAC:cost:total    = 0
-*option:propanefurnaceAC:alias = 2308
+*option:gas-mid-eff-psc:value:1 = SH-gas-furnace-mid-eff-psc.hvac
+*option:gas-mid-eff-psc:value:2 = #-no-GSHP-file
+*option:gas-mid-eff-psc:value:3 = #No-IMS: 
+*option:gas-mid-eff-psc:value:4 = 
+*option:gas-mid-eff-psc:value:5 = 
+*option:gas-mid-eff-psc:value:6 = shoulder-ideal.ctl
+*option:gas-mid-eff-psc:cost:total    = 0
+*option:gas-mid-eff-psc:alias = 2302
 
-*option:oilfurnace:value:1 = basefurnace_ACv2_oil.hvac
-*option:oilfurnace:value:2 = #-no-GSHP-file
-*option:oilfurnace:value:3 = #No-IMS: 
-*option:oilfurnace:value:4 = 
-*option:oilfurnace:value:5 = 
-*option:oilfurnace:value:6 = shoulder-ideal.ctl
-*option:oilfurnace:cost:total    = 0
-*option:oilfurnace:alias = 2309
 
-*option:elec-baseboard:value:1 = Baseboardv2.hvac
+! > Oil Heating 
+
+*option:oil-mid-eff-psc:value:1 = SH-oil-furnace-mid-eff-psc.hvac
+*option:oil-mid-eff-psc:value:2 = #-no-GSHP-file
+*option:oil-mid-eff-psc:value:3 = #No-IMS: 
+*option:oil-mid-eff-psc:value:4 = 
+*option:oil-mid-eff-psc:value:5 = 
+*option:oil-mid-eff-psc:value:6 = shoulder-ideal.ctl
+*option:oil-mid-eff-psc:cost:total    = 0
+*option:oil-mid-eff-psc:alias = 2303
+
+
+! > Electric heating 
+
+*option:elec-baseboard:value:1 = SH-elec-baseboard.hvac
 *option:elec-baseboard:value:2 = #-no-GSHP-file
 *option:elec-baseboard:value:3 = #No-IMS: 
 *option:elec-baseboard:value:4 = 
 *option:elec-baseboard:value:5 = 
 *option:elec-baseboard:value:6 = shoulder-ideal.ctl
-*option:elec-baseboard:cost:total       = -3870
-*option:elec-baseboard:alias = 2310
+*option:elec-baseboard:cost:total       = 0
+*option:elec-baseboard:alias = 2304
 
-*option:CCASHP:value:1 = CCASHPv2.hvac
-*option:CCASHP:value:2 = #-no-GSHP-file
-*option:CCASHP:value:3 = #No-IMS: 
-*option:CCASHP:value:4 = 
-*option:CCASHP:value:5 = 
-*option:CCASHP:value:6 =  shoulder-ideal.ctl
-*option:CCASHP:cost:total   = 9595          ! Does this reflect AC system savings?
-*option:CCASHP:alias = 2311
 
-*option:CCASHP:value:1 = CCASHPv2-ecm.hvac
-*option:CCASHP:value:2 = #-no-GSHP-file
-*option:CCASHP:value:3 = #No-IMS: 
-*option:CCASHP:value:4 = 
-*option:CCASHP:value:5 = 
-*option:CCASHP:value:6 =  shoulder-ideal.ctl
-*option:CCASHP:cost:total   = 7840    ! BC-LEEP      
-*option:CCASHP:alias = 2325
+*option:elec-CCASHP:value:1 = SH-elec-ccashp-ecm.hvac
+*option:elec-CCASHP:value:2 = #-no-GSHP-file
+*option:elec-CCASHP:value:3 = #No-IMS: 
+*option:elec-CCASHP:value:4 = 
+*option:elec-CCASHP:value:5 = 
+*option:elec-CCASHP:value:6 =  shoulder-ideal.ctl
+*option:elec-CCASHP:cost:total   = 0    ! BC-LEEP      
+*option:elec-CCASHP:alias = 2305
 
 Reflects southern Ontario costs
-*option:GSHP:value:1 = GSHPv2.hvac
-*option:GSHP:value:2 = *gshp~../hvac/heatx_v1.gshp
-*option:GSHP:value:3 = #No-IMS: 
-*option:GSHP:value:4 = 
-*option:GSHP:value:5 = 
-*option:GSHP:value:6 = shoulder-ideal.ctl 
-*option:GSHP:cost:total    = 18560          ! Does this reflect AC syste$
-*option:GSHP:alias = 2312
-
-! Options for VP retrofit
-
-*option:gas-furnace-low:value:1 = gas-furnace-low-eff.hvac
-*option:gas-furnace-low:value:2 = #-no-GSHP-file
-*option:gas-furnace-low:value:3 = #No-IMS: 
-*option:gas-furnace-low:value:4 = 
-*option:gas-furnace-low:value:5 = 
-*option:gas-furnace-low:value:6 = shoulder-ideal.ctl 
-*option:gas-furnace-low:cost:total    = 0
-*option:gas-furnace-low:alias = 2313
-
-*option:gas-furnace-mid:value:1 = gas-furnace-mid-eff.hvac
-*option:gas-furnace-mid:value:2 = #-no-GSHP-file
-*option:gas-furnace-mid:value:3 = #No-IMS: 
-*option:gas-furnace-mid:value:4 = 
-*option:gas-furnace-mid:value:5 = 
-*option:gas-furnace-mid:value:6 = shoulder-ideal.ctl 
-*option:gas-furnace-mid:cost:total    = 0
-*option:gas-furnace-mid:alias = 2314
-
-*option:baseboard-heating:value:1 = baseboard-heating.hvac
-*option:baseboard-heating:value:2 = #-no-GSHP-file
-*option:baseboard-heating:value:3 = #No-IMS: 
-*option:baseboard-heating:value:4 = 
-*option:baseboard-heating:value:5 = 
-*option:baseboard-heating:value:6 = shoulder-ideal.ctl 
-*option:baseboard-heating:cost:total    = 0
-*option:baseboard-heating:alias = 2315
-
-*option:oil-furnace-mid:value:1 = oil-furnace-mid-eff.hvac
-*option:oil-furnace-mid:value:2 = #-no-GSHP-file
-*option:oil-furnace-mid:value:3 = #No-IMS: 
-*option:oil-furnace-mid:value:4 = 
-*option:oil-furnace-mid:value:5 = 
-*option:oil-furnace-mid:value:6 = shoulder-ideal.ctl 
-*option:oil-furnace-mid:cost:total    = 0
-*option:oil-furnace-mid:alias = 2316
-
-*option:oil-furnace-low:value:1 = oil-furnace-low-eff.hvac
-*option:oil-furnace-low:value:2 = #-no-GSHP-file
-*option:oil-furnace-low:value:3 = #No-IMS: 
-*option:oil-furnace-low:value:4 = 
-*option:oil-furnace-low:value:5 = 
-*option:oil-furnace-low:value:6 = shoulder-ideal.ctl 
-*option:oil-furnace-low:cost:total    = 0
-*option:oil-furnace-low:alias = 2317
+*option:elec-GSHP:value:1 = SH-elec-GSHP.hvac
+*option:elec-GSHP:value:2 = *gshp~../hvac/heatx_v1.gshp
+*option:elec-GSHP:value:3 = #No-IMS: 
+*option:elec-GSHP:value:4 = 
+*option:elec-GSHP:value:5 = 
+*option:elec-GSHP:value:6 = shoulder-ideal.ctl 
+*option:elec-GSHP:cost:total    = 18560          ! Does this reflect AC syste$
+*option:elec-GSHP:alias = 2306
 
 
-!---Options for retrofit-------------------------------
-!BC 1980
-*option:gas-furnace-84_3:value:1 = gas-furnace-84_3.hvac
-*option:gas-furnace-84_3:value:2 = #-no-GSHP-file
-*option:gas-furnace-84_3:value:3 = #No-IMS: 
-*option:gas-furnace-84_3:value:4 = #No HRV
-*option:gas-furnace-84_3:value:5 = 
-*option:gas-furnace-84_3:value:6 = shoulder-ideal.ctl 
-*option:gas-furnace-84_3:cost:total    = 0
-*option:gas-furnace-84_3:alias = 2318
-
-*option:retro_upgrade_furnace:value:1 = retro_96furnace.hvac
-*option:retro_upgrade_furnace:value:2 = #-no-GSHP-file
-*option:retro_upgrade_furnace:value:3 = #No-IMS: 
-*option:retro_upgrade_furnace:value:4 = 
-*option:retro_upgrade_furnace:value:5 = 
-*option:retro_upgrade_furnace:value:6 = shoulder-ideal.ctl
-*option:retro_upgrade_furnace:cost:total    = 5900
-*option:retro_upgrade_furnace:alias = 2319
-
-*option:retro_CCASHP:value:1 = CCASHPv2.hvac
-*option:retro_CCASHP:value:2 = #-no-GSHP-file
-*option:retro_CCASHP:value:3 = #No-IMS: 
-*option:retro_CCASHP:value:4 = 
-*option:retro_CCASHP:value:5 = 
-*option:retro_CCASHP:value:6 = shoulder-ideal.ctl 
-*option:retro_CCASHP:cost:total    = 11895.0
-*option:retro_CCASHP:alias = 2320
-
-Reflects southern Ontario costs
-*option:retro_GSHP:value:1 = GSHPv2.hvac
-*option:retro_GSHP:value:2 = *gshp~../hvac/heatx_v1.gshp
-*option:retro_GSHP:value:3 = #No-IMS: 
-*option:retro_GSHP:value:4 = #No HRV
-*option:retro_GSHP:value:5 = 
-*option:retro_GSHP:value:6 = shoulder-ideal.ctl 
-*option:retro_GSHP:cost:total    = 32500          ! Does this reflect AC
-*option:retro_GSHP:alias = 2321
-
-!---Options for Northern retrofit-------------------------------
-*option:Olsen:value:1 = oil-furnace-Olsen.hvac
-*option:Olsen:value:2 = #-no-GSHP-file
-*option:Olsen:value:3 = #No-IMS: 
-*option:Olsen:value:4 = 
-*option:Olsen:value:5 = 
-*option:Olsen:value:6 = shoulder-ideal.ctl 
-*option:Olsen:cost:total    = 0
-*option:Olsen:alias = 2322
-
-*option:upgrade_Olsen:value:1 = upg_oil-furnace-Olsen.hvac
-*option:upgrade_Olsen:value:2 = #-no-GSHP-file
-*option:upgrade_Olsen:value:3 = #No-IMS: 
-*option:upgrade_Olsen:value:4 = 
-*option:upgrade_Olsen:value:5 = 
-*option:upgrade_Olsen:value:6 = shoulder-ideal.ctl 
-*option:upgrade_Olsen:cost:total    = 0
-*option:upgrade_Olsen:alias = 2323
-
-*option:wood_furnace:value:1 = wood-furnace.hvac
-*option:wood_furnace:value:2 = #-no-GSHP-file
-*option:wood_furnace:value:3 = #No-IMS: 
-*option:wood_furnace:value:4 = #
-*option:wood_furnace:value:5 = 
-*option:wood_furnace:value:6 = shoulder-ideal.ctl 
-*option:wood_furnace:cost:total    = 0
-*option:wood_furnace:alias = 2324
-
-*option:upgrade_wood_furnace:value:1 = upgrade_wood-furnace.hvac
-*option:upgrade_wood_furnace:value:2 = #-no-GSHP-file
-*option:upgrade_wood_furnace:value:3 = #No-IMS: 
-*option:upgrade_wood_furnace:value:4 = #
-*option:upgrade_wood_furnace:value:5 = 
-*option:upgrade_wood_furnace:value:6 = shoulder-ideal.ctl 
-*option:upgrade_wood_furnace:cost:total    = 0
-*option:upgrade_wood_furnace:alias = 2324
-
-*option:oil80:value:1 = oil80furnace.hvac
-*option:oil80:value:2 = #-no-GSHP-file
-*option:oil80:value:3 = #No-IMS: 
-*option:oil80:value:4 = 
-*option:oil80:value:5 = 
-*option:oil80:value:6 = shoulder-ideal.ctl 
-*option:oil80:cost:total    = 0
-*option:oil80:alias = 2325
-
-*option:oil87:value:1 = oil87furnace.hvac
-*option:oil87:value:2 = #-no-GSHP-file
-*option:oil87:value:3 = #No-IMS: 
-*option:oil87:value:4 = #
-*option:oil87:value:5 = 
-*option:oil87:value:6 = shoulder-ideal.ctl 
-*option:oil87:cost:total    = 0
-*option:oil87:alias = 2325
-
-*option:baseboard:value:1 = Baseboard.hvac
-*option:baseboard:value:2 = #-no-GSHP-file
-*option:baseboard:value:3 = #No-IMS: 
-*option:baseboard:value:4 = #
-*option:baseboard:value:5 = 
-*option:baseboard:value:6 = shoulder-ideal.ctl
-*option:baseboard:cost:total   = 0
-*option:baseboard:alias = 2326
-
-*option:oil_boiler:value:1 = oil-boiler.hvac
-*option:oil_boiler:value:2 = #-no-GSHP-file
-*option:oil_boiler:value:3 = #No-IMS: 
-*option:oil_boiler:value:4 = 
-*option:oil_boiler:value:5 = 
-*option:oil_boiler:value:6 = shoulder-ideal.ctl
-*option:oil_boiler:cost:total   = 0
-*option:oil_boiler:alias = 2327
-
-*option:pellet_boiler:value:1 = pellet-boiler.hvac
-*option:pellet_boiler:value:2 = #-no-GSHP-file
-*option:pellet_boiler:value:3 = #No-IMS: 
-*option:pellet_boiler:value:4 = 
-*option:pellet_boiler:value:5 = 
-*option:pellet_boiler:value:6 = shoulder-ideal.ctl
-*option:pellet_boiler:cost:total   = 0
-*option:pellet_boiler:alias = 2327
 
 *attribute:end
 
@@ -3091,64 +2856,32 @@ Reflects southern Ontario costs
 *attribute:tag:1    = <Opt-DHWInputFile>
 *attribute:default = BaseDHW 
 
-*option:BaseDHW:value:1     = BaseDHW.dhw
-*option:BaseDHW:cost:total        = 0
-*option:BaseDHW:alias = 2900
 
-*option:ElecInstantaneous:value:1 = ElecInstant.dhw
-*option:ElecInstantaneous:cost:total    = -245.0
-*option:ElecInstantaneous:alias = 2901
+*option:gas-PwrVnt:value:1       = WH-gas-PwrVnt.dhw
+*option:gas-PwrVnt:cost:total    = 0
+*option:gas-PwrVnt:alias = 2900
 
-*option:ElectricStorage:value:1 = ElecStorage.dhw
-*option:ElectricStorage:cost:total    = -605.0
-*option:ElectricStorage:alias = 2902
+*option:gas-tankless:value:1       = WH-gas-tankless.dhw
+*option:gas-tankless:cost:total    = 0
+*option:gas-tankless:alias = 2901
 
-*option:GasInstantaneous:value:1 = GasInstantaneous.dhw
-*option:GasInstantaneous:cost:total    = 550    ! BC-LEEP
-*option:GasInstantaneous:alias = 2903
+*option:gas-storage:value:1       = WH-gas-storage.dhw
+*option:gas-storage:cost:total    = 0
+*option:gas-storage:alias = 2902
 
-*option:ElectricHP:value:1 = ElecHP.dhw
-*option:ElectricHP:cost:total    = 825    ! BC-LEEP
-*option:ElectricHP:alias = 2904
+*option:elec-tankless:value:1       = WH-elec-tankless.dhw
+*option:elec-tankless:cost:total    = 0
+*option:elec-tankless:alias = 2903
 
-! retrofit costs---------------------
-*option:retro_GasInst:value:1 = GasInstantaneous.dhw
-*option:retro_GasInst:cost:total    = 3500
-*option:retro_GasInst:alias = 2905
+*option:elec-storage:value:1       = WH-elec-storage.dhw
+*option:elec-storage:cost:total    = 0
+*option:elec-storage:alias = 2904
 
-*option:retro_ElectricHP:value:1 = ElecHP.dhw
-*option:retro_ElectricHP:cost:total    = 3750
-*option:retro_ElectricHP:alias = 2906
-
-! NWT DHW systems---------------------
-*option:NWT_oil_DHW:value:1     = NWT_oil_DHW.dhw
-*option:NWT_oil_DHW:cost:total  = 0
-*option:NWT_oil_DHW:alias = 2912
-
-*option:elec_DHW:value:1        = elec_DHW.dhw
-*option:elec_DHW:cost:total     = 0
-*option:elec_DHW:alias = 2907
-
-*option:wood_DHW:value:1      = wood_DHW.dhw
-*option:wood_DHW:cost:total   = 0
-*option:wood_DHW:alias = 2908
-
-*option:NWT_upgrade_elec_DHW:value:1     = upgrade_elec_DHW.dhw
-*option:NWT_upgrade_elec_DHW:cost:total  = 0
-*option:NWT_upgrade_elec_DHW:alias = 2909
+*option:elec-heatpump:value:1       = WH-elec-HP.dhw
+*option:elec-heatpump:cost:total    = 0
+*option:elec-heatpump:alias = 2905
 
 
-*option:NWT_upgrade_oil_DHW:value:1     = upgrade_oil_DHW.dhw
-*option:NWT_upgrade_oil_DHW:cost:total  = 0
-*option:NWT_upgrade_oil_DHW:alias = 2910
-
-*option:NWT_elec_inst:value:1     = ElecInstant.dhw
-*option:NWT_elec_inst:cost:total  = 0
-*option:NWT_elec_inst:alias = 2913
-
-*option:NWT_oil_inst:value:1     = OilInstantaneous.dhw
-*option:NWT_oil_inst:cost:total  = 0
-*option:NWT_oil_inst:alias = 2914
 
 *attribute:end
 

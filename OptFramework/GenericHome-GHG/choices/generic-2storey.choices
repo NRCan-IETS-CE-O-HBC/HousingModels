@@ -166,7 +166,7 @@ Opt-StandoffPV       : NoPV !SizedPV|8kW
 ! Hot water reduction technologies (SDHW, DHWR) 
 ! 
 ! - DWHR-4-36
-! - DWHR-4-60
+! - DWHR-4-60	
 ! - 1-plate 
 ! - 2-plate 
 ! - 1-plate-DWHR-4-36
@@ -174,7 +174,7 @@ Opt-StandoffPV       : NoPV !SizedPV|8kW
 ! - 1-plate-DWHR-4-60
 ! - 2-plate-DWHR-4-60
 !   
-Opt-DWHRandSDHW         : 2-plate-DWHR-4-60          
+Opt-DWHRandSDHW         : none           
 
 ! DHW LOAD SCALES 
 ! CEF project
@@ -203,7 +203,7 @@ Opt-RoofPitch : 6-12
 !  GasInstant
 !  ElectricHP
 
-Opt-DHWSystem        : BaseDHW
+Opt-DHWSystem        : elec-storage
 
 ! HVAC system 
 !  gas-furnace-low
@@ -212,7 +212,8 @@ Opt-DHWSystem        : BaseDHW
 !  oil-furnace-low
 !  oil-furnace-mid
 
-Opt-HVACSystem       : gas-furnace-84_3
+Opt-HVACSystem       : elec-GSHP
+
 OPT-Furnace-Fan-Ctl  : Auto
 ! HRV spec 
 
