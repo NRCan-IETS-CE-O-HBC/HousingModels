@@ -1,0 +1,4 @@
+ID,Opt-geometry,Opt-ACH,Opt-Ceilings,Opt-GenericWall_1Layer_definitions, Opt-BasementWallInsulation,Opt-BasementSlabInsulation,Opt-ExposedFloor,Opt-CasementWindows,Opt-HVACSystem,Opt-Cooling-Spec,Opt-DHWSystem,Opt-HRVspec
+CA_pre1946_Gas,training_2storey,retro_ACH_1,CeilR40,Generic_Wall_R-08_RSI-1.4-eff,PouredConcrete_NoIns,NoInsulation,BaseExpFloor-R31,DoubleLowESoftCoatArgFill,gas-furnace-84_3,2TonStdCooling,BaseDHW,BaseHRV_SRE70
+CA_1946-1983_Gas,training_2storey,retro_ACH_1,CeilR40,Generic_Wall_R-08_RSI-1.4-eff,PouredConcrete_NoIns,NoInsulation,BaseExpFloor-R31,DoubleLowESoftCoatArgFill,gas-furnace-84_3,2TonStdCooling,BaseDHW,BaseHRV_SRE70
+CA_1984-1995_Gas,training_2storey,retro_ACH_1,CeilR40,Generic_Wall_R-08_RSI-1.4-eff,PouredConcrete_NoIns,NoInsulation,BaseExpFloor-R31,DoubleLowESoftCoatArgFill,gas-furnace-84_3,2TonStdCooling,BaseDHW,BaseHRV_SRE70
