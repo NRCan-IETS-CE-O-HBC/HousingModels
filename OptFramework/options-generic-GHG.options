@@ -1840,7 +1840,7 @@
 *attribute:tag:1  = <Opt-MainWall-Bri>
 *attribute:tag:2  = <Opt-MainWall-Vin>
 *attribute:tag:3  = <Opt-MainWall-Dry>
-*attribute:default = BaseR21
+*attribute:default = GenericWall_1Layer
 
 ! GENERIC wall definitions: thickness of insulation layers
 ! is set separately, based on data in options file
@@ -1861,343 +1861,9 @@
 !*option:GenericWall_2Layer:alias = 3501
 
 
-! Other wall definitions: insulation configurations and thicknesses 
-! defined in the construction file
-
-*option:BaseR20:value:1 =   BaseR20Bri   ! Added by JTB for MB base wall
-*option:BaseR20:value:2 =   BaseR20Vin
-*option:BaseR20:value:3 =   BaseR20Dry 
-!*option:BaseR20:value:4 =   BaseR20DryR
-*option:BaseR20:cost:total    =   0
-*option:BaseR20:alias    =   1700
-
-*option:BaseR21:value:1 =   BaseR21Bri
-*option:BaseR21:value:2 =   BaseR21Vin
-*option:BaseR21:value:3 =   BaseR21Dry 
-!*option:BaseR21:value:4 =  BaseR21DryR
-*option:BaseR21:cost:total    =   0
-*option:BaseR21:alias    =   1701
-
-!*option:ICFR22:value:1 =   IcfR22Bri
-!*option:ICFR22:value:2 =   IcfR22Vin
-!*option:ICFR22:value:3 =   IcfR22Dry 
-!!*option:ICFR22:value:4 =   IcfR22DryR
-!*option:ICFR22:cost:total    =   18438.04 ! updated for Vancouver geometry. originally 25150
-!*option:ICFR22:alias    =   1702
-
-*option:SIPS-R22-Wall:value:1 =   SipR22Bri
-*option:SIPS-R22-Wall:value:2 =   SipR22Vin
-*option:SIPS-R22-Wall:value:3 =   SipR22Dry 
-!*option:SIPS-R22-Wall:value:4 =   SipR22DryR
-*option:SIPS-R22-Wall:cost:total    =  -598 ! updated for Vancouver geometry. originally -816
-*option:SIPS-R22-Wall:alias    =  1703
-
-*option:SIPS-R28-Wall:value:1 =   SipR28Bri
-*option:SIPS-R28-Wall:value:2 =   SipR28Vin
-*option:SIPS-R28-Wall:value:3 =   SipR28Dry 
-!*option:SIPS-R28-Wall:value:4 =   SipR28DryR
-*option:SIPS-R28-Wall:cost:total    =  439 !  updated for Vancouver geometry. originally 599
-*option:SIPS-R28-Wall:alias    =  1704
-
-!*option:SIPS-R36-Wall:value:1 =   SipR36Bri
-!*option:SIPS-R36-Wall:value:2 =   SipR36Vin
-!*option:SIPS-R36-Wall:value:3 =   SipR36Dry 
-!!*option:SIPS-R36-Wall:value:4 =   SipR36DryR
-!*option:SIPS-R36-Wall:cost:total    =  1497 ! updated for Vancouver geometry. originally 2042
-!*option:SIPS-R36-Wall:alias    =  1705
-
-*option:Stud-R35-Wall:value:1 =   StudR35Bri
-*option:Stud-R35-Wall:value:2 =   StudR35Vin
-*option:Stud-R35-Wall:value:3 =   StudR35Dry 
-!*option:Stud-R35-Wall:value:4 =   StudR35DryR
-*option:Stud-R35-Wall:cost:total    =  2867  ! updated for Vancouver geometry. originally 3911
-*option:Stud-R35-Wall:alias = 1706
-
-*option:Stud-R40-Wall:value:1 =   StudR40Bri
-*option:Stud-R40-Wall:value:2 =   StudR40Vin
-*option:Stud-R40-Wall:value:3 =   StudR40Dry 
-!*option:Stud-R40-Wall:value:4 =   StudR40DryR
-*option:Stud-R40-Wall:cost:total    =  6098 ! updated for Vancouver geometry. originally 8318
-*option:Stud-R40-Wall:alias = 1707
-
-*option:DblStud-R37-Wall:value:1 =   DblSR37Bri
-*option:DblStud-R37-Wall:value:2 =   DblSR37Vin
-*option:DblStud-R37-Wall:value:3 =   DblSR37Dry 
-!*option:DblStud-R37-Wall:value:4 =   DblSR37DryR
-*option:DblStud-R37-Wall:cost:total    = 2320  ! updated for Vancouver geometry. originally 3165
-*option:DblStud-R37-Wall:alias = 1708
-
-*option:DblStud-R52-Wall:value:1 =   DblSR52Bri
-*option:DblStud-R52-Wall:value:2 =   DblSR52Vin
-*option:DblStud-R52-Wall:value:3 =   DblSR52Dry 
-!*option:DblStud-R52-Wall:value:4 =   DblSR52DryR
-*option:DblStud-R52-Wall:cost:total    = 4387 ! updated for Vancouver geometry. originally 5985
-*option:DblStud-R52-Wall:alias = 1709
-
-*option:Truss-R40-Wall:value:1 =   TruR40Bri
-*option:Truss-R40-Wall:value:2 =   TruR40Vin
-*option:Truss-R40-Wall:value:3 =   TruR40Dry 
-!*option:Truss-R40-Wall:value:4 =   TruR40DryR
-*option:Truss-R40-Wall:cost:total    = 4241 ! updated for Vancouver geometry. originally 5785
-*option:Truss-R40-Wall:alias = 1710
-
-*option:Truss-R52-Wall:value:1 =   TruR52Bri
-*option:Truss-R52-Wall:value:2 =   TruR52Vin
-*option:Truss-R52-Wall:value:3 =   TruR52Dry 
-!*option:Truss-R52-Wall:value:4 =   TruR52DryR
-*option:Truss-R52-Wall:cost:total    = 9350 ! updated for Vancouver geometry. originally 12755
-*option:Truss-R52-Wall:alias = 1711
-
-*option:Stud-R275-Wall:value:1 =   StudR275Bri  ! Use for MB 1.5" Ext XPS
-*option:Stud-R275-Wall:value:2 =   StudR275Vin
-*option:Stud-R275-Wall:value:3 =   StudR275Dry 
-!*option:Stud-R275-Wall:value:4 =   StudR275DryR
-*option:Stud-R275-Wall:cost:total    =  715 ! updated for Vancouver geometry. originally 965   JTB 13-Aug-2014 Ottawa LEEP
-*option:Stud-R275-Wall:alias = 1712
-
-*option:Stud-R305-Wall:value:1 =   StudR305Bri  ! Use for MB 2.0" Ext XPS
-*option:Stud-R305-Wall:value:2 =   StudR305Vin
-*option:Stud-R305-Wall:value:3 =   StudR305Dry 
-!*option:Stud-R305-Wall:value:4 =   StudR305DryR
-*option:Stud-R305-Wall:cost:total    =  3853 	! updated for Vancouver geometry. originally 5255 From PL 30-Jan-2014 - Updated by JTB 04-Feb-2014
-*option:Stud-R305-Wall:alias = 1713
-
-*option:Stud-R325-Wall:value:1 =   StudR325Bri  ! Use for MB 2.5" Ext XPS
-*option:Stud-R325-Wall:value:2 =   StudR325Vin
-*option:Stud-R325-Wall:value:3 =   StudR325Dry 
-!*option:Stud-R325-Wall:value:4 =   StudR325DryR
-*option:Stud-R325-Wall:cost:total    =   0	    ! Unknown cost
-*option:Stud-R325-Wall:alias = 1714
-
-*option:AdvFrm-R20-Wall:value:1 =   AdvFrmR20  ! Use for MB Advanced Framing 
-*option:AdvFrm-R20-Wall:value:2 =   AdvFrmR20
-*option:AdvFrm-R20-Wall:value:3 =   AdvFrmR20
-*option:AdvFrm-R20-Wall:cost:total    = -194 ! updated for Vancouver geometry. originally -265	 From PL 30/Jan/2014
-*option:AdvFrm-R20-Wall:alias = 1715
-
-
-!-------------------------------------------------------------------------------
-Whitehorse Wall Options (Code is R28)
-!-------------------------------------------------------------------------------
-
-*option:W15_R25:value:1 =   W15_R25Bri
-*option:W15_R25:value:2 =   W15_R25Vin
-*option:W15_R25:value:3 =   W15_R25Dry 
-!*option:W15_R2521:value:4 =   W15_R25DryR
-*option:W15_R25:cost:total   =   0
-*option:W15_R25:alias = 1716
-
-*option:W5_R36:value:1 =   W5_R36Bri
-*option:W5_R36:value:2 =   W5_R36Vin
-*option:W5_R36:value:3 =   W5_R36Dry 
-!*option:W5_R36:value:4 =   W5_R36DryR
-*option:W5_R36:cost:total   =   10549
-*option:W5_R36:alias = 1717
-
-*option:W6_R56:value:1 =   W6_R56Bri
-*option:W6_R56:value:2 =   W6_R56Vin
-*option:W6_R56:value:3 =   W6_R56Dry 
-!*option:W6_R56:value:4 =  W6_R56DryR
-*option:W6_R56:cost:total   =   18636
-*option:W6_R56:alias = 1718
-
-*option:W8_R42:value:1 =   W8_R42Bri
-*option:W8_R42:value:2 =   W8_R42Vin
-*option:W8_R42:value:3 =   W8_R42Dry 
-!*option:W8_R42:value:4 =   W8_R42DryR
-*option:W8_R42:cost:total   =   6802
-*option:W8_R42:alias = 1719
-
-*option:W9_R62:value:1 =   W9_R62Bri
-*option:W9_R62:value:2 =   W9_R62Vin
-*option:W9_R62:value:3 =   W9_R62Dry 
-!*option:W9_R62:value:4 =   W9_R62DryR
-*option:W9_R62:cost:total   =   15101
-*option:W9_R62:alias = 1720
-
-*option:W10_R82:value:1 =   W10_R82Bri
-*option:W10_R82:value:2 =   W10_R82Vin
-*option:W10_R82:value:3 =   W10_R82Dry 
-!*option:W10_R82:value:4 =   W10_R82DryR
-*option:W10_R82:cost:total   =   23399
-*option:W10_R82:alias = 1721
-
-*option:W12_R59:value:1 =   W12_R59Bri
-*option:W12_R59:value:2 =   W12_R59Vin
-*option:W12_R59:value:3 =   W12_R59Dry 
-!*option:W12_R59:value:4 =   W12_R59DryR
-*option:W12_R59:cost:total   =   15806
-*option:W12_R59:alias = 1722
-
-*option:W13_R78:value:1 =   W13_R78Bri
-*option:W13_R78:value:2 =   W13_R78Vin
-*option:W13_R78:value:3 =   W13_R78Dry 
-!*option:W13_R78:value:4 =   W13_R78DryR
-*option:W13_R78:cost:total   =   24030
-*option:W13_R78:alias = 1723
-
-*option:W16_R38:value:1 =   W16_R38Bri
-*option:W16_R38:value:2 =   W16_R38Vin
-*option:W16_R38:value:3 =   W16_R38Dry 
-!*option:W16_R38:value:4 =   W16_R38DryR
-*option:W16_R38:cost:total   =   1713
-*option:W16_R38:alias = 1724
-
-*option:W17_R58:value:1 =   W17_R58Bri
-*option:W17_R58:value:2 =   W17_R58Vin
-*option:W17_R58:value:3 =   W17_R58Dry 
-!*option:W17_R58:value:4 =   W17_R58DryR
-*option:W17_R58:cost:total   =   10011
-*option:W17_R58:alias = 1725
-
-*option:W18_R78:value:1 =   W18_R78Bri
-*option:W18_R78:value:2 =   W18_R78Vin
-*option:W18_R78:value:3 =   W18_R78Dry 
-!*option:W18_R78:value:4 =   W18_R78DryR
-*option:W18_R78:cost:total   =   18309
-*option:W18_R78:alias = 1726
-
-*option:W19_R27:value:1 =   W19_R27Bri
-*option:W19_R27:value:2 =   W19_R27Vin
-*option:W19_R27:value:3 =   W19_R27Dry 
-!*option:W19_R27:value:4 =   W19_R27DryR
-*option:W19_R27:cost:total   =   -2226
-*option:W19_R27:alias = 1727
-
-*option:W20_R39:value:1 =   W20_R39Bri
-*option:W20_R39:value:2 =   W20_R39Vin
-*option:W20_R39:value:3 =   W20_R39Dry 
-!*option:W20_R39:value:4 =   W20_R39ryR
-*option:W20_R39:cost:total   =   3036
-*option:W20_R39:alias = 1728
-
-*option:W21_R59:value:1 =   W21_R59Bri
-*option:W21_R59:value:2 =   W21_R59Vin
-*option:W21_R59:value:3 =   W21_R59Dry 
-!*option:W21_R59:value:4 =   W21_R59ryR
-*option:W21_R59:cost:total   =   12448
-*option:W21_R59:alias = 1729
-
-*option:W31b_R55:value:1 =   W31b_R55Bri
-*option:W31b_R55:value:2 =   W31b_R55Vin
-*option:W31b_R55:value:3 =   W31b_R55Dry 
-!*option:W31b_R55:value:4 =   W31b_R55ryR
-*option:W31b_R55:cost:total   =   25000
-*option:W31b_R55:alias = 1730
-
-!-----------------------------------------------------------------------
-!  Retrofit Wall Options
-!-----------------------------------------------------------------------
-
-*option:Retro-DblBr:value:1 =   RetroBaseBri   ! Added by JP for retrofit analysis
-*option:Retro-DblBr:value:2 =   RetroBaseVin
-*option:Retro-DblBr:value:3 =   RetroBaseDry 
-*option:Retro-DblBr:cost:total    =   0
-*option:Retro-DblBr:alias = 1731
-
-*option:Retro-R1_52:value:1 =   Retro-R1_52   ! Added by JP for retrofit analysis
-*option:Retro-R1_52:value:2 =   Retro-R1_52
-*option:Retro-R1_52:value:3 =   Retro-R1_52 
-*option:Retro-R1_52:cost:total    =   0
-*option:Retro-R1_52:alias = 1732
-
-*option:Retro-R2_1:value:1 =   Retro-R2_1   ! Added by JP for retrofit analysis
-*option:Retro-R2_1:value:2 =   Retro-R2_1
-*option:Retro-R2_1:value:3 =   Retro-R2_1 
-*option:Retro-R2_1:cost:total    =   0
-*option:Retro-R2_1:alias = 1733
-
-*option:Retro-ext_4EPS:value:1 =   Retroext4EPS   ! Added by JP for retrofit analysis
-*option:Retro-ext_4EPS:value:2 =   Retroext4EPS
-*option:Retro-ext_4EPS:value:3 =   Retroext4EPS 
-*option:Retro-ext_4EPS:cost:total    =   21957     ! costing calculated for Vancouver retrofit
-*option:Retro-ext_4EPS:alias = 1734
-
-*option:Retro-int_2XPS:value:1 =   Retroint2XPS   ! Added by JP for retrofit analysis
-*option:Retro-int_2XPS:value:2 =   Retroint2XPS
-*option:Retro-int_2XPS:value:3 =   Retroint2XPS 
-*option:Retro-int_2XPS:cost:total    =   22032    ! costing calculated for Vancouver retrofit
-*option:Retro-int_2XPS:alias = 1735
-
-*option:Retro-int_spray:value:1 =   Retrointspr   ! Added by JP for retrofit analysis
-*option:Retro-int_spray:value:2 =   Retrointspr
-*option:Retro-int_spray:value:3 =   Retrointspr 
-*option:Retro-int_spray:cost:total    =   24145    ! costing calculated for Vancouver retrofit
-*option:Retro-int_spray:alias = 1736
-
-!-------------------------------------------------------------------------------
-! NWT Retrofit Main Wall Options
-!-------------------------------------------------------------------------------
-*option:NWTR20:value:1 =   NWTR20   ! Added by JP for retrofit analysis
-*option:NWTR20:value:2 =   NWTCrawlWll   ! this refers to the crawl space wall
-*option:NWTR20:value:3 =   NWTR20 
-*option:NWTR20:cost:total    =   0  
-*option:NWTR20:alias = 1737
-
-*option:NWTR20_4:value:1 =   NWTR20_4   ! Base case R20 wall with 4" EPS on exterior
-*option:NWTR20_4:value:2 =   NWTCrawlWll4 ! this refers to the crawl space wall
-*option:NWTR20_4:value:3 =   NWTR20_4 
-*option:NWTR20_4:cost:total    =   0  ! $3.69/sq.ft
-*option:NWTR20_4:alias = 1738
-
-*option:NWTR20_1_5:value:1 =   NWTR20_1_5   ! Base case R20 wall with 1.5" EPS on interior
-*option:NWTR20_1_5:value:2 =   NWTCrwlWl1_5 ! this refers to the crawl space wall
-*option:NWTR20_1_5:value:3 =   NWTR20_1_5 
-*option:NWTR20_1_5:cost:total    =   0  ! $2/sqft
-*option:NWTR20_1_5:alias = 1739
-
-*option:NWTR20_2:value:1 =   NWTR20_2   ! Base case R20 wall with 2" EPS on exterior
-*option:NWTR20_2:value:2 =   NWTCrawlWll2 ! this refers to the crawl space wall
-*option:NWTR20_2:value:3 =   NWTR20_2 
-*option:NWTR20_2:cost:total    =   0   ! $2.43/sq.f
-*option:NWTR20_2:alias = 1740
-
-*option:NWTR20_3:value:1 =   NWTR20_3   ! Base case R20 wall with 3" EPS on exterior
-*option:NWTR20_3:value:2 =   NWTCrawlWll3 ! this refers to the crawl space wall
-*option:NWTR20_3:value:3 =   NWTR20_3 
-*option:NWTR20_3:cost:total    =   0   ! $3.25/sq.ft
-*option:NWTR20_3:alias = 1741
-
-! 1986 2-storey duplex wall options 
-*option:NWT-1986:value:1 =   NWT-1986      ! Added by JP for retrofit analysis
-*option:NWT-1986:value:2 =   NWT1986Wall   ! this refers to the crawl space wall
-*option:NWT-1986:value:3 =   NWT-1986 
-*option:NWT-1986:cost:total    =   0  
-*option:NWT-1986:alias = 1742
-
-*option:NWT-1986_4:value:1 =   NWT-1986_4   ! Base case R20 wall with 4" EPS on exterior
-*option:NWT-1986_4:value:2 =   NWT1986Wll4    ! this refers to the crawl space wall
-*option:NWT-1986_4:value:3 =   NWT-1986_4 
-*option:NWT-1986_4:cost:total    =   0    ! $3.69/sq.ft
-*option:NWT-1986_4:alias = 1743
-
-*option:NWT-1986_1_5:value:1 =   NWT-1986_1_5   ! Base case R20 wall with 1.5" EPS on interior
-*option:NWT-1986_1_5:value:2 =   NWT1986Wl1_5    ! this refers to the crawl space wall
-*option:NWT-1986_1_5:value:3 =   NWT-1986_1_5 
-*option:NWT-1986_1_5:cost:total    =   0  ! $2/sqft
-*option:NWT-1986_1_5:alias = 1744
-
-*option:NWT-1986_2:value:1 =   NWT-1986_2    ! Base case R20 wall with 2" EPS on exterior
-*option:NWT-1986_2:value:2 =   NWT1986Wll2   ! this refers to the crawl space wall
-*option:NWT-1986_2:value:3 =   NWT-1986_2 
-*option:NWT-1986_2:cost:total    =   0   ! $2.43/sq.f
-*option:NWT-1986_2:alias = 1745
-
-*option:NWT-1986_3:value:1 =   NWT-1986_3   ! Base case R20 wall with 3" EPS on exterior
-*option:NWT-1986_3:value:2 =   NWT1986Wll3    ! this refers to the crawl space wall
-*option:NWT-1986_3:value:3 =   NWT-1986_3 
-*option:NWT-1986_3:cost:total    =   0   ! $3.25/sq.ft
-*option:NWT-1986_3:alias = 1746
-
-*option:NWTR40:value:1 =   NWTR40   ! Base case R20 wall with 3" EPS on exterior
-*option:NWTR40:value:2 =   NWTCrwlWR40  ! this refers to the crawl space wall
-*option:NWTR40:value:3 =   NWTR40 
-*option:NWTR40:cost:total    =   0   ! $3.25/sq.ft
-*option:NWTR40:alias = 1747
-
-
 
 *attribute:end
+
 
 !-----------------------------------------------------------------------
 ! Foundation Wall start
@@ -2205,151 +1871,224 @@ Whitehorse Wall Options (Code is R28)
 *attribute:start
 *attribute:name    = Opt-BasementWallInsulation
 *attribute:tag:1   = <OPT-BsmWall>
-*attribute:default = OBC-min-R12
+*attribute:default = GenericFoundationWall
+
+*option:GenericFoundationWall:value:1    = GenFdnWal
+*option:GenericFoundationWall:meta       = Int
+*option:GenericFoundationWall:cost:total = 0
+*option:GenericFoundationWall:alias = 1800
+
+*attribute:end
+
+!-----------------------------------------------------------------------
+! Foundation wall: Generic insulation definitions
+!-----------------------------------------------------------------------
+
+*attribute:start
+*attribute:name    = Opt-GenericFdn_1Layer_definitions
+*attribute:tag:1   = <Opt-GenFdnInsulLayer>
+*attribute:default = Generic_FDN_uninsulated_R-03_RSI-0.53_eff
 
 
-*option:OBC-min-R12:value:1 = BsmWllR12
-*option:OBC-min-R12:meta    = Int
-*option:OBC-min-R12:cost:total    = 0
-*option:OBC-min-R12:alias = 1800
+*option:Generic_FDN_uninsulated_R-03_RSI-0.53_eff:value:1 = 0.0001
+*option:Generic_FDN_uninsulated_R-03_RSI-0.53_eff:cost = 0
+*option:Generic_FDN_uninsulated_R-03_RSI-0.53_eff:alias = 9501
 
-*option:MB-IntBatt-R20:value:1 = BsmW2x4R20		! JTB 31-Jan-14 for MB Base
-*option:MB-IntBatt-R20:meta    = Int
-*option:MB-IntBatt-R20:cost:total    = 0
-*option:MB-IntBatt-R20:alias = 1801
+*option:Generic_FDN_insulated_R-04_RSI-0.71_eff:value:1 = 0.0063
+*option:Generic_FDN_insulated_R-04_RSI-0.71_eff:cost = 0
+*option:Generic_FDN_insulated_R-04_RSI-0.71_eff:alias = 9502
 
-*option:MB-Comb-R20:value:1 = MBR20Comb		    ! JTB 31-Jan-14 for MB Upgrade
-*option:MB-Comb-R20:meta    = Comb
-*option:MB-Comb-R20:cost:total    = 2110 
-*option:MB-Comb-R20:alias = 1802
+*option:Generic_FDN_insulated_R-05_RSI-0.89_eff:value:1 = 0.0127
+*option:Generic_FDN_insulated_R-05_RSI-0.89_eff:cost = 0
+*option:Generic_FDN_insulated_R-05_RSI-0.89_eff:alias = 9503
 
-*option:Rigid+Batt-R20:value:1 = BsmWllR20
-*option:Rigid+Batt-R20:meta    = Comb
-*option:Rigid+Batt-R20:cost:total    = 2410		! JTB 31-Jan-14 for Ottawa LEEP
-*option:Rigid+Batt-R20:alias = 1803
+*option:Generic_FDN_insulated_R-06_RSI-1.06_eff:value:1 = 0.019
+*option:Generic_FDN_insulated_R-06_RSI-1.06_eff:cost = 0
+*option:Generic_FDN_insulated_R-06_RSI-1.06_eff:alias = 9504
 
-*option:Rigid+Batt-R30:value:1 = BsmWllR30
-*option:Rigid+Batt-R30:meta    = Comb
-*option:Rigid+Batt-R30:cost:total    = 4642
-*option:Rigid+Batt-R30:alias = 1804
+*option:Generic_FDN_insulated_R-07_RSI-1.24_eff:value:1 = 0.0254
+*option:Generic_FDN_insulated_R-07_RSI-1.24_eff:cost = 0
+*option:Generic_FDN_insulated_R-07_RSI-1.24_eff:alias = 9505
 
-*option:Rigid+Batt-R37:value:1 = BsmWllR37
-*option:Rigid+Batt-R37:meta    = Comb
-*option:Rigid+Batt-R37:cost:total    = 5689
-*option:Rigid+Batt-R37:alias = 1805
+*option:Generic_FDN_insulated_R-08_RSI-1.41_eff:value:1 = 0.0317
+*option:Generic_FDN_insulated_R-08_RSI-1.41_eff:cost = 0
+*option:Generic_FDN_insulated_R-08_RSI-1.41_eff:alias = 9506
 
-*option:Rigid+Blown-R43:value:1 = BsmWllR43
-*option:Rigid+Blown-R43:meta    = Int
-*option:Rigid+Blown-R43:cost:total    = 7790
-*option:Rigid+Blown-R43:alias = 1806
+*option:Generic_FDN_insulated_R-09_RSI-1.59_eff:value:1 = 0.038
+*option:Generic_FDN_insulated_R-09_RSI-1.59_eff:cost = 0
+*option:Generic_FDN_insulated_R-09_RSI-1.59_eff:alias = 9507
 
-*option:ICF-base-R22:value:1 = BsmIcfR22
-*option:ICF-base-R22:meta    = Comb
-*option:ICF-base-R22:cost:total    = 3805
-*option:ICF-base-R22:alias = 1807
+*option:Generic_FDN_insulated_R-10_RSI-1.77_eff:value:1 = 0.0444
+*option:Generic_FDN_insulated_R-10_RSI-1.77_eff:cost = 0
+*option:Generic_FDN_insulated_R-10_RSI-1.77_eff:alias = 9508
 
-*option:ICF-base-R26:value:1 = BsmIcfR26
-*option:ICF-base-R26:meta    = Comb
-*option:ICF-base-R26:cost:total    = 5894
-*option:ICF-base-R26:alias = 1808
+*option:Generic_FDN_insulated_R-11_RSI-1.94_eff:value:1 = 0.0507
+*option:Generic_FDN_insulated_R-11_RSI-1.94_eff:cost = 0
+*option:Generic_FDN_insulated_R-11_RSI-1.94_eff:alias = 9509
 
-*option:ICF-base-R32:value:1 = BsmIcfR32
-*option:ICF-base-R32:meta    = Comb
-*option:ICF-base-R32:cost:total    = 8844
-*option:ICF-base-R32:alias = 1809
+*option:Generic_FDN_insulated_R-12_RSI-2.12_eff:value:1 = 0.057
+*option:Generic_FDN_insulated_R-12_RSI-2.12_eff:cost = 0
+*option:Generic_FDN_insulated_R-12_RSI-2.12_eff:alias = 9510
 
-*option:ICF-base-R41:value:1 = BsmIcfR41
-*option:ICF-base-R41:meta    = Comb
-*option:ICF-base-R41:cost:total    = 10011
-*option:ICF-base-R41:alias = 1810
+*option:Generic_FDN_insulated_R-13_RSI-2.29_eff:value:1 = 0.0634
+*option:Generic_FDN_insulated_R-13_RSI-2.29_eff:cost = 0
+*option:Generic_FDN_insulated_R-13_RSI-2.29_eff:alias = 9511
 
-*option:ICF-base-R51:value:1 = BsmIcfR51
-*option:ICF-base-R51:meta    = Comb
-*option:ICF-base-R51:cost:total    = 12000            ! Check with Mark!
-*option:ICF-base-R51:alias = 1811
+*option:Generic_FDN_insulated_R-14_RSI-2.47_eff:value:1 = 0.0697
+*option:Generic_FDN_insulated_R-14_RSI-2.47_eff:cost = 0
+*option:Generic_FDN_insulated_R-14_RSI-2.47_eff:alias = 9512
 
-*option:ICF-base-R51r:value:1 = BsmIcfR51r
-*option:ICF-base-R51r:meta    = Comb
-*option:ICF-base-R51r:cost:total    = 12000            ! Check with Mark!
-*option:ICF-base-R51r:alias = 1812
+*option:Generic_FDN_insulated_R-15_RSI-2.65_eff:value:1 = 0.0761
+*option:Generic_FDN_insulated_R-15_RSI-2.65_eff:cost = 0
+*option:Generic_FDN_insulated_R-15_RSI-2.65_eff:alias = 9513
 
-!-------------------------------------------------------------------------------
-!Whitehorse Foundation Options (Code is R28)
-!-------------------------------------------------------------------------------
-*option:Fnd0PWF_R28:value:1 = Fnd0PWF_R28
-*option:Fnd0PWF_R28:meta    = Int
-*option:Fnd0PWF_R28:cost:total   = 0
-*option:Fnd0PWF_R28:alias = 1813
+*option:Generic_FDN_insulated_R-16_RSI-2.82_eff:value:1 = 0.0824
+*option:Generic_FDN_insulated_R-16_RSI-2.82_eff:cost = 0
+*option:Generic_FDN_insulated_R-16_RSI-2.82_eff:alias = 9514
 
-*option:Fnd1PWF_R36:value:1 = Fnd1PWF_R36
-*option:Fnd1PWF_R36:meta    = Int
-*option:Fnd1PWF_R36:cost:total   = 1362
-*option:Fnd1PWF_R36:alias = 1814
+*option:Generic_FDN_insulated_R-17_RSI-3.00_eff:value:1 = 0.0887
+*option:Generic_FDN_insulated_R-17_RSI-3.00_eff:cost = 0
+*option:Generic_FDN_insulated_R-17_RSI-3.00_eff:alias = 9515
 
-*option:Fnd2PWF_R56:value:1 = Fnd2PWF_R56
-*option:Fnd2PWF_R56:meta    = Int
-*option:Fnd2PWF_R56:cost:total   = 5103
-*option:Fnd2PWF_R56:alias = 1815
+*option:Generic_FDN_insulated_R-18_RSI-3.18_eff:value:1 = 0.0951
+*option:Generic_FDN_insulated_R-18_RSI-3.18_eff:cost = 0
+*option:Generic_FDN_insulated_R-18_RSI-3.18_eff:alias = 9516
 
-*option:Fnd3PWF_R76:value:1 = Fnd3PWF_R76
-*option:Fnd3PWF_R76:meta    = Int
-*option:Fnd3PWF_R76:cost:total   = 8843
-*option:Fnd3PWF_R76:alias = 1816
+*option:Generic_FDN_insulated_R-19_RSI-3.35_eff:value:1 = 0.1014
+*option:Generic_FDN_insulated_R-19_RSI-3.35_eff:cost = 0
+*option:Generic_FDN_insulated_R-19_RSI-3.35_eff:alias = 9517
 
-*option:Fnd8ICF_R28:value:1 = Fnd8ICF_R28
-*option:Fnd8ICF_R28:meta    = Comb
-*option:Fnd8ICF_R28:cost:total   = 19782
-*option:Fnd8ICF_R28:alias = 1817
+*option:Generic_FDN_insulated_R-20_RSI-3.53_eff:value:1 = 0.1077
+*option:Generic_FDN_insulated_R-20_RSI-3.53_eff:cost = 0
+*option:Generic_FDN_insulated_R-20_RSI-3.53_eff:alias = 9518
 
-!-------------------------------------------------------------------------------
-! Retrofit Foundation Options
-!-------------------------------------------------------------------------------
-*option:TripleBrick:value:1 = Fnd_trp_br
-*option:TripleBrick:meta    = Int
-*option:TripleBrick:cost:total   = 0
-*option:TripleBrick:alias = 1818
+*option:Generic_FDN_insulated_R-21_RSI-3.70_eff:value:1 = 0.1141
+*option:Generic_FDN_insulated_R-21_RSI-3.70_eff:cost = 0
+*option:Generic_FDN_insulated_R-21_RSI-3.70_eff:alias = 9519
 
-*option:PouredConcrete_RSI0_925:value:1 = Fnd_0_925
-*option:PouredConcrete_RSI0_925:meta    = Int
-*option:PouredConcrete_RSI0_925:cost:total  = 0
-*option:PouredConcrete_RSI0_925:alias = 1819
+*option:Generic_FDN_insulated_R-22_RSI-3.88_eff:value:1 = 0.1204
+*option:Generic_FDN_insulated_R-22_RSI-3.88_eff:cost = 0
+*option:Generic_FDN_insulated_R-22_RSI-3.88_eff:alias = 9520
 
-*option:PouredConcrete_NoIns:value:1 = NoInsulation
-*option:PouredConcrete_NoIns:meta    = Int
-*option:PouredConcrete_NoIns:cost:total  = 0
-*option:PouredConcrete_NoIns:alias = 1820
+*option:Generic_FDN_insulated_R-23_RSI-4.06_eff:value:1 = 0.1268
+*option:Generic_FDN_insulated_R-23_RSI-4.06_eff:cost = 0
+*option:Generic_FDN_insulated_R-23_RSI-4.06_eff:alias = 9521
 
-*option:Retro_added_R20_ext:value:1 = Fnd-4XPS-ext
-*option:Retro_added_R20_ext:meta    = Int
-*option:Retro_added_R20_ext:cost:total  = 10751
-*option:Retro_added_R20_ext:alias = 1821
+*option:Generic_FDN_insulated_R-24_RSI-4.23_eff:value:1 = 0.1331
+*option:Generic_FDN_insulated_R-24_RSI-4.23_eff:cost = 0
+*option:Generic_FDN_insulated_R-24_RSI-4.23_eff:alias = 9522
 
-*option:Retro_added_spray_int:value:1 = Fnd-2spr-int
-*option:Retro_added_spray_int:meta    = Int
-*option:Retro_added_spray_int:cost:total  = 5262
-*option:Retro_added_spray_int:alias = 1822
+*option:Generic_FDN_insulated_R-25_RSI-4.41_eff:value:1 = 0.1394
+*option:Generic_FDN_insulated_R-25_RSI-4.41_eff:cost = 0
+*option:Generic_FDN_insulated_R-25_RSI-4.41_eff:alias = 9523
 
-!-------------------------------------------------------------------------------
-! NWT Retrofit Crawl Space Options
-!-------------------------------------------------------------------------------
-*option:NWTCrawlWll:value:1 = NWTCrawlWll
-*option:NWTCrawlWll:meta    = Int
-*option:NWTCrawlWll:cost:total   = 0
-*option:NWTCrawlWll:alias = 1823
+*option:Generic_FDN_insulated_R-26_RSI-4.58_eff:value:1 = 0.1458
+*option:Generic_FDN_insulated_R-26_RSI-4.58_eff:cost = 0
+*option:Generic_FDN_insulated_R-26_RSI-4.58_eff:alias = 9524
 
-*option:NWTCrawlWll4:value:1 = NWTCrawlWll4
-*option:NWTCrawlWll4:meta    = Int
-*option:NWTCrawlWll4:cost:total   = 0
-*option:NWTCrawlWll4:alias = 1824
+*option:Generic_FDN_insulated_R-27_RSI-4.76_eff:value:1 = 0.1521
+*option:Generic_FDN_insulated_R-27_RSI-4.76_eff:cost = 0
+*option:Generic_FDN_insulated_R-27_RSI-4.76_eff:alias = 9525
 
-*option:NWTCrwlWR40:value:1 = NWTCrwlWR40
-*option:NWTCrwlWR40:meta    = Int
-*option:NWTCrwlWR40:cost:total   = 0
-*option:NWTCrwlWR40:alias = 1825
+*option:Generic_FDN_insulated_R-28_RSI-4.94_eff:value:1 = 0.1585
+*option:Generic_FDN_insulated_R-28_RSI-4.94_eff:cost = 0
+*option:Generic_FDN_insulated_R-28_RSI-4.94_eff:alias = 9526
+
+*option:Generic_FDN_insulated_R-29_RSI-5.11_eff:value:1 = 0.1648
+*option:Generic_FDN_insulated_R-29_RSI-5.11_eff:cost = 0
+*option:Generic_FDN_insulated_R-29_RSI-5.11_eff:alias = 9527
+
+*option:Generic_FDN_insulated_R-30_RSI-5.29_eff:value:1 = 0.1711
+*option:Generic_FDN_insulated_R-30_RSI-5.29_eff:cost = 0
+*option:Generic_FDN_insulated_R-30_RSI-5.29_eff:alias = 9528
+
+*option:Generic_FDN_insulated_R-31_RSI-5.46_eff:value:1 = 0.1775
+*option:Generic_FDN_insulated_R-31_RSI-5.46_eff:cost = 0
+*option:Generic_FDN_insulated_R-31_RSI-5.46_eff:alias = 9529
+
+*option:Generic_FDN_insulated_R-32_RSI-5.64_eff:value:1 = 0.1838
+*option:Generic_FDN_insulated_R-32_RSI-5.64_eff:cost = 0
+*option:Generic_FDN_insulated_R-32_RSI-5.64_eff:alias = 9530
+
+*option:Generic_FDN_insulated_R-33_RSI-5.82_eff:value:1 = 0.1901
+*option:Generic_FDN_insulated_R-33_RSI-5.82_eff:cost = 0
+*option:Generic_FDN_insulated_R-33_RSI-5.82_eff:alias = 9531
+
+*option:Generic_FDN_insulated_R-34_RSI-5.99_eff:value:1 = 0.1965
+*option:Generic_FDN_insulated_R-34_RSI-5.99_eff:cost = 0
+*option:Generic_FDN_insulated_R-34_RSI-5.99_eff:alias = 9532
+
+*option:Generic_FDN_insulated_R-35_RSI-6.17_eff:value:1 = 0.2028
+*option:Generic_FDN_insulated_R-35_RSI-6.17_eff:cost = 0
+*option:Generic_FDN_insulated_R-35_RSI-6.17_eff:alias = 9533
+
+*option:Generic_FDN_insulated_R-36_RSI-6.34_eff:value:1 = 0.2092
+*option:Generic_FDN_insulated_R-36_RSI-6.34_eff:cost = 0
+*option:Generic_FDN_insulated_R-36_RSI-6.34_eff:alias = 9534
+
+*option:Generic_FDN_insulated_R-37_RSI-6.52_eff:value:1 = 0.2155
+*option:Generic_FDN_insulated_R-37_RSI-6.52_eff:cost = 0
+*option:Generic_FDN_insulated_R-37_RSI-6.52_eff:alias = 9535
+
+*option:Generic_FDN_insulated_R-38_RSI-6.70_eff:value:1 = 0.2218
+*option:Generic_FDN_insulated_R-38_RSI-6.70_eff:cost = 0
+*option:Generic_FDN_insulated_R-38_RSI-6.70_eff:alias = 9536
+
+*option:Generic_FDN_insulated_R-39_RSI-6.87_eff:value:1 = 0.2282
+*option:Generic_FDN_insulated_R-39_RSI-6.87_eff:cost = 0
+*option:Generic_FDN_insulated_R-39_RSI-6.87_eff:alias = 9537
+
+*option:Generic_FDN_insulated_R-40_RSI-7.05_eff:value:1 = 0.2345
+*option:Generic_FDN_insulated_R-40_RSI-7.05_eff:cost = 0
+*option:Generic_FDN_insulated_R-40_RSI-7.05_eff:alias = 9538
+
+*option:Generic_FDN_insulated_R-41_RSI-7.22_eff:value:1 = 0.2408
+*option:Generic_FDN_insulated_R-41_RSI-7.22_eff:cost = 0
+*option:Generic_FDN_insulated_R-41_RSI-7.22_eff:alias = 9539
+
+*option:Generic_FDN_insulated_R-42_RSI-7.40_eff:value:1 = 0.2472
+*option:Generic_FDN_insulated_R-42_RSI-7.40_eff:cost = 0
+*option:Generic_FDN_insulated_R-42_RSI-7.40_eff:alias = 9540
+
+*option:Generic_FDN_insulated_R-43_RSI-7.58_eff:value:1 = 0.2535
+*option:Generic_FDN_insulated_R-43_RSI-7.58_eff:cost = 0
+*option:Generic_FDN_insulated_R-43_RSI-7.58_eff:alias = 9541
+
+*option:Generic_FDN_insulated_R-44_RSI-7.75_eff:value:1 = 0.2599
+*option:Generic_FDN_insulated_R-44_RSI-7.75_eff:cost = 0
+*option:Generic_FDN_insulated_R-44_RSI-7.75_eff:alias = 9542
+
+*option:Generic_FDN_insulated_R-45_RSI-7.93_eff:value:1 = 0.2662
+*option:Generic_FDN_insulated_R-45_RSI-7.93_eff:cost = 0
+*option:Generic_FDN_insulated_R-45_RSI-7.93_eff:alias = 9543
+
+*option:Generic_FDN_insulated_R-46_RSI-8.10_eff:value:1 = 0.2725
+*option:Generic_FDN_insulated_R-46_RSI-8.10_eff:cost = 0
+*option:Generic_FDN_insulated_R-46_RSI-8.10_eff:alias = 9544
+
+*option:Generic_FDN_insulated_R-47_RSI-8.28_eff:value:1 = 0.2789
+*option:Generic_FDN_insulated_R-47_RSI-8.28_eff:cost = 0
+*option:Generic_FDN_insulated_R-47_RSI-8.28_eff:alias = 9545
+
+*option:Generic_FDN_insulated_R-48_RSI-8.46_eff:value:1 = 0.2852
+*option:Generic_FDN_insulated_R-48_RSI-8.46_eff:cost = 0
+*option:Generic_FDN_insulated_R-48_RSI-8.46_eff:alias = 9546
+
+*option:Generic_FDN_insulated_R-49_RSI-8.63_eff:value:1 = 0.2915
+*option:Generic_FDN_insulated_R-49_RSI-8.63_eff:cost = 0
+*option:Generic_FDN_insulated_R-49_RSI-8.63_eff:alias = 9547
+
+*option:Generic_FDN_insulated_R-50_RSI-8.81_eff:value:1 = 0.2979
+*option:Generic_FDN_insulated_R-50_RSI-8.81_eff:cost = 0
+*option:Generic_FDN_insulated_R-50_RSI-8.81_eff:alias = 9548
+
 
 
 
 *attribute:end
+
+
+
 
 !-----------------------------------------------------------------------
 ! SubSlab insulation

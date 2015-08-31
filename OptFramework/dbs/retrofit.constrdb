@@ -1,6 +1,6 @@
 # composite construction db defined in ../dbs/retrofit.constrdb
 # based on materials db ../dbs/material.db3.a
-  216  # no of composites 
+  217  # no of composites 
 # 1: layers  description   optics name   symmetry tag
     2    bsm_flr       OPAQ  OPAQUE        NONSYMMETRIC  
 # mat ref thickness (m) mat descr & air gap R
@@ -1751,3 +1751,9 @@
   301    0.0125  gypsum board
   233    0.2725  celulose fiber flakes 
 #----------------------
+# Generic Foundation wall 
+# 217. 20 cm wall + insulation. 
+    2    GenFdnWal     OPAQ  OPAQUE        NONSYMMETRIC  
+# mat ref thickness (m) mat descr & air gap R
+   21    0.1840  light mix concrete : Light mix concrete
+  283    <Opt-GenFdnInsulLayer>  fiberglass batt : fiberglass batt insulation
