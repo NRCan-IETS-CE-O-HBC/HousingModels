@@ -128,7 +128,10 @@ Opt-BasementSlabInsulation  : NoInsulation
 !    PouredConcrete_RSI0_925
 !    PouredConcrete_NoIns
 
-Opt-BasementWallInsulation  : PouredConcrete_NoIns
+Opt-BasementWallInsulation  : GenericFoundationWall
+
+
+Opt-GenericFdn_1Layer_definitions : Generic_FDN_uninsulated_R-03_RSI-0.53_eff
 
 
 
