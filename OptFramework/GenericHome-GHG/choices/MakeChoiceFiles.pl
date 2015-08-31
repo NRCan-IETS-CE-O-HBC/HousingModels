@@ -98,10 +98,6 @@ while ( my $line = <OPTLISTFILE> ){
 close (OPTLISTFILE);
 
 
-
-
-
-
 #-------------------------------------------------------------------
 # Display a fatal error and quit.
 #-------------------------------------------------------------------
@@ -117,10 +113,10 @@ sub fatalerror($){
   #  print LOG "$err_msg\n"; 
   #}
   print "\n=========================================================\n"; 
-  print "substitute.pl -> Fatal error: \n\n";
+  print "MakeOptFiles.pl -> Fatal error: \n\n";
   print "$err_msg \n";
   print "\n\n"; 
-  print "substitute.pl -> Error and warning messages:\n\n";
+  print "MakeOptFiles.pl -> Error and warning messages:\n\n";
   #print "$ErrorBuffer \n"; 
   die "Run stopped";
 }
