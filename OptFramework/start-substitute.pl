@@ -7,6 +7,8 @@
  
 use warnings;
 use strict;
+use File::Basename;
+use Cwd;
 
 #--------------------------------------------
 # Help text. Dumped if no arguments supplied.
@@ -25,14 +27,22 @@ my $Help_msg = "
 		
 ";
 
+# Create a log file for this script
+my $master_path = getcwd(); 
+my $LogFile = "$master_path/Start-SubstitutePL-log.txt"; 
+
+open(LOG, ">".$LogFile) or fatalerror("Could not open ".$LogFile."\n"); 
+
 # dump help text, if no argument given
 if (!@ARGV){
-  print $Help_msg;
+  print LOG $Help_msg."\n";
   die;
 }
 
+my($filename, $dir, $ext) = fileparse($ARGV[0]);
+
 # Open first command line parameter file name to extract name of choice file to run
-open ( GENOPTGENFILE, $ARGV[0]) or fatalerror("Could not read $ARGV[0]!");
+open ( GENOPTGENFILE, $ARGV[0]) or fatalerror("Could not read $ARGV[0]!\n");
 
 my $choiceFileName;
 my $linecount;
@@ -44,11 +54,18 @@ while ( my $line = <GENOPTGENFILE> ){
     my ($attribute, $value) = split /:/, $line;
 	if ($attribute =~ "Opt-ChoiceFileNames" ) {
 	  $choiceFileName = $value;
+      print LOG "Choice file name is: ".$choiceFileName."\n";
 	}
   }
 }
 close ( GENOPTGENFILE );
 
-my $command = $ARGV[1]." substitute.pl -c GenericHome-GHG/choices/".$choiceFileName." -o options-generic-GHG.options -b GenericHome-GHG -vv";
+#print LOG "The current directory is: ".$master_path."\n";
 
-system($command);
+my $command = $ARGV[1]." ../substitute.pl -c ./GenericHome-GHG/choices/$choiceFileName -o ../options-generic-GHG.options -b ./GenericHome-GHG -vv";
+
+#print LOG "The command is: ".$command."\n";
+
+system ( $command );
+
+close ( LOG );
