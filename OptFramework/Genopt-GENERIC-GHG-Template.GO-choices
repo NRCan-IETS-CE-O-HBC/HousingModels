@@ -1,0 +1,8 @@
+! Optimization substitutions: 
+
+! StepNumber: This is an indicator of how many simulations have been done so far
+GOconfig_step :  %stepNumber%
+
+! Name of the pre-generated choice file for the next GenOpt run
+Opt-ChoiceFileNames : %GOtag:Opt-Choice_Files%
+

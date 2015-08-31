@@ -1,4 +1,4 @@
-/* GenOpt initialization file for housing optimization work. 
+/* GenOpt initialization file for Canadian GHG analysis work. 
 
 */
 
@@ -7,7 +7,7 @@ Simulation{
    Files{
       // Name and path to file containing input template
       Template{
-         File1 = "Genopt-GENERIC-Template.GO-choices";
+         File1 = "Genopt-Generic-GHG-Template.GO-choices";
          Path1 = "./";
       }
       // Name and path to target file 
@@ -28,9 +28,9 @@ Simulation{
       Output{
          File1 = "SubstitutePL-output.txt";
       }
-      // File explaining how to start ESP-r.
+      // File explaining how to start evaluations.
       Configuration{
-         File1 = "Genopt-GENERIC-CONFIG.GO-config";
+         File1 = "Genopt-GENERIC-GHG-CONFIG.GO-config";
       }
 
    } // end Simulation.Files
@@ -39,13 +39,12 @@ Simulation{
    CallParameter {
       
       // Windows only: 
-      Prefix = "C:\\cygwin64\\bin\\perl.exe ";
+      Prefix = "C:\\cygwin\\bin\\perl.exe ";
       
       // LINUX 
-      // Prefix = "" ;
+      //Prefix = "" ;
       
-      Suffix = " -c GenOpt-picked-these-choices.GO-tmp -o OPTIONS-generic-north.options -b GenericHome-training  -vv "; 
- 
+	  Suffix = " GenOpt-picked-these-choices.GO-tmp"; 
  
    }
 
