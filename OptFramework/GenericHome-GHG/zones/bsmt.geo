@@ -6,10 +6,10 @@ bsmt describes the NZEH basement
 *vertex,<Opt-Width>,0.0000,0.00000  #   2
 *vertex,<Opt-Width>,<Opt-Length>,0.00000  #   3
 *vertex,0.00000,<Opt-Length>,0.00000  #   4
-*vertex,0.00000,0.00000,2.4384  #   5
-*vertex,<Opt-Width>,0.0000,2.4384  #   6
-*vertex,<Opt-Width>,<Opt-Length>,2.4384  #   7
-*vertex,0.00000,<Opt-Length>,2.4384  #   8
+*vertex,0.00000,0.00000,2.43  #   5
+*vertex,<Opt-Width>,0.0000,2.43  #   6
+*vertex,<Opt-Width>,<Opt-Length>,2.43  #   7
+*vertex,0.00000,<Opt-Length>,2.43  #   8
 # 
 # tag, number of vertices followed by list of associated vert
 *edges,4,1,2,6,5  #  1
