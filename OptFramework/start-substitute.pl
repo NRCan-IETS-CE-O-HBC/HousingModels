@@ -1,9 +1,9 @@
 #!/usr/bin/perl    
 
 # This script is used in the Canadian stock GHG study and simply
-# starts substitute.pl using two parameters:
-#   1: Name of the file that contains the choice file name (usually GenOpt-picked-these-choices.GO-tmp)
-#   2: the prefix to use to run substitute.pl (depends on Windows or Linux use)
+# starts substitute.pl for GenOpt using two parameters:
+#   1: Name of the file that contains the choice file name (used to be GenOpt-picked-these-choices.GO-tmp)
+#   2: The prefix to use to run substitute.pl (depends on Windows or Linux use)
  
 use warnings;
 use strict;
