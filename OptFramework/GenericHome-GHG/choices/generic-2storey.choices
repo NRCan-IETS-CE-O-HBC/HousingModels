@@ -17,7 +17,7 @@ Opt-DBFiles           : retrofit
 ! Optimization substitutions 
 ! Set the orientation for the model (N,S,E,W, or AVG to run all four directions
 ! and compute an average result)
-GOconfig_rotate      : E
+GOconfig_rotate      : S
 
 Opt-Location : Ottawa 
 
@@ -44,7 +44,8 @@ Opt-BaseWindows      : MinWindows
 
 
 ! Geometry substitutions
-Opt-geometry      : training_2storey
+Opt-geometry      : 2025-onwards !2020-2024 !2012-2019,2006-2011,1996-2005,1984-1995,1946-1983,Pre-1946
+
 
 
 ! Attachment options
