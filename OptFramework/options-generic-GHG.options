@@ -807,94 +807,570 @@
 *attribute:name     = Opt-ACH
 *attribute:tag:1    = <Opt-ACH>
 
+*option:retro_ACH_0.1:value:1 = 0.1
+*option:retro_ACH_0.1:cost:total = 0
+*option:retro_ACH_0.1:alias = 555
 
-*option:retro_ACH_10:value:1  = 10.0
-*option:retro_ACH_10:cost:total  =  0
-*option:retro_ACH_10:alias  =  1302
+*option:retro_ACH_0.2:value:1 = 0.2
+*option:retro_ACH_0.2:cost:total = 0
+*option:retro_ACH_0.2:alias = 555
 
-*option:retro_ACH_9:value:1  = 9.0
-*option:retro_ACH_9:cost:total  =  0
-*option:retro_ACH_9:alias  =  1302
+*option:retro_ACH_0.3:value:1 = 0.3
+*option:retro_ACH_0.3:cost:total = 0
+*option:retro_ACH_0.3:alias = 555
 
-*option:retro_ACH_8:value:1  = 8.0
-*option:retro_ACH_8:cost:total  =  0
-*option:retro_ACH_8:alias  =  1302
+*option:retro_ACH_0.4:value:1 = 0.4
+*option:retro_ACH_0.4:cost:total = 0
+*option:retro_ACH_0.4:alias = 555
 
-*option:retro_ACH_7:value:1  = 7.0
-*option:retro_ACH_7:cost:total  =  0
-*option:retro_ACH_7:alias  =  1302
+*option:retro_ACH_0.5:value:1 = 0.5
+*option:retro_ACH_0.5:cost:total = 0
+*option:retro_ACH_0.5:alias = 555
 
-*option:retro_ACH_6_5:value:1  = 6.5
-*option:retro_ACH_6_5:cost:total  =  0
-*option:retro_ACH_6_5:alias  =  1302
+*option:retro_ACH_0.6:value:1 = 0.6
+*option:retro_ACH_0.6:cost:total = 0
+*option:retro_ACH_0.6:alias = 555
 
-*option:retro_ACH_6:value:1  = 6.0
-*option:retro_ACH_6:cost:total  =  0
-*option:retro_ACH_6:alias  =  1302
+*option:retro_ACH_0.7:value:1 = 0.7
+*option:retro_ACH_0.7:cost:total = 0
+*option:retro_ACH_0.7:alias = 555
 
-*option:retro_ACH_5_5:value:1  = 5.5
-*option:retro_ACH_5_5:cost:total  =  0
-*option:retro_ACH_5_5:alias  =  1303
+*option:retro_ACH_0.8:value:1 = 0.8
+*option:retro_ACH_0.8:cost:total = 0
+*option:retro_ACH_0.8:alias = 555
 
-*option:retro_ACH_5:value:1  = 5.0
-*option:retro_ACH_5:cost:total  =  0
-*option:retro_ACH_5:alias  =  1304
+*option:retro_ACH_0.9:value:1 = 0.9
+*option:retro_ACH_0.9:cost:total = 0
+*option:retro_ACH_0.9:alias = 555
 
-*option:retro_ACH_4_5:value:1  = 4.5
-*option:retro_ACH_4_5:cost:total  =  0
-*option:retro_ACH_4_5:alias  =  1305
+*option:retro_ACH_1:value:1 = 1
+*option:retro_ACH_1:cost:total = 0
+*option:retro_ACH_1:alias = 555
 
-*option:retro_ACH_4:value:1  = 4.0
-*option:retro_ACH_4:cost:total  =  0
-*option:retro_ACH_4:alias  =  1306
+*option:retro_ACH_1.1:value:1 = 1.1
+*option:retro_ACH_1.1:cost:total = 0
+*option:retro_ACH_1.1:alias = 555
 
-*option:retro_ACH_3_5:value:1  = 3.5
-*option:retro_ACH_3_5:cost:total  =  0
-*option:retro_ACH_3_5:alias  =  1307
+*option:retro_ACH_1.2:value:1 = 1.2
+*option:retro_ACH_1.2:cost:total = 0
+*option:retro_ACH_1.2:alias = 555
 
-*option:retro_ACH_3:value:1  = 3.0
-*option:retro_ACH_3:cost:total  =  0
-*option:retro_ACH_3:alias  =  1308
+*option:retro_ACH_1.3:value:1 = 1.3
+*option:retro_ACH_1.3:cost:total = 0
+*option:retro_ACH_1.3:alias = 555
 
-*option:retro_ACH_2_75:value:1  = 2.75
-*option:retro_ACH_2_75:cost:total  =  0
-*option:retro_ACH_2_75:alias  =  1309
+*option:retro_ACH_1.4:value:1 = 1.4
+*option:retro_ACH_1.4:cost:total = 0
+*option:retro_ACH_1.4:alias = 555
 
-*option:retro_ACH_2_5:value:1  = 2.5
-*option:retro_ACH_2_5:cost:total  =  0
-*option:retro_ACH_2_5:alias  =  1309
+*option:retro_ACH_1.5:value:1 = 1.5
+*option:retro_ACH_1.5:cost:total = 0
+*option:retro_ACH_1.5:alias = 555
 
-*option:retro_ACH_2_25:value:1  = 2.25
-*option:retro_ACH_2_25:cost:total  =  0
-*option:retro_ACH_2_25:alias  =  1309
+*option:retro_ACH_1.6:value:1 = 1.6
+*option:retro_ACH_1.6:cost:total = 0
+*option:retro_ACH_1.6:alias = 555
 
-*option:retro_ACH_2:value:1  = 2.0
-*option:retro_ACH_2:cost:total  =  0
-*option:retro_ACH_2:alias  =  1310
+*option:retro_ACH_1.7:value:1 = 1.7
+*option:retro_ACH_1.7:cost:total = 0
+*option:retro_ACH_1.7:alias = 555
 
-*option:retro_ACH_1_75:value:1  = 1.75
-*option:retro_ACH_1_75:cost:total  =  0
-*option:retro_ACH_1_75:alias  =  1311
+*option:retro_ACH_1.8:value:1 = 1.8
+*option:retro_ACH_1.8:cost:total = 0
+*option:retro_ACH_1.8:alias = 555
 
-*option:retro_ACH_1_5:value:1  = 1.5
-*option:retro_ACH_1_5:cost:total  =  0
-*option:retro_ACH_1_5:alias  =  1311
+*option:retro_ACH_1.9:value:1 = 1.9
+*option:retro_ACH_1.9:cost:total = 0
+*option:retro_ACH_1.9:alias = 555
 
-*option:retro_ACH_1_25:value:1  = 1.25
-*option:retro_ACH_1_25:cost:total  =  0
-*option:retro_ACH_1_25:alias  =  1311
+*option:retro_ACH_2:value:1 = 2
+*option:retro_ACH_2:cost:total = 0
+*option:retro_ACH_2:alias = 555
 
-*option:retro_ACH_1:value:1  = 1.0
-*option:retro_ACH_1:cost:total  =  0
-*option:retro_ACH_1:alias  =  1312
+*option:retro_ACH_2.1:value:1 = 2.1
+*option:retro_ACH_2.1:cost:total = 0
+*option:retro_ACH_2.1:alias = 555
 
-*option:retro_ACH_0_75:value:1  = 0.75
-*option:retro_ACH_0_75:cost:total  =  0
-*option:retro_ACH_0_75:alias  =  1311
+*option:retro_ACH_2.2:value:1 = 2.2
+*option:retro_ACH_2.2:cost:total = 0
+*option:retro_ACH_2.2:alias = 555
 
-*option:retro_ACH_0_5:value:1  = 0.5
-*option:retro_ACH_0_5:cost:total  =  0
-*option:retro_ACH_0_5:alias  =  1313
+*option:retro_ACH_2.3:value:1 = 2.3
+*option:retro_ACH_2.3:cost:total = 0
+*option:retro_ACH_2.3:alias = 555
+
+*option:retro_ACH_2.4:value:1 = 2.4
+*option:retro_ACH_2.4:cost:total = 0
+*option:retro_ACH_2.4:alias = 555
+
+*option:retro_ACH_2.5:value:1 = 2.5
+*option:retro_ACH_2.5:cost:total = 0
+*option:retro_ACH_2.5:alias = 555
+
+*option:retro_ACH_2.6:value:1 = 2.6
+*option:retro_ACH_2.6:cost:total = 0
+*option:retro_ACH_2.6:alias = 555
+
+*option:retro_ACH_2.7:value:1 = 2.7
+*option:retro_ACH_2.7:cost:total = 0
+*option:retro_ACH_2.7:alias = 555
+
+*option:retro_ACH_2.8:value:1 = 2.8
+*option:retro_ACH_2.8:cost:total = 0
+*option:retro_ACH_2.8:alias = 555
+
+*option:retro_ACH_2.9:value:1 = 2.9
+*option:retro_ACH_2.9:cost:total = 0
+*option:retro_ACH_2.9:alias = 555
+
+*option:retro_ACH_3:value:1 = 3
+*option:retro_ACH_3:cost:total = 0
+*option:retro_ACH_3:alias = 555
+
+*option:retro_ACH_3.1:value:1 = 3.1
+*option:retro_ACH_3.1:cost:total = 0
+*option:retro_ACH_3.1:alias = 555
+
+*option:retro_ACH_3.2:value:1 = 3.2
+*option:retro_ACH_3.2:cost:total = 0
+*option:retro_ACH_3.2:alias = 555
+
+*option:retro_ACH_3.3:value:1 = 3.3
+*option:retro_ACH_3.3:cost:total = 0
+*option:retro_ACH_3.3:alias = 555
+
+*option:retro_ACH_3.4:value:1 = 3.4
+*option:retro_ACH_3.4:cost:total = 0
+*option:retro_ACH_3.4:alias = 555
+
+*option:retro_ACH_3.5:value:1 = 3.5
+*option:retro_ACH_3.5:cost:total = 0
+*option:retro_ACH_3.5:alias = 555
+
+*option:retro_ACH_3.6:value:1 = 3.6
+*option:retro_ACH_3.6:cost:total = 0
+*option:retro_ACH_3.6:alias = 555
+
+*option:retro_ACH_3.7:value:1 = 3.7
+*option:retro_ACH_3.7:cost:total = 0
+*option:retro_ACH_3.7:alias = 555
+
+*option:retro_ACH_3.8:value:1 = 3.8
+*option:retro_ACH_3.8:cost:total = 0
+*option:retro_ACH_3.8:alias = 555
+
+*option:retro_ACH_3.9:value:1 = 3.9
+*option:retro_ACH_3.9:cost:total = 0
+*option:retro_ACH_3.9:alias = 555
+
+*option:retro_ACH_4:value:1 = 4
+*option:retro_ACH_4:cost:total = 0
+*option:retro_ACH_4:alias = 555
+
+*option:retro_ACH_4.1:value:1 = 4.1
+*option:retro_ACH_4.1:cost:total = 0
+*option:retro_ACH_4.1:alias = 555
+
+*option:retro_ACH_4.2:value:1 = 4.2
+*option:retro_ACH_4.2:cost:total = 0
+*option:retro_ACH_4.2:alias = 555
+
+*option:retro_ACH_4.3:value:1 = 4.3
+*option:retro_ACH_4.3:cost:total = 0
+*option:retro_ACH_4.3:alias = 555
+
+*option:retro_ACH_4.4:value:1 = 4.4
+*option:retro_ACH_4.4:cost:total = 0
+*option:retro_ACH_4.4:alias = 555
+
+*option:retro_ACH_4.5:value:1 = 4.5
+*option:retro_ACH_4.5:cost:total = 0
+*option:retro_ACH_4.5:alias = 555
+
+*option:retro_ACH_4.6:value:1 = 4.6
+*option:retro_ACH_4.6:cost:total = 0
+*option:retro_ACH_4.6:alias = 555
+
+*option:retro_ACH_4.7:value:1 = 4.7
+*option:retro_ACH_4.7:cost:total = 0
+*option:retro_ACH_4.7:alias = 555
+
+*option:retro_ACH_4.8:value:1 = 4.8
+*option:retro_ACH_4.8:cost:total = 0
+*option:retro_ACH_4.8:alias = 555
+
+*option:retro_ACH_4.9:value:1 = 4.9
+*option:retro_ACH_4.9:cost:total = 0
+*option:retro_ACH_4.9:alias = 555
+
+*option:retro_ACH_5:value:1 = 5
+*option:retro_ACH_5:cost:total = 0
+*option:retro_ACH_5:alias = 555
+
+*option:retro_ACH_5.1:value:1 = 5.1
+*option:retro_ACH_5.1:cost:total = 0
+*option:retro_ACH_5.1:alias = 555
+
+*option:retro_ACH_5.2:value:1 = 5.2
+*option:retro_ACH_5.2:cost:total = 0
+*option:retro_ACH_5.2:alias = 555
+
+*option:retro_ACH_5.3:value:1 = 5.3
+*option:retro_ACH_5.3:cost:total = 0
+*option:retro_ACH_5.3:alias = 555
+
+*option:retro_ACH_5.4:value:1 = 5.4
+*option:retro_ACH_5.4:cost:total = 0
+*option:retro_ACH_5.4:alias = 555
+
+*option:retro_ACH_5.5:value:1 = 5.5
+*option:retro_ACH_5.5:cost:total = 0
+*option:retro_ACH_5.5:alias = 555
+
+*option:retro_ACH_5.6:value:1 = 5.6
+*option:retro_ACH_5.6:cost:total = 0
+*option:retro_ACH_5.6:alias = 555
+
+*option:retro_ACH_5.7:value:1 = 5.7
+*option:retro_ACH_5.7:cost:total = 0
+*option:retro_ACH_5.7:alias = 555
+
+*option:retro_ACH_5.8:value:1 = 5.8
+*option:retro_ACH_5.8:cost:total = 0
+*option:retro_ACH_5.8:alias = 555
+
+*option:retro_ACH_5.9:value:1 = 5.9
+*option:retro_ACH_5.9:cost:total = 0
+*option:retro_ACH_5.9:alias = 555
+
+*option:retro_ACH_6:value:1 = 6
+*option:retro_ACH_6:cost:total = 0
+*option:retro_ACH_6:alias = 555
+
+*option:retro_ACH_6.1:value:1 = 6.1
+*option:retro_ACH_6.1:cost:total = 0
+*option:retro_ACH_6.1:alias = 555
+
+*option:retro_ACH_6.2:value:1 = 6.2
+*option:retro_ACH_6.2:cost:total = 0
+*option:retro_ACH_6.2:alias = 555
+
+*option:retro_ACH_6.3:value:1 = 6.3
+*option:retro_ACH_6.3:cost:total = 0
+*option:retro_ACH_6.3:alias = 555
+
+*option:retro_ACH_6.4:value:1 = 6.4
+*option:retro_ACH_6.4:cost:total = 0
+*option:retro_ACH_6.4:alias = 555
+
+*option:retro_ACH_6.5:value:1 = 6.5
+*option:retro_ACH_6.5:cost:total = 0
+*option:retro_ACH_6.5:alias = 555
+
+*option:retro_ACH_6.6:value:1 = 6.6
+*option:retro_ACH_6.6:cost:total = 0
+*option:retro_ACH_6.6:alias = 555
+
+*option:retro_ACH_6.7:value:1 = 6.7
+*option:retro_ACH_6.7:cost:total = 0
+*option:retro_ACH_6.7:alias = 555
+
+*option:retro_ACH_6.8:value:1 = 6.8
+*option:retro_ACH_6.8:cost:total = 0
+*option:retro_ACH_6.8:alias = 555
+
+*option:retro_ACH_6.9:value:1 = 6.9
+*option:retro_ACH_6.9:cost:total = 0
+*option:retro_ACH_6.9:alias = 555
+
+*option:retro_ACH_7:value:1 = 7
+*option:retro_ACH_7:cost:total = 0
+*option:retro_ACH_7:alias = 555
+
+*option:retro_ACH_7.1:value:1 = 7.1
+*option:retro_ACH_7.1:cost:total = 0
+*option:retro_ACH_7.1:alias = 555
+
+*option:retro_ACH_7.2:value:1 = 7.2
+*option:retro_ACH_7.2:cost:total = 0
+*option:retro_ACH_7.2:alias = 555
+
+*option:retro_ACH_7.3:value:1 = 7.3
+*option:retro_ACH_7.3:cost:total = 0
+*option:retro_ACH_7.3:alias = 555
+
+*option:retro_ACH_7.4:value:1 = 7.4
+*option:retro_ACH_7.4:cost:total = 0
+*option:retro_ACH_7.4:alias = 555
+
+*option:retro_ACH_7.5:value:1 = 7.5
+*option:retro_ACH_7.5:cost:total = 0
+*option:retro_ACH_7.5:alias = 555
+
+*option:retro_ACH_7.6:value:1 = 7.6
+*option:retro_ACH_7.6:cost:total = 0
+*option:retro_ACH_7.6:alias = 555
+
+*option:retro_ACH_7.7:value:1 = 7.7
+*option:retro_ACH_7.7:cost:total = 0
+*option:retro_ACH_7.7:alias = 555
+
+*option:retro_ACH_7.8:value:1 = 7.8
+*option:retro_ACH_7.8:cost:total = 0
+*option:retro_ACH_7.8:alias = 555
+
+*option:retro_ACH_7.9:value:1 = 7.9
+*option:retro_ACH_7.9:cost:total = 0
+*option:retro_ACH_7.9:alias = 555
+
+*option:retro_ACH_8:value:1 = 8
+*option:retro_ACH_8:cost:total = 0
+*option:retro_ACH_8:alias = 555
+
+*option:retro_ACH_8.1:value:1 = 8.1
+*option:retro_ACH_8.1:cost:total = 0
+*option:retro_ACH_8.1:alias = 555
+
+*option:retro_ACH_8.2:value:1 = 8.2
+*option:retro_ACH_8.2:cost:total = 0
+*option:retro_ACH_8.2:alias = 555
+
+*option:retro_ACH_8.3:value:1 = 8.3
+*option:retro_ACH_8.3:cost:total = 0
+*option:retro_ACH_8.3:alias = 555
+
+*option:retro_ACH_8.4:value:1 = 8.4
+*option:retro_ACH_8.4:cost:total = 0
+*option:retro_ACH_8.4:alias = 555
+
+*option:retro_ACH_8.5:value:1 = 8.5
+*option:retro_ACH_8.5:cost:total = 0
+*option:retro_ACH_8.5:alias = 555
+
+*option:retro_ACH_8.6:value:1 = 8.6
+*option:retro_ACH_8.6:cost:total = 0
+*option:retro_ACH_8.6:alias = 555
+
+*option:retro_ACH_8.7:value:1 = 8.7
+*option:retro_ACH_8.7:cost:total = 0
+*option:retro_ACH_8.7:alias = 555
+
+*option:retro_ACH_8.8:value:1 = 8.8
+*option:retro_ACH_8.8:cost:total = 0
+*option:retro_ACH_8.8:alias = 555
+
+*option:retro_ACH_8.9:value:1 = 8.9
+*option:retro_ACH_8.9:cost:total = 0
+*option:retro_ACH_8.9:alias = 555
+
+*option:retro_ACH_9:value:1 = 9
+*option:retro_ACH_9:cost:total = 0
+*option:retro_ACH_9:alias = 555
+
+*option:retro_ACH_9.1:value:1 = 9.1
+*option:retro_ACH_9.1:cost:total = 0
+*option:retro_ACH_9.1:alias = 555
+
+*option:retro_ACH_9.2:value:1 = 9.2
+*option:retro_ACH_9.2:cost:total = 0
+*option:retro_ACH_9.2:alias = 555
+
+*option:retro_ACH_9.3:value:1 = 9.3
+*option:retro_ACH_9.3:cost:total = 0
+*option:retro_ACH_9.3:alias = 555
+
+*option:retro_ACH_9.4:value:1 = 9.4
+*option:retro_ACH_9.4:cost:total = 0
+*option:retro_ACH_9.4:alias = 555
+
+*option:retro_ACH_9.5:value:1 = 9.5
+*option:retro_ACH_9.5:cost:total = 0
+*option:retro_ACH_9.5:alias = 555
+
+*option:retro_ACH_9.6:value:1 = 9.6
+*option:retro_ACH_9.6:cost:total = 0
+*option:retro_ACH_9.6:alias = 555
+
+*option:retro_ACH_9.7:value:1 = 9.7
+*option:retro_ACH_9.7:cost:total = 0
+*option:retro_ACH_9.7:alias = 555
+
+*option:retro_ACH_9.8:value:1 = 9.8
+*option:retro_ACH_9.8:cost:total = 0
+*option:retro_ACH_9.8:alias = 555
+
+*option:retro_ACH_9.9:value:1 = 9.9
+*option:retro_ACH_9.9:cost:total = 0
+*option:retro_ACH_9.9:alias = 555
+
+*option:retro_ACH_10:value:1 = 10
+*option:retro_ACH_10:cost:total = 0
+*option:retro_ACH_10:alias = 555
+
+*option:retro_ACH_10.1:value:1 = 10.1
+*option:retro_ACH_10.1:cost:total = 0
+*option:retro_ACH_10.1:alias = 555
+
+*option:retro_ACH_10.2:value:1 = 10.2
+*option:retro_ACH_10.2:cost:total = 0
+*option:retro_ACH_10.2:alias = 555
+
+*option:retro_ACH_10.3:value:1 = 10.3
+*option:retro_ACH_10.3:cost:total = 0
+*option:retro_ACH_10.3:alias = 555
+
+*option:retro_ACH_10.4:value:1 = 10.4
+*option:retro_ACH_10.4:cost:total = 0
+*option:retro_ACH_10.4:alias = 555
+
+*option:retro_ACH_10.5:value:1 = 10.5
+*option:retro_ACH_10.5:cost:total = 0
+*option:retro_ACH_10.5:alias = 555
+
+*option:retro_ACH_10.6:value:1 = 10.6
+*option:retro_ACH_10.6:cost:total = 0
+*option:retro_ACH_10.6:alias = 555
+
+*option:retro_ACH_10.7:value:1 = 10.7
+*option:retro_ACH_10.7:cost:total = 0
+*option:retro_ACH_10.7:alias = 555
+
+*option:retro_ACH_10.8:value:1 = 10.8
+*option:retro_ACH_10.8:cost:total = 0
+*option:retro_ACH_10.8:alias = 555
+
+*option:retro_ACH_10.9:value:1 = 10.9
+*option:retro_ACH_10.9:cost:total = 0
+*option:retro_ACH_10.9:alias = 555
+
+*option:retro_ACH_11:value:1 = 11
+*option:retro_ACH_11:cost:total = 0
+*option:retro_ACH_11:alias = 555
+
+*option:retro_ACH_11.1:value:1 = 11.1
+*option:retro_ACH_11.1:cost:total = 0
+*option:retro_ACH_11.1:alias = 555
+
+*option:retro_ACH_11.2:value:1 = 11.2
+*option:retro_ACH_11.2:cost:total = 0
+*option:retro_ACH_11.2:alias = 555
+
+*option:retro_ACH_11.3:value:1 = 11.3
+*option:retro_ACH_11.3:cost:total = 0
+*option:retro_ACH_11.3:alias = 555
+
+*option:retro_ACH_11.4:value:1 = 11.4
+*option:retro_ACH_11.4:cost:total = 0
+*option:retro_ACH_11.4:alias = 555
+
+*option:retro_ACH_11.5:value:1 = 11.5
+*option:retro_ACH_11.5:cost:total = 0
+*option:retro_ACH_11.5:alias = 555
+
+*option:retro_ACH_11.6:value:1 = 11.6
+*option:retro_ACH_11.6:cost:total = 0
+*option:retro_ACH_11.6:alias = 555
+
+*option:retro_ACH_11.7:value:1 = 11.7
+*option:retro_ACH_11.7:cost:total = 0
+*option:retro_ACH_11.7:alias = 555
+
+*option:retro_ACH_11.8:value:1 = 11.8
+*option:retro_ACH_11.8:cost:total = 0
+*option:retro_ACH_11.8:alias = 555
+
+*option:retro_ACH_11.9:value:1 = 11.9
+*option:retro_ACH_11.9:cost:total = 0
+*option:retro_ACH_11.9:alias = 555
+
+*option:retro_ACH_12:value:1 = 12
+*option:retro_ACH_12:cost:total = 0
+*option:retro_ACH_12:alias = 555
+
+*option:retro_ACH_12.1:value:1 = 12.1
+*option:retro_ACH_12.1:cost:total = 0
+*option:retro_ACH_12.1:alias = 555
+
+*option:retro_ACH_12.2:value:1 = 12.2
+*option:retro_ACH_12.2:cost:total = 0
+*option:retro_ACH_12.2:alias = 555
+
+*option:retro_ACH_12.3:value:1 = 12.3
+*option:retro_ACH_12.3:cost:total = 0
+*option:retro_ACH_12.3:alias = 555
+
+*option:retro_ACH_12.4:value:1 = 12.4
+*option:retro_ACH_12.4:cost:total = 0
+*option:retro_ACH_12.4:alias = 555
+
+*option:retro_ACH_12.5:value:1 = 12.5
+*option:retro_ACH_12.5:cost:total = 0
+*option:retro_ACH_12.5:alias = 555
+
+*option:retro_ACH_12.6:value:1 = 12.6
+*option:retro_ACH_12.6:cost:total = 0
+*option:retro_ACH_12.6:alias = 555
+
+*option:retro_ACH_12.7:value:1 = 12.7
+*option:retro_ACH_12.7:cost:total = 0
+*option:retro_ACH_12.7:alias = 555
+
+*option:retro_ACH_12.8:value:1 = 12.8
+*option:retro_ACH_12.8:cost:total = 0
+*option:retro_ACH_12.8:alias = 555
+
+*option:retro_ACH_12.9:value:1 = 12.9
+*option:retro_ACH_12.9:cost:total = 0
+*option:retro_ACH_12.9:alias = 555
+
+*option:retro_ACH_13:value:1 = 13
+*option:retro_ACH_13:cost:total = 0
+*option:retro_ACH_13:alias = 555
+
+*option:retro_ACH_13.1:value:1 = 13.1
+*option:retro_ACH_13.1:cost:total = 0
+*option:retro_ACH_13.1:alias = 555
+
+*option:retro_ACH_13.2:value:1 = 13.2
+*option:retro_ACH_13.2:cost:total = 0
+*option:retro_ACH_13.2:alias = 555
+
+*option:retro_ACH_13.3:value:1 = 13.3
+*option:retro_ACH_13.3:cost:total = 0
+*option:retro_ACH_13.3:alias = 555
+
+*option:retro_ACH_13.4:value:1 = 13.4
+*option:retro_ACH_13.4:cost:total = 0
+*option:retro_ACH_13.4:alias = 555
+
+*option:retro_ACH_13.5:value:1 = 13.5
+*option:retro_ACH_13.5:cost:total = 0
+*option:retro_ACH_13.5:alias = 555
+
+*option:retro_ACH_13.6:value:1 = 13.6
+*option:retro_ACH_13.6:cost:total = 0
+*option:retro_ACH_13.6:alias = 555
+
+*option:retro_ACH_13.7:value:1 = 13.7
+*option:retro_ACH_13.7:cost:total = 0
+*option:retro_ACH_13.7:alias = 555
+
+*option:retro_ACH_13.8:value:1 = 13.8
+*option:retro_ACH_13.8:cost:total = 0
+*option:retro_ACH_13.8:alias = 555
+
+*option:retro_ACH_13.9:value:1 = 13.9
+*option:retro_ACH_13.9:cost:total = 0
+*option:retro_ACH_13.9:alias = 555
+
+*option:retro_ACH_14:value:1 = 14
+*option:retro_ACH_14:cost:total = 0
+*option:retro_ACH_14:alias = 555
+
+
+
+
+
 
 *attribute:end
 
@@ -1539,229 +2015,229 @@
 
 
 ! Generic definitions for wall systems by RSI 
-*option:Generic_Wall_R-04_RSI-0.7-eff:value:1 = 0.0106
-*option:Generic_Wall_R-04_RSI-0.7-eff:cost = 0
-*option:Generic_Wall_R-04_RSI-0.7-eff:alias = 1775
+*option:Generic_Wall_R-04-eff:value:1 = 0.0106
+*option:Generic_Wall_R-04-eff:cost = 0
+*option:Generic_Wall_R-04-eff:alias = 1775
 
-*option:Generic_Wall_R-05_RSI-0.9-eff:value:1 = 0.0171
-*option:Generic_Wall_R-05_RSI-0.9-eff:cost = 0
-*option:Generic_Wall_R-05_RSI-0.9-eff:alias = 1776
+*option:Generic_Wall_R-05-eff:value:1 = 0.0171
+*option:Generic_Wall_R-05-eff:cost = 0
+*option:Generic_Wall_R-05-eff:alias = 1776
 
-*option:Generic_Wall_R-06_RSI-1.1-eff:value:1 = 0.0236
-*option:Generic_Wall_R-06_RSI-1.1-eff:cost = 0
-*option:Generic_Wall_R-06_RSI-1.1-eff:alias = 1777
+*option:Generic_Wall_R-06-eff:value:1 = 0.0236
+*option:Generic_Wall_R-06-eff:cost = 0
+*option:Generic_Wall_R-06-eff:alias = 1777
 
-*option:Generic_Wall_R-07_RSI-1.3-eff:value:1 = 0.0301
-*option:Generic_Wall_R-07_RSI-1.3-eff:cost = 0
-*option:Generic_Wall_R-07_RSI-1.3-eff:alias = 1778
+*option:Generic_Wall_R-07-eff:value:1 = 0.0301
+*option:Generic_Wall_R-07-eff:cost = 0
+*option:Generic_Wall_R-07-eff:alias = 1778
 
-*option:Generic_Wall_R-08_RSI-1.4-eff:value:1 = 0.0366
-*option:Generic_Wall_R-08_RSI-1.4-eff:cost = 0
-*option:Generic_Wall_R-08_RSI-1.4-eff:alias = 1779
+*option:Generic_Wall_R-08-eff:value:1 = 0.0366
+*option:Generic_Wall_R-08-eff:cost = 0
+*option:Generic_Wall_R-08-eff:alias = 1779
 
-*option:Generic_Wall_R-09_RSI-1.6-eff:value:1 = 0.043
-*option:Generic_Wall_R-09_RSI-1.6-eff:cost = 0
-*option:Generic_Wall_R-09_RSI-1.6-eff:alias = 1780
+*option:Generic_Wall_R-09-eff:value:1 = 0.043
+*option:Generic_Wall_R-09-eff:cost = 0
+*option:Generic_Wall_R-09-eff:alias = 1780
 
-*option:Generic_Wall_R-10_RSI-1.8-eff:value:1 = 0.0495
-*option:Generic_Wall_R-10_RSI-1.8-eff:cost = 0
-*option:Generic_Wall_R-10_RSI-1.8-eff:alias = 1781
+*option:Generic_Wall_R-10-eff:value:1 = 0.0495
+*option:Generic_Wall_R-10-eff:cost = 0
+*option:Generic_Wall_R-10-eff:alias = 1781
 
-*option:Generic_Wall_R-11_RSI-2-eff:value:1 = 0.056
-*option:Generic_Wall_R-11_RSI-2-eff:cost = 0
-*option:Generic_Wall_R-11_RSI-2-eff:alias = 1782
+*option:Generic_Wall_R-11-eff:value:1 = 0.056
+*option:Generic_Wall_R-11-eff:cost = 0
+*option:Generic_Wall_R-11-eff:alias = 1782
 
-*option:Generic_Wall_R-12_RSI-2.2-eff:value:1 = 0.0625
-*option:Generic_Wall_R-12_RSI-2.2-eff:cost = 0
-*option:Generic_Wall_R-12_RSI-2.2-eff:alias = 1783
+*option:Generic_Wall_R-12-eff:value:1 = 0.0625
+*option:Generic_Wall_R-12-eff:cost = 0
+*option:Generic_Wall_R-12-eff:alias = 1783
 
-*option:Generic_Wall_R-13_RSI-2.3-eff:value:1 = 0.069
-*option:Generic_Wall_R-13_RSI-2.3-eff:cost = 0
-*option:Generic_Wall_R-13_RSI-2.3-eff:alias = 1784
+*option:Generic_Wall_R-13-eff:value:1 = 0.069
+*option:Generic_Wall_R-13-eff:cost = 0
+*option:Generic_Wall_R-13-eff:alias = 1784
 
-*option:Generic_Wall_R-14_RSI-2.5-eff:value:1 = 0.0754
-*option:Generic_Wall_R-14_RSI-2.5-eff:cost = 0
-*option:Generic_Wall_R-14_RSI-2.5-eff:alias = 1785
+*option:Generic_Wall_R-14-eff:value:1 = 0.0754
+*option:Generic_Wall_R-14-eff:cost = 0
+*option:Generic_Wall_R-14-eff:alias = 1785
 
-*option:Generic_Wall_R-15_RSI-2.7-eff:value:1 = 0.0819
-*option:Generic_Wall_R-15_RSI-2.7-eff:cost = 0
-*option:Generic_Wall_R-15_RSI-2.7-eff:alias = 1786
+*option:Generic_Wall_R-15-eff:value:1 = 0.0819
+*option:Generic_Wall_R-15-eff:cost = 0
+*option:Generic_Wall_R-15-eff:alias = 1786
 
-*option:Generic_Wall_R-16_RSI-2.9-eff:value:1 = 0.0884
-*option:Generic_Wall_R-16_RSI-2.9-eff:cost = 0
-*option:Generic_Wall_R-16_RSI-2.9-eff:alias = 1787
+*option:Generic_Wall_R-16-eff:value:1 = 0.0884
+*option:Generic_Wall_R-16-eff:cost = 0
+*option:Generic_Wall_R-16-eff:alias = 1787
 
-*option:Generic_Wall_R-17_RSI-3.1-eff:value:1 = 0.0949
-*option:Generic_Wall_R-17_RSI-3.1-eff:cost = 0
-*option:Generic_Wall_R-17_RSI-3.1-eff:alias = 1788
+*option:Generic_Wall_R-17-eff:value:1 = 0.0949
+*option:Generic_Wall_R-17-eff:cost = 0
+*option:Generic_Wall_R-17-eff:alias = 1788
 
-*option:Generic_Wall_R-18_RSI-3.2-eff:value:1 = 0.1014
-*option:Generic_Wall_R-18_RSI-3.2-eff:cost = 0
-*option:Generic_Wall_R-18_RSI-3.2-eff:alias = 1789
+*option:Generic_Wall_R-18-eff:value:1 = 0.1014
+*option:Generic_Wall_R-18-eff:cost = 0
+*option:Generic_Wall_R-18-eff:alias = 1789
 
-*option:Generic_Wall_R-19_RSI-3.4-eff:value:1 = 0.1078
-*option:Generic_Wall_R-19_RSI-3.4-eff:cost = 0
-*option:Generic_Wall_R-19_RSI-3.4-eff:alias = 1790
+*option:Generic_Wall_R-19-eff:value:1 = 0.1078
+*option:Generic_Wall_R-19-eff:cost = 0
+*option:Generic_Wall_R-19-eff:alias = 1790
 
-*option:Generic_Wall_R-20_RSI-3.6-eff:value:1 = 0.1143
-*option:Generic_Wall_R-20_RSI-3.6-eff:cost = 0
-*option:Generic_Wall_R-20_RSI-3.6-eff:alias = 1791
+*option:Generic_Wall_R-20-eff:value:1 = 0.1143
+*option:Generic_Wall_R-20-eff:cost = 0
+*option:Generic_Wall_R-20-eff:alias = 1791
 
-*option:Generic_Wall_R-21_RSI-3.8-eff:value:1 = 0.1208
-*option:Generic_Wall_R-21_RSI-3.8-eff:cost = 0
-*option:Generic_Wall_R-21_RSI-3.8-eff:alias = 1792
+*option:Generic_Wall_R-21-eff:value:1 = 0.1208
+*option:Generic_Wall_R-21-eff:cost = 0
+*option:Generic_Wall_R-21-eff:alias = 1792
 
-*option:Generic_Wall_R-22_RSI-4-eff:value:1 = 0.1273
-*option:Generic_Wall_R-22_RSI-4-eff:cost = 0
-*option:Generic_Wall_R-22_RSI-4-eff:alias = 1793
+*option:Generic_Wall_R-22-eff:value:1 = 0.1273
+*option:Generic_Wall_R-22-eff:cost = 0
+*option:Generic_Wall_R-22-eff:alias = 1793
 
-*option:Generic_Wall_R-24_RSI-4.1-eff:value:1 = 0.1338
-*option:Generic_Wall_R-24_RSI-4.1-eff:cost = 0
-*option:Generic_Wall_R-24_RSI-4.1-eff:alias = 1794
+*option:Generic_Wall_R-24-eff:value:1 = 0.1338
+*option:Generic_Wall_R-24-eff:cost = 0
+*option:Generic_Wall_R-24-eff:alias = 1794
 
-*option:Generic_Wall_R-25_RSI-4.3-eff:value:1 = 0.1402
-*option:Generic_Wall_R-25_RSI-4.3-eff:cost = 0
-*option:Generic_Wall_R-25_RSI-4.3-eff:alias = 1795
+*option:Generic_Wall_R-25-eff:value:1 = 0.1402
+*option:Generic_Wall_R-25-eff:cost = 0
+*option:Generic_Wall_R-25-eff:alias = 1795
 
-*option:Generic_Wall_R-26_RSI-4.5-eff:value:1 = 0.1467
-*option:Generic_Wall_R-26_RSI-4.5-eff:cost = 0
-*option:Generic_Wall_R-26_RSI-4.5-eff:alias = 1796
+*option:Generic_Wall_R-26-eff:value:1 = 0.1467
+*option:Generic_Wall_R-26-eff:cost = 0
+*option:Generic_Wall_R-26-eff:alias = 1796
 
-*option:Generic_Wall_R-27_RSI-4.7-eff:value:1 = 0.1532
-*option:Generic_Wall_R-27_RSI-4.7-eff:cost = 0
-*option:Generic_Wall_R-27_RSI-4.7-eff:alias = 1797
+*option:Generic_Wall_R-27-eff:value:1 = 0.1532
+*option:Generic_Wall_R-27-eff:cost = 0
+*option:Generic_Wall_R-27-eff:alias = 1797
 
-*option:Generic_Wall_R-28_RSI-4.9-eff:value:1 = 0.1597
-*option:Generic_Wall_R-28_RSI-4.9-eff:cost = 0
-*option:Generic_Wall_R-28_RSI-4.9-eff:alias = 1798
+*option:Generic_Wall_R-28-eff:value:1 = 0.1597
+*option:Generic_Wall_R-28-eff:cost = 0
+*option:Generic_Wall_R-28-eff:alias = 1798
 
-*option:Generic_Wall_R-29_RSI-5-eff:value:1 = 0.1662
-*option:Generic_Wall_R-29_RSI-5-eff:cost = 0
-*option:Generic_Wall_R-29_RSI-5-eff:alias = 1799
+*option:Generic_Wall_R-29-eff:value:1 = 0.1662
+*option:Generic_Wall_R-29-eff:cost = 0
+*option:Generic_Wall_R-29-eff:alias = 1799
 
-*option:Generic_Wall_R-30_RSI-5.2-eff:value:1 = 0.1726
-*option:Generic_Wall_R-30_RSI-5.2-eff:cost = 0
-*option:Generic_Wall_R-30_RSI-5.2-eff:alias = 1800
+*option:Generic_Wall_R-30-eff:value:1 = 0.1726
+*option:Generic_Wall_R-30-eff:cost = 0
+*option:Generic_Wall_R-30-eff:alias = 1800
 
-*option:Generic_Wall_R-31_RSI-5.4-eff:value:1 = 0.1791
-*option:Generic_Wall_R-31_RSI-5.4-eff:cost = 0
-*option:Generic_Wall_R-31_RSI-5.4-eff:alias = 1801
+*option:Generic_Wall_R-31-eff:value:1 = 0.1791
+*option:Generic_Wall_R-31-eff:cost = 0
+*option:Generic_Wall_R-31-eff:alias = 1801
 
-*option:Generic_Wall_R-32_RSI-5.6-eff:value:1 = 0.1856
-*option:Generic_Wall_R-32_RSI-5.6-eff:cost = 0
-*option:Generic_Wall_R-32_RSI-5.6-eff:alias = 1802
+*option:Generic_Wall_R-32-eff:value:1 = 0.1856
+*option:Generic_Wall_R-32-eff:cost = 0
+*option:Generic_Wall_R-32-eff:alias = 1802
 
-*option:Generic_Wall_R-33_RSI-5.8-eff:value:1 = 0.1921
-*option:Generic_Wall_R-33_RSI-5.8-eff:cost = 0
-*option:Generic_Wall_R-33_RSI-5.8-eff:alias = 1803
+*option:Generic_Wall_R-33-eff:value:1 = 0.1921
+*option:Generic_Wall_R-33-eff:cost = 0
+*option:Generic_Wall_R-33-eff:alias = 1803
 
-*option:Generic_Wall_R-34_RSI-5.9-eff:value:1 = 0.1986
-*option:Generic_Wall_R-34_RSI-5.9-eff:cost = 0
-*option:Generic_Wall_R-34_RSI-5.9-eff:alias = 1804
+*option:Generic_Wall_R-34-eff:value:1 = 0.1986
+*option:Generic_Wall_R-34-eff:cost = 0
+*option:Generic_Wall_R-34-eff:alias = 1804
 
-*option:Generic_Wall_R-35_RSI-6.1-eff:value:1 = 0.205
-*option:Generic_Wall_R-35_RSI-6.1-eff:cost = 0
-*option:Generic_Wall_R-35_RSI-6.1-eff:alias = 1805
+*option:Generic_Wall_R-35-eff:value:1 = 0.205
+*option:Generic_Wall_R-35-eff:cost = 0
+*option:Generic_Wall_R-35-eff:alias = 1805
 
-*option:Generic_Wall_R-36_RSI-6.3-eff:value:1 = 0.2115
-*option:Generic_Wall_R-36_RSI-6.3-eff:cost = 0
-*option:Generic_Wall_R-36_RSI-6.3-eff:alias = 1806
+*option:Generic_Wall_R-36-eff:value:1 = 0.2115
+*option:Generic_Wall_R-36-eff:cost = 0
+*option:Generic_Wall_R-36-eff:alias = 1806
 
-*option:Generic_Wall_R-37_RSI-6.5-eff:value:1 = 0.218
-*option:Generic_Wall_R-37_RSI-6.5-eff:cost = 0
-*option:Generic_Wall_R-37_RSI-6.5-eff:alias = 1807
+*option:Generic_Wall_R-37-eff:value:1 = 0.218
+*option:Generic_Wall_R-37-eff:cost = 0
+*option:Generic_Wall_R-37-eff:alias = 1807
 
-*option:Generic_Wall_R-38_RSI-6.7-eff:value:1 = 0.2245
-*option:Generic_Wall_R-38_RSI-6.7-eff:cost = 0
-*option:Generic_Wall_R-38_RSI-6.7-eff:alias = 1808
+*option:Generic_Wall_R-38-eff:value:1 = 0.2245
+*option:Generic_Wall_R-38-eff:cost = 0
+*option:Generic_Wall_R-38-eff:alias = 1808
 
-*option:Generic_Wall_R-39_RSI-6.8-eff:value:1 = 0.231
-*option:Generic_Wall_R-39_RSI-6.8-eff:cost = 0
-*option:Generic_Wall_R-39_RSI-6.8-eff:alias = 1809
+*option:Generic_Wall_R-39-eff:value:1 = 0.231
+*option:Generic_Wall_R-39-eff:cost = 0
+*option:Generic_Wall_R-39-eff:alias = 1809
 
-*option:Generic_Wall_R-40_RSI-7-eff:value:1 = 0.2374
-*option:Generic_Wall_R-40_RSI-7-eff:cost = 0
-*option:Generic_Wall_R-40_RSI-7-eff:alias = 1810
+*option:Generic_Wall_R-40-eff:value:1 = 0.2374
+*option:Generic_Wall_R-40-eff:cost = 0
+*option:Generic_Wall_R-40-eff:alias = 1810
 
-*option:Generic_Wall_R-41_RSI-7.2-eff:value:1 = 0.2439
-*option:Generic_Wall_R-41_RSI-7.2-eff:cost = 0
-*option:Generic_Wall_R-41_RSI-7.2-eff:alias = 1811
+*option:Generic_Wall_R-41-eff:value:1 = 0.2439
+*option:Generic_Wall_R-41-eff:cost = 0
+*option:Generic_Wall_R-41-eff:alias = 1811
 
-*option:Generic_Wall_R-42_RSI-7.4-eff:value:1 = 0.2504
-*option:Generic_Wall_R-42_RSI-7.4-eff:cost = 0
-*option:Generic_Wall_R-42_RSI-7.4-eff:alias = 1812
+*option:Generic_Wall_R-42-eff:value:1 = 0.2504
+*option:Generic_Wall_R-42-eff:cost = 0
+*option:Generic_Wall_R-42-eff:alias = 1812
 
-*option:Generic_Wall_R-43_RSI-7.6-eff:value:1 = 0.2569
-*option:Generic_Wall_R-43_RSI-7.6-eff:cost = 0
-*option:Generic_Wall_R-43_RSI-7.6-eff:alias = 1813
+*option:Generic_Wall_R-43-eff:value:1 = 0.2569
+*option:Generic_Wall_R-43-eff:cost = 0
+*option:Generic_Wall_R-43-eff:alias = 1813
 
-*option:Generic_Wall_R-44_RSI-7.7-eff:value:1 = 0.2634
-*option:Generic_Wall_R-44_RSI-7.7-eff:cost = 0
-*option:Generic_Wall_R-44_RSI-7.7-eff:alias = 1814
+*option:Generic_Wall_R-44-eff:value:1 = 0.2634
+*option:Generic_Wall_R-44-eff:cost = 0
+*option:Generic_Wall_R-44-eff:alias = 1814
 
-*option:Generic_Wall_R-45_RSI-7.9-eff:value:1 = 0.2698
-*option:Generic_Wall_R-45_RSI-7.9-eff:cost = 0
-*option:Generic_Wall_R-45_RSI-7.9-eff:alias = 1815
+*option:Generic_Wall_R-45-eff:value:1 = 0.2698
+*option:Generic_Wall_R-45-eff:cost = 0
+*option:Generic_Wall_R-45-eff:alias = 1815
 
-*option:Generic_Wall_R-46_RSI-8.1-eff:value:1 = 0.2763
-*option:Generic_Wall_R-46_RSI-8.1-eff:cost = 0
-*option:Generic_Wall_R-46_RSI-8.1-eff:alias = 1816
+*option:Generic_Wall_R-46-eff:value:1 = 0.2763
+*option:Generic_Wall_R-46-eff:cost = 0
+*option:Generic_Wall_R-46-eff:alias = 1816
 
-*option:Generic_Wall_R-47_RSI-8.3-eff:value:1 = 0.2828
-*option:Generic_Wall_R-47_RSI-8.3-eff:cost = 0
-*option:Generic_Wall_R-47_RSI-8.3-eff:alias = 1817
+*option:Generic_Wall_R-47-eff:value:1 = 0.2828
+*option:Generic_Wall_R-47-eff:cost = 0
+*option:Generic_Wall_R-47-eff:alias = 1817
 
-*option:Generic_Wall_R-48_RSI-8.5-eff:value:1 = 0.2893
-*option:Generic_Wall_R-48_RSI-8.5-eff:cost = 0
-*option:Generic_Wall_R-48_RSI-8.5-eff:alias = 1818
+*option:Generic_Wall_R-48-eff:value:1 = 0.2893
+*option:Generic_Wall_R-48-eff:cost = 0
+*option:Generic_Wall_R-48-eff:alias = 1818
 
-*option:Generic_Wall_R-49_RSI-8.6-eff:value:1 = 0.2958
-*option:Generic_Wall_R-49_RSI-8.6-eff:cost = 0
-*option:Generic_Wall_R-49_RSI-8.6-eff:alias = 1819
+*option:Generic_Wall_R-49-eff:value:1 = 0.2958
+*option:Generic_Wall_R-49-eff:cost = 0
+*option:Generic_Wall_R-49-eff:alias = 1819
 
-*option:Generic_Wall_R-50_RSI-8.8-eff:value:1 = 0.3022
-*option:Generic_Wall_R-50_RSI-8.8-eff:cost = 0
-*option:Generic_Wall_R-50_RSI-8.8-eff:alias = 1820
+*option:Generic_Wall_R-50-eff:value:1 = 0.3022
+*option:Generic_Wall_R-50-eff:cost = 0
+*option:Generic_Wall_R-50-eff:alias = 1820
 
-*option:Generic_Wall_R-51_RSI-9-eff:value:1 = 0.3087
-*option:Generic_Wall_R-51_RSI-9-eff:cost = 0
-*option:Generic_Wall_R-51_RSI-9-eff:alias = 1821
+*option:Generic_Wall_R-51-eff:value:1 = 0.3087
+*option:Generic_Wall_R-51-eff:cost = 0
+*option:Generic_Wall_R-51-eff:alias = 1821
 
-*option:Generic_Wall_R-52_RSI-9.2-eff:value:1 = 0.3152
-*option:Generic_Wall_R-52_RSI-9.2-eff:cost = 0
-*option:Generic_Wall_R-52_RSI-9.2-eff:alias = 1822
+*option:Generic_Wall_R-52-eff:value:1 = 0.3152
+*option:Generic_Wall_R-52-eff:cost = 0
+*option:Generic_Wall_R-52-eff:alias = 1822
 
-*option:Generic_Wall_R-53_RSI-9.4-eff:value:1 = 0.3217
-*option:Generic_Wall_R-53_RSI-9.4-eff:cost = 0
-*option:Generic_Wall_R-53_RSI-9.4-eff:alias = 1823
+*option:Generic_Wall_R-53-eff:value:1 = 0.3217
+*option:Generic_Wall_R-53-eff:cost = 0
+*option:Generic_Wall_R-53-eff:alias = 1823
 
-*option:Generic_Wall_R-54_RSI-9.5-eff:value:1 = 0.3282
-*option:Generic_Wall_R-54_RSI-9.5-eff:cost = 0
-*option:Generic_Wall_R-54_RSI-9.5-eff:alias = 1824
+*option:Generic_Wall_R-54-eff:value:1 = 0.3282
+*option:Generic_Wall_R-54-eff:cost = 0
+*option:Generic_Wall_R-54-eff:alias = 1824
 
-*option:Generic_Wall_R-55_RSI-9.7-eff:value:1 = 0.3346
-*option:Generic_Wall_R-55_RSI-9.7-eff:cost = 0
-*option:Generic_Wall_R-55_RSI-9.7-eff:alias = 1825
+*option:Generic_Wall_R-55-eff:value:1 = 0.3346
+*option:Generic_Wall_R-55-eff:cost = 0
+*option:Generic_Wall_R-55-eff:alias = 1825
 
-*option:Generic_Wall_R-56_RSI-9.9-eff:value:1 = 0.3411
-*option:Generic_Wall_R-56_RSI-9.9-eff:cost = 0
-*option:Generic_Wall_R-56_RSI-9.9-eff:alias = 1826
+*option:Generic_Wall_R-56-eff:value:1 = 0.3411
+*option:Generic_Wall_R-56-eff:cost = 0
+*option:Generic_Wall_R-56-eff:alias = 1826
 
-*option:Generic_Wall_R-57_RSI-10.1-eff:value:1 = 0.3476
-*option:Generic_Wall_R-57_RSI-10.1-eff:cost = 0
-*option:Generic_Wall_R-57_RSI-10.1-eff:alias = 1827
+*option:Generic_Wall_R-57-eff:value:1 = 0.3476
+*option:Generic_Wall_R-57-eff:cost = 0
+*option:Generic_Wall_R-57-eff:alias = 1827
 
-*option:Generic_Wall_R-58_RSI-10.3-eff:value:1 = 0.3541
-*option:Generic_Wall_R-58_RSI-10.3-eff:cost = 0
-*option:Generic_Wall_R-58_RSI-10.3-eff:alias = 1828
+*option:Generic_Wall_R-58-eff:value:1 = 0.3541
+*option:Generic_Wall_R-58-eff:cost = 0
+*option:Generic_Wall_R-58-eff:alias = 1828
 
-*option:Generic_Wall_R-59_RSI-10.4-eff:value:1 = 0.3606
-*option:Generic_Wall_R-59_RSI-10.4-eff:cost = 0
-*option:Generic_Wall_R-59_RSI-10.4-eff:alias = 1829
+*option:Generic_Wall_R-59-eff:value:1 = 0.3606
+*option:Generic_Wall_R-59-eff:cost = 0
+*option:Generic_Wall_R-59-eff:alias = 1829
 
-*option:Generic_Wall_R-60_RSI-10.6-eff:value:1 = 0.367
-*option:Generic_Wall_R-60_RSI-10.6-eff:cost = 0
-*option:Generic_Wall_R-60_RSI-10.6-eff:alias = 1830
+*option:Generic_Wall_R-60-eff:value:1 = 0.367
+*option:Generic_Wall_R-60-eff:cost = 0
+*option:Generic_Wall_R-60-eff:alias = 1830
 
 
 
@@ -1922,7 +2398,189 @@
 
 *attribute:end
 
+!-----------------------------------------------------------------------
+! Basement definitions 
+!-----------------------------------------------------------------------
+*attribute:start 
+*attribute:name    = Opt-BasementConfiguration
+*attribute:tag:1   = <Opt-GenFdnInsulLayer>
+*attribute:tag:2   = <Opt-GenSlbInsulLayer>
+*attribute:tag:3   = <OPT-BsmRSIValue>
+*attribute:tag:4   = <OPT-BsmCnnIndex>
+*attribute:default = GHG-bsm-1-RSI_0.66
 
+*option:GHG-bsm-1-RSI_0.66:value:1  = 0.0067
+*option:GHG-bsm-1-RSI_0.66:value:2  = 0.0001
+*option:GHG-bsm-1-RSI_0.66:value:3  = 0.6612
+*option:GHG-bsm-1-RSI_0.66:value:4  = 10
+*option:GHG-bsm-1-RSI_0.66:cost:total  =  0
+*option:GHG-bsm-1-RSI_0.66:alias  =222
+
+*option:GHG-bsm-2-RSI_0.68:value:1  = 0.0074
+*option:GHG-bsm-2-RSI_0.68:value:2  = 0.0006
+*option:GHG-bsm-2-RSI_0.68:value:3  = 0.6812
+*option:GHG-bsm-2-RSI_0.68:value:4  = 10
+*option:GHG-bsm-2-RSI_0.68:cost:total  =  0
+*option:GHG-bsm-2-RSI_0.68:alias  =222
+
+*option:GHG-bsm-3-RSI_0.58:value:1  = 0.0034
+*option:GHG-bsm-3-RSI_0.58:value:2  = 0.0002
+*option:GHG-bsm-3-RSI_0.58:value:3  = 0.5832
+*option:GHG-bsm-3-RSI_0.58:value:4  = 10
+*option:GHG-bsm-3-RSI_0.58:cost:total  =  0
+*option:GHG-bsm-3-RSI_0.58:alias  =222
+
+*option:GHG-bsm-4-RSI_0.83:value:1  = 0.0139
+*option:GHG-bsm-4-RSI_0.83:value:2  = 0.0001
+*option:GHG-bsm-4-RSI_0.83:value:3  = 0.8324
+*option:GHG-bsm-4-RSI_0.83:value:4  = 2
+*option:GHG-bsm-4-RSI_0.83:cost:total  =  0
+*option:GHG-bsm-4-RSI_0.83:alias  =222
+
+*option:GHG-bsm-5-RSI_0.86:value:1  = 0.0146
+*option:GHG-bsm-5-RSI_0.86:value:2  = 0.0013
+*option:GHG-bsm-5-RSI_0.86:value:3  = 0.8596
+*option:GHG-bsm-5-RSI_0.86:value:4  = 2
+*option:GHG-bsm-5-RSI_0.86:cost:total  =  0
+*option:GHG-bsm-5-RSI_0.86:alias  =222
+
+*option:GHG-bsm-6-RSI_0.77:value:1  = 0.0106
+*option:GHG-bsm-6-RSI_0.77:value:2  = 0.002
+*option:GHG-bsm-6-RSI_0.77:value:3  = 0.7652
+*option:GHG-bsm-6-RSI_0.77:value:4  = 2
+*option:GHG-bsm-6-RSI_0.77:cost:total  =  0
+*option:GHG-bsm-6-RSI_0.77:alias  =222
+
+*option:GHG-bsm-7-RSI_1.66:value:1  = 0.0448
+*option:GHG-bsm-7-RSI_1.66:value:2  = 0.0182
+*option:GHG-bsm-7-RSI_1.66:value:3  = 1.6552
+*option:GHG-bsm-7-RSI_1.66:value:4  = 2
+*option:GHG-bsm-7-RSI_1.66:cost:total  =  0
+*option:GHG-bsm-7-RSI_1.66:alias  =222
+
+*option:GHG-bsm-8-RSI_1.66:value:1  = 0.0448
+*option:GHG-bsm-8-RSI_1.66:value:2  = 0.02
+*option:GHG-bsm-8-RSI_1.66:value:3  = 1.6612
+*option:GHG-bsm-8-RSI_1.66:value:4  = 2
+*option:GHG-bsm-8-RSI_1.66:cost:total  =  0
+*option:GHG-bsm-8-RSI_1.66:alias  =222
+
+*option:GHG-bsm-9-RSI_1.53:value:1  = 0.0391
+*option:GHG-bsm-9-RSI_1.53:value:2  = 0.0214
+*option:GHG-bsm-9-RSI_1.53:value:3  = 1.5252
+*option:GHG-bsm-9-RSI_1.53:value:4  = 2
+*option:GHG-bsm-9-RSI_1.53:cost:total  =  0
+*option:GHG-bsm-9-RSI_1.53:alias  =222
+
+*option:GHG-bsm-10-RSI_1.72:value:1  = 0.047
+*option:GHG-bsm-10-RSI_1.72:value:2  = 0.0218
+*option:GHG-bsm-10-RSI_1.72:value:3  = 1.72
+*option:GHG-bsm-10-RSI_1.72:value:4  = 2
+*option:GHG-bsm-10-RSI_1.72:cost:total  =  0
+*option:GHG-bsm-10-RSI_1.72:alias  =222
+
+*option:GHG-bsm-11-RSI_1.67:value:1  = 0.0448
+*option:GHG-bsm-11-RSI_1.67:value:2  = 0.0236
+*option:GHG-bsm-11-RSI_1.67:value:3  = 1.6732
+*option:GHG-bsm-11-RSI_1.67:value:4  = 2
+*option:GHG-bsm-11-RSI_1.67:cost:total  =  0
+*option:GHG-bsm-11-RSI_1.67:alias  =222
+
+*option:GHG-bsm-12-RSI_1.69:value:1  = 0.0448
+*option:GHG-bsm-12-RSI_1.69:value:2  = 0.0294
+*option:GHG-bsm-12-RSI_1.69:value:3  = 1.6924
+*option:GHG-bsm-12-RSI_1.69:value:4  = 2
+*option:GHG-bsm-12-RSI_1.69:cost:total  =  0
+*option:GHG-bsm-12-RSI_1.69:alias  =222
+
+*option:GHG-bsm-13-RSI_1.75:value:1  = 0.047
+*option:GHG-bsm-13-RSI_1.75:value:2  = 0.0304
+*option:GHG-bsm-13-RSI_1.75:value:3  = 1.7488
+*option:GHG-bsm-13-RSI_1.75:value:4  = 72
+*option:GHG-bsm-13-RSI_1.75:cost:total  =  0
+*option:GHG-bsm-13-RSI_1.75:alias  =222
+
+*option:GHG-bsm-14-RSI_1.8:value:1  = 0.0488
+*option:GHG-bsm-14-RSI_1.8:value:2  = 0.033
+*option:GHG-bsm-14-RSI_1.8:value:3  = 1.8012
+*option:GHG-bsm-14-RSI_1.8:value:4  = 72
+*option:GHG-bsm-14-RSI_1.8:cost:total  =  0
+*option:GHG-bsm-14-RSI_1.8:alias  =222
+
+*option:GHG-bsm-15-RSI_1.98:value:1  = 0.0564
+*option:GHG-bsm-15-RSI_1.98:value:2  = 0.0326
+*option:GHG-bsm-15-RSI_1.98:value:3  = 1.9848
+*option:GHG-bsm-15-RSI_1.98:value:4  = 72
+*option:GHG-bsm-15-RSI_1.98:cost:total  =  0
+*option:GHG-bsm-15-RSI_1.98:alias  =222
+
+*option:GHG-bsm-16-RSI_2.95:value:1  = 0.0916
+*option:GHG-bsm-16-RSI_2.95:value:2  = 0.0621
+*option:GHG-bsm-16-RSI_2.95:value:3  = 2.9456
+*option:GHG-bsm-16-RSI_2.95:value:4  = 72
+*option:GHG-bsm-16-RSI_2.95:cost:total  =  0
+*option:GHG-bsm-16-RSI_2.95:alias  =222
+
+*option:GHG-bsm-17-RSI_2.95:value:1  = 0.0916
+*option:GHG-bsm-17-RSI_2.95:value:2  = 0.0621
+*option:GHG-bsm-17-RSI_2.95:value:3  = 2.9456
+*option:GHG-bsm-17-RSI_2.95:value:4  = 72
+*option:GHG-bsm-17-RSI_2.95:cost:total  =  0
+*option:GHG-bsm-17-RSI_2.95:alias  =222
+
+*option:GHG-bsm-18-RSI_2.95:value:1  = 0.0916
+*option:GHG-bsm-18-RSI_2.95:value:2  = 0.0621
+*option:GHG-bsm-18-RSI_2.95:value:3  = 2.9456
+*option:GHG-bsm-18-RSI_2.95:value:4  = 72
+*option:GHG-bsm-18-RSI_2.95:cost:total  =  0
+*option:GHG-bsm-18-RSI_2.95:alias  =222
+
+*option:GHG-bsm-19-RSI_3.73:value:1  = 0.1237
+*option:GHG-bsm-19-RSI_3.73:value:2  = 0.0621
+*option:GHG-bsm-19-RSI_3.73:value:3  = 3.7288
+*option:GHG-bsm-19-RSI_3.73:value:4  = 72
+*option:GHG-bsm-19-RSI_3.73:cost:total  =  0
+*option:GHG-bsm-19-RSI_3.73:alias  =222
+
+*option:GHG-bsm-20-RSI_3.73:value:1  = 0.1237
+*option:GHG-bsm-20-RSI_3.73:value:2  = 0.0621
+*option:GHG-bsm-20-RSI_3.73:value:3  = 3.7288
+*option:GHG-bsm-20-RSI_3.73:value:4  = 72
+*option:GHG-bsm-20-RSI_3.73:cost:total  =  0
+*option:GHG-bsm-20-RSI_3.73:alias  =222
+
+*option:GHG-bsm-21-RSI_3.73:value:1  = 0.1237
+*option:GHG-bsm-21-RSI_3.73:value:2  = 0.0621
+*option:GHG-bsm-21-RSI_3.73:value:3  = 3.7288
+*option:GHG-bsm-21-RSI_3.73:value:4  = 72
+*option:GHG-bsm-21-RSI_3.73:cost:total  =  0
+*option:GHG-bsm-21-RSI_3.73:alias  =222
+
+*option:GHG-bsm-22-RSI_5.46:value:1  = 0.1867
+*option:GHG-bsm-22-RSI_5.46:value:2  = 0.1183
+*option:GHG-bsm-22-RSI_5.46:value:3  = 5.456
+*option:GHG-bsm-22-RSI_5.46:value:4  = 72
+*option:GHG-bsm-22-RSI_5.46:cost:total  =  0
+*option:GHG-bsm-22-RSI_5.46:alias  =222
+
+*option:GHG-bsm-23-RSI_5.46:value:1  = 0.1867
+*option:GHG-bsm-23-RSI_5.46:value:2  = 0.1183
+*option:GHG-bsm-23-RSI_5.46:value:3  = 5.456
+*option:GHG-bsm-23-RSI_5.46:value:4  = 72
+*option:GHG-bsm-23-RSI_5.46:cost:total  =  0
+*option:GHG-bsm-23-RSI_5.46:alias  =222
+
+*option:GHG-bsm-24-RSI_5.46:value:1  = 0.1867
+*option:GHG-bsm-24-RSI_5.46:value:2  = 0.1183
+*option:GHG-bsm-24-RSI_5.46:value:3  = 5.456
+*option:GHG-bsm-24-RSI_5.46:value:4  = 72
+*option:GHG-bsm-24-RSI_5.46:cost:total  =  0
+*option:GHG-bsm-24-RSI_5.46:alias  =222
+
+*attribute:end
+ 
+
+ 
 !-----------------------------------------------------------------------
 ! Foundation Wall start
 !-----------------------------------------------------------------------
@@ -1932,336 +2590,26 @@
 *attribute:default = GenericFoundationWall
 
 *option:GenericFoundationWall:value:1    = GenFdnWal
-*option:GenericFoundationWall:meta       = Int
 *option:GenericFoundationWall:cost:total = 0
 *option:GenericFoundationWall:alias = 1800
 
 *attribute:end
 
 !-----------------------------------------------------------------------
-! Foundation wall: Generic insulation definitions
-!-----------------------------------------------------------------------
-
-*attribute:start
-*attribute:name    = Opt-GenericFdn_1Layer_definitions
-*attribute:tag:1   = <Opt-GenFdnInsulLayer>
-*attribute:default = Generic_FDN_uninsulated_R-03_RSI-0.53_eff
-
-
-*option:Generic_FDN_uninsulated_R-03_RSI-0.53_eff:value:1 = 0.0001
-*option:Generic_FDN_uninsulated_R-03_RSI-0.53_eff:cost = 0
-*option:Generic_FDN_uninsulated_R-03_RSI-0.53_eff:alias = 9501
-
-*option:Generic_FDN_insulated_R-04_RSI-0.71_eff:value:1 = 0.0063
-*option:Generic_FDN_insulated_R-04_RSI-0.71_eff:cost = 0
-*option:Generic_FDN_insulated_R-04_RSI-0.71_eff:alias = 9502
-
-*option:Generic_FDN_insulated_R-05_RSI-0.89_eff:value:1 = 0.0127
-*option:Generic_FDN_insulated_R-05_RSI-0.89_eff:cost = 0
-*option:Generic_FDN_insulated_R-05_RSI-0.89_eff:alias = 9503
-
-*option:Generic_FDN_insulated_R-06_RSI-1.06_eff:value:1 = 0.019
-*option:Generic_FDN_insulated_R-06_RSI-1.06_eff:cost = 0
-*option:Generic_FDN_insulated_R-06_RSI-1.06_eff:alias = 9504
-
-*option:Generic_FDN_insulated_R-07_RSI-1.24_eff:value:1 = 0.0254
-*option:Generic_FDN_insulated_R-07_RSI-1.24_eff:cost = 0
-*option:Generic_FDN_insulated_R-07_RSI-1.24_eff:alias = 9505
-
-*option:Generic_FDN_insulated_R-08_RSI-1.41_eff:value:1 = 0.0317
-*option:Generic_FDN_insulated_R-08_RSI-1.41_eff:cost = 0
-*option:Generic_FDN_insulated_R-08_RSI-1.41_eff:alias = 9506
-
-*option:Generic_FDN_insulated_R-09_RSI-1.59_eff:value:1 = 0.038
-*option:Generic_FDN_insulated_R-09_RSI-1.59_eff:cost = 0
-*option:Generic_FDN_insulated_R-09_RSI-1.59_eff:alias = 9507
-
-*option:Generic_FDN_insulated_R-10_RSI-1.77_eff:value:1 = 0.0444
-*option:Generic_FDN_insulated_R-10_RSI-1.77_eff:cost = 0
-*option:Generic_FDN_insulated_R-10_RSI-1.77_eff:alias = 9508
-
-*option:Generic_FDN_insulated_R-11_RSI-1.94_eff:value:1 = 0.0507
-*option:Generic_FDN_insulated_R-11_RSI-1.94_eff:cost = 0
-*option:Generic_FDN_insulated_R-11_RSI-1.94_eff:alias = 9509
-
-*option:Generic_FDN_insulated_R-12_RSI-2.12_eff:value:1 = 0.057
-*option:Generic_FDN_insulated_R-12_RSI-2.12_eff:cost = 0
-*option:Generic_FDN_insulated_R-12_RSI-2.12_eff:alias = 9510
-
-*option:Generic_FDN_insulated_R-13_RSI-2.29_eff:value:1 = 0.0634
-*option:Generic_FDN_insulated_R-13_RSI-2.29_eff:cost = 0
-*option:Generic_FDN_insulated_R-13_RSI-2.29_eff:alias = 9511
-
-*option:Generic_FDN_insulated_R-14_RSI-2.47_eff:value:1 = 0.0697
-*option:Generic_FDN_insulated_R-14_RSI-2.47_eff:cost = 0
-*option:Generic_FDN_insulated_R-14_RSI-2.47_eff:alias = 9512
-
-*option:Generic_FDN_insulated_R-15_RSI-2.65_eff:value:1 = 0.0761
-*option:Generic_FDN_insulated_R-15_RSI-2.65_eff:cost = 0
-*option:Generic_FDN_insulated_R-15_RSI-2.65_eff:alias = 9513
-
-*option:Generic_FDN_insulated_R-16_RSI-2.82_eff:value:1 = 0.0824
-*option:Generic_FDN_insulated_R-16_RSI-2.82_eff:cost = 0
-*option:Generic_FDN_insulated_R-16_RSI-2.82_eff:alias = 9514
-
-*option:Generic_FDN_insulated_R-17_RSI-3.00_eff:value:1 = 0.0887
-*option:Generic_FDN_insulated_R-17_RSI-3.00_eff:cost = 0
-*option:Generic_FDN_insulated_R-17_RSI-3.00_eff:alias = 9515
-
-*option:Generic_FDN_insulated_R-18_RSI-3.18_eff:value:1 = 0.0951
-*option:Generic_FDN_insulated_R-18_RSI-3.18_eff:cost = 0
-*option:Generic_FDN_insulated_R-18_RSI-3.18_eff:alias = 9516
-
-*option:Generic_FDN_insulated_R-19_RSI-3.35_eff:value:1 = 0.1014
-*option:Generic_FDN_insulated_R-19_RSI-3.35_eff:cost = 0
-*option:Generic_FDN_insulated_R-19_RSI-3.35_eff:alias = 9517
-
-*option:Generic_FDN_insulated_R-20_RSI-3.53_eff:value:1 = 0.1077
-*option:Generic_FDN_insulated_R-20_RSI-3.53_eff:cost = 0
-*option:Generic_FDN_insulated_R-20_RSI-3.53_eff:alias = 9518
-
-*option:Generic_FDN_insulated_R-21_RSI-3.70_eff:value:1 = 0.1141
-*option:Generic_FDN_insulated_R-21_RSI-3.70_eff:cost = 0
-*option:Generic_FDN_insulated_R-21_RSI-3.70_eff:alias = 9519
-
-*option:Generic_FDN_insulated_R-22_RSI-3.88_eff:value:1 = 0.1204
-*option:Generic_FDN_insulated_R-22_RSI-3.88_eff:cost = 0
-*option:Generic_FDN_insulated_R-22_RSI-3.88_eff:alias = 9520
-
-*option:Generic_FDN_insulated_R-23_RSI-4.06_eff:value:1 = 0.1268
-*option:Generic_FDN_insulated_R-23_RSI-4.06_eff:cost = 0
-*option:Generic_FDN_insulated_R-23_RSI-4.06_eff:alias = 9521
-
-*option:Generic_FDN_insulated_R-24_RSI-4.23_eff:value:1 = 0.1331
-*option:Generic_FDN_insulated_R-24_RSI-4.23_eff:cost = 0
-*option:Generic_FDN_insulated_R-24_RSI-4.23_eff:alias = 9522
-
-*option:Generic_FDN_insulated_R-25_RSI-4.41_eff:value:1 = 0.1394
-*option:Generic_FDN_insulated_R-25_RSI-4.41_eff:cost = 0
-*option:Generic_FDN_insulated_R-25_RSI-4.41_eff:alias = 9523
-
-*option:Generic_FDN_insulated_R-26_RSI-4.58_eff:value:1 = 0.1458
-*option:Generic_FDN_insulated_R-26_RSI-4.58_eff:cost = 0
-*option:Generic_FDN_insulated_R-26_RSI-4.58_eff:alias = 9524
-
-*option:Generic_FDN_insulated_R-27_RSI-4.76_eff:value:1 = 0.1521
-*option:Generic_FDN_insulated_R-27_RSI-4.76_eff:cost = 0
-*option:Generic_FDN_insulated_R-27_RSI-4.76_eff:alias = 9525
-
-*option:Generic_FDN_insulated_R-28_RSI-4.94_eff:value:1 = 0.1585
-*option:Generic_FDN_insulated_R-28_RSI-4.94_eff:cost = 0
-*option:Generic_FDN_insulated_R-28_RSI-4.94_eff:alias = 9526
-
-*option:Generic_FDN_insulated_R-29_RSI-5.11_eff:value:1 = 0.1648
-*option:Generic_FDN_insulated_R-29_RSI-5.11_eff:cost = 0
-*option:Generic_FDN_insulated_R-29_RSI-5.11_eff:alias = 9527
-
-*option:Generic_FDN_insulated_R-30_RSI-5.29_eff:value:1 = 0.1711
-*option:Generic_FDN_insulated_R-30_RSI-5.29_eff:cost = 0
-*option:Generic_FDN_insulated_R-30_RSI-5.29_eff:alias = 9528
-
-*option:Generic_FDN_insulated_R-31_RSI-5.46_eff:value:1 = 0.1775
-*option:Generic_FDN_insulated_R-31_RSI-5.46_eff:cost = 0
-*option:Generic_FDN_insulated_R-31_RSI-5.46_eff:alias = 9529
-
-*option:Generic_FDN_insulated_R-32_RSI-5.64_eff:value:1 = 0.1838
-*option:Generic_FDN_insulated_R-32_RSI-5.64_eff:cost = 0
-*option:Generic_FDN_insulated_R-32_RSI-5.64_eff:alias = 9530
-
-*option:Generic_FDN_insulated_R-33_RSI-5.82_eff:value:1 = 0.1901
-*option:Generic_FDN_insulated_R-33_RSI-5.82_eff:cost = 0
-*option:Generic_FDN_insulated_R-33_RSI-5.82_eff:alias = 9531
-
-*option:Generic_FDN_insulated_R-34_RSI-5.99_eff:value:1 = 0.1965
-*option:Generic_FDN_insulated_R-34_RSI-5.99_eff:cost = 0
-*option:Generic_FDN_insulated_R-34_RSI-5.99_eff:alias = 9532
-
-*option:Generic_FDN_insulated_R-35_RSI-6.17_eff:value:1 = 0.2028
-*option:Generic_FDN_insulated_R-35_RSI-6.17_eff:cost = 0
-*option:Generic_FDN_insulated_R-35_RSI-6.17_eff:alias = 9533
-
-*option:Generic_FDN_insulated_R-36_RSI-6.34_eff:value:1 = 0.2092
-*option:Generic_FDN_insulated_R-36_RSI-6.34_eff:cost = 0
-*option:Generic_FDN_insulated_R-36_RSI-6.34_eff:alias = 9534
-
-*option:Generic_FDN_insulated_R-37_RSI-6.52_eff:value:1 = 0.2155
-*option:Generic_FDN_insulated_R-37_RSI-6.52_eff:cost = 0
-*option:Generic_FDN_insulated_R-37_RSI-6.52_eff:alias = 9535
-
-*option:Generic_FDN_insulated_R-38_RSI-6.70_eff:value:1 = 0.2218
-*option:Generic_FDN_insulated_R-38_RSI-6.70_eff:cost = 0
-*option:Generic_FDN_insulated_R-38_RSI-6.70_eff:alias = 9536
-
-*option:Generic_FDN_insulated_R-39_RSI-6.87_eff:value:1 = 0.2282
-*option:Generic_FDN_insulated_R-39_RSI-6.87_eff:cost = 0
-*option:Generic_FDN_insulated_R-39_RSI-6.87_eff:alias = 9537
-
-*option:Generic_FDN_insulated_R-40_RSI-7.05_eff:value:1 = 0.2345
-*option:Generic_FDN_insulated_R-40_RSI-7.05_eff:cost = 0
-*option:Generic_FDN_insulated_R-40_RSI-7.05_eff:alias = 9538
-
-*option:Generic_FDN_insulated_R-41_RSI-7.22_eff:value:1 = 0.2408
-*option:Generic_FDN_insulated_R-41_RSI-7.22_eff:cost = 0
-*option:Generic_FDN_insulated_R-41_RSI-7.22_eff:alias = 9539
-
-*option:Generic_FDN_insulated_R-42_RSI-7.40_eff:value:1 = 0.2472
-*option:Generic_FDN_insulated_R-42_RSI-7.40_eff:cost = 0
-*option:Generic_FDN_insulated_R-42_RSI-7.40_eff:alias = 9540
-
-*option:Generic_FDN_insulated_R-43_RSI-7.58_eff:value:1 = 0.2535
-*option:Generic_FDN_insulated_R-43_RSI-7.58_eff:cost = 0
-*option:Generic_FDN_insulated_R-43_RSI-7.58_eff:alias = 9541
-
-*option:Generic_FDN_insulated_R-44_RSI-7.75_eff:value:1 = 0.2599
-*option:Generic_FDN_insulated_R-44_RSI-7.75_eff:cost = 0
-*option:Generic_FDN_insulated_R-44_RSI-7.75_eff:alias = 9542
-
-*option:Generic_FDN_insulated_R-45_RSI-7.93_eff:value:1 = 0.2662
-*option:Generic_FDN_insulated_R-45_RSI-7.93_eff:cost = 0
-*option:Generic_FDN_insulated_R-45_RSI-7.93_eff:alias = 9543
-
-*option:Generic_FDN_insulated_R-46_RSI-8.10_eff:value:1 = 0.2725
-*option:Generic_FDN_insulated_R-46_RSI-8.10_eff:cost = 0
-*option:Generic_FDN_insulated_R-46_RSI-8.10_eff:alias = 9544
-
-*option:Generic_FDN_insulated_R-47_RSI-8.28_eff:value:1 = 0.2789
-*option:Generic_FDN_insulated_R-47_RSI-8.28_eff:cost = 0
-*option:Generic_FDN_insulated_R-47_RSI-8.28_eff:alias = 9545
-
-*option:Generic_FDN_insulated_R-48_RSI-8.46_eff:value:1 = 0.2852
-*option:Generic_FDN_insulated_R-48_RSI-8.46_eff:cost = 0
-*option:Generic_FDN_insulated_R-48_RSI-8.46_eff:alias = 9546
-
-*option:Generic_FDN_insulated_R-49_RSI-8.63_eff:value:1 = 0.2915
-*option:Generic_FDN_insulated_R-49_RSI-8.63_eff:cost = 0
-*option:Generic_FDN_insulated_R-49_RSI-8.63_eff:alias = 9547
-
-*option:Generic_FDN_insulated_R-50_RSI-8.81_eff:value:1 = 0.2979
-*option:Generic_FDN_insulated_R-50_RSI-8.81_eff:cost = 0
-*option:Generic_FDN_insulated_R-50_RSI-8.81_eff:alias = 9548
-
-
-
-
-*attribute:end
-
-
-
-
-!-----------------------------------------------------------------------
-! SubSlab insulation
+! Foundation Slab start
 !-----------------------------------------------------------------------
 *attribute:start
 *attribute:name    = Opt-BasementSlabInsulation
 *attribute:tag:1   = <OPT-BsmFloor>
-*attribute:tag:2   = <OPT-BsmCnnIndex>
-*attribute:tag:3   = <OPT-BsmRSIValue>
-*attribute:default = NoInsulation 
+*attribute:default = GenericFoundationSlab
 
-*option:NoInsulation:value:1 = BsmFlrR0
-*option[Opt-BasementWallInsulation>OBC-min-R12|Rigid+Blown-R43|MB-IntBatt-R20|AdvFrm-R20-Wall]:NoInsulation:value:2 = 1 
-*option[else                                                  ]:NoInsulation:value:2 = 68
-*option:NoInsulation:value:3       = 0.10  ! concrete
-*option:NoInsulation:cost:total    = 0
-*option:NoInsulation:alias = 1900
+*option:GenericFoundationSlab:value:1    = GenFdnSlb
+*option:GenericFoundationSlab:cost:total = 0
+*option:GenericFoundationSlab:alias = 1800
 
-*option:R24UnderSlab+edge:value:1 = BsmFlrR24
-*option[Opt-BasementWallInsulation>OBC-min-R12|Rigid+Blown-R43]:R24UnderSlab+edge:value:2 = 22 
-*option[else                                                  ]:R24UnderSlab+edge:value:2 = 69
-*option:R24UnderSlab+edge:value:3       = 4.23
-*option:R24UnderSlab+edge:cost:total    = 3800              ! updated for Vancouver geometry      
-*option:R24UnderSlab+edge:alias = 1901
-
-*option:R10UnderSlab+edge:value:1 = BsmFlrR10
-*option[Opt-BasementWallInsulation>OBC-min-R12|Rigid+Blown-R43]:R10UnderSlab+edge:value:2 = 22 
-*option[else                                                  ]:R10UnderSlab+edge:value:2 = 69
-*option:R10UnderSlab+edge:value:3       = 1.76
-*option:R10UnderSlab+edge:cost:total    = 2720              
-*option:R10UnderSlab+edge:alias = 1902
-
-
-! Perimeter, sub-slab 0.6m skirt insulation
-
-*option:R12EdgeP6:value:1 = BsmFlrR0
-*option[Opt-BasementWallInsulation>OBC-min-R12|Rigid+Blown-R43]:R12EdgeP6:value:2 = 23 
-*option[else                                                  ]:R12EdgeP6:value:2 = 69
-*option:R10UnderSlab+edge:value:3       = 1.76
-*option:R12EdgeP6:cost:total    = 450              ! updated for Vancouver geometry        
-*option:R12EdgeP6:alias = 1903
-
-! Perimeter, sub-slab 1.0m skirt insulation
-
-*option:R12EdgeP10:value:1 = BsmFlrR0
-*option[Opt-BasementWallInsulation>OBC-min-R12|Rigid+Blown-R43]:R12EdgeP10:value:2 = 24
-*option[else                                                  ]:R12EdgeP10:value:2 = 69
-*option:R12UnderSlab+edge:value:3   = 2.11
-*option:R12EdgeP10:cost:total    = 745              ! updated for Vancouver geometry 
-*option:R12EdgeP10:alias = 1904
-       
-*option:MB-Comb-Insulation:value:1 = BsmFlrR0
-*option:MB-Comb-Insulation:value:2 = 96
-*option:MB-Comb-Insulation:value:3 = 0.10	! Concrete (Not sure what's intended here!)
-*option:MB-Comb-Insulation:cost:total = 0
-*option:MB-Comb-Insulation:alias = 905
-
-# Whitehorse data
-
-*option:Slab_5_R10:value:1 = Slab_5_R10
-*option:Slab_5_R10:value:2 = 69
-*option:Slab_5_R10:value:3 = 1.76
-*option:Slab_5_R10:cost:total   = 2645
-*option:Slab_5_R10:alias = 1906
-
-*option:Slab_6_R20:value:1 = Slab_6_R20
-*option:Slab_6_R20:value:2 = 69
-*option:Slab_6_R20:value:3 = 3.52
-*option:Slab_6_R20:cost:total   = 1330         
-*option:Slab_6_R20:alias = 1907
-
-*option:Slab_7_R30:value:1 = Slab_7_R30
-*option:Slab_7_R30:value:2 = 69
-*option:Slab_7_R30:value:3 = 5.28
-*option:Slab_7_R30:cost:total   = 2804     
-*option:Slab_7_R30:alias = 1908
-
-*option:Slab_8_R40:value:1 = Slab_8_R40
-*option:Slab_8_R40:value:2 = 69
-*option:Slab_8_R40:value:3 = 7.04
-*option:Slab_8_R40:cost:total   = 4269  
-*option:Slab_8_R40:alias = 1909
-
-
-*option:NoSOGInsulation:value:1 = BsmFlrR0	
-*option:NoSOGInsulation:value:2 = 28		! SOG with no insulation
-*option:NoSOGInsulation:value:3 = 0.10		! Concrete
-*option:NoSOGInsulation:cost:total   = 0
-*option:NoSOGInsulation:alias = 1910
-
-*option:R8UnderSlab+edge:value:1 = BsmFlrR8
-*option:R8UnderSlab+edge:value:2 = 52		! Configuration number for SOG insulation below slab without skirt
-*option:R8UnderSlab+edge:value:3 = 1.41
-*option:R8UnderSlab+edge:cost:total   = 0     ! BC-LEEP base  
-*option:R8UnderSlab+edge:alias = 1911
-
-*option:R12UnderSlab+edge:value:1 = BsmFlrR12
-*option:R12UnderSlab+edge:value:2 = 52		! Configuration number for SOG insulation below slab without skirt
-*option:R12UnderSlab+edge:value:3 = 2.11
-*option:R12UnderSlab+edge:cost:total   = 655     ! BC-LEEP
-*option:R12UnderSlab+edge:alias = 1912
-
-*option:R13UnderSlab+edge:value:1 = BsmFlrR13
-*option:R13UnderSlab+edge:value:2 = 52		! Configuration number for SOG insulation below slab without skirt
-*option:R13UnderSlab+edge:value:3 = 2.29
-*option:R13UnderSlab+edge:cost:total   = 370     ! BC-LEEP  
-*option:R13UnderSlab+edge:alias = 1913
-
-*option:R17UnderSlab+edge:value:1 = BsmFlrR17
-*option:R17UnderSlab+edge:value:2 = 52		! Configuration number for SOG insulation below slab without skirt
-*option:R17UnderSlab+edge:value:3 = 2.99
-*option:R17UnderSlab+edge:cost:total   = 735     ! BC-LEEP  
-*option:R17UnderSlab+edge:alias = 1914
-       
 *attribute:end
+
+
 
 !-----------------------------------------------------------------------
 ! Exposed Floor insulation 
