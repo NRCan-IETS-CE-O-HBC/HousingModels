@@ -88,7 +88,9 @@ Opt-AirTightness   : Generic
 
 Opt-MainWall         : GenericWall_1Layer
 
-Opt-GenericWall_1Layer_definitions : Generic_Wall_R-08_RSI-1.4-eff
+Opt-GenericWall_1Layer_definitions :  Generic_Wall_R-17-eff 
+
+
 
 
 ! Add extra drywall to wall constructions 
@@ -107,32 +109,10 @@ Opt-FloorSurface     : wood
 
 Opt-Ceilings         : CeilR40
 
-! Basement slab insulation 
-! Choices: 
-!   NoInsulation
-Opt-BasementSlabInsulation  : NoInsulation
-
-! Foundation walls. 
-! Choices 
-!  OBC-min-R12
-!  Rigid+Batt-R30
-!  Rigid+Blown-R43
-!  ICF-base-R22
-!  ICF-base-R26
-!  ICF-base-R32
-!  ICF-base-R41
-!  ICF-base-R51     
-!  ICF-base-R51r
-!  Fnd0PWF_R28   
-! Retrofit foundation
-!    TripleBrick
-!    PouredConcrete_RSI0_925
-!    PouredConcrete_NoIns
-
+! Basement INSULATION
+Opt-BasementSlabInsulation  : GenericFoundationSlab
 Opt-BasementWallInsulation  : GenericFoundationWall
-
-
-Opt-GenericFdn_1Layer_definitions : Generic_FDN_uninsulated_R-03_RSI-0.53_eff
+Opt-BasementConfiguration   : GHG-bsm-1-RSI_0.66
 
 
 
