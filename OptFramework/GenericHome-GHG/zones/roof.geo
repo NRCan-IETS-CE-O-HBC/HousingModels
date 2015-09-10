@@ -25,7 +25,7 @@ roof describes the roof
 *surf,Surf-2,SLOP,-,-,-,roof,OPAQUE,EXTERIOR,0,0  #   2 ||< not yet defined
 *surf,Wall-3,VERT,-,-,-,roof,OPAQUE,EXTERIOR,0,0  #   3 ||< not yet defined
 *surf,Surf-4,SLOP,-,-,-,roof,OPAQUE,EXTERIOR,0,0  #   4 ||< not yet defined
-*surf,roof-base,FLOR,-,-,-,<Opt-Ceiling>R,OPAQUE,ANOTHER,04,05  #   5 ||< roof-base:Top-3rd
+*surf,roof-base,FLOR,-,-,-,<Opt-Ceiling>R,OPAQUE,ANOTHER,03,05  #   5 ||< roof-base:Top-3rd
 # 
 *insol,3,0,0,0  # default insolation distribution
 # 
