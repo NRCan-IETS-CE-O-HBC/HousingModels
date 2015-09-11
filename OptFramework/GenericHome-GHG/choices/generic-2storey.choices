@@ -133,7 +133,7 @@ Opt-BasementConfiguration   : GHG-bsm-1-RSI_0.66
 ! Mattamy 
 !     DoubleArgon_HighGainOnSouth
 
-Opt-CasementWindows  : DoubleLowESoftCoatArgFill
+Opt-CasementWindows  : win-Canada-2025-onwards-Gas
 
 
 ! Exposed floor over garage (affects floor

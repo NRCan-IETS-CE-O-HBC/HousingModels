@@ -1735,50 +1735,391 @@
 ! for us. 
 ! ============================================================
 
-*option:ArcticFront_a:value:1 = ArcticFr_a
-*option:ArcticFront_a:value:2 = ArcticFr_a
-*option:ArcticFront_a:value:3 = ArcticFr_a
-*option:ArcticFront_a:value:4 = ArcticFr_a
-*option:ArcticFront_a:value:5 = ArcticFr_a
-*option:ArcticFront_a:value:6 = ArcticFr_a
-*option:ArcticFront_a:value:7 = ArcticFr_a
-*option:ArcticFront_a:value:8 = ArcticFr_a
-*option:ArcticFront_a:value:9 = ArcticFr_a
-*option:ArcticFront_a:WindowParams:name  = ArcticFr_a
-*option:ArcticFront_a:WindowParams:panes = 3 
-*option:ArcticFront_a:WindowParams:SHGC  = 0.56
-*option:ArcticFront_a:WindowParams:Uval  = 1.26
-*option:ArcticFront_a:cost:total   = 0
+*option:win-Canada-Pre-1946-Gas:value:1 = ghg-win-1
+*option:win-Canada-Pre-1946-Gas:value:2 = ghg-win-1
+*option:win-Canada-Pre-1946-Gas:value:3 = ghg-win-1
+*option:win-Canada-Pre-1946-Gas:value:4 = ghg-win-1
+*option:win-Canada-Pre-1946-Gas:value:5 = ghg-win-1
+*option:win-Canada-Pre-1946-Gas:value:6 = ghg-win-1
+*option:win-Canada-Pre-1946-Gas:value:7 = ghg-win-1
+*option:win-Canada-Pre-1946-Gas:value:8 = ghg-win-1
+*option:win-Canada-Pre-1946-Gas:value:9 = ghg-win-1
+*option:win-Canada-Pre-1946-Gas:WindowParams:name = ghg-win-1
+*option:win-Canada-Pre-1946-Gas:WindowParams:panes = 2
+*option:win-Canada-Pre-1946-Gas:WindowParams:SHGC = 0.65
+*option:win-Canada-Pre-1946-Gas:WindowParams:Uval = 3.85
+*option:win-Canada-Pre-1946-Gas:WindowParams:cost:total = 0
 
-*option:ArcticFront_b:value:1 = ArcticFr_b
-*option:ArcticFront_b:value:2 = ArcticFr_b
-*option:ArcticFront_b:value:3 = ArcticFr_b
-*option:ArcticFront_b:value:4 = ArcticFr_b
-*option:ArcticFront_b:value:5 = ArcticFr_b
-*option:ArcticFront_b:value:6 = ArcticFr_b
-*option:ArcticFront_b:value:7 = ArcticFr_b
-*option:ArcticFront_b:value:8 = ArcticFr_b
-*option:ArcticFront_b:value:9 = ArcticFr_b
-*option:ArcticFront_b:WindowParams:name  = ArcticFr_b
-*option:ArcticFront_b:WindowParams:panes = 3 
-*option:ArcticFront_b:WindowParams:SHGC  = 0.42
-*option:ArcticFront_b:WindowParams:Uval  = 1.3
-*option:ArcticFront_b:cost:total   = 0
 
-*option:ArcticFront_c:value:1 = ArcticFr_c
-*option:ArcticFront_c:value:2 = ArcticFr_c
-*option:ArcticFront_c:value:3 = ArcticFr_c
-*option:ArcticFront_c:value:4 = ArcticFr_c
-*option:ArcticFront_c:value:5 = ArcticFr_c
-*option:ArcticFront_c:value:6 = ArcticFr_c
-*option:ArcticFront_c:value:7 = ArcticFr_c
-*option:ArcticFront_c:value:8 = ArcticFr_c
-*option:ArcticFront_c:value:9 = ArcticFr_c
-*option:ArcticFront_c:WindowParams:name  = ArcticFr_c
-*option:ArcticFront_c:WindowParams:panes = 3 
-*option:ArcticFront_c:WindowParams:SHGC  = 0.56
-*option:ArcticFront_c:WindowParams:Uval  = 1.38
-*option:ArcticFront_c:cost:total   = 0
+*option:win-Canada-Pre-1946-Elect:value:1 = ghg-win-2
+*option:win-Canada-Pre-1946-Elect:value:2 = ghg-win-2
+*option:win-Canada-Pre-1946-Elect:value:3 = ghg-win-2
+*option:win-Canada-Pre-1946-Elect:value:4 = ghg-win-2
+*option:win-Canada-Pre-1946-Elect:value:5 = ghg-win-2
+*option:win-Canada-Pre-1946-Elect:value:6 = ghg-win-2
+*option:win-Canada-Pre-1946-Elect:value:7 = ghg-win-2
+*option:win-Canada-Pre-1946-Elect:value:8 = ghg-win-2
+*option:win-Canada-Pre-1946-Elect:value:9 = ghg-win-2
+*option:win-Canada-Pre-1946-Elect:WindowParams:name = ghg-win-2
+*option:win-Canada-Pre-1946-Elect:WindowParams:panes = 2
+*option:win-Canada-Pre-1946-Elect:WindowParams:SHGC = 0.65
+*option:win-Canada-Pre-1946-Elect:WindowParams:Uval = 3.33
+*option:win-Canada-Pre-1946-Elect:WindowParams:cost:total = 0
+
+
+*option:win-Canada-Pre-1946-Oil:value:1 = ghg-win-3
+*option:win-Canada-Pre-1946-Oil:value:2 = ghg-win-3
+*option:win-Canada-Pre-1946-Oil:value:3 = ghg-win-3
+*option:win-Canada-Pre-1946-Oil:value:4 = ghg-win-3
+*option:win-Canada-Pre-1946-Oil:value:5 = ghg-win-3
+*option:win-Canada-Pre-1946-Oil:value:6 = ghg-win-3
+*option:win-Canada-Pre-1946-Oil:value:7 = ghg-win-3
+*option:win-Canada-Pre-1946-Oil:value:8 = ghg-win-3
+*option:win-Canada-Pre-1946-Oil:value:9 = ghg-win-3
+*option:win-Canada-Pre-1946-Oil:WindowParams:name = ghg-win-3
+*option:win-Canada-Pre-1946-Oil:WindowParams:panes = 2
+*option:win-Canada-Pre-1946-Oil:WindowParams:SHGC = 0.65
+*option:win-Canada-Pre-1946-Oil:WindowParams:Uval = 3.85
+*option:win-Canada-Pre-1946-Oil:WindowParams:cost:total = 0
+
+
+*option:win-Canada-1946-1983-Gas:value:1 = ghg-win-4
+*option:win-Canada-1946-1983-Gas:value:2 = ghg-win-4
+*option:win-Canada-1946-1983-Gas:value:3 = ghg-win-4
+*option:win-Canada-1946-1983-Gas:value:4 = ghg-win-4
+*option:win-Canada-1946-1983-Gas:value:5 = ghg-win-4
+*option:win-Canada-1946-1983-Gas:value:6 = ghg-win-4
+*option:win-Canada-1946-1983-Gas:value:7 = ghg-win-4
+*option:win-Canada-1946-1983-Gas:value:8 = ghg-win-4
+*option:win-Canada-1946-1983-Gas:value:9 = ghg-win-4
+*option:win-Canada-1946-1983-Gas:WindowParams:name = ghg-win-4
+*option:win-Canada-1946-1983-Gas:WindowParams:panes = 2
+*option:win-Canada-1946-1983-Gas:WindowParams:SHGC = 0.63
+*option:win-Canada-1946-1983-Gas:WindowParams:Uval = 3.33
+*option:win-Canada-1946-1983-Gas:WindowParams:cost:total = 0
+
+
+*option:win-Canada-1946-1983-Elect:value:1 = ghg-win-5
+*option:win-Canada-1946-1983-Elect:value:2 = ghg-win-5
+*option:win-Canada-1946-1983-Elect:value:3 = ghg-win-5
+*option:win-Canada-1946-1983-Elect:value:4 = ghg-win-5
+*option:win-Canada-1946-1983-Elect:value:5 = ghg-win-5
+*option:win-Canada-1946-1983-Elect:value:6 = ghg-win-5
+*option:win-Canada-1946-1983-Elect:value:7 = ghg-win-5
+*option:win-Canada-1946-1983-Elect:value:8 = ghg-win-5
+*option:win-Canada-1946-1983-Elect:value:9 = ghg-win-5
+*option:win-Canada-1946-1983-Elect:WindowParams:name = ghg-win-5
+*option:win-Canada-1946-1983-Elect:WindowParams:panes = 2
+*option:win-Canada-1946-1983-Elect:WindowParams:SHGC = 0.61
+*option:win-Canada-1946-1983-Elect:WindowParams:Uval = 2.94
+*option:win-Canada-1946-1983-Elect:WindowParams:cost:total = 0
+
+
+*option:win-Canada-1946-1983-Oil:value:1 = ghg-win-6
+*option:win-Canada-1946-1983-Oil:value:2 = ghg-win-6
+*option:win-Canada-1946-1983-Oil:value:3 = ghg-win-6
+*option:win-Canada-1946-1983-Oil:value:4 = ghg-win-6
+*option:win-Canada-1946-1983-Oil:value:5 = ghg-win-6
+*option:win-Canada-1946-1983-Oil:value:6 = ghg-win-6
+*option:win-Canada-1946-1983-Oil:value:7 = ghg-win-6
+*option:win-Canada-1946-1983-Oil:value:8 = ghg-win-6
+*option:win-Canada-1946-1983-Oil:value:9 = ghg-win-6
+*option:win-Canada-1946-1983-Oil:WindowParams:name = ghg-win-6
+*option:win-Canada-1946-1983-Oil:WindowParams:panes = 2
+*option:win-Canada-1946-1983-Oil:WindowParams:SHGC = 0.63
+*option:win-Canada-1946-1983-Oil:WindowParams:Uval = 3.33
+*option:win-Canada-1946-1983-Oil:WindowParams:cost:total = 0
+
+
+*option:win-Canada-1984-1995-Gas:value:1 = ghg-win-7
+*option:win-Canada-1984-1995-Gas:value:2 = ghg-win-7
+*option:win-Canada-1984-1995-Gas:value:3 = ghg-win-7
+*option:win-Canada-1984-1995-Gas:value:4 = ghg-win-7
+*option:win-Canada-1984-1995-Gas:value:5 = ghg-win-7
+*option:win-Canada-1984-1995-Gas:value:6 = ghg-win-7
+*option:win-Canada-1984-1995-Gas:value:7 = ghg-win-7
+*option:win-Canada-1984-1995-Gas:value:8 = ghg-win-7
+*option:win-Canada-1984-1995-Gas:value:9 = ghg-win-7
+*option:win-Canada-1984-1995-Gas:WindowParams:name = ghg-win-7
+*option:win-Canada-1984-1995-Gas:WindowParams:panes = 2
+*option:win-Canada-1984-1995-Gas:WindowParams:SHGC = 0.63
+*option:win-Canada-1984-1995-Gas:WindowParams:Uval = 3.13
+*option:win-Canada-1984-1995-Gas:WindowParams:cost:total = 0
+
+
+*option:win-Canada-1984-1995-Elect:value:1 = ghg-win-8
+*option:win-Canada-1984-1995-Elect:value:2 = ghg-win-8
+*option:win-Canada-1984-1995-Elect:value:3 = ghg-win-8
+*option:win-Canada-1984-1995-Elect:value:4 = ghg-win-8
+*option:win-Canada-1984-1995-Elect:value:5 = ghg-win-8
+*option:win-Canada-1984-1995-Elect:value:6 = ghg-win-8
+*option:win-Canada-1984-1995-Elect:value:7 = ghg-win-8
+*option:win-Canada-1984-1995-Elect:value:8 = ghg-win-8
+*option:win-Canada-1984-1995-Elect:value:9 = ghg-win-8
+*option:win-Canada-1984-1995-Elect:WindowParams:name = ghg-win-8
+*option:win-Canada-1984-1995-Elect:WindowParams:panes = 2
+*option:win-Canada-1984-1995-Elect:WindowParams:SHGC = 0.63
+*option:win-Canada-1984-1995-Elect:WindowParams:Uval = 2.94
+*option:win-Canada-1984-1995-Elect:WindowParams:cost:total = 0
+
+
+*option:win-Canada-1984-1995-Oil:value:1 = ghg-win-9
+*option:win-Canada-1984-1995-Oil:value:2 = ghg-win-9
+*option:win-Canada-1984-1995-Oil:value:3 = ghg-win-9
+*option:win-Canada-1984-1995-Oil:value:4 = ghg-win-9
+*option:win-Canada-1984-1995-Oil:value:5 = ghg-win-9
+*option:win-Canada-1984-1995-Oil:value:6 = ghg-win-9
+*option:win-Canada-1984-1995-Oil:value:7 = ghg-win-9
+*option:win-Canada-1984-1995-Oil:value:8 = ghg-win-9
+*option:win-Canada-1984-1995-Oil:value:9 = ghg-win-9
+*option:win-Canada-1984-1995-Oil:WindowParams:name = ghg-win-9
+*option:win-Canada-1984-1995-Oil:WindowParams:panes = 2
+*option:win-Canada-1984-1995-Oil:WindowParams:SHGC = 0.63
+*option:win-Canada-1984-1995-Oil:WindowParams:Uval = 3.13
+*option:win-Canada-1984-1995-Oil:WindowParams:cost:total = 0
+
+
+*option:win-Canada-1996-2005-Gas:value:1 = ghg-win-10
+*option:win-Canada-1996-2005-Gas:value:2 = ghg-win-10
+*option:win-Canada-1996-2005-Gas:value:3 = ghg-win-10
+*option:win-Canada-1996-2005-Gas:value:4 = ghg-win-10
+*option:win-Canada-1996-2005-Gas:value:5 = ghg-win-10
+*option:win-Canada-1996-2005-Gas:value:6 = ghg-win-10
+*option:win-Canada-1996-2005-Gas:value:7 = ghg-win-10
+*option:win-Canada-1996-2005-Gas:value:8 = ghg-win-10
+*option:win-Canada-1996-2005-Gas:value:9 = ghg-win-10
+*option:win-Canada-1996-2005-Gas:WindowParams:name = ghg-win-10
+*option:win-Canada-1996-2005-Gas:WindowParams:panes = 2
+*option:win-Canada-1996-2005-Gas:WindowParams:SHGC = 0.65
+*option:win-Canada-1996-2005-Gas:WindowParams:Uval = 3.13
+*option:win-Canada-1996-2005-Gas:WindowParams:cost:total = 0
+
+
+*option:win-Canada-1996-2005-Elect:value:1 = ghg-win-11
+*option:win-Canada-1996-2005-Elect:value:2 = ghg-win-11
+*option:win-Canada-1996-2005-Elect:value:3 = ghg-win-11
+*option:win-Canada-1996-2005-Elect:value:4 = ghg-win-11
+*option:win-Canada-1996-2005-Elect:value:5 = ghg-win-11
+*option:win-Canada-1996-2005-Elect:value:6 = ghg-win-11
+*option:win-Canada-1996-2005-Elect:value:7 = ghg-win-11
+*option:win-Canada-1996-2005-Elect:value:8 = ghg-win-11
+*option:win-Canada-1996-2005-Elect:value:9 = ghg-win-11
+*option:win-Canada-1996-2005-Elect:WindowParams:name = ghg-win-11
+*option:win-Canada-1996-2005-Elect:WindowParams:panes = 2
+*option:win-Canada-1996-2005-Elect:WindowParams:SHGC = 0.59
+*option:win-Canada-1996-2005-Elect:WindowParams:Uval = 2.94
+*option:win-Canada-1996-2005-Elect:WindowParams:cost:total = 0
+
+
+*option:win-Canada-1996-2005-Oil:value:1 = ghg-win-12
+*option:win-Canada-1996-2005-Oil:value:2 = ghg-win-12
+*option:win-Canada-1996-2005-Oil:value:3 = ghg-win-12
+*option:win-Canada-1996-2005-Oil:value:4 = ghg-win-12
+*option:win-Canada-1996-2005-Oil:value:5 = ghg-win-12
+*option:win-Canada-1996-2005-Oil:value:6 = ghg-win-12
+*option:win-Canada-1996-2005-Oil:value:7 = ghg-win-12
+*option:win-Canada-1996-2005-Oil:value:8 = ghg-win-12
+*option:win-Canada-1996-2005-Oil:value:9 = ghg-win-12
+*option:win-Canada-1996-2005-Oil:WindowParams:name = ghg-win-12
+*option:win-Canada-1996-2005-Oil:WindowParams:panes = 2
+*option:win-Canada-1996-2005-Oil:WindowParams:SHGC = 0.58
+*option:win-Canada-1996-2005-Oil:WindowParams:Uval = 2.94
+*option:win-Canada-1996-2005-Oil:WindowParams:cost:total = 0
+
+
+*option:win-Canada-2006-2011-Gas:value:1 = ghg-win-13
+*option:win-Canada-2006-2011-Gas:value:2 = ghg-win-13
+*option:win-Canada-2006-2011-Gas:value:3 = ghg-win-13
+*option:win-Canada-2006-2011-Gas:value:4 = ghg-win-13
+*option:win-Canada-2006-2011-Gas:value:5 = ghg-win-13
+*option:win-Canada-2006-2011-Gas:value:6 = ghg-win-13
+*option:win-Canada-2006-2011-Gas:value:7 = ghg-win-13
+*option:win-Canada-2006-2011-Gas:value:8 = ghg-win-13
+*option:win-Canada-2006-2011-Gas:value:9 = ghg-win-13
+*option:win-Canada-2006-2011-Gas:WindowParams:name = ghg-win-13
+*option:win-Canada-2006-2011-Gas:WindowParams:panes = 2
+*option:win-Canada-2006-2011-Gas:WindowParams:SHGC = 0.53
+*option:win-Canada-2006-2011-Gas:WindowParams:Uval = 2.13
+*option:win-Canada-2006-2011-Gas:WindowParams:cost:total = 0
+
+
+*option:win-Canada-2006-2011-Elect:value:1 = ghg-win-14
+*option:win-Canada-2006-2011-Elect:value:2 = ghg-win-14
+*option:win-Canada-2006-2011-Elect:value:3 = ghg-win-14
+*option:win-Canada-2006-2011-Elect:value:4 = ghg-win-14
+*option:win-Canada-2006-2011-Elect:value:5 = ghg-win-14
+*option:win-Canada-2006-2011-Elect:value:6 = ghg-win-14
+*option:win-Canada-2006-2011-Elect:value:7 = ghg-win-14
+*option:win-Canada-2006-2011-Elect:value:8 = ghg-win-14
+*option:win-Canada-2006-2011-Elect:value:9 = ghg-win-14
+*option:win-Canada-2006-2011-Elect:WindowParams:name = ghg-win-14
+*option:win-Canada-2006-2011-Elect:WindowParams:panes = 2
+*option:win-Canada-2006-2011-Elect:WindowParams:SHGC = 0.53
+*option:win-Canada-2006-2011-Elect:WindowParams:Uval = 2.13
+*option:win-Canada-2006-2011-Elect:WindowParams:cost:total = 0
+
+
+*option:win-Canada-2006-2011-Oil:value:1 = ghg-win-15
+*option:win-Canada-2006-2011-Oil:value:2 = ghg-win-15
+*option:win-Canada-2006-2011-Oil:value:3 = ghg-win-15
+*option:win-Canada-2006-2011-Oil:value:4 = ghg-win-15
+*option:win-Canada-2006-2011-Oil:value:5 = ghg-win-15
+*option:win-Canada-2006-2011-Oil:value:6 = ghg-win-15
+*option:win-Canada-2006-2011-Oil:value:7 = ghg-win-15
+*option:win-Canada-2006-2011-Oil:value:8 = ghg-win-15
+*option:win-Canada-2006-2011-Oil:value:9 = ghg-win-15
+*option:win-Canada-2006-2011-Oil:WindowParams:name = ghg-win-15
+*option:win-Canada-2006-2011-Oil:WindowParams:panes = 2
+*option:win-Canada-2006-2011-Oil:WindowParams:SHGC = 0.53
+*option:win-Canada-2006-2011-Oil:WindowParams:Uval = 2.13
+*option:win-Canada-2006-2011-Oil:WindowParams:cost:total = 0
+
+
+*option:win-Canada-2012-2019-Gas:value:1 = ghg-win-16
+*option:win-Canada-2012-2019-Gas:value:2 = ghg-win-16
+*option:win-Canada-2012-2019-Gas:value:3 = ghg-win-16
+*option:win-Canada-2012-2019-Gas:value:4 = ghg-win-16
+*option:win-Canada-2012-2019-Gas:value:5 = ghg-win-16
+*option:win-Canada-2012-2019-Gas:value:6 = ghg-win-16
+*option:win-Canada-2012-2019-Gas:value:7 = ghg-win-16
+*option:win-Canada-2012-2019-Gas:value:8 = ghg-win-16
+*option:win-Canada-2012-2019-Gas:value:9 = ghg-win-16
+*option:win-Canada-2012-2019-Gas:WindowParams:name = ghg-win-16
+*option:win-Canada-2012-2019-Gas:WindowParams:panes = 2
+*option:win-Canada-2012-2019-Gas:WindowParams:SHGC = 0.35
+*option:win-Canada-2012-2019-Gas:WindowParams:Uval = 1.8
+*option:win-Canada-2012-2019-Gas:WindowParams:cost:total = 0
+
+
+*option:win-Canada-2012-2019-Elect:value:1 = ghg-win-17
+*option:win-Canada-2012-2019-Elect:value:2 = ghg-win-17
+*option:win-Canada-2012-2019-Elect:value:3 = ghg-win-17
+*option:win-Canada-2012-2019-Elect:value:4 = ghg-win-17
+*option:win-Canada-2012-2019-Elect:value:5 = ghg-win-17
+*option:win-Canada-2012-2019-Elect:value:6 = ghg-win-17
+*option:win-Canada-2012-2019-Elect:value:7 = ghg-win-17
+*option:win-Canada-2012-2019-Elect:value:8 = ghg-win-17
+*option:win-Canada-2012-2019-Elect:value:9 = ghg-win-17
+*option:win-Canada-2012-2019-Elect:WindowParams:name = ghg-win-17
+*option:win-Canada-2012-2019-Elect:WindowParams:panes = 2
+*option:win-Canada-2012-2019-Elect:WindowParams:SHGC = 0.35
+*option:win-Canada-2012-2019-Elect:WindowParams:Uval = 1.8
+*option:win-Canada-2012-2019-Elect:WindowParams:cost:total = 0
+
+
+*option:win-Canada-2012-2019-Oil:value:1 = ghg-win-18
+*option:win-Canada-2012-2019-Oil:value:2 = ghg-win-18
+*option:win-Canada-2012-2019-Oil:value:3 = ghg-win-18
+*option:win-Canada-2012-2019-Oil:value:4 = ghg-win-18
+*option:win-Canada-2012-2019-Oil:value:5 = ghg-win-18
+*option:win-Canada-2012-2019-Oil:value:6 = ghg-win-18
+*option:win-Canada-2012-2019-Oil:value:7 = ghg-win-18
+*option:win-Canada-2012-2019-Oil:value:8 = ghg-win-18
+*option:win-Canada-2012-2019-Oil:value:9 = ghg-win-18
+*option:win-Canada-2012-2019-Oil:WindowParams:name = ghg-win-18
+*option:win-Canada-2012-2019-Oil:WindowParams:panes = 2
+*option:win-Canada-2012-2019-Oil:WindowParams:SHGC = 0.35
+*option:win-Canada-2012-2019-Oil:WindowParams:Uval = 1.8
+*option:win-Canada-2012-2019-Oil:WindowParams:cost:total = 0
+
+
+*option:win-Canada-2020-2024-Gas:value:1 = ghg-win-19
+*option:win-Canada-2020-2024-Gas:value:2 = ghg-win-19
+*option:win-Canada-2020-2024-Gas:value:3 = ghg-win-19
+*option:win-Canada-2020-2024-Gas:value:4 = ghg-win-19
+*option:win-Canada-2020-2024-Gas:value:5 = ghg-win-19
+*option:win-Canada-2020-2024-Gas:value:6 = ghg-win-19
+*option:win-Canada-2020-2024-Gas:value:7 = ghg-win-19
+*option:win-Canada-2020-2024-Gas:value:8 = ghg-win-19
+*option:win-Canada-2020-2024-Gas:value:9 = ghg-win-19
+*option:win-Canada-2020-2024-Gas:WindowParams:name = ghg-win-19
+*option:win-Canada-2020-2024-Gas:WindowParams:panes = 2
+*option:win-Canada-2020-2024-Gas:WindowParams:SHGC = 0.3
+*option:win-Canada-2020-2024-Gas:WindowParams:Uval = 1.6
+*option:win-Canada-2020-2024-Gas:WindowParams:cost:total = 0
+
+
+*option:win-Canada-2020-2024-Elect:value:1 = ghg-win-20
+*option:win-Canada-2020-2024-Elect:value:2 = ghg-win-20
+*option:win-Canada-2020-2024-Elect:value:3 = ghg-win-20
+*option:win-Canada-2020-2024-Elect:value:4 = ghg-win-20
+*option:win-Canada-2020-2024-Elect:value:5 = ghg-win-20
+*option:win-Canada-2020-2024-Elect:value:6 = ghg-win-20
+*option:win-Canada-2020-2024-Elect:value:7 = ghg-win-20
+*option:win-Canada-2020-2024-Elect:value:8 = ghg-win-20
+*option:win-Canada-2020-2024-Elect:value:9 = ghg-win-20
+*option:win-Canada-2020-2024-Elect:WindowParams:name = ghg-win-20
+*option:win-Canada-2020-2024-Elect:WindowParams:panes = 2
+*option:win-Canada-2020-2024-Elect:WindowParams:SHGC = 0.3
+*option:win-Canada-2020-2024-Elect:WindowParams:Uval = 1.6
+*option:win-Canada-2020-2024-Elect:WindowParams:cost:total = 0
+
+
+*option:win-Canada-2020-2024-Oil:value:1 = ghg-win-21
+*option:win-Canada-2020-2024-Oil:value:2 = ghg-win-21
+*option:win-Canada-2020-2024-Oil:value:3 = ghg-win-21
+*option:win-Canada-2020-2024-Oil:value:4 = ghg-win-21
+*option:win-Canada-2020-2024-Oil:value:5 = ghg-win-21
+*option:win-Canada-2020-2024-Oil:value:6 = ghg-win-21
+*option:win-Canada-2020-2024-Oil:value:7 = ghg-win-21
+*option:win-Canada-2020-2024-Oil:value:8 = ghg-win-21
+*option:win-Canada-2020-2024-Oil:value:9 = ghg-win-21
+*option:win-Canada-2020-2024-Oil:WindowParams:name = ghg-win-21
+*option:win-Canada-2020-2024-Oil:WindowParams:panes = 2
+*option:win-Canada-2020-2024-Oil:WindowParams:SHGC = 0.3
+*option:win-Canada-2020-2024-Oil:WindowParams:Uval = 1.4
+*option:win-Canada-2020-2024-Oil:WindowParams:cost:total = 0
+
+
+*option:win-Canada-2025-onwards-Gas:value:1 = ghg-win-22
+*option:win-Canada-2025-onwards-Gas:value:2 = ghg-win-22
+*option:win-Canada-2025-onwards-Gas:value:3 = ghg-win-22
+*option:win-Canada-2025-onwards-Gas:value:4 = ghg-win-22
+*option:win-Canada-2025-onwards-Gas:value:5 = ghg-win-22
+*option:win-Canada-2025-onwards-Gas:value:6 = ghg-win-22
+*option:win-Canada-2025-onwards-Gas:value:7 = ghg-win-22
+*option:win-Canada-2025-onwards-Gas:value:8 = ghg-win-22
+*option:win-Canada-2025-onwards-Gas:value:9 = ghg-win-22
+*option:win-Canada-2025-onwards-Gas:WindowParams:name = ghg-win-22
+*option:win-Canada-2025-onwards-Gas:WindowParams:panes = 3
+*option:win-Canada-2025-onwards-Gas:WindowParams:SHGC = 0.3
+*option:win-Canada-2025-onwards-Gas:WindowParams:Uval = 1.2
+*option:win-Canada-2025-onwards-Gas:WindowParams:cost:total = 0
+
+
+*option:win-Canada-2025-onwards-Elect:value:1 = ghg-win-23
+*option:win-Canada-2025-onwards-Elect:value:2 = ghg-win-23
+*option:win-Canada-2025-onwards-Elect:value:3 = ghg-win-23
+*option:win-Canada-2025-onwards-Elect:value:4 = ghg-win-23
+*option:win-Canada-2025-onwards-Elect:value:5 = ghg-win-23
+*option:win-Canada-2025-onwards-Elect:value:6 = ghg-win-23
+*option:win-Canada-2025-onwards-Elect:value:7 = ghg-win-23
+*option:win-Canada-2025-onwards-Elect:value:8 = ghg-win-23
+*option:win-Canada-2025-onwards-Elect:value:9 = ghg-win-23
+*option:win-Canada-2025-onwards-Elect:WindowParams:name = ghg-win-23
+*option:win-Canada-2025-onwards-Elect:WindowParams:panes = 3
+*option:win-Canada-2025-onwards-Elect:WindowParams:SHGC = 0.3
+*option:win-Canada-2025-onwards-Elect:WindowParams:Uval = 1.2
+*option:win-Canada-2025-onwards-Elect:WindowParams:cost:total = 0
+
+
+*option:win-Canada-2025-onwards-Oil:value:1 = ghg-win-24
+*option:win-Canada-2025-onwards-Oil:value:2 = ghg-win-24
+*option:win-Canada-2025-onwards-Oil:value:3 = ghg-win-24
+*option:win-Canada-2025-onwards-Oil:value:4 = ghg-win-24
+*option:win-Canada-2025-onwards-Oil:value:5 = ghg-win-24
+*option:win-Canada-2025-onwards-Oil:value:6 = ghg-win-24
+*option:win-Canada-2025-onwards-Oil:value:7 = ghg-win-24
+*option:win-Canada-2025-onwards-Oil:value:8 = ghg-win-24
+*option:win-Canada-2025-onwards-Oil:value:9 = ghg-win-24
+*option:win-Canada-2025-onwards-Oil:WindowParams:name = ghg-win-24
+*option:win-Canada-2025-onwards-Oil:WindowParams:panes = 3
+*option:win-Canada-2025-onwards-Oil:WindowParams:SHGC = 0.3
+*option:win-Canada-2025-onwards-Oil:WindowParams:Uval = 1.2
+*option:win-Canada-2025-onwards-Oil:WindowParams:cost:total = 0
+
+
+
 
 *attribute:end
 
