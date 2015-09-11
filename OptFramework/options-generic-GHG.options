@@ -3060,142 +3060,498 @@
 
 *attribute:end 
 
-
-
-
-
 !-----------------------------------------------------------------------
-! HVAC
+!  GHG HVAC run 
 !-----------------------------------------------------------------------
 *attribute:start
-*attribute:name    = Opt-HVACSystem
+*attribute:name    = Opt-GhgHeatingCooling 
+! - Housekeeping tags that connect files 
 *attribute:tag:1   = <Opt-HVACSystem>
 *attribute:tag:2   = <Opt-HideGSHPfile>
 *attribute:tag:3   = <OPT-VENTisIMS>
 *attribute:tag:4   = <OPT-VENTisHRV>
 *attribute:tag:5   = <OPT-WHisIMS>
 *attribute:tag:6   = <Opt-HVACCtlFile>
+! - Efficiency Specs 
+*attribute:tag:7   = <OPT-heating-fuel>
+*attribute:tag:8   = <OPT-FurnaceType>
+*attribute:tag:9   = <OPT-HeatingCapacity>
+*attribute:tag:10  = <OPT-FurnaceEfficiency>
+*attribute:tag:11  = <OPT-FurnaceFanPower>
+*attribute:tag:12  = <OPT-FurnaceFanPowerLo>
+*attribute:tag:13  = <OPT-FurnaceDraftFanPower> 
+*attribute:tag:14  = <OPT-FurnacePilotPower>
+*attribute:tag:15  = <Opt-HPHeatingCapacity>
+*attribute:tag:16  = <OPT-AC-capacity>
+*attribute:tag:17  = <OPT-AC-COP>
 
-! ==================================================
-! --- Furnace Data FOR GHG RUNS > Gas heating 
- 
-*option:gas-high-eff-ecm:value:1 = SH-gas-furnace-high-eff-ecm.hvac
-*option:gas-high-eff-ecm:value:2 = #-no-GSHP-file
-*option:gas-high-eff-ecm:value:3 = #No-IMS: 
-*option:gas-high-eff-ecm:value:4 = 
-*option:gas-high-eff-ecm:value:5 = 
-*option:gas-high-eff-ecm:value:6 = shoulder-ideal.ctl
-*option:gas-high-eff-ecm:cost:total    = 0
-*option:gas-high-eff-ecm:alias = 2300
+*attribute:default = ghg-hvac-1-Gas
 
-
-*option:gas-high-eff-psc:value:1 = SH-gas-furnace-high-eff-psc.hvac
-*option:gas-high-eff-psc:value:2 = #-no-GSHP-file
-*option:gas-high-eff-psc:value:3 = #No-IMS: 
-*option:gas-high-eff-psc:value:4 = 
-*option:gas-high-eff-psc:value:5 = 
-*option:gas-high-eff-psc:value:6 = shoulder-ideal.ctl
-*option:gas-high-eff-psc:cost:total    = 0
-*option:gas-high-eff-psc:alias = 2301
-
-*option:gas-mid-eff-psc:value:1 = SH-gas-furnace-mid-eff-psc.hvac
-*option:gas-mid-eff-psc:value:2 = #-no-GSHP-file
-*option:gas-mid-eff-psc:value:3 = #No-IMS: 
-*option:gas-mid-eff-psc:value:4 = 
-*option:gas-mid-eff-psc:value:5 = 
-*option:gas-mid-eff-psc:value:6 = shoulder-ideal.ctl
-*option:gas-mid-eff-psc:cost:total    = 0
-*option:gas-mid-eff-psc:alias = 2302
-
-
-! > Oil Heating 
-
-*option:oil-mid-eff-psc:value:1 = SH-oil-furnace-mid-eff-psc.hvac
-*option:oil-mid-eff-psc:value:2 = #-no-GSHP-file
-*option:oil-mid-eff-psc:value:3 = #No-IMS: 
-*option:oil-mid-eff-psc:value:4 = 
-*option:oil-mid-eff-psc:value:5 = 
-*option:oil-mid-eff-psc:value:6 = shoulder-ideal.ctl
-*option:oil-mid-eff-psc:cost:total    = 0
-*option:oil-mid-eff-psc:alias = 2303
+*option:ghg-hvac-1-Gas:value:1   = ghg-gas .hvac
+*option:ghg-hvac-1-Gas:value:2   = #-no-GSHP-file
+*option:ghg-hvac-1-Gas:value:3  = #-no-IMS
+*option:ghg-hvac-1-Gas:value:4  =
+*option:ghg-hvac-1-Gas:value:5  =
+*option:ghg-hvac-1-Gas:value:6  = shoulder-ideal.ctl
+*option:ghg-hvac-1-Gas:value:7  = gas
+*option:ghg-hvac-1-Gas:value:8  = 5
+*option:ghg-hvac-1-Gas:value:9 = 15000
+*option:ghg-hvac-1-Gas:value:10  = 0.74
+*option:ghg-hvac-1-Gas:value:11  = 600
+*option:ghg-hvac-1-Gas:value:12  = 600
+*option:ghg-hvac-1-Gas:value:13  = 75
+*option:ghg-hvac-1-Gas:value:14 = 0
+*option:ghg-hvac-1-Gas:value:15  = 0
+*option:ghg-hvac-1-Gas:value:16  = 11000
+*option:ghg-hvac-1-Gas:value:17  = 2.25078689620004
 
 
-! > Electric heating 
+*option:ghg-hvac-2-Elect:value:1   = ghg-electricity .hvac
+*option:ghg-hvac-2-Elect:value:2   = #-no-GSHP-file
+*option:ghg-hvac-2-Elect:value:3  = #-no-IMS
+*option:ghg-hvac-2-Elect:value:4  =
+*option:ghg-hvac-2-Elect:value:5  =
+*option:ghg-hvac-2-Elect:value:6  = shoulder-ideal.ctl
+*option:ghg-hvac-2-Elect:value:7  = electricity
+*option:ghg-hvac-2-Elect:value:8  = nil
+*option:ghg-hvac-2-Elect:value:9 = 15000
+*option:ghg-hvac-2-Elect:value:10  = 1
+*option:ghg-hvac-2-Elect:value:11  = 600
+*option:ghg-hvac-2-Elect:value:12  = 0
+*option:ghg-hvac-2-Elect:value:13  = nil
+*option:ghg-hvac-2-Elect:value:14 = nil
+*option:ghg-hvac-2-Elect:value:15  = 0
+*option:ghg-hvac-2-Elect:value:16  = 11000
+*option:ghg-hvac-2-Elect:value:17  = 2.25078689620004
 
-*option:elec-baseboard:value:1 = SH-elec-baseboard.hvac
-*option:elec-baseboard:value:2 = #-no-GSHP-file
-*option:elec-baseboard:value:3 = #No-IMS: 
-*option:elec-baseboard:value:4 = 
-*option:elec-baseboard:value:5 = 
-*option:elec-baseboard:value:6 = shoulder-ideal.ctl
-*option:elec-baseboard:cost:total       = 0
-*option:elec-baseboard:alias = 2304
+
+*option:ghg-hvac-3-Oil:value:1   = ghg-oil.hvac
+*option:ghg-hvac-3-Oil:value:2   = #-no-GSHP-file
+*option:ghg-hvac-3-Oil:value:3  = #-no-IMS
+*option:ghg-hvac-3-Oil:value:4  =
+*option:ghg-hvac-3-Oil:value:5  =
+*option:ghg-hvac-3-Oil:value:6  = shoulder-ideal.ctl
+*option:ghg-hvac-3-Oil:value:7  = oil
+*option:ghg-hvac-3-Oil:value:8  = 14
+*option:ghg-hvac-3-Oil:value:9 = 15000
+*option:ghg-hvac-3-Oil:value:10  = 0.64
+*option:ghg-hvac-3-Oil:value:11  = 600
+*option:ghg-hvac-3-Oil:value:12  = 600
+*option:ghg-hvac-3-Oil:value:13  = 75
+*option:ghg-hvac-3-Oil:value:14 = 0
+*option:ghg-hvac-3-Oil:value:15  = 0
+*option:ghg-hvac-3-Oil:value:16  = 11000
+*option:ghg-hvac-3-Oil:value:17  = 2.25078689620004
 
 
-*option:elec-CCASHP:value:1 = SH-elec-ccashp-ecm.hvac
-*option:elec-CCASHP:value:2 = #-no-GSHP-file
-*option:elec-CCASHP:value:3 = #No-IMS: 
-*option:elec-CCASHP:value:4 = 
-*option:elec-CCASHP:value:5 = 
-*option:elec-CCASHP:value:6 =  shoulder-ideal.ctl
-*option:elec-CCASHP:cost:total   = 0    ! BC-LEEP      
-*option:elec-CCASHP:alias = 2305
+*option:ghg-hvac-4-Gas:value:1   = ghg-gas .hvac
+*option:ghg-hvac-4-Gas:value:2   = #-no-GSHP-file
+*option:ghg-hvac-4-Gas:value:3  = #-no-IMS
+*option:ghg-hvac-4-Gas:value:4  =
+*option:ghg-hvac-4-Gas:value:5  =
+*option:ghg-hvac-4-Gas:value:6  = shoulder-ideal.ctl
+*option:ghg-hvac-4-Gas:value:7  = gas
+*option:ghg-hvac-4-Gas:value:8  = 5
+*option:ghg-hvac-4-Gas:value:9 = 15000
+*option:ghg-hvac-4-Gas:value:10  = 0.78
+*option:ghg-hvac-4-Gas:value:11  = 520
+*option:ghg-hvac-4-Gas:value:12  = 520
+*option:ghg-hvac-4-Gas:value:13  = 75
+*option:ghg-hvac-4-Gas:value:14 = 0
+*option:ghg-hvac-4-Gas:value:15  = 0
+*option:ghg-hvac-4-Gas:value:16  = 11000
+*option:ghg-hvac-4-Gas:value:17  = 2.25078689620004
 
-Reflects southern Ontario costs
-*option:elec-GSHP:value:1 = SH-elec-GSHP.hvac
-*option:elec-GSHP:value:2 = *gshp~../hvac/heatx_v1.gshp
-*option:elec-GSHP:value:3 = #No-IMS: 
-*option:elec-GSHP:value:4 = 
-*option:elec-GSHP:value:5 = 
-*option:elec-GSHP:value:6 = shoulder-ideal.ctl 
-*option:elec-GSHP:cost:total    = 18560          ! Does this reflect AC syste$
-*option:elec-GSHP:alias = 2306
+
+*option:ghg-hvac-5-Elect:value:1   = ghg-electricity .hvac
+*option:ghg-hvac-5-Elect:value:2   = #-no-GSHP-file
+*option:ghg-hvac-5-Elect:value:3  = #-no-IMS
+*option:ghg-hvac-5-Elect:value:4  =
+*option:ghg-hvac-5-Elect:value:5  =
+*option:ghg-hvac-5-Elect:value:6  = shoulder-ideal.ctl
+*option:ghg-hvac-5-Elect:value:7  = electricity
+*option:ghg-hvac-5-Elect:value:8  = nil
+*option:ghg-hvac-5-Elect:value:9 = 15000
+*option:ghg-hvac-5-Elect:value:10  = 1
+*option:ghg-hvac-5-Elect:value:11  = 520
+*option:ghg-hvac-5-Elect:value:12  = 0
+*option:ghg-hvac-5-Elect:value:13  = nil
+*option:ghg-hvac-5-Elect:value:14 = nil
+*option:ghg-hvac-5-Elect:value:15  = 0
+*option:ghg-hvac-5-Elect:value:16  = 11000
+*option:ghg-hvac-5-Elect:value:17  = 2.25078689620004
+
+
+*option:ghg-hvac-6-Oil:value:1   = ghg-oil.hvac
+*option:ghg-hvac-6-Oil:value:2   = #-no-GSHP-file
+*option:ghg-hvac-6-Oil:value:3  = #-no-IMS
+*option:ghg-hvac-6-Oil:value:4  =
+*option:ghg-hvac-6-Oil:value:5  =
+*option:ghg-hvac-6-Oil:value:6  = shoulder-ideal.ctl
+*option:ghg-hvac-6-Oil:value:7  = oil
+*option:ghg-hvac-6-Oil:value:8  = 14
+*option:ghg-hvac-6-Oil:value:9 = 15000
+*option:ghg-hvac-6-Oil:value:10  = 0.68
+*option:ghg-hvac-6-Oil:value:11  = 520
+*option:ghg-hvac-6-Oil:value:12  = 520
+*option:ghg-hvac-6-Oil:value:13  = 75
+*option:ghg-hvac-6-Oil:value:14 = 0
+*option:ghg-hvac-6-Oil:value:15  = 0
+*option:ghg-hvac-6-Oil:value:16  = 11000
+*option:ghg-hvac-6-Oil:value:17  = 2.25078689620004
+
+
+*option:ghg-hvac-7-Gas:value:1   = ghg-gas .hvac
+*option:ghg-hvac-7-Gas:value:2   = #-no-GSHP-file
+*option:ghg-hvac-7-Gas:value:3  = #-no-IMS
+*option:ghg-hvac-7-Gas:value:4  =
+*option:ghg-hvac-7-Gas:value:5  =
+*option:ghg-hvac-7-Gas:value:6  = shoulder-ideal.ctl
+*option:ghg-hvac-7-Gas:value:7  = gas
+*option:ghg-hvac-7-Gas:value:8  = 10
+*option:ghg-hvac-7-Gas:value:9 = 15000
+*option:ghg-hvac-7-Gas:value:10  = 0.8
+*option:ghg-hvac-7-Gas:value:11  = 400
+*option:ghg-hvac-7-Gas:value:12  = 400
+*option:ghg-hvac-7-Gas:value:13  = 75
+*option:ghg-hvac-7-Gas:value:14 = 0
+*option:ghg-hvac-7-Gas:value:15  = 0
+*option:ghg-hvac-7-Gas:value:16  = 11000
+*option:ghg-hvac-7-Gas:value:17  = 2.58928414426137
+
+
+*option:ghg-hvac-8-Elect:value:1   = ghg-electricity .hvac
+*option:ghg-hvac-8-Elect:value:2   = #-no-GSHP-file
+*option:ghg-hvac-8-Elect:value:3  = #-no-IMS
+*option:ghg-hvac-8-Elect:value:4  =
+*option:ghg-hvac-8-Elect:value:5  =
+*option:ghg-hvac-8-Elect:value:6  = shoulder-ideal.ctl
+*option:ghg-hvac-8-Elect:value:7  = electricity
+*option:ghg-hvac-8-Elect:value:8  = nil
+*option:ghg-hvac-8-Elect:value:9 = 15000
+*option:ghg-hvac-8-Elect:value:10  = 1
+*option:ghg-hvac-8-Elect:value:11  = 400
+*option:ghg-hvac-8-Elect:value:12  = 0
+*option:ghg-hvac-8-Elect:value:13  = nil
+*option:ghg-hvac-8-Elect:value:14 = nil
+*option:ghg-hvac-8-Elect:value:15  = 0
+*option:ghg-hvac-8-Elect:value:16  = 11000
+*option:ghg-hvac-8-Elect:value:17  = 2.58928414426137
+
+
+*option:ghg-hvac-9-Oil:value:1   = ghg-oil.hvac
+*option:ghg-hvac-9-Oil:value:2   = #-no-GSHP-file
+*option:ghg-hvac-9-Oil:value:3  = #-no-IMS
+*option:ghg-hvac-9-Oil:value:4  =
+*option:ghg-hvac-9-Oil:value:5  =
+*option:ghg-hvac-9-Oil:value:6  = shoulder-ideal.ctl
+*option:ghg-hvac-9-Oil:value:7  = oil
+*option:ghg-hvac-9-Oil:value:8  = 14
+*option:ghg-hvac-9-Oil:value:9 = 15000
+*option:ghg-hvac-9-Oil:value:10  = 0.74
+*option:ghg-hvac-9-Oil:value:11  = 400
+*option:ghg-hvac-9-Oil:value:12  = 400
+*option:ghg-hvac-9-Oil:value:13  = 75
+*option:ghg-hvac-9-Oil:value:14 = 0
+*option:ghg-hvac-9-Oil:value:15  = 0
+*option:ghg-hvac-9-Oil:value:16  = 11000
+*option:ghg-hvac-9-Oil:value:17  = 2.58928414426137
+
+
+*option:ghg-hvac-10-Gas:value:1   = ghg-gas .hvac
+*option:ghg-hvac-10-Gas:value:2   = #-no-GSHP-file
+*option:ghg-hvac-10-Gas:value:3  = #-no-IMS
+*option:ghg-hvac-10-Gas:value:4  =
+*option:ghg-hvac-10-Gas:value:5  =
+*option:ghg-hvac-10-Gas:value:6  = shoulder-ideal.ctl
+*option:ghg-hvac-10-Gas:value:7  = gas
+*option:ghg-hvac-10-Gas:value:8  = 10
+*option:ghg-hvac-10-Gas:value:9 = 15000
+*option:ghg-hvac-10-Gas:value:10  = 0.87
+*option:ghg-hvac-10-Gas:value:11  = 400
+*option:ghg-hvac-10-Gas:value:12  = 400
+*option:ghg-hvac-10-Gas:value:13  = 75
+*option:ghg-hvac-10-Gas:value:14 = 0
+*option:ghg-hvac-10-Gas:value:15  = 0
+*option:ghg-hvac-10-Gas:value:16  = 11000
+*option:ghg-hvac-10-Gas:value:17  = 2.58928414426137
+
+
+*option:ghg-hvac-11-Elect:value:1   = ghg-electricity .hvac
+*option:ghg-hvac-11-Elect:value:2   = #-no-GSHP-file
+*option:ghg-hvac-11-Elect:value:3  = #-no-IMS
+*option:ghg-hvac-11-Elect:value:4  =
+*option:ghg-hvac-11-Elect:value:5  =
+*option:ghg-hvac-11-Elect:value:6  = shoulder-ideal.ctl
+*option:ghg-hvac-11-Elect:value:7  = electricity
+*option:ghg-hvac-11-Elect:value:8  = nil
+*option:ghg-hvac-11-Elect:value:9 = 15000
+*option:ghg-hvac-11-Elect:value:10  = 1
+*option:ghg-hvac-11-Elect:value:11  = 400
+*option:ghg-hvac-11-Elect:value:12  = 0
+*option:ghg-hvac-11-Elect:value:13  = nil
+*option:ghg-hvac-11-Elect:value:14 = nil
+*option:ghg-hvac-11-Elect:value:15  = 0
+*option:ghg-hvac-11-Elect:value:16  = 11000
+*option:ghg-hvac-11-Elect:value:17  = 2.58928414426137
+
+
+*option:ghg-hvac-12-Oil:value:1   = ghg-oil.hvac
+*option:ghg-hvac-12-Oil:value:2   = #-no-GSHP-file
+*option:ghg-hvac-12-Oil:value:3  = #-no-IMS
+*option:ghg-hvac-12-Oil:value:4  =
+*option:ghg-hvac-12-Oil:value:5  =
+*option:ghg-hvac-12-Oil:value:6  = shoulder-ideal.ctl
+*option:ghg-hvac-12-Oil:value:7  = oil
+*option:ghg-hvac-12-Oil:value:8  = 14
+*option:ghg-hvac-12-Oil:value:9 = 15000
+*option:ghg-hvac-12-Oil:value:10  = 0.83
+*option:ghg-hvac-12-Oil:value:11  = 400
+*option:ghg-hvac-12-Oil:value:12  = 400
+*option:ghg-hvac-12-Oil:value:13  = 75
+*option:ghg-hvac-12-Oil:value:14 = 0
+*option:ghg-hvac-12-Oil:value:15  = 0
+*option:ghg-hvac-12-Oil:value:16  = 11000
+*option:ghg-hvac-12-Oil:value:17  = 2.58928414426137
+
+
+*option:ghg-hvac-13-Gas:value:1   = ghg-gas .hvac
+*option:ghg-hvac-13-Gas:value:2   = #-no-GSHP-file
+*option:ghg-hvac-13-Gas:value:3  = #-no-IMS
+*option:ghg-hvac-13-Gas:value:4  =
+*option:ghg-hvac-13-Gas:value:5  =
+*option:ghg-hvac-13-Gas:value:6  = shoulder-ideal.ctl
+*option:ghg-hvac-13-Gas:value:7  = gas
+*option:ghg-hvac-13-Gas:value:8  = 8
+*option:ghg-hvac-13-Gas:value:9 = 15000
+*option:ghg-hvac-13-Gas:value:10  = 0.9
+*option:ghg-hvac-13-Gas:value:11  = 400
+*option:ghg-hvac-13-Gas:value:12  = 400
+*option:ghg-hvac-13-Gas:value:13  = 75
+*option:ghg-hvac-13-Gas:value:14 = 0
+*option:ghg-hvac-13-Gas:value:15  = 0
+*option:ghg-hvac-13-Gas:value:16  = 11000
+*option:ghg-hvac-13-Gas:value:17  = 3.09483198227505
+
+
+*option:ghg-hvac-14-Elect:value:1   = ghg-electricity .hvac
+*option:ghg-hvac-14-Elect:value:2   = #-no-GSHP-file
+*option:ghg-hvac-14-Elect:value:3  = #-no-IMS
+*option:ghg-hvac-14-Elect:value:4  =
+*option:ghg-hvac-14-Elect:value:5  =
+*option:ghg-hvac-14-Elect:value:6  = shoulder-ideal.ctl
+*option:ghg-hvac-14-Elect:value:7  = electricity
+*option:ghg-hvac-14-Elect:value:8  = nil
+*option:ghg-hvac-14-Elect:value:9 = 15000
+*option:ghg-hvac-14-Elect:value:10  = 1
+*option:ghg-hvac-14-Elect:value:11  = 400
+*option:ghg-hvac-14-Elect:value:12  = 0
+*option:ghg-hvac-14-Elect:value:13  = nil
+*option:ghg-hvac-14-Elect:value:14 = nil
+*option:ghg-hvac-14-Elect:value:15  = 0
+*option:ghg-hvac-14-Elect:value:16  = 11000
+*option:ghg-hvac-14-Elect:value:17  = 3.09483198227505
+
+
+*option:ghg-hvac-15-Oil:value:1   = ghg-oil.hvac
+*option:ghg-hvac-15-Oil:value:2   = #-no-GSHP-file
+*option:ghg-hvac-15-Oil:value:3  = #-no-IMS
+*option:ghg-hvac-15-Oil:value:4  =
+*option:ghg-hvac-15-Oil:value:5  =
+*option:ghg-hvac-15-Oil:value:6  = shoulder-ideal.ctl
+*option:ghg-hvac-15-Oil:value:7  = oil
+*option:ghg-hvac-15-Oil:value:8  = 14
+*option:ghg-hvac-15-Oil:value:9 = 15000
+*option:ghg-hvac-15-Oil:value:10  = 0.83
+*option:ghg-hvac-15-Oil:value:11  = 400
+*option:ghg-hvac-15-Oil:value:12  = 400
+*option:ghg-hvac-15-Oil:value:13  = 75
+*option:ghg-hvac-15-Oil:value:14 = 0
+*option:ghg-hvac-15-Oil:value:15  = 0
+*option:ghg-hvac-15-Oil:value:16  = 11000
+*option:ghg-hvac-15-Oil:value:17  = 3.09483198227505
+
+
+*option:ghg-hvac-16-Gas:value:1   = ghg-gas .hvac
+*option:ghg-hvac-16-Gas:value:2   = #-no-GSHP-file
+*option:ghg-hvac-16-Gas:value:3  = #-no-IMS
+*option:ghg-hvac-16-Gas:value:4  =
+*option:ghg-hvac-16-Gas:value:5  =
+*option:ghg-hvac-16-Gas:value:6  = shoulder-ideal.ctl
+*option:ghg-hvac-16-Gas:value:7  = gas
+*option:ghg-hvac-16-Gas:value:8  = 8
+*option:ghg-hvac-16-Gas:value:9 = 15000
+*option:ghg-hvac-16-Gas:value:10  = 0.92
+*option:ghg-hvac-16-Gas:value:11  = 320
+*option:ghg-hvac-16-Gas:value:12  = 320
+*option:ghg-hvac-16-Gas:value:13  = 75
+*option:ghg-hvac-16-Gas:value:14 = 0
+*option:ghg-hvac-16-Gas:value:15  = 0
+*option:ghg-hvac-16-Gas:value:16  = 11000
+*option:ghg-hvac-16-Gas:value:17  = 3.60477588844537
+
+
+*option:ghg-hvac-17-Elect:value:1   = ghg-electricity .hvac
+*option:ghg-hvac-17-Elect:value:2   = #-no-GSHP-file
+*option:ghg-hvac-17-Elect:value:3  = #-no-IMS
+*option:ghg-hvac-17-Elect:value:4  =
+*option:ghg-hvac-17-Elect:value:5  =
+*option:ghg-hvac-17-Elect:value:6  = shoulder-ideal.ctl
+*option:ghg-hvac-17-Elect:value:7  = electricity
+*option:ghg-hvac-17-Elect:value:8  = nil
+*option:ghg-hvac-17-Elect:value:9 = 15000
+*option:ghg-hvac-17-Elect:value:10  = 1
+*option:ghg-hvac-17-Elect:value:11  = 320
+*option:ghg-hvac-17-Elect:value:12  = 0
+*option:ghg-hvac-17-Elect:value:13  = nil
+*option:ghg-hvac-17-Elect:value:14 = nil
+*option:ghg-hvac-17-Elect:value:15  = 0
+*option:ghg-hvac-17-Elect:value:16  = 11000
+*option:ghg-hvac-17-Elect:value:17  = 3.60477588844537
+
+
+*option:ghg-hvac-18-Oil:value:1   = ghg-oil.hvac
+*option:ghg-hvac-18-Oil:value:2   = #-no-GSHP-file
+*option:ghg-hvac-18-Oil:value:3  = #-no-IMS
+*option:ghg-hvac-18-Oil:value:4  =
+*option:ghg-hvac-18-Oil:value:5  =
+*option:ghg-hvac-18-Oil:value:6  = shoulder-ideal.ctl
+*option:ghg-hvac-18-Oil:value:7  = oil
+*option:ghg-hvac-18-Oil:value:8  = 14
+*option:ghg-hvac-18-Oil:value:9 = 15000
+*option:ghg-hvac-18-Oil:value:10  = 0.87
+*option:ghg-hvac-18-Oil:value:11  = 320
+*option:ghg-hvac-18-Oil:value:12  = 320
+*option:ghg-hvac-18-Oil:value:13  = 75
+*option:ghg-hvac-18-Oil:value:14 = 0
+*option:ghg-hvac-18-Oil:value:15  = 0
+*option:ghg-hvac-18-Oil:value:16  = 11000
+*option:ghg-hvac-18-Oil:value:17  = 3.60477588844537
+
+
+*option:ghg-hvac-19-Gas:value:1   = ghg-gas .hvac
+*option:ghg-hvac-19-Gas:value:2   = #-no-GSHP-file
+*option:ghg-hvac-19-Gas:value:3  = #-no-IMS
+*option:ghg-hvac-19-Gas:value:4  =
+*option:ghg-hvac-19-Gas:value:5  =
+*option:ghg-hvac-19-Gas:value:6  = shoulder-ideal.ctl
+*option:ghg-hvac-19-Gas:value:7  = gas
+*option:ghg-hvac-19-Gas:value:8  = 8
+*option:ghg-hvac-19-Gas:value:9 = 15000
+*option:ghg-hvac-19-Gas:value:10  = 0.95
+*option:ghg-hvac-19-Gas:value:11  = 250
+*option:ghg-hvac-19-Gas:value:12  = 250
+*option:ghg-hvac-19-Gas:value:13  = 75
+*option:ghg-hvac-19-Gas:value:14 = 0
+*option:ghg-hvac-19-Gas:value:15  = 0
+*option:ghg-hvac-19-Gas:value:16  = 11000
+*option:ghg-hvac-19-Gas:value:17  = 3.60477588844537
+
+
+*option:ghg-hvac-20-Elect:value:1   = ghg-electricity .hvac
+*option:ghg-hvac-20-Elect:value:2   = #-no-GSHP-file
+*option:ghg-hvac-20-Elect:value:3  = #-no-IMS
+*option:ghg-hvac-20-Elect:value:4  =
+*option:ghg-hvac-20-Elect:value:5  =
+*option:ghg-hvac-20-Elect:value:6  = shoulder-ideal.ctl
+*option:ghg-hvac-20-Elect:value:7  = electricity
+*option:ghg-hvac-20-Elect:value:8  = nil
+*option:ghg-hvac-20-Elect:value:9 = 15000
+*option:ghg-hvac-20-Elect:value:10  = 1
+*option:ghg-hvac-20-Elect:value:11  = 250
+*option:ghg-hvac-20-Elect:value:12  = 0
+*option:ghg-hvac-20-Elect:value:13  = nil
+*option:ghg-hvac-20-Elect:value:14 = nil
+*option:ghg-hvac-20-Elect:value:15  = 0
+*option:ghg-hvac-20-Elect:value:16  = 11000
+*option:ghg-hvac-20-Elect:value:17  = 3.60477588844537
+
+
+*option:ghg-hvac-21-Oil:value:1   = ghg-oil.hvac
+*option:ghg-hvac-21-Oil:value:2   = #-no-GSHP-file
+*option:ghg-hvac-21-Oil:value:3  = #-no-IMS
+*option:ghg-hvac-21-Oil:value:4  =
+*option:ghg-hvac-21-Oil:value:5  =
+*option:ghg-hvac-21-Oil:value:6  = shoulder-ideal.ctl
+*option:ghg-hvac-21-Oil:value:7  = oil
+*option:ghg-hvac-21-Oil:value:8  = 14
+*option:ghg-hvac-21-Oil:value:9 = 15000
+*option:ghg-hvac-21-Oil:value:10  = 0.92
+*option:ghg-hvac-21-Oil:value:11  = 250
+*option:ghg-hvac-21-Oil:value:12  = 250
+*option:ghg-hvac-21-Oil:value:13  = 75
+*option:ghg-hvac-21-Oil:value:14 = 0
+*option:ghg-hvac-21-Oil:value:15  = 0
+*option:ghg-hvac-21-Oil:value:16  = 11000
+*option:ghg-hvac-21-Oil:value:17  = 3.60477588844537
+
+
+*option:ghg-hvac-22-Gas:value:1   = ghg-gas .hvac
+*option:ghg-hvac-22-Gas:value:2   = #-no-GSHP-file
+*option:ghg-hvac-22-Gas:value:3  = #-no-IMS
+*option:ghg-hvac-22-Gas:value:4  =
+*option:ghg-hvac-22-Gas:value:5  =
+*option:ghg-hvac-22-Gas:value:6  = shoulder-ideal.ctl
+*option:ghg-hvac-22-Gas:value:7  = gas
+*option:ghg-hvac-22-Gas:value:8  = 8
+*option:ghg-hvac-22-Gas:value:9 = 15000
+*option:ghg-hvac-22-Gas:value:10  = 0.97
+*option:ghg-hvac-22-Gas:value:11  = 200
+*option:ghg-hvac-22-Gas:value:12  = 200
+*option:ghg-hvac-22-Gas:value:13  = 75
+*option:ghg-hvac-22-Gas:value:14 = 0
+*option:ghg-hvac-22-Gas:value:15  = 0
+*option:ghg-hvac-22-Gas:value:16  = 11000
+*option:ghg-hvac-22-Gas:value:17  = 3.88612425047038
+
+
+*option:ghg-hvac-23-CCHP:value:1   = ghg-ccashp.hvac
+*option:ghg-hvac-23-CCHP:value:2   = #-no-GSHP-file
+*option:ghg-hvac-23-CCHP:value:3  = #-no-IMS
+*option:ghg-hvac-23-CCHP:value:4  =
+*option:ghg-hvac-23-CCHP:value:5  =
+*option:ghg-hvac-23-CCHP:value:6  = shoulder-ideal.ctl
+*option:ghg-hvac-23-CCHP:value:7  = electricity
+*option:ghg-hvac-23-CCHP:value:8  = nil
+*option:ghg-hvac-23-CCHP:value:9 = 15000
+*option:ghg-hvac-23-CCHP:value:10  = 2.5
+*option:ghg-hvac-23-CCHP:value:11  = 200
+*option:ghg-hvac-23-CCHP:value:12  = 200
+*option:ghg-hvac-23-CCHP:value:13  = nil
+*option:ghg-hvac-23-CCHP:value:14 = nil
+*option:ghg-hvac-23-CCHP:value:15  = 11700
+*option:ghg-hvac-23-CCHP:value:16  = 11000
+*option:ghg-hvac-23-CCHP:value:17  = 3.88612425047038
+
+
+*option:ghg-hvac-24-Oil:value:1   = ghg-oil.hvac
+*option:ghg-hvac-24-Oil:value:2   = #-no-GSHP-file
+*option:ghg-hvac-24-Oil:value:3  = #-no-IMS
+*option:ghg-hvac-24-Oil:value:4  =
+*option:ghg-hvac-24-Oil:value:5  =
+*option:ghg-hvac-24-Oil:value:6  = shoulder-ideal.ctl
+*option:ghg-hvac-24-Oil:value:7  = oil
+*option:ghg-hvac-24-Oil:value:8  = 14
+*option:ghg-hvac-24-Oil:value:9 = 15000
+*option:ghg-hvac-24-Oil:value:10  = 0.94
+*option:ghg-hvac-24-Oil:value:11  = 200
+*option:ghg-hvac-24-Oil:value:12  = 200
+*option:ghg-hvac-24-Oil:value:13  = 75
+*option:ghg-hvac-24-Oil:value:14 = 0
+*option:ghg-hvac-24-Oil:value:15  = 0
+*option:ghg-hvac-24-Oil:value:16  = 11000
+*option:ghg-hvac-24-Oil:value:17  = 3.88612425047038
+
+
+
+
 
 
 
 *attribute:end
 
 
-!-----------------------------------------------------------------------
-! Cooling system spec in HVAC file (Added by JTB Dec 1, 2014)
-!-----------------------------------------------------------------------
-*attribute:start 
-*attribute:name  = Opt-Cooling-Spec
-*attribute:tag:1 = <OPT-Cooling-Capacity>
-*attribute:tag:2 = <OPT-Cooling-COP>
-*attribute:tag:3 = <OPT-Cooling-Fan-Power>
-*attribute:tag:4 = <OPT-Cooling-Fan-Power-Low>
-*attribute:default = SmallCooling
 
-*option:SmallCooling:value:1 = 10000.
-*option:SmallCooling:value:2 = 3.
-*option:SmallCooling:value:3 = 125.
-*option:SmallCooling:value:4 = 0.
-*option:SmallCooling:cost:total = 0
-*option:SmallCooling:alias = 2400
-
-*option:2TonStdCooling:value:1 = 24000.
-*option:2TonStdCooling:value:2 = 3.2	! Estimated based on 13 SEER (min. OBC)
-*option:2TonStdCooling:value:3 = 373.	! 1/2 hp fan
-*option:2TonStdCooling:value:4 = 135.	! Estimate
-*option:2TonStdCooling:cost:total = 0	! Base for Mattamy Ottawa
-*option:2TonStdCooling:alias = 2401
-  
-*option:2TonDettsonModUnit:value:1 = 24000.
-*option:2TonDettsonModUnit:value:2 = 4.3		! Estimated based on 21 SEER
-*option:2TonDettsonModUnit:value:3 = 373.		! 
-*option:2TonDettsonModUnit:value:4 = 125.		! Estimate
-*option:2TonDettsonModUnit:cost:total = 1680	! Mattamy Ottawa
-*option:2TonDettsonModUnit:alias = 2402
-  
-*option:2TonGoodmanUnit:value:1 = 24000.
-*option:2TonGoodmanUnit:value:2 = 4.0		! Estimated based on 18 SEER
-*option:2TonGoodmanUnit:value:3 = 373.		! 
-*option:2TonGoodmanUnit:value:4 = 125.		! Estimate
-*option:2TonGoodmanUnit:cost:total = 2930	! Mattamy Ottawa
-*option:2TonGoodmanUnit:alias = 2403
-  
-*attribute:end
 
 !-----------------------------------------------------------------------
 ! HRV spec

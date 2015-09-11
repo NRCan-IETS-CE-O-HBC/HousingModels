@@ -196,7 +196,8 @@ Opt-DHWSystem        : elec-storage
 !  oil-furnace-low
 !  oil-furnace-mid
 
-Opt-HVACSystem       : elec-GSHP
+Opt-GhgHeatingCooling : ghg-hvac-1-Gas
+
 
 OPT-Furnace-Fan-Ctl  : Auto
 ! HRV spec 
