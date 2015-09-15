@@ -1,0 +1,27 @@
+*FileVersion1.0
+#Number of Tanks
+1
+#fNumOfOccupants		
+*LoadData 3 <Opt-DHWDailyDrawLperDay>
+#fHotSupplyTemp		 
+55.0
+#
+#TankLoop
+#Zone Location of Tank
+1
+#iFuelType  	
+<OPT-DHW-fuel-type>
+#iTankType
+<OPT-DHW-tank-type>
+#fDOEEF			
+<OPT-DHW-EFF>
+#fHeatInjectorPower(Watts) 	 
+<Opt-DHW-POWER-W>
+#fPilotEnergyRate 	 
+<Opt-DHW-PILOT-W>
+#fTankSize                
+<Opt-DHW-Tank-size-L>
+#fTemperatureBand         
+10.0
+#fBlanketRSI
+0.0
