@@ -16,9 +16,9 @@
 #fDOEEF			
 <OPT-DHW-EFF>
 #fHeatInjectorPower(Watts) 	 
-<Opt-DHW-POWER-W>
+2000
 #fPilotEnergyRate 	 
-<Opt-DHW-PILOT-W>
+0.0
 #fTankSize                
 <Opt-DHW-Tank-size-L>
 #fTemperatureBand         

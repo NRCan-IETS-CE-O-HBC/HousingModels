@@ -3087,7 +3087,7 @@
 
 *attribute:default = ghg-hvac-1-Gas
 
-*option:ghg-hvac-1-Gas:value:1   = ghg-gas .hvac
+*option:ghg-hvac-1-Gas:value:1   = ghg-gas.hvac
 *option:ghg-hvac-1-Gas:value:2   = #-no-GSHP-file
 *option:ghg-hvac-1-Gas:value:3  = #-no-IMS
 *option:ghg-hvac-1-Gas:value:4  =
@@ -3106,7 +3106,7 @@
 *option:ghg-hvac-1-Gas:value:17  = 2.25078689620004
 
 
-*option:ghg-hvac-2-Elect:value:1   = ghg-electricity .hvac
+*option:ghg-hvac-2-Elect:value:1   = ghg-electricity.hvac
 *option:ghg-hvac-2-Elect:value:2   = #-no-GSHP-file
 *option:ghg-hvac-2-Elect:value:3  = #-no-IMS
 *option:ghg-hvac-2-Elect:value:4  =
@@ -3144,7 +3144,7 @@
 *option:ghg-hvac-3-Oil:value:17  = 2.25078689620004
 
 
-*option:ghg-hvac-4-Gas:value:1   = ghg-gas .hvac
+*option:ghg-hvac-4-Gas:value:1   = ghg-gas.hvac
 *option:ghg-hvac-4-Gas:value:2   = #-no-GSHP-file
 *option:ghg-hvac-4-Gas:value:3  = #-no-IMS
 *option:ghg-hvac-4-Gas:value:4  =
@@ -3163,7 +3163,7 @@
 *option:ghg-hvac-4-Gas:value:17  = 2.25078689620004
 
 
-*option:ghg-hvac-5-Elect:value:1   = ghg-electricity .hvac
+*option:ghg-hvac-5-Elect:value:1   = ghg-electricity.hvac
 *option:ghg-hvac-5-Elect:value:2   = #-no-GSHP-file
 *option:ghg-hvac-5-Elect:value:3  = #-no-IMS
 *option:ghg-hvac-5-Elect:value:4  =
@@ -3201,7 +3201,7 @@
 *option:ghg-hvac-6-Oil:value:17  = 2.25078689620004
 
 
-*option:ghg-hvac-7-Gas:value:1   = ghg-gas .hvac
+*option:ghg-hvac-7-Gas:value:1   = ghg-gas.hvac
 *option:ghg-hvac-7-Gas:value:2   = #-no-GSHP-file
 *option:ghg-hvac-7-Gas:value:3  = #-no-IMS
 *option:ghg-hvac-7-Gas:value:4  =
@@ -3220,7 +3220,7 @@
 *option:ghg-hvac-7-Gas:value:17  = 2.58928414426137
 
 
-*option:ghg-hvac-8-Elect:value:1   = ghg-electricity .hvac
+*option:ghg-hvac-8-Elect:value:1   = ghg-electricity.hvac
 *option:ghg-hvac-8-Elect:value:2   = #-no-GSHP-file
 *option:ghg-hvac-8-Elect:value:3  = #-no-IMS
 *option:ghg-hvac-8-Elect:value:4  =
@@ -3258,7 +3258,7 @@
 *option:ghg-hvac-9-Oil:value:17  = 2.58928414426137
 
 
-*option:ghg-hvac-10-Gas:value:1   = ghg-gas .hvac
+*option:ghg-hvac-10-Gas:value:1   = ghg-gas.hvac
 *option:ghg-hvac-10-Gas:value:2   = #-no-GSHP-file
 *option:ghg-hvac-10-Gas:value:3  = #-no-IMS
 *option:ghg-hvac-10-Gas:value:4  =
@@ -3277,7 +3277,7 @@
 *option:ghg-hvac-10-Gas:value:17  = 2.58928414426137
 
 
-*option:ghg-hvac-11-Elect:value:1   = ghg-electricity .hvac
+*option:ghg-hvac-11-Elect:value:1   = ghg-electricity.hvac
 *option:ghg-hvac-11-Elect:value:2   = #-no-GSHP-file
 *option:ghg-hvac-11-Elect:value:3  = #-no-IMS
 *option:ghg-hvac-11-Elect:value:4  =
@@ -3315,7 +3315,7 @@
 *option:ghg-hvac-12-Oil:value:17  = 2.58928414426137
 
 
-*option:ghg-hvac-13-Gas:value:1   = ghg-gas .hvac
+*option:ghg-hvac-13-Gas:value:1   = ghg-gas.hvac
 *option:ghg-hvac-13-Gas:value:2   = #-no-GSHP-file
 *option:ghg-hvac-13-Gas:value:3  = #-no-IMS
 *option:ghg-hvac-13-Gas:value:4  =
@@ -3334,7 +3334,7 @@
 *option:ghg-hvac-13-Gas:value:17  = 3.09483198227505
 
 
-*option:ghg-hvac-14-Elect:value:1   = ghg-electricity .hvac
+*option:ghg-hvac-14-Elect:value:1   = ghg-electricity.hvac
 *option:ghg-hvac-14-Elect:value:2   = #-no-GSHP-file
 *option:ghg-hvac-14-Elect:value:3  = #-no-IMS
 *option:ghg-hvac-14-Elect:value:4  =
@@ -3372,7 +3372,7 @@
 *option:ghg-hvac-15-Oil:value:17  = 3.09483198227505
 
 
-*option:ghg-hvac-16-Gas:value:1   = ghg-gas .hvac
+*option:ghg-hvac-16-Gas:value:1   = ghg-gas.hvac
 *option:ghg-hvac-16-Gas:value:2   = #-no-GSHP-file
 *option:ghg-hvac-16-Gas:value:3  = #-no-IMS
 *option:ghg-hvac-16-Gas:value:4  =
@@ -3391,7 +3391,7 @@
 *option:ghg-hvac-16-Gas:value:17  = 3.60477588844537
 
 
-*option:ghg-hvac-17-Elect:value:1   = ghg-electricity .hvac
+*option:ghg-hvac-17-Elect:value:1   = ghg-electricity.hvac
 *option:ghg-hvac-17-Elect:value:2   = #-no-GSHP-file
 *option:ghg-hvac-17-Elect:value:3  = #-no-IMS
 *option:ghg-hvac-17-Elect:value:4  =
@@ -3429,7 +3429,7 @@
 *option:ghg-hvac-18-Oil:value:17  = 3.60477588844537
 
 
-*option:ghg-hvac-19-Gas:value:1   = ghg-gas .hvac
+*option:ghg-hvac-19-Gas:value:1   = ghg-gas.hvac
 *option:ghg-hvac-19-Gas:value:2   = #-no-GSHP-file
 *option:ghg-hvac-19-Gas:value:3  = #-no-IMS
 *option:ghg-hvac-19-Gas:value:4  =
@@ -3448,7 +3448,7 @@
 *option:ghg-hvac-19-Gas:value:17  = 3.60477588844537
 
 
-*option:ghg-hvac-20-Elect:value:1   = ghg-electricity .hvac
+*option:ghg-hvac-20-Elect:value:1   = ghg-electricity.hvac
 *option:ghg-hvac-20-Elect:value:2   = #-no-GSHP-file
 *option:ghg-hvac-20-Elect:value:3  = #-no-IMS
 *option:ghg-hvac-20-Elect:value:4  =
@@ -3486,7 +3486,7 @@
 *option:ghg-hvac-21-Oil:value:17  = 3.60477588844537
 
 
-*option:ghg-hvac-22-Gas:value:1   = ghg-gas .hvac
+*option:ghg-hvac-22-Gas:value:1   = ghg-gas.hvac
 *option:ghg-hvac-22-Gas:value:2   = #-no-GSHP-file
 *option:ghg-hvac-22-Gas:value:3  = #-no-IMS
 *option:ghg-hvac-22-Gas:value:4  =
@@ -3695,33 +3695,156 @@
 !-----------------------------------------------------------------------
 *attribute:start
 *attribute:name     = Opt-DHWSystem
+
 *attribute:tag:1    = <Opt-DHWInputFile>
-*attribute:default = BaseDHW 
+*attribute:tag:2    = <OPT-DHW-fuel-type>
+*attribute:tag:3    = <OPT-DHW-tank-type>
+*attribute:tag:4    = <OPT-DHW-EFF>
+*attribute:tag:5    = <Opt-DHW-Tank-size-L>
 
+*option:Pre-1946-Gas-dhw:value:1   = ghg-WH.dhw
+*option:Pre-1946-Gas-dhw:value:2   = 2
+*option:Pre-1946-Gas-dhw:value:3   = 1
+*option:Pre-1946-Gas-dhw:value:4   = 0.55
+*option:Pre-1946-Gas-dhw:value:5   = 246
 
-*option:gas-PwrVnt:value:1       = WH-gas-PwrVnt.dhw
-*option:gas-PwrVnt:cost:total    = 0
-*option:gas-PwrVnt:alias = 2900
+*option:Pre-1946-Elect-dhw:value:1   = ghg-WH.dhw
+*option:Pre-1946-Elect-dhw:value:2   = 1
+*option:Pre-1946-Elect-dhw:value:3   = 15
+*option:Pre-1946-Elect-dhw:value:4   = 0.92
+*option:Pre-1946-Elect-dhw:value:5   = 246
 
-*option:gas-tankless:value:1       = WH-gas-tankless.dhw
-*option:gas-tankless:cost:total    = 0
-*option:gas-tankless:alias = 2901
+*option:Pre-1946-Oil-dhw:value:1   = ghg-WH.dhw
+*option:Pre-1946-Oil-dhw:value:2   = 3
+*option:Pre-1946-Oil-dhw:value:3   = 11
+*option:Pre-1946-Oil-dhw:value:4   = 0.52
+*option:Pre-1946-Oil-dhw:value:5   = 246
 
-*option:gas-storage:value:1       = WH-gas-storage.dhw
-*option:gas-storage:cost:total    = 0
-*option:gas-storage:alias = 2902
+*option:1946-1983-Gas-dhw:value:1   = ghg-WH.dhw
+*option:1946-1983-Gas-dhw:value:2   = 2
+*option:1946-1983-Gas-dhw:value:3   = 1
+*option:1946-1983-Gas-dhw:value:4   = 0.55
+*option:1946-1983-Gas-dhw:value:5   = 246
 
-*option:elec-tankless:value:1       = WH-elec-tankless.dhw
-*option:elec-tankless:cost:total    = 0
-*option:elec-tankless:alias = 2903
+*option:1946-1983-Elect-dhw:value:1   = ghg-WH.dhw
+*option:1946-1983-Elect-dhw:value:2   = 1
+*option:1946-1983-Elect-dhw:value:3   = 15
+*option:1946-1983-Elect-dhw:value:4   = 0.92
+*option:1946-1983-Elect-dhw:value:5   = 246
 
-*option:elec-storage:value:1       = WH-elec-storage.dhw
-*option:elec-storage:cost:total    = 0
-*option:elec-storage:alias = 2904
+*option:1946-1983-Oil-dhw:value:1   = ghg-WH.dhw
+*option:1946-1983-Oil-dhw:value:2   = 3
+*option:1946-1983-Oil-dhw:value:3   = 11
+*option:1946-1983-Oil-dhw:value:4   = 0.52
+*option:1946-1983-Oil-dhw:value:5   = 246
 
-*option:elec-heatpump:value:1       = WH-elec-HP.dhw
-*option:elec-heatpump:cost:total    = 0
-*option:elec-heatpump:alias = 2905
+*option:1984-1995-Gas-dhw:value:1   = ghg-WH.dhw
+*option:1984-1995-Gas-dhw:value:2   = 2
+*option:1984-1995-Gas-dhw:value:3   = 1
+*option:1984-1995-Gas-dhw:value:4   = 0.57
+*option:1984-1995-Gas-dhw:value:5   = 246
+
+*option:1984-1995-Elect-dhw:value:1   = ghg-WH.dhw
+*option:1984-1995-Elect-dhw:value:2   = 1
+*option:1984-1995-Elect-dhw:value:3   = 15
+*option:1984-1995-Elect-dhw:value:4   = 0.92
+*option:1984-1995-Elect-dhw:value:5   = 246
+
+*option:1984-1995-Oil-dhw:value:1   = ghg-WH.dhw
+*option:1984-1995-Oil-dhw:value:2   = 3
+*option:1984-1995-Oil-dhw:value:3   = 11
+*option:1984-1995-Oil-dhw:value:4   = 0.55
+*option:1984-1995-Oil-dhw:value:5   = 246
+
+*option:1996-2005-Gas-dhw:value:1   = ghg-WH.dhw
+*option:1996-2005-Gas-dhw:value:2   = 2
+*option:1996-2005-Gas-dhw:value:3   = 1
+*option:1996-2005-Gas-dhw:value:4   = 0.58
+*option:1996-2005-Gas-dhw:value:5   = 246
+
+*option:1996-2005-Elect-dhw:value:1   = ghg-WH.dhw
+*option:1996-2005-Elect-dhw:value:2   = 1
+*option:1996-2005-Elect-dhw:value:3   = 15
+*option:1996-2005-Elect-dhw:value:4   = 0.92
+*option:1996-2005-Elect-dhw:value:5   = 246
+
+*option:1996-2005-Oil-dhw:value:1   = ghg-WH.dhw
+*option:1996-2005-Oil-dhw:value:2   = 3
+*option:1996-2005-Oil-dhw:value:3   = 11
+*option:1996-2005-Oil-dhw:value:4   = 0.55
+*option:1996-2005-Oil-dhw:value:5   = 246
+
+*option:2006-2011-Gas-dhw:value:1   = ghg-WH.dhw
+*option:2006-2011-Gas-dhw:value:2   = 2
+*option:2006-2011-Gas-dhw:value:3   = 1
+*option:2006-2011-Gas-dhw:value:4   = 0.58
+*option:2006-2011-Gas-dhw:value:5   = 246
+
+*option:2006-2011-Elect-dhw:value:1   = ghg-WH.dhw
+*option:2006-2011-Elect-dhw:value:2   = 1
+*option:2006-2011-Elect-dhw:value:3   = 15
+*option:2006-2011-Elect-dhw:value:4   = 0.92
+*option:2006-2011-Elect-dhw:value:5   = 246
+
+*option:2006-2011-Oil-dhw:value:1   = ghg-WH.dhw
+*option:2006-2011-Oil-dhw:value:2   = 3
+*option:2006-2011-Oil-dhw:value:3   = 11
+*option:2006-2011-Oil-dhw:value:4   = 0.55
+*option:2006-2011-Oil-dhw:value:5   = 246
+
+*option:2012-2019-Gas-dhw:value:1   = ghg-WH.dhw
+*option:2012-2019-Gas-dhw:value:2   = 2
+*option:2012-2019-Gas-dhw:value:3   = 1
+*option:2012-2019-Gas-dhw:value:4   = 0.62
+*option:2012-2019-Gas-dhw:value:5   = 246
+
+*option:2012-2019-Elect-dhw:value:1   = ghg-WH.dhw
+*option:2012-2019-Elect-dhw:value:2   = 1
+*option:2012-2019-Elect-dhw:value:3   = 15
+*option:2012-2019-Elect-dhw:value:4   = 0.92
+*option:2012-2019-Elect-dhw:value:5   = 246
+
+*option:2012-2019-Oil-dhw:value:1   = ghg-WH.dhw
+*option:2012-2019-Oil-dhw:value:2   = 3
+*option:2012-2019-Oil-dhw:value:3   = 11
+*option:2012-2019-Oil-dhw:value:4   = 0.57
+*option:2012-2019-Oil-dhw:value:5   = 246
+
+*option:2020-2024-Gas-dhw:value:1   = ghg-WH.dhw
+*option:2020-2024-Gas-dhw:value:2   = 2
+*option:2020-2024-Gas-dhw:value:3   = 1
+*option:2020-2024-Gas-dhw:value:4   = 0.82
+*option:2020-2024-Gas-dhw:value:5   = 246
+
+*option:2020-2024-Elect-dhw:value:1   = ghg-WH.dhw
+*option:2020-2024-Elect-dhw:value:2   = 1
+*option:2020-2024-Elect-dhw:value:3   = 15
+*option:2020-2024-Elect-dhw:value:4   = 0.92
+*option:2020-2024-Elect-dhw:value:5   = 246
+
+*option:2020-2024-Oil-dhw:value:1   = ghg-WH.dhw
+*option:2020-2024-Oil-dhw:value:2   = 3
+*option:2020-2024-Oil-dhw:value:3   = 11
+*option:2020-2024-Oil-dhw:value:4   = 0.62
+*option:2020-2024-Oil-dhw:value:5   = 246
+
+*option:2025-onwards-Gas-dhw:value:1   = ghg-WH.dhw
+*option:2025-onwards-Gas-dhw:value:2   = 2
+*option:2025-onwards-Gas-dhw:value:3   = 10
+*option:2025-onwards-Gas-dhw:value:4   = 0.9
+*option:2025-onwards-Gas-dhw:value:5   = 246
+
+*option:2025-onwards-Elect-dhw:value:1   = ghg-WH.dhw
+*option:2025-onwards-Elect-dhw:value:2   = 1
+*option:2025-onwards-Elect-dhw:value:3   = 18
+*option:2025-onwards-Elect-dhw:value:4   = 1.6
+*option:2025-onwards-Elect-dhw:value:5   = 189
+
+*option:2025-onwards-Oil-dhw:value:1   = ghg-WH.dhw
+*option:2025-onwards-Oil-dhw:value:2   = 3
+*option:2025-onwards-Oil-dhw:value:3   = 11
+*option:2025-onwards-Oil-dhw:value:4   = 0.62
+*option:2025-onwards-Oil-dhw:value:5   = 246
 
 
 
