@@ -381,7 +381,7 @@
 
 
 !-----------------------------------------------------------------------
-! HRV control flag: flag defining assumptions associated with HRV control
+!  control flag: flag defining assumptions associated with HRV control
 ! (this relates to the NZEH performance definition, and isn't intended 
 ! to be optimized. 
 !-----------------------------------------------------------------------
@@ -3559,30 +3559,33 @@
 *attribute:start 
 *attribute:name    = Opt-HRVspec 
 *attribute:tag:1   = <Opt-HRVInputFile>
-*attribute:default = CEF_SPEC
+*attribute:default = ghg-exh-fan
 
-*option:CEF_SPEC:value:1         = HRV.vnt
-*option:CEF_SPEC:cost:total = 0
-*option:CEF_SPEC:alias = 2500
+*option:ghg-exh-fan:value:1         = ghg-fans-0sre.vnt
+*option:ghg-exh-fan:cost:total = 0
+*option:ghg-exh-fan:alias = 2500
 
-*option:BaseHRV_SRE70:value:1    = HRV-base.vnt
-*option:BaseHRV_SRE70:cost:total = 0
-*option:BaseHRV_SRE70:alias = 2501
 
-*option:BaseHRV_SRE55:value:1    = HRV-base1.vnt	! Use for BC-LEEP base (matches HOT2000 inputs)
-*option:BaseHRV_SRE55:cost:total = 0
-*option:BaseHRV_SRE55:alias = 2502
+*option:ghg-hrv-55sre:value:1    = ghg-hrv-55sre.vnt	! Use for BC-LEEP base (matches HOT2000 inputs)
+*option:ghg-hrv-55sre:cost:total = 0
+*option:ghg-hrv-55sre:alias = 2502
 
-*option:UpgHRV_SRE78:value:1    = HRV-upg.vnt
-*option:UpgHRV_SRE78:cost:total = 0 !920
-*option:UpgHRV_SRE78:alias = 2503
+*option:ghg-hrv-70sre:value:1    = ghg-hrv-70sre.vnt
+*option:ghg-hrv-70sre:cost:total = 0 !920
+*option:ghg-hrv-70sre:alias = 2503
 
-*option:FansOnly:value:1 = FansOnly.vnt		!Using HRV0-base.vnt (HRV with 0 eff. much higher ERS value than FansOnly option)
-*option:FansOnly:cost:total = 0
-*option:FansOnly:alias = 2504
+
+*option:ghg-hrv-80sre:value:1    = ghg-hrv-80sre.vnt
+*option:ghg-hrv-80sre:cost:total = 0
+*option:ghg-hrv-80sre:alias = 2501
+
 
 *attribute:end 
 
+
+!-----------------------------------------------------------------------
+! HRV spec
+!-----------------------------------------------------------------------
 *attribute:start 
 *attribute:name    = Opt-HRVduct 
 *attribute:tag:1   = <Opt-HRVDucting>
