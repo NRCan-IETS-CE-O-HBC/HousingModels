@@ -132,7 +132,7 @@ Simulation{
 Optimization{
    Files{
       Command {
-         File1 = "Genopt-ghg-test.GO-cmd";
+         File1 = "Genopt-test-ghg.GO-cmd";
          
       }
    }
