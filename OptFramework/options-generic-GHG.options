@@ -2432,6 +2432,10 @@
 *option:Generic_Wall_R-22-eff:cost = 0
 *option:Generic_Wall_R-22-eff:alias = 1793
 
+*option:Generic_Wall_R-23-eff:value:1 = 0.1310
+*option:Generic_Wall_R-23-eff:cost = 0
+*option:Generic_Wall_R-23-eff:alias = 1793
+
 *option:Generic_Wall_R-24-eff:value:1 = 0.1338
 *option:Generic_Wall_R-24-eff:cost = 0
 *option:Generic_Wall_R-24-eff:alias = 1794
@@ -2703,6 +2707,7 @@
 !*option:test2:alias = 1780
 
 !*attribute:end
+
 
 
 !-----------------------------------------------------------------------
@@ -3650,6 +3655,7 @@
 
 !-----------------------------------------------------------------------
 ! Hot water loads
+!-----------------------------------------------------------------------
 !-----------------------------------------------------------------------
 
 *attribute:start 
