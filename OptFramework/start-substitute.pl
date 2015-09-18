@@ -9,6 +9,7 @@ use warnings;
 use strict;
 use File::Basename;
 use Cwd;
+use File::Copy::Recursive qw(fcopy rcopy dircopy fmove rmove dirmove); 
 
 #--------------------------------------------
 # Help text. Dumped if no arguments supplied.
@@ -31,6 +32,10 @@ my $Help_msg = "
 my $master_path = getcwd(); 
 my $LogFile = "$master_path/Start-SubstitutePL-log.txt"; 
 
+my $ChoiceFileDir = "$master_path/../GenericHome-GHG/choices"; 
+
+
+
 open(LOG, ">".$LogFile) or fatalerror("Could not open ".$LogFile."\n"); 
 
 # dump help text, if no argument given
@@ -45,6 +50,7 @@ my($filename, $dir, $ext) = fileparse($ARGV[0]);
 open ( GENOPTGENFILE, $ARGV[0]) or fatalerror("Could not read $ARGV[0]!\n");
 
 my $choiceFileName;
+my $location ; 
 my $linecount;
 while ( my $line = <GENOPTGENFILE> ){
   $line =~ s/\!.*$//g; 
@@ -54,17 +60,52 @@ while ( my $line = <GENOPTGENFILE> ){
     my ($attribute, $value) = split /:/, $line;
 	if ($attribute =~ "Opt-ChoiceFileNames" ) {
 	  $choiceFileName = $value;
-      print LOG "Choice file name is: ".$choiceFileName."\n";
+    print LOG "Choice file name is: ".$choiceFileName."\n";
 	}
+  if ( $attribute =~ /Location/ ){
+     $location = $value; 
+     print LOG "Location is $location \n";  
+    }
   }
 }
 close ( GENOPTGENFILE );
 
-#print LOG "The current directory is: ".$master_path."\n";
+print LOG "The current directory is: ".$master_path."\n";
 
-my $command = $ARGV[1]." ../substitute.pl -c ./GenericHome-GHG/choices/$choiceFileName -o ../options-generic-GHG.options -b ./GenericHome-GHG -vv";
+fcopy("$ChoiceFileDir/$choiceFileName", "$master_path/$choiceFileName" );
 
-#print LOG "The command is: ".$command."\n";
+
+
+open (CHOICEFILE, "$master_path/$choiceFileName") 
+    || die ("Could not open $master_path/$choiceFileName for reading !\n" );
+    
+    
+my $choice_content = ""; 
+    
+while ( my $line = <CHOICEFILE> ){
+
+  $line=~ s/<LOCATION>/$location/g; 
+
+  $choice_content .= $line; 
+
+}
+
+close CHOICEFILE; 
+
+open (CHOICEFILE, ">$master_path/$choiceFileName") 
+    || die ("Could not open $master_path/$choiceFileName for writing !\n" );
+    
+print CHOICEFILE $choice_content; 
+
+close CHOICEFILE; 
+
+
+
+
+
+my $command = $ARGV[1]." ../substitute.pl -c $choiceFileName -o ../options-generic-GHG.options -b ./GenericHome-GHG -vv";
+
+print LOG "The command is: ".$command."\n";
 
 system ( $command );
 
