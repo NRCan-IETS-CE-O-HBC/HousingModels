@@ -451,6 +451,25 @@
 *option:Toronto:cost:total    = 0
 *option:Toronto:alias = 1001
 
+*option:London:value:1 = can_london.cwec
+*option:London:value:2 = 43.6481
+*option:London:value:3 = -4.40
+*option:London:cost:total    = 0
+*option:London:alias = 1001
+
+*option:ThunderBay:value:1 = can_thunderbay.cwec
+*option:ThunderBay:value:2 = 43.6481
+*option:ThunderBay:value:3 = -4.40
+*option:ThunderBay:cost:total    = 0
+*option:ThunderBay:alias = 1001
+
+
+*option:Windsor:value:1 = can_windsor.cwec
+*option:Windsor:value:2 = 43.6481
+*option:Windsor:value:3 = -4.40
+*option:Windsor:cost:total    = 0
+*option:Windsor:alias = 1001
+
 *option:Ottawa:value:1 = can_ottawa.cwec
 *option:Ottawa:value:2 = 43.6481
 *option:Ottawa:value:3 = -4.40
@@ -2242,11 +2261,6 @@
 *option:CeilR110:cost:total    =  2788  !This value not updated for Vancouver geometry
 *option:CeilR110:alias    =  1607
 
-*option:CeilR120:value:1 =  CeilR120
-!*option:CeilR120:value:2 =  CeilR120R
-*option:CeilR120:cost:total    =  3257  !This value not updated for Vancouver geometry
-*option:CeilR120:alias    =  1608
-
 !-----------------------------------------------------------------------
 !   Retrofit Ceilings options
 !-----------------------------------------------------------------------
@@ -3111,7 +3125,7 @@
 *option:ghg-hvac-1-Gas:value:17  = 2.25078689620004
 
 
-*option:ghg-hvac-2-Elect:value:1   = ghg-electricity.hvac
+*option:ghg-hvac-2-Elect:value:1   = ghg-elec.hvac
 *option:ghg-hvac-2-Elect:value:2   = #-no-GSHP-file
 *option:ghg-hvac-2-Elect:value:3  = #-no-IMS
 *option:ghg-hvac-2-Elect:value:4  =
@@ -3168,7 +3182,7 @@
 *option:ghg-hvac-4-Gas:value:17  = 2.25078689620004
 
 
-*option:ghg-hvac-5-Elect:value:1   = ghg-electricity.hvac
+*option:ghg-hvac-5-Elect:value:1   = ghg-elec.hvac
 *option:ghg-hvac-5-Elect:value:2   = #-no-GSHP-file
 *option:ghg-hvac-5-Elect:value:3  = #-no-IMS
 *option:ghg-hvac-5-Elect:value:4  =
@@ -3225,7 +3239,7 @@
 *option:ghg-hvac-7-Gas:value:17  = 2.58928414426137
 
 
-*option:ghg-hvac-8-Elect:value:1   = ghg-electricity.hvac
+*option:ghg-hvac-8-Elect:value:1   = ghg-elec.hvac
 *option:ghg-hvac-8-Elect:value:2   = #-no-GSHP-file
 *option:ghg-hvac-8-Elect:value:3  = #-no-IMS
 *option:ghg-hvac-8-Elect:value:4  =
@@ -3282,7 +3296,7 @@
 *option:ghg-hvac-10-Gas:value:17  = 2.58928414426137
 
 
-*option:ghg-hvac-11-Elect:value:1   = ghg-electricity.hvac
+*option:ghg-hvac-11-Elect:value:1   = ghg-elec.hvac
 *option:ghg-hvac-11-Elect:value:2   = #-no-GSHP-file
 *option:ghg-hvac-11-Elect:value:3  = #-no-IMS
 *option:ghg-hvac-11-Elect:value:4  =
@@ -3339,7 +3353,7 @@
 *option:ghg-hvac-13-Gas:value:17  = 3.09483198227505
 
 
-*option:ghg-hvac-14-Elect:value:1   = ghg-electricity.hvac
+*option:ghg-hvac-14-Elect:value:1   = ghg-elec.hvac
 *option:ghg-hvac-14-Elect:value:2   = #-no-GSHP-file
 *option:ghg-hvac-14-Elect:value:3  = #-no-IMS
 *option:ghg-hvac-14-Elect:value:4  =
@@ -3396,7 +3410,7 @@
 *option:ghg-hvac-16-Gas:value:17  = 3.60477588844537
 
 
-*option:ghg-hvac-17-Elect:value:1   = ghg-electricity.hvac
+*option:ghg-hvac-17-Elect:value:1   = ghg-elec.hvac
 *option:ghg-hvac-17-Elect:value:2   = #-no-GSHP-file
 *option:ghg-hvac-17-Elect:value:3  = #-no-IMS
 *option:ghg-hvac-17-Elect:value:4  =
@@ -3453,7 +3467,7 @@
 *option:ghg-hvac-19-Gas:value:17  = 3.60477588844537
 
 
-*option:ghg-hvac-20-Elect:value:1   = ghg-electricity.hvac
+*option:ghg-hvac-20-Elect:value:1   = ghg-elec.hvac
 *option:ghg-hvac-20-Elect:value:2   = #-no-GSHP-file
 *option:ghg-hvac-20-Elect:value:3  = #-no-IMS
 *option:ghg-hvac-20-Elect:value:4  =
@@ -3510,7 +3524,7 @@
 *option:ghg-hvac-22-Gas:value:17  = 3.88612425047038
 
 
-*option:ghg-hvac-23-CCHP:value:1   = ghg-ccashp.hvac
+*option:ghg-hvac-23-CCHP:value:1   = ghg-CCASHP.hvac
 *option:ghg-hvac-23-CCHP:value:2   = #-no-GSHP-file
 *option:ghg-hvac-23-CCHP:value:3  = #-no-IMS
 *option:ghg-hvac-23-CCHP:value:4  =
@@ -3549,9 +3563,104 @@
 
 
 
+!-------------------------------------------------------
+! Additional - system specific scenarios 
+!-------------------------------------------------------
+
+*option:oee-CCASHP-ref:value:1   = ghg-CCASHP.hvac
+*option:oee-CCASHP-ref:value:2   = #-no-GSHP-file
+*option:oee-CCASHP-ref:value:3  = #-no-IMS
+*option:oee-CCASHP-ref:value:4  =
+*option:oee-CCASHP-ref:value:5  =
+*option:oee-CCASHP-ref:value:6  = shoulder-ideal.ctl
+*option:oee-CCASHP-ref:value:7  = electricity
+*option:oee-CCASHP-ref:value:8  = nil
+*option:oee-CCASHP-ref:value:9 = 15000
+*option:oee-CCASHP-ref:value:10  = 3.0
+*option:oee-CCASHP-ref:value:11  = 200
+*option:oee-CCASHP-ref:value:12  = 200
+*option:oee-CCASHP-ref:value:13  = nil
+*option:oee-CCASHP-ref:value:14 = nil
+*option:oee-CCASHP-ref:value:15  = 11700
+*option:oee-CCASHP-ref:value:16  = 11000
+*option:oee-CCASHP-ref:value:17  = 3.6047758884453
+
+*option:oee-ASHP-ref:value:1   = ghg-ASHP.hvac
+*option:oee-ASHP-ref:value:2   = #-no-GSHP-file
+*option:oee-ASHP-ref:value:3  = #-no-IMS
+*option:oee-ASHP-ref:value:4  =
+*option:oee-ASHP-ref:value:5  =
+*option:oee-ASHP-ref:value:6  = shoulder-ideal.ctl
+*option:oee-ASHP-ref:value:7  = electricity
+*option:oee-ASHP-ref:value:8  = nil
+*option:oee-ASHP-ref:value:9 = 15000
+*option:oee-ASHP-ref:value:10  = 3.0
+*option:oee-ASHP-ref:value:11  = 200
+*option:oee-ASHP-ref:value:12  = 200
+*option:oee-ASHP-ref:value:13  = nil
+*option:oee-ASHP-ref:value:14 = nil
+*option:oee-ASHP-ref:value:15  = 11700
+*option:oee-ASHP-ref:value:16  = 11000
+*option:oee-ASHP-ref:value:17  = 3.6047758884453
+
+*option:oee-GSHP-ref:value:1   = ghg-GSHP.hvac
+*option:oee-GSHP-ref:value:2   = *gshp~../hvac/heatx_v1.gshp 
+*option:oee-GSHP-ref:value:3  = #-no-IMS
+*option:oee-GSHP-ref:value:4  =
+*option:oee-GSHP-ref:value:5  =
+*option:oee-GSHP-ref:value:6  = shoulder-ideal.ctl
+*option:oee-GSHP-ref:value:7  = electricity
+*option:oee-GSHP-ref:value:8  = nil
+*option:oee-GSHP-ref:value:9 = 15000
+*option:oee-GSHP-ref:value:10  = 3.0
+*option:oee-GSHP-ref:value:11  = 200
+*option:oee-GSHP-ref:value:12  = 200
+*option:oee-GSHP-ref:value:13  = nil
+*option:oee-GSHP-ref:value:14 = nil
+*option:oee-GSHP-ref:value:15  = 11700
+*option:oee-GSHP-ref:value:16  = 11000
+*option:oee-GSHP-ref:value:17  = 3.6047758884453
 
 
 
+*option:oee-gas-ref:value:1  = ghg-gas.hvac
+*option:oee-gas-ref:value:2  = #-no-GSHP-file
+*option:oee-gas-ref:value:3  = #-no-IMS
+*option:oee-gas-ref:value:4  =
+*option:oee-gas-ref:value:5  =
+*option:oee-gas-ref:value:6  = shoulder-ideal.ctl
+*option:oee-gas-ref:value:7  = gas
+*option:oee-gas-ref:value:8  = 8
+*option:oee-gas-ref:value:9  = 15000
+*option:oee-gas-ref:value:10 = 0.95
+*option:oee-gas-ref:value:11 = 250
+*option:oee-gas-ref:value:12 = 250
+*option:oee-gas-ref:value:13 = 75
+*option:oee-gas-ref:value:14 = 0
+*option:oee-gas-ref:value:15 = 0
+*option:oee-gas-ref:value:16 = 11000
+*option:oee-gas-ref:value:17 = 3.60477588844537
+
+
+
+*option:oee-elec-ref:value:1   = ghg-elec.hvac           ! tag: <Opt-HVACSystem>
+*option:oee-elec-ref:value:2   = #-no-GSHP-file          ! tag: <Opt-HideGSHPfile>
+*option:oee-elec-ref:value:3  = #-no-IMS                 ! tag: <OPT-VENTisIMS>
+*option:oee-elec-ref:value:4  =                          ! tag: <OPT-VENTisHRV>
+*option:oee-elec-ref:value:5  =                          ! tag: <OPT-WHisIMS>
+*option:oee-elec-ref:value:6  = shoulder-ideal.ctl       ! tag: <Opt-HVACCtlFile>
+*option:oee-elec-ref:value:7  = electricity              ! tag: <OPT-heating-fuel> 
+*option:oee-elec-ref:value:8  = nil                      ! tag: <OPT-FurnaceType>
+*option:oee-elec-ref:value:9 = 15000                     ! tag: <OPT-HeatingCapacity>
+*option:oee-elec-ref:value:10  = 1                       ! tag: <OPT-FurnaceEfficiency>
+*option:oee-elec-ref:value:11  = 250                     ! tag: <OPT-FurnaceFanPower>
+*option:oee-elec-ref:value:12  = 250                     ! tag: <OPT-FurnaceFanPowerLo>
+*option:oee-elec-ref:value:13  = nil                     ! tag: <OPT-FurnaceDraftFanPower> 
+*option:oee-elec-ref:value:14 = nil                      ! tag: <OPT-FurnacePilotPower>
+*option:oee-elec-ref:value:15  = 0                       ! tag: <Opt-HPHeatingCapacity>
+*option:oee-elec-ref:value:16  = 11000                   ! tag: <OPT-AC-capacity>
+*option:oee-elec-ref:value:17  = 3.60477588844537        ! tag: <OPT-AC-COP>
+                                                         
 
 *attribute:end
 
@@ -3801,11 +3910,11 @@
 *option:2006-2011-Oil-dhw:value:4   = 0.55
 *option:2006-2011-Oil-dhw:value:5   = 246
 
-*option:2012-2019-Gas-dhw:value:1   = ghg-WH.dhw
-*option:2012-2019-Gas-dhw:value:2   = 2
-*option:2012-2019-Gas-dhw:value:3   = 1
-*option:2012-2019-Gas-dhw:value:4   = 0.62
-*option:2012-2019-Gas-dhw:value:5   = 246
+*option:2012-2019-Gas-dhw:value:1   = ghg-WH.dhw   ! <Opt-DHWInputFile>
+*option:2012-2019-Gas-dhw:value:2   = 2            ! <OPT-DHW-fuel-type>
+*option:2012-2019-Gas-dhw:value:3   = 1            ! <OPT-DHW-tank-type>
+*option:2012-2019-Gas-dhw:value:4   = 0.62         ! <OPT-DHW-EFF>
+*option:2012-2019-Gas-dhw:value:5   = 246          ! <Opt-DHW-Tank-size-L>
 
 *option:2012-2019-Elect-dhw:value:1   = ghg-WH.dhw
 *option:2012-2019-Elect-dhw:value:2   = 1

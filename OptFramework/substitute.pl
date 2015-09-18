@@ -2053,16 +2053,19 @@ sub postprocess($){
 ##  my $OilSupplyCharge     = 1.34;    # Whitehorse cost of furnace oil / arctic stove oil is $1.34/l  (Yukon energy statistics)
 
   # Adding Local Oil costs
-  my %OilSupplyCharge   = (  "Halifax"      =>  0.0 ,
-                             "Edmonton"     =>  0.0 ,
-                             "Calgary"      =>  0.0 ,
-                             "Vancouver"    =>  0.0 ,
-                             "PrinceGeorge" =>  0.0 ,
-                             "Kamloops"     =>  0.0 ,
-                             "Ottawa"       =>  0.0 , 
-                             "Regina"       =>  0.0 ,
-                             "Winnipeg"     =>  0.0 ,
-                             "Fredricton"   =>  0.0 ,
+  my %OilSupplyCharge   = (  "Halifax"      =>  0.99 ,
+                             "Edmonton"     =>  0.99 ,
+                             "Calgary"      =>  0.99 ,
+                             "Vancouver"    =>  0.99 ,
+                             "PrinceGeorge" =>  0.99 ,
+                             "Kamloops"     =>  0.99 ,
+                             "Ottawa"       =>  0.99 , 
+                             "Regina"       =>  0.99 ,
+                             "Winnipeg"     =>  0.99 ,
+                             "Toronto"      =>  0.99 , 
+                             "Montreal"     =>  0.99 , 
+                             "Quebec"       =>  0.99 ,
+                             "Fredricton"   =>  0.99 ,
                              "Whitehorse"   =>  1.34 ,
                              "Yellowknife"  =>  1.28 ,
 							 "Inuvik"       =>  1.50 ,
@@ -2313,6 +2316,7 @@ sub postprocess($){
 
   my $Locale = $gChoices{"Opt-Location"}; 
   
+  if ( $Locale =~ /London/ || $Locale =~ /Windsor/ || $Locale =~ /ThunderBay/ ){ $Locale = "Toronto";}
   
   if ( $SaveVPOutput ) {
     fcopy ( "out.csv","$gMasterPath/../VP-sim-output/$Locale-$gDirection-out.csv" );  
