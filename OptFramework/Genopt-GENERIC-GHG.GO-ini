@@ -7,7 +7,7 @@ Simulation{
    Files{
       // Name and path to file containing input template
       Template{
-         File1 = "Genopt-Generic-GHG-Template.GO-choices";
+         File1 = "Genopt-GENERIC-GHG-Template.GO-choices";
          Path1 = "./";
       }
       // Name and path to target file 
@@ -39,10 +39,10 @@ Simulation{
    CallParameter {
       
       // Windows only: 
-      Prefix = "perl ";  //C:\\cygwin\\bin\\
+      //Prefix = "perl ";  //C:\\cygwin\\bin\\
       
       // LINUX 
-      //Prefix = "" ;
+      Prefix = "perl " ;
       
 	  Suffix = " GenOpt-picked-these-choices.GO-tmp"; 
  
