@@ -187,7 +187,7 @@ Opt-RoofPitch : 6-12
 !  GasInstant
 !  ElectricHP
 
-Opt-DHWSystem        : elec-storage
+Opt-DHWSystem        : Pre-1946-Gas-dhw
 
 ! HVAC system 
 !  gas-furnace-low
@@ -202,5 +202,5 @@ Opt-GhgHeatingCooling : ghg-hvac-1-Gas
 OPT-Furnace-Fan-Ctl  : Auto
 ! HRV spec 
 
-Opt-HRVspec : BaseHRV_SRE70
+Opt-HRVspec : ghg-hrv-55sre
 

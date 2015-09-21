@@ -6,3 +6,4 @@ GOconfig_step :  %stepNumber%
 ! Name of the pre-generated choice file for the next GenOpt run
 Opt-ChoiceFileNames : %GOtag:Opt-Choice_Files%
 
+Opt-Location        : %GOtag:Opt-Location%

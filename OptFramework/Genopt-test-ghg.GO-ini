@@ -1,4 +1,4 @@
-/* GenOpt initialization file for Canadian GHG analysis work. 
+/* GenOpt initialization file for housing optimization work. 
 
 */
 
@@ -7,7 +7,7 @@ Simulation{
    Files{
       // Name and path to file containing input template
       Template{
-         File1 = "Genopt-GENERIC-GHG-Template.GO-choices";
+         File1 = "Genopt-test-ghg-Template.GO-choices";
          Path1 = "./";
       }
       // Name and path to target file 
@@ -28,9 +28,9 @@ Simulation{
       Output{
          File1 = "SubstitutePL-output.txt";
       }
-      // File explaining how to start evaluations.
+      // File explaining how to start ESP-r.
       Configuration{
-         File1 = "Genopt-GENERIC-GHG-CONFIG.GO-config";
+         File1 = "Genopt-GENERIC-CONFIG.GO-config";
       }
 
    } // end Simulation.Files
@@ -39,12 +39,13 @@ Simulation{
    CallParameter {
       
       // Windows only: 
-      //Prefix = "perl ";  //C:\\cygwin\\bin\\
+      Prefix = "C:\\cygwin64\\bin\\perl.exe ";
       
       // LINUX 
-      Prefix = "perl " ;
+      //Prefix = "" ; 
       
-	  Suffix = " GenOpt-picked-these-choices.GO-tmp"; 
+      Suffix = " -c GenOpt-picked-these-choices.GO-tmp -o options-generic-GHG.options -b GenericHome-GHG -vv "; 
+ 
  
    }
 
@@ -55,6 +56,10 @@ Simulation{
       // Note to editor: Ensure column spacing is maintained.
 
       // Cost function to be optimized
+      
+      
+      
+      
       Name1 = SimplePaybackYrs ;
       Delimiter1 = "SimplePaybackYrs  =  ";       
       
@@ -90,7 +95,7 @@ Simulation{
       Name11 = EnergyHeatingGJ; 
       Delimiter11 = "Energy-HeatingGJ  =  ";
       
-      Name12 = EnergyCoolingGJ; 
+      Name12 = EnergyCoolingGJ;
       Delimiter12 = "Energy-CoolingGJ  =  ";
       
       Name13 = EnergyVentGJ; 
@@ -116,6 +121,8 @@ Simulation{
 
       Name20 = PVSizekW;
       Delimiter20 = "PV-size-kW      =  ";      
+      
+     
 
    } // end Simulation.ObjectiveFunctionLocation
    
@@ -125,7 +132,7 @@ Simulation{
 Optimization{
    Files{
       Command {
-         File1 = "Genopt-GENERIC-GHG-CMD.GO-cmd";
+         File1 = "Genopt-test-ghg.GO-cmd";
          
       }
    }

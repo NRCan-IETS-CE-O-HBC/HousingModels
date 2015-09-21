@@ -1,0 +1,439 @@
+/*
+
+ GenOpt command file for general optimization run. Baseline.
+
+*/
+Vary{
+
+  // ==========================================
+  // Parameters that configure the simulation 
+  // ==========================================
+  
+  // Calculation mode: Debug or calc ? 
+  Parameter { 
+  
+    Name = GOtag:CalcMode; 
+    Ini    = 1; 
+    Values = "calc"; 
+ 
+   }
+
+  // Database files: CEF, WH or retrofit?
+  Parameter { 
+  
+    Name = GOtag:DBFiles; 
+    Ini    = 1; 
+    Values = "retrofit"; 
+ 
+   }
+      
+  // HRV control scheme (Continuious, ERSp3ACH, EightHRpDay ) 
+  // GHG numbers use 8hr per day for next-gen SOCs.
+  Parameter{ 
+    Name = GOtag:HRVcontrol; 
+    Ini  = 1; 
+    Values = EightHRpDay;
+     
+  }
+   
+  // Location  
+  Parameter{ // One of:
+             //    Ottawa     gi
+             //    Toronto    
+             //    Vancouver  
+             //    Calgary    
+             //    Edmonton   
+             //    Regina     
+             //    Winnipeg    
+             //    Montreal   
+             //    Quebec     
+             //    Fredricton 
+             //    Halifax    
+             //    Whitehorse 
+          //    PrinceGeorge
+          //    Kamloops
+          //    Yellowknife
+          
+    Name = GOtag:Opt-Location; 
+    Ini  = 1;
+    // Two locations for testing.
+    Values = "Windsor, London, ThunderBay, Vancouver,Kamloops, Calgary, Edmonton, Regina, Winnipeg, Toronto, Ottawa, Montreal, Quebec, Fredricton, Halifax"; 
+  }
+
+  // Geometry  
+  Parameter{
+  
+    Name = GOtag:Opt-geometry; 
+    Ini  = 1;
+    Values = "Pre-1946,1946-1983,1984-1995,1996-2005,2006-2011,2012-2019,2020-2024,2025-onwards"; 
+  }
+
+
+  // Defining the building attachment
+  Parameter{ // single
+             // semi
+          // row
+          
+    Name = GOtag:Opt-Attachment;  
+    Ini  = 1;
+    Values = "single"; 
+  }   
+  
+
+  
+  // =============================================
+  // Parameters that configure the building design
+  // =============================================
+ 
+   // Air tightness: 
+   Parameter{   // 
+     Name    =  GOtag:Opt-AirTightness;
+     Ini     =  1;
+     Values  =  "Generic";
+     
+   }    
+
+ 
+  Parameter{
+            
+               
+    Name = GOtag:Opt-ACH; 
+    Ini  = 1;
+    Values = "retro_ACH_0.2,   retro_ACH_0.3,   retro_ACH_0.4,   retro_ACH_0.5,   retro_ACH_0.6,   retro_ACH_0.7,   retro_ACH_0.8,   retro_ACH_0.9,   retro_ACH_1,   retro_ACH_1.1,   retro_ACH_1.2,   retro_ACH_1.3,   retro_ACH_1.4,   retro_ACH_1.5,   retro_ACH_1.6,   retro_ACH_1.7,   retro_ACH_1.8,   retro_ACH_1.9,   retro_ACH_2,   retro_ACH_2.1,   retro_ACH_2.2,   retro_ACH_2.3,   retro_ACH_2.4,   retro_ACH_2.5,   retro_ACH_2.6,   retro_ACH_2.7,   retro_ACH_2.8,   retro_ACH_2.9,   retro_ACH_3,   retro_ACH_3.1,   retro_ACH_3.2,   retro_ACH_3.3,   retro_ACH_3.4,   retro_ACH_3.5,   retro_ACH_3.6,   retro_ACH_3.7,   retro_ACH_3.8,   retro_ACH_3.9,   retro_ACH_4,   retro_ACH_4.1,   retro_ACH_4.2,   retro_ACH_4.3,   retro_ACH_4.4,   retro_ACH_4.5,   retro_ACH_4.6,   retro_ACH_4.7,   retro_ACH_4.8,   retro_ACH_4.9,   retro_ACH_5,   retro_ACH_5.1,   retro_ACH_5.2,   retro_ACH_5.3,   retro_ACH_5.4,   retro_ACH_5.5,   retro_ACH_5.6,   retro_ACH_5.7,   retro_ACH_5.8,   retro_ACH_5.9,   retro_ACH_6,   retro_ACH_6.1,   retro_ACH_6.2,   retro_ACH_6.3,   retro_ACH_6.4,   retro_ACH_6.5,   retro_ACH_6.6,   retro_ACH_6.7,   retro_ACH_6.8,   retro_ACH_6.9,   retro_ACH_7,   retro_ACH_7.1,   retro_ACH_7.2,   retro_ACH_7.3,   retro_ACH_7.4,   retro_ACH_7.5,   retro_ACH_7.6,   retro_ACH_7.7,   retro_ACH_7.8,   retro_ACH_7.9,   retro_ACH_8,   retro_ACH_8.1,   retro_ACH_8.2,   retro_ACH_8.3,   retro_ACH_8.4,   retro_ACH_8.5,   retro_ACH_8.6,   retro_ACH_8.7,   retro_ACH_8.8,   retro_ACH_8.9,   retro_ACH_9,   retro_ACH_9.1,   retro_ACH_9.2,   retro_ACH_9.3,   retro_ACH_9.4,   retro_ACH_9.5,   retro_ACH_9.6,   retro_ACH_9.7,   retro_ACH_9.8,   retro_ACH_9.9,   retro_ACH_10,   retro_ACH_10.1,   retro_ACH_10.2,   retro_ACH_10.3,   retro_ACH_10.4,   retro_ACH_10.5,   retro_ACH_10.6,   retro_ACH_10.7,   retro_ACH_10.8,   retro_ACH_10.9,   retro_ACH_11,   retro_ACH_11.1,   retro_ACH_11.2,   retro_ACH_11.3,   retro_ACH_11.4,   retro_ACH_11.5,   retro_ACH_11.6,   retro_ACH_11.7,   retro_ACH_11.8,   retro_ACH_11.9,   retro_ACH_12,   retro_ACH_12.1,   retro_ACH_12.2,   retro_ACH_12.3,   retro_ACH_12.4,   retro_ACH_12.5,   retro_ACH_12.6,   retro_ACH_12.7,   retro_ACH_12.8,   retro_ACH_12.9,   retro_ACH_13,   retro_ACH_13.1,   retro_ACH_13.2,   retro_ACH_13.3,   retro_ACH_13.4,   retro_ACH_13.5,   retro_ACH_13.6,   retro_ACH_13.7,   retro_ACH_13.8,   retro_ACH_13.9,   retro_ACH_14"; 
+    
+    
+
+  }
+
+
+   
+   // Mainwalls. 
+
+   Parameter{   // 
+     Name    =  GOtag:Opt-MainWall;
+     Ini     =  1;
+     Values  =  "GenericWall_1Layer"; 
+   }    
+  
+   Parameter{ 
+      Name   =    GOtag:Opt-GenericWall_1Layer_definitions;
+      Ini    =    1; 
+      
+      Values =   "Generic_Wall_R-04-eff,   Generic_Wall_R-05-eff,   Generic_Wall_R-06-eff,   Generic_Wall_R-07-eff,   Generic_Wall_R-08-eff,   Generic_Wall_R-09-eff,   Generic_Wall_R-10-eff,   Generic_Wall_R-11-eff,   Generic_Wall_R-12-eff,   Generic_Wall_R-13-eff,   Generic_Wall_R-14-eff,   Generic_Wall_R-15-eff,   Generic_Wall_R-16-eff,   Generic_Wall_R-17-eff,   Generic_Wall_R-18-eff,   Generic_Wall_R-19-eff,   Generic_Wall_R-20-eff,   Generic_Wall_R-21-eff,   Generic_Wall_R-22-eff,   Generic_Wall_R-23-eff,   Generic_Wall_R-24-eff,   Generic_Wall_R-25-eff,   Generic_Wall_R-26-eff,   Generic_Wall_R-27-eff,   Generic_Wall_R-28-eff,   Generic_Wall_R-29-eff,   Generic_Wall_R-30-eff,   Generic_Wall_R-31-eff,   Generic_Wall_R-32-eff,   Generic_Wall_R-33-eff,   Generic_Wall_R-34-eff,   Generic_Wall_R-35-eff,   Generic_Wall_R-36-eff,   Generic_Wall_R-37-eff,   Generic_Wall_R-38-eff,   Generic_Wall_R-39-eff,   Generic_Wall_R-40-eff,   Generic_Wall_R-41-eff,   Generic_Wall_R-42-eff,   Generic_Wall_R-43-eff,   Generic_Wall_R-44-eff,   Generic_Wall_R-45-eff,   Generic_Wall_R-46-eff,   Generic_Wall_R-47-eff,   Generic_Wall_R-48-eff,   Generic_Wall_R-49-eff,   Generic_Wall_R-50-eff,   Generic_Wall_R-51-eff,   Generic_Wall_R-52-eff,   Generic_Wall_R-53-eff,   Generic_Wall_R-54-eff,   Generic_Wall_R-55-eff,   Generic_Wall_R-56-eff,   Generic_Wall_R-57-eff,   Generic_Wall_R-58-eff,   Generic_Wall_R-59-eff,   Generic_Wall_R-60-eff"; 
+   }
+   
+   
+   
+  
+   // Foundation: 
+   Parameter{   // 
+     Name    =  GOtag:Opt-BasementWallInsulation;
+     Ini     =  1;
+     Values  =  "GenericFoundationWall";
+   } 
+
+  
+   Parameter{   // 
+     Name    =  GOtag:Opt-BasementSlabInsulation;
+     Ini     =  1;
+     Values  =  "GenericFoundationSlab";
+   } 
+   
+   Parameter{ 
+     Name    = GOtag:OptBasementConfiguration;
+     Ini     = 1; 
+     Values  = "GHG-bsm-1-RSI_0.66,   GHG-bsm-2-RSI_0.68,   GHG-bsm-3-RSI_0.58,   GHG-bsm-4-RSI_0.83,   GHG-bsm-5-RSI_0.86,   GHG-bsm-6-RSI_0.77,   GHG-bsm-7-RSI_1.66,   GHG-bsm-8-RSI_1.66,   GHG-bsm-9-RSI_1.53,   GHG-bsm-10-RSI_1.72,   GHG-bsm-11-RSI_1.67,   GHG-bsm-12-RSI_1.69,   GHG-bsm-13-RSI_1.75,   GHG-bsm-14-RSI_1.8,   GHG-bsm-15-RSI_1.98,   GHG-bsm-16-RSI_2.95,   GHG-bsm-17-RSI_2.95,   GHG-bsm-18-RSI_2.95,   GHG-bsm-19-RSI_3.73,   GHG-bsm-20-RSI_3.73,   GHG-bsm-21-RSI_3.73,   GHG-bsm-22-RSI_5.46,   GHG-bsm-23-RSI_5.46,   GHG-bsm-24-RSI_5.46";  
+   }
+   
+   
+
+   // Exposed floor: Not currently used in GHG runs.
+   //                BaseExpFloor-R31
+   //                ExpFloorFlash&Batt-R36
+   //                ExpFloorFoamed-R52
+   Parameter{   // 
+     Name    =  GOtag:Opt-ExposedFloor;
+     Ini     =  1;
+     Values  =  "BaseExpFloor-R31";
+   }    
+   
+   
+   // Ceilings: 
+   Parameter{   // 
+     Name    =  GOtag:Opt-Ceilings;
+     Ini     =  1;
+     Values  =  "CeilR20,   CeilR30,   CeilR40,   CeilR50,   CeilR60,   CeilR70,   CeilR80,   CeilR90,   CeilR100,   CeilR110";
+   }    
+  
+  // Windows:  DoubleLowEHardCoatAirFill 
+  //           DoubleLowEHardCoatArgFill
+  //           DoubleLowESoftCoatArgFill 
+  //           TripleLowEHardCoatKryFill
+  //           TripleLowEHardCoatKryFill
+  //           
+  //           Wind1_trp_CL
+  //           Win2scLE1_tr
+  //           Win3hcLE1_tr
+  //           Win4scLE2_tr
+  //           Win5hcLE2_tr
+  //           Win6_qd_CL
+  //           Win7scle1_qd
+  //           Win8hcle1_qd
+  //           Win9scle2_qd
+  //           Win10hcle2_q
+  //      retrofit:  DoubleClear
+  //      NWT:       Triple_win_shutter
+  //                 Quad_win_shutter
+  
+  Parameter{   // 
+     Name    =  GOtag:Opt-CasementWindows;
+     Ini     =  1;
+     Values  =  "win-Canada-Pre-1946-Gas,   win-Canada-Pre-1946-Elect,   win-Canada-Pre-1946-Oil,   win-Canada-1946-1983-Gas,   win-Canada-1946-1983-Elect,   win-Canada-1946-1983-Oil,   win-Canada-1984-1995-Gas,   win-Canada-1984-1995-Elect,   win-Canada-1984-1995-Oil,   win-Canada-1996-2005-Gas,   win-Canada-1996-2005-Elect,   win-Canada-1996-2005-Oil,   win-Canada-2006-2011-Gas,   win-Canada-2006-2011-Elect,   win-Canada-2006-2011-Oil,   win-Canada-2012-2019-Gas,   win-Canada-2012-2019-Elect,   win-Canada-2012-2019-Oil,   win-Canada-2020-2024-Gas,   win-Canada-2020-2024-Elect,   win-Canada-2020-2024-Oil,   win-Canada-2025-onwards-Gas,   win-Canada-2025-onwards-Elect,   win-Canada-2025-onwards-Oil";    
+     
+   }    
+   
+  // Extra drywall:  OneSheet
+  //                 TwoSheets
+  
+  Parameter{   // 
+     Name    =  GOtag:Ext-DryWall;
+     Ini     =  1;
+     Values  =  "OneSheet";    
+     
+   }    
+   
+   
+  // Floor surface:  wood 
+  //                 1-in-concrete
+  //                 2-in-concrete
+  Parameter{   // 
+     Name    =  GOtag:Opt-FloorSurface;
+     Ini     =  1;
+     Values  =  "wood";    
+   }       
+ 
+     
+  // SolarDHW: none, 
+  //           DWHR-4-36, 
+  //           DWHR-4-60,
+  //           1-plate, 
+  //           2-plate,
+  //           1-plate-DWHR-4-36,
+  //           2-plate-DWHR-4-36,
+  //           1-plate-DWHR-4-60,
+  //           2-plate-DWHR-4-60
+  
+  Parameter{   // 
+     Name    = GOtag:Opt-DWHRandSDHW; 
+     Ini     = 1; 
+     Values  = "none"; 
+  } 
+  
+  // Conventional DHW:  BaseDHW, 
+  //                    ElecInstantaneous, 
+  //                    ElectricStorage, 
+  //                    ElectricHP
+  //   retrofit:    retro_GasInst
+  //                retro_ElectricHP
+  //   NWT:         elec_DHW
+  //                wood_DHW
+  //                NWT_upgrade_elec_DHW
+  //                NWT_upgrade_oil_DHW 
+  //           
+  Parameter{ //
+     Name    = GOtag:Opt-DHWSystem;
+     Ini     = 1; 
+     Values  = "Pre-1946-Gas-dhw, Pre-1946-Elect-dhw, Pre-1946-Oil-dhw, 1946-1983-Gas-dhw, 1946-1983-Elect-dhw, 1946-1983-Oil-dhw, 1984-1995-Gas-dhw, 1984-1995-Elect-dhw, 1984-1995-Oil-dhw, 1996-2005-Gas-dhw, 1996-2005-Elect-dhw, 1996-2005-Oil-dhw, 2006-2011-Gas-dhw, 2006-2011-Elect-dhw, 2006-2011-Oil-dhw, 2012-2019-Gas-dhw, 2012-2019-Elect-dhw, 2012-2019-Oil-dhw, 2020-2024-Gas-dhw, 2020-2024-Elect-dhw, 2020-2024-Oil-dhw, 2025-onwards-Gas-dhw, 2025-onwards-Elect-dhw, 2025-onwards-Oil-dhw";     
+
+  }
+
+  
+  // Heating/cooling: basefurnace, 
+  //                  elec-baseboard, 
+  //                  CCASHP
+  //                  baseoilfurnace
+  //                  oil95furnace
+  //                  propanefurnace
+  //                  elecfurnace
+  //                  GSHP
+  //         retrofit:   gas-furnace-84_3
+  //                     retro_upgrade_furnace
+  //                     retro_CCASHP
+  //                     retro_GSHP
+  //         NWT:     Olsen
+  //                  upgrade_Olsen
+ 
+  Parameter {// 
+      Name   = GOtag:Opt-GhgHeatingCooling; 
+      Ini    = 1; 
+      Values = "ghg-hvac-1-Gas, ghg-hvac-2-Elect, ghg-hvac-3-Oil, ghg-hvac-4-Gas, ghg-hvac-5-Elect, ghg-hvac-6-Oil, ghg-hvac-7-Gas, ghg-hvac-8-Elect, ghg-hvac-9-Oil, ghg-hvac-10-Gas, ghg-hvac-11-Elect, ghg-hvac-12-Oil, ghg-hvac-13-Gas, ghg-hvac-14-Elect, ghg-hvac-15-Oil, ghg-hvac-16-Gas, ghg-hvac-17-Elect, ghg-hvac-18-Oil, ghg-hvac-19-Gas, ghg-hvac-20-Elect, ghg-hvac-21-Oil, ghg-hvac-22-Gas, ghg-hvac-23-CCHP, ghg-hvac-24-Oil"; 
+  }
+
+ // Cooling spec: Not used in GHG runs.
+  
+  //Parameter {// 
+  //    Name   = GOtag:Opt-Cooling-Spec; 
+  //    Ini    = 1; 
+  //    Values = "2TonStdCooling";   
+  //}
+
+
+  // HRV specification
+  Parameter { 
+     Name = GOtag:Opt-HRVSpec; 
+     Ini  = 1; 
+     Values = "ghg-exh-fan,ghg-hrv-55sre,ghg-hrv-70sre,ghg-hrv-80sre";  //UpgHRV_SRE78
+  }
+  
+ 
+ 
+  // HRV Duct spec:
+  
+  Parameter {//
+       Name   = GOtag:Opt-HRVduct;
+      Ini    = 1;
+      Values = "interlock";
+  }
+
+  
+
+  
+  // PV: Set to autosize to ensure each run actually achieves NZEH. 
+  // NoPV
+  // SizedPV 
+  Parameter{   // 
+     Name    =  GOtag:Opt-StandoffPV;
+     Ini     =  1;
+     Values  = "NoPV"; //,SizedPV|3kW,SizedPV|5kW,SizedPV|8kW";
+  } 
+  
+  
+   
+  
+   //===================================================================
+   // PASSIVE SOLAR: Include or exclude extra windows    
+   //===================================================================
+    
+   Parameter{  // Front windows 
+     Name    = GOtag:Opt-FrontWindows; 
+     Ini     = 1; 
+     Values  = "NoExtraWin"; 
+     // Can be : "NoExtraWin"
+   }
+   
+   Parameter{  // Back windows 
+     Name    = GOtag:Opt-BackWindows; 
+     Ini     = 1; 
+     Values  = "NoExtraWin"; 
+   }
+   
+   Parameter{   // First Floor -- left side (as viewed from front, default is 'Yes" 
+     Name    =  GOtag:Opt-ExtLeftSideWindow;
+     Ini     =  1;
+     Values  =  "No";
+   } 
+      
+  Parameter{   // Basement -- back 
+     Name    =  GOtag:Opt-ExtBasementWindow;
+     Ini     =  1;
+     Values  =  "No";
+   }            
+   
+  Parameter{   // overhang width 
+     Name    =  GOtag:Opt-OverhangWidth;
+     Ini     =  1;
+     Values  =  "BaseOverhang";
+   }            
+   
+    
+  
+  // ===================================================================
+  // Roof pitch 
+  // ===================================================================
+  Parameter {  
+    Name = GOtag:RoofPitch;
+    Ini  = 1; 
+    Values = "6-12"; 
+  }
+  
+  
+  
+  // ===================================================================
+  // The following sections define assumptions about how a NZEH home 
+  // is operated, and are not intended to be optimized. A single value 
+  // should be provided in each case. 
+  // ===================================================================
+  Parameter { // 
+      Name   = GOtag:ElecLoadScale; 
+      Ini    = 1;
+      // Value may be one of: NGERSNoReduction19
+     //                      NGERSReducedA16
+      //                      NGERSBestInClass14p8      
+      Values = "NGERSNoReduction19";//,NGERSReducedA16"; 
+  }
+  Parameter { // 
+      Name   = GOtag:DHWLoadScale; 
+      Ini    = 1;
+      // Value may be one of  No-Reduction,EStar,Low-Flow     
+      Values = "No-Reduction"; //,EStar"; 
+  }
+  
+  
+  
+
+    
+   // Orientation: for parametric study. Set to one of 
+   // "S, N, E, W, or AVG", "AVG" causes substitute.pl 
+   // to run four simulations (in four different orientations) 
+   // for each set of parameters and average the results. 
+   
+   Parameter{   // 
+     Name    =  GOtag:GOconfig_rotate;
+     Ini     =  1;
+     Values  =  "S";
+   }      
+    
+     
+   
+}
+
+
+
+
+
+
+OptimizationSettings{
+  MaxIte = 100000;
+  MaxEqualResults = 1000;
+  WriteStepNumber = true;
+}
+
+
+//Algorithm{
+// Main                       = PSOIW;
+//  NeighborhoodTopology      = vonNeumann;
+//  NeighborhoodSize          = 24; // Disregarded for vonNeumann topology
+//  NumberOfParticle          = 23;
+//  NumberOfGeneration        = 2000;
+//  Seed                      = 628;
+//  CognitiveAcceleration     = 2; // 0 < CognitiveAcceleration
+//  SocialAcceleration        = 3; // 0 < SocialAcceleration
+//  MaxVelocityGainContinuous = 1.0;
+//  MaxVelocityDiscrete       = 1.0; // 0 < MaxVelocityDiscrete
+//  InitialInertiaWeight      = 1.2;    // 0 < InitialInertiaWeight
+//  FinalInertiaWeight        = 0;      // 0 < FinalInertiaWeight
+//}
+
+
+
+Algorithm{
+  Main = Parametric;
+  StopAtError = false;   
+}
+
+
+
+//Algorithm{
+//  Main = Mesh;
+//  StopAtError = true; 
+//}
