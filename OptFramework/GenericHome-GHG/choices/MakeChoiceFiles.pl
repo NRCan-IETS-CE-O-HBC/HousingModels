@@ -81,7 +81,7 @@ while ( my $line = <OPTLISTFILE> ){
     print OPTIONSOUT "Opt-OverhangWidth    : BaseOverhang\n";
     print OPTIONSOUT "Opt-AirTightness     : Generic\n";
     print OPTIONSOUT "Opt-MainWall         : GenericWall_1Layer\n";
-	  print OPTIONSOUT "Opt-GenericWall_1Layer_definitions : ".$choiceHash{"Opt-GenericWall_1Layer_definitions"}."\n";
+	print OPTIONSOUT "Opt-GenericWall_1Layer_definitions : ".$choiceHash{"Opt-GenericWall_1Layer_definitions"}."\n";
     print OPTIONSOUT "Opt-ExtraDrywall     : OneSheet\n";
     print OPTIONSOUT "Opt-FloorSurface     : wood\n";
     print OPTIONSOUT "Opt-Ceilings         : ".$choiceHash{"Opt-Ceilings"}."\n";

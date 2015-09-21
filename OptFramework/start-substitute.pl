@@ -103,7 +103,7 @@ close CHOICEFILE;
 
 
 
-my $command = $ARGV[1]." ../substitute.pl -c $choiceFileName -o ../options-generic-GHG.options -b ./GenericHome-GHG -vv";
+my $command = $ARGV[1]." ../substitute.pl -e -c $choiceFileName -o ../options-generic-GHG.options -b ./GenericHome-GHG -vv";
 
 print LOG "The command is: ".$command."\n";
 
