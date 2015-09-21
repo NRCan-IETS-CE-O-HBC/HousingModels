@@ -3103,6 +3103,7 @@
 *attribute:tag:15  = <Opt-HPHeatingCapacity>
 *attribute:tag:16  = <OPT-AC-capacity>
 *attribute:tag:17  = <OPT-AC-COP>
+*attribute:tag:18  = <OPT-CommentFanCtlLoop>
 
 *attribute:default = ghg-hvac-1-Gas
 
@@ -3123,6 +3124,7 @@
 *option:ghg-hvac-1-Gas:value:15  = 0
 *option:ghg-hvac-1-Gas:value:16  = 11000
 *option:ghg-hvac-1-Gas:value:17  = 2.25078689620004
+*option:ghg-hvac-1-Gas:value:18  = #-no-central-air 
 
 
 *option:ghg-hvac-2-Elect:value:1   = ghg-elec.hvac
@@ -3142,6 +3144,7 @@
 *option:ghg-hvac-2-Elect:value:15  = 0
 *option:ghg-hvac-2-Elect:value:16  = 11000
 *option:ghg-hvac-2-Elect:value:17  = 2.25078689620004
+*option:ghg-hvac-2-Elect:value:18  = #-no-central-air 
 
 
 *option:ghg-hvac-3-Oil:value:1   = ghg-oil.hvac
@@ -3161,6 +3164,7 @@
 *option:ghg-hvac-3-Oil:value:15  = 0
 *option:ghg-hvac-3-Oil:value:16  = 11000
 *option:ghg-hvac-3-Oil:value:17  = 2.25078689620004
+*option:ghg-hvac-3-Oil:value:18  = #-no-central-air 
 
 
 *option:ghg-hvac-4-Gas:value:1   = ghg-gas.hvac
@@ -3180,6 +3184,7 @@
 *option:ghg-hvac-4-Gas:value:15  = 0
 *option:ghg-hvac-4-Gas:value:16  = 11000
 *option:ghg-hvac-4-Gas:value:17  = 2.25078689620004
+*option:ghg-hvac-4-Gas:value:18  = #-no-central-air 
 
 
 *option:ghg-hvac-5-Elect:value:1   = ghg-elec.hvac
@@ -3199,6 +3204,7 @@
 *option:ghg-hvac-5-Elect:value:15  = 0
 *option:ghg-hvac-5-Elect:value:16  = 11000
 *option:ghg-hvac-5-Elect:value:17  = 2.25078689620004
+*option:ghg-hvac-5-Elect:value:18  = #-no-central-air 
 
 
 *option:ghg-hvac-6-Oil:value:1   = ghg-oil.hvac
@@ -3218,6 +3224,7 @@
 *option:ghg-hvac-6-Oil:value:15  = 0
 *option:ghg-hvac-6-Oil:value:16  = 11000
 *option:ghg-hvac-6-Oil:value:17  = 2.25078689620004
+*option:ghg-hvac-6-Oil:value:18  = #-no-central-air 
 
 
 *option:ghg-hvac-7-Gas:value:1   = ghg-gas.hvac
@@ -3237,6 +3244,7 @@
 *option:ghg-hvac-7-Gas:value:15  = 0
 *option:ghg-hvac-7-Gas:value:16  = 11000
 *option:ghg-hvac-7-Gas:value:17  = 2.58928414426137
+*option:ghg-hvac-7-Gas:value:18  = #-no-central-air 
 
 
 *option:ghg-hvac-8-Elect:value:1   = ghg-elec.hvac
@@ -3256,6 +3264,7 @@
 *option:ghg-hvac-8-Elect:value:15  = 0
 *option:ghg-hvac-8-Elect:value:16  = 11000
 *option:ghg-hvac-8-Elect:value:17  = 2.58928414426137
+*option:ghg-hvac-8-Elect:value:18  = #-no-central-air 
 
 
 *option:ghg-hvac-9-Oil:value:1   = ghg-oil.hvac
@@ -3275,6 +3284,7 @@
 *option:ghg-hvac-9-Oil:value:15  = 0
 *option:ghg-hvac-9-Oil:value:16  = 11000
 *option:ghg-hvac-9-Oil:value:17  = 2.58928414426137
+*option:ghg-hvac-9-Oil:value:18  = #-no-central-air 
 
 
 *option:ghg-hvac-10-Gas:value:1   = ghg-gas.hvac
@@ -3294,7 +3304,7 @@
 *option:ghg-hvac-10-Gas:value:15  = 0
 *option:ghg-hvac-10-Gas:value:16  = 11000
 *option:ghg-hvac-10-Gas:value:17  = 2.58928414426137
-
+*option:ghg-hvac-10-Gas:value:18  = #-no-central-air 
 
 *option:ghg-hvac-11-Elect:value:1   = ghg-elec.hvac
 *option:ghg-hvac-11-Elect:value:2   = #-no-GSHP-file
@@ -3313,6 +3323,7 @@
 *option:ghg-hvac-11-Elect:value:15  = 0
 *option:ghg-hvac-11-Elect:value:16  = 11000
 *option:ghg-hvac-11-Elect:value:17  = 2.58928414426137
+*option:ghg-hvac-11-Elect:value:18  = 
 
 
 *option:ghg-hvac-12-Oil:value:1   = ghg-oil.hvac
@@ -3332,6 +3343,7 @@
 *option:ghg-hvac-12-Oil:value:15  = 0
 *option:ghg-hvac-12-Oil:value:16  = 11000
 *option:ghg-hvac-12-Oil:value:17  = 2.58928414426137
+*option:ghg-hvac-12-Oil:value:18  = 
 
 
 *option:ghg-hvac-13-Gas:value:1   = ghg-gas.hvac
@@ -3351,6 +3363,7 @@
 *option:ghg-hvac-13-Gas:value:15  = 0
 *option:ghg-hvac-13-Gas:value:16  = 11000
 *option:ghg-hvac-13-Gas:value:17  = 3.09483198227505
+*option:ghg-hvac-13-Gas:value:18  = 
 
 
 *option:ghg-hvac-14-Elect:value:1   = ghg-elec.hvac
@@ -3370,6 +3383,7 @@
 *option:ghg-hvac-14-Elect:value:15  = 0
 *option:ghg-hvac-14-Elect:value:16  = 11000
 *option:ghg-hvac-14-Elect:value:17  = 3.09483198227505
+*option:ghg-hvac-14-Elect:value:18  = 
 
 
 *option:ghg-hvac-15-Oil:value:1   = ghg-oil.hvac
@@ -3389,6 +3403,7 @@
 *option:ghg-hvac-15-Oil:value:15  = 0
 *option:ghg-hvac-15-Oil:value:16  = 11000
 *option:ghg-hvac-15-Oil:value:17  = 3.09483198227505
+*option:ghg-hvac-15-Oil:value:18  = 
 
 
 *option:ghg-hvac-16-Gas:value:1   = ghg-gas.hvac
@@ -3408,6 +3423,7 @@
 *option:ghg-hvac-16-Gas:value:15  = 0
 *option:ghg-hvac-16-Gas:value:16  = 11000
 *option:ghg-hvac-16-Gas:value:17  = 3.60477588844537
+*option:ghg-hvac-16-Gas:value:18  = 
 
 
 *option:ghg-hvac-17-Elect:value:1   = ghg-elec.hvac
@@ -3427,6 +3443,7 @@
 *option:ghg-hvac-17-Elect:value:15  = 0
 *option:ghg-hvac-17-Elect:value:16  = 11000
 *option:ghg-hvac-17-Elect:value:17  = 3.60477588844537
+*option:ghg-hvac-17-Elect:value:18  = 
 
 
 *option:ghg-hvac-18-Oil:value:1   = ghg-oil.hvac
@@ -3446,6 +3463,7 @@
 *option:ghg-hvac-18-Oil:value:15  = 0
 *option:ghg-hvac-18-Oil:value:16  = 11000
 *option:ghg-hvac-18-Oil:value:17  = 3.60477588844537
+*option:ghg-hvac-18-Oil:value:18  = 
 
 
 *option:ghg-hvac-19-Gas:value:1   = ghg-gas.hvac
@@ -3465,6 +3483,7 @@
 *option:ghg-hvac-19-Gas:value:15  = 0
 *option:ghg-hvac-19-Gas:value:16  = 11000
 *option:ghg-hvac-19-Gas:value:17  = 3.60477588844537
+*option:ghg-hvac-19-Gas:value:18  = 
 
 
 *option:ghg-hvac-20-Elect:value:1   = ghg-elec.hvac
@@ -3484,7 +3503,7 @@
 *option:ghg-hvac-20-Elect:value:15  = 0
 *option:ghg-hvac-20-Elect:value:16  = 11000
 *option:ghg-hvac-20-Elect:value:17  = 3.60477588844537
-
+*option:ghg-hvac-20-Elect:value:18  = 
 
 *option:ghg-hvac-21-Oil:value:1   = ghg-oil.hvac
 *option:ghg-hvac-21-Oil:value:2   = #-no-GSHP-file
@@ -3503,6 +3522,7 @@
 *option:ghg-hvac-21-Oil:value:15  = 0
 *option:ghg-hvac-21-Oil:value:16  = 11000
 *option:ghg-hvac-21-Oil:value:17  = 3.60477588844537
+*option:ghg-hvac-21-Oil:value:18  = 
 
 
 *option:ghg-hvac-22-Gas:value:1   = ghg-gas.hvac
@@ -3522,6 +3542,7 @@
 *option:ghg-hvac-22-Gas:value:15  = 0
 *option:ghg-hvac-22-Gas:value:16  = 11000
 *option:ghg-hvac-22-Gas:value:17  = 3.88612425047038
+*option:ghg-hvac-22-Gas:value:18  = 
 
 
 *option:ghg-hvac-23-CCHP:value:1   = ghg-CCASHP.hvac
@@ -3536,11 +3557,12 @@
 *option:ghg-hvac-23-CCHP:value:10  = 2.5
 *option:ghg-hvac-23-CCHP:value:11  = 200
 *option:ghg-hvac-23-CCHP:value:12  = 200
-*option:ghg-hvac-23-CCHP:value:13  = nil
+*option:ghg-hvac-23-CCHP:value:13  = nil 
 *option:ghg-hvac-23-CCHP:value:14 = nil
 *option:ghg-hvac-23-CCHP:value:15  = 11700
 *option:ghg-hvac-23-CCHP:value:16  = 11000
 *option:ghg-hvac-23-CCHP:value:17  = 3.88612425047038
+*option:ghg-hvac-23-CCHP:value:18  = 
 
 
 *option:ghg-hvac-24-Oil:value:1   = ghg-oil.hvac
@@ -3560,8 +3582,7 @@
 *option:ghg-hvac-24-Oil:value:15  = 0
 *option:ghg-hvac-24-Oil:value:16  = 11000
 *option:ghg-hvac-24-Oil:value:17  = 3.88612425047038
-
-
+*option:ghg-hvac-24-Oil:value:18  = 
 
 !-------------------------------------------------------
 ! Additional - system specific scenarios 
@@ -3584,6 +3605,7 @@
 *option:oee-CCASHP-ref:value:15  = 11700
 *option:oee-CCASHP-ref:value:16  = 11000
 *option:oee-CCASHP-ref:value:17  = 3.6047758884453
+*option:oee-gas-ref:value:18  = 
 
 *option:oee-ASHP-ref:value:1   = ghg-ASHP.hvac
 *option:oee-ASHP-ref:value:2   = #-no-GSHP-file
@@ -3602,6 +3624,7 @@
 *option:oee-ASHP-ref:value:15  = 11700
 *option:oee-ASHP-ref:value:16  = 11000
 *option:oee-ASHP-ref:value:17  = 3.6047758884453
+*option:oee-gas-ref:value:18  = 
 
 *option:oee-GSHP-ref:value:1   = ghg-GSHP.hvac
 *option:oee-GSHP-ref:value:2   = *gshp~../hvac/heatx_v1.gshp 
@@ -3620,6 +3643,7 @@
 *option:oee-GSHP-ref:value:15  = 11700
 *option:oee-GSHP-ref:value:16  = 11000
 *option:oee-GSHP-ref:value:17  = 3.6047758884453
+*option:oee-gas-ref:value:18  = 
 
 
 
@@ -3640,6 +3664,7 @@
 *option:oee-gas-ref:value:15 = 0
 *option:oee-gas-ref:value:16 = 11000
 *option:oee-gas-ref:value:17 = 3.60477588844537
+*option:oee-gas-ref:value:18  = 
 
 
 
