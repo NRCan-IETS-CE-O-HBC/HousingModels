@@ -40,7 +40,7 @@ open(LOG, ">".$LogFile) or fatalerror("Could not open ".$LogFile."\n");
 
 # dump help text, if no argument given
 if (!@ARGV){
-  print LOG $Help_msg."\n";
+  print $Help_msg."\n";
   die;
 }
 
