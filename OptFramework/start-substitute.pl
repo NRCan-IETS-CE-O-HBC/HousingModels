@@ -50,7 +50,7 @@ my($filename, $dir, $ext) = fileparse($ARGV[0]);
 open ( GENOPTGENFILE, $ARGV[0]) or fatalerror("Could not read $ARGV[0]!\n");
 
 my $choiceFileName;
-my $location ; 
+my $location, $hrvctl, $elecldscale, $dhwldscale;
 my $linecount;
 while ( my $line = <GENOPTGENFILE> ){
   $line =~ s/\!.*$//g; 
@@ -60,11 +60,23 @@ while ( my $line = <GENOPTGENFILE> ){
     my ($attribute, $value) = split /:/, $line;
 	if ($attribute =~ "Opt-ChoiceFileNames" ) {
 	  $choiceFileName = $value;
-    print LOG "Choice file name is: ".$choiceFileName."\n";
+      print LOG "Choice file name is: ".$choiceFileName."\n";
 	}
-  if ( $attribute =~ /Location/ ){
-     $location = $value; 
-     print LOG "Location is $location \n";  
+    if ( $attribute =~ /Location/ ){
+      $location = $value; 
+      print LOG "Location is $location \n";  
+    }
+    if ( $attribute =~ /HRV_ctl/ ){
+      $hrvctl = $value; 
+      print LOG "HRV control is $hrvctl \n";  
+    }
+    if ( $attribute =~ /ElecLoadScale/ ){
+      $elecldscale = $value; 
+      print LOG "Electric load scale is $elecldscale \n";  
+    }
+    if ( $attribute =~ /DHWLoadScale/ ){
+      $dhwldscale = $value; 
+      print LOG "DHW load scale is $dhwldscale \n";  
     }
   }
 }
@@ -85,7 +97,10 @@ my $choice_content = "";
 while ( my $line = <CHOICEFILE> ){
 
   $line=~ s/<LOCATION>/$location/g; 
-
+  $line=~ s/<HRVCTL>/$hrvctl/g; 
+  $line=~ s/<ELECTLOADSCALE>/$elecldscale/g; 
+  $line=~ s/<DHWLOADSCALE>/$dhwldscale/g; 
+  
   $choice_content .= $line; 
 
 }
@@ -98,9 +113,6 @@ open (CHOICEFILE, ">$master_path/$choiceFileName")
 print CHOICEFILE $choice_content; 
 
 close CHOICEFILE; 
-
-
-
 
 
 my $command = $ARGV[1]." ../substitute.pl -e -c $choiceFileName -o ../options-generic-GHG.options -b ./GenericHome-GHG -vv";

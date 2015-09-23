@@ -7,3 +7,9 @@ GOconfig_step :  %stepNumber%
 Opt-ChoiceFileNames : %GOtag:Opt-Choice_Files%
 
 Opt-Location        : %GOtag:Opt-Location%
+
+OPT-HRV_ctl        : %GOtag:OPT-HRV_ctl%
+
+Opt-ElecLoadScale    : %GOtag:Opt-ElecLoadScale%
+
+Opt-DHWLoadScale     : %GOtag:Opt-DHWLoadScale%

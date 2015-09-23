@@ -19,7 +19,23 @@ Vary{
     Values = "Vancouver,Kamloops, Calgary, Edmonton, Regina, Winnipeg, Toronto, Ottawa, Montreal, Quebec, Fredricton, Halifax";
   }
   
-  
+  Parameter { 
+    Name = GOtag:OPT-HRV_ctl; 
+    Ini    = 1; 
+    Values = "ERSp3ACH, EightHRpDay";
+  }
+
+  Parameter { 
+    Name = GOtag:Opt-ElecLoadScale; 
+    Ini    = 1; 
+    Values = "NoReduction, NGERSNoReduction19";
+  }
+
+  Parameter { 
+    Name = GOtag:Opt-DHWLoadScale; 
+    Ini    = 1; 
+    Values = "OldERS, No-Reduction";
+  }
   
 }
 

@@ -71,7 +71,7 @@ while ( my $line = <OPTLISTFILE> ){
     print OPTIONSOUT "Opt-DBFiles          : retrofit\n";
     print OPTIONSOUT "GOconfig_rotate      : E\n";
     print OPTIONSOUT "Opt-Location         : <LOCATION>\n";
-    print OPTIONSOUT "OPT-HRV_ctl          : ERSp3ACH\n";
+    print OPTIONSOUT "OPT-HRV_ctl          : <HRVCTL>\n";
     print OPTIONSOUT "OPT-OPR-SCHED        : scheduled\n";
     print OPTIONSOUT "Opt-BaseWindows      : MinWindows\n";
     print OPTIONSOUT "Opt-geometry         : ".$choiceHash{"Opt-geometry"}."\n";
@@ -95,8 +95,8 @@ while ( my $line = <OPTLISTFILE> ){
     print OPTIONSOUT "Opt-ExposedFloor     : ".$choiceHash{"Opt-ExposedFloor"}."\n";
     print OPTIONSOUT "Opt-StandoffPV       : NoPV\n";
     print OPTIONSOUT "Opt-DWHRandSDHW      : none\n";
-    print OPTIONSOUT "Opt-ElecLoadScale    : NGERSNoReduction19\n";
-    print OPTIONSOUT "Opt-DHWLoadScale     : No-Reduction\n";
+    print OPTIONSOUT "Opt-ElecLoadScale    : <ELECTLOADSCALE>\n";
+    print OPTIONSOUT "Opt-DHWLoadScale     : <DHWLOADSCALE>\n";
     print OPTIONSOUT "Opt-RoofPitch        : 6-12\n";
     print OPTIONSOUT "Opt-DHWSystem        : ".$choiceHash{"Opt-DHWSystem"}."\n";
     print OPTIONSOUT "Opt-GhgHeatingCooling       : ".$choiceHash{"Opt-GhgHeatingCooling"}."\n";
