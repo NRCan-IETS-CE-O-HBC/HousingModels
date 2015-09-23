@@ -50,7 +50,10 @@ my($filename, $dir, $ext) = fileparse($ARGV[0]);
 open ( GENOPTGENFILE, $ARGV[0]) or fatalerror("Could not read $ARGV[0]!\n");
 
 my $choiceFileName;
-my $location, $hrvctl, $elecldscale, $dhwldscale;
+my $location;
+my $hrvctl;
+my $elecldscale;
+my $dhwldscale;
 my $linecount;
 while ( my $line = <GENOPTGENFILE> ){
   $line =~ s/\!.*$//g; 
