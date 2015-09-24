@@ -21,8 +21,8 @@ SimulationStart
 {
     /* The Suffix is passed as parameter #1 and contains the name of the file specified 
 	   by GenOpt to contain the run parameters (i.e., GenOpt-picked-these-choices.GO-tmp). 
-	   The only thing this file contains is the pre-generated choice file name to run in
-	   substitute.pl! 
+	   This file contains the pre-generated choice file name to run in substitute.pl in 
+	   addition to a select number of tags to be stuffed by substitute.pl. 
 	   
 	   Note: Passing Prefix as command line parameter #2 to script "start-substitute.pl" 
 	   because need to handle difference between running in Windows/Linux for starting
