@@ -34,13 +34,13 @@ my $LogFile = "$master_path/Start-SubstitutePL-log.txt";
 
 my $ChoiceFileDir = "$master_path/../GenericHome-GHG/choices"; 
 
-
-
 open(LOG, ">".$LogFile) or fatalerror("Could not open ".$LogFile."\n"); 
+
 
 # dump help text, if no argument given
 if (!@ARGV){
-  print $Help_msg."\n";
+  print $Help_msg."\n";		# Prnt to screen!
+  print LOG $Help_msg."\n";	# Prnt to log
   die;
 }
 
@@ -49,12 +49,8 @@ my($filename, $dir, $ext) = fileparse($ARGV[0]);
 # Open first command line parameter file name to extract name of choice file to run
 open ( GENOPTGENFILE, $ARGV[0]) or fatalerror("Could not read $ARGV[0]!\n");
 
-my $choiceFileName;
-my $location;
-my $hrvctl;
-my $elecldscale;
-my $dhwldscale;
-my $linecount;
+my ( $choiceFileName, $location, $hrvctl, $elecldscale, $dhwldscale, $linecount );
+
 while ( my $line = <GENOPTGENFILE> ){
   $line =~ s/\!.*$//g; 
   $line =~ s/\s*//g;
