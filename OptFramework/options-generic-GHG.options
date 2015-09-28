@@ -3685,8 +3685,50 @@
 *option:oee-elec-ref:value:15  = 0                       ! tag: <Opt-HPHeatingCapacity>
 *option:oee-elec-ref:value:16  = 11000                   ! tag: <OPT-AC-capacity>
 *option:oee-elec-ref:value:17  = 3.60477588844537        ! tag: <OPT-AC-COP>
-                                                         
 
+!-----------------------------------------------------------------------
+! Upgrade HVAC specs
+!-----------------------------------------------------------------------
+
+*option:ghg-hvac-Gas-upgrade-norv:value:1   = ghg-gas.hvac
+*option:ghg-hvac-Gas-upgrade-nohrv:value:2   = #-no-GSHP-file
+*option:ghg-hvac-Gas-upgrade-nohrv:value:3  = #-no-IMS
+*option:ghg-hvac-Gas-upgrade-nohrv:value:4  =
+*option:ghg-hvac-Gas-upgrade-nohrv:value:5  =
+*option:ghg-hvac-Gas-upgrade-nohrv:value:6  = shoulder-ideal.ctl
+*option:ghg-hvac-Gas-upgrade-nohrv:value:7  = gas
+*option:ghg-hvac-Gas-upgrade-nohrv:value:8  = 8
+*option:ghg-hvac-Gas-upgrade-nohrv:value:9 = 15000
+*option:ghg-hvac-Gas-upgrade-nohrv:value:10  = 0.95
+*option:ghg-hvac-Gas-upgrade-nohrv:value:11  = 250
+*option:ghg-hvac-Gas-upgrade-nohrv:value:12  = 250
+*option:ghg-hvac-Gas-upgrade-nohrv:value:13  = 75
+*option:ghg-hvac-Gas-upgrade-nohrv:value:14 = 0
+*option:ghg-hvac-Gas-upgrade-nohrv:value:15  = 0
+*option:ghg-hvac-Gas-upgrade-nohrv:value:16  = 11000
+*option:ghg-hvac-Gas-upgrade-nohrv:value:17  = 3.60477588844537
+*option:ghg-hvac-Gas-upgrade-nohrv:value:18  = #-no-central-air 
+
+*option:ghg-hvac-Gas-upgrade-hrv:value:1   = ghg-gas.hvac
+*option:ghg-hvac-Gas-upgrade-hrv:value:2   = #-no-GSHP-file
+*option:ghg-hvac-Gas-upgrade-hrv:value:3  = #-no-IMS
+*option:ghg-hvac-Gas-upgrade-hrv:value:4  =
+*option:ghg-hvac-Gas-upgrade-hrv:value:5  =
+*option:ghg-hvac-Gas-upgrade-hrv:value:6  = shoulder-ideal.ctl
+*option:ghg-hvac-Gas-upgrade-hrv:value:7  = gas
+*option:ghg-hvac-Gas-upgrade-hrv:value:8  = 8
+*option:ghg-hvac-Gas-upgrade-hrv:value:9 = 15000
+*option:ghg-hvac-Gas-upgrade-hrv:value:10  = 0.95
+*option:ghg-hvac-Gas-upgrade-hrv:value:11  = 250
+*option:ghg-hvac-Gas-upgrade-hrv:value:12  = 250
+*option:ghg-hvac-Gas-upgrade-hrv:value:13  = 75
+*option:ghg-hvac-Gas-upgrade-hrv:value:14 = 0
+*option:ghg-hvac-Gas-upgrade-hrv:value:15  = 0
+*option:ghg-hvac-Gas-upgrade-hrv:value:16  = 11000
+*option:ghg-hvac-Gas-upgrade-hrv:value:17  = 3.60477588844537
+*option:ghg-hvac-Gas-upgrade-hrv:value:18  =														 
+														 
+														 
 *attribute:end
 
 
