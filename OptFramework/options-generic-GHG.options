@@ -3690,7 +3690,7 @@
 ! Upgrade HVAC specs
 !-----------------------------------------------------------------------
 
-*option:ghg-hvac-Gas-upgrade-norv:value:1   = ghg-gas.hvac
+*option:ghg-hvac-Gas-upgrade-nohrv:value:1   = ghg-gas.hvac
 *option:ghg-hvac-Gas-upgrade-nohrv:value:2   = #-no-GSHP-file
 *option:ghg-hvac-Gas-upgrade-nohrv:value:3  = #-no-IMS
 *option:ghg-hvac-Gas-upgrade-nohrv:value:4  =
