@@ -4031,6 +4031,18 @@
 *option:2025-onwards-Oil-dhw:value:4   = 0.62
 *option:2025-onwards-Oil-dhw:value:5   = 246
 
+*option:oee-elecstorage-ref:value:1   = ghg-WH.dhw
+*option:oee-elecstorage-ref:value:2   = 1
+*option:oee-elecstorage-ref:value:3   = 18
+*option:oee-elecstorage-ref:value:4   = 1.6
+*option:oee-elecstorage-ref:value:5   = 189
+
+*option:oee-gasdhw-ref:value:1   = ghg-WH.dhw
+*option:oee-gasdhw-ref:value:2   = 2
+*option:oee-gasdhw-ref:value:3   = 10
+*option:oee-gasdhw-ref:value:4   = 0.9
+*option:oee-gasdhw-ref:value:5   = 246
+
 
 
 *attribute:end
