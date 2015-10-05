@@ -51,33 +51,55 @@ my @upgrades= (
                                                       
                # Fuel Switching senarios ( heating and water-heating )        
                "switch-oil-to-electricity-ASHP"       ,    # Oil boilers -> conventional ASHP + elec storage
-               "switch-all-to-electricity-ASHP"       ,    # Oil & Gas   -> conventional ASHP + elec stroage
+               "switch-gas-to-electricity-ASHP"       ,    # Oil & Gas   -> conventional ASHP + elec stroage
                "switch-oil-to-electricity-CCASHP"     ,    # Oil boilers -> CCASHP + elec stroage
-               "switch-all-to-electricity-CCASHP"     ,    # Oil & Gas   -> CCASHP + elec storage
+               "switch-gas-to-electricity-CCASHP"     ,    # Oil & Gas   -> CCASHP + elec storage
                "switch-oil-to-electricity-GSHP"       ,    # Oil boilers -> CCASHP + elec storage
-               "switch-all-to-electricity-GSHP"       ,    # Oil & Gas   -> CCASHP + elec storage 
+               "switch-gas-to-electricity-GSHP"       ,    # Oil & Gas   -> CCASHP + elec storage 
                
-               # Switch to gas ?
+               # Switch to gas ( heating and water-heating ) ?
                "switch-oil-to-gas"                    ,    # Oil         -> Gas 
                "switch-electricity-to-gas"            ,    # Electricity -> Gas 
                                                       
                                                       
                # Upgrade heating- ( no fuel switching scenarios )                     
-               #"upgrade-heating-high-efficiency"      ,    # As found to high efficiency equivlant
+               "upgrade-oil-heating-high-effciency"      ,    # As found to high efficiency equivlant
+               "upgrade-gas-heating-high-effciency"      ,    # As found to high efficiency equivlant
+               "upgrade-elec-heating-CCASHP"             ,    # As found to high efficiency equivlant
+               "upgrade-elec-heating-GSHP"               ,   # As found to high efficiency equivlant
+
+               # Upgrade Hot water - ( no fuel switching scenarios )                     
+               "upgrade-oil-dhw-high-effciency"      ,    # As found to high efficiency equivlant
+               "upgrade-gas-dhw-high-effciency"      ,    # As found to high efficiency equivlant
+               "upgrade-elec-dhw-storage"            ,    # As found to high efficiency equivlant
+               "upgrade-elec-dhw-hp"                 ,  # As found to high efficiency equivlant
+               
+
+               #Envelope systems - retrofit : 
+               "retrofit-main-wall-a",
+               "retrofit-main-wall-b",
+               #"upgrade-ceiling-a", "upgrade-ceiling-b",
+               #"upgrade-windows-a", "upgrade-windows-b" 
+               
+               #Attic Insulation  
+               "retrofit-add-06in-cellulous",
+               "retrofit-add-12in-cellulous",
+               
+
                
                # Switch heating to disruptive tech ? 
                #"upgrade-heating-P9-combos"            ,    # Gas systems to high-effciency p9 combo
                #"upgrade-heating-P9+zoning"            ,    # Gas systems to p9 combos + zoned dist
                #"upgrade-heating-CCASHP"               ,    # Elect baseboard systems to CCASHP
                #"upgrade-heating-GSHP"                 ,    # Elect baseboard systems to CGHP
-               
-               # Envelope upgrades to come. 
+ 
+ 
                
                
                ); 
 
 
-
+#my @upgrades= ( "as-found") ; 
 
 while ( my $line = <OPTLISTFILE> ){
 
@@ -136,16 +158,20 @@ while ( my $line = <OPTLISTFILE> ){
   }
 }
 
-foreach my $upgrade ( @upgrades ){
-      print "> $upgrade \n "; 
-}
 
 
 close (OPTLISTFILE);
 
 $ChoiceFileList =~ s/\s*,\s*$//g; 
 $ChoiceFileList =~ s/\.\///g; 
+
 print "\n\n CHOICE LIST ->$ChoiceFileList<- \n"; 
+
+print " =============================\n";
+print " UPGRADES CONSIDERED:\n";
+foreach my $upgrade ( @upgrades ){
+      print "   -> $upgrade \n"; 
+}
 
 
 
@@ -160,6 +186,11 @@ sub UpgradeRuleSet($){
   my $validupgrade = 0; 
   
   SWITCH:{
+  
+    #=========================================================================
+    # Baseline: Leave choices alone. 
+    #=========================================================================
+    
     if ( $upgrade =~ /as-found/ ){
       
       # As found condition - no changes needed.
@@ -168,7 +199,15 @@ sub UpgradeRuleSet($){
       last SWITCH; 
   
     }
-    
+   
+  
+    #=========================================================================
+    # Fuel switching: 
+    #     Oil -> Gas to electric heat pumps,
+    #     Oil -> gas 
+    #     Elect -> Gas
+    #=========================================================================
+   
     # Oil -> ASHP 
     if ( $upgrade =~ /switch-oil-to-electricity.*/ ){
     
@@ -195,9 +234,9 @@ sub UpgradeRuleSet($){
     
     
     # Oil & GAS  -> ASHP 
-    if ( $upgrade =~ /switch-all-to-electricity.*/ ){
+    if ( $upgrade =~ /switch-gas-to-electricity.*/ ){
     
-      if ( $choiceHash{"Opt-GhgHeatingCooling"} =~ /Oil/ || $choiceHash{"Opt-GhgHeatingCooling"} =~ /Gas/ ){
+      if ( $choiceHash{"Opt-GhgHeatingCooling"} =~ /Gas/  ){
         
         # Switch oil & gas to ASHP
         if ( $upgrade =~ /.*-ASHP/ ){
@@ -241,7 +280,8 @@ sub UpgradeRuleSet($){
     # Electricity -> GAS  
     if ( $upgrade =~ /switch-electricity-to-gas/ ){
     
-      if ( $choiceHash{"Opt-GhgHeatingCooling"} =~ /Elect/ || $choiceHash{"Opt-GhgHeatingCooling"} =~ /CCHP/ ){
+      if ( $choiceHash{"Opt-GhgHeatingCooling"} =~ /Elect/ || 
+           $choiceHash{"Opt-GhgHeatingCooling"} =~ /CCHP/ ){
 
           $choiceHash{"Opt-GhgHeatingCooling"} = "oee-gas-ref"  ;
           $choiceHash{"Opt-DHWSystem"}         = "oee-gasdhw-ref" ; 
@@ -254,10 +294,524 @@ sub UpgradeRuleSet($){
       last SWITCH; 
     }
     
+
+    #=========================================================================
+    # HVAC upgrade - heating: Upgrade baseline to high-efficiency hvac
+    #                         (with no fuel switch )
+    #=========================================================================    
+    
+    # Oil scenario
+    if ( $upgrade =~ /upgrade-oil-heating-high-effciency/ ){
+    
+      if ( $choiceHash{"Opt-GhgHeatingCooling"} =~ /Oil/ ){
+
+          $choiceHash{"Opt-GhgHeatingCooling"} = "oee-oil-ref"  ;
+                   
+          $validupgrade = 1;
+          
+      }
+
+      
+      last SWITCH; 
+    }    
+    
+    
+    # Gas scenario
+    if ( $upgrade =~ /upgrade-gas-heating-high-effciency/ ){
+    
+      if ( $choiceHash{"Opt-GhgHeatingCooling"} =~ /Gas/ ){
+
+          $choiceHash{"Opt-GhgHeatingCooling"} = "oee-gas-ref"  ;
+                   
+          $validupgrade = 1;
+          
+      }
+
+      
+      last SWITCH; 
+    }       
+    
+
+    # Elec baseboard->CCASHP
+    if ( $upgrade =~ /upgrade-elec-heating-CCASHP/ ){
+    
+      if ( $choiceHash{"Opt-GhgHeatingCooling"} =~ /Elect/ ){
+
+          $choiceHash{"Opt-GhgHeatingCooling"} = "oee-CCASHP-ref"  ;
+                   
+          $validupgrade = 1;
+          
+      }
+
+      
+      last SWITCH; 
+    }         
+    
+    
+    # Elec Baseboard -> GSHP. 
+    if ( $upgrade =~ /upgrade-elec-heating-GSHP/ ){
+    
+      if ( $choiceHash{"Opt-GhgHeatingCooling"} =~ /Elect/ ){
+
+          $choiceHash{"Opt-GhgHeatingCooling"} = "oee-GSHP-ref"  ;
+                   
+          $validupgrade = 1;
+          
+      }
+
+      
+      last SWITCH; 
+    }         
+    
+    
+    #=========================================================================
+    # DHW upgrade - Upgrade baseline to high-efficiency water heater
+    #               (with no fuel switch )
+    #=========================================================================    
+    
+    # Oil scenario
+    if ( $upgrade =~ /upgrade-oil-dhw-high-effciency/ ){
+    
+      if ( $choiceHash{"Opt-DHWSystem"} =~ /Oil/ ){
+
+          $choiceHash{"Opt-DHWSystem"} = "oee-oildhw-ref"  ;
+                   
+          $validupgrade = 1;
+          
+      }
+
+      
+      last SWITCH; 
+    }    
+    
+    # Gas scenario
+    if ( $upgrade =~ /upgrade-gas-dhw-high-effciency/ ){
+    
+      if ( $choiceHash{"Opt-DHWSystem"} =~ /Gas/ ){
+
+          $choiceHash{"Opt-DHWSystem"} = "oee-gasdhw-ref"  ;
+                   
+          $validupgrade = 1;
+          
+      }
+
+      
+      last SWITCH; 
+    }    
+    
+    # Elec storage scenario
+    if ( $upgrade =~ /upgrade-elec-dhw-storage/ ){
+    
+      if ( $choiceHash{"Opt-DHWSystem"} =~ /Elect/ ){
+
+          $choiceHash{"Opt-DHWSystem"} = "oee-elecstorage-ref"  ;
+                   
+          $validupgrade = 1;
+          
+      }
+
+      
+      last SWITCH; 
+    }    
+    
+    
+    # Elec storage scenario
+    if ( $upgrade =~ /upgrade-elec-dhw-hp/ ){
+    
+      if ( $choiceHash{"Opt-DHWSystem"} =~ /Elect/ ){
+
+          $choiceHash{"Opt-DHWSystem"} = "oee-elecHP-ref"  ;
+                   
+          $validupgrade = 1;
+          
+      }
+
+      
+      last SWITCH; 
+    }    
+        
+    
+    #=========================================================================
+    # Envelope insulation : Main Walls, Retrofit A
+    #=========================================================================
+        
+    if ( $upgrade =~ /retrofit-main-wall-a/ ){
+    
+      if ( $choiceHash{"ID"} =~ /Pre-1946.*/ ){
+
+          $choiceHash{"Opt-GenericWall_1Layer_definitions"} = "Generic_Wall_R-17-eff"  ;
+                   
+          $validupgrade = 1;
+          
+      }
+      
+      if ( $choiceHash{"ID"} =~ /1946-1983.*/ ){
+
+          $choiceHash{"Opt-GenericWall_1Layer_definitions"} = "Generic_Wall_R-24-eff"  ;
+                   
+          $validupgrade = 1;
+          
+      }
+      
+      # .........
+      # 1984-1995
+      if ( $choiceHash{"ID"} =~ /1984-1995_Gas/ ){
+
+          $choiceHash{"Opt-GenericWall_1Layer_definitions"} = "Generic_Wall_R-23-eff"  ;
+                   
+          $validupgrade = 1;
+          
+      }            
+
+      if ( $choiceHash{"ID"} =~ /1984-1995_Elect/ ){
+
+          $choiceHash{"Opt-GenericWall_1Layer_definitions"} = "Generic_Wall_R-24-eff"  ;
+                   
+          $validupgrade = 1;
+          
+      }            
+      
+      if ( $choiceHash{"ID"} =~ /1984-1995_Oil/ ){
+
+          $choiceHash{"Opt-GenericWall_1Layer_definitions"} = "Generic_Wall_R-23-eff"  ;
+                   
+          $validupgrade = 1;
+          
+      }        
+      
+      
+      # .........
+      # 1996-2005
+      if ( $choiceHash{"ID"} =~ /1996-2005_Gas/ ){
+
+          $choiceHash{"Opt-GenericWall_1Layer_definitions"} = "Generic_Wall_R-24-eff"  ;
+                   
+          $validupgrade = 1;
+          
+      }            
+
+      if ( $choiceHash{"ID"} =~ /1996-2005_Elect/ ){
+
+          $choiceHash{"Opt-GenericWall_1Layer_definitions"} = "Generic_Wall_R-25-eff"  ;
+                   
+          $validupgrade = 1;
+          
+      }            
+      
+      if ( $choiceHash{"ID"} =~ /1996-2005_Oil/ ){
+
+          $choiceHash{"Opt-GenericWall_1Layer_definitions"} = "Generic_Wall_R-24-eff"  ;
+                   
+          $validupgrade = 1;
+          
+      }        
+            
+      
+      # .........
+      # 2006-2011 - same as prior.
+      if ( $choiceHash{"ID"} =~ /2006-2011_Gas/ ){
+
+          $choiceHash{"Opt-GenericWall_1Layer_definitions"} = "Generic_Wall_R-24-eff"  ;
+                   
+          $validupgrade = 1;
+          
+      }            
+
+      if ( $choiceHash{"ID"} =~ /2006-2011_Elect/ ){
+
+          $choiceHash{"Opt-GenericWall_1Layer_definitions"} = "Generic_Wall_R-25-eff"  ;
+                   
+          $validupgrade = 1;
+          
+      }            
+      
+      if ( $choiceHash{"ID"} =~ /2006-2011_Oil/ ){
+
+          $choiceHash{"Opt-GenericWall_1Layer_definitions"} = "Generic_Wall_R-24-eff"  ;
+                   
+          $validupgrade = 1;
+          
+      }  
+      
+      # New construction Rulesets go here. 
+      
+      
+      
+      
+      
+
+      
+      last SWITCH;  
+    }    
+           
+    
+    
+    #=========================================================================
+    # Envelope insulation : Main Walls, Retrofit B
+    #=========================================================================
+        
+    if ( $upgrade =~ /retrofit-main-wall-b/ ){
+    
+      if ( $choiceHash{"ID"} =~ /Pre-1946.*/ ){
+
+          $choiceHash{"Opt-GenericWall_1Layer_definitions"} = "Generic_Wall_R-30-eff"  ;
+                   
+          $validupgrade = 1;
+          
+      }
+      
+      if ( $choiceHash{"ID"} =~ /1946-1983.*/ ){
+
+          $choiceHash{"Opt-GenericWall_1Layer_definitions"} = "Generic_Wall_R-30-eff"  ;
+                   
+          $validupgrade = 1;
+          
+      }
+      
+
+
+      # .........
+      # 1984-1995 (b)
+      if ( $choiceHash{"ID"} =~ /1984-1995_Gas/ ){
+
+          $choiceHash{"Opt-GenericWall_1Layer_definitions"} = "Generic_Wall_R-33-eff"  ;
+                   
+          $validupgrade = 1;
+          
+      }            
+
+      if ( $choiceHash{"ID"} =~ /1984-1995_Elect/ ){
+
+          $choiceHash{"Opt-GenericWall_1Layer_definitions"} = "Generic_Wall_R-34-eff"  ;
+                   
+          $validupgrade = 1;
+          
+      }            
+      
+      if ( $choiceHash{"ID"} =~ /1984-1995_Oil/ ){
+
+          $choiceHash{"Opt-GenericWall_1Layer_definitions"} = "Generic_Wall_R-33-eff"  ;
+                   
+          $validupgrade = 1;
+          
+      }        
+      
+      
+      # .........
+      # 1996-2005 (b)
+      if ( $choiceHash{"ID"} =~ /1996-2005_Gas/ ){
+
+          $choiceHash{"Opt-GenericWall_1Layer_definitions"} = "Generic_Wall_R-34-eff"  ;
+                   
+          $validupgrade = 1;
+          
+      }            
+
+      if ( $choiceHash{"ID"} =~ /1996-2005_Elect/ ){
+
+          $choiceHash{"Opt-GenericWall_1Layer_definitions"} = "Generic_Wall_R-35-eff"  ;
+                   
+          $validupgrade = 1;
+          
+      }            
+      
+      if ( $choiceHash{"ID"} =~ /1996-2005_Oil/ ){
+
+          $choiceHash{"Opt-GenericWall_1Layer_definitions"} = "Generic_Wall_R-34-eff"  ;
+                   
+          $validupgrade = 1;
+          
+      }        
+            
+      
+      # .........
+      # 2006-2011 - same as prior.
+      if ( $choiceHash{"ID"} =~ /2006-2011_Gas/ ){
+
+          $choiceHash{"Opt-GenericWall_1Layer_definitions"} = "Generic_Wall_R-34-eff"  ;
+                   
+          $validupgrade = 1;
+          
+      }            
+
+      if ( $choiceHash{"ID"} =~ /2006-2011_Elect/ ){
+
+          $choiceHash{"Opt-GenericWall_1Layer_definitions"} = "Generic_Wall_R-35-eff"  ;
+                   
+          $validupgrade = 1;
+          
+      }            
+      
+      if ( $choiceHash{"ID"} =~ /2006-2011_Oil/ ){
+
+          $choiceHash{"Opt-GenericWall_1Layer_definitions"} = "Generic_Wall_R-34-eff"  ;
+                   
+          $validupgrade = 1;
+          
+      }  
+      
+      # New construction Rulesets go here. 
+      
+      
+      
+      
+      
+
+      
+      last SWITCH; 
+    }    
+           
+    
+   
+    #=========================================================================
+    # Envelope insulation : Attic, Retrofit A (6in-cellulous)
+    #=========================================================================
+        
+    if ( $upgrade =~ /retrofit-add-06in-cellulous/ ){
+    
+      if ( $choiceHash{"ID"} =~ /Pre-1946.*/ ){
+
+          $choiceHash{"Opt-Ceilings"} = "CeilR40"  ;
+                   
+          $validupgrade = 1;
+          
+      }
+      
+      if ( $choiceHash{"ID"} =~ /1946-1983.*/ ){
+
+          $choiceHash{"Opt-Ceilings"} = "CeilR50"  ;
+                   
+          $validupgrade = 1; 
+          
+      }
+      
+
+
+      # .........
+      # 1984-1995
+      if ( $choiceHash{"ID"} =~ /1984-1995.*/ ){
+
+          $choiceHash{"Opt-Ceilings"} = "CeilR50"  ;
+                   
+          $validupgrade = 1;
+          
+      }            
+
+      
+      # .........
+      # 1996-2005
+      if ( $choiceHash{"ID"} =~ /1996-2005.*/ ){
+          $choiceHash{"Opt-Ceilings"} = "CeilR60"  ;
+          $validupgrade = 1;
+          
+      }            
+
+
+      # .........
+      # 2006-2011 - same as prior.
+      if ( $choiceHash{"ID"} =~ /2006-2011.*/ ){
+
+          $choiceHash{"Opt-Ceilings"} = "CeilR60"  ;
+                   
+          $validupgrade = 1;
+          
+      }   
+
+      # .........
+      # 2006-2011 - same as prior.
+      if ( $choiceHash{"ID"} =~ /2012-2019.*/ ){
+
+          $choiceHash{"Opt-Ceilings"} = "CeilR70"  ;  # Can we get to R70?
+          $validupgrade = 1;
+          
+      }   
+      
+      
+      # New construction Rulesets go here. 
+      
+        
+      last SWITCH; 
+    }    
+      
+  
+    #=========================================================================
+    # Envelope insulation : Attic, Retrofit B (12in-cellulous)
+    #=========================================================================
+        
+    if ( $upgrade =~ /retrofit-add-12in-cellulous/ ){
+    
+      if ( $choiceHash{"ID"} =~ /Pre-1946.*/ ){
+
+          $choiceHash{"Opt-Ceilings"} = "CeilR60"  ;
+                   
+          $validupgrade = 1;
+          
+      }
+      
+      if ( $choiceHash{"ID"} =~ /1946-1983.*/ ){
+
+          $choiceHash{"Opt-Ceilings"} = "CeilR70"  ;  # Can we go this high?
+                   
+          $validupgrade = 1;
+          
+      }
+      
+
+
+      # .........
+      # 1984-1995
+      if ( $choiceHash{"ID"} =~ /1984-1995.*/ ){
+
+          $choiceHash{"Opt-Ceilings"} = "CeilR70"  ;
+                   
+          $validupgrade = 1;
+          
+      }            
+
+      
+      # .........
+      # 1996-2005
+      if ( $choiceHash{"ID"} =~ /1996-2005.*/ ){
+          $choiceHash{"Opt-Ceilings"} = "CeilR80"  ; # Can we get to R70
+          $validupgrade = 1;
+          
+      }            
+
+
+      # .........
+      # 2006-2011 - same as prior.
+      if ( $choiceHash{"ID"} =~ /2006-2011.*/ ){
+
+          $choiceHash{"Opt-Ceilings"} = "CeilR80"  ;   # Can we get to R70?
+                   
+          $validupgrade = 1;
+          
+      }   
+
+      # .........
+      # 2006-2011 - same as prior.
+      if ( $choiceHash{"ID"} =~ /2012-2019.*/ ){
+
+          $choiceHash{"Opt-Ceilings"} = "CeilR90"  ;  # Can we get to R70?
+          $validupgrade = 0;  # Can't get to R90./
+          
+      }   
+      
+      
+      # New construction Rulesets go here. 
+      
+        
+      last SWITCH; 
+    }    
+      
+        
+    
+    
+    # < New rulesets go here: > 
     
     
     
-    
+    die ("\n\nUnsupported upgrade (\"$upgrade\")!\n\n"); 
 
   }    
   
