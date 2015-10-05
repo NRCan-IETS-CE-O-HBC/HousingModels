@@ -85,7 +85,12 @@ my @upgrades= (
                "retrofit-add-06in-cellulous",
                "retrofit-add-12in-cellulous",
                
-
+               #Attic Insulation  
+               "newcon-ceilR70",
+               "newcon-ceilR80",  
+               "newcon-ceilR90",
+                                
+               
                
                # Switch heating to disruptive tech ? 
                #"upgrade-heating-P9-combos"            ,    # Gas systems to high-effciency p9 combo
@@ -660,7 +665,6 @@ sub UpgradeRuleSet($){
       
       last SWITCH; 
     }    
-           
     
    
     #=========================================================================
@@ -804,7 +808,53 @@ sub UpgradeRuleSet($){
       last SWITCH; 
     }    
       
+      
+  
+    #=========================================================================
+    # Envelope insulation : New Construction -> R70, R80, R90
+    #=========================================================================
         
+    if ( $upgrade =~ /newcon-ceilR70/ ){
+    
+      if ( $choiceHash{"ID"} =~ /2020-2024.*/  ||  
+           $choiceHash{"ID"} =~ /2025-onwards.*/ ){
+
+          $choiceHash{"Opt-Ceilings"} = "CeilR70"  ;
+                   
+          $validupgrade = 1;
+          
+      }
+      last SWITCH; 
+    }
+    
+        
+    if ( $upgrade =~ /newcon-ceilR80/ ){
+    
+      if ( $choiceHash{"ID"} =~ /2020-2024.*/  || 
+           $choiceHash{"ID"} =~ /2025-onwards.*/ ){
+
+          $choiceHash{"Opt-Ceilings"} = "CeilR80"  ;
+                   
+          $validupgrade = 1;
+          
+      }
+      last SWITCH; 
+    }    
+    
+    if ( $upgrade =~ /newcon-ceilR90/ ){
+    
+      if ( $choiceHash{"ID"} =~ /2020-2024.*/  || 
+           $choiceHash{"ID"} =~ /2025-onwards.*/ ){
+
+          $choiceHash{"Opt-Ceilings"} = "CeilR90"  ;
+                   
+          $validupgrade = 1;
+          
+      }
+      last SWITCH; 
+    }     
+    
+      
     
     
     # < New rulesets go here: > 
