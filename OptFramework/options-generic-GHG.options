@@ -1415,338 +1415,6 @@
 *attribute:default = DoubleLowEHardCoatArgFill
 
 
-! JP removed base case cost - no additional windows available for lighthouse work.
-*option:DoubleLowEHardCoatAirFill:value:1 = DblLeHcAir
-*option:DoubleLowEHardCoatAirFill:value:2 = DblLeHcAir
-*option:DoubleLowEHardCoatAirFill:value:3 = DblLeHcAir
-*option:DoubleLowEHardCoatAirFill:value:4 = DblLeHcAir
-*option:DoubleLowEHardCoatAirFill:value:5 = DblLeHcAir
-*option:DoubleLowEHardCoatAirFill:value:6 = DblLeHcAir
-*option:DoubleLowEHardCoatAirFill:value:7 = DblLeHcAir
-*option:DoubleLowEHardCoatAirFill:value:8 = DblLeHcAir
-*option:DoubleLowEHardCoatAirFill:value:9 = DblLeHcAir
-*option:DoubleLowEHardCoatAirFill:cost:total    = 0.0 ! Value changed for Van_2st_80_retro geometry. Originally 10584
-*option:DoubleLowEHardCoatAirFill:alias    = 1400
-
-*option:DoubleLowEHardCoatArgFill:value:1 = DblLeHcArg 
-*option:DoubleLowEHardCoatArgFill:value:2 = DblLeHcArg 
-*option:DoubleLowEHardCoatArgFill:value:3 = DblLeHcArg 
-*option:DoubleLowEHardCoatArgFill:value:4 = DblLeHcArg 
-*option:DoubleLowEHardCoatArgFill:value:5 = DblLeHcArg 
-*option:DoubleLowEHardCoatArgFill:value:6 = DblLeHcArg 
-*option:DoubleLowEHardCoatArgFill:value:7 = DblLeHcArg 
-*option:DoubleLowEHardCoatArgFill:value:8 = DblLeHcArg 
-*option:DoubleLowEHardCoatArgFill:value:9 = DblLeHcArg 
-*option:DoubleLowEHardCoatArgFill:cost:total    = 0.0 ! Value changed for Van_2st_80_retro geometry. Originally 11727
-*option:DoubleLowEHardCoatArgFill:alias    = 1401
-
-*option:TripleLowEHardCoatKryFill:value:1 = TplLeHcKry
-*option:TripleLowEHardCoatKryFill:value:2 = TplLeHcKry
-*option:TripleLowEHardCoatKryFill:value:3 = TplLeHcKry
-*option:TripleLowEHardCoatKryFill:value:4 = TplLeHcKry
-*option:TripleLowEHardCoatKryFill:value:5 = TplLeHcKry
-*option:TripleLowEHardCoatKryFill:value:6 = TplLeHcKry
-*option:TripleLowEHardCoatKryFill:value:7 = TplLeHcKry
-*option:TripleLowEHardCoatKryFill:value:8 = TplLeHcKry
-*option:TripleLowEHardCoatKryFill:value:9 = TplLeHcKry
-*option:TripleLowEHardCoatKryFill:cost:total    = 0! Value changed for Van_2st_80_retro geometry. Originally 20871
-*option:TripleLowEHardCoatKryFill:alias    = 1402
-
-*option:TripleLowESoftCoatKryFill:value:1 = TplLeScKry
-*option:TripleLowESoftCoatKryFill:value:2 = TplLeScKry
-*option:TripleLowESoftCoatKryFill:value:3 = TplLeScKry
-*option:TripleLowESoftCoatKryFill:value:4 = TplLeScKry
-*option:TripleLowESoftCoatKryFill:value:5 = TplLeScKry
-*option:TripleLowESoftCoatKryFill:value:6 = TplLeScKry
-*option:TripleLowESoftCoatKryFill:value:7 = TplLeScKry
-*option:TripleLowESoftCoatKryFill:value:8 = TplLeScKry
-*option:TripleLowESoftCoatKryFill:value:9 = TplLeScKry
-*option:TripleLowESoftCoatKryFill:cost:total    = 0 ! Value changed for Van_2st_80_retro geometry. Originally 19310
-*option:TripleLowESoftCoatKryFill:alias    = 1403
-
-*option:DoubleLowESoftCoatArgFill:value:1 = DblLeScArg
-*option:DoubleLowESoftCoatArgFill:value:2 = DblLeScArg
-*option:DoubleLowESoftCoatArgFill:value:3 = DblLeScArg
-*option:DoubleLowESoftCoatArgFill:value:4 = DblLeScArg
-*option:DoubleLowESoftCoatArgFill:value:5 = DblLeScArg
-*option:DoubleLowESoftCoatArgFill:value:6 = DblLeScArg
-*option:DoubleLowESoftCoatArgFill:value:7 = DblLeScArg
-*option:DoubleLowESoftCoatArgFill:value:8 = DblLeScArg
-*option:DoubleLowESoftCoatArgFill:value:9 = DblLeScArg
-*option:DoubleLowESoftCoatArgFill:cost:total    = 0 ! Value changed for Van_2st_80_retro geometry. Originally 10965
-*option:DoubleLowESoftCoatArgFill:alias    = 1404
-
-!---------------------------------------------------------------------
-! Doubles, high-gain-on south. 
-!---------------------------------------------------------------------
-*option:DoubleArgon_HighGainOnSouth:value:1 = DblLeHcArg
-*option:DoubleArgon_HighGainOnSouth:value:2 = DblLeHcArg
-*option:DoubleArgon_HighGainOnSouth:value:3 = DblLeScArg
-*option:DoubleArgon_HighGainOnSouth:value:4 = DblLeScArg
-*option:DoubleArgon_HighGainOnSouth:value:5 = DblLeScArg
-*option:DoubleArgon_HighGainOnSouth:value:6 = DblLeScArg
-*option:DoubleArgon_HighGainOnSouth:value:7 = DblLeScArg
-*option:DoubleArgon_HighGainOnSouth:value:8 = DblLeScArg
-*option:DoubleArgon_HighGainOnSouth:cost:total = 73	! Mattamy Ott incr. cost for S
-!*option:DoubleArgon_HighGainOnSouth:cost:total = 89	! Mattamy Ott incr. cost for W
-!*option:DoubleArgon_HighGainOnSouth:cost:total = 70	! Mattamy Ott incr. cost for N
-!*option:DoubleArgon_HighGainOnSouth:cost:total = 117	! Mattamy Ott incr. cost for E
-! Cost value changed for Van_2st_80_retro geometry. Originally 10965
-*option:DoubleArgon_HighGainOnSouth:alias = 1405
-
-*option:TripleKrypton_HighGainOnSouth:value:1 = TplLeHcKry
-*option:TripleKrypton_HighGainOnSouth:value:2 = TplLeHcKry
-*option:TripleKrypton_HighGainOnSouth:value:3 = TplLeScKry
-*option:TripleKrypton_HighGainOnSouth:value:4 = TplLeScKry
-*option:TripleKrypton_HighGainOnSouth:value:5 = TplLeScKry
-*option:TripleKrypton_HighGainOnSouth:value:6 = TplLeScKry
-*option:TripleKrypton_HighGainOnSouth:value:7 = TplLeScKry
-*option:TripleKrypton_HighGainOnSouth:value:8 = TplLeScKry
-*option:TripleKrypton_HighGainOnSouth:cost:total  = 703	! Mattamy Ott incr. cost for S
-!*option:TripleKrypton_HighGainOnSouth:cost:total = 768	! Mattamy Ott incr. cost for W
-!*option:TripleKrypton_HighGainOnSouth:cost:total = 690	! Mattamy Ott incr. cost for N
-!*option:TripleKrypton_HighGainOnSouth:cost:total = 880	! Mattamy Ott incr. cost for E
-*option:TripleKrypton_HighGainOnSouth:alias = 1406
-
-*option:Wind1_trp_CL :value:1 = Wind1_trp_CL   
-*option:Wind1_trp_CL :value:2 = Wind1_trp_CL   
-*option:Wind1_trp_CL :value:3 = Wind1_trp_CL   
-*option:Wind1_trp_CL :value:4 = Wind1_trp_CL
-*option:Wind1_trp_CL :value:5 = Wind1_trp_CL   
-*option:Wind1_trp_CL :value:6 = Wind1_trp_CL
-*option:Wind1_trp_CL :value:7 = Wind1_trp_CL   
-*option:Wind1_trp_CL :value:8 = Wind1_trp_CL
-*option:Wind1_trp_CL :value:9 = Wind1_trp_CL
-*option:Wind1_trp_CL :cost:total    = 0   ! this is used as the base case for NWT, so no cost. origianlly $20551
-*option:Wind1_trp_CL:alias = 1407
-
-*option:Win2scLE1_tr:value:1 = Win2scLE1_tr
-*option:Win2scLE1_tr:value:2 = Win2scLE1_tr 
-*option:Win2scLE1_tr:value:3 = Win2scLE1_tr
-*option:Win2scLE1_tr:value:4 = Win2scLE1_tr 
-*option:Win2scLE1_tr:value:5 = Win2scLE1_tr
-*option:Win2scLE1_tr:value:6 = Win2scLE1_tr 
-*option:Win2scLE1_tr:value:7 = Win2scLE1_tr
-*option:Win2scLE1_tr:value:8 = Win2scLE1_tr 
-*option:Win2scLE1_tr:value:9 = Win2scLE1_tr 
-*option:Win2scLE1_tr:cost:total   = 0! 22883
-*option:Win2scLE1_tr:alias = 1408
-
-*option:Win3hcLE1_tr:value:1 = Win3hcLE1_tr
-*option:Win3hcLE1_tr:value:2 = Win3hcLE1_tr
-*option:Win3hcLE1_tr:value:3 = Win3hcLE1_tr
-*option:Win3hcLE1_tr:value:4 = Win3hcLE1_tr
-*option:Win3hcLE1_tr:value:5 = Win3hcLE1_tr
-*option:Win3hcLE1_tr:value:6 = Win3hcLE1_tr
-*option:Win3hcLE1_tr:value:7 = Win3hcLE1_tr
-*option:Win3hcLE1_tr:value:8 = Win3hcLE1_tr
-*option:Win3hcLE1_tr:value:9 = Win3hcLE1_tr
-*option:Win3hcLE1_tr:cost:total   = 0! 23550
-*option:Win3hcLE1_tr:alias = 1409
-
-*option:Win4scLE2_tr:value:1 = Win4scLE2_tr 
-*option:Win4scLE2_tr:value:2 = Win4scLE2_tr
-*option:Win4scLE2_tr:value:3 = Win4scLE2_tr 
-*option:Win4scLE2_tr:value:4 = Win4scLE2_tr
-*option:Win4scLE2_tr:value:5 = Win4scLE2_tr 
-*option:Win4scLE2_tr:value:6 = Win4scLE2_tr
-*option:Win4scLE2_tr:value:7 = Win4scLE2_tr 
-*option:Win4scLE2_tr:value:8 = Win4scLE2_tr
-*option:Win4scLE2_tr:value:9 = Win4scLE2_tr
-*option:Win4scLE2_tr:cost:total   = 0 ! 23824
-*option:Win4scLE2_tr:alias = 1410
-
-*option:Win5hcLE2_tr:value:1 = Win5hcLE2_tr
-*option:Win5hcLE2_tr:value:2 = Win5hcLE2_tr
-*option:Win5hcLE2_tr:value:3 = Win5hcLE2_tr
-*option:Win5hcLE2_tr:value:4 = Win5hcLE2_tr
-*option:Win5hcLE2_tr:value:5 = Win5hcLE2_tr
-*option:Win5hcLE2_tr:value:6 = Win5hcLE2_tr
-*option:Win5hcLE2_tr:value:7 = Win5hcLE2_tr
-*option:Win5hcLE2_tr:value:8 = Win5hcLE2_tr
-*option:Win5hcLE2_tr:value:9 = Win5hcLE2_tr
-*option:Win5hcLE2_tr:cost:total   = 0! 24491
-*option:Win5hcLE2_tr:alias = 1411
-
-*option:Win6_qd_CL:value:1 = Win6_qd_CL
-*option:Win6_qd_CL:value:2 = Win6_qd_CL
-*option:Win6_qd_CL:value:3 = Win6_qd_CL
-*option:Win6_qd_CL:value:4 = Win6_qd_CL
-*option:Win6_qd_CL:value:5 = Win6_qd_CL
-*option:Win6_qd_CL:value:6 = Win6_qd_CL
-*option:Win6_qd_CL:value:7 = Win6_qd_CL
-*option:Win6_qd_CL:value:8 = Win6_qd_CL
-*option:Win6_qd_CL:value:9 = Win6_qd_CL
-*option:Win6_qd_CL:cost:total   = 0! 25226
-*option:Win6_qd_CL:alias = 1412
-
-
-*option:Win10hcle2_q:value:1 = Win10hcle2_q
-*option:Win10hcle2_q:value:2 = Win10hcle2_q
-*option:Win10hcle2_q:value:3 = Win10hcle2_q
-*option:Win10hcle2_q:value:4 = Win10hcle2_q
-*option:Win10hcle2_q:value:5 = Win10hcle2_q
-*option:Win10hcle2_q:value:6 = Win10hcle2_q
-*option:Win10hcle2_q:value:7 = Win10hcle2_q
-*option:Win10hcle2_q:value:8 = Win10hcle2_q
-*option:Win10hcle2_q:value:9 = Win10hcle2_q
-*option:Win10hcle2_q:cost:total   = 0! 25226
-*option:Win10hcle2_q:alias = 1424
-
-
-*option:Double_win_shutter:value:1 = DblLeHcAir
-*option:Double_win_shutter:value:2 = DblLeHcAir
-*option:Double_win_shutter:value:3 = Wind2SHUTTER
-*option:Double_win_shutter:value:4 = OPAQ
-*option:Double_win_shutter:value:5 = Wind2SHUTTER
-*option:Double_win_shutter:value:6 = OPAQ
-*option:Double_win_shutter:value:7 = Wind2SHUTTER
-*option:Double_win_shutter:value:8 = OPAQ
-*option:Double_win_shutter:value:9 = DoubleLowEHardCoatAirFill
-*option:Double_win_shutter:cost:total   = 0! 24491
-*option:Double_win_shutter:alias = 1415
-
-
-*option:Triple_win_shutter:value:1 = Win3hcLE1_tr ! south-facing windows area always transparent
-*option:Triple_win_shutter:value:2 = Win3hcLE1_tr
-*option:Triple_win_shutter:value:3 = Wind3SHUTTER
-*option:Triple_win_shutter:value:4 = OPAQ
-*option:Triple_win_shutter:value:5 = Wind3SHUTTER
-*option:Triple_win_shutter:value:6 = OPAQ
-*option:Triple_win_shutter:value:7 = Wind3SHUTTER
-*option:Triple_win_shutter:value:8 = OPAQ
-*option:Triple_win_shutter:value:9 = Win3hcLE1_tr
-*option:Triple_win_shutter:cost:total   = 0! 24491
-*option:Triple_win_shutter:alias = 1413
-
-*option:Quad_win_shutter:value:1 = Win6_qd_CL
-*option:Quad_win_shutter:value:2 = Win6_qd_CL
-*option:Quad_win_shutter:value:3 = Wind4SHUTTER
-*option:Quad_win_shutter:value:4 = OPAQ
-*option:Quad_win_shutter:value:5 = Wind4SHUTTER
-*option:Quad_win_shutter:value:6 = OPAQ
-*option:Quad_win_shutter:value:7 = Wind4SHUTTER
-*option:Quad_win_shutter:value:8 = OPAQ
-*option:Quad_win_shutter:value:9 = Win6_qd_CL
-*option:Quad_win_shutter:cost:total   = 0 !24491
-*option:Quad_win_shutter:alias = 1414
-
-!---------------------------------------------------------------------
-! Whitehorse window models
-!---------------------------------------------------------------------
-
-! Base option for windows has cost b/c we multiply this amount 
-! by optional window areas.
-!*option:Wind1_trp_CL :value:1 = Wind1_trp_CL   
-!*option:Wind1_trp_CL :value:2 = Wind1_trp_CL   
-!*option:Wind1_trp_CL :cost:total    = 0 !20551
-!*option:Wind1_trp_CL :alias = 1415
-!
-!*option:Win2scLE1_tr:value:1 = Win2scLE1_tr
-!*option:Win2scLE1_tr:value:2 = Win2scLE1_tr 
-!*option:Win2scLE1_tr:cost:total   = 0 !22883
-!*option:Win2scLE1_tr:alias = 1416
-!
-!*option:Win3hcLE1_tr:value:1 = Win3hcLE1_tr
-!*option:Win3hcLE1_tr:value:2 = Win3hcLE1_tr
-!*option:Win3hcLE1_tr:cost:total   = 0 !23550
-!*option:Win3hcLE1_tr:alias = 1417
-!
-!*option:Win4scLE2_tr:value:1 = Win4scLE2_tr 
-!*option:Win4scLE2_tr:value:2 = Win4scLE2_tr
-!*option:Win4scLE2_tr:cost:total   = 0 !23824
-!*option:Win4scLE2_tr:alias = 1418
-!
-!*option:Win5hcLE2_tr:value:1 = Win5hcLE2_tr
-!*option:Win5hcLE2_tr:value:2 = Win5hcLE2_tr
-!*option:Win5hcLE2_tr:cost:total   = 0! 24491
-!*option:Win5hcLE2_tr:alias = 1419
-!
-!*option:Win6_qd_CL:value:1 = Win6_qd_CL
-!*option:Win6_qd_CL:value:2 = Win6_qd_CL
-!*option:Win6_qd_CL:cost:total   = 0! 25226
-!*option:Win6_qd_CL:alias = 1420
-!
-!*option:Win7scle1_qd:value:1 = Win7scle1_qd
-!*option:Win7scle1_qd:value:2 = Win7scle1_qd
-!*option:Win7scle1_qd:cost:total   = 0! 28209
-!*option:Win7scle1_qd:alias = 1421
-!
-!*option:Win8hcle1_qd:value:1 = Win8hcle1_qd
-!*option:Win8hcle1_qd:value:2 = Win8hcle1_qd
-!*option:Win8hcle1_qd:cost:total   = 0! 28876
-!*option:Win8hcle1_qd:alias = 1422
-!
-!*option:Win9scle2_qd:value:1 = Win9scle2_qd
-!*option:Win9scle2_qd:value:2 = Win9scle2_qd
-!*option:Win9scle2_qd:cost:total   = 0! 29120
-!*option:Win9scle2_qd:alias = 1423
-!
-!*option:Win10hcle2_q:value:1 = Win10hcle2_q
-!*option:Win10hcle2_q:value:2 = Win10hcle2_q
-!*option:Win10hcle2_q:cost:total   = 0! 29787
-!*option:Win10hcle2_q:alias = 1424
-
-!---------------------------------------------------------------------
-! Retrofit window models
-!  These values are dependent on geometry.  The values below have been calculated for Van_2st_80_retro.
-!  AF: We could probably store these values as
-!---------------------------------------------------------------------
-*option:DoubleClear:value:1 = DblClr
-*option:DoubleClear:value:2 = DblClr
-*option:DoubleClear:value:3 = DblClr
-*option:DoubleClear:value:4 = DblClr
-*option:DoubleClear:value:5 = DblClr
-*option:DoubleClear:value:6 = DblClr
-*option:DoubleClear:value:7 = DblClr
-*option:DoubleClear:value:8 = DblClr
-*option:DoubleClear:cost:total   = 0
-*option:DoubleClear:alias = 1425
-
-*option:retro_DoubleLowEHardCoatArgFill:value:1 = DblLeHcArg 
-*option:retro_DoubleLowEHardCoatArgFill:value:2 = DblLeHcArg 
-*option:retro_DoubleLowEHardCoatArgFill:value:3 = DblLeHcArg 
-*option:retro_DoubleLowEHardCoatArgFill:value:4 = DblLeHcArg 
-*option:retro_DoubleLowEHardCoatArgFill:value:5 = DblLeHcArg 
-*option:retro_DoubleLowEHardCoatArgFill:value:6 = DblLeHcArg 
-*option:retro_DoubleLowEHardCoatArgFill:value:7 = DblLeHcArg 
-*option:retro_DoubleLowEHardCoatArgFill:value:8 = DblLeHcArg 
-*option:retro_DoubleLowEHardCoatArgFill:cost:total    = 0! 28790  
-*option:retro_DoubleLowEHardCoatArgFill:alias = 1426
-
-*option:retro_DoubleLowESoftCoatArgFill:value:1 = DblLeScArg
-*option:retro_DoubleLowESoftCoatArgFill:value:2 = DblLeScArg
-*option:retro_DoubleLowESoftCoatArgFill:value:3 = DblLeScArg
-*option:retro_DoubleLowESoftCoatArgFill:value:4 = DblLeScArg
-*option:retro_DoubleLowESoftCoatArgFill:value:5 = DblLeScArg
-*option:retro_DoubleLowESoftCoatArgFill:value:6 = DblLeScArg
-*option:retro_DoubleLowESoftCoatArgFill:value:7 = DblLeScArg
-*option:retro_DoubleLowESoftCoatArgFill:value:8 = DblLeScArg
-*option:retro_DoubleLowESoftCoatArgFill:cost:total    = 0! 28790
-*option:retro_DoubleLowESoftCoatArgFill:alias = 1427
-
-*option:retro_TripleLowEHardCoatArgFill:value:1 = TplLeHcKry
-*option:retro_TripleLowEHardCoatArgFill:value:2 = TplLeHcKry
-*option:retro_TripleLowEHardCoatArgFill:value:3 = TplLeHcKry
-*option:retro_TripleLowEHardCoatArgFill:value:4 = TplLeHcKry
-*option:retro_TripleLowEHardCoatArgFill:value:5 = TplLeHcKry
-*option:retro_TripleLowEHardCoatArgFill:value:6 = TplLeHcKry
-*option:retro_TripleLowEHardCoatArgFill:value:7 = TplLeHcKry
-*option:retro_TripleLowEHardCoatArgFill:value:8 = TplLeHcKry
-*option:retro_TripleLowEHardCoatArgFill:cost:total    = 0! 32156
-*option:retro_TripleLowEHardCoatArgFill:alias = 1428
-
-*option:retro_TripleLowESoftCoatArgFill:value:1 = TplLeScKry
-*option:retro_TripleLowESoftCoatArgFill:value:2 = TplLeScKry
-*option:retro_TripleLowESoftCoatArgFill:value:3 = TplLeScKry
-*option:retro_TripleLowESoftCoatArgFill:value:4 = TplLeScKry
-*option:retro_TripleLowESoftCoatArgFill:value:5 = TplLeScKry
-*option:retro_TripleLowESoftCoatArgFill:value:6 = TplLeScKry
-*option:retro_TripleLowESoftCoatArgFill:value:7 = TplLeScKry
-*option:retro_TripleLowESoftCoatArgFill:value:8 = TplLeScKry
-*option:retro_TripleLowESoftCoatArgFill:cost:total    = 0 !32156
-*option:retro_TripleLowESoftCoatArgFill:alias = 1429
-
 
 ! ============================================================
 ! Generic window model --- note that these tags do not exist 
@@ -2136,6 +1804,96 @@
 *option:win-Canada-2025-onwards-Oil:WindowParams:SHGC = 0.3
 *option:win-Canada-2025-onwards-Oil:WindowParams:Uval = 1.2
 *option:win-Canada-2025-onwards-Oil:WindowParams:cost:total = 0
+
+! Upgrades for windows - use BC LEEEP #s.   
+ 
+ 
+*option:BCLEEP-LG-Double:value:1 = BCLlgDbl
+*option:BCLEEP-LG-Double:value:2 = BCLlgDbl
+*option:BCLEEP-LG-Double:value:3 = BCLlgDbl
+*option:BCLEEP-LG-Double:value:4 = BCLlgDbl
+*option:BCLEEP-LG-Double:value:5 = BCLlgDbl
+*option:BCLEEP-LG-Double:value:6 = BCLlgDbl
+*option:BCLEEP-LG-Double:value:7 = BCLlgDbl
+*option:BCLEEP-LG-Double:value:8 = BCLlgDbl
+*option:BCLEEP-LG-Double:WindowParams:name  = BCLlgDbl
+*option:BCLEEP-LG-Double:WindowParams:panes = 2 
+*option:BCLEEP-LG-Double:WindowParams:SHGC  = 0.18
+*option:BCLEEP-LG-Double:WindowParams:Uval  = 1.27
+*option:BCLEEP-LG-Double:cost:total   = 0
+
+*option:BCLEEP-HG-Double:value:1 = BCLhgDbl
+*option:BCLEEP-HG-Double:value:2 = BCLhgDbl
+*option:BCLEEP-HG-Double:value:3 = BCLhgDbl
+*option:BCLEEP-HG-Double:value:4 = BCLhgDbl
+*option:BCLEEP-HG-Double:value:5 = BCLhgDbl
+*option:BCLEEP-HG-Double:value:6 = BCLhgDbl
+*option:BCLEEP-HG-Double:value:7 = BCLhgDbl
+*option:BCLEEP-HG-Double:value:8 = BCLhgDbl
+*option:BCLEEP-HG-Double:WindowParams:name  = BCLhgDbl
+*option:BCLEEP-HG-Double:WindowParams:panes = 2 
+*option:BCLEEP-HG-Double:WindowParams:SHGC  = 0.33
+*option:BCLEEP-HG-Double:WindowParams:Uval  = 1.28
+*option:BCLEEP-HG-Double:cost:total   = 0
+
+*option:BCLEEP-HGi89-Double:value:1 = BCLhgi89Dbl
+*option:BCLEEP-HGi89-Double:value:2 = BCLhgi89Dbl
+*option:BCLEEP-HGi89-Double:value:3 = BCLhgi89Dbl
+*option:BCLEEP-HGi89-Double:value:4 = BCLhgi89Dbl
+*option:BCLEEP-HGi89-Double:value:5 = BCLhgi89Dbl
+*option:BCLEEP-HGi89-Double:value:6 = BCLhgi89Dbl
+*option:BCLEEP-HGi89-Double:value:7 = BCLhgi89Dbl
+*option:BCLEEP-HGi89-Double:value:8 = BCLhgi89Dbl
+*option:BCLEEP-HGi89-Double:WindowParams:name  = BCLhgi89Dbl
+*option:BCLEEP-HGi89-Double:WindowParams:panes = 2 
+*option:BCLEEP-HGi89-Double:WindowParams:SHGC  = 0.54
+*option:BCLEEP-HGi89-Double:WindowParams:Uval  = 1.25
+*option:BCLEEP-HGi89-Double:cost:total   = 0
+
+! - GENERIC BC LEEP WINDOWS: Triples  
+
+*option:BCLEEP-LGi89-Triple:value:1 = BCLlgi89Tpl 
+*option:BCLEEP-LGi89-Triple:value:2 = BCLlgi89Tpl
+*option:BCLEEP-LGi89-Triple:value:3 = BCLlgi89Tpl
+*option:BCLEEP-LGi89-Triple:value:4 = BCLlgi89Tpl
+*option:BCLEEP-LGi89-Triple:value:5 = BCLlgi89Tpl
+*option:BCLEEP-LGi89-Triple:value:6 = BCLlgi89Tpl
+*option:BCLEEP-LGi89-Triple:value:7 = BCLlgi89Tpl
+*option:BCLEEP-LGi89-Triple:value:8 = BCLlgi89Tpl
+*option:BCLEEP-LGi89-Triple:WindowParams:name  = BCLlgi89Tpl
+*option:BCLEEP-LGi89-Triple:WindowParams:panes = 3 
+*option:BCLEEP-LGi89-Triple:WindowParams:SHGC  = 0.14
+*option:BCLEEP-LGi89-Triple:WindowParams:Uval  = 0.92
+*option:BCLEEP-LGi89-Triple:cost:total   = 0
+
+*option:BCLEEP-HGi89-Triple:value:1 = BCLhgi89Tpl
+*option:BCLEEP-HGi89-Triple:value:2 = BCLhgi89Tpl
+*option:BCLEEP-HGi89-Triple:value:3 = BCLhgi89Tpl
+*option:BCLEEP-HGi89-Triple:value:4 = BCLhgi89Tpl
+*option:BCLEEP-HGi89-Triple:value:5 = BCLhgi89Tpl
+*option:BCLEEP-HGi89-Triple:value:6 = BCLhgi89Tpl
+*option:BCLEEP-HGi89-Triple:value:7 = BCLhgi89Tpl
+*option:BCLEEP-HGi89-Triple:value:8 = BCLhgi89Tpl
+*option:BCLEEP-HGi89-Triple:WindowParams:name  = BCLhgi89Tpl
+*option:BCLEEP-HGi89-Triple:WindowParams:panes = 3 
+*option:BCLEEP-HGi89-Triple:WindowParams:SHGC  = 0.37
+*option:BCLEEP-HGi89-Triple:WindowParams:Uval  = 0.90
+*option:BCLEEP-HGi89-Triple:cost:total   = 0
+
+
+*option:BCLEEP-HGi89-Triple-b:value:1 = BCLhgi89Tplb
+*option:BCLEEP-HGi89-Triple-b:value:2 = BCLhgi89Tplb
+*option:BCLEEP-HGi89-Triple-b:value:3 = BCLhgi89Tplb
+*option:BCLEEP-HGi89-Triple-b:value:4 = BCLhgi89Tplb
+*option:BCLEEP-HGi89-Triple-b:value:5 = BCLhgi89Tplb
+*option:BCLEEP-HGi89-Triple-b:value:6 = BCLhgi89Tplb
+*option:BCLEEP-HGi89-Triple-b:value:7 = BCLhgi89Tplb
+*option:BCLEEP-HGi89-Triple-b:value:8 = BCLhgi89Tplb
+*option:BCLEEP-HGi89-Triple-b:WindowParams:name  = BCLhgi89Tplb
+*option:BCLEEP-HGi89-Triple-b:WindowParams:panes = 3 
+*option:BCLEEP-HGi89-Triple-b:WindowParams:SHGC  = 0.49
+*option:BCLEEP-HGi89-Triple-b:WindowParams:Uval  = 0.91
+*option:BCLEEP-HGi89-Triple-b:cost:total   = 0
 
 
 
@@ -3605,7 +3363,7 @@
 *option:oee-CCASHP-ref:value:15  = 11700
 *option:oee-CCASHP-ref:value:16  = 11000
 *option:oee-CCASHP-ref:value:17  = 3.6047758884453
-*option:oee-gas-ref:value:18  = 
+*option:oee-CCASHP-ref:value:18  = 
 
 *option:oee-ASHP-ref:value:1   = ghg-ASHP.hvac
 *option:oee-ASHP-ref:value:2   = #-no-GSHP-file
@@ -3624,7 +3382,7 @@
 *option:oee-ASHP-ref:value:15  = 11700
 *option:oee-ASHP-ref:value:16  = 11000
 *option:oee-ASHP-ref:value:17  = 3.6047758884453
-*option:oee-gas-ref:value:18  = 
+*option:oee-ASHP-ref:value:18  = 
 
 *option:oee-GSHP-ref:value:1   = ghg-GSHP.hvac
 *option:oee-GSHP-ref:value:2   = *gshp~../hvac/heatx_v1.gshp 
@@ -3643,8 +3401,26 @@
 *option:oee-GSHP-ref:value:15  = 11700
 *option:oee-GSHP-ref:value:16  = 11000
 *option:oee-GSHP-ref:value:17  = 3.6047758884453
-*option:oee-gas-ref:value:18  = 
+*option:oee-GSHP-ref:value:18  = 
 
+*option:oee-oil-ref:value:1   = ghg-oil.hvac
+*option:oee-oil-ref:value:2   = #-no-GSHP-file
+*option:oee-oil-ref:value:3  = #-no-IMS
+*option:oee-oil-ref:value:4  =
+*option:oee-oil-ref:value:5  =
+*option:oee-oil-ref:value:6  = shoulder-ideal.ctl
+*option:oee-oil-ref:value:7  = oil
+*option:oee-oil-ref:value:8  = 14
+*option:oee-oil-ref:value:9 = 15000
+*option:oee-oil-ref:value:10  = 0.92
+*option:oee-oil-ref:value:11  = 250
+*option:oee-oil-ref:value:12  = 250
+*option:oee-oil-ref:value:13  = 75
+*option:oee-oil-ref:value:14 = 0
+*option:oee-oil-ref:value:15  = 0
+*option:oee-oil-ref:value:16  = 11000
+*option:oee-oil-ref:value:17  = 3.60477588844537
+*option:oee-oil-ref:value:18  = 
 
 
 *option:oee-gas-ref:value:1  = ghg-gas.hvac
@@ -4031,17 +3807,34 @@
 *option:2025-onwards-Oil-dhw:value:4   = 0.62
 *option:2025-onwards-Oil-dhw:value:5   = 246
 
+
+!-----------------------------------------------------------------------
+! Reference systems for upgradess
+!------------------------------------------------------------------------
+*option:oee-elecHP-ref:value:1   = ghg-WH.dhw
+*option:oee-elecHP-ref:value:2   = 1 
+*option:oee-elecHP-ref:value:3   = 18
+*option:oee-elecHP-ref:value:4   = 1.6
+*option:oee-elecHP-ref:value:5   = 189
+
 *option:oee-elecstorage-ref:value:1   = ghg-WH.dhw
 *option:oee-elecstorage-ref:value:2   = 1
-*option:oee-elecstorage-ref:value:3   = 18
-*option:oee-elecstorage-ref:value:4   = 1.6
-*option:oee-elecstorage-ref:value:5   = 189
+*option:oee-elecstorage-ref:value:3   = 15
+*option:oee-elecstorage-ref:value:4   = 0.92
+*option:oee-elecstorage-ref:value:5   = 246
+
 
 *option:oee-gasdhw-ref:value:1   = ghg-WH.dhw
 *option:oee-gasdhw-ref:value:2   = 2
 *option:oee-gasdhw-ref:value:3   = 10
 *option:oee-gasdhw-ref:value:4   = 0.9
 *option:oee-gasdhw-ref:value:5   = 246
+
+*option:oee-oildhw-ref:value:1   = ghg-WH.dhw
+*option:oee-oildhw-ref:value:2   = 3
+*option:oee-oildhw-ref:value:3   = 11
+*option:oee-oildhw-ref:value:4   = 0.62
+*option:oee-oildhw-ref:value:5   = 246
 
 
 
