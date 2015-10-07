@@ -964,11 +964,11 @@ sub UpgradeRuleSet($){
            { $choiceHash{"Opt-CasementWindows"} =  "BCLEEP-HG-Double" ; $validupgrade = 1; }
            
         if ( $upgrade =~ /Windows-LGi89-Triple/ )
-           { $choiceHash{"Opt-CasementWindows"} =  "Windows-LGi89-Triple" ; $validupgrade = 1; }           
+           { $choiceHash{"Opt-CasementWindows"} =  "BCLEEP-LGi89-Triple" ; $validupgrade = 1; }           
   
            
         if ( $upgrade =~ /Windows-HGi89-Triple-b/ )
-           { $choiceHash{"Opt-CasementWindows"} =  "Windows-LGi89-Triple-b" ; $validupgrade = 1; }           
+           { $choiceHash{"Opt-CasementWindows"} =  "BCLEEP-LGi89-Triple-b" ; $validupgrade = 1; }           
            
        
       last SWITCH; 
