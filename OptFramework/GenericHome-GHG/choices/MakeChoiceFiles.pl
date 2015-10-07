@@ -46,7 +46,7 @@ my $ChoiceFileList ="";
 
 my @upgrades= (
 
-               # No changes 
+               # No changes  
                "as-found"                             ,    # Original definitions
                                                       
                # Fuel Switching senarios ( heating and water-heating )        
@@ -81,17 +81,34 @@ my @upgrades= (
                #"upgrade-ceiling-a", "upgrade-ceiling-b",
                #"upgrade-windows-a", "upgrade-windows-b" 
                
-               #Attic Insulation  
+               #Attic Insulation - Retrofit 
                "retrofit-add-06in-cellulous",
                "retrofit-add-12in-cellulous",
                
-               #Attic Insulation  
-               "newcon-ceilR70",
-               "newcon-ceilR80",  
-               "newcon-ceilR90",
+               #Attic Insulation - New 
+               "NewCodes-ceilR70",
+               "NewCodes-ceilR80",  
+               "NewCodes-ceilR90",
+               
+               
                                 
                
+               # Air sealing - Retrofit 
+               "retrofit-airseal-level-a",
+               #"retrofit-airseal-level-b"
+               #"NewCodes-airseal-level-a",
+               "NewCodes-ACH-1.5",
+               "NewCodes-ACH-1.0",
+               "NewCodes-ACH-0.6",
                
+               "NewCodes-MainWallInsulation-R34",
+               "NewCodes-MainWallInsulation-R23",
+               "NewCodes-MainWallInsulation-R25",
+               "NewCodes-MainWallInsulation-R29",
+               "NewCodes-MainWallInsulation-R34",
+               "NewCodes-MainWallInsulation-R39",
+               "NewCodes-MainWallDblStd-R34",
+               "NewCodes-MainWallDblStd-R41",
                # Switch heating to disruptive tech ? 
                #"upgrade-heating-P9-combos"            ,    # Gas systems to high-effciency p9 combo
                #"upgrade-heating-P9+zoning"            ,    # Gas systems to p9 combos + zoned dist
@@ -190,7 +207,20 @@ sub UpgradeRuleSet($){
 
   my $validupgrade = 0; 
   
+  
   SWITCH:{
+  
+    #=========================================================================
+    # Ignore 2019+ scenarios for the time being. 
+    #=========================================================================
+    if ( $choiceHash{"ID"} =~ /2020-2024.*/  ||  
+         $choiceHash{"ID"} =~ /2025-onwards.*/ ){
+         
+         #Do noting. 
+         last SWITCH; 
+           
+    }
+  
   
     #=========================================================================
     # Baseline: Leave choices alone. 
@@ -809,28 +839,173 @@ sub UpgradeRuleSet($){
     }    
       
       
-  
+ 
     #=========================================================================
-    # Envelope insulation : New Construction -> R70, R80, R90
+    # Envelope Air-sealing : Retrofit 
+    #=========================================================================    
+    
+    
+            
+    if ( $upgrade =~ /retrofit-airseal-level-a/ ){
+    
+      my ( $junk1,$junk2,$oldACH ) = split /_/,  $choiceHash{"Opt-ACH"}; 
+      
+      my $achImp = 0;   my $newACH = 0;  
+    
+      if ( $choiceHash{"ID"} =~ /Pre-1946.*/ ){
+
+          $achImp = 0.12;
+                            
+          $validupgrade = 1;
+          
+      }
+      
+      if ( $choiceHash{"ID"} =~ /1946-1983.*/ ){
+
+          $achImp = 0.07;    
+                   
+          $validupgrade = 1;
+          
+      }
+      
+
+
+      # .........
+      # 1984-1995
+      if ( $choiceHash{"ID"} =~ /1984-1995.*/ ){
+
+          $achImp = 0.05;    
+                   
+          $validupgrade = 1;
+          
+      }            
+
+      
+      # .........
+      # 1996-2005
+      if ( $choiceHash{"ID"} =~ /1996-2005.*/ ){
+          
+          $achImp = 0.04;   
+          $validupgrade = 1;
+          
+      }            
+
+
+      # .........
+      # 2006-2011 - same as prior.
+      if ( $choiceHash{"ID"} =~ /2006-2011.*/ ){
+     
+     
+          $achImp = 0.02; 
+          $validupgrade = 1;
+          
+      }   
+
+      # .........
+      # 2006-2011 - same as prior.
+      if ( $choiceHash{"ID"} =~ /2012-2019.*/ ){
+
+          $achImp = 0.02; 
+          $validupgrade = 1;
+          
+      }   
+      
+      if ( $validupgrade ){
+      
+        $newACH =  (int(( $oldACH * ( 1.0 - $achImp ) ) * 10.0))/10.0; 
+      
+        $choiceHash{"Opt-ACH"} = "retro_ACH_$newACH";  
+      
+      }
+      
+      last SWITCH;  
+    }    
+      
+      
+      
+    #if ( $upgrade =~ /airseal-level-a/ ){
+    #
+    #  if ( $choiceHash{"ID"} =~ /2020-2024.*/  ) { 
+    #  
+    #       $choiceHash{"Opt-ACH"} = "retro_ACH_1.0"
+    #       $validupgrade = 1;
+    #        
+    #  } 
+    #  
+    #  if ( $choiceHash{"ID"} =~ /2025-onwards.*/  ) { 
+    #  
+    #       $choiceHash{"Opt-ACH"} = "retro_ACH_0.6"
+    #       $validupgrade = 1;
+    #        
+    #  } 
+    #  
+    #  
+    #  last SWITCH; 
+    #}     
+
+
+    #=========================================================================
+    # New construction: Envelope Air-sealing -> 1.5 / 1.0 / 0.6 ACH
+    #=========================================================================    
+
+    if ( $upgrade =~ /NewCodes-ACH-1.5/ ){
+    
+      if ( $choiceHash{"ID"} =~ /2012-2019.*/ ){
+    
+           $choiceHash{"Opt-ACH"} = "retro_ACH_1.5";
+           $validupgrade = 1;
+          
+      } 
+      last SWITCH; 
+    }
+    
+    if ( $upgrade =~ /NewCodes-ACH-1.0/ ){
+    
+      if ( $choiceHash{"ID"} =~ /2012-2019.*/ ){
+    
+           $choiceHash{"Opt-ACH"} = "retro_ACH_1";
+           $validupgrade = 1;
+          
+      } 
+      last SWITCH; 
+    }
+
+    if ( $upgrade =~ /NewCodes-ACH-0.6/ ){
+    
+      if ( $choiceHash{"ID"} =~ /2012-2019.*/ ){
+    
+           $choiceHash{"Opt-ACH"} = "retro_ACH_0.6";
+           $validupgrade = 1; 
+          
+      } 
+      last SWITCH; 
+    } 
+    
+    
+ 
+    #=========================================================================
+    # New Construction: Attic insulation :  -> R70, R80, R90
     #=========================================================================
         
-    if ( $upgrade =~ /newcon-ceilR70/ ){
+    if ( $upgrade =~ /NewCodes-ceilR70/ ){
     
-      if ( $choiceHash{"ID"} =~ /2020-2024.*/  ||  
+      if ( $choiceHash{"ID"} =~ /2012-2019.*/ ||
+           $choiceHash{"ID"} =~ /2020-2024.*/  ||  
            $choiceHash{"ID"} =~ /2025-onwards.*/ ){
 
           $choiceHash{"Opt-Ceilings"} = "CeilR70"  ;
                    
-          $validupgrade = 1;
+          $validupgrade = 1; 
           
       }
       last SWITCH; 
     }
     
         
-    if ( $upgrade =~ /newcon-ceilR80/ ){
+    if ( $upgrade =~ /NewCodes-ceilR80/ ){
     
-      if ( $choiceHash{"ID"} =~ /2020-2024.*/  || 
+      if ( $choiceHash{"ID"} =~ /2012-2019.*/ ||
+           $choiceHash{"ID"} =~ /2020-2024.*/  || 
            $choiceHash{"ID"} =~ /2025-onwards.*/ ){
 
           $choiceHash{"Opt-Ceilings"} = "CeilR80"  ;
@@ -841,9 +1016,10 @@ sub UpgradeRuleSet($){
       last SWITCH; 
     }    
     
-    if ( $upgrade =~ /newcon-ceilR90/ ){
+    if ( $upgrade =~ /NewCodes-ceilR90/ ){
     
-      if ( $choiceHash{"ID"} =~ /2020-2024.*/  || 
+      if ( $choiceHash{"ID"} =~ /2012-2019.*/ ||
+           $choiceHash{"ID"} =~ /2020-2024.*/  || 
            $choiceHash{"ID"} =~ /2025-onwards.*/ ){
 
           $choiceHash{"Opt-Ceilings"} = "CeilR90"  ;
@@ -854,10 +1030,136 @@ sub UpgradeRuleSet($){
       last SWITCH; 
     }     
     
-      
     
+    #=========================================================================
+    # New Construction: main wall 
+    #=========================================================================
+        
+        
+    # LEEP Stud_2x6_1in_XPS_R-23
+   
+    if ( $upgrade =~ /NewCodes-MainWallInsulation-R23/ ){
     
-    # < New rulesets go here: > 
+      if ( $choiceHash{"ID"} =~ /2012-2019.*/ ||
+           $choiceHash{"ID"} =~ /2020-2024.*/  ||  
+           $choiceHash{"ID"} =~ /2025-onwards.*/ ){
+
+          $choiceHash{"Opt-GenericWall_1Layer_definitions"} = "Generic_Wall_R-23-eff"  ;
+                   
+          $validupgrade = 1; 
+          
+      }
+      last SWITCH; 
+    }
+
+    # LEEP Stud_2x6_1.5in_XPS_R-25
+
+
+    if ( $upgrade =~ /NewCodes-MainWallInsulation-R25/ ){
+    
+      if ( $choiceHash{"ID"} =~ /2012-2019.*/ ||
+           $choiceHash{"ID"} =~ /2020-2024.*/  ||  
+           $choiceHash{"ID"} =~ /2025-onwards.*/ ){
+
+          $choiceHash{"Opt-GenericWall_1Layer_definitions"} = "Generic_Wall_R-25-eff"  ;
+                   
+          $validupgrade = 1; 
+          
+      }
+      last SWITCH; 
+    }
+ 
+ 
+    # LEEP Stud_2x6_2in_XPS_R-29
+
+    if ( $upgrade =~ /NewCodes-MainWallInsulation-R29/ ){
+    
+      if ( $choiceHash{"ID"} =~ /2012-2019.*/ ||
+           $choiceHash{"ID"} =~ /2020-2024.*/  ||  
+           $choiceHash{"ID"} =~ /2025-onwards.*/ ){
+
+          $choiceHash{"Opt-GenericWall_1Layer_definitions"} = "Generic_Wall_R-29-eff"  ;
+                   
+          $validupgrade = 1; 
+          
+      }
+      last SWITCH; 
+    }
+ 
+  
+    # LEEP Stud_2x6_3in_XPS_R-34
+
+    if ( $upgrade =~ /NewCodes-MainWallInsulation-R34/ ){
+    
+      if ( $choiceHash{"ID"} =~ /2012-2019.*/ ||
+           $choiceHash{"ID"} =~ /2020-2024.*/  ||  
+           $choiceHash{"ID"} =~ /2025-onwards.*/ ){
+
+          $choiceHash{"Opt-GenericWall_1Layer_definitions"} = "Generic_Wall_R-34-eff"  ;
+                   
+          $validupgrade = 1; 
+          
+      }
+      last SWITCH; 
+    }
+ 
+   
+    # LEEP Stud_2x6_4in_XPS_R-39
+
+    if ( $upgrade =~ /NewCodes-MainWallInsulation-R39/ ){
+    
+      if ( $choiceHash{"ID"} =~ /2012-2019.*/ ||
+           $choiceHash{"ID"} =~ /2020-2024.*/  ||  
+           $choiceHash{"ID"} =~ /2025-onwards.*/ ){
+
+          $choiceHash{"Opt-GenericWall_1Layer_definitions"} = "Generic_Wall_R-39-eff"  ;
+                   
+          $validupgrade = 1; 
+          
+      }
+      last SWITCH; 
+    }
+ 
+ 
+     # LEEP DblStud_10in_cell_R-34
+
+    if ( $upgrade =~ /NewCodes-MainWallDblStd-R34/ ){
+    
+      if ( $choiceHash{"ID"} =~ /2012-2019.*/ ||
+           $choiceHash{"ID"} =~ /2020-2024.*/  ||  
+           $choiceHash{"ID"} =~ /2025-onwards.*/ ){
+
+          $choiceHash{"Opt-GenericWall_1Layer_definitions"} = "Generic_Wall_R-34-eff"  ;
+                   
+          $validupgrade = 1; 
+          
+      }
+      last SWITCH; 
+    }
+ 
+      # LEEP DblStud_10in_cell_R-41
+
+    if ( $upgrade =~ /NewCodes-MainWallDblStd-R41/ ){
+    
+      if ( $choiceHash{"ID"} =~ /2012-2019.*/ ||
+           $choiceHash{"ID"} =~ /2020-2024.*/  ||  
+           $choiceHash{"ID"} =~ /2025-onwards.*/ ){
+
+          $choiceHash{"Opt-GenericWall_1Layer_definitions"} = "Generic_Wall_R-41-eff"  ;
+                   
+          $validupgrade = 1; 
+          
+      }
+      last SWITCH; 
+    }
+                
+    
+    #=========================================================================
+    # New Construction: Below-grade wall 
+    #=========================================================================
+          
+    
+    # < New rulesets go here: >  
     
     
     
