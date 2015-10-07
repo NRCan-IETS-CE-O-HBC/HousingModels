@@ -968,7 +968,7 @@ sub UpgradeRuleSet($){
   
            
         if ( $upgrade =~ /Windows-HGi89-Triple-b/ )
-           { $choiceHash{"Opt-CasementWindows"} =  "BCLEEP-LGi89-Triple-b" ; $validupgrade = 1; }           
+           { $choiceHash{"Opt-CasementWindows"} =  "BCLEEP-HGi89-Triple-b" ; $validupgrade = 1; }           
            
        
       last SWITCH; 
