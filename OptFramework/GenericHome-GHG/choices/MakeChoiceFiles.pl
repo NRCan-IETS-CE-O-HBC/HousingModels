@@ -63,27 +63,25 @@ my @upgrades= (
                                                       
                                                       
                # Upgrade heating- ( no fuel switching scenarios )                     
-               "upgrade-oil-heating-high-effciency"      ,    # As found to high efficiency equivlant
-               "upgrade-gas-heating-high-effciency"      ,    # As found to high efficiency equivlant
-               "upgrade-elec-heating-CCASHP"             ,    # As found to high efficiency equivlant
-               "upgrade-elec-heating-GSHP"               ,   # As found to high efficiency equivlant
+               "retrofit-oil-heating-high-effciency"      ,    # As found to high efficiency equivlant
+               "retrofit-gas-heating-high-effciency"      ,    # As found to high efficiency equivlant
+               "retrofit-elec-heating-CCASHP"             ,    # As found to high efficiency equivlant
+               "retrofit-elec-heating-GSHP"               ,   # As found to high efficiency equivlant
 
                # Upgrade Hot water - ( no fuel switching scenarios )                     
-               "upgrade-oil-dhw-high-effciency"      ,    # As found to high efficiency equivlant
-               "upgrade-gas-dhw-high-effciency"      ,    # As found to high efficiency equivlant
-               "upgrade-elec-dhw-storage"            ,    # As found to high efficiency equivlant
-               "upgrade-elec-dhw-hp"                 ,  # As found to high efficiency equivlant
+               "retrofit-oil-dhw-high-effciency"      ,    # As found to high efficiency equivlant
+               "retrofit-gas-dhw-high-effciency"      ,    # As found to high efficiency equivlant
+               "retrofit-elec-dhw-storage"            ,    # As found to high efficiency equivlant
+               "retrofit-elec-dhw-hp"                 ,  # As found to high efficiency equivlant
                
 
                #Envelope systems - retrofit : 
                "retrofit-main-wall-a",
                "retrofit-main-wall-b",
-               #"upgrade-ceiling-a", "upgrade-ceiling-b",
-               #"upgrade-windows-a", "upgrade-windows-b" 
                
                #Attic Insulation - Retrofit 
-               "retrofit-add-06in-cellulous",
-               "retrofit-add-12in-cellulous",
+               "retrofit-Ceil-add-06in-cellulous",
+               "retrofit-Ceil-add-12in-cellulous",
                
                #Attic Insulation - New 
                "NewCodes-ceilR70",
@@ -101,6 +99,7 @@ my @upgrades= (
                "NewCodes-ACH-1.0",
                "NewCodes-ACH-0.6",
                
+               # New construction: Main wall
                "NewCodes-MainWallInsulation-R34",
                "NewCodes-MainWallInsulation-R23",
                "NewCodes-MainWallInsulation-R25",
@@ -109,13 +108,37 @@ my @upgrades= (
                "NewCodes-MainWallInsulation-R39",
                "NewCodes-MainWallDblStd-R34",
                "NewCodes-MainWallDblStd-R41",
+               
+               # New constuction: Founation 
+               "NewCodes-Foundation-RSI3.73",
+               "NewCodes-Foundation-RSI5.46",
+               
+               # New codes: Windows 
+               "NewCodes-Windows-LG-Double",
+               "NewCodes-Windows-HG-Double",
+               "NewCodes-Windows-LGi89-Triple",
+               "NewCodes-Windows-HGi89-Triple-b",
+               
+               "Retrofit-Windows-LG-Double",
+               "Retrofit-Windows-HG-Double",
+               "Retrofit-Windows-LGi89-Triple",
+               "Retrofit-Windows-HGi89-Triple-b",
+               
+               
+               
                # Switch heating to disruptive tech ? 
-               #"upgrade-heating-P9-combos"            ,    # Gas systems to high-effciency p9 combo
-               #"upgrade-heating-P9+zoning"            ,    # Gas systems to p9 combos + zoned dist
-               #"upgrade-heating-CCASHP"               ,    # Elect baseboard systems to CCASHP
-               #"upgrade-heating-GSHP"                 ,    # Elect baseboard systems to CGHP
+               #"retrofit-heating-P9-combos"            ,    # Gas systems to high-effciency p9 combo
+               #"retrofit-heating-P9+zoning"            ,    # Gas systems to p9 combos + zoned dist
+               #"retrofit-heating-CCASHP"               ,    # Elect baseboard systems to CCASHP
+               #"retrofit-heating-GSHP"                 ,    # Elect baseboard systems to CGHP
  
- 
+               # SDHW
+               
+               "Renewables-DWHR-4-60",
+               "Renewables-SDHW-2-plate",
+               "Renewables-SDHW-2-plate+DWHR-60",
+               "Renewables-5kW-PV",
+               
                
                
                ); 
@@ -336,7 +359,7 @@ sub UpgradeRuleSet($){
     #=========================================================================    
     
     # Oil scenario
-    if ( $upgrade =~ /upgrade-oil-heating-high-effciency/ ){
+    if ( $upgrade =~ /retrofit-oil-heating-high-effciency/ ){
     
       if ( $choiceHash{"Opt-GhgHeatingCooling"} =~ /Oil/ ){
 
@@ -352,7 +375,7 @@ sub UpgradeRuleSet($){
     
     
     # Gas scenario
-    if ( $upgrade =~ /upgrade-gas-heating-high-effciency/ ){
+    if ( $upgrade =~ /retrofit-gas-heating-high-effciency/ ){
     
       if ( $choiceHash{"Opt-GhgHeatingCooling"} =~ /Gas/ ){
 
@@ -368,7 +391,7 @@ sub UpgradeRuleSet($){
     
 
     # Elec baseboard->CCASHP
-    if ( $upgrade =~ /upgrade-elec-heating-CCASHP/ ){
+    if ( $upgrade =~ /retrofit-elec-heating-CCASHP/ ){
     
       if ( $choiceHash{"Opt-GhgHeatingCooling"} =~ /Elect/ ){
 
@@ -384,7 +407,7 @@ sub UpgradeRuleSet($){
     
     
     # Elec Baseboard -> GSHP. 
-    if ( $upgrade =~ /upgrade-elec-heating-GSHP/ ){
+    if ( $upgrade =~ /retrofit-elec-heating-GSHP/ ){
     
       if ( $choiceHash{"Opt-GhgHeatingCooling"} =~ /Elect/ ){
 
@@ -405,7 +428,7 @@ sub UpgradeRuleSet($){
     #=========================================================================    
     
     # Oil scenario
-    if ( $upgrade =~ /upgrade-oil-dhw-high-effciency/ ){
+    if ( $upgrade =~ /retrofit-oil-dhw-high-effciency/ ){
     
       if ( $choiceHash{"Opt-DHWSystem"} =~ /Oil/ ){
 
@@ -420,7 +443,7 @@ sub UpgradeRuleSet($){
     }    
     
     # Gas scenario
-    if ( $upgrade =~ /upgrade-gas-dhw-high-effciency/ ){
+    if ( $upgrade =~ /retrofit-gas-dhw-high-effciency/ ){
     
       if ( $choiceHash{"Opt-DHWSystem"} =~ /Gas/ ){
 
@@ -435,7 +458,7 @@ sub UpgradeRuleSet($){
     }    
     
     # Elec storage scenario
-    if ( $upgrade =~ /upgrade-elec-dhw-storage/ ){
+    if ( $upgrade =~ /retrofit-elec-dhw-storage/ ){
     
       if ( $choiceHash{"Opt-DHWSystem"} =~ /Elect/ ){
 
@@ -451,7 +474,7 @@ sub UpgradeRuleSet($){
     
     
     # Elec storage scenario
-    if ( $upgrade =~ /upgrade-elec-dhw-hp/ ){
+    if ( $upgrade =~ /retrofit-elec-dhw-hp/ ){
     
       if ( $choiceHash{"Opt-DHWSystem"} =~ /Elect/ ){
 
@@ -701,7 +724,7 @@ sub UpgradeRuleSet($){
     # Envelope insulation : Attic, Retrofit A (6in-cellulous)
     #=========================================================================
         
-    if ( $upgrade =~ /retrofit-add-06in-cellulous/ ){
+    if ( $upgrade =~ /retrofit-Ceil-add-06in-cellulous/ ){
     
       if ( $choiceHash{"ID"} =~ /Pre-1946.*/ ){
 
@@ -772,7 +795,7 @@ sub UpgradeRuleSet($){
     # Envelope insulation : Attic, Retrofit B (12in-cellulous)
     #=========================================================================
         
-    if ( $upgrade =~ /retrofit-add-12in-cellulous/ ){
+    if ( $upgrade =~ /retrofit-Ceil-add-12in-cellulous/ ){
     
       if ( $choiceHash{"ID"} =~ /Pre-1946.*/ ){
 
@@ -922,28 +945,42 @@ sub UpgradeRuleSet($){
     }    
       
       
+ 
+    #=========================================================================
+    # Windows: Same spec, different costs depending on new/retrofit. 
+    #=========================================================================    
+    
+          
       
-    #if ( $upgrade =~ /airseal-level-a/ ){
-    #
-    #  if ( $choiceHash{"ID"} =~ /2020-2024.*/  ) { 
-    #  
-    #       $choiceHash{"Opt-ACH"} = "retro_ACH_1.0"
-    #       $validupgrade = 1;
-    #        
-    #  } 
-    #  
-    #  if ( $choiceHash{"ID"} =~ /2025-onwards.*/  ) { 
-    #  
-    #       $choiceHash{"Opt-ACH"} = "retro_ACH_0.6"
-    #       $validupgrade = 1;
-    #        
-    #  } 
-    #  
-    #  
-    #  last SWITCH; 
-    #}     
+    if (         
+         ( $upgrade =~ /NewCodes-Windows.*/ && $choiceHash{"ID"} =~ /2012-2019.*/ ) ||
+         ( $upgrade =~ /Retrofit-Windows.*/ ) 
+        ){ 
+    
+        if ( $upgrade =~ /Windows-HG-Double/ )
+           { $choiceHash{"Opt-CasementWindows"} =  "BCLEEP-LG-Double" ; $validupgrade = 1; }
 
-
+        if ( $upgrade =~ /Windows-HG-Double/ )
+           { $choiceHash{"Opt-CasementWindows"} =  "BCLEEP-HG-Double" ; $validupgrade = 1; }
+           
+        if ( $upgrade =~ /Windows-LGi89-Triple/ )
+           { $choiceHash{"Opt-CasementWindows"} =  "Windows-LGi89-Triple" ; $validupgrade = 1; }           
+  
+           
+        if ( $upgrade =~ /Windows-HGi89-Triple-b/ )
+           { $choiceHash{"Opt-CasementWindows"} =  "Windows-LGi89-Triple-b" ; $validupgrade = 1; }           
+           
+       
+      last SWITCH; 
+    
+    }elsif($upgrade =~ /NewCodes-Windows.*/ ){
+      # do nothing
+      last SWITCH; 
+    }
+    
+    
+    
+    
     #=========================================================================
     # New construction: Envelope Air-sealing -> 1.5 / 1.0 / 0.6 ACH
     #=========================================================================    
@@ -1155,9 +1192,75 @@ sub UpgradeRuleSet($){
                 
     
     #=========================================================================
-    # New Construction: Below-grade wall 
+    # New Construction: Below-grade wall/slab
     #=========================================================================
           
+    if ( $upgrade =~ /NewCodes-Foundation-RSI3.73/ ){
+    
+      if ( $choiceHash{"ID"} =~ /2012-2019.*/ ||
+           $choiceHash{"ID"} =~ /2020-2024.*/  ||  
+           $choiceHash{"ID"} =~ /2025-onwards.*/ ){      
+    
+            $choiceHash{"Opt-BasementConfiguration"}= "GHG-bsm-19-RSI_3.73";
+            $validupgrade = 1; 
+      
+      }
+      last SWITCH;
+      
+    }     
+
+    if ( $upgrade =~ /NewCodes-Foundation-RSI5.46/ ){
+    
+      if ( $choiceHash{"ID"} =~ /2012-2019.*/ ||
+           $choiceHash{"ID"} =~ /2020-2024.*/  ||  
+           $choiceHash{"ID"} =~ /2025-onwards.*/ ){      
+    
+            $choiceHash{"Opt-BasementConfiguration"}= "GHG-bsm-22-RSI_5.46";
+            $validupgrade = 1; 
+      
+      }
+      last SWITCH;
+      
+    }   
+
+    
+    
+    
+     
+    #=========================================================================
+    # Renewable energy systems: Similar costs / specs for new/retrofit.
+    #=========================================================================
+            
+    
+    if ( $upgrade =~ /Renewables-DWHR-4-60/ ){
+    
+      $choiceHash{"Opt-DWHRandSDHW"} = "DWHR-4-60";
+      $validupgrade = 1; 
+      last SWITCH;
+    }
+    
+    
+    if ( $upgrade =~ /Renewables-SDHW-2-plate/ ){
+    
+      $choiceHash{"Opt-DWHRandSDHW"} = "2-plate";
+      $validupgrade = 1; 
+      last SWITCH;
+    }    
+    
+    if ( $upgrade =~ /Renewables-SDHW-2-plate+DWHR-60/ ){
+    
+      $choiceHash{"2-plate-DWHR-4-60"} = "";
+      $validupgrade = 1; 
+      last SWITCH;
+    }    
+        
+    if ( $upgrade =~ /Renewables-5kW-PV/ ){
+    
+      $choiceHash{"Opt-StandoffPV"} = "SizedPV|5kW";
+      $validupgrade = 1; 
+      last SWITCH;
+    }    
+   
     
     # < New rulesets go here: >  
     
