@@ -46,10 +46,13 @@ my $ChoiceFileList ="";
 
 my @upgrades= (
 
+               # ================ Baseline: As found ====================
                # No changes  
                "as-found"                             ,    # Original definitions
-                                                      
-               # Fuel Switching senarios ( heating and water-heating )        
+               
+
+               # ================ Fuel switching ====================               
+               # Fuel Switching senarios ( heating and water-heating to electricity )        
                "switch-oil-to-electricity-ASHP"       ,    # Oil boilers -> conventional ASHP + elec storage
                "switch-gas-to-electricity-ASHP"       ,    # Oil & Gas   -> conventional ASHP + elec stroage
                "switch-oil-to-electricity-CCASHP"     ,    # Oil boilers -> CCASHP + elec stroage
@@ -62,7 +65,8 @@ my @upgrades= (
                "switch-electricity-to-gas"            ,    # Electricity -> Gas 
                                                       
                                                       
-               # Upgrade heating- ( no fuel switching scenarios )                     
+               # ================ Retrofit existing stock ====================                                                      
+               # Upgrade heating- for retrofit ( no fuel switching scenarios )                     
                "retrofit-oil-heating-high-effciency"      ,    # As found to high efficiency equivlant
                "retrofit-gas-heating-high-effciency"      ,    # As found to high efficiency equivlant
                "retrofit-elec-heating-CCASHP"             ,    # As found to high efficiency equivlant
@@ -74,7 +78,6 @@ my @upgrades= (
                "retrofit-elec-dhw-storage"            ,    # As found to high efficiency equivlant
                "retrofit-elec-dhw-hp"                 ,  # As found to high efficiency equivlant
                
-
                #Envelope systems - retrofit : 
                "retrofit-main-wall-a",
                "retrofit-main-wall-b",
@@ -83,18 +86,24 @@ my @upgrades= (
                "retrofit-Ceil-add-06in-cellulous",
                "retrofit-Ceil-add-12in-cellulous",
                
+               # Windows retrofit ( spec's are the same as new 
+               # construction - costs may be different. )
+               "retrofit-Windows-LG-Double",
+               "retrofit-Windows-HG-Double",
+               "retrofit-Windows-LGi89-Triple",
+               "retrofit-Windows-HGi89-Triple-b",
+               
+               # Air sealing - Retrofit 
+               "retrofit-airseal-level-a",
+
+               # ================ NewCodes: As found ====================
+               
                #Attic Insulation - New 
                "NewCodes-ceilR70",
                "NewCodes-ceilR80",  
                "NewCodes-ceilR90",
-               
-               
-                                
-               
-               # Air sealing - Retrofit 
-               "retrofit-airseal-level-a",
-               #"retrofit-airseal-level-b"
-               #"NewCodes-airseal-level-a",
+
+               # Air-tightness improvements
                "NewCodes-ACH-1.5",
                "NewCodes-ACH-1.0",
                "NewCodes-ACH-0.6",
@@ -119,25 +128,33 @@ my @upgrades= (
                "NewCodes-Windows-LGi89-Triple",
                "NewCodes-Windows-HGi89-Triple-b",
                
-               "Retrofit-Windows-LG-Double",
-               "Retrofit-Windows-HG-Double",
-               "Retrofit-Windows-LGi89-Triple",
-               "Retrofit-Windows-HGi89-Triple-b",
-               
+               # New construction-upgrade heating equipment. ( no fuel switching scenarios )                     
+               "NewCodes-oil-heating-high-effciency"      ,
+               "NewCodes-gas-heating-high-effciency"      ,
+               "NewCodes-elec-heating-CCASHP"             ,    # As found to high efficiency equivlant
+               "NewCodes-elec-heating-GSHP"               ,   # As found to high efficiency equivlant
+
+               # New construction -  Hot water scenarios ( no fuel switching scenarios )                     
+               "NewCodes-elec-dhw-hp"                 ,  # As found to high efficiency equivlant
+               "NewCodes-oil-dhw-high-effciency"      ,    # As found to high efficiency equivlant
+               "NewCodes-gas-dhw-high-effciency"      ,    # As found to high efficiency equivlant
+               "NewCodes-elec-dhw-storage"            ,    # As found to high efficiency equivlant
+               "NewCodes-elec-dhw-hp"                 ,
                
                
                # Switch heating to disruptive tech ? 
                #"retrofit-heating-P9-combos"            ,    # Gas systems to high-effciency p9 combo
                #"retrofit-heating-P9+zoning"            ,    # Gas systems to p9 combos + zoned dist
-               #"retrofit-heating-CCASHP"               ,    # Elect baseboard systems to CCASHP
-               #"retrofit-heating-GSHP"                 ,    # Elect baseboard systems to CGHP
  
-               # SDHW
-               
+ 
+
+               # ================ Renewable systems ====================
+ 
+               #              
                "Renewables-DWHR-4-60",
                "Renewables-SDHW-2-plate",
                "Renewables-SDHW-2-plate+DWHR-60",
-               "Renewables-5kW-PV",
+               "Renewables-5kW-PV"
                
                
                
@@ -595,10 +612,6 @@ sub UpgradeRuleSet($){
       
       
       
-      
-      
-
-      
       last SWITCH;  
     }    
            
@@ -954,7 +967,7 @@ sub UpgradeRuleSet($){
       
     if (         
          ( $upgrade =~ /NewCodes-Windows.*/ && $choiceHash{"ID"} =~ /2012-2019.*/ ) ||
-         ( $upgrade =~ /Retrofit-Windows.*/ ) 
+         ( $upgrade =~ /retrofit-Windows.*/ ) 
         ){ 
     
         if ( $upgrade =~ /Windows-HG-Double/ )
@@ -1223,6 +1236,99 @@ sub UpgradeRuleSet($){
       
     }   
 
+      
+    #=========================================================================
+    # New codes / update Heating and hot water if / as appropriate
+    #=========================================================================
+    
+    
+    if ( $upgrade =~ /NewCodes-oil-heating-high-effciency/ ||
+           $upgrade =~ /NewCodes-gas-heating-high-effciency/ || 
+           $upgrade =~ /NewCodes-elec-heating-CCASHP/        ||
+           $upgrade =~ /NewCodes-elec-heating-GSHP/          || 
+           $upgrade =~ /NewCodes-elec-dhw-hp/                ||      
+           $upgrade =~ /NewCodes-oil-dhw-high-effciency/     ||      
+           $upgrade =~ /NewCodes-gas-dhw-high-effciency/     ||      
+           $upgrade =~ /NewCodes-elec-dhw-storage/           ||     
+           $upgrade =~ /NewCodes-elec-dhw-hp/                   ){
+           
+        if ( $choiceHash{"ID"} =~ /2012-2019.*/ ||
+           $choiceHash{"ID"} =~ /2020-2024.*/  ||  
+           $choiceHash{"ID"} =~ /2025-onwards.*/ ){              
+      
+          
+            $validupgrade = 1  ; 
+           
+           
+            #Heating 
+            if ( $upgrade =~ /NewCodes-gas-heating-high-effciency/ && 
+                 $choiceHash{"ID"} =~ /Gas/ ) {
+            
+              $choiceHash{"Opt-GhgHeatingCooling"} =  "oee-gas-ref" ;           
+                 
+            }
+            
+            
+            if ( $upgrade =~ /NewCodes-oil-heating-high-effciency/ && 
+                 $choiceHash{"ID"} =~ /Oil/ ) {
+            
+              $choiceHash{"Opt-GhgHeatingCooling"} =  "oee-oil-ref" ;           
+                 
+            }
+               
+
+            if ( $upgrade =~ /NewCodes-elec-heating-CCASHP/ && 
+                 $choiceHash{"ID"} =~ /Elect/ ) {
+            
+              $choiceHash{"Opt-GhgHeatingCooling"} =  "oee-CCASHP-ref" ;           
+                 
+            }
+               
+            if ( $upgrade =~ /NewCodes-elec-heating-GSHP/ && 
+                 $choiceHash{"ID"} =~ /Elect/ ) {
+            
+              $choiceHash{"Opt-GhgHeatingCooling"} =  "oee-CCASHP-ref" ;           
+                 
+            }               
+      
+            # DHW 
+            if ( $upgrade =~ /NewCodes-gas-heating-high-effciency/ && 
+                 $choiceHash{"ID"} =~ /Gas/ ) {
+            
+              $choiceHash{"Opt-DHWSystem"} =  "oee-gasdhw-ref" ;           
+                 
+            }
+            
+            
+            if ( $upgrade =~ /NewCodes-gas-dhw-high-effciency/ && 
+                 $choiceHash{"ID"} =~ /Oil/ ) {
+            
+              $choiceHash{"Opt-DHWSystem"} =  "oee-oildhw-ref" ;           
+                 
+            }
+               
+
+            if ( $upgrade =~ /NewCodes-elec-dhw-storage/ && 
+                 $choiceHash{"ID"} =~ /Elect/ ) {
+            
+              $choiceHash{"Opt-DHWSystem"} =  "oee-elecstorage-ref" ;           
+                 
+            }
+               
+            if ( $upgrade =~ /NewCodes-elec-dhw-hp/ && 
+                 $choiceHash{"ID"} =~ /Elect/ ) {
+            
+              $choiceHash{"Opt-DHWSystem"} =  "oee-elecHP-ref" ;            
+                 
+            }         
+      
+      
+        }
+        
+        last SWITCH;
+      
+    }
+      
     
     
     
