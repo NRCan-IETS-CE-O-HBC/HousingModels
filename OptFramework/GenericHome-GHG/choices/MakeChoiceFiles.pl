@@ -46,6 +46,10 @@ my $ChoiceFileList ="";
 
 my @upgrades= (
 
+
+               # ================ Comparison agianst old ERS data
+               "Validate-with-OldSOP", 
+
                # ================ Baseline: As found ====================
                # No changes  
                "as-found"                             ,    # Original definitions
@@ -267,6 +271,22 @@ sub UpgradeRuleSet($){
          #Do nothing. 
          last SWITCH; 
            
+    }
+  
+  
+    #=========================================================================
+    # Load conservation options 
+    #=========================================================================
+    if ( $upgrade =~ /Validate-with-OldSOP/ ){
+      
+      # As found condition - no changes needed.
+            
+      $choiceHash{"Opt-ElecLoadScale"} = "NoReduction"; 
+      $choiceHash{"Opt-DHWLoadScale"} = "OldERS"; 
+      $choiceHash{"Opt-HRV_ctl"} = "ERSp3ACH"; 
+      $validupgrade = 1; 
+      last SWITCH; 
+  
     }
   
   
