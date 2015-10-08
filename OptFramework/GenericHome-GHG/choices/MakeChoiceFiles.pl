@@ -50,7 +50,11 @@ my @upgrades= (
                # No changes  
                "as-found"                             ,    # Original definitions
                
-
+               # ================ Fuel switching ====================               
+               # Conservation changes 
+               "LoadConservation-basic",
+               "LoadConservation-aggressive",
+               
                # ================ Fuel switching ====================               
                # Fuel Switching senarios ( heating and water-heating to electricity )        
                "switch-oil-to-electricity-ASHP"       ,    # Oil boilers -> conventional ASHP + elec storage
@@ -189,6 +193,10 @@ while ( my $line = <OPTLISTFILE> ){
       }
       # extra keys that weren't part of the original spreadsheet - "as-found condition"
       $choiceHash{"Opt-DWHRandSDHW"} = "none"; 
+      $choiceHash{"Opt-ElecLoadScale"} ="<ELECTLOADSCALE>";
+      $choiceHash{"Opt-DHWLoadScale"} = "<DHWLOADSCALE>";
+      $choiceHash{"Opt-HRV_ctl"} = "<HRVCTL>";
+      
       
        my $Scenario = $choiceHash{"Scenario"} ; 
        my $ID       = $choiceHash{"ID"} ; 
@@ -256,7 +264,7 @@ sub UpgradeRuleSet($){
     if ( $choiceHash{"ID"} =~ /2020-2024.*/  ||  
          $choiceHash{"ID"} =~ /2025-onwards.*/ ){
          
-         #Do noting. 
+         #Do nothing. 
          last SWITCH; 
            
     }
@@ -274,7 +282,40 @@ sub UpgradeRuleSet($){
       last SWITCH; 
   
     }
-   
+    
+    #=========================================================================
+    # Load conservation options 
+    #=========================================================================
+    if ( $upgrade =~ /LoadConservation-basic/ ){
+      
+      # As found condition - no changes needed.
+      
+      
+      $choiceHash{"Opt-ElecLoadScale"} = "NGERSReducedA16"; 
+      $choiceHash{"Opt-DHWLoadScale"} = "EStar"; 
+      
+      $validupgrade = 1; 
+      last SWITCH; 
+  
+    }
+  
+      #=========================================================================
+    # Load conservation options 
+    #=========================================================================
+    if ( $upgrade =~ /LoadConservation-aggressive/ ){
+      
+      # As found condition - no changes needed.
+      
+      
+      $choiceHash{"Opt-ElecLoadScale"} = "NGERSBestInClass14p8"; 
+      $choiceHash{"Opt-DHWLoadScale"}  = "Low-Flow"; 
+      
+      $validupgrade = 1; 
+      last SWITCH; 
+  
+    }
+  
+  
   
     #=========================================================================
     # Fuel switching: 
@@ -1413,7 +1454,7 @@ sub WriteChoiceFile($){
    print OPTIONSOUT "Opt-DBFiles          : retrofit\n";
    print OPTIONSOUT "GOconfig_rotate      : E\n";
    print OPTIONSOUT "Opt-Location         : <LOCATION>\n";
-   print OPTIONSOUT "OPT-HRV_ctl          : <HRVCTL>\n";
+   print OPTIONSOUT "OPT-HRV_ctl          : ".$choiceHash{"Opt-HRV_ctl"}."\n";
    print OPTIONSOUT "OPT-OPR-SCHED        : scheduled\n";
    print OPTIONSOUT "Opt-BaseWindows      : MinWindows\n";
    print OPTIONSOUT "Opt-geometry         : ".$choiceHash{"Opt-geometry"}."\n";
@@ -1437,8 +1478,8 @@ sub WriteChoiceFile($){
    print OPTIONSOUT "Opt-ExposedFloor     : ".$choiceHash{"Opt-ExposedFloor"}."\n";
    print OPTIONSOUT "Opt-StandoffPV       : NoPV\n";
    print OPTIONSOUT "Opt-DWHRandSDHW      : ".$choiceHash{"Opt-DWHRandSDHW"}."\n";
-   print OPTIONSOUT "Opt-ElecLoadScale    : <ELECTLOADSCALE>\n";
-   print OPTIONSOUT "Opt-DHWLoadScale     : <DHWLOADSCALE>\n";
+   print OPTIONSOUT "Opt-ElecLoadScale    : ".$choiceHash{"Opt-ElecLoadScale"}."\n";
+   print OPTIONSOUT "Opt-DHWLoadScale     : ".$choiceHash{"Opt-DHWLoadScale"}."\n";
    print OPTIONSOUT "Opt-RoofPitch        : 6-12\n";
    print OPTIONSOUT "Opt-DHWSystem        : ".$choiceHash{"Opt-DHWSystem"}."\n";
       
