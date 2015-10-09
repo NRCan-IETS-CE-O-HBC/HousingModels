@@ -107,6 +107,7 @@ my @upgrades= (
                # ================ NewCodes: As found ====================
                
                #Attic Insulation - New 
+               "NewCodes-ceilR60",
                "NewCodes-ceilR70",
                "NewCodes-ceilR80",  
                "NewCodes-ceilR90",
@@ -1097,7 +1098,23 @@ sub UpgradeRuleSet($){
     #=========================================================================
     # New Construction: Attic insulation :  -> R70, R80, R90
     #=========================================================================
+
         
+    if ( $upgrade =~ /NewCodes-ceilR60/ ){
+    
+      if ( $choiceHash{"ID"} =~ /2012-2019.*/ ||
+           $choiceHash{"ID"} =~ /2020-2024.*/  ||  
+           $choiceHash{"ID"} =~ /2025-onwards.*/ ){
+
+          $choiceHash{"Opt-Ceilings"} = "CeilR60"  ;
+                   
+          $validupgrade = 1; 
+          
+      }
+      last SWITCH; 
+    }
+
+    
     if ( $upgrade =~ /NewCodes-ceilR70/ ){
     
       if ( $choiceHash{"ID"} =~ /2012-2019.*/ ||
