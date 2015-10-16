@@ -27,7 +27,7 @@
 *option:calc:value:2   = 12
 *option:calc:value:3 = *isi
 *option:calc:cost:total = 0
-*option:calc:alias = 101
+*option:calc:alias = l
 
 *attribute:end
 
@@ -1968,6 +1968,12 @@
 *attribute:tag:1  = <Opt-Ceiling>
 !*attribute:tag:2  = <Opt-CeilingR>
 *attribute:default = CeilR50
+
+*option:CeilR10:value:1 =   CeilR10
+!*option:CeilR10:value:2 =   CeilR10R
+*option:CeilR10:cost:total    =   0
+*option:CeilR10:alias    =   1600
+
 
 *option:CeilR20:value:1 =   CeilR20
 !*option:CeilR20:value:2 =   CeilR20R
