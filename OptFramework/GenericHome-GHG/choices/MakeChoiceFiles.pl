@@ -79,7 +79,7 @@ my @upgrades= (
                "retrofit-gas-heating-high-effciency"      ,    # As found to high efficiency equivlant
                "retrofit-elec-heating-CCASHP"             ,    # As found to high efficiency equivlant
                "retrofit-elec-heating-GSHP"               ,   # As found to high efficiency equivlant
-
+         
                # Upgrade Hot water - ( no fuel switching scenarios )                     
                "retrofit-oil-dhw-high-effciency"      ,    # As found to high efficiency equivlant
                "retrofit-gas-dhw-high-effciency"      ,    # As found to high efficiency equivlant
@@ -103,22 +103,21 @@ my @upgrades= (
                
                # Air sealing - Retrofit 
                "retrofit-airseal-level-a",
-
+         
                # ================ NewCodes: As found ====================
                
-               #Attic Insulation - New 
+               #Attic Insulation - New  
                "NewCodes-ceilR60",
                "NewCodes-ceilR70",
                "NewCodes-ceilR80",  
                "NewCodes-ceilR90",
-
+         
                # Air-tightness improvements
                "NewCodes-ACH-1.5",
                "NewCodes-ACH-1.0",
                "NewCodes-ACH-0.6",
                
                # New construction: Main wall
-               "NewCodes-MainWallInsulation-R34",
                "NewCodes-MainWallInsulation-R23",
                "NewCodes-MainWallInsulation-R25",
                "NewCodes-MainWallInsulation-R29",
@@ -142,7 +141,7 @@ my @upgrades= (
                "NewCodes-gas-heating-high-effciency"      ,
                "NewCodes-elec-heating-CCASHP"             ,    # As found to high efficiency equivlant
                "NewCodes-elec-heating-GSHP"               ,   # As found to high efficiency equivlant
-
+         
                # New construction -  Hot water scenarios ( no fuel switching scenarios )                     
                "NewCodes-elec-dhw-hp"                 ,  # As found to high efficiency equivlant
                "NewCodes-oil-dhw-high-effciency"      ,    # As found to high efficiency equivlant
@@ -154,11 +153,11 @@ my @upgrades= (
                # Switch heating to disruptive tech ? 
                #"retrofit-heating-P9-combos"            ,    # Gas systems to high-effciency p9 combo
                #"retrofit-heating-P9+zoning"            ,    # Gas systems to p9 combos + zoned dist
- 
- 
-
+         
+         
+         
                # ================ Renewable systems ====================
- 
+         
                #              
                "Renewables-DWHR-4-60",
                "Renewables-SDHW-2-plate",
@@ -198,9 +197,11 @@ while ( my $line = <OPTLISTFILE> ){
       }
       # extra keys that weren't part of the original spreadsheet - "as-found condition"
       $choiceHash{"Opt-DWHRandSDHW"} = "none"; 
-      $choiceHash{"Opt-ElecLoadScale"} ="<ELECTLOADSCALE>";
-      $choiceHash{"Opt-DHWLoadScale"} = "<DHWLOADSCALE>";
-      $choiceHash{"Opt-HRV_ctl"} = "<HRVCTL>";
+      
+      $choiceHash{"Opt-ElecLoadScale"} = "NGERSNoReduction19"; 
+      $choiceHash{"Opt-DHWLoadScale"} = "No-Reduction"; 
+      $choiceHash{"Opt-HRV_ctl"} = "EightHRpDay"; 
+      $choiceHash{"Opt-StandoffPV"} = "NoPV";
       
       
        my $Scenario = $choiceHash{"Scenario"} ; 
@@ -1513,7 +1514,7 @@ sub WriteChoiceFile($){
    
    print OPTIONSOUT "Opt-CasementWindows  :  ".$choiceHash{"Opt-CasementWindows"}."\n";
    print OPTIONSOUT "Opt-ExposedFloor     : ".$choiceHash{"Opt-ExposedFloor"}."\n";
-   print OPTIONSOUT "Opt-StandoffPV       : NoPV\n";
+   print OPTIONSOUT "Opt-StandoffPV       : ".$choiceHash{"Opt-StandoffPV"}."\n";
    print OPTIONSOUT "Opt-DWHRandSDHW      : ".$choiceHash{"Opt-DWHRandSDHW"}."\n";
    print OPTIONSOUT "Opt-ElecLoadScale    : ".$choiceHash{"Opt-ElecLoadScale"}."\n";
    print OPTIONSOUT "Opt-DHWLoadScale     : ".$choiceHash{"Opt-DHWLoadScale"}."\n";
