@@ -41,7 +41,6 @@ my @choiceAttValues;
 my %choiceHash = ();
 
 
-
 my $ChoiceFileList =""; 
 
 my @upgrades= (
@@ -168,6 +167,127 @@ my @upgrades= (
                
                ); 
 
+my %upgrade_packages = (
+                        # ================ Comparison agianst old ERS data
+#                        "Validate-with-OldSOP" => ["Validate-with-OldSOP"],
+
+                        # ================ Baseline: As found ====================
+                        # No changes  
+#                        "as-found" => ["as-found"],   # Original definitions
+
+                        # ================ Fuel switching ====================               
+                        # Conservation changes 
+#                        "LoadConservation-basic" => ["LoadConservation-basic"],
+#                        "LoadConservation-aggressive" => ["LoadConservation-aggressive"],
+
+                        # ================ Fuel switching ====================               
+                        # Fuel Switching senarios ( heating and water-heating to electricity )        
+#                        "switch-oil-to-electricity-ASHP" => ["switch-oil-to-electricity-ASHP"],        # Oil boilers -> conventional ASHP + elec storage
+#                        "switch-gas-to-electricity-ASHP" => ["switch-gas-to-electricity-ASHP"],        # Oil & Gas   -> conventional ASHP + elec stroage
+#                        "switch-oil-to-electricity-CCASHP" => ["switch-oil-to-electricity-CCASHP"],    # Oil boilers -> CCASHP + elec stroage
+#                        "switch-gas-to-electricity-CCASHP" => ["switch-gas-to-electricity-CCASHP"],    # Oil & Gas   -> CCASHP + elec storage
+#                        "switch-oil-to-electricity-GSHP" => ["switch-oil-to-electricity-GSHP"],        # Oil boilers -> CCASHP + elec storage
+#                        "switch-gas-to-electricity-GSHP" => ["switch-gas-to-electricity-GSHP"],        # Oil & Gas   -> CCASHP + elec storage 
+
+                        # Switch to gas ( heating and water-heating ) ?
+#                        "switch-oil-to-gas" => ["switch-oil-to-gas"],    # Oil         -> Gas 
+#                        "switch-electricity-to-gas" => ["switch-electricity-to-gas"],    # Electricity -> Gas 
+                                                      
+                        # ================ Retrofit existing stock ====================                                                      
+                        # Upgrade heating- for retrofit ( no fuel switching scenarios )                     
+#                        "retrofit-oil-heating-high-effciency" => ["retrofit-oil-heating-high-effciency"],    # As found to high efficiency equivlant
+#                        "retrofit-gas-heating-high-effciency" => ["retrofit-gas-heating-high-effciency"],    # As found to high efficiency equivlant
+#                        "retrofit-elec-heating-CCASHP" => ["retrofit-elec-heating-CCASHP"],                  # As found to high efficiency equivlant
+#                        "retrofit-elec-heating-GSHP" => ["retrofit-elec-heating-GSHP"],                      # As found to high efficiency equivlant
+
+                        # Upgrade Hot water - ( no fuel switching scenarios )                     
+#                        "retrofit-oil-dhw-high-effciency" => ["retrofit-oil-dhw-high-effciency"],    # As found to high efficiency equivlant
+#                        "retrofit-gas-dhw-high-effciency" => ["retrofit-gas-dhw-high-effciency"],    # As found to high efficiency equivlant
+#                        "retrofit-elec-dhw-storage" => ["retrofit-elec-dhw-storage"],                # As found to high efficiency equivlant
+#                        "retrofit-elec-dhw-hp" => ["retrofit-elec-dhw-hp"],                          # As found to high efficiency equivlant
+
+                        #Envelope systems - retrofit : 
+#                        "retrofit-main-wall-a" => ["retrofit-main-wall-a"],
+#                        "retrofit-main-wall-b" => ["retrofit-main-wall-b"],
+               
+                        #Attic Insulation - Retrofit 
+#                        "retrofit-Ceil-add-06in-cellulous" => ["retrofit-Ceil-add-06in-cellulous"],
+#                        "retrofit-Ceil-add-12in-cellulous" => ["retrofit-Ceil-add-12in-cellulous"],
+               
+                        # Windows retrofit ( spec's are the same as new 
+                        # construction - costs may be different. )
+#                        "retrofit-Windows-LG-Double" => ["retrofit-Windows-LG-Double"],
+#                        "retrofit-Windows-HG-Double" => ["retrofit-Windows-HG-Double"],
+#                        "retrofit-Windows-LGi89-Triple" => ["retrofit-Windows-LGi89-Triple"],
+#                        "retrofit-Windows-HGi89-Triple-b" => ["retrofit-Windows-HGi89-Triple-b"],
+               
+                        # Air sealing - Retrofit 
+#                        "retrofit-airseal-level-a" => ["retrofit-airseal-level-a"],
+
+                        # Air-tightness improvements
+                         "NewCodes-ACH-1.5" => ["NewCodes-ACH-1.5"],
+#                        "NewCodes-ACH-1.0" => ["NewCodes-ACH-1.0"],
+#                        "NewCodes-ACH-0.6" => ["NewCodes-ACH-0.6"],
+
+                        # New construction: Main wall
+                         "NewCodes-MainWallInsulation-R23" => ["NewCodes-MainWallInsulation-R23"],
+#                         "NewCodes-MainWallInsulation-R25" => ["NewCodes-MainWallInsulation-R25"],
+#                         "NewCodes-MainWallInsulation-R29" => ["NewCodes-MainWallInsulation-R29"], 
+#                         "NewCodes-MainWallInsulation-R34" => ["NewCodes-MainWallInsulation-R34"],
+#                         "NewCodes-MainWallInsulation-R39" => ["NewCodes-MainWallInsulation-R39"],
+#                         "NewCodes-MainWallDblStd-R34" => ["NewCodes-MainWallDblStd-R34"],
+#                         "NewCodes-MainWallDblStd-R41" => ["NewCodes-MainWallDblStd-R41"],
+
+
+                        # ================ NewCodes: As found ====================
+               
+                        #Attic Insulation - New  
+#                        "NewCodes-ceilR60" => ["NewCodes-ceilR60"],
+#                        "NewCodes-ceilR70" => "NewCodes-ceilR70",
+#                        "NewCodes-ceilR80" => ["NewCodes-ceilR80"],  
+#                        "NewCodes-ceilR90" => ["NewCodes-ceilR90"],
+
+               
+                        # New constuction: Founation 
+#                        "NewCodes-Foundation-RSI3.73" => ["NewCodes-Foundation-RSI3.73"],
+#                        "NewCodes-Foundation-RSI5.46" => ["NewCodes-Foundation-RSI5.46"],
+               
+                        # New codes: Windows 
+#                        "NewCodes-Windows-LG-Double" => ["NewCodes-Windows-LG-Double"],
+#                        "NewCodes-Windows-HG-Double" => ["NewCodes-Windows-HG-Double"],
+#                        "NewCodes-Windows-LGi89-Triple" => ["NewCodes-Windows-LGi89-Triple"],
+#                        "NewCodes-Windows-HGi89-Triple-b" => ["NewCodes-Windows-HGi89-Triple-b"],
+               
+                        # New construction-upgrade heating equipment. ( no fuel switching scenarios )                     
+#                        "NewCodes-oil-heating-high-effciency" => ["NewCodes-oil-heating-high-effciency"],
+#                        "NewCodes-gas-heating-high-effciency" => ["NewCodes-gas-heating-high-effciency"],
+#                        "NewCodes-elec-heating-CCASHP" => ["NewCodes-elec-heating-CCASHP"],    # As found to high efficiency equivlant
+#                        "NewCodes-elec-heating-GSHP" => ["NewCodes-elec-heating-GSHP"],        # As found to high efficiency equivlant
+         
+                       # New construction -  Hot water scenarios ( no fuel switching scenarios )                     
+#                       "NewCodes-elec-dhw-hp" => ["NewCodes-elec-dhw-hp"],                          # As found to high efficiency equivlant
+#                       "NewCodes-oil-dhw-high-effciency" => ["NewCodes-oil-dhw-high-effciency"],    # As found to high efficiency equivlant
+#                       "NewCodes-gas-dhw-high-effciency" => ["NewCodes-gas-dhw-high-effciency"],    # As found to high efficiency equivlant
+#                       "NewCodes-elec-dhw-storage" => ["NewCodes-elec-dhw-storage"],                # As found to high efficiency equivlant
+#                       "NewCodes-elec-dhw-hp" => ["NewCodes-elec-dhw-hp"],
+               
+               
+                       # Switch heating to disruptive tech ? 
+                       #"retrofit-heating-P9-combos" => ["retrofit-heating-P9-combos"],    # Gas systems to high-effciency p9 combo
+                       #"retrofit-heating-P9+zoning" => ["retrofit-heating-P9+zoning"],    # Gas systems to p9 combos + zoned dist
+         
+         
+         
+                       # ================ Renewable systems ====================
+         
+                       #              
+#                       "Renewables-DWHR-4-60" => ["Renewables-DWHR-4-60"],
+#                      "Renewables-SDHW-2-plate" => ["Renewables-SDHW-2-plate"],
+#                       "Renewables-SDHW-2-plate+DWHR-60" => ["Renewables-SDHW-2-plate+DWHR-60"],
+#                        "Renewables-5kW-PV" => ["Renewables-5kW-PV"]
+			   
+                        "NewCodes-ACH-1.5_MainWallInsulation-R23" => ["NewCodes-ACH-1.5","NewCodes-MainWallInsulation-R23"]
+);
 
 #my @upgrades= ( "as-found") ; 
 
@@ -187,50 +307,48 @@ while ( my $line = <OPTLISTFILE> ){
     
     # Hash created for current record, write the corresponding choice file
        
-    foreach my $upgrade ( @upgrades ){
-      
+    #foreach my $upgrade ( @upgrades ){
+    foreach my $upgrades_name (keys %upgrade_packages) {
+	  my $upgrade_package_is_valid = 0;
+	  my $upgrade_is_valid = 0;
       # Populate choice hash - do this on every upgrade because it gets overwritten
       my $count = 0;
       foreach (@choiceAttKeys){
         $choiceHash{ $choiceAttKeys[$count] } = $choiceAttValues[$count];
         $count++;
       }
+
+      my $Scenario = $choiceHash{"Scenario"} ; 
+      my $ID       = $choiceHash{"ID"} ;
       # extra keys that weren't part of the original spreadsheet - "as-found condition"
       $choiceHash{"Opt-DWHRandSDHW"} = "none"; 
-      
       $choiceHash{"Opt-ElecLoadScale"} = "NGERSNoReduction19"; 
       $choiceHash{"Opt-DHWLoadScale"} = "No-Reduction"; 
       $choiceHash{"Opt-HRV_ctl"} = "EightHRpDay"; 
       $choiceHash{"Opt-StandoffPV"} = "NoPV";
-      
-      
-       my $Scenario = $choiceHash{"Scenario"} ; 
-       my $ID       = $choiceHash{"ID"} ; 
-          
+
+      foreach my $upgrade (@{$upgrade_packages{$upgrades_name}}) {
+
+        $upgrade_is_valid = UpgradeRuleSet($upgrade);
+		
+        if(($upgrade_is_valid == 1) && ($upgrade_package_is_valid == 0)){
+		  $upgrade_package_is_valid = 1;
+		}
+      }
       
       # Call upgrade rule set to see if this upgrade can be applied 
-            
-      if ( UpgradeRuleSet($upgrade) ){
+      if($upgrade_package_is_valid == 1) {     
+        my $choiceFilename = "./".$Scenario."~".$choiceHash{"ID"} ."~".$upgrades_name.".choices";
       
-        my $choiceFilename = "./".$Scenario."~".$choiceHash{"ID"} ."~".$upgrade.".choices";
-      
-        print ( "> $ID : Generating scenario: $upgrade   \n"); 
-      
+        print ( "> $ID : Generating scenario: $upgrades_name   \n"); 
       
         # Generate corresponding Choice File
         WriteChoiceFile($choiceFilename); 
       
         # Append name to list of choice files to be run. 
-        $ChoiceFileList .= " $choiceFilename , "; 
-  
-    
+        $ChoiceFileList .= " $choiceFilename , ";       
       }
-      
-      
-    
     }
-  
-    
   }
 }
 
@@ -245,8 +363,9 @@ print "\n\n CHOICE LIST ->$ChoiceFileList<- \n";
 
 print " =============================\n";
 print " UPGRADES CONSIDERED:\n";
-foreach my $upgrade ( @upgrades ){
-      print "   -> $upgrade \n"; 
+#foreach my $upgrade ( @upgrades ){
+foreach my $upgrade_name ( keys %upgrade_packages){
+      print "   -> %upgrade_packages{$upgrade_name} \n"; 
 }
 
 
@@ -627,7 +746,7 @@ sub UpgradeRuleSet($){
           $validupgrade = 1;
           
       }            
-
+ 
       if ( $choiceHash{"ID"} =~ /1996-2005_Elect/ ){
 
           $choiceHash{"Opt-GenericWall_1Layer_definitions"} = "Generic_Wall_R-25-eff"  ;
@@ -1062,9 +1181,8 @@ sub UpgradeRuleSet($){
     #=========================================================================    
 
     if ( $upgrade =~ /NewCodes-ACH-1.5/ ){
-    
       if ( $choiceHash{"ID"} =~ /2012-2019.*/ ){
-    
+
            $choiceHash{"Opt-ACH"} = "retro_ACH_1.5";
            $validupgrade = 1;
           
@@ -1454,9 +1572,9 @@ sub UpgradeRuleSet($){
     die ("\n\nUnsupported upgrade (\"$upgrade\")!\n\n"); 
 
   }    
-  
+
   return $validupgrade; 
-  
+ 
   
  #my %UpgradeTable  = ( "Opt-All"               => "as-found" , 
  #                      "Opt-GhgHeatingCooling" => "oee-gas-ref",
