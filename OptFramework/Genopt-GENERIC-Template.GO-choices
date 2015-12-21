@@ -70,6 +70,7 @@ Opt-GenericWall_1Layer_definitions   : %GOtag:Opt-GenericWall_1Layer_definitions
 Opt-Ceilings                : %GOtag:Opt-Ceilings%
 Opt-BasementSlabInsulation  : %GOtag:Opt-BasementSlabInsulation%
 Opt-BasementWallInsulation  : %GOtag:Opt-BasementWallInsulation%
+Opt-BasementConfiguration   : %GOtag:OptBasementConfiguration%
 Opt-ExposedFloor            : %GOtag:Opt-ExposedFloor%
 OPT-OPR-SCHED               : scheduled
 
