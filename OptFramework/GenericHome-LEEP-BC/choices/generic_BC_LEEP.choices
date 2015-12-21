@@ -105,32 +105,12 @@ Opt-FloorSurface     : wood
 
 Opt-Ceilings         : CeilR50
 
-! Basement slab insulation 
-! Choices: 
-!   NoInsulation
-!   R10UnderSlab
-!   R10UnderSlab+edge
-!   R12UnderSlab+edge
-!   R24UnderSlab+edge
-Opt-BasementSlabInsulation  : NoInsulation
 
-! Foundation walls. 
-! Choices 
-!  OBC-min-R12
-!  Rigid+Batt-R30
-!  Rigid+Blown-R43
-!  ICF-base-R22
-!  ICF-base-R26
-!  ICF-base-R32
-!  ICF-base-R41
-!  ICF-base-R51     
-!  ICF-base-R51r
-!  Fnd0PWF_R28   
-! Retrofit foundation
-!    TripleBrick
-!    NWT-Crawl-Wall !NWT crawl space wall
 
-Opt-BasementWallInsulation  : OBC-min-R12
+Opt-BasementWallInsulation : GenericFoundationWall
+Opt-BasementSlabInsulation : GenericFoundationSlab
+Opt-BasementConfiguration : GHG-bsm-5-RSI_0.86
+
 
 
 ! Optical and thermal characteristics of casement windows (currently 
