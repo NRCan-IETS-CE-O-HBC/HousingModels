@@ -62,7 +62,7 @@ Opt-WindowOrientation: all
 
 
 ! ACH substitutions
-Opt-ACH       : retro_ACH_5_5
+Opt-ACH       : retro_ACH_5
 
 
 Opt-OverhangWidth : BaseOverhang
@@ -86,9 +86,8 @@ Opt-AirTightness   : Generic
 !  W15_R25
 !  Retrofit-DlBr
 
-Opt-MainWall         : BaseR20 
-Opt-GenericWall_1Layer_definitions : test
-Opt-GenericWall_2Layer_definitions : test2
+Opt-MainWall         : GenericWall_1Layer 
+Opt-GenericWall_1Layer_definitions : Stud_2x4_2in_XPS_R-24
 
 ! Add extra drywall to wall constructions 
 ! Options: 
