@@ -97,7 +97,7 @@ RUN AN OPTIMIZATION USING GENOPT
 
 6. Invoke Genopt: 
    
-        java -classpath genopt.jar genopt.GenOpt Genopt-ini-file] 
+        java -classpath genopt.jar genopt.GenOpt Genopt-ini-file
         
    Example: 
 
