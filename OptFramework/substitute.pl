@@ -2052,24 +2052,24 @@ sub postprocess($){
   my $OilFixedCharge      = 0.0 ; 
 ##  my $OilSupplyCharge     = 1.34;    # Whitehorse cost of furnace oil / arctic stove oil is $1.34/l  (Yukon energy statistics)
 
-  # Adding Local Oil costs
-  my %OilSupplyCharge   = (  "Halifax"      =>  0.99 ,
-                             "Edmonton"     =>  0.99 ,
-                             "Calgary"      =>  0.99 ,
-                             "Vancouver"    =>  0.99 ,
-                             "PrinceGeorge" =>  0.99 ,
-                             "Kamloops"     =>  0.99 ,
-                             "Ottawa"       =>  0.99 , 
-                             "Regina"       =>  0.99 ,
-                             "Winnipeg"     =>  0.99 ,
-                             "Toronto"      =>  0.99 , 
-                             "Montreal"     =>  0.99 , 
-                             "Quebec"       =>  0.99 ,
-                             "Fredricton"   =>  0.99 ,
-                             "Whitehorse"   =>  1.34 ,
-                             "Yellowknife"  =>  1.28 ,
-							 "Inuvik"       =>  1.50 ,
-							 "Alert"        =>  1.50 ); 
+  # Adding Local Oil costs - June 2016 from Stats Canada
+  my %OilSupplyCharge   = (  "Halifax"      =>  1.02 ,
+                             "Edmonton"     =>  0.90 ,
+                             "Calgary"      =>  0.95 ,
+                             "Vancouver"    =>  1.20 ,
+                             "PrinceGeorge" =>  1.20 ,  # Needs update
+                             "Kamloops"     =>  1.20 ,  # Needs update
+                             "Ottawa"       =>  1.04 , 
+                             "Regina"       =>  0.96 ,
+                             "Winnipeg"     =>  0.94 ,
+                             "Toronto"      =>  1.06 , 
+                             "Montreal"     =>  1.11 , 
+                             "Quebec"       =>  1.03 ,
+                             "Fredricton"   =>  1.02 ,
+                             "Whitehorse"   =>  1.07 ,
+                             "Yellowknife"  =>  1.13 ,
+							               "Inuvik"       =>  1.50 ,   # Needs update
+ 							               "Alert"        =>  1.50 );  # Needs update
     
   my $OilTransportCharge;
   my $OilDeliveryCharge; 
@@ -2099,46 +2099,46 @@ sub postprocess($){
   
   
   
-  #_------------------------- New rates ! -------------------------
+  #------------------------- New rates - Updated on June 20, 2016 by AF. -------------------------
   
    
   # Base charges for electricity ($/month)
   my %Elec_BaseCharge = ( "Halifax"      =>  10.83  ,
-                          "Edmonton"     =>  21.93  ,
-                          "Calgary"      =>  17.55  ,
-                          "Ottawa"       =>  9.42   ,
-                          "Toronto"      =>  18.93  ,
+                          "Edmonton"     =>  22.569  ,
+                          "Calgary"      =>  13.01  ,
+                          "Ottawa"       =>  14.07  ,
+                          "Toronto"      =>  23.06  ,
                           "Quebec"       =>  12.36  ,
                           "Montreal"     =>  12.36  ,
-                          "Vancouver"    =>  5.06   ,	# April 1, 2014: $0.1664/day * 365/12 = $5.06
-						  "PrinceGeorge" =>  4.58   ,
-						  "Kamloops"     =>  4.58   ,
+                          "Vancouver"    =>  5.58   ,	 
+						              "PrinceGeorge" =>  4.58   ,  # Needs update
+						              "Kamloops"     =>  4.58   ,  # Needs update
                           "Regina"       =>  20.22  ,
-                          "Winnipeg"     =>  6.85   ,
-                          "Fredricton"   =>  19.73  ,
-                          "Whitehorse"   =>  16.25  ,
-                          "Yellowknife"  =>  18.52  , #From Artic Energy Alliance Spring 2014
-						  "Inuvik"       =>  18.00  , #From Artic Energy Alliance Spring 2014
-						  "Alert"        =>  18.00  );
+                          "Winnipeg"     =>  7.57   ,
+                          "Fredricton"   =>  20.78  ,
+                          "Whitehorse"   =>  14.65  ,
+                          "Yellowknife"  =>  18.00  , 
+						              "Inuvik"       =>  18.00  , #From Artic Energy Alliance Spring 2014
+						              "Alert"        =>  18.00  );
 	
   # Base charges for natural gas ($/month)
   my %NG_BaseCharge = ( "Halifax"      =>  21.87 ,
-                        "Edmonton"     =>  28.44 ,
-                        "Calgary"      =>  28.44 ,
+                        "Edmonton"     =>  29.32 ,
+                        "Calgary"      =>  24.79 ,
                         "Ottawa"       =>  20.00 ,
                         "Toronto"      =>  20.00 ,
                         "Quebec"       =>  14.01 ,
                         "Montreal"     =>  14.01 ,
-                        "Vancouver"    =>  11.83 ,	# April 1, 2015: $0.389/day * 365/12 = $11.83
-						"Kamloops"     =>  11.83 ,
-						"PrinceGeorge" =>  11.83 ,
-                        "Regina"       =>  18.85 ,
+                        "Vancouver"    =>  11.83 ,	
+				             		"Kamloops"     =>  11.83 ,  # Needs update
+				             		"PrinceGeorge" =>  11.83 ,  # Needs update
+                        "Regina"       =>  20.60 ,
                         "Winnipeg"     =>  14.00 ,
-                        "Fredricton"   =>  16.00 ,
+                        "Fredricton"   =>  18.00 ,
                         "Whitehorse"   =>  "nil" ,
                         "Yellowknife"  =>  "nil" , 
-						"Inuvik"       =>  "nil" , 
-						"Alert"        =>  "nil"  ); 	
+				              	"Inuvik"       =>  "nil" , 
+				              	"Alert"        =>  "nil"  ); 	
 
    my %Elec_TierType  = ( "Halifax"      =>  "none" ,
                           "Edmonton"     =>  "none" ,
@@ -2148,8 +2148,8 @@ sub postprocess($){
                           "Quebec"       =>  "1-day" ,
                           "Montreal"     =>  "1-day" ,
                           "Vancouver"    =>  "2-month",
-						  "PrinceGeorge" =>  "2-month",
-						  "Kamloops"     =>  "2-month",
+	            					  "PrinceGeorge" =>  "2-month",
+		            				  "Kamloops"     =>  "2-month",
                           "Regina"       =>  "none" ,
                           "Winnipeg"     =>  "none" ,
                           "Fredricton"   =>  "none" ,
@@ -2163,83 +2163,84 @@ sub postprocess($){
                           "Calgary"      =>  "none" ,
                           "Ottawa"       =>  "1-month" ,
                           "Toronto"      =>  "1-month" ,
-                          "Quebec"       =>  "1-month" ,
-                          "Montreal"     =>  "1-month" ,
+                          "Quebec"       =>  "none", #used to be "1-month" ,
+                          "Montreal"     =>  "none", #used to be "1-month" ,
                           "Vancouver"    =>  "none",
-						  "PrinceGeorge" =>  "none",
-						  "Kamloops"     =>  "none",
+				            		  "PrinceGeorge" =>  "none",
+				            		  "Kamloops"     =>  "none",
                           "Regina"       =>  "none" ,
                           "Winnipeg"     =>  "none" ,
                           "Fredricton"   =>  "none" ,
                           "Whitehorse"   =>  "NA"   ,
-						  "Yellowknife"  =>  "NA"   ,
-						  "Inuvik"       =>  "NA"   ,
+					            	  "Yellowknife"  =>  "NA"   ,
+					            	  "Inuvik"       =>  "NA"   ,
                           "Alert"        =>  "NA"    ); 
  
     
-    my %EffElectricRates = ( "Halifax"     => 0.1436 ,
-                             "Edmonton"    => 0.1236 ,
-                             "Calgary"     => 0.1224 ,
-                             "Regina"      => 0.1113 ,
-                             "Winnipeg"    => 0.0694 ,
-                             "Fredricton"  => 0.0985 ,
-                             "Yellowknife" => 0.29   , # Arctic Energy Alliance Spring 2014
-							 "Inuvik"      => 0.29   , # Arctic Energy Alliance Spring 2014
-							 "Alert"       => 0.29   );
+    my %EffElectricRates = ( "Halifax"     => 0.1480 ,
+                             "Edmonton"    => 0.1055 ,
+                             "Calgary"     => 0.0957 ,
+                             "Regina"      => 0.1262 ,
+                             "Winnipeg"    => 0.0726 ,
+                             "Fredricton"  => 0.1042 ,
+                             "Yellowknife" => 0.2372 , 
+					                	 "Inuvik"      => 0.29   ,  # Arctic Energy Alliance Spring 2014
+					                	 "Alert"       => 0.29   ); # Arctic Energy Alliance Spring 2014
 							 
     # TOU for Ottawa (As of May 2014), Toronto (Feb 2013).                        
-    $EffElectricRates{"Ottawa"}{"off-peak"} =  0.1243 ;                        
-    $EffElectricRates{"Ottawa"}{"mid-peak"} =  0.1626 ;
-    $EffElectricRates{"Ottawa"}{"on-peak"}  =  0.1865 ;
+    $EffElectricRates{"Ottawa"}{"off-peak"} =  0.1288 ;                        
+    $EffElectricRates{"Ottawa"}{"mid-peak"} =  0.1672 ;
+    $EffElectricRates{"Ottawa"}{"on-peak"}  =  0.2152 ;
         
-    $EffElectricRates{"Toronto"}{"off-peak"} =  0.0967 ;  
-    $EffElectricRates{"Toronto"}{"mid-peak"} =  0.1327 ;
-    $EffElectricRates{"Toronto"}{"on-peak"}  =  0.1517 ;
+    $EffElectricRates{"Toronto"}{"off-peak"} =  0.1288 ;  
+    $EffElectricRates{"Toronto"}{"mid-peak"} =  0.1738 ;
+    $EffElectricRates{"Toronto"}{"on-peak"}  =  0.2218 ;
   
     # Tiers for Montreal, Quebec 
-    $EffElectricRates{"Montreal"}{"30"}   = 0.0532 ;
-    $EffElectricRates{"Montreal"}{"9.9E99"} = 0.0751 ; 
+    $EffElectricRates{"Montreal"}{"30"}   = 0.0571 ;
+    $EffElectricRates{"Montreal"}{"9.9E99"} = 0.08680 ; 
     $EffElectricRates{"Quebec"} = $EffElectricRates{"Montreal"}; 
     
     # Tiers for Vancouver, PrinceGeorge and Kamloops
-    $EffElectricRates{"Vancouver"}{"1350"} = 0.0752 ; 		# April 1, 2014
-    $EffElectricRates{"Vancouver"}{"9.9E99"} = 0.11127 ;	# April 1, 2014
-    $EffElectricRates{"Kamloops"}{"1350"} = 0.0714 ; 
-    $EffElectricRates{"Kamloops"}{"9.9E99"} = 0.1070 ;  
-	$EffElectricRates{"PrinceGeorge"}{"1350"} = 0.0714 ; 
-    $EffElectricRates{"PrinceGeorge"}{"9.9E99"} = 0.1070 ; 
+    $EffElectricRates{"Vancouver"}{"1350"}      = 0.0870 ; 	
+    $EffElectricRates{"Vancouver"}{"9.9E99"}    = 0.1305 ;	
+    $EffElectricRates{"Kamloops"}{"1350"}       = 0.0714 ;  # April 1, 2014
+    $EffElectricRates{"Kamloops"}{"9.9E99"}     = 0.1070 ;  # April 1, 2014
+	  $EffElectricRates{"PrinceGeorge"}{"1350"}   = 0.0714 ;  # April 1, 2014
+    $EffElectricRates{"PrinceGeorge"}{"9.9E99"} = 0.1070 ;  # April 1, 2014
  
     # Tiers for Whitehorse 
-    $EffElectricRates{"Whitehorse"}{"1000"} =  0.0967 ; 
-    $EffElectricRates{"Whitehorse"}{"2500"} =  0.1327 ;
-    $EffElectricRates{"Whitehorse"}{"9.9E99"} =  0.1517 ;
+    $EffElectricRates{"Whitehorse"}{"1000"} =  0.1214   ;  
+    $EffElectricRates{"Whitehorse"}{"2500"} =  0.1282   ;
+    $EffElectricRates{"Whitehorse"}{"9.9E99"} =  0.1399 ;
   
-    my %EffGasRates  = (  "Halifax"      =>  0.5124 ,
-                          "Edmonton"     =>  0.1482 ,
-                          "Calgary"      =>  0.1363 ,
-                          "Vancouver"    =>  0.3455 ,	# April 1, 2015 (7.643+1.4898)*1.004 * 1.055/28 = $0.3455/m3
-                          "PrinceGeorge" =>  0.2923 ,
-                          "Kamloops"     =>  0.2923 ,
-                          "Regina"       =>  0.2163 ,
-                          "Winnipeg"     =>  0.2298 ,
-                          "Fredricton"   =>  0.6458 ,
+    my %EffGasRates  = (  "Halifax"      =>  0.7558 ,
+                          "Edmonton"     =>  0.1402 ,
+                          "Calgary"      =>  0.1409 ,
+                          "Vancouver"    =>  0.2408 ,	
+                          "PrinceGeorge" =>  0.2923 , # April 1, 2014
+                          "Kamloops"     =>  0.2923 , # April 1, 2014
+                          "Regina"       =>  0.2407 ,
+                          "Winnipeg"     =>  0.2574 ,
+                          "Fredricton"   =>  0.7087 ,
                           "Whitehorse"   =>  99999.9,
                           "Yellowknife"  =>  99999.9,
 						  "Inuvik"       =>  99999.9 ,
 						  "Alert"        =>  99999.9 ); 
    
     # Tiers for Ottawa (Apr. 1, 2014), Toronto
-    $EffGasRates{"Ottawa"}{"30"}     = 0.3090; 
-    $EffGasRates{"Ottawa"}{"85"}     = 0.3043; 
-    $EffGasRates{"Ottawa"}{"790"}    = 0.3006; 
-    $EffGasRates{"Ottawa"}{"9.9E99"} = 0.2978;
+    $EffGasRates{"Ottawa"}{"30"}     = 0.2442; 
+    $EffGasRates{"Ottawa"}{"85"}     = 0.2388; 
+    $EffGasRates{"Ottawa"}{"790"}    = 0.2349; 
+    $EffGasRates{"Ottawa"}{"9.9E99"} = 0.2320;
     $EffGasRates{"Toronto"} = $EffGasRates{"Ottawa"} ; 
+   
   
     # Tiers for Montreal, Quebec 
-    $EffGasRates{"Montreal"}{"30"}     = 0.5001; 
-    $EffGasRates{"Montreal"}{"100"}    = 0.4229; 
-    $EffGasRates{"Montreal"}{"300"}    = 0.4106; 
-    $EffGasRates{"Montreal"}{"9.9E99"} = 0.3749;
+    $EffGasRates{"Montreal"}{"30"}     = 0.4646; 
+    $EffGasRates{"Montreal"}{"100"}    = 0.4646; 
+    $EffGasRates{"Montreal"}{"300"}    = 0.4646; 
+    $EffGasRates{"Montreal"}{"9.9E99"} = 0.4646;
     $EffGasRates{"Quebec"} = $EffGasRates{"Montreal"} ; 
 	
    
