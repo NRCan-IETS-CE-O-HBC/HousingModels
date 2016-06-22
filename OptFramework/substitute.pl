@@ -2217,9 +2217,11 @@ sub postprocess($){
     my %EffGasRates  = (  "Halifax"      =>  0.7558 ,
                           "Edmonton"     =>  0.1402 ,
                           "Calgary"      =>  0.1409 ,
-                          "Vancouver"    =>  0.2408 ,	
+                          "Vancouver"    =>  0.2408 ,                          
                           "PrinceGeorge" =>  0.2923 , # April 1, 2014
                           "Kamloops"     =>  0.2923 , # April 1, 2014
+                          "Montreal"     =>  0.4646 ,
+                          "Quebec"       =>  0.4646 ,
                           "Regina"       =>  0.2407 ,
                           "Winnipeg"     =>  0.2574 ,
                           "Fredricton"   =>  0.7087 ,
@@ -2237,11 +2239,11 @@ sub postprocess($){
    
   
     # Tiers for Montreal, Quebec 
-    $EffGasRates{"Montreal"}{"30"}     = 0.4646; 
-    $EffGasRates{"Montreal"}{"100"}    = 0.4646; 
-    $EffGasRates{"Montreal"}{"300"}    = 0.4646; 
-    $EffGasRates{"Montreal"}{"9.9E99"} = 0.4646;
-    $EffGasRates{"Quebec"} = $EffGasRates{"Montreal"} ; 
+    #$EffGasRates{"Montreal"}{"30"}     = 0.4646; 
+    #$EffGasRates{"Montreal"}{"100"}    = 0.4646; 
+    #$EffGasRates{"Montreal"}{"300"}    = 0.4646; 
+    #$EffGasRates{"Montreal"}{"9.9E99"} = 0.4646;
+    #$EffGasRates{"Quebec"} = $EffGasRates{"Montreal"} ; 
 	
    
   
