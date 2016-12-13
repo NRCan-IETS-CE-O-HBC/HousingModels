@@ -66,7 +66,8 @@ my @upgrades= (
                "switch-gas-to-electricity-CCASHP"     ,    # Oil & Gas   -> CCASHP + elec storage
                "switch-oil-to-electricity-GSHP"       ,    # Oil boilers -> CCASHP + elec storage
                "switch-gas-to-electricity-GSHP"       ,    # Oil & Gas   -> CCASHP + elec storage 
-               
+
+              
                # Switch to gas ( heating and water-heating ) ?
                "switch-oil-to-gas"                    ,    # Oil         -> Gas 
                "switch-electricity-to-gas"            ,    # Electricity -> Gas 
@@ -161,11 +162,28 @@ my @upgrades= (
                "Renewables-DWHR-4-60",
                "Renewables-SDHW-2-plate",
                "Renewables-SDHW-2-plate+DWHR-60",
-               "Renewables-5kW-PV"
+               "Renewables-5kW-PV", 
+
+               
+               # Scenarios for "Heating with Heat Pumps" ! (Mino request)
+               "HeatWHP-oil-to-EStar"       ,
+               "HeatWHP-gas-to-EStar"       ,
+               "HeatWHP-elec-to-ASHP"      ,    
+               "HeatWHP-oil-to-ASHP"       ,    # Oil boilers -> conventional ASHP + elec storage
+               "HeatWHP-gas-to-ASHP"       ,    # Oil & Gas   -> conventional ASHP + elec stroage
+               "HeatWHP--to-ASHP"          ,
+               "HeatWHP-oil-to-CCASHP"     ,    # Oil boilers -> CCASHP + elec stroage
+               "HeatWHP-gas-to-CCASHP"     ,    # Oil & Gas   -> CCASHP + elec storage
+               "HeatWHP-elec-to-GSHP"      , 
+               "HeatWHP-oil-to-GSHP"       ,    # Oil boilers -> CCASHP + elec storage
+               "HeatWHP-gas-to-GSHP"       ,    # Oil & Gas   -> CCASHP + elec storage 
+                              
+
                
                
                
                ); 
+
 
 my %upgrade_packages = (
                         # ================ Comparison agianst old ERS data
@@ -173,7 +191,7 @@ my %upgrade_packages = (
 
                         # ================ Baseline: As found ====================
                         # No changes  
-#                        "as-found" => ["as-found"],   # Original definitions
+                       "as-found" => ["as-found"],   # Original definitions
 
                         # ================ Fuel switching ====================               
                         # Conservation changes 
@@ -225,12 +243,12 @@ my %upgrade_packages = (
 #                        "retrofit-airseal-level-a" => ["retrofit-airseal-level-a"],
 
                         # Air-tightness improvements
-                         "NewCodes-ACH-1.5" => ["NewCodes-ACH-1.5"],
+#                         "NewCodes-ACH-1.5" => ["NewCodes-ACH-1.5"],
 #                        "NewCodes-ACH-1.0" => ["NewCodes-ACH-1.0"],
 #                        "NewCodes-ACH-0.6" => ["NewCodes-ACH-0.6"],
 
                         # New construction: Main wall
-                         "NewCodes-MainWallInsulation-R23" => ["NewCodes-MainWallInsulation-R23"],
+#                         "NewCodes-MainWallInsulation-R23" => ["NewCodes-MainWallInsulation-R23"],
 #                         "NewCodes-MainWallInsulation-R25" => ["NewCodes-MainWallInsulation-R25"],
 #                         "NewCodes-MainWallInsulation-R29" => ["NewCodes-MainWallInsulation-R29"], 
 #                         "NewCodes-MainWallInsulation-R34" => ["NewCodes-MainWallInsulation-R34"],
@@ -286,7 +304,15 @@ my %upgrade_packages = (
 #                       "Renewables-SDHW-2-plate+DWHR-60" => ["Renewables-SDHW-2-plate+DWHR-60"],
 #                        "Renewables-5kW-PV" => ["Renewables-5kW-PV"]
 			   
-                        "NewCodes-ACH-1.5_MainWallInsulation-R23" => ["NewCodes-ACH-1.5","NewCodes-MainWallInsulation-R23"]
+#                        "NewCodes-ACH-1.5_MainWallInsulation-R23" => ["NewCodes-ACH-1.5","NewCodes-MainWallInsulation-R23"]
+
+                      #MINO Scenarios 
+                      "MINO-NewEnergyStarUpgrade" => ["HeatWHP-UpgradeTo-EStar"],
+                      "MINO-AllElecASHP" =>  ["HeatWHP-UpgradeTo-AllElecASHP"],
+                      "MINO-AllElecCCASHP" =>  ["HeatWHP-UpgradeTo-AllElecCCASHP"],
+                      "MINO-AllElecGSHP" =>  ["HeatWHP-UpgradeTo-AllElecGSHP"],
+
+
 );
 
 #my @upgrades= ( "as-found") ; 
@@ -550,6 +576,61 @@ sub UpgradeRuleSet($){
       
       last SWITCH; 
     }
+    
+    #=========================================================================
+    # MINO Scenarios: Heating with Heat Pumps and so forth
+    #=========================================================================     
+    
+    if ( $upgrade =~ /HeatWHP-UpgradeTo-EStar/ ) {
+      
+       if ( $choiceHash{"Opt-GhgHeatingCooling"} =~ /Gas/ ) {
+       
+         $choiceHash{"Opt-GhgHeatingCooling"} = "oee-gas-ref"  ;
+         $validupgrade = 1; 
+         
+       }
+       
+             
+       if ( $choiceHash{"Opt-GhgHeatingCooling"} =~ /Oil/ ) {
+       
+         $choiceHash{"Opt-GhgHeatingCooling"} = "oee-oil-ref"  ;
+         $validupgrade = 1; 
+         
+       }
+       
+       last SWITCH; 
+     }
+    
+        
+     if ( $upgrade =~ /HeatWHP-UpgradeTo-AllElecASHP/ ) {
+
+       $choiceHash{"Opt-GhgHeatingCooling"} = "oee-ASHP-ref"  ;
+       $validupgrade = 1; 
+         
+       last SWITCH; 
+     }
+
+    
+    
+     if ( $upgrade =~ /HeatWHP-UpgradeTo-AllElecCCASHP/ ) {
+
+       $choiceHash{"Opt-GhgHeatingCooling"} = "oee-CCASHP-ref"  ;
+       $validupgrade = 1; 
+         
+       last SWITCH; 
+     }
+    
+    
+     if ( $upgrade =~ /HeatWHP-UpgradeTo-AllElecGSHP/ ) {
+
+       $choiceHash{"Opt-GhgHeatingCooling"} = "oee-GSHP-ref"  ;
+       $validupgrade = 1; 
+         
+       last SWITCH; 
+     }    
+    
+    
+    
     
 
     #=========================================================================
@@ -1610,6 +1691,7 @@ sub WriteChoiceFile($){
    print OPTIONSOUT "Opt-DBFiles          : retrofit\n";
    print OPTIONSOUT "GOconfig_rotate      : E\n";
    print OPTIONSOUT "Opt-Location         : <LOCATION>\n";
+   #print OPTIONSOUT "Opt-Location         : Calgary\n";
    print OPTIONSOUT "OPT-HRV_ctl          : ".$choiceHash{"Opt-HRV_ctl"}."\n";
    print OPTIONSOUT "OPT-OPR-SCHED        : scheduled\n";
    print OPTIONSOUT "Opt-BaseWindows      : MinWindows\n";
