@@ -24,6 +24,7 @@ sub min($$);
 sub stream_out($);
 sub stream_out($);
 sub postprocessDakota();
+sub CalcGasHPCOP($$$);
 
 # Routines that build up complex
 # window models from simple descriptions (SHGC & U-valie)
@@ -130,6 +131,8 @@ my $gAvgOilCons_l       = 0;
 my $gAvgPropCons_l      = 0; 
 my $gAvgPelletCons_tonne = 0; 
 my $gDirection = "";
+
+my $gGasHP = 0; 
 
 my %GenericWindowParams; 
 my $GenericWindowParamsDefined = 0; 
@@ -846,6 +849,9 @@ while ( my $line = <CHOICES> ){
 	}
 }
 
+
+
+
 close( CHOICES );
 stream_out ("...done.\n") ; 
 
@@ -999,9 +1005,17 @@ while ( my ( $attribute, $choice) = each %gChoices ){
 		}
 	}
 	
+	# Set flag to activate gas-heat-pump cals, if needed. 
+	if ( $attribute =~ /Opt-GhgHeatingCooling/ && $choice =~ /gasHP/ ) { $gGasHP = $choice; }
+	
+	
 	if ( ! $allok ){ 
 		fatalerror ( "" );
 	}
+	
+	
+	
+	
 }
 
 # Check if generic windows have been defined according to SHGC and U-value. If so, process!
@@ -2253,7 +2267,7 @@ sub postprocess($){
   
   # ------ READ IN Summary Data.                            
   
-  my $gMasterPath = getcwd();
+  my $gLastPath = getcwd();
 
   # Move to working CFG directory, and parse out.summary file
   chdir $gWorkingCfgPath; 
@@ -2275,6 +2289,8 @@ sub postprocess($){
     
   }
 
+  
+  
   close(SIMRESULTS);
 
 
@@ -2364,13 +2380,74 @@ sub postprocess($){
   my @HeatingLoads = @{ $data{" building:all zones:supplied energy:heating (W)"} };
   my @CoolingLoads = @{ $data{" building:all zones:supplied energy:cooling (W)"} }; 
   
+  # Recover SH energy use for gas heat pump calculations (assume efficiency has been set to 100 in options file.  )
+  my @SHDelivered = @{ $data{" total fuel use:test:fossil fuels:space heating:energy content (W)"} }; 
+  
+  # recover outdoor temperature for gas heat pump calculations 
+  my @OutdoorTemp = @{ $data{" climate:dry bulb temperature (oC)"} }; 
+  
+  # if a gas HP is spec'd, loop through data and calculate NG 
+
+  # Variables to track running tallies for energy consumption 
+  my $row; 
+  my $CountRows++; 
+  
+  my @GasHPCop;
+  
+  if ( $gGasHP ){
+    
+    stream_out (" Applying hypothetical gas heat pump performance curve...\n"); 
+    
+    for ( $row = 0; $row < $NumberOfRows; $row++){
+      
+      $CountRows++; 
+      
+      $GasHPCop[$row] = CalcGasHPCOP( $gGasHP, $SHDelivered[$row], $OutdoorTemp[$row]  ); 
+      
+      print "     > ". $GasHPCop[$row]. " \n "; 
+      
+      $data{"GasHPCOP"}[$row] = $GasHPCop[$row] ; 
+      
+    }
+    
+     
+    stream_out("\n\n Writing edited timestep data...") ; 
+
+
+    $RowNumber = 0; 
+    $firstline = 1;
+    
+    my $TSoutput = "";
+   
+    for ( $row = -1; $row < $NumberOfRows; $row++){
+    
+      foreach my $column ( sort keys %data ){
+        if ( $row < 0 ){
+          $TSoutput .= "$column, "; 
+        }else{ 
+          $TSoutput .= $data{$column}[$row].", "; 
+        }       
+      }
+      
+      
+      $TSoutput .= "\n"; 
+      
+    
+    }
+    
+    open (TSRESULTS, ">$gMasterPath/sim-output/out2.csv") or fatalerror("Could not open $gMasterPath/sim-output/out2.csv for writing!");
+    print TSRESULTS $TSoutput; 
+    close (TSRESULTS);
+  
+  
+  }
+  
   
   
   
   # Now loop through data and apply energy rates
 
-  # Variables to track running tallies for energy consumption 
-  my $row; 
+
 
   my $ElecConsumptionCost = 0; 
   my $MonthGasConsumption = 0; 
@@ -2390,7 +2467,7 @@ sub postprocess($){
 
   my $BiMonthCounter = 1; 
   
-  my $CountRows = 0; 
+  $CountRows = 0; 
 
   for ( $row = 0; $row < $NumberOfRows; $row++){
 
@@ -2967,7 +3044,7 @@ sub postprocess($){
     stream_out(" ERS value_noVent:   ".$tmpval."\n\n");
   }
   
-  chdir($gMasterPath);
+  chdir($gLastPath);
   my $fileexists; 
 
   
@@ -3245,6 +3322,51 @@ sub ProcessGenericWindowMLC($){
 	
 
 }
+
+# -----------------------------------------------------------------------------------------
+# Work-around for gas heat pump calculation 
+# -----------------------------------------------------------------------------------------
+sub CalcGasHPCOP($$$)
+{
+
+  my ( $Spec, $Load, $Temp ) = @_; 
+  
+  my %GasHPs; 
+  my $COP; 
+  
+  
+  $GasHPs{"gasHP-a"}{"CutOutTemp"} = -20.0;
+  $GasHPs{"gasHP-a"}{"RatingTemp"} = 0.0;
+   
+  $GasHPs{"gasHP-a"}{"CutOutCOP"} = 1.2 ;
+  $GasHPs{"gasHP-a"}{"RatingCOP"} = 1.6 ;
+  $GasHPs{"gasHP-a"}{"BackUpEff"} = 0.95;
+
+  if ( $Temp < $GasHPs{$Spec}{"CutOutTemp"}+.01 ) { 
+  
+  
+    $COP = $GasHPs{$Spec}{"BackUpEff"} ;
+  
+  } else {
+  
+  
+    $COP =   $GasHPs{$Spec}{"CutOutCOP"} +  ( $GasHPs{$Spec}{"RatingCOP"} - $GasHPs{$Spec}{"CutOutCOP"} )  
+               *  ( $Temp - $GasHPs{$Spec}{"CutOutTemp"} ) 
+              /  ( $GasHPs{$Spec}{"RatingTemp"} - $GasHPs{$Spec}{"CutOutTemp"} ) ;  
+  }
+  
+  
+  
+  print " > $Temp, $COP \n "; 
+  
+  return $COP ; 
+
+
+
+}
+
+
+
 
 # -----------------------------------------------------------------------------------------
 # Post process Dakota output file and stop (-z option)

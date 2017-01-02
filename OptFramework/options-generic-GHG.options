@@ -2879,7 +2879,7 @@
 *option:ghg-hvac-1-Gas:value:6  = shoulder-ideal.ctl
 *option:ghg-hvac-1-Gas:value:7  = gas
 *option:ghg-hvac-1-Gas:value:8  = 5
-*option:ghg-hvac-1-Gas:value:9 = 15000
+*option:ghg-hvac-1-Gas:value:9 = 25000
 *option:ghg-hvac-1-Gas:value:10  = 0.74
 *option:ghg-hvac-1-Gas:value:11  = 600
 *option:ghg-hvac-1-Gas:value:12  = 600
@@ -2899,7 +2899,7 @@
 *option:ghg-hvac-2-Elect:value:6  = shoulder-ideal.ctl
 *option:ghg-hvac-2-Elect:value:7  = electricity
 *option:ghg-hvac-2-Elect:value:8  = nil
-*option:ghg-hvac-2-Elect:value:9 = 15000
+*option:ghg-hvac-2-Elect:value:9 = 25000
 *option:ghg-hvac-2-Elect:value:10  = 1
 *option:ghg-hvac-2-Elect:value:11  = 600
 *option:ghg-hvac-2-Elect:value:12  = 0
@@ -2919,7 +2919,7 @@
 *option:ghg-hvac-3-Oil:value:6  = shoulder-ideal.ctl
 *option:ghg-hvac-3-Oil:value:7  = oil
 *option:ghg-hvac-3-Oil:value:8  = 14
-*option:ghg-hvac-3-Oil:value:9 = 15000
+*option:ghg-hvac-3-Oil:value:9 = 25000
 *option:ghg-hvac-3-Oil:value:10  = 0.64
 *option:ghg-hvac-3-Oil:value:11  = 600
 *option:ghg-hvac-3-Oil:value:12  = 600
@@ -2939,7 +2939,7 @@
 *option:ghg-hvac-4-Gas:value:6  = shoulder-ideal.ctl
 *option:ghg-hvac-4-Gas:value:7  = gas
 *option:ghg-hvac-4-Gas:value:8  = 5
-*option:ghg-hvac-4-Gas:value:9 = 15000
+*option:ghg-hvac-4-Gas:value:9 = 25000
 *option:ghg-hvac-4-Gas:value:10  = 0.78
 *option:ghg-hvac-4-Gas:value:11  = 520
 *option:ghg-hvac-4-Gas:value:12  = 520
@@ -2959,7 +2959,7 @@
 *option:ghg-hvac-5-Elect:value:6  = shoulder-ideal.ctl
 *option:ghg-hvac-5-Elect:value:7  = electricity
 *option:ghg-hvac-5-Elect:value:8  = nil
-*option:ghg-hvac-5-Elect:value:9 = 15000
+*option:ghg-hvac-5-Elect:value:9 = 25000
 *option:ghg-hvac-5-Elect:value:10  = 1
 *option:ghg-hvac-5-Elect:value:11  = 520
 *option:ghg-hvac-5-Elect:value:12  = 0
@@ -2979,7 +2979,7 @@
 *option:ghg-hvac-6-Oil:value:6  = shoulder-ideal.ctl
 *option:ghg-hvac-6-Oil:value:7  = oil
 *option:ghg-hvac-6-Oil:value:8  = 14
-*option:ghg-hvac-6-Oil:value:9 = 15000
+*option:ghg-hvac-6-Oil:value:9 = 25000
 *option:ghg-hvac-6-Oil:value:10  = 0.68
 *option:ghg-hvac-6-Oil:value:11  = 520
 *option:ghg-hvac-6-Oil:value:12  = 520
@@ -2999,7 +2999,7 @@
 *option:ghg-hvac-7-Gas:value:6  = shoulder-ideal.ctl
 *option:ghg-hvac-7-Gas:value:7  = gas
 *option:ghg-hvac-7-Gas:value:8  = 10
-*option:ghg-hvac-7-Gas:value:9 = 15000
+*option:ghg-hvac-7-Gas:value:9 = 25000
 *option:ghg-hvac-7-Gas:value:10  = 0.8
 *option:ghg-hvac-7-Gas:value:11  = 400
 *option:ghg-hvac-7-Gas:value:12  = 400
@@ -3019,7 +3019,7 @@
 *option:ghg-hvac-8-Elect:value:6  = shoulder-ideal.ctl
 *option:ghg-hvac-8-Elect:value:7  = electricity
 *option:ghg-hvac-8-Elect:value:8  = nil
-*option:ghg-hvac-8-Elect:value:9 = 15000
+*option:ghg-hvac-8-Elect:value:9 = 25000
 *option:ghg-hvac-8-Elect:value:10  = 1
 *option:ghg-hvac-8-Elect:value:11  = 400
 *option:ghg-hvac-8-Elect:value:12  = 0
@@ -3039,7 +3039,7 @@
 *option:ghg-hvac-9-Oil:value:6  = shoulder-ideal.ctl
 *option:ghg-hvac-9-Oil:value:7  = oil
 *option:ghg-hvac-9-Oil:value:8  = 14
-*option:ghg-hvac-9-Oil:value:9 = 15000
+*option:ghg-hvac-9-Oil:value:9 = 25000
 *option:ghg-hvac-9-Oil:value:10  = 0.74
 *option:ghg-hvac-9-Oil:value:11  = 400
 *option:ghg-hvac-9-Oil:value:12  = 400
@@ -3059,7 +3059,7 @@
 *option:ghg-hvac-10-Gas:value:6  = shoulder-ideal.ctl
 *option:ghg-hvac-10-Gas:value:7  = gas
 *option:ghg-hvac-10-Gas:value:8  = 10
-*option:ghg-hvac-10-Gas:value:9 = 15000
+*option:ghg-hvac-10-Gas:value:9 = 25000
 *option:ghg-hvac-10-Gas:value:10  = 0.87
 *option:ghg-hvac-10-Gas:value:11  = 400
 *option:ghg-hvac-10-Gas:value:12  = 400
@@ -3078,7 +3078,7 @@
 *option:ghg-hvac-11-Elect:value:6  = shoulder-ideal.ctl
 *option:ghg-hvac-11-Elect:value:7  = electricity
 *option:ghg-hvac-11-Elect:value:8  = nil
-*option:ghg-hvac-11-Elect:value:9 = 15000
+*option:ghg-hvac-11-Elect:value:9 = 25000
 *option:ghg-hvac-11-Elect:value:10  = 1
 *option:ghg-hvac-11-Elect:value:11  = 400
 *option:ghg-hvac-11-Elect:value:12  = 0
@@ -3098,7 +3098,7 @@
 *option:ghg-hvac-12-Oil:value:6  = shoulder-ideal.ctl
 *option:ghg-hvac-12-Oil:value:7  = oil
 *option:ghg-hvac-12-Oil:value:8  = 14
-*option:ghg-hvac-12-Oil:value:9 = 15000
+*option:ghg-hvac-12-Oil:value:9 = 25000
 *option:ghg-hvac-12-Oil:value:10  = 0.83
 *option:ghg-hvac-12-Oil:value:11  = 400
 *option:ghg-hvac-12-Oil:value:12  = 400
@@ -3118,7 +3118,7 @@
 *option:ghg-hvac-13-Gas:value:6  = shoulder-ideal.ctl
 *option:ghg-hvac-13-Gas:value:7  = gas
 *option:ghg-hvac-13-Gas:value:8  = 8
-*option:ghg-hvac-13-Gas:value:9 = 15000
+*option:ghg-hvac-13-Gas:value:9 = 25000
 *option:ghg-hvac-13-Gas:value:10  = 0.9
 *option:ghg-hvac-13-Gas:value:11  = 400
 *option:ghg-hvac-13-Gas:value:12  = 400
@@ -3138,7 +3138,7 @@
 *option:ghg-hvac-14-Elect:value:6  = shoulder-ideal.ctl
 *option:ghg-hvac-14-Elect:value:7  = electricity
 *option:ghg-hvac-14-Elect:value:8  = nil
-*option:ghg-hvac-14-Elect:value:9 = 15000
+*option:ghg-hvac-14-Elect:value:9 = 25000
 *option:ghg-hvac-14-Elect:value:10  = 1
 *option:ghg-hvac-14-Elect:value:11  = 400
 *option:ghg-hvac-14-Elect:value:12  = 0
@@ -3158,7 +3158,7 @@
 *option:ghg-hvac-15-Oil:value:6  = shoulder-ideal.ctl
 *option:ghg-hvac-15-Oil:value:7  = oil
 *option:ghg-hvac-15-Oil:value:8  = 14
-*option:ghg-hvac-15-Oil:value:9 = 15000
+*option:ghg-hvac-15-Oil:value:9 = 25000
 *option:ghg-hvac-15-Oil:value:10  = 0.83
 *option:ghg-hvac-15-Oil:value:11  = 400
 *option:ghg-hvac-15-Oil:value:12  = 400
@@ -3178,7 +3178,7 @@
 *option:ghg-hvac-16-Gas:value:6  = shoulder-ideal.ctl
 *option:ghg-hvac-16-Gas:value:7  = gas
 *option:ghg-hvac-16-Gas:value:8  = 8
-*option:ghg-hvac-16-Gas:value:9 = 15000
+*option:ghg-hvac-16-Gas:value:9 = 25000
 *option:ghg-hvac-16-Gas:value:10  = 0.92
 *option:ghg-hvac-16-Gas:value:11  = 320
 *option:ghg-hvac-16-Gas:value:12  = 320
@@ -3198,7 +3198,7 @@
 *option:ghg-hvac-17-Elect:value:6  = shoulder-ideal.ctl
 *option:ghg-hvac-17-Elect:value:7  = electricity
 *option:ghg-hvac-17-Elect:value:8  = nil
-*option:ghg-hvac-17-Elect:value:9 = 15000
+*option:ghg-hvac-17-Elect:value:9 = 25000
 *option:ghg-hvac-17-Elect:value:10  = 1
 *option:ghg-hvac-17-Elect:value:11  = 320
 *option:ghg-hvac-17-Elect:value:12  = 0
@@ -3218,7 +3218,7 @@
 *option:ghg-hvac-18-Oil:value:6  = shoulder-ideal.ctl
 *option:ghg-hvac-18-Oil:value:7  = oil
 *option:ghg-hvac-18-Oil:value:8  = 14
-*option:ghg-hvac-18-Oil:value:9 = 15000
+*option:ghg-hvac-18-Oil:value:9 = 25000
 *option:ghg-hvac-18-Oil:value:10  = 0.87
 *option:ghg-hvac-18-Oil:value:11  = 320
 *option:ghg-hvac-18-Oil:value:12  = 320
@@ -3238,7 +3238,7 @@
 *option:ghg-hvac-19-Gas:value:6  = shoulder-ideal.ctl
 *option:ghg-hvac-19-Gas:value:7  = gas
 *option:ghg-hvac-19-Gas:value:8  = 8
-*option:ghg-hvac-19-Gas:value:9 = 15000
+*option:ghg-hvac-19-Gas:value:9 = 25000
 *option:ghg-hvac-19-Gas:value:10  = 0.95
 *option:ghg-hvac-19-Gas:value:11  = 250
 *option:ghg-hvac-19-Gas:value:12  = 250
@@ -3258,7 +3258,7 @@
 *option:ghg-hvac-20-Elect:value:6  = shoulder-ideal.ctl
 *option:ghg-hvac-20-Elect:value:7  = electricity
 *option:ghg-hvac-20-Elect:value:8  = nil
-*option:ghg-hvac-20-Elect:value:9 = 15000
+*option:ghg-hvac-20-Elect:value:9 = 25000
 *option:ghg-hvac-20-Elect:value:10  = 1
 *option:ghg-hvac-20-Elect:value:11  = 250
 *option:ghg-hvac-20-Elect:value:12  = 0
@@ -3277,7 +3277,7 @@
 *option:ghg-hvac-21-Oil:value:6  = shoulder-ideal.ctl
 *option:ghg-hvac-21-Oil:value:7  = oil
 *option:ghg-hvac-21-Oil:value:8  = 14
-*option:ghg-hvac-21-Oil:value:9 = 15000
+*option:ghg-hvac-21-Oil:value:9 = 25000
 *option:ghg-hvac-21-Oil:value:10  = 0.92
 *option:ghg-hvac-21-Oil:value:11  = 250
 *option:ghg-hvac-21-Oil:value:12  = 250
@@ -3297,7 +3297,7 @@
 *option:ghg-hvac-22-Gas:value:6  = shoulder-ideal.ctl
 *option:ghg-hvac-22-Gas:value:7  = gas
 *option:ghg-hvac-22-Gas:value:8  = 8
-*option:ghg-hvac-22-Gas:value:9 = 15000
+*option:ghg-hvac-22-Gas:value:9 = 25000
 *option:ghg-hvac-22-Gas:value:10  = 0.97
 *option:ghg-hvac-22-Gas:value:11  = 200
 *option:ghg-hvac-22-Gas:value:12  = 200
@@ -3317,7 +3317,7 @@
 *option:ghg-hvac-23-CCHP:value:6  = shoulder-ideal.ctl
 *option:ghg-hvac-23-CCHP:value:7  = electricity
 *option:ghg-hvac-23-CCHP:value:8  = nil
-*option:ghg-hvac-23-CCHP:value:9 = 15000
+*option:ghg-hvac-23-CCHP:value:9 = 25000
 *option:ghg-hvac-23-CCHP:value:10  = 2.5
 *option:ghg-hvac-23-CCHP:value:11  = 200
 *option:ghg-hvac-23-CCHP:value:12  = 200
@@ -3337,7 +3337,7 @@
 *option:ghg-hvac-24-Oil:value:6  = shoulder-ideal.ctl
 *option:ghg-hvac-24-Oil:value:7  = oil
 *option:ghg-hvac-24-Oil:value:8  = 14
-*option:ghg-hvac-24-Oil:value:9 = 15000
+*option:ghg-hvac-24-Oil:value:9 = 25000
 *option:ghg-hvac-24-Oil:value:10  = 0.94
 *option:ghg-hvac-24-Oil:value:11  = 200
 *option:ghg-hvac-24-Oil:value:12  = 200
@@ -3360,7 +3360,7 @@
 *option:oee-CCASHP-ref:value:6  = shoulder-ideal.ctl
 *option:oee-CCASHP-ref:value:7  = electricity
 *option:oee-CCASHP-ref:value:8  = nil
-*option:oee-CCASHP-ref:value:9 = 15000
+*option:oee-CCASHP-ref:value:9 = 25000
 *option:oee-CCASHP-ref:value:10  = 3.0
 *option:oee-CCASHP-ref:value:11  = 200
 *option:oee-CCASHP-ref:value:12  = 200
@@ -3379,7 +3379,7 @@
 *option:oee-ASHP-ref:value:6  = shoulder-ideal.ctl
 *option:oee-ASHP-ref:value:7  = electricity
 *option:oee-ASHP-ref:value:8  = nil
-*option:oee-ASHP-ref:value:9 = 15000
+*option:oee-ASHP-ref:value:9 = 25000
 *option:oee-ASHP-ref:value:10  = 3.0
 *option:oee-ASHP-ref:value:11  = 200
 *option:oee-ASHP-ref:value:12  = 200
@@ -3398,7 +3398,7 @@
 *option:oee-GSHP-ref:value:6  = shoulder-ideal.ctl
 *option:oee-GSHP-ref:value:7  = electricity
 *option:oee-GSHP-ref:value:8  = nil
-*option:oee-GSHP-ref:value:9 = 15000
+*option:oee-GSHP-ref:value:9 = 25000
 *option:oee-GSHP-ref:value:10  = 3.0
 *option:oee-GSHP-ref:value:11  = 200
 *option:oee-GSHP-ref:value:12  = 200
@@ -3417,8 +3417,8 @@
 *option:oee-oil-ref:value:6  = shoulder-ideal.ctl
 *option:oee-oil-ref:value:7  = oil
 *option:oee-oil-ref:value:8  = 14
-*option:oee-oil-ref:value:9 = 15000
-*option:oee-oil-ref:value:10  = 0.92
+*option:oee-oil-ref:value:9 = 25000
+*option:oee-oil-ref:value:10  = 0.85
 *option:oee-oil-ref:value:11  = 250
 *option:oee-oil-ref:value:12  = 250
 *option:oee-oil-ref:value:13  = 75
@@ -3437,7 +3437,7 @@
 *option:oee-gas-ref:value:6  = shoulder-ideal.ctl
 *option:oee-gas-ref:value:7  = gas
 *option:oee-gas-ref:value:8  = 8
-*option:oee-gas-ref:value:9  = 15000
+*option:oee-gas-ref:value:9  = 25000
 *option:oee-gas-ref:value:10 = 0.95
 *option:oee-gas-ref:value:11 = 250
 *option:oee-gas-ref:value:12 = 250
@@ -3458,7 +3458,7 @@
 *option:oee-elec-ref:value:6  = shoulder-ideal.ctl       ! tag: <Opt-HVACCtlFile>
 *option:oee-elec-ref:value:7  = electricity              ! tag: <OPT-heating-fuel> 
 *option:oee-elec-ref:value:8  = nil                      ! tag: <OPT-FurnaceType>
-*option:oee-elec-ref:value:9 = 15000                     ! tag: <OPT-HeatingCapacity>
+*option:oee-elec-ref:value:9 = 25000                     ! tag: <OPT-HeatingCapacity>
 *option:oee-elec-ref:value:10  = 1                       ! tag: <OPT-FurnaceEfficiency>
 *option:oee-elec-ref:value:11  = 250                     ! tag: <OPT-FurnaceFanPower>
 *option:oee-elec-ref:value:12  = 250                     ! tag: <OPT-FurnaceFanPowerLo>
@@ -3480,7 +3480,7 @@
 *option:ghg-hvac-Gas-upgrade-nohrv:value:6  = shoulder-ideal.ctl
 *option:ghg-hvac-Gas-upgrade-nohrv:value:7  = gas
 *option:ghg-hvac-Gas-upgrade-nohrv:value:8  = 8
-*option:ghg-hvac-Gas-upgrade-nohrv:value:9 = 15000
+*option:ghg-hvac-Gas-upgrade-nohrv:value:9 = 25000
 *option:ghg-hvac-Gas-upgrade-nohrv:value:10  = 0.95
 *option:ghg-hvac-Gas-upgrade-nohrv:value:11  = 250
 *option:ghg-hvac-Gas-upgrade-nohrv:value:12  = 250
@@ -3499,7 +3499,7 @@
 *option:ghg-hvac-Gas-upgrade-hrv:value:6  = shoulder-ideal.ctl
 *option:ghg-hvac-Gas-upgrade-hrv:value:7  = gas
 *option:ghg-hvac-Gas-upgrade-hrv:value:8  = 8
-*option:ghg-hvac-Gas-upgrade-hrv:value:9 = 15000
+*option:ghg-hvac-Gas-upgrade-hrv:value:9 = 25000
 *option:ghg-hvac-Gas-upgrade-hrv:value:10  = 0.95
 *option:ghg-hvac-Gas-upgrade-hrv:value:11  = 250
 *option:ghg-hvac-Gas-upgrade-hrv:value:12  = 250
@@ -3509,7 +3509,27 @@
 *option:ghg-hvac-Gas-upgrade-hrv:value:16  = 11000
 *option:ghg-hvac-Gas-upgrade-hrv:value:17  = 3.60477588844537
 *option:ghg-hvac-Gas-upgrade-hrv:value:18  =														 
-														 
+			
+
+*option:gasHP-a:value:1   = ghg-gas.hvac
+*option:gasHP-a:value:2   = #-no-GSHP-file
+*option:gasHP-a:value:3   = #-no-IMS
+*option:gasHP-a:value:4   =
+*option:gasHP-a:value:5   =
+*option:gasHP-a:value:6   = shoulder-ideal.ctl
+*option:gasHP-a:value:7   = gas 
+*option:gasHP-a:value:8   = 8
+*option:gasHP-a:value:9   = 25000
+*option:gasHP-a:value:10  = 1.00
+*option:gasHP-a:value:11  = 250
+*option:gasHP-a:value:12  = 250
+*option:gasHP-a:value:13  = 75
+*option:gasHP-a:value:14  = 0
+*option:gasHP-a:value:15  = 0
+*option:gasHP-a:value:16  = 11000
+*option:gasHP-a:value:17  = 3.60477588844537
+*option:gasHP-a:value:18  =		
+			
 														 
 *attribute:end
 
