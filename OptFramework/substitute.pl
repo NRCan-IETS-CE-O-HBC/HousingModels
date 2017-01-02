@@ -41,6 +41,7 @@ my $gOptionFile  = "" ;
 my $gBPSpath            = "~/esp-r/bin/bps"; 
 my $gPRJpath            = "~/esp-r/bin/prj"; 
 
+my $choiceTxt = "";  
 
 #### Please Don't change these --- use the -b option instead! ###
 # $gBaseModelFolder initialized here but can be over-ridden by command line value with -b option
@@ -763,6 +764,8 @@ stream_out("\n\nReading $gChoiceFile...");
 
 $linecount = 0;
 
+
+
 while ( my $line = <CHOICES> ){
 	
 	$line =~ s/\!.*$//g; 
@@ -797,6 +800,7 @@ while ( my $line = <CHOICES> ){
 		} else {
 			# reformat line in friendly format 
 			$line = "$token:$value"; 
+			$choiceTxt .= "$token?$value|";
 		}
     
 	}
@@ -2320,10 +2324,12 @@ sub postprocess($){
   my $Locale = $gChoices{"Opt-Location"}; 
   
   if ( $Locale =~ /London/ || $Locale =~ /Windsor/ || $Locale =~ /ThunderBay/ ){ $Locale = "Toronto";}
-  
+  $SaveVPOutput =0 ; 
   if ( $SaveVPOutput ) {
-    fcopy ( "out.csv","$gMasterPath/../VP-sim-output/$Locale-$gDirection-out.csv" );  
+    fcopy ( "out.csv","$gMasterPath/../VP-sim-output/$Locale-$gChoiceFile.csv" );  
   }
+  
+
   
   if ( $gCustomCostAdjustment ) { 
   
