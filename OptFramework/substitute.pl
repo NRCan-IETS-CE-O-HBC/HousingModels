@@ -2361,21 +2361,16 @@ sub postprocess($){
 
   stream_out("done (parsed $NumberOfRows rows)\n"); 
 
-  # Recover electrical, natural gas, oil, propane, wood, or pellet consumption data 
-  my @Electrical_Use = @{ $data{" total fuel use:electricity:all end uses:quantity (kWh/s)"} };
-  my @NaturalGas_Use = @{ $data{" total fuel use:natural gas:all end uses:quantity (m3/s)"}  };
-  my @Oil_Use        = @{ $data{" total fuel use:oil:all end uses:quantity (l/s)"}  };
-  my @Propane_Use    = @{ $data{" total fuel use:propane:all end uses:quantity (m3/s)"}  };
-  my @Wood_Use       = @{ $data{" total fuel use:mixed wood:all end uses:quantity (tonne/s)"}  };
-  my @Pellets_Use    = @{ $data{" total fuel use:wood pellets:all end uses:quantity (tonne/s)"}  };
-  #my @Wood_Use       = @{ $data{" total fuel use:wood:all end uses:quantity (cord/s)"}  };
-  #my @Pellets_Use    = @{ $data{" total fuel use:pellets:all end uses:quantity (ton/s)"}  };
   # Recover Day, Hour & Month
   my @DayOfYear   = @{  $data{" building:day:future (day)"}     } ;
   my @HourOfDay   = @{  $data{" building:hour:future (hours)"}  } ;
   my @MonthOfYear = @{  $data{" building:month (-)"}            } ; 
 
   
+  # Fan power 
+  
+  my @FanPowerW = @{ $data{" plant:ideal hvac models:circulation fans:fuel use:energy input (W)"} } ; 
+                            
   # Track peak heating and cooling loads
   my @HeatingLoads = @{ $data{" building:all zones:supplied energy:heating (W)"} };
   my @CoolingLoads = @{ $data{" building:all zones:supplied energy:cooling (W)"} }; 
@@ -2392,7 +2387,11 @@ sub postprocess($){
   my $row; 
   my $CountRows++; 
   
-  my @GasHPCop;
+  my @GasHPCop = ();
+  my @GasHPCap = ();
+  my @HPLoad = ();
+  my @HPNatGasUse = ();  
+  my $TotalHPGasUse = 0;  
   
   if ( $gGasHP ){
     
@@ -2404,15 +2403,37 @@ sub postprocess($){
       
       $GasHPCop[$row] = CalcGasHPCOP( $gGasHP, $SHDelivered[$row], $OutdoorTemp[$row]  ); 
       
-      print "     > ". $GasHPCop[$row]. " \n "; 
+      # Maybe second calc on capacity here? 
+       $GasHPCap[$row] = 25000 * 1.1 ; 
       
+      
+
       $data{"GasHPCOP"}[$row] = $GasHPCop[$row] ; 
       
+      # Convert COP to M3 of natural gas (26.8392 M3/GJ)
+      
+      $HPLoad[$row] =  $SHDelivered[$row]  - $FanPowerW[$row] ; 
+      if ( $HPLoad[$row] > 0.  ){
+        $HPNatGasUse[$row] = $HPLoad[$row] / $GasHPCop[$row] / 1.0E09 * 26.8392;
+      }else{
+        $HPNatGasUse[$row] = 0; 
+      }
+      
+      $TotalHPGasUse =  $TotalHPGasUse +  $HPNatGasUse[$row]; 
+      print "     > ".  $TotalHPGasUse . " |+| ".$HPNatGasUse[$row]. " \n "; 
+      
+      # Overwrite original gas consumption estimate: 
+      $data{" total fuel use:natural gas:all end uses:quantity (ref) (m3/s)"}[$row] = $data{" total fuel use:natural gas:all end uses:quantity (m3/s)"}[$row];
+      $data{" total fuel use:natural gas:all end uses:quantity (m3/s)"}[$row] = $HPNatGasUse[$row];
+      
     }
-    
-     
+  
+    # Update gas consumption 
+    $gSimResults{"total_fuel_use/natural_gas/all_end_uses/quantity::Total_Average"} = $TotalHPGasUse / ( 8760. * $ScaleData )  ; 
+  
     stream_out("\n\n Writing edited timestep data...") ; 
 
+       
 
     $RowNumber = 0; 
     $firstline = 1;
@@ -2442,7 +2463,17 @@ sub postprocess($){
   
   }
   
-  
+    
+  # Recover electrical, natural gas, oil, propane, wood, or pellet consumption data 
+  my @Electrical_Use = @{ $data{" total fuel use:electricity:all end uses:quantity (kWh/s)"} };
+  my @NaturalGas_Use = @{ $data{" total fuel use:natural gas:all end uses:quantity (m3/s)"}  };
+  my @Oil_Use        = @{ $data{" total fuel use:oil:all end uses:quantity (l/s)"}  };
+  my @Propane_Use    = @{ $data{" total fuel use:propane:all end uses:quantity (m3/s)"}  };
+  my @Wood_Use       = @{ $data{" total fuel use:mixed wood:all end uses:quantity (tonne/s)"}  };
+  my @Pellets_Use    = @{ $data{" total fuel use:wood pellets:all end uses:quantity (tonne/s)"}  };    
+  #my @Wood_Use       = @{ $data{" total fuel use:wood:all end uses:quantity (cord/s)"}  };
+  #my @Pellets_Use    = @{ $data{" total fuel use:pellets:all end uses:quantity (ton/s)"}  };    
+         
   
   
   # Now loop through data and apply energy rates
@@ -3340,7 +3371,7 @@ sub CalcGasHPCOP($$$)
    
   $GasHPs{"gasHP-a"}{"CutOutCOP"} = 1.2 ;
   $GasHPs{"gasHP-a"}{"RatingCOP"} = 1.6 ;
-  $GasHPs{"gasHP-a"}{"BackUpEff"} = 0.95;
+  $GasHPs{"gasHP-a"}{"BackUpEff"} = 0.94;
 
   if ( $Temp < $GasHPs{$Spec}{"CutOutTemp"}+.01 ) { 
   
