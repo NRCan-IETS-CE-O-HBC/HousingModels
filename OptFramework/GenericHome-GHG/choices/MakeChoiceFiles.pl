@@ -176,11 +176,7 @@ my @upgrades= (
                "HeatWHP-gas-to-CCASHP"     ,    # Oil & Gas   -> CCASHP + elec storage
                "HeatWHP-elec-to-GSHP"      , 
                "HeatWHP-oil-to-GSHP"       ,    # Oil boilers -> CCASHP + elec storage
-               "HeatWHP-gas-to-GSHP"       ,    # Oil & Gas   -> CCASHP + elec storage 
-                              
-
-               
-               
+               "HeatWHP-gas-to-GSHP"       ,    # Oil & Gas   -> CCASHP + elec storage                               
                
                ); 
 
@@ -303,15 +299,15 @@ my %upgrade_packages = (
 #                      "Renewables-SDHW-2-plate" => ["Renewables-SDHW-2-plate"],
 #                       "Renewables-SDHW-2-plate+DWHR-60" => ["Renewables-SDHW-2-plate+DWHR-60"],
 #                        "Renewables-5kW-PV" => ["Renewables-5kW-PV"]
-			   
+         
 #                        "NewCodes-ACH-1.5_MainWallInsulation-R23" => ["NewCodes-ACH-1.5","NewCodes-MainWallInsulation-R23"]
 
                       #MINO Scenarios 
-                      "MINO-NewEnergyStarUpgrade" => ["HeatWHP-UpgradeTo-EStar"],
-                      "MINO-AllElecASHP" =>  ["HeatWHP-UpgradeTo-AllElecASHP"],
-                      "MINO-AllElecCCASHP" =>  ["HeatWHP-UpgradeTo-AllElecCCASHP"],
-                      "MINO-AllElecGSHP" =>  ["HeatWHP-UpgradeTo-AllElecGSHP"],
-
+                      "MINO-NewEnergyStarUpgrade" =>  ["HeatWHP-UpgradeTo-EStar"],
+                      "MINO-AllElecASHP"          =>  ["HeatWHP-UpgradeTo-AllElecASHP"],
+                      "MINO-AllElecCCASHP"        =>  ["HeatWHP-UpgradeTo-AllElecCCASHP"],
+                      "MINO-AllElecGSHP"          =>  ["HeatWHP-UpgradeTo-AllElecGSHP"],
+                      "MINO-gfHP"                 =>  ["HeatWHP-UpgradeTo-GasFired-HP"]
 
 );
 
@@ -335,8 +331,8 @@ while ( my $line = <OPTLISTFILE> ){
        
     #foreach my $upgrade ( @upgrades ){
     foreach my $upgrades_name (keys %upgrade_packages) {
-	  my $upgrade_package_is_valid = 0;
-	  my $upgrade_is_valid = 0;
+    my $upgrade_package_is_valid = 0;
+    my $upgrade_is_valid = 0;
       # Populate choice hash - do this on every upgrade because it gets overwritten
       my $count = 0;
       foreach (@choiceAttKeys){
@@ -356,10 +352,10 @@ while ( my $line = <OPTLISTFILE> ){
       foreach my $upgrade (@{$upgrade_packages{$upgrades_name}}) {
 
         $upgrade_is_valid = UpgradeRuleSet($upgrade);
-		
+    
         if(($upgrade_is_valid == 1) && ($upgrade_package_is_valid == 0)){
-		  $upgrade_package_is_valid = 1;
-		}
+      $upgrade_package_is_valid = 1;
+    }
       }
       
       # Call upgrade rule set to see if this upgrade can be applied 
@@ -629,8 +625,14 @@ sub UpgradeRuleSet($){
        last SWITCH; 
      }    
     
-    
-    
+     if ( $upgrade =~ /HeatWHP-UpgradeTo-GasFired-HP/ ) {
+     
+       $choiceHash{"Opt-GhgHeatingCooling"} = "gasHP-a"  ;
+       $validupgrade = 1;      
+     
+       last SWITCH;      
+     
+     }
     
 
     #=========================================================================
@@ -1685,13 +1687,13 @@ sub WriteChoiceFile($){
    my $encoding = ":encoding(UTF-8)";
    open(OPTIONSOUT, ">$FileName")
        || die "$0: Can't open $FileName in write-open mode: $!";    
-	
+  
    print OPTIONSOUT "! Choice file $FileName generated for GHG work.\n";
    print OPTIONSOUT "Opt-calcmode         : calc\n";
    print OPTIONSOUT "Opt-DBFiles          : retrofit\n";
    print OPTIONSOUT "GOconfig_rotate      : E\n";
    print OPTIONSOUT "Opt-Location         : <LOCATION>\n";
-   #print OPTIONSOUT "Opt-Location         : Calgary\n";
+   
    print OPTIONSOUT "OPT-HRV_ctl          : ".$choiceHash{"Opt-HRV_ctl"}."\n";
    print OPTIONSOUT "OPT-OPR-SCHED        : scheduled\n";
    print OPTIONSOUT "Opt-BaseWindows      : MinWindows\n";
@@ -1702,7 +1704,7 @@ sub WriteChoiceFile($){
    print OPTIONSOUT "Opt-OverhangWidth    : BaseOverhang\n";
    print OPTIONSOUT "Opt-AirTightness     : Generic\n";
    print OPTIONSOUT "Opt-MainWall         : GenericWall_1Layer\n";
-	 print OPTIONSOUT "Opt-GenericWall_1Layer_definitions : ".$choiceHash{"Opt-GenericWall_1Layer_definitions"}."\n";
+   print OPTIONSOUT "Opt-GenericWall_1Layer_definitions : ".$choiceHash{"Opt-GenericWall_1Layer_definitions"}."\n";
    print OPTIONSOUT "Opt-ExtraDrywall     : OneSheet\n";
    print OPTIONSOUT "Opt-FloorSurface     : wood\n";
    print OPTIONSOUT "Opt-Ceilings         : ".$choiceHash{"Opt-Ceilings"}."\n";
@@ -1725,9 +1727,9 @@ sub WriteChoiceFile($){
    print OPTIONSOUT "Opt-GhgHeatingCooling       : ".$choiceHash{"Opt-GhgHeatingCooling"}."\n";
   
    #print OPTIONSOUT "Opt-Cooling-Spec     : ".$choiceHash{"Opt-Cooling-Spec"}."\n";
-	 
+   
    print OPTIONSOUT "Opt-HRVspec          : ".$choiceHash{"Opt-HRVspec"}."\n";
-	
+  
   
   
    close(OPTIONSOUT);
