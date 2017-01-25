@@ -16,7 +16,7 @@ for $file (@ARGV){
   
   while ( my $line = <READIN> ){
   
-    if ( $FirstFile && $LineNum == 1 ) {
+    if ( $FirstFile == 1 && $LineNum == 1 ) {
 
       print WRITEOUT "Filename,$line";
       
