@@ -133,6 +133,7 @@ my $gAvgPelletCons_tonne = 0;
 my $gDirection = "";
 
 my $gGasHP = 0; 
+my %gGasHPSpec = {}; 
 
 my %GenericWindowParams; 
 my $GenericWindowParamsDefined = 0; 
@@ -1004,11 +1005,9 @@ while ( my ( $attribute, $choice) = each %gChoices ){
 			debug_out ( "   - found \$gOptions{\"$attribute\"}{\"options\"}{\"$choice\"} \n"); 
 		}
 	}
-	
-	# Set flag to activate gas-heat-pump cals, if needed. 
-	if ( $attribute =~ /Opt-GhgHeatingCooling/ && $choice =~ /gasHP/ ) { $gGasHP = $choice; }
-	
-	
+	  
+  
+  
 	if ( ! $allok ){ 
 		fatalerror ( "" );
 	}
@@ -1321,8 +1320,40 @@ for ( my $iRun = 1; $iRun <= $gNumRunSetsRqd; $iRun++ ) {
 			}
 		}
 
-		# Seems like we've found everything!
 
+	# Set flag to activate gas-heat-pump cals, if needed. 
+
+  if ( $gChoices{"Opt-GhgHeatingCooling"} =~ /gasHP/ ){
+#	if ( $attribute =~ /Opt-GhgHeatingCooling/ && $choice =~ /gasHP/ ) { 
+    
+    $gGasHP = $gChoices{"Opt-GhgHeatingCooling"}; 
+    my $TagNames = $gOptions{"Opt-GhgHeatingCooling"}{"tags"};
+    my $SpecData = $gOptions{"Opt-GhgHeatingCooling"}{"options"}{$gGasHP}{"result"} ; 
+  
+    stream_out ("\n\n +++++ \n Gas fired HP work-around activiated (Spec: $gGasHP) \n +++++ \n\n");
+    
+    $gGasHPSpec{"Name"} = $gGasHP; 
+    
+    for my $tagIndex ( keys ( %{$SpecData}  ) ) {
+
+      my $tag   = ${$TagNames}{$tagIndex};
+      my $value = ${$SpecData}{$tagIndex};
+    
+      
+      $gGasHPSpec{$tag} = $value; 
+
+ 
+    }
+    
+  
+  }
+	    
+    
+    
+    
+    
+		# Seems like we've found everything!
+    
 		if ( ! $allok ) { 
 
 			stream_out("\n--------------------------------------------------------------\n");
@@ -2420,7 +2451,7 @@ sub postprocess($){
       }
       
       $TotalHPGasUse =  $TotalHPGasUse +  $HPNatGasUse[$row]; 
-      print "     > ".  $TotalHPGasUse . " |+| ".$HPNatGasUse[$row]. " \n "; 
+      #print "     > ".  $TotalHPGasUse . " |+| ".$HPNatGasUse[$row]. " \n "; 
       
       # Overwrite original gas consumption estimate: 
       $data{" total fuel use:natural gas:all end uses:quantity (ref) (m3/s)"}[$row] = $data{" total fuel use:natural gas:all end uses:quantity (m3/s)"}[$row];
@@ -3310,7 +3341,7 @@ sub ProcessGenericWindowOptics($)
 }
 
 # -----------------------------------------------------------------------------------------
-# Process thermal properties of generic window. 
+# Process thermal properties of generic window. d
 # -----------------------------------------------------------------------------------------
 sub ProcessGenericWindowMLC($){
 	
@@ -3355,17 +3386,15 @@ sub ProcessGenericWindowMLC($){
 }
 
 # -----------------------------------------------------------------------------------------
-# Work-around for gas heat pump calculation 
+# Work-around for gas heat pump calculation. This routine looks at the heating load and 
+# outdoor temperature, and estimates the effective COP for a gas-fired HP.
 # -----------------------------------------------------------------------------------------
 sub CalcGasHPCOP($$$)
 {
 
-  my ( $Spec, $Load, $Temp ) = @_; 
-  
   my %GasHPs; 
-  my $COP; 
-  
-  
+  my $effCOP; 
+
   $GasHPs{"gasHP-a"}{"CutOutTemp"} = -20.0;
   $GasHPs{"gasHP-a"}{"RatingTemp"} = 0.0;
    
@@ -3373,24 +3402,52 @@ sub CalcGasHPCOP($$$)
   $GasHPs{"gasHP-a"}{"RatingCOP"} = 1.6 ;
   $GasHPs{"gasHP-a"}{"BackUpEff"} = 0.94;
 
+
+
+  my ( $Spec, $Load, $Temp ) = @_; 
+  
+
+  
+  my $RatedCapacity = $gGasHPSpec{"<OPT-HeatingCapacity>"};
+  my $InputEnergy = $RatedCapacity / $GasHPs{"gasHP-a"}{"RatingCOP"}; 
+  
+  
+  
+
+
   if ( $Temp < $GasHPs{$Spec}{"CutOutTemp"}+.01 ) { 
   
   
-    $COP = $GasHPs{$Spec}{"BackUpEff"} ;
+    $effCOP = $GasHPs{$Spec}{"BackUpEff"} ;
   
   } else {
   
-  
-    $COP =   $GasHPs{$Spec}{"CutOutCOP"} +  ( $GasHPs{$Spec}{"RatingCOP"} - $GasHPs{$Spec}{"CutOutCOP"} )  
+    my $hpCOP =   $GasHPs{$Spec}{"CutOutCOP"} +  ( $GasHPs{$Spec}{"RatingCOP"} - $GasHPs{$Spec}{"CutOutCOP"} )  
                *  ( $Temp - $GasHPs{$Spec}{"CutOutTemp"} ) 
               /  ( $GasHPs{$Spec}{"RatingTemp"} - $GasHPs{$Spec}{"CutOutTemp"} ) ;  
+              
+    my $ActualCapacity = $hpCOP * $InputEnergy ;          
+    
+    if ( $Load > $ActualCapacity ){ 
+    
+      my $backupLoad = $Load - $ActualCapacity; 
+    
+      my $FuelRequired = $backupLoad / $GasHPs{"gasHP-a"}{"BackUpEff"} + $ActualCapacity / $hpCOP ; 
+    
+      $effCOP = $Load / $FuelRequired ; 
+      
+    }else{
+     
+      $effCOP = $hpCOP;      
+      
+    }
+              
   }
+    
   
+  #print " > $Temp, $effCOP \n "; 
   
-  
-  print " > $Temp, $COP \n "; 
-  
-  return $COP ; 
+  return $effCOP ; 
 
 
 
