@@ -2443,7 +2443,9 @@ sub postprocess($){
       
       # Convert COP to M3 of natural gas (26.8392 M3/GJ)
       
-      $HPLoad[$row] =  $SHDelivered[$row]  - $FanPowerW[$row] ; 
+          
+      
+      $HPLoad[$row] =  $SHDelivered[$row]  ; 
       if ( $HPLoad[$row] > 0.  ){
         $HPNatGasUse[$row] = $HPLoad[$row] / $GasHPCop[$row] / 1.0E09 * 26.8392;
       }else{
