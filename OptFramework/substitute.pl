@@ -2432,7 +2432,11 @@ sub postprocess($){
       
       $CountRows++; 
       
-      $GasHPCop[$row] = CalcGasHPCOP( $gGasHP, $SHDelivered[$row], $OutdoorTemp[$row]  ); 
+      # print "LOAD: ".$HeatingLoads[$row]." | ".$SHDelivered[$row]."\n"; 
+      
+      
+      # $GasHPCop[$row] = CalcGasHPCOP( $gGasHP, $SHDelivered[$row], $OutdoorTemp[$row]  ); 
+      $GasHPCop[$row] = CalcGasHPCOP( $gGasHP, $HeatingLoads[$row] - $FanPowerW[$row], $OutdoorTemp[$row]  ); 
       
       # Maybe second calc on capacity here? 
        $GasHPCap[$row] = 25000 * 1.1 ; 
@@ -2444,8 +2448,13 @@ sub postprocess($){
       # Convert COP to M3 of natural gas (26.8392 M3/GJ)
       
           
+      # This alternative causes the furnace part-load curve to be trasnposed on top of 
+      # the heat pump COP curve - not sure it improves model accruacy...
+      #$HPLoad[$row] =  $SHDelivered[$row]  ; 
       
-      $HPLoad[$row] =  $SHDelivered[$row]  ; 
+      # Ideal version (COP does not change according to capacity). Used until we get more info.
+      $HPLoad[$row] = $HeatingLoads[$row] - $FanPowerW[$row]; 
+      
       if ( $HPLoad[$row] > 0.  ){
         $HPNatGasUse[$row] = $HPLoad[$row] / $GasHPCop[$row] / 1.0E09 * 26.8392;
       }else{
