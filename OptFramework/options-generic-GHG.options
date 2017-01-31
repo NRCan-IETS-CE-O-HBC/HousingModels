@@ -1805,6 +1805,37 @@
 *option:win-Canada-2025-onwards-Oil:WindowParams:Uval = 1.2
 *option:win-Canada-2025-onwards-Oil:WindowParams:cost:total = 0
 
+*option:win-Canada-0_68U-factor:value:1 = ghg-win-25
+*option:win-Canada-0_68U-factor:value:2 = ghg-win-25
+*option:win-Canada-0_68U-factor:value:3 = ghg-win-25
+*option:win-Canada-0_68U-factor:value:4 = ghg-win-25
+*option:win-Canada-0_68U-factor:value:5 = ghg-win-25
+*option:win-Canada-0_68U-factor:value:6 = ghg-win-25
+*option:win-Canada-0_68U-factor:value:7 = ghg-win-25
+*option:win-Canada-0_68U-factor:value:8 = ghg-win-25
+*option:win-Canada-0_68U-factor:value:9 = ghg-win-25
+*option:win-Canada-0_68U-factor:WindowParams:name = ghg-win-25
+*option:win-Canada-0_68U-factor:WindowParams:panes = 3
+*option:win-Canada-0_68U-factor:WindowParams:SHGC = 0.2
+*option:win-Canada-0_68U-factor:WindowParams:Uval = 0.68
+*option:win-Canada-0_68U-factor:WindowParams:cost:total = 0
+
+*option:win-Canada-0_79U-factor:value:1 = ghg-win-26
+*option:win-Canada-0_79U-factor:value:2 = ghg-win-26
+*option:win-Canada-0_79U-factor:value:3 = ghg-win-26
+*option:win-Canada-0_79U-factor:value:4 = ghg-win-26
+*option:win-Canada-0_79U-factor:value:5 = ghg-win-26
+*option:win-Canada-0_79U-factor:value:6 = ghg-win-26
+*option:win-Canada-0_79U-factor:value:7 = ghg-win-26
+*option:win-Canada-0_79U-factor:value:8 = ghg-win-26
+*option:win-Canada-0_79U-factor:value:9 = ghg-win-26
+*option:win-Canada-0_79U-factor:WindowParams:name = ghg-win-26
+*option:win-Canada-0_79U-factor:WindowParams:panes = 3
+*option:win-Canada-0_79U-factor:WindowParams:SHGC = 0.36
+*option:win-Canada-0_79U-factor:WindowParams:Uval = 0.79
+*option:win-Canada-0_79U-factor:WindowParams:cost:total = 0
+
+
 ! Upgrades for windows - use BC LEEEP #s.   
  
  
