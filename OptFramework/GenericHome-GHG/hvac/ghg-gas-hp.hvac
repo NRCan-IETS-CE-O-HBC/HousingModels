@@ -47,7 +47,7 @@
     *sys-data-start
 
         capacity 11720.
-        COP 1.6              # COP is irrelevant: Performance determined by CCHT data.
+        COP 1.6              # COP is irrelevant: Performance determined by gas HP data.
         circ-fan-flow 1
         circ-fan-rated-flow 1
         circ-fan-mode <OPT-Furnace-Fan-Ctl>
@@ -59,7 +59,7 @@
         circ-fan-rated-position 1
 
         temp-control-mode 2
-        cut-off-temperature -25.1
+        cut-off-temperature -20.0
 
     *sys-data-end
     *misc-param-start
