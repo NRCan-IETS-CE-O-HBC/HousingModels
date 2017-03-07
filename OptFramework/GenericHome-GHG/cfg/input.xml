@@ -55,6 +55,7 @@
   <log_variable>building/zone_*/supplied_energy/cooling</log_variable>
   <step_variable>total_fuel_use/*</step_variable>
   
+  <step_variable>plant/ideal_hvac_models/*</step_variable>
   
   <!--<step_variable>plant*</step_variable>-->
   <step_variable>climate*</step_variable>
@@ -83,5 +84,7 @@
   <step_variable>plant/ideal_hvac_models/circulation_fans/fuel_use/energy_input</step_variable>
   <step_variable>plant/ideal_hvac_models/HRV/elec_load</step_variable>
 
+  <step_variable>plant/ideal_DHW_model*</step_variable>
+  
   
 </configuration>
