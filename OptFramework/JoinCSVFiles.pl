@@ -7,11 +7,16 @@ open (WRITEOUT, ">JoinedCSVFiles.csv");
 
 my %masterheaders; 
 $masterheaders{"aaa-filename"} = 1 ; 
+$masterheaders{"id"} = 1 ; 
+
 my %NumRows = {}; 
 
 my %data = () ;
 
 # Parse input 
+
+my $id = 0; 
+
 for $file (@ARGV){
 
   print " reading data from : $file ... "; 
@@ -63,12 +68,12 @@ for $file (@ARGV){
         
         #if ( $RowNumber == 0 ) {debug_out (" > header: >$header<\n");}
       }
-      
+      $data{$file}{"id"}[$RowNumber] = $id;
       $data{$file}{"aaa-filename"}[$RowNumber] = $file; 
       
 
       $RowNumber++;
-      
+      $id++; 
     }
     
   }
@@ -88,7 +93,7 @@ my $headerDone = 0;
 
 foreach my $column ( sort keys %masterheaders ){
 
-  $headerRow = $headerRow.$column.","; 
+  $headerRow .= "$column,"; 
   
   print " - $noCol, $column \n "; 
   $noCol ++; 
@@ -113,7 +118,7 @@ for $file (@ARGV ){
       if (exists( $data{$file}{$column}[$RowNumber] ) ) { 
        $content .=  $data{$file}{$column}[$row] ;  
       }else{
-        $content .="null";
+        $content .="0.0";
       } 
       $content .= ","
        
