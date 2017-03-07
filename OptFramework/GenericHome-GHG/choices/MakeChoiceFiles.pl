@@ -43,7 +43,6 @@ my %choiceHash = ();
 
 my $ChoiceFileList =""; 
 
-# Rules to be applied as upgrades.
 
 my %upgrade_packages = (
                         # ================ Comparison agianst old ERS data
@@ -103,7 +102,7 @@ my %upgrade_packages = (
 #                        "retrofit-airseal-level-a" => ["retrofit-airseal-level-a"],
 
                         # Air-tightness improvements
-#                         "NewCodes-ACH-1.5" => ["NewCodes-ACH-1.5"],
+#                        "NewCodes-ACH-1.5" => ["NewCodes-ACH-1.5"],
 #                        "NewCodes-ACH-1.0" => ["NewCodes-ACH-1.0"],
 #                        "NewCodes-ACH-0.6" => ["NewCodes-ACH-0.6"],
 
@@ -135,6 +134,7 @@ my %upgrade_packages = (
 #                        "NewCodes-Windows-HG-Double" => ["NewCodes-Windows-HG-Double"],
 #                        "NewCodes-Windows-LGi89-Triple" => ["NewCodes-Windows-LGi89-Triple"],
 #                        "NewCodes-Windows-HGi89-Triple-b" => ["NewCodes-Windows-HGi89-Triple-b"],
+
                
                         # New construction-upgrade heating equipment. ( no fuel switching scenarios )                     
 #                        "NewCodes-oil-heating-high-effciency" => ["NewCodes-oil-heating-high-effciency"],
@@ -160,13 +160,14 @@ my %upgrade_packages = (
          
                        #              
 #                       "Renewables-DWHR-4-60" => ["Renewables-DWHR-4-60"],
-#                      "Renewables-SDHW-2-plate" => ["Renewables-SDHW-2-plate"],
+#                       "Renewables-SDHW-2-plate" => ["Renewables-SDHW-2-plate"],
 #                       "Renewables-SDHW-2-plate+DWHR-60" => ["Renewables-SDHW-2-plate+DWHR-60"],
-#                        "Renewables-5kW-PV" => ["Renewables-5kW-PV"]
+#                       "Renewables-5kW-PV" => ["Renewables-5kW-PV"]
          
 #                        "NewCodes-ACH-1.5_MainWallInsulation-R23" => ["NewCodes-ACH-1.5","NewCodes-MainWallInsulation-R23"]
 
                       #MINO Scenarios 
+
                       #"MINO-NewEnergyStarUpgrade" =>  ["HeatWHP-UpgradeTo-EStar"],
                       #"MINO-AllElecASHP"          =>  ["HeatWHP-UpgradeTo-AllElecASHP"],
                       "MINO-AllElecCCASHP"        =>  ["HeatWHP-UpgradeTo-AllElecCCASHP"],
@@ -189,11 +190,31 @@ my %upgrade_packages = (
                      #                                 "Renewables-DWHR-4-60"] ,
                      # "gas-dhw-ref"               => ["retrofit-gas-heating-high-effciency"],
                       
-                     "CCASHP-minisplit-displacement"       => ["retrofit-minisplit"]
+                     "CCASHP-minisplit-displacement"       => ["retrofit-minisplit"],
                       
-                      
-                      
-                      
+
+                     #EMMC Window Scenarios
+     				 "Windows-EMMC-Upgrade-1-low-gain"            => ["Windows-EMMC-Upgrade-1-low-gain"],
+                     "Windows-EMMC-Upgrade-1-mid-gain"            => ["Windows-EMMC-Upgrade-1-mid-gain"],
+					 "Windows-EMMC-Upgrade-1-high-gain"           => ["Windows-EMMC-Upgrade-1-high-gain"], 
+                     "Windows-EMMC-Upgrade-1-high-gain-on-south"  => ["Windows-EMMC-Upgrade-1-hg-on-S"],
+                     
+     				 "Windows-EMMC-Upgrade-2-low-gain"            => ["Windows-EMMC-Upgrade-2-low-gain"],
+                     "Windows-EMMC-Upgrade-2-mid-gain"            => ["Windows-EMMC-Upgrade-2-mid-gain"],
+					 "Windows-EMMC-Upgrade-2-high-gain"           => ["Windows-EMMC-Upgrade-2-high-gain"], 
+                     "Windows-EMMC-Upgrade-2-high-gain-on-south"  => ["Windows-EMMC-Upgrade-2-hg-on-S"],
+                     
+     				 "Windows-EMMC-Upgrade-3-low-gain"            => ["Windows-EMMC-Upgrade-3-low-gain"],
+                     "Windows-EMMC-Upgrade-3-mid-gain"            => ["Windows-EMMC-Upgrade-3-mid-gain"],
+					 "Windows-EMMC-Upgrade-3-high-gain"           => ["Windows-EMMC-Upgrade-3-high-gain"], 
+                     "Windows-EMMC-Upgrade-3-high-gain-on-south"  => ["Windows-EMMC-Upgrade-3-hg-on-S"],
+                     
+     				 "Windows-EMMC-Upgrade-4-low-gain"            => ["Windows-EMMC-Upgrade-4-low-gain"],
+                     "Windows-EMMC-Upgrade-4-mid-gain"            => ["Windows-EMMC-Upgrade-4-mid-gain"],
+					 "Windows-EMMC-Upgrade-4-high-gain"           => ["Windows-EMMC-Upgrade-4-high-gain"], 
+                     "Windows-EMMC-Upgrade-4-high-gain-on-south"  => ["Windows-EMMC-Upgrade-4-hg-on-S"]
+						
+
 );
 
 
@@ -1177,10 +1198,9 @@ sub UpgradeRuleSet($){
            
         if ( $upgrade =~ /Windows-LGi89-Triple/ )
            { $choiceHash{"Opt-CasementWindows"} =  "BCLEEP-LGi89-Triple" ; $validupgrade = 1; }           
-  
            
         if ( $upgrade =~ /Windows-HGi89-Triple-b/ )
-           { $choiceHash{"Opt-CasementWindows"} =  "BCLEEP-HGi89-Triple-b" ; $validupgrade = 1; }           
+           { $choiceHash{"Opt-CasementWindows"} =  "BCLEEP-HGi89-Triple-b" ; $validupgrade = 1; }        		   
            
        
       last SWITCH; 
@@ -1581,10 +1601,101 @@ sub UpgradeRuleSet($){
       last SWITCH;
     }    
    
+    #=========================================================================
+    # EMMC Rulesets for new/retrofit windows
+    #=========================================================================
+        
+#   if (         
+#         ( $upgrade =~ /NewCodes-Windows.*/  ||
+#         ( $upgrade =~ /retrofit-Windows.*/ ) 
+#        ){ 
     
+        if ( $upgrade =~ /Windows-EMMC-Upgrade-1-low-gain/ )
+           { $choiceHash{"Opt-CasementWindows"} =  "EMMC-Upgrade-1-low-gain" ; $validupgrade = 1; 
+		   last SWITCH;
+		   }
+
+        if ( $upgrade =~ /Windows-EMMC-Upgrade-1-mid-gain/ )
+           { $choiceHash{"Opt-CasementWindows"} =  "EMMC-Upgrade-1-mid-gain" ; $validupgrade = 1; 
+		   last SWITCH;
+		   }
+
+        if ( $upgrade =~ /Windows-EMMC-Upgrade-1-high-gain/ )
+           { $choiceHash{"Opt-CasementWindows"} =  "EMMC-Upgrade-1-high-gain" ; $validupgrade = 1; 
+		   last SWITCH;
+		   }
+	
+        if ( $upgrade =~ /Windows-EMMC-Upgrade-1-hg-on-S/ )
+           { $choiceHash{"Opt-CasementWindows"} =  "EMMC-Upgrade-1-hg-on-S" ; $validupgrade = 1; 
+		   last SWITCH;
+		   }
+    
+	     if ( $upgrade =~ /Windows-EMMC-Upgrade-2-low-gain/ )
+           { $choiceHash{"Opt-CasementWindows"} =  "EMMC-Upgrade-2-low-gain" ; $validupgrade = 1; 
+		   last SWITCH;
+		   }
+
+        if ( $upgrade =~ /Windows-EMMC-Upgrade-2-mid-gain/ )
+           { $choiceHash{"Opt-CasementWindows"} =  "EMMC-Upgrade-2-mid-gain" ; $validupgrade = 1; 
+		   last SWITCH;
+		   }
+
+        if ( $upgrade =~ /Windows-EMMC-Upgrade-2-high-gain/ )
+           { $choiceHash{"Opt-CasementWindows"} =  "EMMC-Upgrade-2-high-gain" ; $validupgrade = 1; 
+		   last SWITCH;
+		   }
+	
+        if ( $upgrade =~ /Windows-EMMC-Upgrade-2-hg-on-S/ )
+           { $choiceHash{"Opt-CasementWindows"} =  "EMMC-Upgrade-2-hg-on-S" ; $validupgrade = 1; 
+		   last SWITCH;
+		   }
+	
+	     if ( $upgrade =~ /Windows-EMMC-Upgrade-3-low-gain/ )
+           { $choiceHash{"Opt-CasementWindows"} =  "EMMC-Upgrade-3-low-gain" ; $validupgrade = 1; 
+		   last SWITCH;
+		   }
+
+        if ( $upgrade =~ /Windows-EMMC-Upgrade-3-mid-gain/ )
+           { $choiceHash{"Opt-CasementWindows"} =  "EMMC-Upgrade-3-mid-gain" ; $validupgrade = 1; 
+		   last SWITCH;
+		   }
+
+        if ( $upgrade =~ /Windows-EMMC-Upgrade-3-high-gain/ )
+           { $choiceHash{"Opt-CasementWindows"} =  "EMMC-Upgrade-3-high-gain" ; $validupgrade = 1; 
+		   last SWITCH;
+		   }
+	
+        if ( $upgrade =~ /Windows-EMMC-Upgrade-3-hg-on-S/ )
+           { $choiceHash{"Opt-CasementWindows"} =  "EMMC-Upgrade-3-hg-on-S" ; $validupgrade = 1; 
+		   last SWITCH;
+		   }
+	
+	    if ( $upgrade =~ /Windows-EMMC-Upgrade-4-low-gain/ )
+           { $choiceHash{"Opt-CasementWindows"} =  "EMMC-Upgrade-4-low-gain" ; $validupgrade = 1; 
+		   last SWITCH;
+		   }
+
+        if ( $upgrade =~ /Windows-EMMC-Upgrade-4-mid-gain/ )
+           { $choiceHash{"Opt-CasementWindows"} =  "EMMC-Upgrade-4-mid-gain" ; $validupgrade = 1; 
+		   last SWITCH;
+		   }
+
+        if ( $upgrade =~ /Windows-EMMC-Upgrade-4-high-gain/ )
+           { $choiceHash{"Opt-CasementWindows"} =  "EMMC-Upgrade-4-high-gain" ; $validupgrade = 1; 
+		   last SWITCH;
+		   }
+	
+        if ( $upgrade =~ /Windows-EMMC-Upgrade-4-hg-on-S/ )
+           { $choiceHash{"Opt-CasementWindows"} =  "EMMC-Upgrade-4-hg-on-S" ; $validupgrade = 1; 
+		   last SWITCH;
+		   }
+	
+	
+	
+	
     # < New rulesets go here: >  
-    
-    
+
+
     
     die ("\n\nUnsupported upgrade (\"$upgrade\")!\n\n"); 
 
