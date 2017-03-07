@@ -44,8 +44,8 @@
     *zone-links-end
     *sys-data-start
         
-        capacity 9960.0
-        COP 4.
+        capacity 8800.
+        COP 3.5 
         
         circ-fan-flow 1
         circ-fan-rated-flow 1
@@ -55,7 +55,7 @@
         circ-fan-power-low  <OPT-FurnaceFanPowerLo> 
         outdoor-fan-power 0.0
         fan-power-in-auto 0.0
-        gshp-circ-pump-power 100.
+        gshp-circ-pump-power 150.
         circ-fan-rated-position 1
         temp-control-mode 3
         cut-off-temperature -40.1
