@@ -1,4 +1,4 @@
-! Optimization substitutions 
+                                                               ! Optimization substitutions 
 
 ! New for Dakota use (JTB 17-Dec-2014):
 ! option:alias is an integer number used by Dakota 
@@ -2879,15 +2879,13 @@
 !-----------------------------------------------------------------------
 *attribute:start
 *attribute:name    = Opt-GhgHeatingCooling 
-! - Housekeeping tags that connect files 
-*attribute:tag:1   = <Opt-HVACSystem>
+*attribute:tag:1   = <Opt-HVACSystem>           ! - Housekeeping tags that connect files 
 *attribute:tag:2   = <Opt-HideGSHPfile>
 *attribute:tag:3   = <OPT-VENTisIMS>
 *attribute:tag:4   = <OPT-VENTisHRV>
 *attribute:tag:5   = <OPT-WHisIMS>
 *attribute:tag:6   = <Opt-HVACCtlFile>
-! - Efficiency Specs 
-*attribute:tag:7   = <OPT-heating-fuel>
+*attribute:tag:7   = <OPT-heating-fuel>          ! - Efficiency Specs 
 *attribute:tag:8   = <OPT-FurnaceType>
 *attribute:tag:9   = <OPT-HeatingCapacity>
 *attribute:tag:10  = <OPT-FurnaceEfficiency>
@@ -2898,8 +2896,8 @@
 *attribute:tag:15  = <Opt-HPHeatingCapacity>
 *attribute:tag:16  = <OPT-AC-capacity>
 *attribute:tag:17  = <OPT-AC-COP>
-*attribute:tag:18  = <OPT-CommentFanCtlLoop>
-
+*attribute:tag:18  = <OPT-CommentFanCtlLoop>      ! Tag to enable/disable fan control. 
+*attribute:tag:19  = <OPT-BAK-heating-fuel>       ! Back-up capacity 
 *attribute:default = ghg-hvac-1-Gas
 
 *option:ghg-hvac-1-Gas:value:1   = ghg-gas.hvac
@@ -2962,6 +2960,28 @@
 *option:ghg-hvac-3-Oil:value:18  = #-no-central-air 
 
 
+*option:ghg-hvac-CCASHPDisp-3-Oil:value:1   = ghg-CCASHP-displacement.hvac      ! <Opt-HVACSystem>           
+*option:ghg-hvac-CCASHPDisp-3-Oil:value:2   = #-no-GSHP-file       ! <Opt-HideGSHPfile>
+*option:ghg-hvac-CCASHPDisp-3-Oil:value:3  = #-no-IMS              ! <OPT-VENTisIMS>
+*option:ghg-hvac-CCASHPDisp-3-Oil:value:4  =                       ! <OPT-VENTisHRV>
+*option:ghg-hvac-CCASHPDisp-3-Oil:value:5  =                       ! <OPT-WHisIMS>
+*option:ghg-hvac-CCASHPDisp-3-Oil:value:6  = shoulder-ideal.ctl    ! <Opt-HVACCtlFile>
+*option:ghg-hvac-CCASHPDisp-3-Oil:value:7  = electricity           ! <OPT-heating-fuel>         
+*option:ghg-hvac-CCASHPDisp-3-Oil:value:8  = nil                   ! <OPT-FurnaceType>
+*option:ghg-hvac-CCASHPDisp-3-Oil:value:9 = 25000                  ! <OPT-HeatingCapacity>
+*option:ghg-hvac-CCASHPDisp-3-Oil:value:10  = 3.0                  ! <OPT-FurnaceEfficiency>
+*option:ghg-hvac-CCASHPDisp-3-Oil:value:11  = 200                  ! <OPT-FurnaceFanPower>
+*option:ghg-hvac-CCASHPDisp-3-Oil:value:12  = 200                  ! <OPT-FurnaceFanPowerLo>
+*option:ghg-hvac-CCASHPDisp-3-Oil:value:13  = nil                  ! <OPT-FurnaceDraftFanPower> 
+*option:ghg-hvac-CCASHPDisp-3-Oil:value:14 = nil                   ! <OPT-FurnacePilotPower>
+*option:ghg-hvac-CCASHPDisp-3-Oil:value:15  = 11700                ! <Opt-HPHeatingCapacity>
+*option:ghg-hvac-CCASHPDisp-3-Oil:value:16  = 11000                ! <OPT-AC-capacity>
+*option:ghg-hvac-CCASHPDisp-3-Oil:value:17  = 3.6047758884453      ! <OPT-AC-COP>
+*option:ghg-hvac-CCASHPDisp-3-Oil:value:18  =                      ! <OPT-CommentFanCtlLoop>    
+*option:ghg-hvac-CCASHPDisp-3-Oil:value:19  = oil                  ! <OPT-BAK-heating-fuel>     
+
+
+
 *option:ghg-hvac-4-Gas:value:1   = ghg-gas.hvac
 *option:ghg-hvac-4-Gas:value:2   = #-no-GSHP-file
 *option:ghg-hvac-4-Gas:value:3  = #-no-IMS
@@ -3002,7 +3022,7 @@
 *option:ghg-hvac-5-Elect:value:18  = #-no-central-air 
 
 
-*option:ghg-hvac-6-Oil:value:1   = ghg-oil.hvac
+*option:ghg-hvac-6-Oil:value:1   = ghg-oil.hvac              
 *option:ghg-hvac-6-Oil:value:2   = #-no-GSHP-file
 *option:ghg-hvac-6-Oil:value:3  = #-no-IMS
 *option:ghg-hvac-6-Oil:value:4  =
@@ -3020,6 +3040,31 @@
 *option:ghg-hvac-6-Oil:value:16  = 11000
 *option:ghg-hvac-6-Oil:value:17  = 2.25078689620004
 *option:ghg-hvac-6-Oil:value:18  = #-no-central-air 
+    
+*option:ghg-hvac-CCASHPDisp-6-Oil:value:1   = ghg-CCASHP-displacement.hvac             ! <Opt-HVACSystem>           
+*option:ghg-hvac-CCASHPDisp-6-Oil:value:2   = #-no-GSHP-file          ! <Opt-HideGSHPfile>
+*option:ghg-hvac-CCASHPDisp-6-Oil:value:3  = #-no-IMS                 ! <OPT-VENTisIMS>
+*option:ghg-hvac-CCASHPDisp-6-Oil:value:4  =                          ! <OPT-VENTisHRV>
+*option:ghg-hvac-CCASHPDisp-6-Oil:value:5  =                          ! <OPT-WHisIMS>
+*option:ghg-hvac-CCASHPDisp-6-Oil:value:6  = shoulder-ideal.ctl       ! <Opt-HVACCtlFile>
+*option:ghg-hvac-CCASHPDisp-6-Oil:value:7  = oil                      ! <OPT-heating-fuel>         
+*option:ghg-hvac-CCASHPDisp-6-Oil:value:8  = 14                       ! <OPT-FurnaceType>
+*option:ghg-hvac-CCASHPDisp-6-Oil:value:9 = 25000                     ! <OPT-HeatingCapacity>
+*option:ghg-hvac-CCASHPDisp-6-Oil:value:10  = 0.68                    ! <OPT-FurnaceEfficiency>
+*option:ghg-hvac-CCASHPDisp-6-Oil:value:11  = 520                     ! <OPT-FurnaceFanPower>
+*option:ghg-hvac-CCASHPDisp-6-Oil:value:12  = 520                     ! <OPT-FurnaceFanPowerLo>
+*option:ghg-hvac-CCASHPDisp-6-Oil:value:13  = 75                      ! <OPT-FurnaceDraftFanPower> 
+*option:ghg-hvac-CCASHPDisp-6-Oil:value:14 = 0                        ! <OPT-FurnacePilotPower>
+*option:ghg-hvac-CCASHPDisp-6-Oil:value:15  = 8700                    ! <Opt-HPHeatingCapacity>
+*option:ghg-hvac-CCASHPDisp-6-Oil:value:16  = 11000                   ! <OPT-AC-capacity>
+*option:ghg-hvac-CCASHPDisp-6-Oil:value:17  = 2.25078689620004        ! <OPT-AC-COP>
+*option:ghg-hvac-CCASHPDisp-6-Oil:value:18  = #-no-central-air        ! <OPT-CommentFanCtlLoop>    
+*option:ghg-hvac-CCASHPDisp-6-Oil:value:19  = oil                     ! <OPT-BAK-heating-fuel>     
+        
+
+
+
+
 
 
 *option:ghg-hvac-7-Gas:value:1   = ghg-gas.hvac
@@ -3040,6 +3085,9 @@
 *option:ghg-hvac-7-Gas:value:16  = 11000
 *option:ghg-hvac-7-Gas:value:17  = 2.58928414426137
 *option:ghg-hvac-7-Gas:value:18  = #-no-central-air 
+
+
+
 
 
 *option:ghg-hvac-8-Elect:value:1   = ghg-elec.hvac
@@ -3913,16 +3961,41 @@
 *option:oee-oildhw-ref:value:5   = 246
 
 
-*option:gas-HPWH-ref:value:1   = ghg-WH.dhw
-*option:gas-HPWH-ref:value:2   = 2
-*option:gas-HPWH-ref:value:3   = 21
-*option:gas-HPWH-ref:value:4   = 1.6
-*option:gas-HPWH-ref:value:5   = 189
+*option:gas-HPWH-ref:value:1   = ghg-WH.dhw  ! <Opt-DHWInputFile>
+*option:gas-HPWH-ref:value:2   = 2           ! <OPT-DHW-fuel-type>
+*option:gas-HPWH-ref:value:3   = 21          ! <OPT-DHW-tank-type>
+*option:gas-HPWH-ref:value:4   = 1.6         ! <OPT-DHW-EFF>
+*option:gas-HPWH-ref:value:5   = 189         ! <Opt-DHW-Tank-size-L>
 
+*option:gas-HPWH-ref0_5:value:1   = ghg-WH.dhw  ! <Opt-DHWInputFile>
+*option:gas-HPWH-ref0_5:value:2   = 2           ! <OPT-DHW-fuel-type>
+*option:gas-HPWH-ref0_5:value:3   = 21          ! <OPT-DHW-tank-type>
+*option:gas-HPWH-ref0_5:value:4   = 0.5         ! <OPT-DHW-EFF>
+*option:gas-HPWH-ref0_5:value:5   = 189         ! <Opt-DHW-Tank-size-L>
 
+*option:gas-HPWH-ref0_8:value:1   = ghg-WH.dhw  ! <Opt-DHWInputFile>
+*option:gas-HPWH-ref0_8:value:2   = 2           ! <OPT-DHW-fuel-type>
+*option:gas-HPWH-ref0_8:value:3   = 21          ! <OPT-DHW-tank-type>
+*option:gas-HPWH-ref0_8:value:4   = 0.8         ! <OPT-DHW-EFF>
+*option:gas-HPWH-ref0_8:value:5   = 189         ! <Opt-DHW-Tank-size-L>
 
-*attribute:end
+*option:gas-HPWH-ref1_0:value:1   = ghg-WH.dhw  ! <Opt-DHWInputFile>
+*option:gas-HPWH-ref1_0:value:2   = 2           ! <OPT-DHW-fuel-type>
+*option:gas-HPWH-ref1_0:value:3   = 21          ! <OPT-DHW-tank-type>
+*option:gas-HPWH-ref1_0:value:4   = 1.0         ! <OPT-DHW-EFF>
+*option:gas-HPWH-ref1_0:value:5   = 189         ! <Opt-DHW-Tank-size-L>
 
+*option:gas-HPWH-ref1_2:value:1   = ghg-WH.dhw  ! <Opt-DHWInputFile>
+*option:gas-HPWH-ref1_2:value:2   = 2           ! <OPT-DHW-fuel-type>
+*option:gas-HPWH-ref1_2:value:3   = 21          ! <OPT-DHW-tank-type>
+*option:gas-HPWH-ref1_2:value:4   = 1.2         ! <OPT-DHW-EFF>
+*option:gas-HPWH-ref1_2:value:5   = 189         ! <Opt-DHW-Tank-size-L>
+
+*option:gas-HPWH-ref1_4:value:1   = ghg-WH.dhw  ! <Opt-DHWInputFile>
+*option:gas-HPWH-ref1_4:value:2   = 2           ! <OPT-DHW-fuel-type>
+*option:gas-HPWH-ref1_4:value:3   = 21          ! <OPT-DHW-tank-type>
+*option:gas-HPWH-ref1_4:value:4   = 1.4         ! <OPT-DHW-EFF>*attribute:end
+*option:gas-HPWH-ref1_4:value:5   = 189         ! <Opt-DHW-Tank-size-L>
 
 !-----------------------------------------------------------------------
 ! DHWR + SDHW : Resulting water volume . 
