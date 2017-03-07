@@ -43,143 +43,7 @@ my %choiceHash = ();
 
 my $ChoiceFileList =""; 
 
-my @upgrades= (
-
-
-               # ================ Comparison agianst old ERS data
-               "Validate-with-OldSOP", 
-
-               # ================ Baseline: As found ====================
-               # No changes  
-               "as-found"                             ,    # Original definitions
-               
-               # ================ Fuel switching ====================               
-               # Conservation changes 
-               "LoadConservation-basic",
-               "LoadConservation-aggressive",
-               
-               # ================ Fuel switching ====================               
-               # Fuel Switching senarios ( heating and water-heating to electricity )        
-               "switch-oil-to-electricity-ASHP"       ,    # Oil boilers -> conventional ASHP + elec storage
-               "switch-gas-to-electricity-ASHP"       ,    # Oil & Gas   -> conventional ASHP + elec stroage
-               "switch-oil-to-electricity-CCASHP"     ,    # Oil boilers -> CCASHP + elec stroage
-               "switch-gas-to-electricity-CCASHP"     ,    # Oil & Gas   -> CCASHP + elec storage
-               "switch-oil-to-electricity-GSHP"       ,    # Oil boilers -> CCASHP + elec storage
-               "switch-gas-to-electricity-GSHP"       ,    # Oil & Gas   -> CCASHP + elec storage 
-
-              
-               # Switch to gas ( heating and water-heating ) ?
-               "switch-oil-to-gas"                    ,    # Oil         -> Gas 
-               "switch-electricity-to-gas"            ,    # Electricity -> Gas 
-                                                      
-                                                      
-               # ================ Retrofit existing stock ====================                                                      
-               # Upgrade heating- for retrofit ( no fuel switching scenarios )                     
-               "retrofit-oil-heating-high-effciency"      ,    # As found to high efficiency equivlant
-               "retrofit-gas-heating-high-effciency"      ,    # As found to high efficiency equivlant
-               "retrofit-elec-heating-CCASHP"             ,    # As found to high efficiency equivlant
-               "retrofit-elec-heating-GSHP"               ,   # As found to high efficiency equivlant
-         
-               # Upgrade Hot water - ( no fuel switching scenarios )                     
-               "retrofit-oil-dhw-high-effciency"      ,    # As found to high efficiency equivlant
-               "retrofit-gas-dhw-high-effciency"      ,    # As found to high efficiency equivlant
-               "retrofit-elec-dhw-storage"            ,    # As found to high efficiency equivlant
-               "retrofit-elec-dhw-hp"                 ,  # As found to high efficiency equivlant
-               
-               #Envelope systems - retrofit : 
-               "retrofit-main-wall-a",
-               "retrofit-main-wall-b",
-               
-               #Attic Insulation - Retrofit 
-               "retrofit-Ceil-add-06in-cellulous",
-               "retrofit-Ceil-add-12in-cellulous",
-               
-               # Windows retrofit ( spec's are the same as new 
-               # construction - costs may be different. )
-               "retrofit-Windows-LG-Double",
-               "retrofit-Windows-HG-Double",
-               "retrofit-Windows-LGi89-Triple",
-               "retrofit-Windows-HGi89-Triple-b",
-               
-               # Air sealing - Retrofit 
-               "retrofit-airseal-level-a",
-         
-               # ================ NewCodes: As found ====================
-               
-               #Attic Insulation - New  
-               "NewCodes-ceilR60",
-               "NewCodes-ceilR70",
-               "NewCodes-ceilR80",  
-               "NewCodes-ceilR90",
-         
-               # Air-tightness improvements
-               "NewCodes-ACH-1.5",
-               "NewCodes-ACH-1.0",
-               "NewCodes-ACH-0.6",
-               
-               # New construction: Main wall
-               "NewCodes-MainWallInsulation-R23",
-               "NewCodes-MainWallInsulation-R25",
-               "NewCodes-MainWallInsulation-R29",
-               "NewCodes-MainWallInsulation-R34",
-               "NewCodes-MainWallInsulation-R39",
-               "NewCodes-MainWallDblStd-R34",
-               "NewCodes-MainWallDblStd-R41",
-               
-               # New constuction: Founation 
-               "NewCodes-Foundation-RSI3.73",
-               "NewCodes-Foundation-RSI5.46",
-               
-               # New codes: Windows 
-               "NewCodes-Windows-LG-Double",
-               "NewCodes-Windows-HG-Double",
-               "NewCodes-Windows-LGi89-Triple",
-               "NewCodes-Windows-HGi89-Triple-b",
-               
-               # New construction-upgrade heating equipment. ( no fuel switching scenarios )                     
-               "NewCodes-oil-heating-high-effciency"      ,
-               "NewCodes-gas-heating-high-effciency"      ,
-               "NewCodes-elec-heating-CCASHP"             ,    # As found to high efficiency equivlant
-               "NewCodes-elec-heating-GSHP"               ,   # As found to high efficiency equivlant
-         
-               # New construction -  Hot water scenarios ( no fuel switching scenarios )                     
-               "NewCodes-elec-dhw-hp"                 ,  # As found to high efficiency equivlant
-               "NewCodes-oil-dhw-high-effciency"      ,    # As found to high efficiency equivlant
-               "NewCodes-gas-dhw-high-effciency"      ,    # As found to high efficiency equivlant
-               "NewCodes-elec-dhw-storage"            ,    # As found to high efficiency equivlant
-               "NewCodes-elec-dhw-hp"                 ,
-               
-               
-               # Switch heating to disruptive tech ? 
-               #"retrofit-heating-P9-combos"            ,    # Gas systems to high-effciency p9 combo
-               #"retrofit-heating-P9+zoning"            ,    # Gas systems to p9 combos + zoned dist
-         
-         
-         
-               # ================ Renewable systems ====================
-         
-               #              
-               "Renewables-DWHR-4-60",
-               "Renewables-SDHW-2-plate",
-               "Renewables-SDHW-2-plate+DWHR-60",
-               "Renewables-5kW-PV", 
-
-               
-               # Scenarios for "Heating with Heat Pumps" ! (Mino request)
-               "HeatWHP-oil-to-EStar"       ,
-               "HeatWHP-gas-to-EStar"       ,
-               "HeatWHP-elec-to-ASHP"      ,    
-               "HeatWHP-oil-to-ASHP"       ,    # Oil boilers -> conventional ASHP + elec storage
-               "HeatWHP-gas-to-ASHP"       ,    # Oil & Gas   -> conventional ASHP + elec stroage
-               "HeatWHP--to-ASHP"          ,
-               "HeatWHP-oil-to-CCASHP"     ,    # Oil boilers -> CCASHP + elec stroage
-               "HeatWHP-gas-to-CCASHP"     ,    # Oil & Gas   -> CCASHP + elec storage
-               "HeatWHP-elec-to-GSHP"      , 
-               "HeatWHP-oil-to-GSHP"       ,    # Oil boilers -> CCASHP + elec storage
-               "HeatWHP-gas-to-GSHP"       ,    # Oil & Gas   -> CCASHP + elec storage                               
-               
-               ); 
-
+# Rules to be applied as upgrades.
 
 my %upgrade_packages = (
                         # ================ Comparison agianst old ERS data
@@ -303,13 +167,35 @@ my %upgrade_packages = (
 #                        "NewCodes-ACH-1.5_MainWallInsulation-R23" => ["NewCodes-ACH-1.5","NewCodes-MainWallInsulation-R23"]
 
                       #MINO Scenarios 
-                      "MINO-NewEnergyStarUpgrade" =>  ["HeatWHP-UpgradeTo-EStar"],
-                      "MINO-AllElecASHP"          =>  ["HeatWHP-UpgradeTo-AllElecASHP"],
+                      #"MINO-NewEnergyStarUpgrade" =>  ["HeatWHP-UpgradeTo-EStar"],
+                      #"MINO-AllElecASHP"          =>  ["HeatWHP-UpgradeTo-AllElecASHP"],
                       "MINO-AllElecCCASHP"        =>  ["HeatWHP-UpgradeTo-AllElecCCASHP"],
-                      "MINO-AllElecGSHP"          =>  ["HeatWHP-UpgradeTo-AllElecGSHP"],
-                      "MINO-gfHP"                 =>  ["HeatWHP-UpgradeTo-GasFired-HP"]
-
+                      #"MINO-AllElecGSHP"          =>  ["HeatWHP-UpgradeTo-AllElecGSHP"],
+                      #"MINO-gfHP"                 =>  ["HeatWHP-UpgradeTo-GasFired-HP"],
+                      
+#                      "P9-combos"                 => ["retrofit-heating-P9-combos"],    # Gas systems to high-effciency p9 combo
+                      
+                     # "oil-dhw-high-effciency"    => ["retrofit-oil-dhw-high-effciency"],    # As found to high efficiency equivlant
+                     # "gas-dhw-high-effciency"    => ["retrofit-gas-dhw-high-effciency"],    # As found to high efficiency equivlant
+                     # "elec-dhw-storage"          => ["retrofit-elec-dhw-storage"],                # As found to high efficiency equivlant
+                     # "elec-dhw-hp"               => ["retrofit-elec-dhw-hp"]   ,                      # As found to high efficiency equivlan
+                     # "gas-hp-wh"                 => ["retrofit-gas-hpwh"] ,
+                     # "gas-hp-wh-0-5"             => ["retrofit-gas-hpwh-0_5"] ,
+                     # "gas-hp-wh-0-8"             => ["retrofit-gas-hpwh-0_8"] ,
+                     # "gas-hp-wh-1-0"             => ["retrofit-gas-hpwh-1_0"] ,
+                     # "gas-hp-wh-1-2"             => ["retrofit-gas-hpwh-1_2"] ,
+                     # "gas-hp-wh-1-4"             => ["retrofit-gas-hpwh-1_4"] ,
+                     # "gas-hp-wh-1-4+DWHR"        => ["retrofit-gas-hpwh-1_4",
+                     #                                 "Renewables-DWHR-4-60"] ,
+                     # "gas-dhw-ref"               => ["retrofit-gas-heating-high-effciency"],
+                      
+                     "CCASHP-minisplit-displacement"       => ["retrofit-minisplit"]
+                      
+                      
+                      
+                      
 );
+
 
 #my @upgrades= ( "as-found") ; 
 
@@ -627,7 +513,7 @@ sub UpgradeRuleSet($){
     
      if ( $upgrade =~ /HeatWHP-UpgradeTo-GasFired-HP/ ) {
      
-       $choiceHash{"Opt-GhgHeatingCooling"} = "gasHP-a"  ;
+       $choiceHash{"Opt-GhgHeatingCooling"} = "test-HP-gas-a"  ;
        $validupgrade = 1;      
      
        last SWITCH;      
@@ -703,6 +589,30 @@ sub UpgradeRuleSet($){
       last SWITCH; 
     }         
     
+        
+    if ( $upgrade =~ /retrofit-minisplit/ ){
+
+      if ( $choiceHash{"Opt-GhgHeatingCooling"} =~ /ghg-hvac-6-Oil/ ){
+    
+         $choiceHash{"Opt-GhgHeatingCooling"} =~ s/ghg-hvac-/ghg-hvac-CCASHPDisp-/g; 
+         $validupgrade = 1;   
+      
+      }
+      last SWITCH;
+    
+    }
+  
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
     
     #=========================================================================
     # DHW upgrade - Upgrade baseline to high-efficiency water heater
@@ -765,10 +675,34 @@ sub UpgradeRuleSet($){
           $validupgrade = 1;
           
       }
-
-      
       last SWITCH; 
     }    
+        
+    # Gas HP-wh scenario
+    if ( $upgrade =~ /retrofit-gas-hpwh/ ){
+    
+     #if ( $choiceHash{"Opt-DHWSystem"} =~ /Elect/ ){
+     #
+     #    $choiceHash{"Opt-DHWSystem"} = "gas-HPWH-ref"  ;
+     #             
+     #    $validupgrade = 1;
+     #    
+     #}else{ 
+      
+        if     ( $upgrade =~ /retrofit-gas-hpwh-0_5/ ){$choiceHash{"Opt-DHWSystem"} = "gas-HPWH-ref0_5"; }
+        elsif  ( $upgrade =~ /retrofit-gas-hpwh-0_8/ ){$choiceHash{"Opt-DHWSystem"} = "gas-HPWH-ref0_8"; }
+        elsif  ( $upgrade =~ /retrofit-gas-hpwh-1_0/ ){$choiceHash{"Opt-DHWSystem"} = "gas-HPWH-ref1_0"; }
+        elsif  ( $upgrade =~ /retrofit-gas-hpwh-1_2/ ){$choiceHash{"Opt-DHWSystem"} = "gas-HPWH-ref1_2"; }
+        elsif  ( $upgrade =~ /retrofit-gas-hpwh-1_4/ ){$choiceHash{"Opt-DHWSystem"} = "gas-HPWH-ref1_4"; }
+        else{$choiceHash{"Opt-DHWSystem"} = "gas-HPWH-ref"  ;}
+                   
+        $validupgrade = 1;      
+      
+      #}
+      
+      last SWITCH; 
+    }
+
         
     
     #=========================================================================
