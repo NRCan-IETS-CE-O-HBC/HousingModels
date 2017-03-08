@@ -3116,7 +3116,7 @@
 *option:ghg-hvac-1-Gas:value:3  = #-no-IMS
 *option:ghg-hvac-1-Gas:value:4  =
 *option:ghg-hvac-1-Gas:value:5  =
-*option:ghg-hvac-1-Gas:value:6  = shoulder-ideal.ctl
+*option:ghg-hvac-1-Gas:value:6  = <Opt-HeatCool-Control>
 *option:ghg-hvac-1-Gas:value:7  = gas
 *option:ghg-hvac-1-Gas:value:8  = 5
 *option:ghg-hvac-1-Gas:value:9 = 25000
@@ -3136,7 +3136,7 @@
 *option:ghg-hvac-2-Elect:value:3  = #-no-IMS
 *option:ghg-hvac-2-Elect:value:4  =
 *option:ghg-hvac-2-Elect:value:5  =
-*option:ghg-hvac-2-Elect:value:6  = shoulder-ideal.ctl
+*option:ghg-hvac-2-Elect:value:6  = <Opt-HeatCool-Control>
 *option:ghg-hvac-2-Elect:value:7  = electricity
 *option:ghg-hvac-2-Elect:value:8  = nil
 *option:ghg-hvac-2-Elect:value:9 = 25000
@@ -3156,10 +3156,10 @@
 *option:ghg-hvac-3-Oil:value:3  = #-no-IMS
 *option:ghg-hvac-3-Oil:value:4  =
 *option:ghg-hvac-3-Oil:value:5  =
-*option:ghg-hvac-3-Oil:value:6  = shoulder-ideal.ctl
+*option:ghg-hvac-3-Oil:value:6  = <Opt-HeatCool-Control>
 *option:ghg-hvac-3-Oil:value:7  = oil
 *option:ghg-hvac-3-Oil:value:8  = 14
-*option:ghg-hvac-3-Oil:value:9 = 25000
+*option:ghg-hvac-3-Oil:value:9  = 25000
 *option:ghg-hvac-3-Oil:value:10  = 0.64
 *option:ghg-hvac-3-Oil:value:11  = 600
 *option:ghg-hvac-3-Oil:value:12  = 600
@@ -3176,7 +3176,7 @@
 *option:ghg-hvac-CCASHPDisp-3-Oil:value:3  = #-no-IMS              ! <OPT-VENTisIMS>
 *option:ghg-hvac-CCASHPDisp-3-Oil:value:4  =                       ! <OPT-VENTisHRV>
 *option:ghg-hvac-CCASHPDisp-3-Oil:value:5  =                       ! <OPT-WHisIMS>
-*option:ghg-hvac-CCASHPDisp-3-Oil:value:6  = shoulder-ideal.ctl    ! <Opt-HVACCtlFile>
+*option:ghg-hvac-CCASHPDisp-3-Oil:value:6  = <Opt-HeatCool-Control>    ! <Opt-HVACCtlFile>
 *option:ghg-hvac-CCASHPDisp-3-Oil:value:7  = electricity           ! <OPT-heating-fuel>         
 *option:ghg-hvac-CCASHPDisp-3-Oil:value:8  = nil                   ! <OPT-FurnaceType>
 *option:ghg-hvac-CCASHPDisp-3-Oil:value:9 = 25000                  ! <OPT-HeatingCapacity>
@@ -3198,7 +3198,7 @@
 *option:ghg-hvac-4-Gas:value:3  = #-no-IMS
 *option:ghg-hvac-4-Gas:value:4  =
 *option:ghg-hvac-4-Gas:value:5  =
-*option:ghg-hvac-4-Gas:value:6  = shoulder-ideal.ctl
+*option:ghg-hvac-4-Gas:value:6  = <Opt-HeatCool-Control>
 *option:ghg-hvac-4-Gas:value:7  = gas
 *option:ghg-hvac-4-Gas:value:8  = 5
 *option:ghg-hvac-4-Gas:value:9 = 25000
@@ -3218,7 +3218,7 @@
 *option:ghg-hvac-5-Elect:value:3  = #-no-IMS
 *option:ghg-hvac-5-Elect:value:4  =
 *option:ghg-hvac-5-Elect:value:5  =
-*option:ghg-hvac-5-Elect:value:6  = shoulder-ideal.ctl
+*option:ghg-hvac-5-Elect:value:6  = <Opt-HeatCool-Control>
 *option:ghg-hvac-5-Elect:value:7  = electricity
 *option:ghg-hvac-5-Elect:value:8  = nil
 *option:ghg-hvac-5-Elect:value:9 = 25000
@@ -3238,7 +3238,7 @@
 *option:ghg-hvac-6-Oil:value:3  = #-no-IMS
 *option:ghg-hvac-6-Oil:value:4  =
 *option:ghg-hvac-6-Oil:value:5  =
-*option:ghg-hvac-6-Oil:value:6  = shoulder-ideal.ctl
+*option:ghg-hvac-6-Oil:value:6  = <Opt-HeatCool-Control>
 *option:ghg-hvac-6-Oil:value:7  = oil
 *option:ghg-hvac-6-Oil:value:8  = 14
 *option:ghg-hvac-6-Oil:value:9 = 25000
@@ -3257,7 +3257,7 @@
 *option:ghg-hvac-CCASHPDisp-6-Oil:value:3  = #-no-IMS                 ! <OPT-VENTisIMS>
 *option:ghg-hvac-CCASHPDisp-6-Oil:value:4  =                          ! <OPT-VENTisHRV>
 *option:ghg-hvac-CCASHPDisp-6-Oil:value:5  =                          ! <OPT-WHisIMS>
-*option:ghg-hvac-CCASHPDisp-6-Oil:value:6  = shoulder-ideal.ctl       ! <Opt-HVACCtlFile>
+*option:ghg-hvac-CCASHPDisp-6-Oil:value:6  = <Opt-HeatCool-Control>       ! <Opt-HVACCtlFile>
 *option:ghg-hvac-CCASHPDisp-6-Oil:value:7  = oil                      ! <OPT-heating-fuel>         
 *option:ghg-hvac-CCASHPDisp-6-Oil:value:8  = 14                       ! <OPT-FurnaceType>
 *option:ghg-hvac-CCASHPDisp-6-Oil:value:9 = 25000                     ! <OPT-HeatingCapacity>
@@ -3268,7 +3268,7 @@
 *option:ghg-hvac-CCASHPDisp-6-Oil:value:14 = 0                        ! <OPT-FurnacePilotPower>
 *option:ghg-hvac-CCASHPDisp-6-Oil:value:15  = 8700                    ! <Opt-HPHeatingCapacity>
 *option:ghg-hvac-CCASHPDisp-6-Oil:value:16  = 11000                   ! <OPT-AC-capacity>
-*option:ghg-hvac-CCASHPDisp-6-Oil:value:17  = 2.25078689620004        ! <OPT-AC-COP>
+*option:ghg-hvac-CCASHPDisp-6-Oil:value:17  = 3.6047758884453        ! <OPT-AC-COP>
 *option:ghg-hvac-CCASHPDisp-6-Oil:value:18  = #-no-central-air        ! <OPT-CommentFanCtlLoop>    
 *option:ghg-hvac-CCASHPDisp-6-Oil:value:19  = oil                     ! <OPT-BAK-heating-fuel>     
         
@@ -3283,7 +3283,7 @@
 *option:ghg-hvac-7-Gas:value:3  = #-no-IMS
 *option:ghg-hvac-7-Gas:value:4  =
 *option:ghg-hvac-7-Gas:value:5  =
-*option:ghg-hvac-7-Gas:value:6  = shoulder-ideal.ctl
+*option:ghg-hvac-7-Gas:value:6  = <Opt-HeatCool-Control>
 *option:ghg-hvac-7-Gas:value:7  = gas
 *option:ghg-hvac-7-Gas:value:8  = 10
 *option:ghg-hvac-7-Gas:value:9 = 25000
@@ -3306,7 +3306,7 @@
 *option:ghg-hvac-8-Elect:value:3  = #-no-IMS
 *option:ghg-hvac-8-Elect:value:4  =
 *option:ghg-hvac-8-Elect:value:5  =
-*option:ghg-hvac-8-Elect:value:6  = shoulder-ideal.ctl
+*option:ghg-hvac-8-Elect:value:6  = <Opt-HeatCool-Control>
 *option:ghg-hvac-8-Elect:value:7  = electricity
 *option:ghg-hvac-8-Elect:value:8  = nil
 *option:ghg-hvac-8-Elect:value:9 = 25000
@@ -3326,7 +3326,7 @@
 *option:ghg-hvac-9-Oil:value:3  = #-no-IMS
 *option:ghg-hvac-9-Oil:value:4  =
 *option:ghg-hvac-9-Oil:value:5  =
-*option:ghg-hvac-9-Oil:value:6  = shoulder-ideal.ctl
+*option:ghg-hvac-9-Oil:value:6  = <Opt-HeatCool-Control>
 *option:ghg-hvac-9-Oil:value:7  = oil
 *option:ghg-hvac-9-Oil:value:8  = 14
 *option:ghg-hvac-9-Oil:value:9 = 25000
@@ -3341,12 +3341,48 @@
 *option:ghg-hvac-9-Oil:value:18  = #-no-central-air 
 
 
+*option:ghg-hvac-CCASHPDisp-9-Oil:value:1   = ghg-CCASHP-displacement.hvac             ! <Opt-HVACSystem>           
+*option:ghg-hvac-CCASHPDisp-9-Oil:value:2   = #-no-GSHP-file          ! <Opt-HideGSHPfile>
+*option:ghg-hvac-CCASHPDisp-9-Oil:value:3  = #-no-IMS                 ! <OPT-VENTisIMS>
+*option:ghg-hvac-CCASHPDisp-9-Oil:value:4  =                          ! <OPT-VENTisHRV>
+*option:ghg-hvac-CCASHPDisp-9-Oil:value:5  =                          ! <OPT-WHisIMS>
+*option:ghg-hvac-CCASHPDisp-9-Oil:value:6  = <Opt-HeatCool-Control>       ! <Opt-HVACCtlFile>
+*option:ghg-hvac-CCASHPDisp-9-Oil:value:7  = oil                      ! <OPT-heating-fuel>         
+*option:ghg-hvac-CCASHPDisp-9-Oil:value:8  = 14                       ! <OPT-FurnaceType>
+*option:ghg-hvac-CCASHPDisp-9-Oil:value:9   = 25000                   ! <OPT-HeatingCapacity>
+*option:ghg-hvac-CCASHPDisp-9-Oil:value:10  = 0.74                    ! <OPT-FurnaceEfficiency>
+*option:ghg-hvac-CCASHPDisp-9-Oil:value:11  = 400                     ! <OPT-FurnaceFanPower>
+*option:ghg-hvac-CCASHPDisp-9-Oil:value:12  = 400                     ! <OPT-FurnaceFanPowerLo>
+*option:ghg-hvac-CCASHPDisp-9-Oil:value:13  = 75                      ! <OPT-FurnaceDraftFanPower> 
+*option:ghg-hvac-CCASHPDisp-9-Oil:value:14  = 0                       ! <OPT-FurnacePilotPower>
+*option:ghg-hvac-CCASHPDisp-9-Oil:value:15  = 8700                    ! <Opt-HPHeatingCapacity>
+*option:ghg-hvac-CCASHPDisp-9-Oil:value:16  = 11000                   ! <OPT-AC-capacity>
+*option:ghg-hvac-CCASHPDisp-9-Oil:value:17  = 3.6047758884453         ! <OPT-AC-COP>
+*option:ghg-hvac-CCASHPDisp-9-Oil:value:18  = #-no-central-air        ! <OPT-CommentFanCtlLoop>    
+*option:ghg-hvac-CCASHPDisp-9-Oil:value:19  = oil                     ! <OPT-BAK-heating-fuel>     
+        
+
+        
+        
+        
+
+
+
+
+
+
+
+
+
+
+
+
 *option:ghg-hvac-10-Gas:value:1   = ghg-gas.hvac
 *option:ghg-hvac-10-Gas:value:2   = #-no-GSHP-file
 *option:ghg-hvac-10-Gas:value:3  = #-no-IMS
 *option:ghg-hvac-10-Gas:value:4  =
 *option:ghg-hvac-10-Gas:value:5  =
-*option:ghg-hvac-10-Gas:value:6  = shoulder-ideal.ctl
+*option:ghg-hvac-10-Gas:value:6  = <Opt-HeatCool-Control>
 *option:ghg-hvac-10-Gas:value:7  = gas
 *option:ghg-hvac-10-Gas:value:8  = 10
 *option:ghg-hvac-10-Gas:value:9 = 25000
@@ -3365,7 +3401,7 @@
 *option:ghg-hvac-11-Elect:value:3  = #-no-IMS
 *option:ghg-hvac-11-Elect:value:4  =
 *option:ghg-hvac-11-Elect:value:5  =
-*option:ghg-hvac-11-Elect:value:6  = shoulder-ideal.ctl
+*option:ghg-hvac-11-Elect:value:6  = <Opt-HeatCool-Control>
 *option:ghg-hvac-11-Elect:value:7  = electricity
 *option:ghg-hvac-11-Elect:value:8  = nil
 *option:ghg-hvac-11-Elect:value:9 = 25000
@@ -3385,7 +3421,7 @@
 *option:ghg-hvac-12-Oil:value:3  = #-no-IMS
 *option:ghg-hvac-12-Oil:value:4  =
 *option:ghg-hvac-12-Oil:value:5  =
-*option:ghg-hvac-12-Oil:value:6  = shoulder-ideal.ctl
+*option:ghg-hvac-12-Oil:value:6  = <Opt-HeatCool-Control>
 *option:ghg-hvac-12-Oil:value:7  = oil
 *option:ghg-hvac-12-Oil:value:8  = 14
 *option:ghg-hvac-12-Oil:value:9 = 25000
@@ -3400,12 +3436,42 @@
 *option:ghg-hvac-12-Oil:value:18  = 
 
 
+*option:ghg-hvac-CCASHPDisp-12-Oil:value:1   = ghg-CCASHP-displacement.hvac             ! <Opt-HVACSystem>           
+*option:ghg-hvac-CCASHPDisp-12-Oil:value:2   = #-no-GSHP-file          ! <Opt-HideGSHPfile>
+*option:ghg-hvac-CCASHPDisp-12-Oil:value:3  = #-no-IMS                 ! <OPT-VENTisIMS>
+*option:ghg-hvac-CCASHPDisp-12-Oil:value:4  =                          ! <OPT-VENTisHRV>
+*option:ghg-hvac-CCASHPDisp-12-Oil:value:5  =                          ! <OPT-WHisIMS>
+*option:ghg-hvac-CCASHPDisp-12-Oil:value:6  = <Opt-HeatCool-Control>       ! <Opt-HVACCtlFile>
+*option:ghg-hvac-CCASHPDisp-12-Oil:value:7  = oil                      ! <OPT-heating-fuel>         
+*option:ghg-hvac-CCASHPDisp-12-Oil:value:8  = 14                       ! <OPT-FurnaceType>
+*option:ghg-hvac-CCASHPDisp-12-Oil:value:9   = 25000                   ! <OPT-HeatingCapacity>
+*option:ghg-hvac-CCASHPDisp-12-Oil:value:10  = 0.83                    ! <OPT-FurnaceEfficiency>
+*option:ghg-hvac-CCASHPDisp-12-Oil:value:11  = 400                     ! <OPT-FurnaceFanPower>
+*option:ghg-hvac-CCASHPDisp-12-Oil:value:12  = 400                     ! <OPT-FurnaceFanPowerLo>
+*option:ghg-hvac-CCASHPDisp-12-Oil:value:13  = 75                      ! <OPT-FurnaceDraftFanPower> 
+*option:ghg-hvac-CCASHPDisp-12-Oil:value:14  = 0                       ! <OPT-FurnacePilotPower>
+*option:ghg-hvac-CCASHPDisp-12-Oil:value:15  = 8700                    ! <Opt-HPHeatingCapacity>
+*option:ghg-hvac-CCASHPDisp-12-Oil:value:16  = 11000                   ! <OPT-AC-capacity>
+*option:ghg-hvac-CCASHPDisp-12-Oil:value:17  = 3.6047758884453         ! <OPT-AC-COP>
+*option:ghg-hvac-CCASHPDisp-12-Oil:value:18  =                         ! <OPT-CommentFanCtlLoop>    
+*option:ghg-hvac-CCASHPDisp-12-Oil:value:19  = oil                     ! <OPT-BAK-heating-fuel>     
+        
+
+        
+        
+
+
+
+
+
+
+
 *option:ghg-hvac-13-Gas:value:1   = ghg-gas.hvac
 *option:ghg-hvac-13-Gas:value:2   = #-no-GSHP-file
 *option:ghg-hvac-13-Gas:value:3  = #-no-IMS
 *option:ghg-hvac-13-Gas:value:4  =
 *option:ghg-hvac-13-Gas:value:5  =
-*option:ghg-hvac-13-Gas:value:6  = shoulder-ideal.ctl
+*option:ghg-hvac-13-Gas:value:6  = <Opt-HeatCool-Control>
 *option:ghg-hvac-13-Gas:value:7  = gas
 *option:ghg-hvac-13-Gas:value:8  = 8
 *option:ghg-hvac-13-Gas:value:9 = 25000
@@ -3425,7 +3491,7 @@
 *option:ghg-hvac-14-Elect:value:3  = #-no-IMS
 *option:ghg-hvac-14-Elect:value:4  =
 *option:ghg-hvac-14-Elect:value:5  =
-*option:ghg-hvac-14-Elect:value:6  = shoulder-ideal.ctl
+*option:ghg-hvac-14-Elect:value:6  = <Opt-HeatCool-Control>
 *option:ghg-hvac-14-Elect:value:7  = electricity
 *option:ghg-hvac-14-Elect:value:8  = nil
 *option:ghg-hvac-14-Elect:value:9 = 25000
@@ -3445,7 +3511,7 @@
 *option:ghg-hvac-15-Oil:value:3  = #-no-IMS
 *option:ghg-hvac-15-Oil:value:4  =
 *option:ghg-hvac-15-Oil:value:5  =
-*option:ghg-hvac-15-Oil:value:6  = shoulder-ideal.ctl
+*option:ghg-hvac-15-Oil:value:6  = <Opt-HeatCool-Control>
 *option:ghg-hvac-15-Oil:value:7  = oil
 *option:ghg-hvac-15-Oil:value:8  = 14
 *option:ghg-hvac-15-Oil:value:9 = 25000
@@ -3459,13 +3525,36 @@
 *option:ghg-hvac-15-Oil:value:17  = 3.09483198227505
 *option:ghg-hvac-15-Oil:value:18  = 
 
+*option:ghg-hvac-CCASHPDisp-15-Oil:value:1   = ghg-CCASHP-displacement.hvac             ! <Opt-HVACSystem>           
+*option:ghg-hvac-CCASHPDisp-15-Oil:value:2   = #-no-GSHP-file          ! <Opt-HideGSHPfile>
+*option:ghg-hvac-CCASHPDisp-15-Oil:value:3  = #-no-IMS                 ! <OPT-VENTisIMS>
+*option:ghg-hvac-CCASHPDisp-15-Oil:value:4  =                          ! <OPT-VENTisHRV>
+*option:ghg-hvac-CCASHPDisp-15-Oil:value:5  =                          ! <OPT-WHisIMS>
+*option:ghg-hvac-CCASHPDisp-15-Oil:value:6  = <Opt-HeatCool-Control>       ! <Opt-HVACCtlFile>
+*option:ghg-hvac-CCASHPDisp-15-Oil:value:7  = oil                      ! <OPT-heating-fuel>         
+*option:ghg-hvac-CCASHPDisp-15-Oil:value:8  = 14                       ! <OPT-FurnaceType>
+*option:ghg-hvac-CCASHPDisp-15-Oil:value:9   = 25000                   ! <OPT-HeatingCapacity>
+*option:ghg-hvac-CCASHPDisp-15-Oil:value:10  = 0.83                    ! <OPT-FurnaceEfficiency>
+*option:ghg-hvac-CCASHPDisp-15-Oil:value:11  = 400                     ! <OPT-FurnaceFanPower>
+*option:ghg-hvac-CCASHPDisp-15-Oil:value:12  = 400                     ! <OPT-FurnaceFanPowerLo>
+*option:ghg-hvac-CCASHPDisp-15-Oil:value:13  = 75                      ! <OPT-FurnaceDraftFanPower> 
+*option:ghg-hvac-CCASHPDisp-15-Oil:value:14  = 0                       ! <OPT-FurnacePilotPower>
+*option:ghg-hvac-CCASHPDisp-15-Oil:value:15  = 8700                    ! <Opt-HPHeatingCapacity>
+*option:ghg-hvac-CCASHPDisp-15-Oil:value:16  = 11000                   ! <OPT-AC-capacity>
+*option:ghg-hvac-CCASHPDisp-15-Oil:value:17  = 3.09483198227505        ! <OPT-AC-COP>
+*option:ghg-hvac-CCASHPDisp-15-Oil:value:18  =                         ! <OPT-CommentFanCtlLoop>    
+*option:ghg-hvac-CCASHPDisp-15-Oil:value:19  = oil                     ! <OPT-BAK-heating-fuel>     
+        
+
+
+
 
 *option:ghg-hvac-16-Gas:value:1   = ghg-gas.hvac
 *option:ghg-hvac-16-Gas:value:2   = #-no-GSHP-file
 *option:ghg-hvac-16-Gas:value:3  = #-no-IMS
 *option:ghg-hvac-16-Gas:value:4  =
 *option:ghg-hvac-16-Gas:value:5  =
-*option:ghg-hvac-16-Gas:value:6  = shoulder-ideal.ctl
+*option:ghg-hvac-16-Gas:value:6  = <Opt-HeatCool-Control>
 *option:ghg-hvac-16-Gas:value:7  = gas
 *option:ghg-hvac-16-Gas:value:8  = 8
 *option:ghg-hvac-16-Gas:value:9 = 25000
@@ -3485,7 +3574,7 @@
 *option:ghg-hvac-17-Elect:value:3  = #-no-IMS
 *option:ghg-hvac-17-Elect:value:4  =
 *option:ghg-hvac-17-Elect:value:5  =
-*option:ghg-hvac-17-Elect:value:6  = shoulder-ideal.ctl
+*option:ghg-hvac-17-Elect:value:6  = <Opt-HeatCool-Control>
 *option:ghg-hvac-17-Elect:value:7  = electricity
 *option:ghg-hvac-17-Elect:value:8  = nil
 *option:ghg-hvac-17-Elect:value:9 = 25000
@@ -3505,7 +3594,7 @@
 *option:ghg-hvac-18-Oil:value:3  = #-no-IMS
 *option:ghg-hvac-18-Oil:value:4  =
 *option:ghg-hvac-18-Oil:value:5  =
-*option:ghg-hvac-18-Oil:value:6  = shoulder-ideal.ctl
+*option:ghg-hvac-18-Oil:value:6  = <Opt-HeatCool-Control>
 *option:ghg-hvac-18-Oil:value:7  = oil
 *option:ghg-hvac-18-Oil:value:8  = 14
 *option:ghg-hvac-18-Oil:value:9 = 25000
@@ -3519,13 +3608,38 @@
 *option:ghg-hvac-18-Oil:value:17  = 3.60477588844537
 *option:ghg-hvac-18-Oil:value:18  = 
 
+*option:ghg-hvac-CCASHPDisp-18-Oil:value:1   = ghg-CCASHP-displacement.hvac             ! <Opt-HVACSystem>           
+*option:ghg-hvac-CCASHPDisp-18-Oil:value:2   = #-no-GSHP-file          ! <Opt-HideGSHPfile>
+*option:ghg-hvac-CCASHPDisp-18-Oil:value:3  = #-no-IMS                 ! <OPT-VENTisIMS>
+*option:ghg-hvac-CCASHPDisp-18-Oil:value:4  =                          ! <OPT-VENTisHRV>
+*option:ghg-hvac-CCASHPDisp-18-Oil:value:5  =                          ! <OPT-WHisIMS>
+*option:ghg-hvac-CCASHPDisp-18-Oil:value:6  = <Opt-HeatCool-Control>       ! <Opt-HVACCtlFile>
+*option:ghg-hvac-CCASHPDisp-18-Oil:value:7  = oil                      ! <OPT-heating-fuel>         
+*option:ghg-hvac-CCASHPDisp-18-Oil:value:8  = 14                       ! <OPT-FurnaceType>
+*option:ghg-hvac-CCASHPDisp-18-Oil:value:9   = 25000                   ! <OPT-HeatingCapacity>
+*option:ghg-hvac-CCASHPDisp-18-Oil:value:10  = 0.87                    ! <OPT-FurnaceEfficiency>
+*option:ghg-hvac-CCASHPDisp-18-Oil:value:11  = 320                     ! <OPT-FurnaceFanPower>
+*option:ghg-hvac-CCASHPDisp-18-Oil:value:12  = 320                     ! <OPT-FurnaceFanPowerLo>
+*option:ghg-hvac-CCASHPDisp-18-Oil:value:13  = 75                      ! <OPT-FurnaceDraftFanPower> 
+*option:ghg-hvac-CCASHPDisp-18-Oil:value:14  = 0                       ! <OPT-FurnacePilotPower>
+*option:ghg-hvac-CCASHPDisp-18-Oil:value:15  = 8700                    ! <Opt-HPHeatingCapacity>
+*option:ghg-hvac-CCASHPDisp-18-Oil:value:16  = 11000                   ! <OPT-AC-capacity>
+*option:ghg-hvac-CCASHPDisp-18-Oil:value:17  = 3.60477588844537        ! <OPT-AC-COP>
+*option:ghg-hvac-CCASHPDisp-18-Oil:value:18  =                         ! <OPT-CommentFanCtlLoop>    
+*option:ghg-hvac-CCASHPDisp-18-Oil:value:19  = oil                     ! <OPT-BAK-heating-fuel>     
+        
+
+
+
+
+
 
 *option:ghg-hvac-19-Gas:value:1   = ghg-gas.hvac
 *option:ghg-hvac-19-Gas:value:2   = #-no-GSHP-file
 *option:ghg-hvac-19-Gas:value:3  = #-no-IMS
 *option:ghg-hvac-19-Gas:value:4  =
 *option:ghg-hvac-19-Gas:value:5  =
-*option:ghg-hvac-19-Gas:value:6  = shoulder-ideal.ctl
+*option:ghg-hvac-19-Gas:value:6  = <Opt-HeatCool-Control>
 *option:ghg-hvac-19-Gas:value:7  = gas
 *option:ghg-hvac-19-Gas:value:8  = 8
 *option:ghg-hvac-19-Gas:value:9 = 25000
@@ -3545,7 +3659,7 @@
 *option:ghg-hvac-20-Elect:value:3  = #-no-IMS
 *option:ghg-hvac-20-Elect:value:4  =
 *option:ghg-hvac-20-Elect:value:5  =
-*option:ghg-hvac-20-Elect:value:6  = shoulder-ideal.ctl
+*option:ghg-hvac-20-Elect:value:6  = <Opt-HeatCool-Control>
 *option:ghg-hvac-20-Elect:value:7  = electricity
 *option:ghg-hvac-20-Elect:value:8  = nil
 *option:ghg-hvac-20-Elect:value:9 = 25000
@@ -3564,7 +3678,7 @@
 *option:ghg-hvac-21-Oil:value:3  = #-no-IMS
 *option:ghg-hvac-21-Oil:value:4  =
 *option:ghg-hvac-21-Oil:value:5  =
-*option:ghg-hvac-21-Oil:value:6  = shoulder-ideal.ctl
+*option:ghg-hvac-21-Oil:value:6  = <Opt-HeatCool-Control>
 *option:ghg-hvac-21-Oil:value:7  = oil
 *option:ghg-hvac-21-Oil:value:8  = 14
 *option:ghg-hvac-21-Oil:value:9 = 25000
@@ -3579,12 +3693,35 @@
 *option:ghg-hvac-21-Oil:value:18  = 
 
 
+*option:ghg-hvac-CCASHPDisp-21-Oil:value:1   = ghg-CCASHP-displacement.hvac             ! <Opt-HVACSystem>           
+*option:ghg-hvac-CCASHPDisp-21-Oil:value:2   = #-no-GSHP-file          ! <Opt-HideGSHPfile>
+*option:ghg-hvac-CCASHPDisp-21-Oil:value:3  = #-no-IMS                 ! <OPT-VENTisIMS>
+*option:ghg-hvac-CCASHPDisp-21-Oil:value:4  =                          ! <OPT-VENTisHRV>
+*option:ghg-hvac-CCASHPDisp-21-Oil:value:5  =                          ! <OPT-WHisIMS>
+*option:ghg-hvac-CCASHPDisp-21-Oil:value:6  = <Opt-HeatCool-Control>       ! <Opt-HVACCtlFile>
+*option:ghg-hvac-CCASHPDisp-21-Oil:value:7  = oil                      ! <OPT-heating-fuel>         
+*option:ghg-hvac-CCASHPDisp-21-Oil:value:8  = 14                       ! <OPT-FurnaceType>
+*option:ghg-hvac-CCASHPDisp-21-Oil:value:9   = 25000                   ! <OPT-HeatingCapacity>
+*option:ghg-hvac-CCASHPDisp-21-Oil:value:10  = 0.92                    ! <OPT-FurnaceEfficiency>
+*option:ghg-hvac-CCASHPDisp-21-Oil:value:11  = 250                     ! <OPT-FurnaceFanPower>
+*option:ghg-hvac-CCASHPDisp-21-Oil:value:12  = 250                     ! <OPT-FurnaceFanPowerLo>
+*option:ghg-hvac-CCASHPDisp-21-Oil:value:13  = 75                      ! <OPT-FurnaceDraftFanPower> 
+*option:ghg-hvac-CCASHPDisp-21-Oil:value:14  = 0                       ! <OPT-FurnacePilotPower>
+*option:ghg-hvac-CCASHPDisp-21-Oil:value:15  = 8700                    ! <Opt-HPHeatingCapacity>
+*option:ghg-hvac-CCASHPDisp-21-Oil:value:16  = 11000                   ! <OPT-AC-capacity>
+*option:ghg-hvac-CCASHPDisp-21-Oil:value:17  = 3.60477588844537        ! <OPT-AC-COP>
+*option:ghg-hvac-CCASHPDisp-21-Oil:value:18  =                         ! <OPT-CommentFanCtlLoop>    
+*option:ghg-hvac-CCASHPDisp-21-Oil:value:19  = oil                     ! <OPT-BAK-heating-fuel>     
+        
+
+
+
 *option:ghg-hvac-22-Gas:value:1   = ghg-gas.hvac
 *option:ghg-hvac-22-Gas:value:2   = #-no-GSHP-file
 *option:ghg-hvac-22-Gas:value:3  = #-no-IMS
 *option:ghg-hvac-22-Gas:value:4  =
 *option:ghg-hvac-22-Gas:value:5  =
-*option:ghg-hvac-22-Gas:value:6  = shoulder-ideal.ctl
+*option:ghg-hvac-22-Gas:value:6  = <Opt-HeatCool-Control>
 *option:ghg-hvac-22-Gas:value:7  = gas
 *option:ghg-hvac-22-Gas:value:8  = 8
 *option:ghg-hvac-22-Gas:value:9 = 25000
@@ -3604,7 +3741,7 @@
 *option:ghg-hvac-23-CCHP:value:3  = #-no-IMS
 *option:ghg-hvac-23-CCHP:value:4  =
 *option:ghg-hvac-23-CCHP:value:5  =
-*option:ghg-hvac-23-CCHP:value:6  = shoulder-ideal.ctl
+*option:ghg-hvac-23-CCHP:value:6  = <Opt-HeatCool-Control>
 *option:ghg-hvac-23-CCHP:value:7  = electricity
 *option:ghg-hvac-23-CCHP:value:8  = nil
 *option:ghg-hvac-23-CCHP:value:9 = 25000
@@ -3624,7 +3761,7 @@
 *option:ghg-hvac-24-Oil:value:3  = #-no-IMS
 *option:ghg-hvac-24-Oil:value:4  =
 *option:ghg-hvac-24-Oil:value:5  =
-*option:ghg-hvac-24-Oil:value:6  = shoulder-ideal.ctl
+*option:ghg-hvac-24-Oil:value:6  = <Opt-HeatCool-Control>
 *option:ghg-hvac-24-Oil:value:7  = oil
 *option:ghg-hvac-24-Oil:value:8  = 14
 *option:ghg-hvac-24-Oil:value:9 = 25000
@@ -3638,6 +3775,30 @@
 *option:ghg-hvac-24-Oil:value:17  = 3.88612425047038
 *option:ghg-hvac-24-Oil:value:18  = 
 
+
+*option:ghg-hvac-CCASHPDisp-24-Oil:value:1   = ghg-CCASHP-displacement.hvac             ! <Opt-HVACSystem>           
+*option:ghg-hvac-CCASHPDisp-24-Oil:value:2   = #-no-GSHP-file          ! <Opt-HideGSHPfile>
+*option:ghg-hvac-CCASHPDisp-24-Oil:value:3  = #-no-IMS                 ! <OPT-VENTisIMS>
+*option:ghg-hvac-CCASHPDisp-24-Oil:value:4  =                          ! <OPT-VENTisHRV>
+*option:ghg-hvac-CCASHPDisp-24-Oil:value:5  =                          ! <OPT-WHisIMS>
+*option:ghg-hvac-CCASHPDisp-24-Oil:value:6  = <Opt-HeatCool-Control>       ! <Opt-HVACCtlFile>
+*option:ghg-hvac-CCASHPDisp-24-Oil:value:7  = oil                      ! <OPT-heating-fuel>         
+*option:ghg-hvac-CCASHPDisp-24-Oil:value:8  = 14                       ! <OPT-FurnaceType>
+*option:ghg-hvac-CCASHPDisp-24-Oil:value:9   = 25000                   ! <OPT-HeatingCapacity>
+*option:ghg-hvac-CCASHPDisp-24-Oil:value:10  = 0.94                    ! <OPT-FurnaceEfficiency>
+*option:ghg-hvac-CCASHPDisp-24-Oil:value:11  = 200                     ! <OPT-FurnaceFanPower>
+*option:ghg-hvac-CCASHPDisp-24-Oil:value:12  = 200                     ! <OPT-FurnaceFanPowerLo>
+*option:ghg-hvac-CCASHPDisp-24-Oil:value:13  = 75                      ! <OPT-FurnaceDraftFanPower> 
+*option:ghg-hvac-CCASHPDisp-24-Oil:value:14  = 0                       ! <OPT-FurnacePilotPower>
+*option:ghg-hvac-CCASHPDisp-24-Oil:value:15  = 8700                    ! <Opt-HPHeatingCapacity>
+*option:ghg-hvac-CCASHPDisp-24-Oil:value:16  = 11000                   ! <OPT-AC-capacity>
+*option:ghg-hvac-CCASHPDisp-24-Oil:value:17  = 3.60477588844537        ! <OPT-AC-COP>
+*option:ghg-hvac-CCASHPDisp-24-Oil:value:18  =                         ! <OPT-CommentFanCtlLoop>    
+*option:ghg-hvac-CCASHPDisp-24-Oil:value:19  = oil                     ! <OPT-BAK-heating-fuel>     
+        
+
+
+
 !-------------------------------------------------------
 ! Additional - system specific scenarios 
 !-------------------------------------------------------
@@ -3647,7 +3808,7 @@
 *option:oee-CCASHP-ref:value:3  = #-no-IMS
 *option:oee-CCASHP-ref:value:4  =
 *option:oee-CCASHP-ref:value:5  =
-*option:oee-CCASHP-ref:value:6  = shoulder-ideal.ctl
+*option:oee-CCASHP-ref:value:6  = <Opt-HeatCool-Control>
 *option:oee-CCASHP-ref:value:7  = electricity
 *option:oee-CCASHP-ref:value:8  = nil
 *option:oee-CCASHP-ref:value:9 = 25000
@@ -3666,7 +3827,7 @@
 *option:oee-ASHP-ref:value:3  = #-no-IMS
 *option:oee-ASHP-ref:value:4  =
 *option:oee-ASHP-ref:value:5  =
-*option:oee-ASHP-ref:value:6  = shoulder-ideal.ctl
+*option:oee-ASHP-ref:value:6  = <Opt-HeatCool-Control>
 *option:oee-ASHP-ref:value:7  = electricity
 *option:oee-ASHP-ref:value:8  = nil
 *option:oee-ASHP-ref:value:9 = 25000
@@ -3685,7 +3846,7 @@
 *option:oee-GSHP-ref:value:3  = #-no-IMS
 *option:oee-GSHP-ref:value:4  =
 *option:oee-GSHP-ref:value:5  =
-*option:oee-GSHP-ref:value:6  = shoulder-ideal.ctl
+*option:oee-GSHP-ref:value:6  = <Opt-HeatCool-Control>
 *option:oee-GSHP-ref:value:7  = electricity
 *option:oee-GSHP-ref:value:8  = nil
 *option:oee-GSHP-ref:value:9 = 25000
@@ -3704,7 +3865,7 @@
 *option:oee-oil-ref:value:3  = #-no-IMS
 *option:oee-oil-ref:value:4  =
 *option:oee-oil-ref:value:5  =
-*option:oee-oil-ref:value:6  = shoulder-ideal.ctl
+*option:oee-oil-ref:value:6  = <Opt-HeatCool-Control>
 *option:oee-oil-ref:value:7  = oil
 *option:oee-oil-ref:value:8  = 14
 *option:oee-oil-ref:value:9 = 25000
@@ -3724,7 +3885,7 @@
 *option:oee-gas-ref:value:3  = #-no-IMS
 *option:oee-gas-ref:value:4  =
 *option:oee-gas-ref:value:5  =
-*option:oee-gas-ref:value:6  = shoulder-ideal.ctl
+*option:oee-gas-ref:value:6  = <Opt-HeatCool-Control>
 *option:oee-gas-ref:value:7  = gas
 *option:oee-gas-ref:value:8  = 8
 *option:oee-gas-ref:value:9  = 25000
@@ -3745,7 +3906,7 @@
 *option:oee-elec-ref:value:3  = #-no-IMS                 ! tag: <OPT-VENTisIMS>
 *option:oee-elec-ref:value:4  =                          ! tag: <OPT-VENTisHRV>
 *option:oee-elec-ref:value:5  =                          ! tag: <OPT-WHisIMS>
-*option:oee-elec-ref:value:6  = shoulder-ideal.ctl       ! tag: <Opt-HVACCtlFile>
+*option:oee-elec-ref:value:6  = <Opt-HeatCool-Control>       ! tag: <Opt-HVACCtlFile>
 *option:oee-elec-ref:value:7  = electricity              ! tag: <OPT-heating-fuel> 
 *option:oee-elec-ref:value:8  = nil                      ! tag: <OPT-FurnaceType>
 *option:oee-elec-ref:value:9 = 25000                     ! tag: <OPT-HeatingCapacity>
@@ -3767,7 +3928,7 @@
 *option:ghg-hvac-Gas-upgrade-nohrv:value:3  = #-no-IMS
 *option:ghg-hvac-Gas-upgrade-nohrv:value:4  =
 *option:ghg-hvac-Gas-upgrade-nohrv:value:5  =
-*option:ghg-hvac-Gas-upgrade-nohrv:value:6  = shoulder-ideal.ctl
+*option:ghg-hvac-Gas-upgrade-nohrv:value:6  = <Opt-HeatCool-Control>
 *option:ghg-hvac-Gas-upgrade-nohrv:value:7  = gas
 *option:ghg-hvac-Gas-upgrade-nohrv:value:8  = 8
 *option:ghg-hvac-Gas-upgrade-nohrv:value:9 = 25000
@@ -3786,7 +3947,7 @@
 *option:ghg-hvac-Gas-upgrade-hrv:value:3  = #-no-IMS
 *option:ghg-hvac-Gas-upgrade-hrv:value:4  =
 *option:ghg-hvac-Gas-upgrade-hrv:value:5  =
-*option:ghg-hvac-Gas-upgrade-hrv:value:6  = shoulder-ideal.ctl
+*option:ghg-hvac-Gas-upgrade-hrv:value:6  = <Opt-HeatCool-Control>
 *option:ghg-hvac-Gas-upgrade-hrv:value:7  = gas
 *option:ghg-hvac-Gas-upgrade-hrv:value:8  = 8
 *option:ghg-hvac-Gas-upgrade-hrv:value:9 = 25000
@@ -3806,7 +3967,7 @@
 *option:gasHP-a:valvalueue:3   = #-no-IMS                  ! tag: <OPT-VENTisIMS>
 *option:gasHP-a:value:4   =                           ! tag: <OPT-VENTisHRV>
 *option:gasHP-a:value:5   =                           ! tag: <OPT-WHisIMS>
-*option:gasHP-a:value:6   = shoulder-ideal.ctl        ! tag: <Opt-HVACCtlFile>
+*option:gasHP-a:value:6   = <Opt-HeatCool-Control>        ! tag: <Opt-HVACCtlFile>
 *option:gasHP-a:value:7   = oil                       ! tag: <OPT-heating-fuel> 
 *option:gasHP-a:value:8   = 15                        ! tag: <OPT-FurnaceType>
 *option:gasHP-a:value:9   = 25000                     ! tag: <OPT-HeatingCapacity>
@@ -3825,7 +3986,7 @@
 *option:test-HP-gas-a:value:3  = #-no-IMS                     ! tag: <OPT-VENTisIMS>
 *option:test-HP-gas-a:value:4  =                              ! tag: <OPT-VENTisHRV>
 *option:test-HP-gas-a:value:5  =                              ! tag: <OPT-WHisIMS>
-*option:test-HP-gas-a:value:6  = shoulder-ideal.ctl           ! tag: <Opt-HVACCtlFile>
+*option:test-HP-gas-a:value:6  = <Opt-HeatCool-Control>           ! tag: <Opt-HVACCtlFile>
 *option:test-HP-gas-a:value:7  = gas                          ! tag: <OPT-heating-fuel> 
 *option:test-HP-gas-a:value:8  = 8                           ! tag: <OPT-FurnaceType>
 *option:test-HP-gas-a:value:9 = 25000                         ! tag: <OPT-HeatingCapacity>
@@ -3841,6 +4002,8 @@
       
 														 
 *attribute:end
+
+
 
 
 
@@ -3983,6 +4146,24 @@
 *option:Low-Flow:value:1        = 0
 *option:Low-Flow:cost:total     = 0
 *option:Low-Flow:alias = 2806
+
+*attribute:end 
+
+
+
+!-----------------------------------------------------------------------
+! Heating/cooling control  spec
+!-----------------------------------------------------------------------
+*attribute:start 
+*attribute:name    = Opt-HeatCool-Control
+*attribute:tag:1   = <Opt-HeatCool-Control>
+*attribute:default = HeatingCooling
+
+*option:HeatingCooling:value:1       = shoulder-ideal.ctl
+*option:HeatingCooling:cost:total    = 0
+
+*option:HeatingOnly:value:1       = shoulder-ideal-no-cool.ctl
+*option:HeatingOnly:cost:total    = 0
 
 *attribute:end 
 
