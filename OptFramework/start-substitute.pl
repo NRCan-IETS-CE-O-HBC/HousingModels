@@ -49,7 +49,7 @@ my($filename, $dir, $ext) = fileparse($ARGV[0]);
 # Open first command line parameter file name to extract name of choice file to run
 open ( GENOPTGENFILE, $ARGV[0]) or fatalerror("Could not read $ARGV[0]!\n");
 
-my ( $choiceFileName, $location, $hrvctl, $elecldscale, $dhwldscale, $linecount );
+my ( $choiceFileName, $location, $hrvctl, $HCctl, $elecldscale, $dhwldscale, $linecount );
 
 while ( my $line = <GENOPTGENFILE> ){
   $line =~ s/\!.*$//g; 
@@ -77,6 +77,10 @@ while ( my $line = <GENOPTGENFILE> ){
       $dhwldscale = $value; 
       print LOG "DHW load scale is $dhwldscale \n";  
     }
+    if ( $attribute =~ /HeatCool-Control/ ){
+      $HCctl = $value; 
+      print LOG "Heating control is $HCctl \n";  
+    }
   }
 }
 close ( GENOPTGENFILE );
@@ -99,6 +103,7 @@ while ( my $line = <CHOICEFILE> ){
   $line=~ s/<HRVCTL>/$hrvctl/g; 
   $line=~ s/<ELECTLOADSCALE>/$elecldscale/g; 
   $line=~ s/<DHWLOADSCALE>/$dhwldscale/g; 
+  $line=~ s/<Opt-HeatCool-Control>/$HCctl/g; 
   
   $choice_content .= $line; 
 

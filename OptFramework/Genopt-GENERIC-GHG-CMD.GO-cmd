@@ -11,30 +11,44 @@ Vary{
   Parameter { 
     Name = GOtag:Opt-Choice_Files; 
     Ini    = 1; 
-    Values = "CA_Pre-1946_Gas.choices ,  CA_Pre-1946_Elect.choices ,  CA_Pre-1946_Oil.choices ,  CA_1946-1983_Gas.choices ,  CA_1946-1983_Elect.choices ,  CA_1946-1983_Oil.choices ,  CA_1984-1995_Gas.choices ,  CA_1984-1995_Elect.choices ,  CA_1984-1995_Oil.choices ,  CA_1996-2005_Gas.choices ,  CA_1996-2005_Elect.choices ,  CA_1996-2005_Oil.choices ,  CA_2006-2011_Gas.choices ,  CA_2006-2011_Elect.choices ,  CA_2006-2011_Oil.choices ,  CA_2012-2019_Gas.choices ,  CA_2012-2019_Elect.choices ,  CA_2012-2019_Oil.choices ,  CA_2020-2024_Gas.choices ,  CA_2020-2024_Elect.choices ,  CA_2020-2024_Oil.choices ,  CA_2025-onwards_Gas.choices ,  CA_2025-onwards_Elect.choices ,  CA_2025-onwards_Oil.choices";
+    Values = " Baseline~CA_1946-1983_Oil~as-found.choices ,  Baseline~CA_1946-1983_Oil~MINO-AllElecCCASHP.choices,  Baseline~CA_1946-1983_Oil~CCASHP-minisplit-displacement.choices "; 
+    //Values = " Baseline~CA_2006-2011_Gas~MINO-AllElecGSHP.choices ,  Baseline~CA_2006-2011_Gas~as-found.choices ,  Baseline~CA_2006-2011_Gas~MINO-AllElecASHP.choices ,  Baseline~CA_2006-2011_Gas~MINO-NewEnergyStarUpgrade.choices ,  Baseline~CA_2006-2011_Gas~MINO-AllElecCCASHP.choices ,  Baseline~CA_2006-2011_Gas~elec-dhw-storage.choices ,  Baseline~CA_2006-2011_Gas~elec-dhw-hp.choices ,  Baseline~CA_2006-2011_Gas~MINO-gfHP.choices";
+    //Values = "Baseline~CA_2006-2011_Gas~as-found.choices ,  Baseline~CA_2006-2011_Gas~elec-dhw-hp.choices ,  Baseline~CA_2006-2011_Gas~elec-dhw-storage.choices ";
   }
   Parameter { 
     Name = GOtag:Opt-Location; 
     Ini    = 1; 
-    Values = "Vancouver,Kamloops, Calgary, Edmonton, Regina, Winnipeg, Toronto, Ottawa, Montreal, Quebec, Fredricton, Halifax";
+    //Values = "Yellowknife";
+    Values = "Ottawa"; 
+    //Values = "Vancouver, Edmonton"; //Yellowknife, Whitehorse
   }
   
   Parameter { 
     Name = GOtag:OPT-HRV_ctl; 
     Ini    = 1; 
-    Values = "ERSp3ACH, EightHRpDay";
+    Values = "EightHRpDay";
   }
+  
+    
+  Parameter { 
+    Name = GOtag:Opt-HeatCool-Control; 
+    Ini    = 1; 
+    Values = "HeatingOnly"; //", HeatingOnly";
+  }
+
+  
+  
 
   Parameter { 
     Name = GOtag:Opt-ElecLoadScale; 
     Ini    = 1; 
-    Values = "NoReduction, NGERSNoReduction19";
+    Values = "NGERSNoReduction19";
   }
 
   Parameter { 
     Name = GOtag:Opt-DHWLoadScale; 
     Ini    = 1; 
-    Values = "OldERS, No-Reduction";
+    Values = "No-Reduction";  //,EStar,Low-Flow";
   }
   
 }
