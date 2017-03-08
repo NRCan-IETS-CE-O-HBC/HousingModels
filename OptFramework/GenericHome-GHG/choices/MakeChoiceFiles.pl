@@ -1768,8 +1768,14 @@ sub WriteChoiceFile($){
    print OPTIONSOUT "Opt-RoofPitch        : 6-12\n";
    print OPTIONSOUT "Opt-DHWSystem        : ".$choiceHash{"Opt-DHWSystem"}."\n";
       
+   
+      
+      
    # Heating vs Cooling specification
    print OPTIONSOUT "Opt-GhgHeatingCooling       : ".$choiceHash{"Opt-GhgHeatingCooling"}."\n";
+  
+   print OPTIONSOUT "Opt-HeatCool-Control : <Opt-HeatCool-Control>\n";     
+  
   
    #print OPTIONSOUT "Opt-Cooling-Spec     : ".$choiceHash{"Opt-Cooling-Spec"}."\n";
    
