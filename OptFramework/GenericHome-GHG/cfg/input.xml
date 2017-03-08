@@ -35,6 +35,7 @@
   <step_variable>building/zone_*/envelope/all_components/net_flux</step_variable>
   
   -->
+  
   <step_variable>*time_step*</step_variable>
    <step_variable>electrical_net/loads/*</step_variable>
   <step_variable>building/zone_*/internal_gains/*</step_variable>
@@ -42,7 +43,7 @@
    
   <step_variable>building/zone_*/supplied_energy/cooling</step_variable>
   <step_variable>building/zone_*/supplied_energy/heating</step_variable>
-  
+  <step_variable>building/zone_*/air_point/temperature</step_variable>
   <step_variable>building/day/future</step_variable>
   <step_variable>building/hour/future</step_variable>
   <step_variable>building/month</step_variable>
