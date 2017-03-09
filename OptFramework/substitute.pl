@@ -2398,19 +2398,17 @@ sub postprocess($){
   my @MonthOfYear = @{  $data{" building:month (-)"}            } ; 
 
   
-  # Fan power 
-  
-  my @FanPowerW = @{ $data{" plant:ideal hvac models:circulation fans:fuel use:energy input (W)"} } ; 
+                                                
                             
   # Track peak heating and cooling loads
   my @HeatingLoads = @{ $data{" building:all zones:supplied energy:heating (W)"} };
   my @CoolingLoads = @{ $data{" building:all zones:supplied energy:cooling (W)"} }; 
   
   # Recover SH energy use for gas heat pump calculations (assume efficiency has been set to 100 in options file.  )
-  my @SHDelivered = @{ $data{" total fuel use:test:fossil fuels:space heating:energy content (W)"} }; 
+  #my @SHDelivered = @{ $data{" total fuel use:test:fossil fuels:space heating:energy content (W)"} }; 
   
   # recover outdoor temperature for gas heat pump calculations 
-  my @OutdoorTemp = @{ $data{" climate:dry bulb temperature (oC)"} }; 
+  #my @OutdoorTemp = @{ $data{" climate:dry bulb temperature (oC)"} }; 
   
   # if a gas HP is spec'd, loop through data and calculate NG 
 
@@ -2424,86 +2422,7 @@ sub postprocess($){
   my @HPNatGasUse = ();  
   my $TotalHPGasUse = 0;  
   
-  if ( $gGasHP ){
-    
-    stream_out (" Applying hypothetical gas heat pump performance curve...\n"); 
-    
-    for ( $row = 0; $row < $NumberOfRows; $row++){
-      
-      $CountRows++; 
-      
-      # print "LOAD: ".$HeatingLoads[$row]." | ".$SHDelivered[$row]."\n"; 
-      
-      
-      # $GasHPCop[$row] = CalcGasHPCOP( $gGasHP, $SHDelivered[$row], $OutdoorTemp[$row]  ); 
-      $GasHPCop[$row] = CalcGasHPCOP( $gGasHP, $HeatingLoads[$row] - $FanPowerW[$row], $OutdoorTemp[$row]  ); 
-      
-      # Maybe second calc on capacity here? 
-       $GasHPCap[$row] = 25000 * 1.1 ; 
-      
-      
-
-      $data{"GasHPCOP"}[$row] = $GasHPCop[$row] ; 
-      
-      # Convert COP to M3 of natural gas (26.8392 M3/GJ)
-      
-          
-      # This alternative causes the furnace part-load curve to be trasnposed on top of 
-      # the heat pump COP curve - not sure it improves model accruacy...
-      #$HPLoad[$row] =  $SHDelivered[$row]  ; 
-      
-      # Ideal version (COP does not change according to capacity). Used until we get more info.
-      $HPLoad[$row] = $HeatingLoads[$row] - $FanPowerW[$row]; 
-      
-      if ( $HPLoad[$row] > 0.  ){
-        $HPNatGasUse[$row] = $HPLoad[$row] / $GasHPCop[$row] / 1.0E09 * 26.8392;
-      }else{
-        $HPNatGasUse[$row] = 0; 
-      }
-      
-      $TotalHPGasUse =  $TotalHPGasUse +  $HPNatGasUse[$row]; 
-      #print "     > ".  $TotalHPGasUse . " |+| ".$HPNatGasUse[$row]. " \n "; 
-      
-      # Overwrite original gas consumption estimate: 
-      $data{" total fuel use:natural gas:all end uses:quantity (ref) (m3/s)"}[$row] = $data{" total fuel use:natural gas:all end uses:quantity (m3/s)"}[$row];
-      $data{" total fuel use:natural gas:all end uses:quantity (m3/s)"}[$row] = $HPNatGasUse[$row];
-      
-    }
-  
-    # Update gas consumption 
-    $gSimResults{"total_fuel_use/natural_gas/all_end_uses/quantity::Total_Average"} = $TotalHPGasUse / ( 8760. * $ScaleData )  ; 
-  
-    stream_out("\n\n Writing edited timestep data...") ; 
-
-       
-
-    $RowNumber = 0; 
-    $firstline = 1;
-    
-    my $TSoutput = "";
-   
-    for ( $row = -1; $row < $NumberOfRows; $row++){
-    
-      foreach my $column ( sort keys %data ){
-        if ( $row < 0 ){
-          $TSoutput .= "$column, "; 
-        }else{ 
-          $TSoutput .= $data{$column}[$row].", "; 
-        }       
-      }
-      
-      
-      $TSoutput .= "\n"; 
-      
-    
-    }
-    
-    open (TSRESULTS, ">$gMasterPath/sim-output/out2.csv") or fatalerror("Could not open $gMasterPath/sim-output/out2.csv for writing!");
-    print TSRESULTS $TSoutput; 
-    close (TSRESULTS);
-  
-  
-  }
+ 
   
     
   # Recover electrical, natural gas, oil, propane, wood, or pellet consumption data 
