@@ -3261,7 +3261,7 @@
 *option:ghg-hvac-CCASHPDisp-5-Elect:value:8   = nil                     ! <OPT-FurnaceType>
 *option:ghg-hvac-CCASHPDisp-5-Elect:value:9   = 25000                    ! <OPT-HeatingCapacity>
 *option:ghg-hvac-CCASHPDisp-5-Elect:value:10  = 1                      ! <OPT-FurnaceEfficiency>
-*option:ghg-hvac-CCASHPDisp-5-Elect:value:11  = 0                      ! <OPT-FurnaceFanPower>
+*option:ghg-hvac-CCASHPDisp-5-Elect:value:11  = 520                     ! <OPT-FurnaceFanPower>
 *option:ghg-hvac-CCASHPDisp-5-Elect:value:12  = 0                      ! <OPT-FurnaceFanPowerLo>
 *option:ghg-hvac-CCASHPDisp-5-Elect:value:13  = nil                    ! <OPT-FurnaceDraftFanPower> 
 *option:ghg-hvac-CCASHPDisp-5-Elect:value:14  = nil                    ! <OPT-FurnacePilotPower>
