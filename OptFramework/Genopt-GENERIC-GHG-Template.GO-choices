@@ -10,6 +10,8 @@ Opt-Location        : %GOtag:Opt-Location%
 
 OPT-HRV_ctl        : %GOtag:OPT-HRV_ctl%
 
+Opt-HeatCool-Control : %GOtag:Opt-HeatCool-Control%
+
 Opt-ElecLoadScale    : %GOtag:Opt-ElecLoadScale%
 
 Opt-DHWLoadScale     : %GOtag:Opt-DHWLoadScale%
