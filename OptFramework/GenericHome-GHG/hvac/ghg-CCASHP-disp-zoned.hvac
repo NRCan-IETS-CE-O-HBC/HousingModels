@@ -5,31 +5,32 @@
 #------------------------
 *site-altitude 0.0
 # ----------- Back-up -------------------
+# ----------- Back-up -------------------
 *system-start
 
     *name backup-sys
-    *type furnace
+    *type <OPT-BAK-type>
     *priority backup
-    *fuel <OPT-heating-fuel>
+    *fuel <OPT-BAK-heating-fuel>
     *function heating
     *zone-links-start
-    *zone-link 1 0.2 # Served zones and fraction
     *zone-link 2 0.5 #
-    *zone-link 3 0.3 #
+    *zone-link 3 0.5 #
     *zone-links-end
     *sys-data-start
-    
-        furnace-type <OPT-FurnaceType>
+
         capacity <OPT-HeatingCapacity>
-        efficiency 0.94
         circ-fan-mode <OPT-Furnace-Fan-Ctl>
         circ-fan-power <OPT-FurnaceFanPower>
         circ-fan-power-low  <OPT-FurnaceFanPowerLo>   
-        draft-fan-power <OPT-FurnaceDraftFanPower> 
-        pilot-power <OPT-FurnacePilotPower>
-
+        <OPT-BAK-comment-fan-data>draft-fan-power <OPT-FurnaceDraftFanPower> 
+        <OPT-BAK-comment-fan-data>pilot-power <OPT-FurnacePilotPower>
+        efficiency <OPT-FurnaceEfficiency>
+        <OPT-BAK-comment-fan-data>furnace-type <OPT-FurnaceType>
+        
     *sys-data-end
     <OPT-CommentFanCtlLoop>*fan-ctl-loop 1
+
 *system-end
 # -------- Heat pump (heating) ----------
 *system-start
@@ -37,17 +38,16 @@
     *name ASHP-heating
     *type ASHP
     *priority primary
-    *fuel gas
+    *fuel electricity
     *function heating
     *zone-links-start
-    *zone-link 1 0.2 # Served zones and fraction
     *zone-link 2 0.5 #
-    *zone-link 3 0.3 #
+    *zone-link 3 0.5 #
     *zone-links-end
     *sys-data-start
 
-        capacity 11720.
-        COP 1.6              # COP is irrelevant: Performance determined by gas HP data.
+        capacity <Opt-HPHeatingCapacity> # 11720.
+        COP 3.              # COP is irrelevant: Performance determined by CCHT data.
         circ-fan-flow 1
         circ-fan-rated-flow 1
         circ-fan-mode <OPT-Furnace-Fan-Ctl>
@@ -58,27 +58,55 @@
         fan-power-in-auto 0.0
         circ-fan-rated-position 1
 
-        temp-control-mode 2
-        cut-off-temperature -20.1
+        temp-control-mode 4
+        cut-off-temperature -25.1
 
     *sys-data-end
     *misc-param-start
-        performance gas-hp-b
+        performance CCASHP-CCHT
     *misc-param-end     
     *backup backup-sys
     *fan-ctl-loop 1
 
 *system-end
+
+# Back-up 
+*system-start
+
+    *name backup-bsmt
+    *type <OPT-BAK-type>
+    *priority primary
+    *fuel <OPT-BAK-heating-fuel>
+    *function heating
+    *zone-links-start
+    *zone-link 1 1.0 # Served zones and fraction
+    *zone-links-end
+    *sys-data-start
+
+        capacity <OPT-HeatingCapacity>
+        circ-fan-mode <OPT-Furnace-Fan-Ctl>
+        circ-fan-power <OPT-FurnaceFanPower>
+        circ-fan-power-low  <OPT-FurnaceFanPowerLo>   
+        <OPT-BAK-comment-fan-data>draft-fan-power <OPT-FurnaceDraftFanPower> 
+        <OPT-BAK-comment-fan-data>pilot-power <OPT-FurnacePilotPower>
+        efficiency <OPT-FurnaceEfficiency>
+        <OPT-BAK-comment-fan-data>furnace-type <OPT-FurnaceType>
+        
+    *sys-data-end
+   # <OPT-CommentFanCtlLoop>*fan-ctl-loop 1
+
+*system-end
+
+
 ## -------- Heat pump (cooling) ----------
 *system-start
 
     *name ASHP-AC
     *type ASHP
     *priority primary
-    *fuel gas
+    *fuel electricity
     *function cooling
     *zone-links-start
-    *zone-link 1 0.2 # Served zones and fraction
     *zone-link 2 0.5 #
     *zone-link 3 0.3 #
     *zone-links-end

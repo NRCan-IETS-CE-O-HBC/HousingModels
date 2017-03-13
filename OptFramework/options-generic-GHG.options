@@ -3155,7 +3155,9 @@
 *attribute:tag:16  = <OPT-AC-capacity>
 *attribute:tag:17  = <OPT-AC-COP>
 *attribute:tag:18  = <OPT-CommentFanCtlLoop>      ! Tag to enable/disable fan control. 
-*attribute:tag:19  = <OPT-BAK-heating-fuel>       ! Back-up capacity 
+*attribute:tag:19  = <OPT-BAK-heating-fuel>       ! Back-up fuel 
+*attribute:tag:20  = <OPT-BAK-type>               ! Back-up type
+*attribute:tag:21  = <OPT-BAK-comment-fan-data>   ! Tag to hide/expose some data for back-up furances
 *attribute:default = ghg-hvac-1-Gas
 
 *option:ghg-hvac-1-Gas:value:1   = ghg-gas.hvac
@@ -3176,46 +3178,55 @@
 *option:ghg-hvac-1-Gas:value:16  = 11000
 *option:ghg-hvac-1-Gas:value:17  = 2.25078689620004
 *option:ghg-hvac-1-Gas:value:18  = #-no-central-air 
+*option:ghg-hvac-1-Gas:value:19  = 
+*option:ghg-hvac-1-Gas:value:20  = 
+*option:ghg-hvac-1-Gas:value:21  = 
+
+*option:ghg-hvac-2-Elect:value:1   = ghg-elec.hvac                  ! <Opt-HVACSystem>           
+*option:ghg-hvac-2-Elect:value:2   = #-no-GSHP-file                 ! <Opt-HideGSHPfile>
+*option:ghg-hvac-2-Elect:value:3  = #-no-IMS                        ! <OPT-VENTisIMS>
+*option:ghg-hvac-2-Elect:value:4  =                                 ! <OPT-VENTisHRV>
+*option:ghg-hvac-2-Elect:value:5  =                                 ! <OPT-WHisIMS>
+*option:ghg-hvac-2-Elect:value:6  = <Opt-HeatCool-Control>          ! <Opt-HVACCtlFile>
+*option:ghg-hvac-2-Elect:value:7  = electricity                     ! <OPT-heating-fuel>         
+*option:ghg-hvac-2-Elect:value:8  = nil                             ! <OPT-FurnaceType>
+*option:ghg-hvac-2-Elect:value:9 = 25000                            ! <OPT-HeatingCapacity>
+*option:ghg-hvac-2-Elect:value:10  = 1                              ! <OPT-FurnaceEfficiency>
+*option:ghg-hvac-2-Elect:value:11  = 600                            ! <OPT-FurnaceFanPower>
+*option:ghg-hvac-2-Elect:value:12  = 0                              ! <OPT-FurnaceFanPowerLo>
+*option:ghg-hvac-2-Elect:value:13  = nil                            ! <OPT-FurnaceDraftFanPower> 
+*option:ghg-hvac-2-Elect:value:14 = nil                             ! <OPT-FurnacePilotPower>
+*option:ghg-hvac-2-Elect:value:15  = 0                              ! <Opt-HPHeatingCapacity>
+*option:ghg-hvac-2-Elect:value:16  = 11000                          ! <OPT-AC-capacity>
+*option:ghg-hvac-2-Elect:value:17  = 2.25078689620004               ! <OPT-AC-COP>
+*option:ghg-hvac-2-Elect:value:18  = #-no-central-air               ! <OPT-CommentFanCtlLoop>    
+*option:ghg-hvac-2-Elect:value:19  =                                ! <OPT-BAK-heating-fuel>     
+*option:ghg-hvac-2-Elect:value:20  = 
+*option:ghg-hvac-2-Elect:value:21  = # - Disable input - 
 
 
-*option:ghg-hvac-2-Elect:value:1   = ghg-elec.hvac
-*option:ghg-hvac-2-Elect:value:2   = #-no-GSHP-file
-*option:ghg-hvac-2-Elect:value:3  = #-no-IMS
-*option:ghg-hvac-2-Elect:value:4  =
-*option:ghg-hvac-2-Elect:value:5  =
-*option:ghg-hvac-2-Elect:value:6  = <Opt-HeatCool-Control>
-*option:ghg-hvac-2-Elect:value:7  = electricity
-*option:ghg-hvac-2-Elect:value:8  = nil
-*option:ghg-hvac-2-Elect:value:9 = 25000
-*option:ghg-hvac-2-Elect:value:10  = 1
-*option:ghg-hvac-2-Elect:value:11  = 600
-*option:ghg-hvac-2-Elect:value:12  = 0
-*option:ghg-hvac-2-Elect:value:13  = nil
-*option:ghg-hvac-2-Elect:value:14 = nil
-*option:ghg-hvac-2-Elect:value:15  = 0
-*option:ghg-hvac-2-Elect:value:16  = 11000
-*option:ghg-hvac-2-Elect:value:17  = 2.25078689620004
-*option:ghg-hvac-2-Elect:value:18  = #-no-central-air 
+*option:ghg-hvac-3-Oil:value:1   = ghg-oil.hvac                      ! <Opt-HVACSystem>           
+*option:ghg-hvac-3-Oil:value:2   = #-no-GSHP-file                    ! <Opt-HideGSHPfile>
+*option:ghg-hvac-3-Oil:value:3  = #-no-IMS                           ! <OPT-VENTisIMS>
+*option:ghg-hvac-3-Oil:value:4  =                                    ! <OPT-VENTisHRV>
+*option:ghg-hvac-3-Oil:value:5  =                                    ! <OPT-WHisIMS>
+*option:ghg-hvac-3-Oil:value:6  = <Opt-HeatCool-Control>             ! <Opt-HVACCtlFile>
+*option:ghg-hvac-3-Oil:value:7  = oil                                ! <OPT-heating-fuel>         
+*option:ghg-hvac-3-Oil:value:8  = 14                                 ! <OPT-FurnaceType>
+*option:ghg-hvac-3-Oil:value:9  = 25000                              ! <OPT-HeatingCapacity>
+*option:ghg-hvac-3-Oil:value:10  = 0.64                              ! <OPT-FurnaceEfficiency>
+*option:ghg-hvac-3-Oil:value:11  = 600                               ! <OPT-FurnaceFanPower>
+*option:ghg-hvac-3-Oil:value:12  = 600                               ! <OPT-FurnaceFanPowerLo>
+*option:ghg-hvac-3-Oil:value:13  = 75                                ! <OPT-FurnaceDraftFanPower> 
+*option:ghg-hvac-3-Oil:value:14 = 0                                  ! <OPT-FurnacePilotPower>
+*option:ghg-hvac-3-Oil:value:15  = 0                                 ! <Opt-HPHeatingCapacity>
+*option:ghg-hvac-3-Oil:value:16  = 11000                             ! <OPT-AC-capacity>
+*option:ghg-hvac-3-Oil:value:17  = 2.25078689620004                  ! <OPT-AC-COP>
+*option:ghg-hvac-3-Oil:value:18  = #-no-central-air                  ! <OPT-CommentFanCtlLoop>    
+*option:ghg-hvac-3-Oil:value:19  =                                   ! <OPT-BAK-heating-fuel>     
+*option:ghg-hvac-3-Oil:value:20  = 
+*option:ghg-hvac-3-Oil:value:21  = 
 
-
-*option:ghg-hvac-3-Oil:value:1   = ghg-oil.hvac
-*option:ghg-hvac-3-Oil:value:2   = #-no-GSHP-file
-*option:ghg-hvac-3-Oil:value:3  = #-no-IMS
-*option:ghg-hvac-3-Oil:value:4  =
-*option:ghg-hvac-3-Oil:value:5  =
-*option:ghg-hvac-3-Oil:value:6  = <Opt-HeatCool-Control>
-*option:ghg-hvac-3-Oil:value:7  = oil
-*option:ghg-hvac-3-Oil:value:8  = 14
-*option:ghg-hvac-3-Oil:value:9  = 25000
-*option:ghg-hvac-3-Oil:value:10  = 0.64
-*option:ghg-hvac-3-Oil:value:11  = 600
-*option:ghg-hvac-3-Oil:value:12  = 600
-*option:ghg-hvac-3-Oil:value:13  = 75
-*option:ghg-hvac-3-Oil:value:14 = 0
-*option:ghg-hvac-3-Oil:value:15  = 0
-*option:ghg-hvac-3-Oil:value:16  = 11000
-*option:ghg-hvac-3-Oil:value:17  = 2.25078689620004
-*option:ghg-hvac-3-Oil:value:18  = #-no-central-air 
 
 
 *option:ghg-hvac-CCASHPDisp-3-Oil:value:1   = ghg-CCASHP-displacement.hvac      ! <Opt-HVACSystem>           
@@ -3236,49 +3247,78 @@
 *option:ghg-hvac-CCASHPDisp-3-Oil:value:16  = 11000                ! <OPT-AC-capacity>
 *option:ghg-hvac-CCASHPDisp-3-Oil:value:17  = 3.6047758884453      ! <OPT-AC-COP>
 *option:ghg-hvac-CCASHPDisp-3-Oil:value:18  =                      ! <OPT-CommentFanCtlLoop>    
-*option:ghg-hvac-CCASHPDisp-3-Oil:value:19  = oil                  ! <OPT-BAK-heating-fuel>     
+*option:ghg-hvac-CCASHPDisp-3-Oil:value:19  = oil                  ! Back-up fuel      
+*option:ghg-hvac-CCASHPDisp-3-Oil:value:20  =                      ! Back-up type
+*option:ghg-hvac-CCASHPDisp-3-Oil:value:21  =                      ! Tag to hide/expose some data for back-up fura
 
 
 
-*option:ghg-hvac-4-Gas:value:1   = ghg-gas.hvac
-*option:ghg-hvac-4-Gas:value:2   = #-no-GSHP-file
-*option:ghg-hvac-4-Gas:value:3  = #-no-IMS
-*option:ghg-hvac-4-Gas:value:4  =
-*option:ghg-hvac-4-Gas:value:5  =
-*option:ghg-hvac-4-Gas:value:6  = <Opt-HeatCool-Control>
-*option:ghg-hvac-4-Gas:value:7  = gas
-*option:ghg-hvac-4-Gas:value:8  = 5
-*option:ghg-hvac-4-Gas:value:9 = 25000
-*option:ghg-hvac-4-Gas:value:10  = 0.78
-*option:ghg-hvac-4-Gas:value:11  = 520
-*option:ghg-hvac-4-Gas:value:12  = 520
-*option:ghg-hvac-4-Gas:value:13  = 75
-*option:ghg-hvac-4-Gas:value:14 = 0
-*option:ghg-hvac-4-Gas:value:15  = 0
-*option:ghg-hvac-4-Gas:value:16  = 11000
-*option:ghg-hvac-4-Gas:value:17  = 2.25078689620004
-*option:ghg-hvac-4-Gas:value:18  = #-no-central-air 
+*option:ghg-hvac-4-Gas:value:1   = ghg-gas.hvac                    ! <Opt-HVACSystem>           
+*option:ghg-hvac-4-Gas:value:2   = #-no-GSHP-file                  ! <Opt-HideGSHPfile>
+*option:ghg-hvac-4-Gas:value:3  = #-no-IMS                         ! <OPT-VENTisIMS>
+*option:ghg-hvac-4-Gas:value:4  =                                  ! <OPT-VENTisHRV>
+*option:ghg-hvac-4-Gas:value:5  =                                  ! <OPT-WHisIMS>
+*option:ghg-hvac-4-Gas:value:6  = <Opt-HeatCool-Control>           ! <Opt-HVACCtlFile>
+*option:ghg-hvac-4-Gas:value:7  = gas                              ! <OPT-heating-fuel>         
+*option:ghg-hvac-4-Gas:value:8  = 5                                ! <OPT-FurnaceType>
+*option:ghg-hvac-4-Gas:value:9 = 25000                             ! <OPT-HeatingCapacity>
+*option:ghg-hvac-4-Gas:value:10  = 0.78                            ! <OPT-FurnaceEfficiency>
+*option:ghg-hvac-4-Gas:value:11  = 520                             ! <OPT-FurnaceFanPower>
+*option:ghg-hvac-4-Gas:value:12  = 520                             ! <OPT-FurnaceFanPowerLo>
+*option:ghg-hvac-4-Gas:value:13  = 75                              ! <OPT-FurnaceDraftFanPower> 
+*option:ghg-hvac-4-Gas:value:14 = 0                                ! <OPT-FurnacePilotPower>
+*option:ghg-hvac-4-Gas:value:15  = 0                               ! <Opt-HPHeatingCapacity>
+*option:ghg-hvac-4-Gas:value:16  = 11000                           ! <OPT-AC-capacity>
+*option:ghg-hvac-4-Gas:value:17  = 2.25078689620004                ! <OPT-AC-COP>
+*option:ghg-hvac-4-Gas:value:18  = #-no-central-air                ! <OPT-CommentFanCtlLoop>    
 
 
-*option:ghg-hvac-5-Elect:value:1   = ghg-elec.hvac
-*option:ghg-hvac-5-Elect:value:2   = #-no-GSHP-file
-*option:ghg-hvac-5-Elect:value:3  = #-no-IMS
-*option:ghg-hvac-5-Elect:value:4  =
-*option:ghg-hvac-5-Elect:value:5  =
-*option:ghg-hvac-5-Elect:value:6  = <Opt-HeatCool-Control>
-*option:ghg-hvac-5-Elect:value:7  = electricity
-*option:ghg-hvac-5-Elect:value:8  = nil
-*option:ghg-hvac-5-Elect:value:9 = 25000
-*option:ghg-hvac-5-Elect:value:10  = 1
-*option:ghg-hvac-5-Elect:value:11  = 520
-*option:ghg-hvac-5-Elect:value:12  = 0
-*option:ghg-hvac-5-Elect:value:13  = nil
-*option:ghg-hvac-5-Elect:value:14 = nil
-*option:ghg-hvac-5-Elect:value:15  = 0
-*option:ghg-hvac-5-Elect:value:16  = 11000
-*option:ghg-hvac-5-Elect:value:17  = 2.25078689620004
-*option:ghg-hvac-5-Elect:value:18  = #-no-central-air 
 
+                                                                   ! <OPT-BAK-heating-fuel>     
+
+*option:ghg-hvac-5-Elect:value:1   = ghg-elec.hvac                  ! <Opt-HVACSystem>           
+*option:ghg-hvac-5-Elect:value:2   = #-no-GSHP-file                 ! <Opt-HideGSHPfile>
+*option:ghg-hvac-5-Elect:value:3  = #-no-IMS                        ! <OPT-VENTisIMS>
+*option:ghg-hvac-5-Elect:value:4  =                                 ! <OPT-VENTisHRV>
+*option:ghg-hvac-5-Elect:value:5  =                                 ! <OPT-WHisIMS>
+*option:ghg-hvac-5-Elect:value:6  = <Opt-HeatCool-Control>          ! <Opt-HVACCtlFile>
+*option:ghg-hvac-5-Elect:value:7  = electricity                     ! <OPT-heating-fuel>         
+*option:ghg-hvac-5-Elect:value:8  = nil                             ! <OPT-FurnaceType>
+*option:ghg-hvac-5-Elect:value:9 = 25000                            ! <OPT-HeatingCapacity>
+*option:ghg-hvac-5-Elect:value:10  = 1                              ! <OPT-FurnaceEfficiency>
+*option:ghg-hvac-5-Elect:value:11  = 520                            ! <OPT-FurnaceFanPower>
+*option:ghg-hvac-5-Elect:value:12  = 0                              ! <OPT-FurnaceFanPowerLo>
+*option:ghg-hvac-5-Elect:value:13  = nil                            ! <OPT-FurnaceDraftFanPower> 
+*option:ghg-hvac-5-Elect:value:14 = nil                             ! <OPT-FurnacePilotPower>
+*option:ghg-hvac-5-Elect:value:15  = 0                              ! <Opt-HPHeatingCapacity>
+*option:ghg-hvac-5-Elect:value:16  = 11000                          ! <OPT-AC-capacity>
+*option:ghg-hvac-5-Elect:value:17  = 2.25078689620004               ! <OPT-AC-COP>
+*option:ghg-hvac-5-Elect:value:18  = #-no-central-air               ! <OPT-CommentFanCtlLoop>    
+                                                                    ! <OPT-BAK-heating-fuel>     
+
+
+
+*option:ghg-hvac-CCASHPDisp-5-Elect:value:1   = ghg-CCASHP-displacement.hvac   ! <Opt-HVACSystem>           
+*option:ghg-hvac-CCASHPDisp-5-Elect:value:2   = #-no-GSHP-file         ! <Opt-HideGSHPfile>
+*option:ghg-hvac-CCASHPDisp-5-Elect:value:3   = #-no-IMS                ! <OPT-VENTisIMS>
+*option:ghg-hvac-CCASHPDisp-5-Elect:value:4   =                         ! <OPT-VENTisHRV>
+*option:ghg-hvac-CCASHPDisp-5-Elect:value:5   =                         ! <OPT-WHisIMS>
+*option:ghg-hvac-CCASHPDisp-5-Elect:value:6   = <Opt-HeatCool-Control>  ! <Opt-HVACCtlFile>
+*option:ghg-hvac-CCASHPDisp-5-Elect:value:7   = electricity             ! <OPT-heating-fuel>         
+*option:ghg-hvac-CCASHPDisp-5-Elect:value:8   = nil                     ! <OPT-FurnaceType>
+*option:ghg-hvac-CCASHPDisp-5-Elect:value:9   = 25000                    ! <OPT-HeatingCapacity>
+*option:ghg-hvac-CCASHPDisp-5-Elect:value:10  = 1                      ! <OPT-FurnaceEfficiency>
+*option:ghg-hvac-CCASHPDisp-5-Elect:value:11  = 520                     ! <OPT-FurnaceFanPower>
+*option:ghg-hvac-CCASHPDisp-5-Elect:value:12  = 0                      ! <OPT-FurnaceFanPowerLo>
+*option:ghg-hvac-CCASHPDisp-5-Elect:value:13  = nil                    ! <OPT-FurnaceDraftFanPower> 
+*option:ghg-hvac-CCASHPDisp-5-Elect:value:14  = nil                    ! <OPT-FurnacePilotPower>
+*option:ghg-hvac-CCASHPDisp-5-Elect:value:15  = 8700                  ! <Opt-HPHeatingCapacity>
+*option:ghg-hvac-CCASHPDisp-5-Elect:value:16  = 11000                  ! <OPT-AC-capacity>
+*option:ghg-hvac-CCASHPDisp-5-Elect:value:17  = 2.25078689620004       ! <OPT-AC-COP>
+*option:ghg-hvac-CCASHPDisp-5-Elect:value:18  = #-no-central-air       ! <OPT-CommentFanCtlLoop>    
+*option:ghg-hvac-CCASHPDisp-5-Elect:value:19  = electricity            ! <OPT-BAK-heating-fuel>      ! <OPT-BAK-heating-fuel>
+*option:ghg-hvac-CCASHPDisp-5-Elect:value:20  = baseboard              ! Back-up type
+*option:ghg-hvac-CCASHPDisp-5-Elect:value:21  = # Disable inputs :     ! Tag to hide/expose some data for back-up fura
 
 *option:ghg-hvac-6-Oil:value:1   = ghg-oil.hvac              
 *option:ghg-hvac-6-Oil:value:2   = #-no-GSHP-file
@@ -3299,27 +3339,27 @@
 *option:ghg-hvac-6-Oil:value:17  = 2.25078689620004
 *option:ghg-hvac-6-Oil:value:18  = #-no-central-air 
     
-*option:ghg-hvac-CCASHPDisp-6-Oil:value:1   = ghg-CCASHP-displacement.hvac             ! <Opt-HVACSystem>           
-*option:ghg-hvac-CCASHPDisp-6-Oil:value:2   = #-no-GSHP-file          ! <Opt-HideGSHPfile>
-*option:ghg-hvac-CCASHPDisp-6-Oil:value:3  = #-no-IMS                 ! <OPT-VENTisIMS>
-*option:ghg-hvac-CCASHPDisp-6-Oil:value:4  =                          ! <OPT-VENTisHRV>
-*option:ghg-hvac-CCASHPDisp-6-Oil:value:5  =                          ! <OPT-WHisIMS>
-*option:ghg-hvac-CCASHPDisp-6-Oil:value:6  = <Opt-HeatCool-Control>       ! <Opt-HVACCtlFile>
-*option:ghg-hvac-CCASHPDisp-6-Oil:value:7  = oil                      ! <OPT-heating-fuel>         
-*option:ghg-hvac-CCASHPDisp-6-Oil:value:8  = 14                       ! <OPT-FurnaceType>
-*option:ghg-hvac-CCASHPDisp-6-Oil:value:9 = 25000                     ! <OPT-HeatingCapacity>
-*option:ghg-hvac-CCASHPDisp-6-Oil:value:10  = 0.68                    ! <OPT-FurnaceEfficiency>
-*option:ghg-hvac-CCASHPDisp-6-Oil:value:11  = 520                     ! <OPT-FurnaceFanPower>
-*option:ghg-hvac-CCASHPDisp-6-Oil:value:12  = 520                     ! <OPT-FurnaceFanPowerLo>
-*option:ghg-hvac-CCASHPDisp-6-Oil:value:13  = 75                      ! <OPT-FurnaceDraftFanPower> 
-*option:ghg-hvac-CCASHPDisp-6-Oil:value:14 = 0                        ! <OPT-FurnacePilotPower>
-*option:ghg-hvac-CCASHPDisp-6-Oil:value:15  = 8700                    ! <Opt-HPHeatingCapacity>
-*option:ghg-hvac-CCASHPDisp-6-Oil:value:16  = 11000                   ! <OPT-AC-capacity>
-*option:ghg-hvac-CCASHPDisp-6-Oil:value:17  = 3.6047758884453        ! <OPT-AC-COP>
-*option:ghg-hvac-CCASHPDisp-6-Oil:value:18  = #-no-central-air        ! <OPT-CommentFanCtlLoop>    
-*option:ghg-hvac-CCASHPDisp-6-Oil:value:19  = oil                     ! <OPT-BAK-heating-fuel>     
-        
-
+*option:ghg-hvac-CCASHPDisp-6-Oil:value:1   = ghg-CCASHP-displacement.hvac   ! <Opt-HVACSystem>           
+*option:ghg-hvac-CCASHPDisp-6-Oil:value:2   = #-no-GSHP-file                 ! <Opt-HideGSHPfile>
+*option:ghg-hvac-CCASHPDisp-6-Oil:value:3  = #-no-IMS                        ! <OPT-VENTisIMS>
+*option:ghg-hvac-CCASHPDisp-6-Oil:value:4  =                                 ! <OPT-VENTisHRV>
+*option:ghg-hvac-CCASHPDisp-6-Oil:value:5  =                                 ! <OPT-WHisIMS>
+*option:ghg-hvac-CCASHPDisp-6-Oil:value:6  = <Opt-HeatCool-Control>          ! <Opt-HVACCtlFile>
+*option:ghg-hvac-CCASHPDisp-6-Oil:value:7  = oil                             ! <OPT-heating-fuel>         
+*option:ghg-hvac-CCASHPDisp-6-Oil:value:8  = 14                              ! <OPT-FurnaceType>
+*option:ghg-hvac-CCASHPDisp-6-Oil:value:9 = 25000                            ! <OPT-HeatingCapacity>
+*option:ghg-hvac-CCASHPDisp-6-Oil:value:10  = 0.68                           ! <OPT-FurnaceEfficiency>
+*option:ghg-hvac-CCASHPDisp-6-Oil:value:11  = 520                            ! <OPT-FurnaceFanPower>
+*option:ghg-hvac-CCASHPDisp-6-Oil:value:12  = 520                            ! <OPT-FurnaceFanPowerLo>
+*option:ghg-hvac-CCASHPDisp-6-Oil:value:13  = 75                             ! <OPT-FurnaceDraftFanPower> 
+*option:ghg-hvac-CCASHPDisp-6-Oil:value:14 = 0                               ! <OPT-FurnacePilotPower>
+*option:ghg-hvac-CCASHPDisp-6-Oil:value:15  = 8700                           ! <Opt-HPHeatingCapacity>
+*option:ghg-hvac-CCASHPDisp-6-Oil:value:16  = 11000                          ! <OPT-AC-capacity>
+*option:ghg-hvac-CCASHPDisp-6-Oil:value:17  = 3.6047758884453                ! <OPT-AC-COP>
+*option:ghg-hvac-CCASHPDisp-6-Oil:value:18  = #-no-central-air               ! <OPT-CommentFanCtlLoop>    
+*option:ghg-hvac-CCASHPDisp-6-Oil:value:19  = oil                            ! <OPT-BAK-heating-fuel>     
+*option:ghg-hvac-CCASHPDisp-6-Oil:value:20  = furnace            ! Back-up type        
+*option:ghg-hvac-CCASHPDisp-6-Oil:value:21  =     ! Tag to hide/expose some data for back-up fura
 
 
 
@@ -3367,6 +3407,32 @@
 *option:ghg-hvac-8-Elect:value:17  = 2.58928414426137
 *option:ghg-hvac-8-Elect:value:18  = #-no-central-air 
 
+*option:ghg-hvac-CCASHPDisp-8-Elect:value:1   = ghg-CCASHP-displacement.hvac   ! <Opt-HVACSystem>           
+*option:ghg-hvac-CCASHPDisp-8-Elect:value:2   = #-no-GSHP-file         ! <Opt-HideGSHPfile>
+*option:ghg-hvac-CCASHPDisp-8-Elect:value:3   = #-no-IMS                ! <OPT-VENTisIMS>
+*option:ghg-hvac-CCASHPDisp-8-Elect:value:4   =                         ! <OPT-VENTisHRV>
+*option:ghg-hvac-CCASHPDisp-8-Elect:value:5   =                         ! <OPT-WHisIMS>
+*option:ghg-hvac-CCASHPDisp-8-Elect:value:6   = <Opt-HeatCool-Control>  ! <Opt-HVACCtlFile>
+*option:ghg-hvac-CCASHPDisp-8-Elect:value:7   = electricity             ! <OPT-heating-fuel>         
+*option:ghg-hvac-CCASHPDisp-8-Elect:value:8   = nil                     ! <OPT-FurnaceType>
+*option:ghg-hvac-CCASHPDisp-8-Elect:value:9   = 25000                    ! <OPT-HeatingCapacity>
+*option:ghg-hvac-CCASHPDisp-8-Elect:value:10  = 1                      ! <OPT-FurnaceEfficiency>
+*option:ghg-hvac-CCASHPDisp-8-Elect:value:11  = 0                      ! <OPT-FurnaceFanPower>
+*option:ghg-hvac-CCASHPDisp-8-Elect:value:12  = 0                      ! <OPT-FurnaceFanPowerLo>
+*option:ghg-hvac-CCASHPDisp-8-Elect:value:13  = nil                    ! <OPT-FurnaceDraftFanPower> 
+*option:ghg-hvac-CCASHPDisp-8-Elect:value:14  = nil                    ! <OPT-FurnacePilotPower>
+*option:ghg-hvac-CCASHPDisp-8-Elect:value:15  = 8700                   ! <Opt-HPHeatingCapacity>
+*option:ghg-hvac-CCASHPDisp-8-Elect:value:16  = 11000                  ! <OPT-AC-capacity>
+*option:ghg-hvac-CCASHPDisp-8-Elect:value:17  = 3.6047758884453        ! <OPT-AC-COP>
+*option:ghg-hvac-CCASHPDisp-8-Elect:value:18  = #-no-central-air       ! <OPT-CommentFanCtlLoop>    
+*option:ghg-hvac-CCASHPDisp-8-Elect:value:19  = electricity            ! <OPT-BAK-heating-fuel>      ! <OPT-BAK-heating-fuel>
+*option:ghg-hvac-CCASHPDisp-8-Elect:value:20  = baseboard              ! Back-up type
+*option:ghg-hvac-CCASHPDisp-8-Elect:value:21  = # Disable inputs :     ! Tag to hide/expose some data for back-up fura
+
+
+
+
+
 
 *option:ghg-hvac-9-Oil:value:1   = ghg-oil.hvac
 *option:ghg-hvac-9-Oil:value:2   = #-no-GSHP-file
@@ -3407,21 +3473,10 @@
 *option:ghg-hvac-CCASHPDisp-9-Oil:value:17  = 3.6047758884453         ! <OPT-AC-COP>
 *option:ghg-hvac-CCASHPDisp-9-Oil:value:18  = #-no-central-air        ! <OPT-CommentFanCtlLoop>    
 *option:ghg-hvac-CCASHPDisp-9-Oil:value:19  = oil                     ! <OPT-BAK-heating-fuel>     
-        
+*option:ghg-hvac-CCASHPDisp-9-Oil:value:20  = furnace            ! Back-up type        
+*option:ghg-hvac-CCASHPDisp-9-Oil:value:21  =     ! Tag to hide/expose some data for back-up fura        
 
         
-        
-        
-
-
-
-
-
-
-
-
-
-
 
 
 *option:ghg-hvac-10-Gas:value:1   = ghg-gas.hvac
@@ -3462,6 +3517,33 @@
 *option:ghg-hvac-11-Elect:value:17  = 2.58928414426137
 *option:ghg-hvac-11-Elect:value:18  = 
 
+*option:ghg-hvac-CCASHPDisp-11-Elect:value:1   = ghg-CCASHP-displacement.hvac   ! <Opt-HVACSystem>           
+*option:ghg-hvac-CCASHPDisp-11-Elect:value:2   = #-no-GSHP-file         ! <Opt-HideGSHPfile>
+*option:ghg-hvac-CCASHPDisp-11-Elect:value:3   = #-no-IMS                ! <OPT-VENTisIMS>
+*option:ghg-hvac-CCASHPDisp-11-Elect:value:4   =                         ! <OPT-VENTisHRV>
+*option:ghg-hvac-CCASHPDisp-11-Elect:value:5   =                         ! <OPT-WHisIMS>
+*option:ghg-hvac-CCASHPDisp-11-Elect:value:6   = <Opt-HeatCool-Control>  ! <Opt-HVACCtlFile>
+*option:ghg-hvac-CCASHPDisp-11-Elect:value:7   = electricity             ! <OPT-heating-fuel>         
+*option:ghg-hvac-CCASHPDisp-11-Elect:value:8   = nil                     ! <OPT-FurnaceType>
+*option:ghg-hvac-CCASHPDisp-11-Elect:value:9   = 25000                    ! <OPT-HeatingCapacity>
+*option:ghg-hvac-CCASHPDisp-11-Elect:value:10  = 1                      ! <OPT-FurnaceEfficiency>
+*option:ghg-hvac-CCASHPDisp-11-Elect:value:11  = 0                      ! <OPT-FurnaceFanPower>
+*option:ghg-hvac-CCASHPDisp-11-Elect:value:12  = 0                      ! <OPT-FurnaceFanPowerLo>
+*option:ghg-hvac-CCASHPDisp-11-Elect:value:13  = nil                    ! <OPT-FurnaceDraftFanPower> 
+*option:ghg-hvac-CCASHPDisp-11-Elect:value:14  = nil                    ! <OPT-FurnacePilotPower>
+*option:ghg-hvac-CCASHPDisp-11-Elect:value:15  = 8700                   ! <Opt-HPHeatingCapacity>
+*option:ghg-hvac-CCASHPDisp-11-Elect:value:16  = 11000                  ! <OPT-AC-capacity>
+*option:ghg-hvac-CCASHPDisp-11-Elect:value:17  = 3.6047758884453        ! <OPT-AC-COP>
+*option:ghg-hvac-CCASHPDisp-11-Elect:value:18  = #-no-central-air       ! <OPT-CommentFanCtlLoop>    
+*option:ghg-hvac-CCASHPDisp-11-Elect:value:19  = electricity            ! <OPT-BAK-heating-fuel>      ! <OPT-BAK-heating-fuel>
+*option:ghg-hvac-CCASHPDisp-11-Elect:value:20  = baseboard              ! Back-up type
+*option:ghg-hvac-CCASHPDisp-11-Elect:value:21  = # Disable inputs :     ! Tag to hide/expose some data for back-up fura
+
+
+
+
+
+
 
 *option:ghg-hvac-12-Oil:value:1   = ghg-oil.hvac
 *option:ghg-hvac-12-Oil:value:2   = #-no-GSHP-file
@@ -3485,12 +3567,12 @@
 
 *option:ghg-hvac-CCASHPDisp-12-Oil:value:1   = ghg-CCASHP-displacement.hvac             ! <Opt-HVACSystem>           
 *option:ghg-hvac-CCASHPDisp-12-Oil:value:2   = #-no-GSHP-file          ! <Opt-HideGSHPfile>
-*option:ghg-hvac-CCASHPDisp-12-Oil:value:3  = #-no-IMS                 ! <OPT-VENTisIMS>
-*option:ghg-hvac-CCASHPDisp-12-Oil:value:4  =                          ! <OPT-VENTisHRV>
-*option:ghg-hvac-CCASHPDisp-12-Oil:value:5  =                          ! <OPT-WHisIMS>
-*option:ghg-hvac-CCASHPDisp-12-Oil:value:6  = <Opt-HeatCool-Control>       ! <Opt-HVACCtlFile>
-*option:ghg-hvac-CCASHPDisp-12-Oil:value:7  = oil                      ! <OPT-heating-fuel>         
-*option:ghg-hvac-CCASHPDisp-12-Oil:value:8  = 14                       ! <OPT-FurnaceType>
+*option:ghg-hvac-CCASHPDisp-12-Oil:value:3   = #-no-IMS                 ! <OPT-VENTisIMS>
+*option:ghg-hvac-CCASHPDisp-12-Oil:value:4   =                          ! <OPT-VENTisHRV>
+*option:ghg-hvac-CCASHPDisp-12-Oil:value:5   =                          ! <OPT-WHisIMS>
+*option:ghg-hvac-CCASHPDisp-12-Oil:value:6   = <Opt-HeatCool-Control>       ! <Opt-HVACCtlFile>
+*option:ghg-hvac-CCASHPDisp-12-Oil:value:7   = oil                      ! <OPT-heating-fuel>         
+*option:ghg-hvac-CCASHPDisp-12-Oil:value:8   = 14                       ! <OPT-FurnaceType>
 *option:ghg-hvac-CCASHPDisp-12-Oil:value:9   = 25000                   ! <OPT-HeatingCapacity>
 *option:ghg-hvac-CCASHPDisp-12-Oil:value:10  = 0.83                    ! <OPT-FurnaceEfficiency>
 *option:ghg-hvac-CCASHPDisp-12-Oil:value:11  = 400                     ! <OPT-FurnaceFanPower>
@@ -3502,16 +3584,8 @@
 *option:ghg-hvac-CCASHPDisp-12-Oil:value:17  = 3.6047758884453         ! <OPT-AC-COP>
 *option:ghg-hvac-CCASHPDisp-12-Oil:value:18  =                         ! <OPT-CommentFanCtlLoop>    
 *option:ghg-hvac-CCASHPDisp-12-Oil:value:19  = oil                     ! <OPT-BAK-heating-fuel>     
-        
-
-        
-        
-
-
-
-
-
-
+*option:ghg-hvac-CCASHPDisp-12-Oil:value:20  = furnace            ! Back-up type        
+*option:ghg-hvac-CCASHPDisp-12-Oil:value:21  =     ! Tag to hide/expose some data for back-up fura        
 
 *option:ghg-hvac-13-Gas:value:1   = ghg-gas.hvac
 *option:ghg-hvac-13-Gas:value:2   = #-no-GSHP-file
@@ -3552,6 +3626,28 @@
 *option:ghg-hvac-14-Elect:value:17  = 3.09483198227505
 *option:ghg-hvac-14-Elect:value:18  = 
 
+*option:ghg-hvac-CCASHPDisp-14-Elect:value:1   = ghg-CCASHP-displacement.hvac   ! <Opt-HVACSystem>           
+*option:ghg-hvac-CCASHPDisp-14-Elect:value:2   = #-no-GSHP-file         ! <Opt-HideGSHPfile>
+*option:ghg-hvac-CCASHPDisp-14-Elect:value:3   = #-no-IMS                ! <OPT-VENTisIMS>
+*option:ghg-hvac-CCASHPDisp-14-Elect:value:4   =                         ! <OPT-VENTisHRV>
+*option:ghg-hvac-CCASHPDisp-14-Elect:value:5   =                         ! <OPT-WHisIMS>
+*option:ghg-hvac-CCASHPDisp-14-Elect:value:6   = <Opt-HeatCool-Control>  ! <Opt-HVACCtlFile>
+*option:ghg-hvac-CCASHPDisp-14-Elect:value:7   = electricity             ! <OPT-heating-fuel>         
+*option:ghg-hvac-CCASHPDisp-14-Elect:value:8   = nil                     ! <OPT-FurnaceType>
+*option:ghg-hvac-CCASHPDisp-14-Elect:value:9   = 25000                    ! <OPT-HeatingCapacity>
+*option:ghg-hvac-CCASHPDisp-14-Elect:value:10  = 1                      ! <OPT-FurnaceEfficiency>
+*option:ghg-hvac-CCASHPDisp-14-Elect:value:11  = 0                      ! <OPT-FurnaceFanPower>
+*option:ghg-hvac-CCASHPDisp-14-Elect:value:12  = 0                      ! <OPT-FurnaceFanPowerLo>
+*option:ghg-hvac-CCASHPDisp-14-Elect:value:13  = nil                    ! <OPT-FurnaceDraftFanPower> 
+*option:ghg-hvac-CCASHPDisp-14-Elect:value:14  = nil                    ! <OPT-FurnacePilotPower>
+*option:ghg-hvac-CCASHPDisp-14-Elect:value:15  = 8700                   ! <Opt-HPHeatingCapacity>
+*option:ghg-hvac-CCASHPDisp-14-Elect:value:16  = 11000                  ! <OPT-AC-capacity>
+*option:ghg-hvac-CCASHPDisp-14-Elect:value:17  = 3.6047758884453        ! <OPT-AC-COP>
+*option:ghg-hvac-CCASHPDisp-14-Elect:value:18  = #-no-central-air       ! <OPT-CommentFanCtlLoop>    
+*option:ghg-hvac-CCASHPDisp-14-Elect:value:19  = electricity            ! <OPT-BAK-heating-fuel>      ! <OPT-BAK-heating-fuel>
+*option:ghg-hvac-CCASHPDisp-14-Elect:value:20  = baseboard              ! Back-up type
+*option:ghg-hvac-CCASHPDisp-14-Elect:value:21  = # Disable inputs :     ! Tag to hide/expose some data for back-up fura
+
 
 *option:ghg-hvac-15-Oil:value:1   = ghg-oil.hvac
 *option:ghg-hvac-15-Oil:value:2   = #-no-GSHP-file
@@ -3591,7 +3687,8 @@
 *option:ghg-hvac-CCASHPDisp-15-Oil:value:17  = 3.09483198227505        ! <OPT-AC-COP>
 *option:ghg-hvac-CCASHPDisp-15-Oil:value:18  =                         ! <OPT-CommentFanCtlLoop>    
 *option:ghg-hvac-CCASHPDisp-15-Oil:value:19  = oil                     ! <OPT-BAK-heating-fuel>     
-        
+*option:ghg-hvac-CCASHPDisp-15-Oil:value:20  = furnace            ! Back-up type        
+*option:ghg-hvac-CCASHPDisp-15-Oil:value:21  =     ! Tag to hide/expose some data for back-up fura        
 
 
 
@@ -3635,6 +3732,30 @@
 *option:ghg-hvac-17-Elect:value:17  = 3.60477588844537
 *option:ghg-hvac-17-Elect:value:18  = 
 
+*option:ghg-hvac-CCASHPDisp-17-Elect:value:1   = ghg-CCASHP-displacement.hvac   ! <Opt-HVACSystem>           
+*option:ghg-hvac-CCASHPDisp-17-Elect:value:2   = #-no-GSHP-file         ! <Opt-HideGSHPfile>
+*option:ghg-hvac-CCASHPDisp-17-Elect:value:3   = #-no-IMS                ! <OPT-VENTisIMS>
+*option:ghg-hvac-CCASHPDisp-17-Elect:value:4   =                         ! <OPT-VENTisHRV>
+*option:ghg-hvac-CCASHPDisp-17-Elect:value:5   =                         ! <OPT-WHisIMS>
+*option:ghg-hvac-CCASHPDisp-17-Elect:value:6   = <Opt-HeatCool-Control>  ! <Opt-HVACCtlFile>
+*option:ghg-hvac-CCASHPDisp-17-Elect:value:7   = electricity             ! <OPT-heating-fuel>         
+*option:ghg-hvac-CCASHPDisp-17-Elect:value:8   = nil                     ! <OPT-FurnaceType>
+*option:ghg-hvac-CCASHPDisp-17-Elect:value:9   = 25000                    ! <OPT-HeatingCapacity>
+*option:ghg-hvac-CCASHPDisp-17-Elect:value:10  = 1                      ! <OPT-FurnaceEfficiency>
+*option:ghg-hvac-CCASHPDisp-17-Elect:value:11  = 0                      ! <OPT-FurnaceFanPower>
+*option:ghg-hvac-CCASHPDisp-17-Elect:value:12  = 0                      ! <OPT-FurnaceFanPowerLo>
+*option:ghg-hvac-CCASHPDisp-17-Elect:value:13  = nil                    ! <OPT-FurnaceDraftFanPower> 
+*option:ghg-hvac-CCASHPDisp-17-Elect:value:14  = nil                    ! <OPT-FurnacePilotPower>
+*option:ghg-hvac-CCASHPDisp-17-Elect:value:15  = 8700                   ! <Opt-HPHeatingCapacity>
+*option:ghg-hvac-CCASHPDisp-17-Elect:value:16  = 11000                  ! <OPT-AC-capacity>
+*option:ghg-hvac-CCASHPDisp-17-Elect:value:17  = 3.6047758884453        ! <OPT-AC-COP>
+*option:ghg-hvac-CCASHPDisp-17-Elect:value:18  = #-no-central-air       ! <OPT-CommentFanCtlLoop>    
+*option:ghg-hvac-CCASHPDisp-17-Elect:value:19  = electricity            ! <OPT-BAK-heating-fuel>      ! <OPT-BAK-heating-fuel>
+*option:ghg-hvac-CCASHPDisp-17-Elect:value:20  = baseboard              ! Back-up type
+*option:ghg-hvac-CCASHPDisp-17-Elect:value:21  = # Disable inputs :     ! Tag to hide/expose some data for back-up fura
+
+
+
 
 *option:ghg-hvac-18-Oil:value:1   = ghg-oil.hvac
 *option:ghg-hvac-18-Oil:value:2   = #-no-GSHP-file
@@ -3674,7 +3795,8 @@
 *option:ghg-hvac-CCASHPDisp-18-Oil:value:17  = 3.60477588844537        ! <OPT-AC-COP>
 *option:ghg-hvac-CCASHPDisp-18-Oil:value:18  =                         ! <OPT-CommentFanCtlLoop>    
 *option:ghg-hvac-CCASHPDisp-18-Oil:value:19  = oil                     ! <OPT-BAK-heating-fuel>     
-        
+*option:ghg-hvac-CCASHPDisp-18-Oil:value:20  = furnace            ! Back-up type        
+*option:ghg-hvac-CCASHPDisp-18-Oil:value:21  =     ! Tag to hide/expose some data for back-up fura        
 
 
 
@@ -3720,6 +3842,28 @@
 *option:ghg-hvac-20-Elect:value:17  = 3.60477588844537
 *option:ghg-hvac-20-Elect:value:18  = 
 
+*option:ghg-hvac-CCASHPDisp-20-Elect:value:1   = ghg-CCASHP-displacement.hvac   ! <Opt-HVACSystem>           
+*option:ghg-hvac-CCASHPDisp-20-Elect:value:2   = #-no-GSHP-file         ! <Opt-HideGSHPfile>
+*option:ghg-hvac-CCASHPDisp-20-Elect:value:3   = #-no-IMS                ! <OPT-VENTisIMS>
+*option:ghg-hvac-CCASHPDisp-20-Elect:value:4   =                         ! <OPT-VENTisHRV>
+*option:ghg-hvac-CCASHPDisp-20-Elect:value:5   =                         ! <OPT-WHisIMS>
+*option:ghg-hvac-CCASHPDisp-20-Elect:value:6   = <Opt-HeatCool-Control>  ! <Opt-HVACCtlFile>
+*option:ghg-hvac-CCASHPDisp-20-Elect:value:7   = electricity             ! <OPT-heating-fuel>         
+*option:ghg-hvac-CCASHPDisp-20-Elect:value:8   = nil                     ! <OPT-FurnaceType>
+*option:ghg-hvac-CCASHPDisp-20-Elect:value:9   = 25000                    ! <OPT-HeatingCapacity>
+*option:ghg-hvac-CCASHPDisp-20-Elect:value:10  = 1                      ! <OPT-FurnaceEfficiency>
+*option:ghg-hvac-CCASHPDisp-20-Elect:value:11  = 0                      ! <OPT-FurnaceFanPower>
+*option:ghg-hvac-CCASHPDisp-20-Elect:value:12  = 0                      ! <OPT-FurnaceFanPowerLo>
+*option:ghg-hvac-CCASHPDisp-20-Elect:value:13  = nil                    ! <OPT-FurnaceDraftFanPower> 
+*option:ghg-hvac-CCASHPDisp-20-Elect:value:14  = nil                    ! <OPT-FurnacePilotPower>
+*option:ghg-hvac-CCASHPDisp-20-Elect:value:15  = 8700                   ! <Opt-HPHeatingCapacity>
+*option:ghg-hvac-CCASHPDisp-20-Elect:value:16  = 11000                  ! <OPT-AC-capacity>
+*option:ghg-hvac-CCASHPDisp-20-Elect:value:17  = 3.6047758884453        ! <OPT-AC-COP>
+*option:ghg-hvac-CCASHPDisp-20-Elect:value:18  = #-no-central-air       ! <OPT-CommentFanCtlLoop>    
+*option:ghg-hvac-CCASHPDisp-20-Elect:value:19  = electricity            ! <OPT-BAK-heating-fuel>      ! <OPT-BAK-heating-fuel>
+*option:ghg-hvac-CCASHPDisp-20-Elect:value:20  = baseboard              ! Back-up type
+*option:ghg-hvac-CCASHPDisp-20-Elect:value:21  = # Disable inputs :     ! Tag to hide/expose some data for back-up fura
+
 *option:ghg-hvac-21-Oil:value:1   = ghg-oil.hvac
 *option:ghg-hvac-21-Oil:value:2   = #-no-GSHP-file
 *option:ghg-hvac-21-Oil:value:3  = #-no-IMS
@@ -3738,7 +3882,6 @@
 *option:ghg-hvac-21-Oil:value:16  = 11000
 *option:ghg-hvac-21-Oil:value:17  = 3.60477588844537
 *option:ghg-hvac-21-Oil:value:18  = 
-
 
 *option:ghg-hvac-CCASHPDisp-21-Oil:value:1   = ghg-CCASHP-displacement.hvac             ! <Opt-HVACSystem>           
 *option:ghg-hvac-CCASHPDisp-21-Oil:value:2   = #-no-GSHP-file          ! <Opt-HideGSHPfile>
@@ -3759,8 +3902,8 @@
 *option:ghg-hvac-CCASHPDisp-21-Oil:value:17  = 3.60477588844537        ! <OPT-AC-COP>
 *option:ghg-hvac-CCASHPDisp-21-Oil:value:18  =                         ! <OPT-CommentFanCtlLoop>    
 *option:ghg-hvac-CCASHPDisp-21-Oil:value:19  = oil                     ! <OPT-BAK-heating-fuel>     
-        
-
+*option:ghg-hvac-CCASHPDisp-21-Oil:value:20  = furnace            ! Back-up type        
+*option:ghg-hvac-CCASHPDisp-21-Oil:value:21  =     ! Tag to hide/expose some data for back-up fura        
 
 
 *option:ghg-hvac-22-Gas:value:1   = ghg-gas.hvac
@@ -3842,7 +3985,8 @@
 *option:ghg-hvac-CCASHPDisp-24-Oil:value:17  = 3.60477588844537        ! <OPT-AC-COP>
 *option:ghg-hvac-CCASHPDisp-24-Oil:value:18  =                         ! <OPT-CommentFanCtlLoop>    
 *option:ghg-hvac-CCASHPDisp-24-Oil:value:19  = oil                     ! <OPT-BAK-heating-fuel>     
-        
+*option:ghg-hvac-CCASHPDisp-24-Oil:value:20  = furnace            ! Back-up type        
+*option:ghg-hvac-CCASHPDisp-24-Oil:value:21  =     ! Tag to hide/expose some data for back-up fura        
 
 
 

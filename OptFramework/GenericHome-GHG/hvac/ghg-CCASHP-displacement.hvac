@@ -8,12 +8,12 @@
 *system-start
 
     *name backup-sys
-    *type furnace
+    *type <OPT-BAK-type>
     *priority backup
     *fuel <OPT-BAK-heating-fuel>
     *function heating
     *zone-links-start
-    *zone-link 1 0.2 # Served zones and fraction
+    *zone-link 1 0.2 #
     *zone-link 2 0.5 #
     *zone-link 3 0.3 #
     *zone-links-end
@@ -23,10 +23,10 @@
         circ-fan-mode <OPT-Furnace-Fan-Ctl>
         circ-fan-power <OPT-FurnaceFanPower>
         circ-fan-power-low  <OPT-FurnaceFanPowerLo>   
-        draft-fan-power <OPT-FurnaceDraftFanPower> 
-        pilot-power <OPT-FurnacePilotPower>
+        <OPT-BAK-comment-fan-data>draft-fan-power <OPT-FurnaceDraftFanPower> 
+        <OPT-BAK-comment-fan-data>pilot-power <OPT-FurnacePilotPower>
         efficiency <OPT-FurnaceEfficiency>
-        furnace-type <OPT-FurnaceType>
+        <OPT-BAK-comment-fan-data>furnace-type <OPT-FurnaceType>
         
     *sys-data-end
     <OPT-CommentFanCtlLoop>*fan-ctl-loop 1
