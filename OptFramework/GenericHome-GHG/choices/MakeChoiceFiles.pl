@@ -170,7 +170,7 @@ my %upgrade_packages = (
 
                       #"MINO-NewEnergyStarUpgrade" =>  ["HeatWHP-UpgradeTo-EStar"],
                       #"MINO-AllElecASHP"          =>  ["HeatWHP-UpgradeTo-AllElecASHP"],
-                      "MINO-AllElecCCASHP"        =>  ["HeatWHP-UpgradeTo-AllElecCCASHP"],
+#                      "MINO-AllElecCCASHP"        =>  ["HeatWHP-UpgradeTo-AllElecCCASHP"],
                       #"MINO-AllElecGSHP"          =>  ["HeatWHP-UpgradeTo-AllElecGSHP"],
                       #"MINO-gfHP"                 =>  ["HeatWHP-UpgradeTo-GasFired-HP"],
                       
@@ -190,30 +190,34 @@ my %upgrade_packages = (
                      #                                 "Renewables-DWHR-4-60"] ,
                      # "gas-dhw-ref"               => ["retrofit-gas-heating-high-effciency"],
                       
-                     "CCASHP-minisplit-displacement"       => ["retrofit-minisplit"],
+#                     "CCASHP-minisplit-displacement"       => ["retrofit-minisplit"],
                       
 
                      #EMMC Window Scenarios
-     				 "Windows-EMMC-Upgrade-1-low-gain"            => ["Windows-EMMC-Upgrade-1-low-gain"],
-                     "Windows-EMMC-Upgrade-1-mid-gain"            => ["Windows-EMMC-Upgrade-1-mid-gain"],
-					 "Windows-EMMC-Upgrade-1-high-gain"           => ["Windows-EMMC-Upgrade-1-high-gain"], 
-                     "Windows-EMMC-Upgrade-1-high-gain-on-south"  => ["Windows-EMMC-Upgrade-1-hg-on-S"],
+#     				 "Windows-EMMC-Upgrade-1-low-gain"            => ["Windows-EMMC-Upgrade-1-low-gain"],
+#                     "Windows-EMMC-Upgrade-1-mid-gain"            => ["Windows-EMMC-Upgrade-1-mid-gain"],
+#					 "Windows-EMMC-Upgrade-1-high-gain"           => ["Windows-EMMC-Upgrade-1-high-gain"], 
+#                     "Windows-EMMC-Upgrade-1-high-gain-on-south"  => ["Windows-EMMC-Upgrade-1-hg-on-S"],
                      
-     				 "Windows-EMMC-Upgrade-2-low-gain"            => ["Windows-EMMC-Upgrade-2-low-gain"],
-                     "Windows-EMMC-Upgrade-2-mid-gain"            => ["Windows-EMMC-Upgrade-2-mid-gain"],
-					 "Windows-EMMC-Upgrade-2-high-gain"           => ["Windows-EMMC-Upgrade-2-high-gain"], 
-                     "Windows-EMMC-Upgrade-2-high-gain-on-south"  => ["Windows-EMMC-Upgrade-2-hg-on-S"],
+#     				 "Windows-EMMC-Upgrade-2-low-gain"            => ["Windows-EMMC-Upgrade-2-low-gain"],
+#                     "Windows-EMMC-Upgrade-2-mid-gain"            => ["Windows-EMMC-Upgrade-2-mid-gain"],
+#					 "Windows-EMMC-Upgrade-2-high-gain"           => ["Windows-EMMC-Upgrade-2-high-gain"], 
+#                     "Windows-EMMC-Upgrade-2-high-gain-on-south"  => ["Windows-EMMC-Upgrade-2-hg-on-S"],
                      
-     				 "Windows-EMMC-Upgrade-3-low-gain"            => ["Windows-EMMC-Upgrade-3-low-gain"],
-                     "Windows-EMMC-Upgrade-3-mid-gain"            => ["Windows-EMMC-Upgrade-3-mid-gain"],
-					 "Windows-EMMC-Upgrade-3-high-gain"           => ["Windows-EMMC-Upgrade-3-high-gain"], 
-                     "Windows-EMMC-Upgrade-3-high-gain-on-south"  => ["Windows-EMMC-Upgrade-3-hg-on-S"],
+#     				 "Windows-EMMC-Upgrade-3-low-gain"            => ["Windows-EMMC-Upgrade-3-low-gain"],
+#                     "Windows-EMMC-Upgrade-3-mid-gain"            => ["Windows-EMMC-Upgrade-3-mid-gain"],
+#					 "Windows-EMMC-Upgrade-3-high-gain"           => ["Windows-EMMC-Upgrade-3-high-gain"], 
+#                     "Windows-EMMC-Upgrade-3-high-gain-on-south"  => ["Windows-EMMC-Upgrade-3-hg-on-S"],
                      
-     				 "Windows-EMMC-Upgrade-4-low-gain"            => ["Windows-EMMC-Upgrade-4-low-gain"],
-                     "Windows-EMMC-Upgrade-4-mid-gain"            => ["Windows-EMMC-Upgrade-4-mid-gain"],
-					 "Windows-EMMC-Upgrade-4-high-gain"           => ["Windows-EMMC-Upgrade-4-high-gain"], 
-                     "Windows-EMMC-Upgrade-4-high-gain-on-south"  => ["Windows-EMMC-Upgrade-4-hg-on-S"]
-						
+#     				 "Windows-EMMC-Upgrade-4-low-gain"            => ["Windows-EMMC-Upgrade-4-low-gain"],
+#                     "Windows-EMMC-Upgrade-4-mid-gain"            => ["Windows-EMMC-Upgrade-4-mid-gain"],
+#					 "Windows-EMMC-Upgrade-4-high-gain"           => ["Windows-EMMC-Upgrade-4-high-gain"], 
+#                     "Windows-EMMC-Upgrade-4-high-gain-on-south"  => ["Windows-EMMC-Upgrade-4-hg-on-S"]
+
+
+                     "Upgrade-U-0_8"     => ["Upgrade-U-0_8"],
+					 "Upgrade-U-1_2"     => ["Upgrade-U-1_2"],
+                     "Upgrade-U-1_4"     => ["Upgrade-U-1_4"]						
 
 );
 
@@ -1690,8 +1694,21 @@ sub UpgradeRuleSet($){
 		   last SWITCH;
 		   }
 	
-	
-	
+
+        if ( $upgrade =~ /Upgrade-U-0_8/ )
+           { $choiceHash{"Opt-CasementWindows"} =  "Upgrade-U-0_8" ; $validupgrade = 1; 
+		   last SWITCH;
+		   }             
+
+        if ( $upgrade =~ /Upgrade-U-1_2/ )
+           { $choiceHash{"Opt-CasementWindows"} =  "Upgrade-U-1_2" ; $validupgrade = 1; 
+		   last SWITCH;
+		   }             
+
+	   if ( $upgrade =~ /Upgrade-U-1_4/ )
+           { $choiceHash{"Opt-CasementWindows"} =  "Upgrade-U-1_4" ; $validupgrade = 1; 
+		   last SWITCH;
+		   }             
 	
     # < New rulesets go here: >  
 
