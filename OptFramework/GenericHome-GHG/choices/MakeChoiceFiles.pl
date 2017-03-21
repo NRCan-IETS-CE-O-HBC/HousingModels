@@ -168,11 +168,14 @@ my %upgrade_packages = (
 
                       #MINO Scenarios 
 
-                      #"MINO-NewEnergyStarUpgrade" =>  ["HeatWHP-UpgradeTo-EStar"],
+                      "MINO-NewEnergyStarUpgrade" =>  ["HeatWHP-UpgradeTo-EStar"],
+                      
                       #"MINO-AllElecASHP"          =>  ["HeatWHP-UpgradeTo-AllElecASHP"],
-#                      "MINO-AllElecCCASHP"        =>  ["HeatWHP-UpgradeTo-AllElecCCASHP"],
+                      "MINO-AllElecCCASHP"        =>  ["HeatWHP-UpgradeTo-AllElecCCASHP"],
+
                       #"MINO-AllElecGSHP"          =>  ["HeatWHP-UpgradeTo-AllElecGSHP"],
-                      #"MINO-gfHP"                 =>  ["HeatWHP-UpgradeTo-GasFired-HP"],
+                      
+                      "MINO-gfHP"                 =>  ["HeatWHP-UpgradeTo-GasFired-HP"]
                       
 #                      "P9-combos"                 => ["retrofit-heating-P9-combos"],    # Gas systems to high-effciency p9 combo
                       
@@ -215,9 +218,9 @@ my %upgrade_packages = (
 #                     "Windows-EMMC-Upgrade-4-high-gain-on-south"  => ["Windows-EMMC-Upgrade-4-hg-on-S"]
 
 
-                     "Upgrade-U-0_8"     => ["Upgrade-U-0_8"],
-					 "Upgrade-U-1_2"     => ["Upgrade-U-1_2"],
-                     "Upgrade-U-1_4"     => ["Upgrade-U-1_4"]						
+                     #"Upgrade-U-0_8"     => ["Upgrade-U-0_8"],
+					 #"Upgrade-U-1_2"     => ["Upgrade-U-1_2"],
+                     #"Upgrade-U-1_4"     => ["Upgrade-U-1_4"]						
 
 );
 
@@ -617,12 +620,21 @@ sub UpgradeRuleSet($){
         
     if ( $upgrade =~ /retrofit-minisplit/ ){
 
-      if ( $choiceHash{"Opt-GhgHeatingCooling"} =~ /ghg-hvac-6-Oil/ ){
+      if ( $choiceHash{"Opt-GhgHeatingCooling"} =~ /ghg-hvac-..-Oil/ ){
     
-         $choiceHash{"Opt-GhgHeatingCooling"} =~ s/ghg-hvac-/ghg-hvac-CCASHPDisp-/g; 
+         $choiceHash{"Opt-GhgHeatingCooling"} =~ s/ghg-hvac-/ghg-hvac-CCASHPDisp-zoned-/g; 
          $validupgrade = 1;   
       
       }
+
+      
+      if ( $choiceHash{"Opt-GhgHeatingCooling"} =~ /ghg-hvac-..-Elect/ ){
+    
+         $choiceHash{"Opt-GhgHeatingCooling"} =~ s/ghg-hvac-/ghg-hvac-CCASHPDisp-zoned-/g; 
+         $validupgrade = 1;   
+      
+      }
+      
       last SWITCH;
     
     }
