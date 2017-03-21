@@ -5,6 +5,32 @@
 #------------------------
 *site-altitude 0.0
 # ----------- Back-up -------------------
+# Back-up 
+*system-start
+
+    *name backup-bsmt
+    *type <OPT-BAK-type>
+    *priority primary
+    *fuel <OPT-BAK-heating-fuel>
+    *function heating
+    *zone-links-start
+    *zone-link 1 1.0 # Served zones and fraction
+    *zone-links-end
+    *sys-data-start
+
+        capacity <OPT-HeatingCapacity>
+        circ-fan-mode <OPT-Furnace-Fan-Ctl>
+        circ-fan-power <OPT-FurnaceFanPower>
+        circ-fan-power-low  <OPT-FurnaceFanPowerLo>   
+        <OPT-BAK-comment-fan-data>draft-fan-power <OPT-FurnaceDraftFanPower> 
+        <OPT-BAK-comment-fan-data>pilot-power <OPT-FurnacePilotPower>
+        efficiency <OPT-FurnaceEfficiency>
+        <OPT-BAK-comment-fan-data>furnace-type <OPT-FurnaceType>
+        
+    *sys-data-end
+   # <OPT-CommentFanCtlLoop>*fan-ctl-loop 1
+
+*system-end
 # ----------- Back-up -------------------
 *system-start
 
@@ -69,35 +95,6 @@
     *fan-ctl-loop 1
 
 *system-end
-
-# Back-up 
-*system-start
-
-    *name backup-bsmt
-    *type <OPT-BAK-type>
-    *priority primary
-    *fuel <OPT-BAK-heating-fuel>
-    *function heating
-    *zone-links-start
-    *zone-link 1 1.0 # Served zones and fraction
-    *zone-links-end
-    *sys-data-start
-
-        capacity <OPT-HeatingCapacity>
-        circ-fan-mode <OPT-Furnace-Fan-Ctl>
-        circ-fan-power <OPT-FurnaceFanPower>
-        circ-fan-power-low  <OPT-FurnaceFanPowerLo>   
-        <OPT-BAK-comment-fan-data>draft-fan-power <OPT-FurnaceDraftFanPower> 
-        <OPT-BAK-comment-fan-data>pilot-power <OPT-FurnacePilotPower>
-        efficiency <OPT-FurnaceEfficiency>
-        <OPT-BAK-comment-fan-data>furnace-type <OPT-FurnaceType>
-        
-    *sys-data-end
-   # <OPT-CommentFanCtlLoop>*fan-ctl-loop 1
-
-*system-end
-
-
 ## -------- Heat pump (cooling) ----------
 *system-start
 
