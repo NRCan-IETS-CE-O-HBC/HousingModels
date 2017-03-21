@@ -1805,6 +1805,53 @@
 *option:win-Canada-2025-onwards-Oil:WindowParams:Uval = 1.2
 *option:win-Canada-2025-onwards-Oil:WindowParams:cost:total = 0
 
+#--------window improvement scenarios----------------------
+*option:Upgrade-U-0_8:value:1 = U-0_8
+*option:Upgrade-U-0_8:value:2 = U-0_8
+*option:Upgrade-U-0_8:value:3 = U-0_8
+*option:Upgrade-U-0_8:value:4 = U-0_8
+*option:Upgrade-U-0_8:value:5 = U-0_8
+*option:Upgrade-U-0_8:value:6 = U-0_8
+*option:Upgrade-U-0_8:value:7 = U-0_8
+*option:Upgrade-U-0_8:value:8 = U-0_8
+*option:Upgrade-U-0_8:value:9 = U-0_8
+*option:Upgrade-U-0_8:WindowParams:name = U-0_8
+*option:Upgrade-U-0_8:WindowParams:panes = 3
+*option:Upgrade-U-0_8:WindowParams:SHGC = 0.27
+*option:Upgrade-U-0_8:WindowParams:Uval = 0.80
+*option:Upgrade-U-0_8:WindowParams:cost:total = 0
+
+*option:Upgrade-U-1_2:value:1 = U-1_2
+*option:Upgrade-U-1_2:value:2 = U-1_2
+*option:Upgrade-U-1_2:value:3 = U-1_2
+*option:Upgrade-U-1_2:value:4 = U-1_2
+*option:Upgrade-U-1_2:value:5 = U-1_2
+*option:Upgrade-U-1_2:value:6 = U-1_2
+*option:Upgrade-U-1_2:value:7 = U-1_2
+*option:Upgrade-U-1_2:value:8 = U-1_2
+*option:Upgrade-U-1_2:value:9 = U-1_2
+*option:Upgrade-U-1_2:WindowParams:name = U-1_2
+*option:Upgrade-U-1_2:WindowParams:panes = 3
+*option:Upgrade-U-1_2:WindowParams:SHGC = 0.27
+*option:Upgrade-U-1_2:WindowParams:Uval = 1.20
+*option:Upgrade-U-1_2:WindowParams:cost:total = 0
+
+*option:Upgrade-U-1_4:value:1 = U-1_4
+*option:Upgrade-U-1_4:value:2 = U-1_4
+*option:Upgrade-U-1_4:value:3 = U-1_4
+*option:Upgrade-U-1_4:value:4 = U-1_4
+*option:Upgrade-U-1_4:value:5 = U-1_4
+*option:Upgrade-U-1_4:value:6 = U-1_4
+*option:Upgrade-U-1_4:value:7 = U-1_4
+*option:Upgrade-U-1_4:value:8 = U-1_4
+*option:Upgrade-U-1_4:value:9 = U-1_4
+*option:Upgrade-U-1_4:WindowParams:name = U-1_4
+*option:Upgrade-U-1_4:WindowParams:panes = 3
+*option:Upgrade-U-1_4:WindowParams:SHGC = 0.27
+*option:Upgrade-U-1_4:WindowParams:Uval = 1.20
+*option:Upgrade-U-1_4:WindowParams:cost:total = 0
+
+
 #--------EMMC window scenarios----------------------
 *option:EMMC-Upgrade-1-low-gain:value:1 = ghg-win-25
 *option:EMMC-Upgrade-1-low-gain:value:2 = ghg-win-25
