@@ -66,7 +66,7 @@
         performance gas-hp-a
     *misc-param-end     
     *backup backup-sys
-    *fan-ctl-loop 1
+    <OPT-CommentFanCtlLoop>*fan-ctl-loop 1
 
 *system-end
 ## -------- Heat pump (cooling) ----------
@@ -115,6 +115,6 @@
         *day-type-end
 
     *OA-schedule-end
-    *fan-ctl-loop 1
+    <OPT-CommentFanCtlLoop>*fan-ctl-loop 1
 
 *system-end

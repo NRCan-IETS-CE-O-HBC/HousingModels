@@ -3193,7 +3193,7 @@
 *option:ghg-hvac-2-Elect:value:9 = 25000                            ! <OPT-HeatingCapacity>
 *option:ghg-hvac-2-Elect:value:10  = 1                              ! <OPT-FurnaceEfficiency>
 *option:ghg-hvac-2-Elect:value:11  = 600                            ! <OPT-FurnaceFanPower>
-*option:ghg-hvac-2-Elect:value:12  = 0                              ! <OPT-FurnaceFanPowerLo>
+*option:ghg-hvac-2-Elect:value:12  = 600                              ! <OPT-FurnaceFanPowerLo>
 *option:ghg-hvac-2-Elect:value:13  = nil                            ! <OPT-FurnaceDraftFanPower> 
 *option:ghg-hvac-2-Elect:value:14 = nil                             ! <OPT-FurnacePilotPower>
 *option:ghg-hvac-2-Elect:value:15  = 0                              ! <Opt-HPHeatingCapacity>
@@ -3284,7 +3284,7 @@
 *option:ghg-hvac-5-Elect:value:9 = 25000                            ! <OPT-HeatingCapacity>
 *option:ghg-hvac-5-Elect:value:10  = 1                              ! <OPT-FurnaceEfficiency>
 *option:ghg-hvac-5-Elect:value:11  = 520                            ! <OPT-FurnaceFanPower>
-*option:ghg-hvac-5-Elect:value:12  = 0                              ! <OPT-FurnaceFanPowerLo>
+*option:ghg-hvac-5-Elect:value:12  = 520                            ! <OPT-FurnaceFanPowerLo>
 *option:ghg-hvac-5-Elect:value:13  = nil                            ! <OPT-FurnaceDraftFanPower> 
 *option:ghg-hvac-5-Elect:value:14 = nil                             ! <OPT-FurnacePilotPower>
 *option:ghg-hvac-5-Elect:value:15  = 0                              ! <Opt-HPHeatingCapacity>
@@ -3303,7 +3303,7 @@
 *option:ghg-hvac-CCASHPDisp-5-Elect:value:9   = 25000                    ! <OPT-HeatingCapacity>
 *option:ghg-hvac-CCASHPDisp-5-Elect:value:10  = 1                      ! <OPT-FurnaceEfficiency>
 *option:ghg-hvac-CCASHPDisp-5-Elect:value:11  = 520                     ! <OPT-FurnaceFanPower>
-*option:ghg-hvac-CCASHPDisp-5-Elect:value:12  = 0                      ! <OPT-FurnaceFanPowerLo>
+*option:ghg-hvac-CCASHPDisp-5-Elect:value:12  = 520                      ! <OPT-FurnaceFanPowerLo>
 *option:ghg-hvac-CCASHPDisp-5-Elect:value:13  = nil                    ! <OPT-FurnaceDraftFanPower> 
 *option:ghg-hvac-CCASHPDisp-5-Elect:value:14  = nil                    ! <OPT-FurnacePilotPower>
 *option:ghg-hvac-CCASHPDisp-5-Elect:value:15  = 8700                  ! <Opt-HPHeatingCapacity>
@@ -3390,7 +3390,7 @@
 *option:ghg-hvac-8-Elect:value:9 = 25000
 *option:ghg-hvac-8-Elect:value:10  = 1
 *option:ghg-hvac-8-Elect:value:11  = 400
-*option:ghg-hvac-8-Elect:value:12  = 0
+*option:ghg-hvac-8-Elect:value:12  = 400
 *option:ghg-hvac-8-Elect:value:13  = nil
 *option:ghg-hvac-8-Elect:value:14 = nil
 *option:ghg-hvac-8-Elect:value:15  = 0
@@ -3604,7 +3604,7 @@
 *option:ghg-hvac-14-Elect:value:9 = 25000
 *option:ghg-hvac-14-Elect:value:10  = 1
 *option:ghg-hvac-14-Elect:value:11  = 400
-*option:ghg-hvac-14-Elect:value:12  = 0
+*option:ghg-hvac-14-Elect:value:12  = 400
 *option:ghg-hvac-14-Elect:value:13  = nil
 *option:ghg-hvac-14-Elect:value:14 = nil
 *option:ghg-hvac-14-Elect:value:15  = 0
@@ -3710,7 +3710,7 @@
 *option:ghg-hvac-17-Elect:value:9 = 25000
 *option:ghg-hvac-17-Elect:value:10  = 1
 *option:ghg-hvac-17-Elect:value:11  = 320
-*option:ghg-hvac-17-Elect:value:12  = 0
+*option:ghg-hvac-17-Elect:value:12  = 320
 *option:ghg-hvac-17-Elect:value:13  = nil
 *option:ghg-hvac-17-Elect:value:14 = nil
 *option:ghg-hvac-17-Elect:value:15  = 0
@@ -3820,7 +3820,7 @@
 *option:ghg-hvac-20-Elect:value:9 = 25000
 *option:ghg-hvac-20-Elect:value:10  = 1
 *option:ghg-hvac-20-Elect:value:11  = 250
-*option:ghg-hvac-20-Elect:value:12  = 0
+*option:ghg-hvac-20-Elect:value:12  = 250
 *option:ghg-hvac-20-Elect:value:13  = nil
 *option:ghg-hvac-20-Elect:value:14 = nil
 *option:ghg-hvac-20-Elect:value:15  = 0
@@ -4108,7 +4108,7 @@
 *option:ghg-hvac-Gas-upgrade-nohrv:value:6  = <Opt-HeatCool-Control>
 *option:ghg-hvac-Gas-upgrade-nohrv:value:7  = gas
 *option:ghg-hvac-Gas-upgrade-nohrv:value:8  = 8
-*option:ghg-hvac-Gas-upgrade-nohrv:value:9 = 25000
+*option:ghg-hvac-Gas-upgrade-nohrv:value:9  = 25000
 *option:ghg-hvac-Gas-upgrade-nohrv:value:10  = 0.95
 *option:ghg-hvac-Gas-upgrade-nohrv:value:11  = 250
 *option:ghg-hvac-Gas-upgrade-nohrv:value:12  = 250
@@ -4137,46 +4137,47 @@
 *option:ghg-hvac-Gas-upgrade-hrv:value:16  = 11000
 *option:ghg-hvac-Gas-upgrade-hrv:value:17  = 3.60477588844537
 *option:ghg-hvac-Gas-upgrade-hrv:value:18  =														 
-			
+	
 
-*option:gasHP-a::1   = ghg-gas.hvac              ! tag: <Opt-HVACSystem>
-*option:gasHP-a:value:2   = #-no-GSHP-file            ! tag: <Opt-HideGSHPfile>
-*option:gasHP-a:valvalueue:3   = #-no-IMS                  ! tag: <OPT-VENTisIMS>
-*option:gasHP-a:value:4   =                           ! tag: <OPT-VENTisHRV>
-*option:gasHP-a:value:5   =                           ! tag: <OPT-WHisIMS>
-*option:gasHP-a:value:6   = <Opt-HeatCool-Control>        ! tag: <Opt-HVACCtlFile>
-*option:gasHP-a:value:7   = oil                       ! tag: <OPT-heating-fuel> 
-*option:gasHP-a:value:8   = 15                        ! tag: <OPT-FurnaceType>
-*option:gasHP-a:value:9   = 25000                     ! tag: <OPT-HeatingCapacity>
-*option:gasHP-a:value:10  = 1.00                      ! tag: <OPT-FurnaceEfficiency>
-*option:gasHP-a:value:11  = 250                       ! tag: <OPT-FurnaceFanPower>
-*option:gasHP-a:value:12  = 250                       ! tag: <OPT-FurnaceFanPowerLo>
-*option:gasHP-a:value:13  = 75                        ! tag: <OPT-FurnaceDraftFanPower> 
-*option:gasHP-a:value:14  = 0                         ! tag: <OPT-FurnacePilotPower>
-*option:gasHP-a:value:15  = 0                         ! tag: <Opt-HPHeatingCapacity>
-*option:gasHP-a:value:16  = 11000                     ! tag: <OPT-AC-capacity>
-*option:gasHP-a:value:17  = 3.60477588844537          ! tag: <OPT-AC-COP>
-*option:gasHP-a:value:18  =		
-			
-*option:test-HP-gas-a:value:1   = ghg-gas-hp.hvac             ! tag: <Opt-HVACSystem>
-*option:test-HP-gas-a:value:2   = #-no-GSHP-file              ! tag: <Opt-HideGSHPfile>
-*option:test-HP-gas-a:value:3  = #-no-IMS                     ! tag: <OPT-VENTisIMS>
-*option:test-HP-gas-a:value:4  =                              ! tag: <OPT-VENTisHRV>
-*option:test-HP-gas-a:value:5  =                              ! tag: <OPT-WHisIMS>
-*option:test-HP-gas-a:value:6  = <Opt-HeatCool-Control>           ! tag: <Opt-HVACCtlFile>
-*option:test-HP-gas-a:value:7  = gas                          ! tag: <OPT-heating-fuel> 
-*option:test-HP-gas-a:value:8  = 8                           ! tag: <OPT-FurnaceType>
-*option:test-HP-gas-a:value:9 = 25000                         ! tag: <OPT-HeatingCapacity>
-*option:test-HP-gas-a:value:10  = 3.0                         ! tag: <OPT-FurnaceEfficiency>
-*option:test-HP-gas-a:value:11  = 200                         ! tag: <OPT-FurnaceFanPower>
-*option:test-HP-gas-a:value:12  = 200                         ! tag: <OPT-FurnaceFanPowerLo>
-*option:test-HP-gas-a:value:13  = 75                          ! tag: <OPT-FurnaceDraftFanPower> 
-*option:test-HP-gas-a:value:14  = 0                           ! tag: <OPT-FurnacePilotPower>
-*option:test-HP-gas-a:value:15  = 11700                       ! tag: <Opt-HPHeatingCapacity>
-*option:test-HP-gas-a:value:16  = 11000                       ! tag: <OPT-AC-capacity>
-*option:test-HP-gas-a:value:17  = 3.6047758884453             ! tag: <OPT-AC-COP>
-*option:test-HP-gas-a:value:18  =       
-      
+    
+*option:test-HP-gas-a-HRV:value:1   = ghg-gas-hp.hvac             ! tag: <Opt-HVACSystem>
+*option:test-HP-gas-a-HRV:value:2   = #-no-GSHP-file              ! tag: <Opt-HideGSHPfile>
+*option:test-HP-gas-a-HRV:value:3  = #-no-IMS                     ! tag: <OPT-VENTisIMS>
+*option:test-HP-gas-a-HRV:value:4  =                              ! tag: <OPT-VENTisHRV>
+*option:test-HP-gas-a-HRV:value:5  =                              ! tag: <OPT-WHisIMS>
+*option:test-HP-gas-a-HRV:value:6  = <Opt-HeatCool-Control>           ! tag: <Opt-HVACCtlFile>
+*option:test-HP-gas-a-HRV:value:7  = gas                          ! tag: <OPT-heating-fuel> 
+*option:test-HP-gas-a-HRV:value:8  = 8                           ! tag: <OPT-FurnaceType>
+*option:test-HP-gas-a-HRV:value:9 = 25000                         ! tag: <OPT-HeatingCapacity>
+*option:test-HP-gas-a-HRV:value:10  = 3.0                         ! tag: <OPT-FurnaceEfficiency>
+*option:test-HP-gas-a-HRV:value:11  = 200                         ! tag: <OPT-FurnaceFanPower>
+*option:test-HP-gas-a-HRV:value:12  = 200                         ! tag: <OPT-FurnaceFanPowerLo>
+*option:test-HP-gas-a-HRV:value:13  = 75                          ! tag: <OPT-FurnaceDraftFanPower> 
+*option:test-HP-gas-a-HRV:value:14  = 0                           ! tag: <OPT-FurnacePilotPower>
+*option:test-HP-gas-a-HRV:value:15  = 11700                       ! tag: <Opt-HPHeatingCapacity>
+*option:test-HP-gas-a-HRV:value:16  = 11000                       ! tag: <OPT-AC-capacity>
+*option:test-HP-gas-a-HRV:value:17  = 3.6047758884453             ! tag: <OPT-AC-COP>
+*option:test-HP-gas-a-HRV:value:18  =       
+  
+*option:test-HP-gas-a-noHRV:value:1   = ghg-gas-hp.hvac             ! tag: <Opt-HVACSystem>
+*option:test-HP-gas-a-noHRV:value:2   = #-no-GSHP-file              ! tag: <Opt-HideGSHPfile>
+*option:test-HP-gas-a-noHRV:value:3  = #-no-IMS                     ! tag: <OPT-VENTisIMS>
+*option:test-HP-gas-a-noHRV:value:4  =                              ! tag: <OPT-VENTisHRV>
+*option:test-HP-gas-a-noHRV:value:5  =                              ! tag: <OPT-WHisIMS>
+*option:test-HP-gas-a-noHRV:value:6  = <Opt-HeatCool-Control>           ! tag: <Opt-HVACCtlFile>
+*option:test-HP-gas-a-noHRV:value:7  = gas                          ! tag: <OPT-heating-fuel> 
+*option:test-HP-gas-a-noHRV:value:8  = 8                           ! tag: <OPT-FurnaceType>
+*option:test-HP-gas-a-noHRV:value:9 = 25000                         ! tag: <OPT-HeatingCapacity>
+*option:test-HP-gas-a-noHRV:value:10  = 3.0                         ! tag: <OPT-FurnaceEfficiency>
+*option:test-HP-gas-a-noHRV:value:11  = 200                         ! tag: <OPT-FurnaceFanPower>
+*option:test-HP-gas-a-noHRV:value:12  = 200                         ! tag: <OPT-FurnaceFanPowerLo>
+*option:test-HP-gas-a-noHRV:value:13  = 75                          ! tag: <OPT-FurnaceDraftFanPower> 
+*option:test-HP-gas-a-noHRV:value:14  = 0                           ! tag: <OPT-FurnacePilotPower>
+*option:test-HP-gas-a-noHRV:value:15  = 11700                       ! tag: <Opt-HPHeatingCapacity>
+*option:test-HP-gas-a-noHRV:value:16  = 11000                       ! tag: <OPT-AC-capacity>
+*option:test-HP-gas-a-noHRV:value:17  = 3.6047758884453             ! tag: <OPT-AC-COP>
+*option:test-HP-gas-a-noHRV:value:18  = #Exhaust fans - no   
+  
 														 
 *attribute:end
 
