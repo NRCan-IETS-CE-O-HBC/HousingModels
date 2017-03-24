@@ -168,21 +168,21 @@ my %upgrade_packages = (
 
                       #MINO Scenarios 
 
-                      "MINO-NewEnergyStarUpgrade" =>  ["HeatWHP-UpgradeTo-EStar"],
+                      #"MINO-NewEnergyStarUpgrade" =>  ["HeatWHP-UpgradeTo-EStar"],
                       
                       #"MINO-AllElecASHP"          =>  ["HeatWHP-UpgradeTo-AllElecASHP"],
-                      "MINO-AllElecCCASHP"        =>  ["HeatWHP-UpgradeTo-AllElecCCASHP"],
+                      #"MINO-AllElecCCASHP"        =>  ["HeatWHP-UpgradeTo-AllElecCCASHP"],
 
                       #"MINO-AllElecGSHP"          =>  ["HeatWHP-UpgradeTo-AllElecGSHP"],
                       
-                      "MINO-gfHP"                 =>  ["HeatWHP-UpgradeTo-GasFired-HP"]
+                      #"MINO-gfHP"                 =>  ["HeatWHP-UpgradeTo-GasFired-HP"]
                       
 #                      "P9-combos"                 => ["retrofit-heating-P9-combos"],    # Gas systems to high-effciency p9 combo
                       
                      # "oil-dhw-high-effciency"    => ["retrofit-oil-dhw-high-effciency"],    # As found to high efficiency equivlant
                      # "gas-dhw-high-effciency"    => ["retrofit-gas-dhw-high-effciency"],    # As found to high efficiency equivlant
                      # "elec-dhw-storage"          => ["retrofit-elec-dhw-storage"],                # As found to high efficiency equivlant
-                     # "elec-dhw-hp"               => ["retrofit-elec-dhw-hp"]   ,                      # As found to high efficiency equivlan
+                      "elec-dhw-hp"               => ["retrofit-elec-dhw-hp"]   ,                      # As found to high efficiency equivlan
                      # "gas-hp-wh"                 => ["retrofit-gas-hpwh"] ,
                      # "gas-hp-wh-0-5"             => ["retrofit-gas-hpwh-0_5"] ,
                      # "gas-hp-wh-0-8"             => ["retrofit-gas-hpwh-0_8"] ,
@@ -541,9 +541,16 @@ sub UpgradeRuleSet($){
     
      if ( $upgrade =~ /HeatWHP-UpgradeTo-GasFired-HP/ ) {
      
-       $choiceHash{"Opt-GhgHeatingCooling"} = "test-HP-gas-a"  ;
-       $validupgrade = 1;      
+       if ($choiceHash{"ID"} =~ /2020-2024.*/ ||
+           $choiceHash{"ID"} =~ /2006-2011.*/ ||
+           $choiceHash{"ID"} =~ /2012-2019*/ ){
      
+           $choiceHash{"Opt-GhgHeatingCooling"} = "test-HP-gas-a-HRV"  ;
+               
+        }else{
+           $choiceHash{"Opt-GhgHeatingCooling"} = "test-HP-gas-a-noHRV";
+       }            
+       $validupgrade = 1;  
        last SWITCH;      
      
      }
@@ -1767,7 +1774,7 @@ sub WriteChoiceFile($){
    print OPTIONSOUT "Opt-DBFiles          : retrofit\n";
    print OPTIONSOUT "GOconfig_rotate      : E\n";
    print OPTIONSOUT "Opt-Location         : <LOCATION>\n";
-   
+   print OPTIONSOUT "OPT-Furnace-Fan-Ctl  : Auto\n"; 
    print OPTIONSOUT "OPT-HRV_ctl          : ".$choiceHash{"Opt-HRV_ctl"}."\n";
    print OPTIONSOUT "OPT-OPR-SCHED        : scheduled\n";
    print OPTIONSOUT "Opt-BaseWindows      : MinWindows\n";
