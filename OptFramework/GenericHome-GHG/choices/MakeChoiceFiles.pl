@@ -182,7 +182,7 @@ my %upgrade_packages = (
                      # "oil-dhw-high-effciency"    => ["retrofit-oil-dhw-high-effciency"],    # As found to high efficiency equivlant
                      # "gas-dhw-high-effciency"    => ["retrofit-gas-dhw-high-effciency"],    # As found to high efficiency equivlant
                      # "elec-dhw-storage"          => ["retrofit-elec-dhw-storage"],                # As found to high efficiency equivlant
-                      "elec-dhw-hp"               => ["retrofit-elec-dhw-hp"]   ,                      # As found to high efficiency equivlan
+                     #"elec-dhw-hp"               => ["retrofit-elec-dhw-hp"]   ,                      # As found to high efficiency equivlan
                      # "gas-hp-wh"                 => ["retrofit-gas-hpwh"] ,
                      # "gas-hp-wh-0-5"             => ["retrofit-gas-hpwh-0_5"] ,
                      # "gas-hp-wh-0-8"             => ["retrofit-gas-hpwh-0_8"] ,
@@ -193,7 +193,7 @@ my %upgrade_packages = (
                      #                                 "Renewables-DWHR-4-60"] ,
                      # "gas-dhw-ref"               => ["retrofit-gas-heating-high-effciency"],
                       
-#                     "CCASHP-minisplit-displacement"       => ["retrofit-minisplit"],
+                     "CCASHP-minisplit-displacement"       => ["retrofit-minisplit"],
                       
 
                      #EMMC Window Scenarios
@@ -629,7 +629,7 @@ sub UpgradeRuleSet($){
 
       if ( $choiceHash{"Opt-GhgHeatingCooling"} =~ /ghg-hvac-..-Oil/ ){
     
-         $choiceHash{"Opt-GhgHeatingCooling"} =~ s/ghg-hvac-/ghg-hvac-CCASHPDisp-zoned-/g; 
+         $choiceHash{"Opt-GhgHeatingCooling"} =~ s/ghg-hvac-/ghg-hvac-CCASHPDisp-/g; 
          $validupgrade = 1;   
       
       }
@@ -637,7 +637,7 @@ sub UpgradeRuleSet($){
       
       if ( $choiceHash{"Opt-GhgHeatingCooling"} =~ /ghg-hvac-..-Elect/ ){
     
-         $choiceHash{"Opt-GhgHeatingCooling"} =~ s/ghg-hvac-/ghg-hvac-CCASHPDisp-zoned-/g; 
+         $choiceHash{"Opt-GhgHeatingCooling"} =~ s/ghg-hvac-/ghg-hvac-CCASHPDisp-/g; 
          $validupgrade = 1;   
       
       }
