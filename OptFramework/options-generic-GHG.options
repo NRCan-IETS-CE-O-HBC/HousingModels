@@ -4512,6 +4512,48 @@
 *option:oee-elecHP-ref:value:4   = 1.6
 *option:oee-elecHP-ref:value:5   = 189
 
+*option:elec-HPWH-ref1_4:value:1   = ghg-WH.dhw
+*option:elec-HPWH-ref1_4:value:2   = 1 
+*option:elec-HPWH-ref1_4:value:3   = 18
+*option:elec-HPWH-ref1_4:value:4   = 1.4
+*option:elec-HPWH-ref1_4:value:5   = 189
+
+*option:elec-HPWH-ref1_6:value:1   = ghg-WH.dhw
+*option:elec-HPWH-ref1_6:value:2   = 1 
+*option:elec-HPWH-ref1_6:value:3   = 18
+*option:elec-HPWH-ref1_6:value:4   = 1.6
+*option:elec-HPWH-ref1_6:value:5   = 189
+
+*option:elec-HPWH-ref1_8:value:1   = ghg-WH.dhw
+*option:elec-HPWH-ref1_8:value:2   = 1 
+*option:elec-HPWH-ref1_8:value:3   = 18
+*option:elec-HPWH-ref1_8:value:4   = 1.8
+*option:elec-HPWH-ref1_8:value:5   = 189
+
+*option:elec-HPWH-ref2_0:value:1   = ghg-WH.dhw
+*option:elec-HPWH-ref2_0:value:2   = 1 
+*option:elec-HPWH-ref2_0:value:3   = 18
+*option:elec-HPWH-ref2_0:value:4   = 2.0
+*option:elec-HPWH-ref2_0:value:5   = 189
+
+*option:elec-HPWH-ref2_2:value:1   = ghg-WH.dhw
+*option:elec-HPWH-ref2_2:value:2   = 1 
+*option:elec-HPWH-ref2_2:value:3   = 18
+*option:elec-HPWH-ref2_2:value:4   = 2.2
+*option:elec-HPWH-ref2_2:value:5   = 189
+
+*option:elec-HPWH-ref2_4:value:1   = ghg-WH.dhw
+*option:elec-HPWH-ref2_4:value:2   = 1 
+*option:elec-HPWH-ref2_4:value:3   = 18
+*option:elec-HPWH-ref2_4:value:4   = 2.4
+*option:elec-HPWH-ref2_4:value:5   = 189
+
+*option:elec-HPWH-ref2_6:value:1   = ghg-WH.dhw
+*option:elec-HPWH-ref2_6:value:2   = 1 
+*option:elec-HPWH-ref2_6:value:3   = 18
+*option:elec-HPWH-ref2_6:value:4   = 2.6
+*option:elec-HPWH-ref2_6:value:5   = 189
+
 *option:oee-elecstorage-ref:value:1   = ghg-WH.dhw
 *option:oee-elecstorage-ref:value:2   = 1
 *option:oee-elecstorage-ref:value:3   = 15
@@ -4565,8 +4607,16 @@
 *option:gas-HPWH-ref1_4:value:1   = ghg-WH.dhw  ! <Opt-DHWInputFile>
 *option:gas-HPWH-ref1_4:value:2   = 2           ! <OPT-DHW-fuel-type>
 *option:gas-HPWH-ref1_4:value:3   = 21          ! <OPT-DHW-tank-type>
-*option:gas-HPWH-ref1_4:value:4   = 1.4         ! <OPT-DHW-EFF>*attribute:end
+*option:gas-HPWH-ref1_4:value:4   = 1.4         ! <OPT-DHW-EFF>
 *option:gas-HPWH-ref1_4:value:5   = 189         ! <Opt-DHW-Tank-size-L>
+
+*option:gas-HPWH-ref1_6:value:1   = ghg-WH.dhw  ! <Opt-DHWInputFile>
+*option:gas-HPWH-ref1_6:value:2   = 2           ! <OPT-DHW-fuel-type>
+*option:gas-HPWH-ref1_6:value:3   = 21          ! <OPT-DHW-tank-type>
+*option:gas-HPWH-ref1_6:value:4   = 1.6         ! <OPT-DHW-EFF>
+*option:gas-HPWH-ref1_6:value:5   = 189         ! <Opt-DHW-Tank-size-L>
+
+*attribute:end 
 
 !-----------------------------------------------------------------------
 ! DHWR + SDHW : Resulting water volume . 
