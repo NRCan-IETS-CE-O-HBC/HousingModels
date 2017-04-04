@@ -182,45 +182,36 @@ my %upgrade_packages = (
                      # "oil-dhw-high-effciency"    => ["retrofit-oil-dhw-high-effciency"],    # As found to high efficiency equivlant
                      # "gas-dhw-high-effciency"    => ["retrofit-gas-dhw-high-effciency"],    # As found to high efficiency equivlant
                      # "elec-dhw-storage"          => ["retrofit-elec-dhw-storage"],                # As found to high efficiency equivlant
-                     #"elec-dhw-hp"               => ["retrofit-elec-dhw-hp"]   ,                      # As found to high efficiency equivlan
                      # "gas-hp-wh"                 => ["retrofit-gas-hpwh"] ,
                      # "gas-hp-wh-0-5"             => ["retrofit-gas-hpwh-0_5"] ,
-                     # "gas-hp-wh-0-8"             => ["retrofit-gas-hpwh-0_8"] ,
+                      #"gas-hp-wh-0-8"             => ["retrofit-gas-hpwh-0_8"] ,
                      # "gas-hp-wh-1-0"             => ["retrofit-gas-hpwh-1_0"] ,
                      # "gas-hp-wh-1-2"             => ["retrofit-gas-hpwh-1_2"] ,
                      # "gas-hp-wh-1-4"             => ["retrofit-gas-hpwh-1_4"] ,
-                     # "gas-hp-wh-1-4+DWHR"        => ["retrofit-gas-hpwh-1_4",
+	                 # "gas-hp-wh-1-6"             => ["retrofit-gas-hpwh-1_6"] 
+					 
+					 # "gas-hp-wh-1-4+DWHR"        => ["retrofit-gas-hpwh-1_4",
                      #                                 "Renewables-DWHR-4-60"] ,
                      # "gas-dhw-ref"               => ["retrofit-gas-heating-high-effciency"],
+
+
+                      #"elec-dhw-hp"               => ["retrofit-elec-dhw-hp"]   ,  
+
+                      "elec-dhw-hp-1_4"           => ["retrofit-elec-dhw-hp-1_4"] ,
+                      "elec-dhw-hp-1_6"           => ["retrofit-elec-dhw-hp-1_6"] ,
+                      "elec-dhw-hp-1_8"           => ["retrofit-elec-dhw-hp-1_8"] ,
+                      "elec-dhw-hp-2_0"           => ["retrofit-elec-dhw-hp-2_0"] ,
+					  "elec-dhw-hp-2_2"           => ["retrofit-elec-dhw-hp-2_2"] ,
+                      "elec-dhw-hp-2_4"           => ["retrofit-elec-dhw-hp-2_4"] ,
+                      "elec-dhw-hp-2_6"           => ["retrofit-elec-dhw-hp-2_6"]
                       
-                     "CCASHP-minisplit-displacement"       => ["retrofit-minisplit"],
+                     #"CCASHP-minisplit-displacement"       => ["retrofit-minisplit"],
                       
 
                      #EMMC Window Scenarios
-#     				 "Windows-EMMC-Upgrade-1-low-gain"            => ["Windows-EMMC-Upgrade-1-low-gain"],
-#                     "Windows-EMMC-Upgrade-1-mid-gain"            => ["Windows-EMMC-Upgrade-1-mid-gain"],
-#					 "Windows-EMMC-Upgrade-1-high-gain"           => ["Windows-EMMC-Upgrade-1-high-gain"], 
-#                     "Windows-EMMC-Upgrade-1-high-gain-on-south"  => ["Windows-EMMC-Upgrade-1-hg-on-S"],
-                     
-#     				 "Windows-EMMC-Upgrade-2-low-gain"            => ["Windows-EMMC-Upgrade-2-low-gain"],
-#                     "Windows-EMMC-Upgrade-2-mid-gain"            => ["Windows-EMMC-Upgrade-2-mid-gain"],
-#					 "Windows-EMMC-Upgrade-2-high-gain"           => ["Windows-EMMC-Upgrade-2-high-gain"], 
-#                     "Windows-EMMC-Upgrade-2-high-gain-on-south"  => ["Windows-EMMC-Upgrade-2-hg-on-S"],
-                     
-#     				 "Windows-EMMC-Upgrade-3-low-gain"            => ["Windows-EMMC-Upgrade-3-low-gain"],
-#                     "Windows-EMMC-Upgrade-3-mid-gain"            => ["Windows-EMMC-Upgrade-3-mid-gain"],
-#					 "Windows-EMMC-Upgrade-3-high-gain"           => ["Windows-EMMC-Upgrade-3-high-gain"], 
-#                     "Windows-EMMC-Upgrade-3-high-gain-on-south"  => ["Windows-EMMC-Upgrade-3-hg-on-S"],
-                     
-#     				 "Windows-EMMC-Upgrade-4-low-gain"            => ["Windows-EMMC-Upgrade-4-low-gain"],
-#                     "Windows-EMMC-Upgrade-4-mid-gain"            => ["Windows-EMMC-Upgrade-4-mid-gain"],
-#					 "Windows-EMMC-Upgrade-4-high-gain"           => ["Windows-EMMC-Upgrade-4-high-gain"], 
-#                     "Windows-EMMC-Upgrade-4-high-gain-on-south"  => ["Windows-EMMC-Upgrade-4-hg-on-S"]
-
-
                      #"Upgrade-U-0_8"     => ["Upgrade-U-0_8"],
 					 #"Upgrade-U-1_2"     => ["Upgrade-U-1_2"],
-                     #"Upgrade-U-1_4"     => ["Upgrade-U-1_4"]						
+                     #"Upgrade-U-1_6"     => ["Upgrade-U-1_6"]						
 
 );
 
@@ -714,7 +705,16 @@ sub UpgradeRuleSet($){
     
       if ( $choiceHash{"Opt-DHWSystem"} =~ /Elect/ ){
 
-          $choiceHash{"Opt-DHWSystem"} = "oee-elecHP-ref"  ;
+#          $choiceHash{"Opt-DHWSystem"} = "oee-elecHP-ref"  ;
+        if     ( $upgrade =~ /retrofit-elec-dhw-hp-1_4/ ){$choiceHash{"Opt-DHWSystem"} = "elec-HPWH-ref1_4"; }
+        elsif  ( $upgrade =~ /retrofit-elec-dhw-hp-1_6/ ){$choiceHash{"Opt-DHWSystem"} = "elec-HPWH-ref1_6"; }
+        elsif  ( $upgrade =~ /retrofit-elec-dhw-hp-1_8/ ){$choiceHash{"Opt-DHWSystem"} = "elec-HPWH-ref1_8"; }
+        elsif  ( $upgrade =~ /retrofit-elec-dhw-hp-2_0/ ){$choiceHash{"Opt-DHWSystem"} = "elec-HPWH-ref2_0"; }
+        elsif  ( $upgrade =~ /retrofit-elec-dhw-hp-2_2/ ){$choiceHash{"Opt-DHWSystem"} = "elec-HPWH-ref2_2"; }
+        elsif  ( $upgrade =~ /retrofit-elec-dhw-hp-2_4/ ){$choiceHash{"Opt-DHWSystem"} = "elec-HPWH-ref2_4"; }
+        elsif  ( $upgrade =~ /retrofit-elec-dhw-hp-2_6/ ){$choiceHash{"Opt-DHWSystem"} = "elec-HPWH-ref2_6"; }
+        else{$choiceHash{"Opt-DHWSystem"} = "oee-elecHP-ref"  ;}
+
                    
           $validupgrade = 1;
           
@@ -738,6 +738,7 @@ sub UpgradeRuleSet($){
         elsif  ( $upgrade =~ /retrofit-gas-hpwh-1_0/ ){$choiceHash{"Opt-DHWSystem"} = "gas-HPWH-ref1_0"; }
         elsif  ( $upgrade =~ /retrofit-gas-hpwh-1_2/ ){$choiceHash{"Opt-DHWSystem"} = "gas-HPWH-ref1_2"; }
         elsif  ( $upgrade =~ /retrofit-gas-hpwh-1_4/ ){$choiceHash{"Opt-DHWSystem"} = "gas-HPWH-ref1_4"; }
+        elsif  ( $upgrade =~ /retrofit-gas-hpwh-1_6/ ){$choiceHash{"Opt-DHWSystem"} = "gas-HPWH-ref1_6"; }
         else{$choiceHash{"Opt-DHWSystem"} = "gas-HPWH-ref"  ;}
                    
         $validupgrade = 1;      
@@ -1724,8 +1725,8 @@ sub UpgradeRuleSet($){
 		   last SWITCH;
 		   }             
 
-	   if ( $upgrade =~ /Upgrade-U-1_4/ )
-           { $choiceHash{"Opt-CasementWindows"} =  "Upgrade-U-1_4" ; $validupgrade = 1; 
+	   if ( $upgrade =~ /Upgrade-U-1_6/ )
+           { $choiceHash{"Opt-CasementWindows"} =  "Upgrade-U-1_6" ; $validupgrade = 1; 
 		   last SWITCH;
 		   }             
 	
