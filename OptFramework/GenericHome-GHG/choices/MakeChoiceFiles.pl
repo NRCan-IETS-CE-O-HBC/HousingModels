@@ -179,16 +179,16 @@ my %upgrade_packages = (
                       
 #                      "P9-combos"                 => ["retrofit-heating-P9-combos"],    # Gas systems to high-effciency p9 combo
                       
-                     # "oil-dhw-high-effciency"    => ["retrofit-oil-dhw-high-effciency"],    # As found to high efficiency equivlant
-                     # "gas-dhw-high-effciency"    => ["retrofit-gas-dhw-high-effciency"],    # As found to high efficiency equivlant
-                     # "elec-dhw-storage"          => ["retrofit-elec-dhw-storage"],                # As found to high efficiency equivlant
+                      "oil-dhw-high-effciency"    => ["retrofit-oil-dhw-high-effciency"],    # As found to high efficiency equivlant
+                      "gas-dhw-high-effciency"    => ["retrofit-gas-dhw-high-effciency"],    # As found to high efficiency equivlant
+                      "elec-dhw-storage"          => ["retrofit-elec-dhw-storage"],                # As found to high efficiency equivlant
                      # "gas-hp-wh"                 => ["retrofit-gas-hpwh"] ,
                      # "gas-hp-wh-0-5"             => ["retrofit-gas-hpwh-0_5"] ,
-                      #"gas-hp-wh-0-8"             => ["retrofit-gas-hpwh-0_8"] ,
-                     # "gas-hp-wh-1-0"             => ["retrofit-gas-hpwh-1_0"] ,
-                     # "gas-hp-wh-1-2"             => ["retrofit-gas-hpwh-1_2"] ,
-                     # "gas-hp-wh-1-4"             => ["retrofit-gas-hpwh-1_4"] ,
-	                 # "gas-hp-wh-1-6"             => ["retrofit-gas-hpwh-1_6"] 
+                     #"gas-hp-wh-0-8"             => ["retrofit-gas-hpwh-0_8"] ,
+                      "gas-hp-wh-1-0"             => ["retrofit-gas-hpwh-1_0"] ,
+                      "gas-hp-wh-1-2"             => ["retrofit-gas-hpwh-1_2"] ,
+                      "gas-hp-wh-1-4"             => ["retrofit-gas-hpwh-1_4"] ,
+	                  "gas-hp-wh-1-6"             => ["retrofit-gas-hpwh-1_6"] ,
 					 
 					 # "gas-hp-wh-1-4+DWHR"        => ["retrofit-gas-hpwh-1_4",
                      #                                 "Renewables-DWHR-4-60"] ,
@@ -203,8 +203,9 @@ my %upgrade_packages = (
                       "elec-dhw-hp-2_0"           => ["retrofit-elec-dhw-hp-2_0"] ,
 					  "elec-dhw-hp-2_2"           => ["retrofit-elec-dhw-hp-2_2"] ,
                       "elec-dhw-hp-2_4"           => ["retrofit-elec-dhw-hp-2_4"] ,
-                      "elec-dhw-hp-2_6"           => ["retrofit-elec-dhw-hp-2_6"]
-                      
+                      "elec-dhw-hp-2_6"           => ["retrofit-elec-dhw-hp-2_6"] ,
+                      "elec-dhw-hp-3_5"           => ["retrofit-elec-dhw-hp-3_5"]
+					  
                      #"CCASHP-minisplit-displacement"       => ["retrofit-minisplit"],
                       
 
@@ -713,6 +714,7 @@ sub UpgradeRuleSet($){
         elsif  ( $upgrade =~ /retrofit-elec-dhw-hp-2_2/ ){$choiceHash{"Opt-DHWSystem"} = "elec-HPWH-ref2_2"; }
         elsif  ( $upgrade =~ /retrofit-elec-dhw-hp-2_4/ ){$choiceHash{"Opt-DHWSystem"} = "elec-HPWH-ref2_4"; }
         elsif  ( $upgrade =~ /retrofit-elec-dhw-hp-2_6/ ){$choiceHash{"Opt-DHWSystem"} = "elec-HPWH-ref2_6"; }
+        elsif  ( $upgrade =~ /retrofit-elec-dhw-hp-3_5/ ){$choiceHash{"Opt-DHWSystem"} = "elec-HPWH-ref3_5"; }
         else{$choiceHash{"Opt-DHWSystem"} = "oee-elecHP-ref"  ;}
 
                    
