@@ -1817,7 +1817,7 @@
 *option:Upgrade-U-0_8:value:9 = U-0_8
 *option:Upgrade-U-0_8:WindowParams:name = U-0_8
 *option:Upgrade-U-0_8:WindowParams:panes = 3
-*option:Upgrade-U-0_8:WindowParams:SHGC = 0.27
+*option:Upgrade-U-0_8:WindowParams:SHGC = 0.26
 *option:Upgrade-U-0_8:WindowParams:Uval = 0.80
 *option:Upgrade-U-0_8:WindowParams:cost:total = 0
 
@@ -1832,7 +1832,7 @@
 *option:Upgrade-U-1_2:value:9 = U-1_2
 *option:Upgrade-U-1_2:WindowParams:name = U-1_2
 *option:Upgrade-U-1_2:WindowParams:panes = 3
-*option:Upgrade-U-1_2:WindowParams:SHGC = 0.27
+*option:Upgrade-U-1_2:WindowParams:SHGC = 0.26
 *option:Upgrade-U-1_2:WindowParams:Uval = 1.20
 *option:Upgrade-U-1_2:WindowParams:cost:total = 0
 
@@ -1847,9 +1847,24 @@
 *option:Upgrade-U-1_6:value:9 = U-1_6
 *option:Upgrade-U-1_6:WindowParams:name = U-1_6
 *option:Upgrade-U-1_6:WindowParams:panes = 2
-*option:Upgrade-U-1_6:WindowParams:SHGC = 0.27
+*option:Upgrade-U-1_6:WindowParams:SHGC = 0.26
 *option:Upgrade-U-1_6:WindowParams:Uval = 1.60
 *option:Upgrade-U-1_6:WindowParams:cost:total = 0
+
+*option:Upgrade-U-2_0:value:1 = U-2_0
+*option:Upgrade-U-2_0:value:2 = U-2_0
+*option:Upgrade-U-2_0:value:3 = U-2_0
+*option:Upgrade-U-2_0:value:4 = U-2_0
+*option:Upgrade-U-2_0:value:5 = U-2_0
+*option:Upgrade-U-2_0:value:6 = U-2_0
+*option:Upgrade-U-2_0:value:7 = U-2_0
+*option:Upgrade-U-2_0:value:8 = U-2_0
+*option:Upgrade-U-2_0:value:9 = U-2_0
+*option:Upgrade-U-2_0:WindowParams:name = U-2_0
+*option:Upgrade-U-2_0:WindowParams:panes = 2
+*option:Upgrade-U-2_0:WindowParams:SHGC = 0.26
+*option:Upgrade-U-2_0:WindowParams:Uval = 2.0
+*option:Upgrade-U-2_0:WindowParams:cost:total = 0
 
 
 #--------EMMC window scenarios----------------------
@@ -4046,14 +4061,14 @@
 *option:oee-oil-ref:value:7  = oil
 *option:oee-oil-ref:value:8  = 14
 *option:oee-oil-ref:value:9 = 25000
-*option:oee-oil-ref:value:10  = 0.85
+*option:oee-oil-ref:value:10  = 0.83
 *option:oee-oil-ref:value:11  = 250
 *option:oee-oil-ref:value:12  = 250
 *option:oee-oil-ref:value:13  = 75
 *option:oee-oil-ref:value:14 = 0
 *option:oee-oil-ref:value:15  = 0
 *option:oee-oil-ref:value:16  = 11000
-*option:oee-oil-ref:value:17  = 3.60477588844537
+*option:oee-oil-ref:value:17  = 3.8238
 *option:oee-oil-ref:value:18  = 
 
 
@@ -4066,14 +4081,14 @@
 *option:oee-gas-ref:value:7  = gas
 *option:oee-gas-ref:value:8  = 8
 *option:oee-gas-ref:value:9  = 25000
-*option:oee-gas-ref:value:10 = 0.95
+*option:oee-gas-ref:value:10 = 0.92
 *option:oee-gas-ref:value:11 = 250
 *option:oee-gas-ref:value:12 = 250
 *option:oee-gas-ref:value:13 = 75
 *option:oee-gas-ref:value:14 = 0
 *option:oee-gas-ref:value:15 = 0
 *option:oee-gas-ref:value:16 = 11000
-*option:oee-gas-ref:value:17 = 3.60477588844537
+*option:oee-gas-ref:value:17 = 3.8238
 *option:oee-gas-ref:value:18  = 
 
 
@@ -4094,7 +4109,7 @@
 *option:oee-elec-ref:value:14 = nil                      ! tag: <OPT-FurnacePilotPower>
 *option:oee-elec-ref:value:15  = 0                       ! tag: <Opt-HPHeatingCapacity>
 *option:oee-elec-ref:value:16  = 11000                   ! tag: <OPT-AC-capacity>
-*option:oee-elec-ref:value:17  = 3.60477588844537        ! tag: <OPT-AC-COP>
+*option:oee-elec-ref:value:17  = 3.8238                  ! tag: <OPT-AC-COP>
 
 !-----------------------------------------------------------------------
 ! Upgrade HVAC specs
@@ -4567,10 +4582,16 @@
 *option:oee-elecstorage-ref:value:5   = 246
 
 
+*option:oee-gasdhw1-ref:value:1   = ghg-WH.dhw
+*option:oee-gasdhw1-ref:value:2   = 2
+*option:oee-gasdhw1-ref:value:3   = 10
+*option:oee-gasdhw1-ref:value:4   = 0.60
+*option:oee-gasdhw1-ref:value:5   = 246
+
 *option:oee-gasdhw-ref:value:1   = ghg-WH.dhw
 *option:oee-gasdhw-ref:value:2   = 2
 *option:oee-gasdhw-ref:value:3   = 10
-*option:oee-gasdhw-ref:value:4   = 0.9
+*option:oee-gasdhw-ref:value:4   = 0.82
 *option:oee-gasdhw-ref:value:5   = 246
 
 *option:oee-oildhw-ref:value:1   = ghg-WH.dhw
