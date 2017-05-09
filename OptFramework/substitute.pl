@@ -68,7 +68,7 @@ my %gExtraDataSpecd;
 my $ThisError   = ""; 
 my $ErrorBuffer = ""; 
 
-my $SaveVPOutput = 0; 
+my $SaveVPOutput = 1; 
 
 my $gEnergyPV; 
 my $gEnergySDHW;
@@ -2371,7 +2371,7 @@ sub postprocess($){
   my $Locale = $gChoices{"Opt-Location"}; 
   
   if ( $Locale =~ /London/ || $Locale =~ /Windsor/ || $Locale =~ /ThunderBay/ ){ $Locale = "Toronto";}
-  $SaveVPOutput =0 ; 
+
   if ( $SaveVPOutput ) {
     fcopy ( "out.csv","$gMasterPath/../VP-sim-output/$Locale-$gChoiceFile.csv" );  
   }
