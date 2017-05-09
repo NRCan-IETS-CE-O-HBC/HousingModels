@@ -168,14 +168,14 @@ my %upgrade_packages = (
 
                       #MINO Scenarios 
 
-                      "EMMC-GasOil-EStar" =>  ["HeatWHP-UpgradeTo-EStar"],
+                      #"EMMC-GasOil-EStar" =>  ["HeatWHP-UpgradeTo-EStar"],
                       
                       #"MINO-AllElecASHP"          =>  ["HeatWHP-UpgradeTo-AllElecASHP"],
                       #"MINO-AllElecCCASHP"        =>  ["HeatWHP-UpgradeTo-AllElecCCASHP"],
                       #"MINO-AllElecCCASHP-asp-a"    =>  ["HeatWHP-UpgradeTo-aspire-CCASHP-a"],
                       #"MINO-AllElecCCASHP-asp-b"    =>  ["HeatWHP-UpgradeTo-aspire-CCASHP-b"],
                       #"MINO-AllElecCCASHP-asp-c"    =>  ["HeatWHP-UpgradeTo-aspire-CCASHP-c"],
-                      "EMMC-elec-GSHP"          =>  ["HeatWHP-UpgradeTo-AllElecGSHP"],
+                      #"EMMC-elec-GSHP"          =>  ["HeatWHP-UpgradeTo-AllElecGSHP"],
                       
                       #"MINO-gfHP"                 =>  ["HeatWHP-UpgradeTo-GasFired-HP"]
                       
@@ -244,7 +244,7 @@ my %upgrade_packages = (
                       
 
                      #EMMC Window Scenarios
-                     "Upgrade-U-0_8"     => ["Upgrade-U-0_8"]
+                     #"Upgrade-U-0_8"     => ["Upgrade-U-0_8"],
 					 #"Upgrade-U-1_2"     => ["Upgrade-U-1_2"],
 					 #"Upgrade-U-2_0"     => ["Upgrade-U-2_0"]						
                      #"Upgrade-U-1_6"     => ["Upgrade-U-1_6"]						
@@ -261,14 +261,14 @@ my %upgrade_packages = (
                      #"EMMC-gas-reg-2025"  => ["EMMC-gas-reg-2025"],
                      #"EMMC-oil-reg-2025"  => ["EMMC-oil-reg-2025"],
                      
-                     "EMMC-ElecOil-asp-ccashp-a"      => ["EMMC-Elec-asp-ccashp-a"],
+                     #"EMMC-ElecOil-asp-ccashp-a"      => ["EMMC-Elec-asp-ccashp-a"],
                      "EMMC-ElecOil-asp-ccashp-b"      => ["EMMC-Elec-asp-ccashp-b"],
-                     "EMMC-ElecOil-asp-ccashp-c"      => ["EMMC-Elec-asp-ccashp-c"],
+                     #"EMMC-ElecOil-asp-ccashp-c"      => ["EMMC-Elec-asp-ccashp-c"],
                      
-                     "EMMC-Gas-Hp-a"      => ["EMMC-SH-asp-GFHP-a"],
-                     "EMMC-Gas-Hp-b"      => ["EMMC-SH-asp-GFHP-b"],
-                     "EMMC-Gas-Hp-c"      => ["EMMC-SH-asp-GFHP-c"],
-                     "EMMC-Gas-Hp-d"      => ["EMMC-SH-asp-GFHP-d"]
+                     #"EMMC-Gas-Hp-a"      => ["EMMC-SH-asp-GFHP-a"],
+                     "EMMC-Gas-Hp-b"      => ["EMMC-SH-asp-GFHP-b"]
+                     #"EMMC-Gas-Hp-c"      => ["EMMC-SH-asp-GFHP-c"],
+                     #"EMMC-Gas-Hp-d"      => ["EMMC-SH-asp-GFHP-d"]
                      
 );
 
@@ -954,11 +954,10 @@ sub UpgradeRuleSet($){
     # Elec storage scenario
     if ( $upgrade =~ /retrofit-elec-dhw-hp/ ){
     
-<<<<<<< HEAD
+
       if ( $choiceHash{"Opt-DHWSystem"} =~ /Elect/ || $choiceHash{"Opt-DHWSystem"} =~ /Gas/ ){
-=======
+
      # if ( $choiceHash{"Opt-DHWSystem"} =~ /Elect/ ){
->>>>>>> eaaf3fea9530e13885c4a871be06ad9b8211cfb0
 
 #          $choiceHash{"Opt-DHWSystem"} = "oee-elecHP-ref"  ;
         if     ( $upgrade =~ /retrofit-elec-dhw-hp-1_4/ ){$choiceHash{"Opt-DHWSystem"} = "elec-HPWH-ref1_4"; }
@@ -974,7 +973,7 @@ sub UpgradeRuleSet($){
                    
           $validupgrade = 1;
           
-      #}
+      }
       last SWITCH; 
     }    
         
