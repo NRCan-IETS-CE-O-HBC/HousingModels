@@ -4927,6 +4927,12 @@
 *option:elec-HPWH-ref2_6:value:4   = 2.6
 *option:elec-HPWH-ref2_6:value:5   = 246
 
+*option:elec-HPWH-ref3_5:value:1   = ghg-WH.dhw
+*option:elec-HPWH-ref3_5:value:2   = 1 
+*option:elec-HPWH-ref3_5:value:3   = 18
+*option:elec-HPWH-ref3_5:value:4   = 3.5
+*option:elec-HPWH-ref3_5:value:5   = 189
+
 *option:oee-elecstorage-ref:value:1   = ghg-WH.dhw
 *option:oee-elecstorage-ref:value:2   = 1
 *option:oee-elecstorage-ref:value:3   = 15
