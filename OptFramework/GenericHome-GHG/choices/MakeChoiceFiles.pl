@@ -50,7 +50,7 @@ my %upgrade_packages = (
 
                         # ================ Baseline: As found ====================
                         # No changes  
-                       "as-found" => ["as-found"],   # Original definitions
+                        "as-found" => ["as-found"],   # Original definitions
 
                         # ================ Fuel switching ====================               
                         # Conservation changes 
@@ -179,15 +179,15 @@ my %upgrade_packages = (
                       
 #                      "P9-combos"                 => ["retrofit-heating-P9-combos"],    # Gas systems to high-effciency p9 combo
                       
-                      "oil-dhw-high-effciency"    => ["retrofit-oil-dhw-high-effciency"],    # As found to high efficiency equivlant
-                      "gas-dhw-high-effciency"    => ["retrofit-gas-dhw-high-effciency"],    # As found to high efficiency equivlant
-                      "elec-dhw-storage"          => ["retrofit-elec-dhw-storage"],                # As found to high efficiency equivlant
+                     # "oil-dhw-high-effciency"    => ["retrofit-oil-dhw-high-effciency"],    # As found to high efficiency equivlant
+                     # "gas-dhw-high-effciency"    => ["retrofit-gas-dhw-high-effciency"],    # As found to high efficiency equivlant
+                     # "elec-dhw-storage"          => ["retrofit-elec-dhw-storage"],                # As found to high efficiency equivlant
                      # "gas-hp-wh"                 => ["retrofit-gas-hpwh"] ,
                      # "gas-hp-wh-0-5"             => ["retrofit-gas-hpwh-0_5"] ,
                      #"gas-hp-wh-0-8"             => ["retrofit-gas-hpwh-0_8"] ,
-                      "gas-hp-wh-1-0"             => ["retrofit-gas-hpwh-1_0"] ,
-                      "gas-hp-wh-1-2"             => ["retrofit-gas-hpwh-1_2"] ,
-                      "gas-hp-wh-1-4"             => ["retrofit-gas-hpwh-1_4"] ,
+                     # "gas-hp-wh-1-0"             => ["retrofit-gas-hpwh-1_0"] ,
+                     # "gas-hp-wh-1-2"             => ["retrofit-gas-hpwh-1_2"] ,
+                     # "gas-hp-wh-1-4"             => ["retrofit-gas-hpwh-1_4"] ,
 	                  "gas-hp-wh-1-6"             => ["retrofit-gas-hpwh-1_6"] ,
 					 
 					 # "gas-hp-wh-1-4+DWHR"        => ["retrofit-gas-hpwh-1_4",
@@ -197,21 +197,22 @@ my %upgrade_packages = (
 
                       #"elec-dhw-hp"               => ["retrofit-elec-dhw-hp"]   ,  
 
-                      "elec-dhw-hp-1_4"           => ["retrofit-elec-dhw-hp-1_4"] ,
-                      "elec-dhw-hp-1_6"           => ["retrofit-elec-dhw-hp-1_6"] ,
-                      "elec-dhw-hp-1_8"           => ["retrofit-elec-dhw-hp-1_8"] ,
-                      "elec-dhw-hp-2_0"           => ["retrofit-elec-dhw-hp-2_0"] ,
-					  "elec-dhw-hp-2_2"           => ["retrofit-elec-dhw-hp-2_2"] ,
-                      "elec-dhw-hp-2_4"           => ["retrofit-elec-dhw-hp-2_4"] ,
-                      "elec-dhw-hp-2_6"           => ["retrofit-elec-dhw-hp-2_6"] ,
-                      "elec-dhw-hp-3_5"           => ["retrofit-elec-dhw-hp-3_5"]
+                      #"elec-dhw-hp-1_4"           => ["retrofit-elec-dhw-hp-1_4"] ,
+                      #"elec-dhw-hp-1_6"           => ["retrofit-elec-dhw-hp-1_6"] ,
+                      #"elec-dhw-hp-1_8"           => ["retrofit-elec-dhw-hp-1_8"] ,
+                      #"elec-dhw-hp-2_0"           => ["retrofit-elec-dhw-hp-2_0"] ,
+					  #"elec-dhw-hp-2_2"           => ["retrofit-elec-dhw-hp-2_2"] ,
+                      #"elec-dhw-hp-2_4"           => ["retrofit-elec-dhw-hp-2_4"] ,
+                      #"elec-dhw-hp-2_6"           => ["retrofit-elec-dhw-hp-2_6"] ,
+                      "elec-dhw-hp-3_5"           => ["retrofit-elec-dhw-hp-3_5"] ,
 					  
                      #"CCASHP-minisplit-displacement"       => ["retrofit-minisplit"],
                       
 
                      #EMMC Window Scenarios
-                     #"Upgrade-U-0_8"     => ["Upgrade-U-0_8"],
+                     "Upgrade-U-0_8"     => ["Upgrade-U-0_8"]
 					 #"Upgrade-U-1_2"     => ["Upgrade-U-1_2"],
+					 #"Upgrade-U-2_0"     => ["Upgrade-U-2_0"]						
                      #"Upgrade-U-1_6"     => ["Upgrade-U-1_6"]						
 
 );
@@ -314,13 +315,13 @@ sub UpgradeRuleSet($){
     #=========================================================================
     # Ignore 2019+ scenarios for the time being. 
     #=========================================================================
-    if ( $choiceHash{"ID"} =~ /2020-2024.*/  ||  
-         $choiceHash{"ID"} =~ /2025-onwards.*/ ){
+    #if ( $choiceHash{"ID"} =~ /2020-2024.*/  ||  
+    #if ( $choiceHash{"ID"} =~ /2025-onwards.*/ ){
          
          #Do nothing. 
-         last SWITCH; 
+    #     last SWITCH; 
            
-    }
+    #}
   
   
     #=========================================================================
@@ -704,7 +705,7 @@ sub UpgradeRuleSet($){
     # Elec storage scenario
     if ( $upgrade =~ /retrofit-elec-dhw-hp/ ){
     
-      if ( $choiceHash{"Opt-DHWSystem"} =~ /Elect/ ){
+     # if ( $choiceHash{"Opt-DHWSystem"} =~ /Elect/ ){
 
 #          $choiceHash{"Opt-DHWSystem"} = "oee-elecHP-ref"  ;
         if     ( $upgrade =~ /retrofit-elec-dhw-hp-1_4/ ){$choiceHash{"Opt-DHWSystem"} = "elec-HPWH-ref1_4"; }
@@ -720,7 +721,7 @@ sub UpgradeRuleSet($){
                    
           $validupgrade = 1;
           
-      }
+      #}
       last SWITCH; 
     }    
         
@@ -1731,7 +1732,11 @@ sub UpgradeRuleSet($){
            { $choiceHash{"Opt-CasementWindows"} =  "Upgrade-U-1_6" ; $validupgrade = 1; 
 		   last SWITCH;
 		   }             
-	
+
+	   if ( $upgrade =~ /Upgrade-U-2_0/ )
+           { $choiceHash{"Opt-CasementWindows"} =  "Upgrade-U-2_0" ; $validupgrade = 1; 
+		   last SWITCH;
+		   }      
     # < New rulesets go here: >  
 
 
