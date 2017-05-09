@@ -168,42 +168,44 @@ my %upgrade_packages = (
 
                       #MINO Scenarios 
 
-                      #"MINO-NewEnergyStarUpgrade" =>  ["HeatWHP-UpgradeTo-EStar"],
+                      "EMMC-GasOil-EStar" =>  ["HeatWHP-UpgradeTo-EStar"],
                       
                       #"MINO-AllElecASHP"          =>  ["HeatWHP-UpgradeTo-AllElecASHP"],
                       #"MINO-AllElecCCASHP"        =>  ["HeatWHP-UpgradeTo-AllElecCCASHP"],
-
-                      #"MINO-AllElecGSHP"          =>  ["HeatWHP-UpgradeTo-AllElecGSHP"],
+                      #"MINO-AllElecCCASHP-asp-a"    =>  ["HeatWHP-UpgradeTo-aspire-CCASHP-a"],
+                      #"MINO-AllElecCCASHP-asp-b"    =>  ["HeatWHP-UpgradeTo-aspire-CCASHP-b"],
+                      #"MINO-AllElecCCASHP-asp-c"    =>  ["HeatWHP-UpgradeTo-aspire-CCASHP-c"],
+                      "EMMC-elec-GSHP"          =>  ["HeatWHP-UpgradeTo-AllElecGSHP"],
                       
                       #"MINO-gfHP"                 =>  ["HeatWHP-UpgradeTo-GasFired-HP"]
                       
 #                      "P9-combos"                 => ["retrofit-heating-P9-combos"],    # Gas systems to high-effciency p9 combo
                       
-                     # "oil-dhw-high-effciency"    => ["retrofit-oil-dhw-high-effciency"],    # As found to high efficiency equivlant
-                     # "gas-dhw-high-effciency"    => ["retrofit-gas-dhw-high-effciency"],    # As found to high efficiency equivlant
-                     # "elec-dhw-storage"          => ["retrofit-elec-dhw-storage"],                # As found to high efficiency equivlant
-                     # "gas-hp-wh"                 => ["retrofit-gas-hpwh"] ,
-                     # "gas-hp-wh-0-5"             => ["retrofit-gas-hpwh-0_5"] ,
+                      #"oil-dhw-high-effciency"    => ["retrofit-oil-dhw-high-effciency"],    # As found to high efficiency equivlant
+                      #"gas-dhw-high-effciency"    => ["retrofit-gas-dhw-high-effciency"],    # As found to high efficiency equivlant
+                      #"elec-dhw-storage"          => ["retrofit-elec-dhw-storage"],                # As found to high efficiency equivlant
+                      #"gas-hp-wh"                 => ["retrofit-gas-hpwh"] ,
+                      #"gas-hp-wh-0-5"             => ["retrofit-gas-hpwh-0_5"] ,
                       #"gas-hp-wh-0-8"             => ["retrofit-gas-hpwh-0_8"] ,
-                     # "gas-hp-wh-1-0"             => ["retrofit-gas-hpwh-1_0"] ,
-                     # "gas-hp-wh-1-2"             => ["retrofit-gas-hpwh-1_2"] ,
-                     # "gas-hp-wh-1-4"             => ["retrofit-gas-hpwh-1_4"] ,
-	                 # "gas-hp-wh-1-6"             => ["retrofit-gas-hpwh-1_6"] 
+                      #"gas-hp-wh-1-0"             => ["retrofit-gas-hpwh-1_0"] ,
+                      #"gas-hp-wh-1-2"             => ["retrofit-gas-hpwh-1_2"] ,
+                      #"gas-hp-wh-1-4"             => ["retrofit-gas-hpwh-1_4"] ,
+	                  #"gas-hp-wh-1-6"             => ["retrofit-gas-hpwh-1_6"], 
 					 
-					 # "gas-hp-wh-1-4+DWHR"        => ["retrofit-gas-hpwh-1_4",
-                     #                                 "Renewables-DWHR-4-60"] ,
-                     # "gas-dhw-ref"               => ["retrofit-gas-heating-high-effciency"],
+					  #"gas-hp-wh-1-4+DWHR"        => ["retrofit-gas-hpwh-1_4",
+                      #                                "Renewables-DWHR-4-60"] ,
+                      #"gas-dhw-ref"               => ["retrofit-gas-heating-high-effciency"],
 
 
                       #"elec-dhw-hp"               => ["retrofit-elec-dhw-hp"]   ,  
 
-                      "elec-dhw-hp-1_4"           => ["retrofit-elec-dhw-hp-1_4"] ,
-                      "elec-dhw-hp-1_6"           => ["retrofit-elec-dhw-hp-1_6"] ,
-                      "elec-dhw-hp-1_8"           => ["retrofit-elec-dhw-hp-1_8"] ,
-                      "elec-dhw-hp-2_0"           => ["retrofit-elec-dhw-hp-2_0"] ,
-					  "elec-dhw-hp-2_2"           => ["retrofit-elec-dhw-hp-2_2"] ,
-                      "elec-dhw-hp-2_4"           => ["retrofit-elec-dhw-hp-2_4"] ,
-                      "elec-dhw-hp-2_6"           => ["retrofit-elec-dhw-hp-2_6"]
+                      #"elec-dhw-hp-1_4"           => ["retrofit-elec-dhw-hp-1_4"] ,
+                      #"elec-dhw-hp-1_6"           => ["retrofit-elec-dhw-hp-1_6"] ,
+                      #"elec-dhw-hp-1_8"           => ["retrofit-elec-dhw-hp-1_8"] ,
+                      #"elec-dhw-hp-2_0"           => ["retrofit-elec-dhw-hp-2_0"] ,
+					  #"elec-dhw-hp-2_2"           => ["retrofit-elec-dhw-hp-2_2"] ,
+                      #"elec-dhw-hp-2_4"           => ["retrofit-elec-dhw-hp-2_4"] ,
+                      #"elec-dhw-hp-2_6"           => ["retrofit-elec-dhw-hp-2_6"]
                       
                      #"CCASHP-minisplit-displacement"       => ["retrofit-minisplit"],
                       
@@ -213,6 +215,27 @@ my %upgrade_packages = (
 					 #"Upgrade-U-1_2"     => ["Upgrade-U-1_2"],
                      #"Upgrade-U-1_6"     => ["Upgrade-U-1_6"]						
 
+                     #EMMC Space heating
+
+                     "EMMC-elec-reg-2016" => ["EMMC-elec-reg-2016"],
+                     "EMMC-gas-reg-2016"  => ["EMMC-gas-reg-2016"],
+                     "EMMC-oil-reg-2016"  => ["EMMC-oil-reg-2016"],
+                     
+                     "EMMC-elec-reg-2025-a" => ["EMMC-elec-reg-2025a"],
+                     "EMMC-elec-reg-2025-b" => ["EMMC-elec-reg-2025b"],
+                     "EMMC-elec-reg-2025-c" => ["EMMC-elec-reg-2025c"],
+                     "EMMC-gas-reg-2025"  => ["EMMC-gas-reg-2025"],
+                     "EMMC-oil-reg-2025"  => ["EMMC-oil-reg-2025"],
+                     
+                     "EMMC-ElecOil-asp-ccashp-a"      => ["EMMC-Elec-asp-ccashp-a"],
+                     "EMMC-ElecOil-asp-ccashp-b"      => ["EMMC-Elec-asp-ccashp-b"],
+                     "EMMC-ElecOil-asp-ccashp-c"      => ["EMMC-Elec-asp-ccashp-c"],
+                     
+                     "EMMC-Gas-Hp-a"      => ["EMMC-SH-asp-GFHP-a"],
+                     "EMMC-Gas-Hp-b"      => ["EMMC-SH-asp-GFHP-b"],
+                     "EMMC-Gas-Hp-c"      => ["EMMC-SH-asp-GFHP-c"],
+                     "EMMC-Gas-Hp-d"      => ["EMMC-SH-asp-GFHP-d"]
+                     
 );
 
 
@@ -228,6 +251,8 @@ while ( my $line = <OPTLISTFILE> ){
   # First record is header with choice file attribute names
   if($linecount == 1) {
     @choiceAttKeys = split /,/, $line;
+  } elsif ( $line =~ /^#/ ) {
+    # do nothing 
   } else {
     @choiceAttValues = split /,/, $line;
   
@@ -520,7 +545,36 @@ sub UpgradeRuleSet($){
          
        last SWITCH; 
      }
+
+  
+     
+     if ( $upgrade =~ /HeatWHP-UpgradeTo-aspire-CCASHP-a/ ) {
+
+       $choiceHash{"Opt-GhgHeatingCooling"} = "oee-CCASHP-asp-a"  ;
+       $validupgrade = 1; 
+         
+       last SWITCH; 
+     }
     
+         if ( $upgrade =~ /HeatWHP-UpgradeTo-aspire-CCASHP-b/ ) {
+
+       $choiceHash{"Opt-GhgHeatingCooling"} = "oee-CCASHP-asp-b"  ;
+       $validupgrade = 1; 
+         
+       last SWITCH; 
+     }
+     
+     
+          if ( $upgrade =~ /HeatWHP-UpgradeTo-aspire-CCASHP-c/ ) {
+
+       $choiceHash{"Opt-GhgHeatingCooling"} = "oee-CCASHP-asp-c"  ;
+       $validupgrade = 1; 
+         
+       last SWITCH; 
+     }
+    
+
+     
     
      if ( $upgrade =~ /HeatWHP-UpgradeTo-AllElecGSHP/ ) {
 
@@ -528,7 +582,170 @@ sub UpgradeRuleSet($){
        $validupgrade = 1; 
          
        last SWITCH; 
-     }    
+     }  
+
+
+     
+     
+#                    "EMMC-elec-reg-2016" => ["EMMC-elec-reg-2016"],
+#                    "EMMC-gas-reg-2016"  => ["EMMC-gas-reg-2016"],
+#                    "EMMC-oil-reg-2016"  => ["EMMC-oil-reg-2016"],
+#                    
+#                    "EMMC-elec-reg-2025" => ["EMMC-elec-reg-2025"],
+#                    "EMMC-gas-reg-2025"  => ["EMMC-gas-reg-2025"],
+#                    "EMMC-oil-reg-2025"  => ["EMMC-oil-reg-2025"],
+#                    
+#                    "EMMC-ElecOil-asp-ccashp-a"      => ["EMMC-Elec-asp-ccashp-a"],
+#                    "EMMC-ElecOil-asp-ccashp-b"      => ["EMMC-Elec-asp-ccashp-b"],
+#                    "EMMC-ElecOil-asp-ccashp-c"      => ["EMMC-Elec-asp-ccashp-c"],
+#                    
+#                    "EMMC-Gas-Hp-a"      => ["EMMC-SH-gas-UpgradeTo-GFHP-a"],
+#                    "EMMC-Gas-Hp-b"      => ["EMMC-SH-gas-UpgradeTo-GFHP-b"],
+#                    "EMMC-Gas-Hp-c"      => ["EMMC-SH-gas-UpgradeTo-GFHP-c"],
+#                    "EMMC-Gas-Hp-d"      => ["EMMC-SH-gas-UpgradeTo-GFHP-d"]     
+#    
+     
+
+     
+     # 2016 regs
+     if ( $upgrade =~ /EMMC-elec-reg-2016/ ) {
+
+       $choiceHash{"Opt-GhgHeatingCooling"} = "oee-reg-2016-elec"  ;
+       $validupgrade = 1;  
+       last SWITCH;      
+     
+     }
+
+     if ( $upgrade =~ /EMMC-gas-reg-2016/ ) {
+
+       $choiceHash{"Opt-GhgHeatingCooling"} = "oee-reg-2016-gas"  ;
+       $validupgrade = 1;  
+       last SWITCH;      
+     
+     }
+     
+
+     if ( $upgrade =~ /EMMC-oil-reg-2016/ ) {
+
+       $choiceHash{"Opt-GhgHeatingCooling"} = "oee-reg-2016-oil"  ;
+       $validupgrade = 1;  
+       last SWITCH;      
+     
+     }     
+
+     
+     # 2025 regs 
+     if ( $upgrade =~ /EMMC-elec-reg-2025a/ ) {
+
+       $choiceHash{"Opt-GhgHeatingCooling"} = "oee-reg-2016-elec"  ;
+       $validupgrade = 1;  
+       last SWITCH;      
+     
+     }
+     
+     if ( $upgrade =~ /EMMC-elec-reg-2025b/ ) {
+
+       $choiceHash{"Opt-GhgHeatingCooling"} = "oee-reg-2025-elec-b"  ;
+       $validupgrade = 1;  
+       last SWITCH;      
+     
+     }
+     
+    if ( $upgrade =~ /EMMC-elec-reg-2025c/ ) {
+
+       $choiceHash{"Opt-GhgHeatingCooling"} = "oee-reg-2025-elec-c"  ;
+       $validupgrade = 1;  
+       last SWITCH;      
+     
+     }
+     
+     
+     
+
+     if ( $upgrade =~ /EMMC-gas-reg-2025/ ) {
+
+       $choiceHash{"Opt-GhgHeatingCooling"} = "oee-reg-2025-gas"  ;
+       $validupgrade = 1;  
+       last SWITCH;      
+     
+     }
+     
+
+     if ( $upgrade =~ /EMMC-oil-reg-2025/ ) {
+
+       $choiceHash{"Opt-GhgHeatingCooling"} = "oee-reg-2025-oil"  ;
+       $validupgrade = 1;  
+       last SWITCH;      
+     
+     }          
+     
+     
+     # Electric HP targets 
+     if ( $upgrade =~ /EMMC-Elec-asp-ccashp-a/ ) {
+
+       $choiceHash{"Opt-GhgHeatingCooling"} = "oee-asp-2025-elec-a"  ;
+       $validupgrade = 1;  
+       last SWITCH;      
+     
+     }
+     
+     if ( $upgrade =~ /EMMC-Elec-asp-ccashp-b/ ) {
+
+       $choiceHash{"Opt-GhgHeatingCooling"} = "oee-asp-2025-elec-b"  ;
+       $validupgrade = 1;  
+       last SWITCH;      
+     
+     }
+     
+     if ( $upgrade =~ /EMMC-Elec-asp-ccashp-c/ ) {
+
+       $choiceHash{"Opt-GhgHeatingCooling"} = "oee-asp-2025-elec-c"  ;
+       $validupgrade = 1;  
+       last SWITCH;      
+     
+     }
+     
+     
+     
+     # Gas HP targets. 
+     if ( $upgrade =~ /EMMC-SH-asp-GFHP-a/ ) {
+
+       $choiceHash{"Opt-GhgHeatingCooling"} = "oee-asp-2025-gashp-a"  ;
+       $validupgrade = 1;  
+       last SWITCH;      
+     
+     }
+
+     
+     if ( $upgrade =~ /EMMC-SH-asp-GFHP-b/ ) {
+
+       $choiceHash{"Opt-GhgHeatingCooling"} = "oee-asp-2025-gashp-b"  ;
+       $validupgrade = 1;  
+       last SWITCH;      
+     
+     }
+     
+     if ( $upgrade =~ /EMMC-SH-asp-GFHP-c/ ) {
+
+       $choiceHash{"Opt-GhgHeatingCooling"} = "oee-asp-2025-gashp-c"  ;
+       $validupgrade = 1;  
+       last SWITCH;      
+     
+     }
+
+     
+     if ( $upgrade =~ /EMMC-SH-asp-GFHP-d/ ) {
+
+       $choiceHash{"Opt-GhgHeatingCooling"} = "oee-asp-2025-gashp-d"  ;
+       $validupgrade = 1;  
+       last SWITCH;      
+     
+     }
+          
+     
+     
+     
+     
     
      if ( $upgrade =~ /HeatWHP-UpgradeTo-GasFired-HP/ ) {
      
@@ -703,7 +920,7 @@ sub UpgradeRuleSet($){
     # Elec storage scenario
     if ( $upgrade =~ /retrofit-elec-dhw-hp/ ){
     
-      if ( $choiceHash{"Opt-DHWSystem"} =~ /Elect/ ){
+      if ( $choiceHash{"Opt-DHWSystem"} =~ /Elect/ || $choiceHash{"Opt-DHWSystem"} =~ /Gas/ ){
 
 #          $choiceHash{"Opt-DHWSystem"} = "oee-elecHP-ref"  ;
         if     ( $upgrade =~ /retrofit-elec-dhw-hp-1_4/ ){$choiceHash{"Opt-DHWSystem"} = "elec-HPWH-ref1_4"; }
@@ -733,6 +950,8 @@ sub UpgradeRuleSet($){
      #    
      #}else{ 
       
+      
+
         if     ( $upgrade =~ /retrofit-gas-hpwh-0_5/ ){$choiceHash{"Opt-DHWSystem"} = "gas-HPWH-ref0_5"; }
         elsif  ( $upgrade =~ /retrofit-gas-hpwh-0_8/ ){$choiceHash{"Opt-DHWSystem"} = "gas-HPWH-ref0_8"; }
         elsif  ( $upgrade =~ /retrofit-gas-hpwh-1_0/ ){$choiceHash{"Opt-DHWSystem"} = "gas-HPWH-ref1_0"; }
