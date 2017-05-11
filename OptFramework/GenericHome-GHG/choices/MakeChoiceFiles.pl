@@ -50,12 +50,12 @@ my %upgrade_packages = (
 
                         # ================ Baseline: As found ====================
                         # No changes  
-                        "as-found" => ["as-found"],   # Original definitions from the .csv file 
+                        "as-found" => ["as-found"], # Original definitions from the .csv file 
                         
                         "oee-EMMC-regs-2016" => ["oee-EMMC-regs-2016"], # set window/WH/SH performance to OEE EMMC baselines
 
 
-                        "oee-EMMC-regs-2025" => ["oee-EMMC-regs-2025"], # Set window / wh / sh permance to OEE mid-term targets                
+                        "oee-EMMC-regs-2025" => ["oee-EMMC-regs-2025"] # Set window / wh / sh permance to OEE mid-term targets                
                         
 
                         # ================ Fuel switching ====================               
@@ -416,7 +416,7 @@ sub UpgradeRuleSet($){
   
     }
     #=========================================================================
-    # EMMC regs 
+    # EMMC regs : 2016 
     #=========================================================================
         if ( $upgrade =~ /oee-EMMC-regs-2016/ ){
       
@@ -427,23 +427,27 @@ sub UpgradeRuleSet($){
       
       if ( $choiceHash{"Opt-GhgHeatingCooling"} =~ /Oil/){ 
       
-        $choiceHash{"Opt-GhgHeatingCooling"} = "oee-oil-ref"
+        $choiceHash{"Opt-GhgHeatingCooling"} = "oee-oil-ref";
+        $choiceHash{"Opt-DHWSystem"}         = "oee-oildhw-ref";
         
       } 
       
       if ( $choiceHash{"Opt-GhgHeatingCooling"} =~ /Gas/){ 
       
-        $choiceHash{"Opt-GhgHeatingCooling"} = "oee-gas-ref"
-        
+        $choiceHash{"Opt-GhgHeatingCooling"} = "oee-gas-ref";
+        $choiceHash{"Opt-DHWSystem"}         = "oee-gasdhw1-ref";
       } 
       
       
       if ( $choiceHash{"Opt-GhgHeatingCooling"} =~ /Elect/){ 
       
-        $choiceHash{"Opt-GhgHeatingCooling"} = "oee-elec-ref"
-        
+        $choiceHash{"Opt-GhgHeatingCooling"} = "oee-elec-ref";
+        $choiceHash{"Opt-DHWSystem"}         = "oee-elecstorage-ref";
       }       
       
+      
+      
+
       
       $validupgrade = 1; 
       last SWITCH; 
@@ -461,20 +465,24 @@ sub UpgradeRuleSet($){
       
       if ( $choiceHash{"Opt-GhgHeatingCooling"} =~ /Oil/){ 
       
-        $choiceHash{"Opt-GhgHeatingCooling"} = "oee-reg-2025-oil"
+        $choiceHash{"Opt-GhgHeatingCooling"} = "oee-reg-2025-oil";
+        $choiceHash{"Opt-DHWSystem"}         = "oee-oildhw-ref";
         
       } 
       
       if ( $choiceHash{"Opt-GhgHeatingCooling"} =~ /Gas/){ 
       
-        $choiceHash{"Opt-GhgHeatingCooling"} = "oee-reg-2025-gas"
+        $choiceHash{"Opt-GhgHeatingCooling"} = "oee-reg-2025-gas";
+        $choiceHash{"Opt-DHWSystem"}         = "oee-gasdhw-ref";
         
       } 
       
       
       if ( $choiceHash{"Opt-GhgHeatingCooling"} =~ /Elect/){ 
       
-        $choiceHash{"Opt-GhgHeatingCooling"} = "oee-reg-2025-elec-b"
+        $choiceHash{"Opt-GhgHeatingCooling"} = "oee-reg-2025-elec-b";
+        $choiceHash{"Opt-DHWSystem"}         = "elec-HPWH-ref2_0";
+        
         
       }       
       
