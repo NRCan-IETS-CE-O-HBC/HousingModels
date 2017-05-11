@@ -50,7 +50,13 @@ my %upgrade_packages = (
 
                         # ================ Baseline: As found ====================
                         # No changes  
-                        "as-found" => ["as-found"],   # Original definitions
+                        "as-found" => ["as-found"],   # Original definitions from the .csv file 
+                        
+                        "oee-EMMC-regs-2016" => ["oee-EMMC-regs-2016"], # set window/WH/SH performance to OEE EMMC baselines
+
+
+                        "oee-EMMC-regs-2025" => ["oee-EMMC-regs-2025"], # Set window / wh / sh permance to OEE mid-term targets                
+                        
 
                         # ================ Fuel switching ====================               
                         # Conservation changes 
@@ -262,11 +268,11 @@ my %upgrade_packages = (
                      #"EMMC-oil-reg-2025"  => ["EMMC-oil-reg-2025"],
                      
                      #"EMMC-ElecOil-asp-ccashp-a"      => ["EMMC-Elec-asp-ccashp-a"],
-                     "EMMC-ElecOil-asp-ccashp-b"      => ["EMMC-Elec-asp-ccashp-b"],
+                     #"EMMC-ElecOil-asp-ccashp-b"      => ["EMMC-Elec-asp-ccashp-b"],
                      #"EMMC-ElecOil-asp-ccashp-c"      => ["EMMC-Elec-asp-ccashp-c"],
                      
                      #"EMMC-Gas-Hp-a"      => ["EMMC-SH-asp-GFHP-a"],
-                     "EMMC-Gas-Hp-b"      => ["EMMC-SH-asp-GFHP-b"]
+                     #"EMMC-Gas-Hp-b"      => ["EMMC-SH-asp-GFHP-b"]
                      #"EMMC-Gas-Hp-c"      => ["EMMC-SH-asp-GFHP-c"],
                      #"EMMC-Gas-Hp-d"      => ["EMMC-SH-asp-GFHP-d"]
                      
@@ -409,6 +415,81 @@ sub UpgradeRuleSet($){
       last SWITCH; 
   
     }
+    #=========================================================================
+    # EMMC regs 
+    #=========================================================================
+        if ( $upgrade =~ /oee-EMMC-regs-2016/ ){
+      
+      # As found condition - no changes needed.
+      
+      $choiceHash{"Opt-CasementWindows"} = "Upgrade-U-2_0";
+      
+      
+      if ( $choiceHash{"Opt-GhgHeatingCooling"} =~ /Oil/){ 
+      
+        $choiceHash{"Opt-GhgHeatingCooling"} = "oee-oil-ref"
+        
+      } 
+      
+      if ( $choiceHash{"Opt-GhgHeatingCooling"} =~ /Gas/){ 
+      
+        $choiceHash{"Opt-GhgHeatingCooling"} = "oee-gas-ref"
+        
+      } 
+      
+      
+      if ( $choiceHash{"Opt-GhgHeatingCooling"} =~ /Elect/){ 
+      
+        $choiceHash{"Opt-GhgHeatingCooling"} = "oee-elec-ref"
+        
+      }       
+      
+      
+      $validupgrade = 1; 
+      last SWITCH; 
+  
+    }
+    
+    #=========================================================================
+    # EMMC regs 
+    #=========================================================================
+        if ( $upgrade =~ /oee-EMMC-regs-2025/ ){
+      
+      # As found condition - no changes needed.
+      
+      $choiceHash{"Opt-CasementWindows"} = "Upgrade-U-1_2";
+      
+      if ( $choiceHash{"Opt-GhgHeatingCooling"} =~ /Oil/){ 
+      
+        $choiceHash{"Opt-GhgHeatingCooling"} = "oee-reg-2025-oil"
+        
+      } 
+      
+      if ( $choiceHash{"Opt-GhgHeatingCooling"} =~ /Gas/){ 
+      
+        $choiceHash{"Opt-GhgHeatingCooling"} = "oee-reg-2025-gas"
+        
+      } 
+      
+      
+      if ( $choiceHash{"Opt-GhgHeatingCooling"} =~ /Elect/){ 
+      
+        $choiceHash{"Opt-GhgHeatingCooling"} = "oee-reg-2025-elec-b"
+        
+      }       
+      
+      
+      $validupgrade = 1; 
+      last SWITCH; 
+  
+    }
+    
+
+
+    
+    
+    
+    
     
     #=========================================================================
     # Load conservation options 
