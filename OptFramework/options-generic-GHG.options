@@ -5016,6 +5016,15 @@
 *option:gas-HPWH-ref1_6:value:4   = 1.6         ! <OPT-DHW-EFF>
 *option:gas-HPWH-ref1_6:value:5   = 246         ! <Opt-DHW-Tank-size-L>
 
+
+*option:elec-outdoor-HPWH:value:1   = ghg-WH.dhw  ! <Opt-DHWInputFile>
+*option:elec-outdoor-HPWH:value:2   = 1           ! <OPT-DHW-fuel-type>
+*option:elec-outdoor-HPWH:value:3   = 22          ! <OPT-DHW-tank-type>
+*option:elec-outdoor-HPWH:value:4   = 3.4         ! <OPT-DHW-EFF>
+*option:elec-outdoor-HPWH:value:5   = 246         ! <Opt-DHW-Tank-size-L>
+
+
+
 *attribute:end 
 
 !-----------------------------------------------------------------------

@@ -55,7 +55,7 @@ my %upgrade_packages = (
                         "oee-EMMC-regs-2016" => ["oee-EMMC-regs-2016"], # set window/WH/SH performance to OEE EMMC baselines
 
 
-                        "oee-EMMC-regs-2025" => ["oee-EMMC-regs-2025"] # Set window / wh / sh permance to OEE mid-term targets                
+                        "oee-EMMC-regs-2025" => ["oee-EMMC-regs-2025"], # Set window / wh / sh permance to OEE mid-term targets                
                         
 
                         # ================ Fuel switching ====================               
@@ -180,6 +180,7 @@ my %upgrade_packages = (
                       #"MINO-AllElecCCASHP"        =>  ["HeatWHP-UpgradeTo-AllElecCCASHP"],
                       #"MINO-AllElecCCASHP-asp-a"    =>  ["HeatWHP-UpgradeTo-aspire-CCASHP-a"],
                       #"MINO-AllElecCCASHP-asp-b"    =>  ["HeatWHP-UpgradeTo-aspire-CCASHP-b"],
+                      
                       #"MINO-AllElecCCASHP-asp-c"    =>  ["HeatWHP-UpgradeTo-aspire-CCASHP-c"],
                       #"EMMC-elec-GSHP"          =>  ["HeatWHP-UpgradeTo-AllElecGSHP"],
                       
@@ -193,18 +194,18 @@ my %upgrade_packages = (
                       #"gas-dhw-high-effciency"    => ["retrofit-gas-dhw-high-effciency"],    # As found to high efficiency equivlant
                       #"elec-dhw-storage"          => ["retrofit-elec-dhw-storage"],                # As found to high efficiency equivlant
                       #"gas-hp-wh"                 => ["retrofit-gas-hpwh"] ,
-                      #"gas-hp-wh-0-5"             => ["retrofit-gas-hpwh-0_5"] ,
+                      #"gas-hp-wh-0-5"             => ["retrofit-gas-hpwh-0_5"] , 
                       #"gas-hp-wh-0-8"             => ["retrofit-gas-hpwh-0_8"] ,
                       #"gas-hp-wh-1-0"             => ["retrofit-gas-hpwh-1_0"] ,
                       #"gas-hp-wh-1-2"             => ["retrofit-gas-hpwh-1_2"] ,
-                      #"gas-hp-wh-1-4"             => ["retrofit-gas-hpwh-1_4"] ,
+                      #"gas-hp-wh-1-4"             => ["retrofit-gas-hpwh-1_4"] , 
 	                  #"gas-hp-wh-1-6"             => ["retrofit-gas-hpwh-1_6"], 
 
 
 
                      # "oil-dhw-high-effciency"    => ["retrofit-oil-dhw-high-effciency"],    # As found to high efficiency equivlant
                      # "gas-dhw-high-effciency"    => ["retrofit-gas-dhw-high-effciency"],    # As found to high efficiency equivlant
-                     # "elec-dhw-storage"          => ["retrofit-elec-dhw-storage"],                # As found to high efficiency equivlant
+                     "elec-dhw-storage"          => ["retrofit-elec-dhw-storage"],                # As found to high efficiency equivlant
                      # "gas-hp-wh"                 => ["retrofit-gas-hpwh"] ,
                      # "gas-hp-wh-0-5"             => ["retrofit-gas-hpwh-0_5"] ,
                      #"gas-hp-wh-0-8"             => ["retrofit-gas-hpwh-0_8"] ,
@@ -222,12 +223,12 @@ my %upgrade_packages = (
                       #"elec-dhw-hp"               => ["retrofit-elec-dhw-hp"]   ,  
 
 
-                      #"elec-dhw-hp-1_4"           => ["retrofit-elec-dhw-hp-1_4"] ,
-                      #"elec-dhw-hp-1_6"           => ["retrofit-elec-dhw-hp-1_6"] ,
-                      #"elec-dhw-hp-1_8"           => ["retrofit-elec-dhw-hp-1_8"] ,
-                      #"elec-dhw-hp-2_0"           => ["retrofit-elec-dhw-hp-2_0"] ,
-					  #"elec-dhw-hp-2_2"           => ["retrofit-elec-dhw-hp-2_2"] ,
-                      #"elec-dhw-hp-2_4"           => ["retrofit-elec-dhw-hp-2_4"] ,
+                      "elec-dhw-hp-1_4"           => ["retrofit-elec-dhw-hp-1_4"] ,
+                      "elec-dhw-hp-1_6"           => ["retrofit-elec-dhw-hp-1_6"] ,
+                      "elec-dhw-hp-1_8"           => ["retrofit-elec-dhw-hp-1_8"] ,
+                      "elec-dhw-hp-2_0"           => ["retrofit-elec-dhw-hp-2_0"] ,
+					  "elec-dhw-hp-2_2"           => ["retrofit-elec-dhw-hp-2_2"] ,
+                      "elec-dhw-hp-2_4"           => ["retrofit-elec-dhw-hp-2_4"] ,
 
                       #"elec-dhw-hp-2_6"           => ["retrofit-elec-dhw-hp-2_6"]
                       
@@ -256,27 +257,18 @@ my %upgrade_packages = (
                      #"Upgrade-U-1_6"     => ["Upgrade-U-1_6"]						
 
                      #EMMC Space heating
-
-                     #"EMMC-elec-reg-2016" => ["EMMC-elec-reg-2016"],
-                     #"EMMC-gas-reg-2016"  => ["EMMC-gas-reg-2016"],
-                     #"EMMC-oil-reg-2016"  => ["EMMC-oil-reg-2016"],
-                     #
-                     #"EMMC-elec-reg-2025-a" => ["EMMC-elec-reg-2025a"],
-                     #"EMMC-elec-reg-2025-b" => ["EMMC-elec-reg-2025b"],
-                     #"EMMC-elec-reg-2025-c" => ["EMMC-elec-reg-2025c"],
-                     #"EMMC-gas-reg-2025"  => ["EMMC-gas-reg-2025"],
-                     #"EMMC-oil-reg-2025"  => ["EMMC-oil-reg-2025"],
                      
                      #"EMMC-ElecOil-asp-ccashp-a"      => ["EMMC-Elec-asp-ccashp-a"],
                      #"EMMC-ElecOil-asp-ccashp-b"      => ["EMMC-Elec-asp-ccashp-b"],
                      #"EMMC-ElecOil-asp-ccashp-c"      => ["EMMC-Elec-asp-ccashp-c"],
                      
                      #"EMMC-Gas-Hp-a"      => ["EMMC-SH-asp-GFHP-a"],
-                     #"EMMC-Gas-Hp-b"      => ["EMMC-SH-asp-GFHP-b"]
+                     #"EMMC-Gas-Hp-b"      => ["EMMC-SH-asp-GFHP-b"],
                      #"EMMC-Gas-Hp-c"      => ["EMMC-SH-asp-GFHP-c"],
                      #"EMMC-Gas-Hp-d"      => ["EMMC-SH-asp-GFHP-d"]
                      
-);
+                     "EMMC-outdoor-dhw-hp" => ["EMMC-outdoor-dhw-hp"]
+); 
 
 
 #my @upgrades= ( "as-found") ; 
@@ -1094,6 +1086,18 @@ sub UpgradeRuleSet($){
       last SWITCH; 
     }
 
+     # Gas HP-wh scenario
+    if ( $upgrade =~ /EMMC-outdoor-dhw-hp/ ){
+    
+      
+        $choiceHash{"Opt-DHWSystem"} = "elec-outdoor-HPWH ";
+                   
+        $validupgrade = 1;      
+      
+      
+      
+      last SWITCH; 
+    }    
         
     
     #=========================================================================
